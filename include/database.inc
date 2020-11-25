@@ -72,8 +72,8 @@ function db_insert_id() {
     return mysqli_insert_id($db);
 }
 
-// Возвращает указанную строку и поле после запроса mysql
-function db_result($result, $number, $field=0) {
+// Возвращает указанную строку и поле после запроса к базе данных
+function db_result($result, $number, $field = 0) {
     mysqli_data_seek($result, $number);
     $row = mysqli_fetch_array($result);
     return $row[$field];
