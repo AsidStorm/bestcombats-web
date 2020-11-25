@@ -199,4 +199,3 @@
     return $battleid;
     if (!$noredir) die("<script>location.href='fbattle.php';</script>");
   }
-?>

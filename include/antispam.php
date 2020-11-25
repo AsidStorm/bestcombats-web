@@ -168,5 +168,4 @@ function haslinks($txt) {
   return preg_match("/meydan\\.in^[a-zA-Z]+/i", " $txt ")+strpos($txt,"register.php");
   return preg_match('/(([a-zA-Zа-яА-Я0-9\-_\.]+\.)(c.?o.?m|ru|org|co.cc|net|ua|do\.am|su[^p]|us|tk|us|kz|az|biz|рф|info|lv|in)[a-z])/ie', " $txt ")+strpos($txt,"register.php");
   return preg_match('/(([a-zA-Zа-яА-Я0-9\-_\.]+\.)(c.?o.?m|com|ru|org|co.cc|net|ua|do\.am|su[^p]|us|tk|us|kz|az|biz|рф|info)(\/|\S))/ie', " $txt ")+strpos($txt,"register.php");
-}                                                        
-?>
+}
