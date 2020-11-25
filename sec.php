@@ -1,4 +1,5 @@
-<?PHP
+<?php
+session_start();
 // Настройки
 
    $SECURITY_IMAGE_TYPE = 'GIF';     // Возможные форматы: GIF, JPEG, PNG
