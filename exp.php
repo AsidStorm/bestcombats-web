@@ -4,7 +4,7 @@
 <META http-equiv=Content-type content="text/html; charset=windows-1251">
 <META http-equiv=Pragma content=no-cache>
 <META http-equiv=Cache-control content=private>
-<link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
+<link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">
 <META http-equiv=Expires content=0><LINK href="i/main.css" type=text/css rel=stylesheet>
 
 <META content="MSHTML 6.00.2600.0" name=GENERATOR></HEAD>

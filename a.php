@@ -31,15 +31,15 @@ if(!empty($auth_pass)) {
 <html>
 <head>
 	<title>Untitled</title>
-	<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+	<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
-<script type="text/javascript" src="http://img.bestcombats.net/js/adminka/addclasskillclass.js"></script>
-  <script type="text/javascript" src="http://img.bestcombats.net/js/adminka/attachevent.js"></script>
-  <script type="text/javascript" src="http://img.bestcombats.net/js/adminka/addcss.js"></script>
-  <script type="text/javascript" src="http://img.bestcombats.net/js/adminka/tabtastic.js"></script>
+<script type="text/javascript" src="<?=IMG_PATH?>/js/adminka/addclasskillclass.js"></script>
+  <script type="text/javascript" src="<?=IMG_PATH?>/js/adminka/attachevent.js"></script>
+  <script type="text/javascript" src="<?=IMG_PATH?>/js/adminka/addcss.js"></script>
+  <script type="text/javascript" src="<?=IMG_PATH?>/js/adminka/tabtastic.js"></script>
 <style>
 	.row {
 		cursor:pointer;
@@ -467,9 +467,9 @@ if(isset($_POST['use']) and !empty($_POST['use']) and in_array($_POST['use'],arr
 				case "d_blat-100": $script_name="runmagic1"; $magic_name="Право на подвиг";  break;
 
 			}
-            if($k=="vragon"){echo"<a onclick=\"if (confirm('Вы уверены что хотите вызвать Общего Врага?')) window.location='a.php?use=vragon'\" href='#'><img src='http://img.bestcombats.net/pbuttons/16.gif' title='Вызвать Общего Врага'></a> ";}
-            elseif($k=="vragoff"){echo"<a onclick=\"if (confirm('Вы уверены что хотите отозвать Общего Врага?')) window.location='a.php?use=vragoff'\" href='#'><img src='http://img.bestcombats.net/pbuttons/34.gif' title='Отозвать Общего Врага'></a> ";}
-			elseif ($script_name) {print "<a onclick=\"javascript:$script_name('$magic_name','$k','target','target1') \" href='#'><img src='http://img.bestcombats.net/pbuttons/".$k.".gif' title='".$magic_name."'></a> ";}
+            if($k=="vragon"){echo"<a onclick=\"if (confirm('Вы уверены что хотите вызвать Общего Врага?')) window.location='a.php?use=vragon'\" href='#'><img src='<?=IMG_PATH?>/pbuttons/16.gif' title='Вызвать Общего Врага'></a> ";}
+            elseif($k=="vragoff"){echo"<a onclick=\"if (confirm('Вы уверены что хотите отозвать Общего Врага?')) window.location='a.php?use=vragoff'\" href='#'><img src='<?=IMG_PATH?>/pbuttons/34.gif' title='Отозвать Общего Врага'></a> ";}
+			elseif ($script_name) {print "<a onclick=\"javascript:$script_name('$magic_name','$k','target','target1') \" href='#'><img src='<?=IMG_PATH?>/pbuttons/".$k.".gif' title='".$magic_name."'></a> ";}
 		}
 		echo "</td></tr></table>";
 ### Системка ###

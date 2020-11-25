@@ -295,7 +295,7 @@ function nick_trade ($user) {
 function nick_p ($user) {
     $id = $user['id'];
     ?>
-<span id="HP" style="font-size:10px"></span>&nbsp;<img src="http://img.bestcombats.net/func/bk_life_loose.gif" alt="Уровень жизни" name="HP1" width="1" height="8" id="HP1"><img src="http://img.bestcombats.net/func/bk_life_loose.gif" alt="Уровень жизни" name="HP2" width="1" height="8" id="HP2"><span style="width:1px; height:10px"></span><img src="http://img.bestcombats.net/func/herz.gif" width="10" height="9" alt="Уровень жизни">
+<span id="HP" style="font-size:10px"></span>&nbsp;<img src="<?=IMG_PATH?>/func/bk_life_loose.gif" alt="Уровень жизни" name="HP1" width="1" height="8" id="HP1"><img src="<?=IMG_PATH?>/func/bk_life_loose.gif" alt="Уровень жизни" name="HP2" width="1" height="8" id="HP2"><span style="width:1px; height:10px"></span><img src="<?=IMG_PATH?>/func/herz.gif" width="10" height="9" alt="Уровень жизни">
 <? }
 
 // nick
@@ -314,10 +314,10 @@ function nick ($user) {
     $user['maxmana'] = '??';
   }
     ?>
-    <img src="http://img.bestcombats.net/align/align_<?echo ($user['align']>0 ? $user['align']:"0");?>.gif"><?php if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="http://img.bestcombats.net/klan/'.$user['klan'].'.gif">'; } ?><B><?=$user['login']?></B> [<?
+    <img src="<?=IMG_PATH?>/align/align_<?echo ($user['align']>0 ? $user['align']:"0");?>.gif"><?php if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="<?=IMG_PATH?>/klan/'.$user['klan'].'.gif">'; } ?><B><?=$user['login']?></B> [<?
     if (id==2236) echo "?"; else echo $user['level'];
-    ?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=http://img.bestcombats.net/chat/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
-<span id="HP" style="font-size:10px"></span>&nbsp;<img src="http://img.bestcombats.net/func/bk_life_loose.gif" alt="Уровень жизни" name="HP1" width="1" height="8" id="HP1"><img src="http://img.bestcombats.net/func/bk_life_loose.gif" alt="Уровень жизни" name="HP2" width="1" height="8" id="HP2"><span style="width:1px; height:10px"></span><img src="http://img.bestcombats.net/func/herz.gif" width="10" height="9" alt="Уровень жизни">
+    ?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMG_PATH?>/chat/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
+<span id="HP" style="font-size:10px"></span>&nbsp;<img src="<?=IMG_PATH?>/func/bk_life_loose.gif" alt="Уровень жизни" name="HP1" width="1" height="8" id="HP1"><img src="<?=IMG_PATH?>/func/bk_life_loose.gif" alt="Уровень жизни" name="HP2" width="1" height="8" id="HP2"><span style="width:1px; height:10px"></span><img src="<?=IMG_PATH?>/func/herz.gif" width="10" height="9" alt="Уровень жизни">
 <? }
 
 function incastle($r) { return ($r>=700 && $r<800); }
@@ -559,9 +559,9 @@ function nick2 ($id, $showinvis=1) {
         }
       }
     ?>
-    <img src="http://img.bestcombats.net/align/align_<?echo ($user['align']>0 ? $user['align']:"0");?>.gif"><?php if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="http://img.bestcombats.net/klan/'.$user['klan'].'.gif">'; }?><B><?=$user['login']?></B> [<?
+    <img src="<?=IMG_PATH?>/align/align_<?echo ($user['align']>0 ? $user['align']:"0");?>.gif"><?php if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="<?=IMG_PATH?>/klan/'.$user['klan'].'.gif">'; }?><B><?=$user['login']?></B> [<?
     if (id==24199) echo "?"; else echo $user['level'];
-    ?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=http://img.bestcombats.net/chat/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
+    ?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMG_PATH?>/chat/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
 <?
     return 1;
     }
@@ -582,7 +582,7 @@ function fullnick($user1, $showinvis=0, $class=0) {
     $user1["level"]="??";$user1["login"]="невидимка";
     $user1["align"]=0;$user1["klan"]="";
   }
-  $ret="<img src=\"".IMGBASE."/i/align_".($user1['align']>0?$user1['align']:"0").".gif\"> ".($user1['klan']?"<img title=\"$user1[klan]\" src=\"http://img.bestcombats.net/klan/$user1[klan].gif\">":"")." <B>$user1[login]</B> [$user1[level]] ".($user1["login"]=="невидимка"?"":"<a href=inf.php?$user1[id] target=_blank><IMG SRC=".IMGBASE."/i/inf.gif WIDTH=12 HEIGHT=11 ALT=\"Инф. о $user1[login]\"></a>");
+  $ret="<img src=\"".IMGBASE."/i/align_".($user1['align']>0?$user1['align']:"0").".gif\"> ".($user1['klan']?"<img title=\"$user1[klan]\" src=\"<?=IMG_PATH?>/klan/$user1[klan].gif\">":"")." <B>$user1[login]</B> [$user1[level]] ".($user1["login"]=="невидимка"?"":"<a href=inf.php?$user1[id] target=_blank><IMG SRC=".IMGBASE."/i/inf.gif WIDTH=12 HEIGHT=11 ALT=\"Инф. о $user1[login]\"></a>");
   $cache[$showinvis][$user1["id"]]=$ret;
   return ($class?"<span class=\"$class\">":"").$ret.($class?"</span>":"");
 }
@@ -733,7 +733,7 @@ function nick3 ($id) {
     if ($user1["id"]==2236) $user1['level']="?";
         $mm .= "<img src=\"".IMGBASE."/i/align_".($user1['align']>0 ? $user1['align']:"0").".gif\">";
         if ($user1['klan'] <> '') {
-            $mm .= '<img title="'.$user1['klan'].'" src="http://img.bestcombats.net/klan/'.$user1['klan'].'.gif">'; }
+            $mm .= '<img title="'.$user1['klan'].'" src="<?=IMG_PATH?>/klan/'.$user1['klan'].'.gif">'; }
             $mm .= "<B>{$user1['login']}</B> [{$user1['level']}]<a href=inf.php?{$user1['id']} target=_blank><IMG SRC=".IMGBASE."/i/inf.gif WIDTH=12 HEIGHT=11 ALT=\"Инф. о {$user1['login']}\"></a>";
     }
   $cache[$id]=$mm;
@@ -742,13 +742,13 @@ function nick3 ($id) {
 
 function setHPpodzem($hp,$maxhp,$battle) {
         if ( $hp < $maxhp*0.33 ) {
-            $polosa = 'http://img.bestcombats.net/func/1red.gif';
+            $polosa = '<?=IMG_PATH?>/func/1red.gif';
         }
         elseif ( $hp < $maxhp*0.66 ) {
-            $polosa = 'http://img.bestcombats.net/func/1yellow.gif';
+            $polosa = '<?=IMG_PATH?>/func/1yellow.gif';
         }
         else {
-            $polosa = 'http://img.bestcombats.net/func/1green.gif';
+            $polosa = '<?=IMG_PATH?>/func/1green.gif';
         }
         $rr = "<div ";
         if (!$battle) {
@@ -756,7 +756,7 @@ function setHPpodzem($hp,$maxhp,$battle) {
         }
         $rr .= "><IMG SRC='{$polosa}' WIDTH=";
         $rr .= round(150*($hp/$maxhp));
-        $rr .= ' HEIGHT=10 ALT="Уровень жизни" name=HP1><IMG SRC="http://img.bestcombats.net/func/1silver.gif" WIDTH=';
+        $rr .= ' HEIGHT=10 ALT="Уровень жизни" name=HP1><IMG SRC="<?=IMG_PATH?>/func/1silver.gif" WIDTH=';
         $rr .= (150-round(150*($hp/$maxhp)));
         $rr .= ' HEIGHT=10 ALT="Уровень жизни" name=HP2>';
         $rr .= '<b style="font-size:11px"> '.$hp.'/'.$maxhp.'</b></div>';
@@ -765,13 +765,13 @@ function setHPpodzem($hp,$maxhp,$battle) {
 // полоска НР
 function setHP($hp,$maxhp,$battle) {
         if ( $hp < $maxhp*0.33 ) {
-            $polosa = 'http://img.bestcombats.net/func/1red.gif';
+            $polosa = '<?=IMG_PATH?>/func/1red.gif';
         }
         elseif ( $hp < $maxhp*0.66 ) {
-            $polosa = 'http://img.bestcombats.net/func/1yellow.gif';
+            $polosa = '<?=IMG_PATH?>/func/1yellow.gif';
         }
         else {
-            $polosa = 'http://img.bestcombats.net/func/1green.gif';
+            $polosa = '<?=IMG_PATH?>/func/1green.gif';
         }
         $rr = "<div style=\"position:absolute; left:-1px; top:-7px;\"";
         if (!$battle) {
@@ -779,7 +779,7 @@ function setHP($hp,$maxhp,$battle) {
         }
         $rr .= "><IMG SRC='{$polosa}' WIDTH=";
         $rr .= round(122*($hp/$maxhp));
-        $rr .= ' HEIGHT=9 ALT="Уровень жизни"><IMG SRC="http://img.bestcombats.net/func/1silver.gif" WIDTH=';
+        $rr .= ' HEIGHT=9 ALT="Уровень жизни"><IMG SRC="<?=IMG_PATH?>/func/1silver.gif" WIDTH=';
         $rr .= (122-round(122*($hp/$maxhp)));
         $rr .= ' HEIGHT=9 ALT="Уровень жизни">';
         $rr .= '</div>';
@@ -788,7 +788,7 @@ function setHP($hp,$maxhp,$battle) {
 }
   function setHP2($hp,$maxhp,$battle) {
     if ( $hp < $maxhp*0.33 ) {
-      $polosa = IMGBASE.'http://img.bestcombats.net/func/1red.gif';
+      $polosa = IMGBASE.'<?=IMG_PATH?>/func/1red.gif';
     } elseif ( $hp < $maxhp*0.66 ) {
       $polosa = IMGBASE.'/i/1yellow.gif';
     } else {
@@ -1069,7 +1069,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
 
   $ret="<CENTER>";
   if(!$battle) {
-    $ret.="<A HREF=\"javascript:top.AddToPrivate('$user1[login]', top.CtrlPress)\" target=refreshed><img src=\"".IMGBASE."/i/lock.gif\" width=20 height=15></A>".($user1['align']>0?"<img src=\"".IMGBASE."/i/align_".$user1['align'].".gif\">":"").($user1['klan']<>''?'<img title="'.$user1['klan'].'" src="http://img.bestcombats.net/klan/'.$user1['klan'].'.gif">':"")."<B>$user1[login]</B> [";
+    $ret.="<A HREF=\"javascript:top.AddToPrivate('$user1[login]', top.CtrlPress)\" target=refreshed><img src=\"".IMGBASE."/i/lock.gif\" width=20 height=15></A>".($user1['align']>0?"<img src=\"".IMGBASE."/i/align_".$user1['align'].".gif\">":"").($user1['klan']<>''?'<img title="'.$user1['klan'].'" src="<?=IMG_PATH?>/klan/'.$user1['klan'].'.gif">':"")."<B>$user1[login]</B> [";
     if ($id==2236) $ret.="?";
     else $ret.=$user1['level'];
     $ret.="]<a href=inf.php?$user1[id] target=_blank><IMG SRC=".IMGBASE."/i/inf.gif WIDTH=12 HEIGHT=11 ALT=\"Инф. о $user1[login]\"></a>";
@@ -1293,48 +1293,48 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
       if ($zver && $zver["vid"]) {
         $ret.="<div style=\"position:absolute; left:80px; top:145px; width:40px; height:73px; z-index:2\">
         <a href=\"zver_inv.php\">
-        <IMG width=40 height=73 src='http://img.bestcombats.net/shadow/zoo/".$zver['shadow']."' onmouseout='ghideshow();'  onmouseover='gfastshow(\"$zver[login] [$zver[level]] (Перейти к настройкам)\");'>
+        <IMG width=40 height=73 src='<?=IMG_PATH?>/shadow/zoo/".$zver['shadow']."' onmouseout='ghideshow();'  onmouseover='gfastshow(\"$zver[login] [$zver[level]] (Перейти к настройкам)\");'>
         </a></div>";
       }
-      $ret.="<a href=\"/main.php?edit=1\"><IMG border=0 src=\"http://img.bestcombats.net/shadow/$user1[sex]/$user1[shadow]\" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow(\"$user1[login] (Перейти в \\\"Инвентарь\\\")\");' ></a>";
+      $ret.="<a href=\"/main.php?edit=1\"><IMG border=0 src=\"<?=IMG_PATH?>/shadow/$user1[sex]/$user1[shadow]\" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow(\"$user1[login] (Перейти в \\\"Инвентарь\\\")\");' ></a>";
       $ret.=showeffects($id);
     } elseif ($show_pr) {
       if ($zver && $zver["vid"]) {
         $ret.="<div style=\"position:absolute; left:80px; top:145px; width:40px; height:73px; z-index:2\">
         <a href=\"zver_inv.php\">
-        <IMG width=40 height=73 src='http://img.bestcombats.net/shadow/zoo/$zver[shadow]' onmouseout='ghideshow();'  onmouseover=\"gfastshow('$zver[login] [$zver[level]] (Перейти к настройкам)');\">          </a></div>";
+        <IMG width=40 height=73 src='<?=IMG_PATH?>/shadow/zoo/$zver[shadow]' onmouseout='ghideshow();'  onmouseover=\"gfastshow('$zver[login] [$zver[level]] (Перейти к настройкам)');\">          </a></div>";
       }
-      $ret.="<IMG border=0 src=\"http://img.bestcombats.net/shadow/$user1[sex]/$user1[shadow]\" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow(\"$strtxt\");'>";
+      $ret.="<IMG border=0 src=\"<?=IMG_PATH?>/shadow/$user1[sex]/$user1[shadow]\" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow(\"$strtxt\");'>";
       $ret.=showeffects($id);
       } elseif ($zver && (!$invis || !$battle) && $zver["vid"]) {
         $ret.="<div style=\"position:absolute; left:80px; top:145px; width:40px; height:73px; z-index:2\">
-        <IMG width=40 height=73 src='http://img.bestcombats.net/shadow/zoo/$zver[shadow]' alt=\"$zver[login] [$zver[level]]\">
+        <IMG width=40 height=73 src='<?=IMG_PATH?>/shadow/zoo/$zver[shadow]' alt=\"$zver[login] [$zver[level]]\">
         </div>
-        <IMG border=0 src=\"http://img.bestcombats.net/shadow/$user1[sex]/$user1[shadow]\" width=120 height=218>";
+        <IMG border=0 src=\"<?=IMG_PATH?>/shadow/$user1[sex]/$user1[shadow]\" width=120 height=218>";
       } elseif ($battle && $invis) {
-        $ret.="<IMG border=0 src=\"http://img.bestcombats.net/shadow/invis.gif\" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow(\"$strtxt\");'>";
+        $ret.="<IMG border=0 src=\"<?=IMG_PATH?>/shadow/invis.gif\" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow(\"$strtxt\");'>";
       } elseif ($battle) {
         if($zver && $zver["vid"]){
           $ret.="<div style=\"position:absolute; left:60px; top:118px; width:40px; height:73px; z-index:2\">
           <a href=\"zver_inv.php\">
-          <IMG width=40 height=73 src='http://img.bestcombats.net/shadow/zoo/$zver[shadow]' alt=\"$zver[login] [$zver[level]] (Перейти к настройкам)\">
+          <IMG width=40 height=73 src='<?=IMG_PATH?>/shadow/zoo/$zver[shadow]' alt=\"$zver[login] [$zver[level]] (Перейти к настройкам)\">
           </a></div>";
         }
-        $ret.="<IMG border=0 src=\"http://img.bestcombats.net/shadow/$user1[sex]/$user1[shadow]\" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow(\"$strtxt\");'>";
+        $ret.="<IMG border=0 src=\"<?=IMG_PATH?>/shadow/$user1[sex]/$user1[shadow]\" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow(\"$strtxt\");'>";
       } else {
-        $ret.="<IMG border=0 src=\"http://img.bestcombats.net/shadow/$user1[sex]/$user1[shadow]\" width=120 height=218>";
+        $ret.="<IMG border=0 src=\"<?=IMG_PATH?>/shadow/$user1[sex]/$user1[shadow]\" width=120 height=218>";
       }
       $ret.="<DIV style=\"Z-INDEX: 2; POSITION: absolute; WIDTH: 120px; HEIGHT: 220px; TOP: 0px; LEFT: 0px\"></DIV></DIV></TD></TR>
       <TR><TD>";
 
       if ($user1['vip']==1) {
-        $ret.='<IMG border=0 alt="" src="http://img.bestcombats.net/inf/slot_bottom1.gif" width=120 height=40>';
+        $ret.='<IMG border=0 alt="" src="<?=IMG_PATH?>/inf/slot_bottom1.gif" width=120 height=40>';
       } elseif ($user1['vip']==2) {
-        $ret.='<IMG border=0 alt="" src="http://img.bestcombats.net/inf/slot_bottom2.gif" width=120 height=40>';
+        $ret.='<IMG border=0 alt="" src="<?=IMG_PATH?>/inf/slot_bottom2.gif" width=120 height=40>';
       } elseif ($user1['vip']==3) {
-        $ret.='<IMG border=0 alt="" src="http://img.bestcombats.net/inf/slot_bottom3.gif" width=120 height=40>';
+        $ret.='<IMG border=0 alt="" src="<?=IMG_PATH?>/inf/slot_bottom3.gif" width=120 height=40>';
       } else{
-        $ret.='<IMG border=0 alt="" src="http://img.bestcombats.net/inf/slot_bottom0.gif" width=120 height=40>';
+        $ret.='<IMG border=0 alt="" src="<?=IMG_PATH?>/inf/slot_bottom0.gif" width=120 height=40>';
       }
       $ret.="</TD></TR></TABLE></TD>
       <TD><TABLE border=0 cellSpacing=0 cellPadding=0 width=\"100%\"><TBODY>
@@ -1965,13 +1965,13 @@ function itemdata($row) {
   $ret="";
   $magic = magicinf($row['magic']);
   if ($row['destinyinv']>0) {
-    $ret.="<a href=#>$row[name]".((isset($row['items_count'])&&$row['items_count']>1)?' (x'.$row['items_count'].')':'')."</a>&nbsp;&nbsp;<a href=# onclick=\"top.insItem({$row['id']});\">[в чат]</a><img src=".IMGBASE."/i/align_{$row['nalign']}.gif> (Масса: ".(((float)$row['massa']) * (isset($row['items_count'])?$row['items_count']:1)).")<img src=\"http://img.bestcombats.net/klan/{$row['clan']}.gif\"><img src=".IMGBASE."/i/destiny{$row['destinyinv']}.gif alt=\"Этот предмет связан с Вами общей судьбой. Вы не можете передать его кому-либо еще.\"><img src=".IMGBASE."/i/artefact{$row['artefact']}.gif>".(($row['present'])?' <IMG SRC="'.IMGBASE.'/i/podarok.gif" WIDTH="16" HEIGHT="18" BORDER=0 TITLE="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще." ALT="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще.">':"")."<BR>";
+    $ret.="<a href=#>$row[name]".((isset($row['items_count'])&&$row['items_count']>1)?' (x'.$row['items_count'].')':'')."</a>&nbsp;&nbsp;<a href=# onclick=\"top.insItem({$row['id']});\">[в чат]</a><img src=".IMGBASE."/i/align_{$row['nalign']}.gif> (Масса: ".(((float)$row['massa']) * (isset($row['items_count'])?$row['items_count']:1)).")<img src=\"<?=IMG_PATH?>/klan/{$row['clan']}.gif\"><img src=".IMGBASE."/i/destiny{$row['destinyinv']}.gif alt=\"Этот предмет связан с Вами общей судьбой. Вы не можете передать его кому-либо еще.\"><img src=".IMGBASE."/i/artefact{$row['artefact']}.gif>".(($row['present'])?' <IMG SRC="'.IMGBASE.'/i/podarok.gif" WIDTH="16" HEIGHT="18" BORDER=0 TITLE="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще." ALT="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще.">':"")."<BR>";
   } elseif ($row['destiny']>0) {
-    $ret.="<a href=#>$row[name]".((isset($row['items_count'])&&$row['items_count']>1)?' (x'.$row['items_count'].')':'')."</a>&nbsp;&nbsp;<a href=# onclick=\"top.insItem({$row['id']});\">[в чат]</a><img src=".IMGBASE."/i/align_{$row['nalign']}.gif> (Масса: ".(((float)$row['massa']) * (isset($row['items_count'])?$row['items_count']:1)).")<img src=\"http://img.bestcombats.net/klan/{$row['clan']}.gif\"><img src=".IMGBASE."/i/destiny{$row['destiny']}.gif alt=\"Этот предмет будет связан с Вами общей судьбой. Вы не сможете передать его кому-либо еще.\"><img src=".IMGBASE."/i/artefact{$row['artefact']}.gif>".(($row['present'])?' <IMG SRC="'.IMGBASE.'/i/podarok.gif" WIDTH="16" HEIGHT="18" BORDER=0 TITLE="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще." ALT="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще.">':"")."<BR>";
+    $ret.="<a href=#>$row[name]".((isset($row['items_count'])&&$row['items_count']>1)?' (x'.$row['items_count'].')':'')."</a>&nbsp;&nbsp;<a href=# onclick=\"top.insItem({$row['id']});\">[в чат]</a><img src=".IMGBASE."/i/align_{$row['nalign']}.gif> (Масса: ".(((float)$row['massa']) * (isset($row['items_count'])?$row['items_count']:1)).")<img src=\"<?=IMG_PATH?>/klan/{$row['clan']}.gif\"><img src=".IMGBASE."/i/destiny{$row['destiny']}.gif alt=\"Этот предмет будет связан с Вами общей судьбой. Вы не сможете передать его кому-либо еще.\"><img src=".IMGBASE."/i/artefact{$row['artefact']}.gif>".(($row['present'])?' <IMG SRC="'.IMGBASE.'/i/podarok.gif" WIDTH="16" HEIGHT="18" BORDER=0 TITLE="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще." ALT="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще.">':"")."<BR>";
   } else {
     $ret.="<a href=#>$row[name]".((isset($row['items_count'])&&$row['items_count']>1)?' (x'.$row['items_count'].')':'')."</a>&nbsp;&nbsp;<a href=# onclick=\"top.insItem({$row['id']});\">[в чат]</a>";
     if($row['koll']>'0') $ret.=" <b>(x$row[koll])</b>";
-    $ret.="<img src=\"".IMGBASE."/i/align_{$row['nalign']}.gif\"> (Масса: ".(((float)$row['massa']) * (isset($row['items_count'])?$row['items_count']:1)).")<img src=\"http://img.bestcombats.net/klan/{$row['clan']}.gif\"><img src=".IMGBASE."/i/destiny{$row['destiny']}.gif><img src=".IMGBASE."/i/artefact{$row['artefact']}.gif>".(($row['present'])?' <IMG SRC="'.IMGBASE.'/i/podarok.gif" WIDTH="16" HEIGHT="18" BORDER=0 TITLE="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще." ALT="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще.">':"")."<BR>";
+    $ret.="<img src=\"".IMGBASE."/i/align_{$row['nalign']}.gif\"> (Масса: ".(((float)$row['massa']) * (isset($row['items_count'])?$row['items_count']:1)).")<img src=\"<?=IMG_PATH?>/klan/{$row['clan']}.gif\"><img src=".IMGBASE."/i/destiny{$row['destiny']}.gif><img src=".IMGBASE."/i/artefact{$row['artefact']}.gif>".(($row['present'])?' <IMG SRC="'.IMGBASE.'/i/podarok.gif" WIDTH="16" HEIGHT="18" BORDER=0 TITLE="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще." ALT="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще.">':"")."<BR>";
   }
 
   if($row['ecost']>0) { $ret.="<b>Цена: {$row['ecost']} екр.".($_SESSION["uid"]==7?"/$row[cost]":"")."</b> &nbsp; &nbsp;"; } 
@@ -2058,10 +2058,10 @@ function itemmfs($row) {
   $ret["addit"]="";
   if ($row['minu']) $ret[($row["type"]==3?"item":"")."mfs"].="• Минимальное наносимое повреждение: {$row['minu']}<BR>";
   if ($row['maxu']) $ret[($row["type"]==3?"item":"")."mfs"].="• Максимальное наносимое повреждение: {$row['maxu']}<BR>";
-  if ($row['gsila'] || ($row['stats'] && $row["owner"]==$user["id"])) $ret["mfs"].="• <font color=#700679>Сила: ".(($row['gsila']>0)?"<b>+":"")."{$row['gsila']} </b> </font>".($row['stats'] && $row["owner"]==$user["id"]?"<a onclick='var obj; if (obj = prompt(\"Введите количество СТАТОВ передаваемых в силу\",\"\")) { window.location=\"main.php?edit=1&raisestat=sila&item=$row[id]&colls=\"+obj+\"\"; }' href='#'><img src=\"http://img.bestcombats.net/func/up.gif\" height=11 width=11 border=0></a>":"")."<BR>";
-  if ($row['glovk'] || ($row['stats'] && $row["owner"]==$user["id"])) $ret["mfs"].="• <font color=#700679>Ловкость: ".(($row['glovk']>0)?"<b>+":"")."{$row['glovk']} </b></font> ".($row['stats'] && $row["owner"]==$user["id"]?"<a onclick='var obj; if (obj = prompt(\"Введите количество СТАТОВ передаваемых в ловкость\",\"\")) { window.location=\"main.php?edit=1&raisestat=lovk&item=$row[id]&colls=\"+obj+\"\"; }' href='#'><img src=\"http://img.bestcombats.net/func/up.gif\" height=11 width=11 border=0></a>":"")."<BR>";
-  if ($row['ginta'] || ($row['stats'] && $row["owner"]==$user["id"])) $ret["mfs"].="•<font color=#700679> Интуиция: ".(($row['ginta']>0)?"<b>+":"")."{$row['ginta']} </b></font>".($row['stats'] && $row["owner"]==$user["id"]?"<a onclick='var obj; if (obj = prompt(\"Введите количество СТАТОВ передаваемых в интуицию\",\"\")) { window.location=\"main.php?edit=1&raisestat=inta&item=$row[id]&colls=\"+obj+\"\"; }' href='#'><img src=\"http://img.bestcombats.net/func/up.gif\" height=11 width=11 border=0></a>":"")."<BR>";
-  if ($row['gintel'] || ($row['stats'] && $row["owner"]==$user["id"])) $ret["mfs"].="•<font color=#700679> Интеллект: ".(($row['gintel']>0)?"<b>+":"")."{$row['gintel']} </b></font>".($row['stats'] && $row["owner"]==$user["id"]?"<a onclick='var obj; if (obj = prompt(\"Введите количество СТАТОВ передаваемых в интеллект\",\"\")) { window.location=\"main.php?edit=1&raisestat=intel&item=$row[id]&colls=\"+obj+\"\"; }' href='#'><img src=\"http://img.bestcombats.net/func/up.gif\" height=11 width=11 border=0></a>":"")."<BR>";
+  if ($row['gsila'] || ($row['stats'] && $row["owner"]==$user["id"])) $ret["mfs"].="• <font color=#700679>Сила: ".(($row['gsila']>0)?"<b>+":"")."{$row['gsila']} </b> </font>".($row['stats'] && $row["owner"]==$user["id"]?"<a onclick='var obj; if (obj = prompt(\"Введите количество СТАТОВ передаваемых в силу\",\"\")) { window.location=\"main.php?edit=1&raisestat=sila&item=$row[id]&colls=\"+obj+\"\"; }' href='#'><img src=\"<?=IMG_PATH?>/func/up.gif\" height=11 width=11 border=0></a>":"")."<BR>";
+  if ($row['glovk'] || ($row['stats'] && $row["owner"]==$user["id"])) $ret["mfs"].="• <font color=#700679>Ловкость: ".(($row['glovk']>0)?"<b>+":"")."{$row['glovk']} </b></font> ".($row['stats'] && $row["owner"]==$user["id"]?"<a onclick='var obj; if (obj = prompt(\"Введите количество СТАТОВ передаваемых в ловкость\",\"\")) { window.location=\"main.php?edit=1&raisestat=lovk&item=$row[id]&colls=\"+obj+\"\"; }' href='#'><img src=\"<?=IMG_PATH?>/func/up.gif\" height=11 width=11 border=0></a>":"")."<BR>";
+  if ($row['ginta'] || ($row['stats'] && $row["owner"]==$user["id"])) $ret["mfs"].="•<font color=#700679> Интуиция: ".(($row['ginta']>0)?"<b>+":"")."{$row['ginta']} </b></font>".($row['stats'] && $row["owner"]==$user["id"]?"<a onclick='var obj; if (obj = prompt(\"Введите количество СТАТОВ передаваемых в интуицию\",\"\")) { window.location=\"main.php?edit=1&raisestat=inta&item=$row[id]&colls=\"+obj+\"\"; }' href='#'><img src=\"<?=IMG_PATH?>/func/up.gif\" height=11 width=11 border=0></a>":"")."<BR>";
+  if ($row['gintel'] || ($row['stats'] && $row["owner"]==$user["id"])) $ret["mfs"].="•<font color=#700679> Интеллект: ".(($row['gintel']>0)?"<b>+":"")."{$row['gintel']} </b></font>".($row['stats'] && $row["owner"]==$user["id"]?"<a onclick='var obj; if (obj = prompt(\"Введите количество СТАТОВ передаваемых в интеллект\",\"\")) { window.location=\"main.php?edit=1&raisestat=intel&item=$row[id]&colls=\"+obj+\"\"; }' href='#'><img src=\"<?=IMG_PATH?>/func/up.gif\" height=11 width=11 border=0></a>":"")."<BR>";
   if ($row['stats']) $ret["mfs"].="• Количество увеличений: +$row[stats]<BR>";
   if ($row['ghp']) $ret["mfs"].="• <font color=#087725>Уровень жизни: <b>".plusorminus($row['ghp'])."</b> </font><BR>";
   if ($row['gmana']) $ret["mfs"].="• <font color=#0e499a>Уровень маны: <b>+{$row['gmana']} </b></font><BR>";
@@ -2202,7 +2202,7 @@ function showpersinv($id) {
 
 ?>
     <CENTER>
-    <img src="<?=IMGBASE?>/i/align_<?echo ($user1['align']>0 ? $user1['align']:"0");?>.gif"><?php if ($user1['klan'] <> '') { echo '<img src="http://img.bestcombats.net/klan/'.$user1['klan'].'.gif">'; } ?><B><?=$user1['login']?></B> [<?
+    <img src="<?=IMGBASE?>/i/align_<?echo ($user1['align']>0 ? $user1['align']:"0");?>.gif"><?php if ($user1['klan'] <> '') { echo '<img src="<?=IMG_PATH?>/klan/'.$user1['klan'].'.gif">'; } ?><B><?=$user1['login']?></B> [<?
     if ($id==2236) echo "?";
     else echo $user1['level'];
     ?>]<a href=inf.php?<?=$user1['id']?> target=_blank><IMG SRC=/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user1['login']?>"></a>
@@ -2345,10 +2345,10 @@ if($zver && $zver["vid"]){
 ?>
 <div style="position:absolute; left:80px; top:145px; width:40px; height:73px; z-index:2">
 <a href="zver_inv.php">
-<IMG width=40 height=73 src='http://img.bestcombats.net/shadow/zoo/<?print"".$zver['shadow']."";?>' onmouseout='ghideshow();'  onmouseover='gfastshow("<?=$zver['login']?> [<?=$zver['level']?>] (Перейти к настройкам)");'>
+<IMG width=40 height=73 src='<?=IMG_PATH?>/shadow/zoo/<?print"".$zver['shadow']."";?>' onmouseout='ghideshow();'  onmouseover='gfastshow("<?=$zver['login']?> [<?=$zver['level']?>] (Перейти к настройкам)");'>
 </a></div>
 <? }?>
-<IMG border=0 src="http://img.bestcombats.net/shadow/<?=$user1['sex']?>/<?print"".$user1['shadow']."";?>" width=120 height=218>
+<IMG border=0 src="<?=IMG_PATH?>/shadow/<?=$user1['sex']?>/<?print"".$user1['shadow']."";?>" width=120 height=218>
 <?
   echo showeffects($user["id"]);
 ?>
@@ -4214,17 +4214,17 @@ function buildset($id,$img,$top,$left,$des, $link="", $msg="") {
 function buildsetnew($id,$img,$top,$left,$des, $link="", $msg="") {
  global $loclinks;
  if (!$id) {
-   echo "<img style=\"position:absolute;left:{$left}px;top:{$top}px\" src=\"http://img.bestcombats.net/city/{$img}.gif\" alt=\"{$des}\" title=\"{$des}\">";
+   echo "<img style=\"position:absolute;left:{$left}px;top:{$top}px\" src=\"<?=IMG_PATH?>/city/{$img}.gif\" alt=\"{$des}\" title=\"{$des}\">";
    return;
  }
  if (!$link && !$msg) $loclinks.="<span style=\"white-space:nowrap; padding-left:3px; padding-right:3px; height:10px\"><img src=\"".IMGBASE."/i/move/links.gif\" width=\"9\" height=\"7\" />&nbsp;<a href=\"#\" class=\"menutop\" title=\"Время перехода: 10 сек.\" id=\"bmo_$id\" onmouseover=\"bimover(this);\" onmouseout=\"bimout(this);\" onclick=\"return bsolo(this);\">$des</a></span>";
- $imga = ImageCreateFromGif("http://img.bestcombats.net/city/".$img.".gif");
+ $imga = ImageCreateFromGif("<?=IMG_PATH?>/city/".$img.".gif");
  $x = ImageSX($imga);
  $y = ImageSY($imga);
  $ext='gif';
  unset($imga);
  echo "<div style=\"cursor:pointer; position:absolute; left:{$left}px; top:{$top}px; width:{$x}; height:${y}; z-index:90; filter:progid:DXImageTransform.Microsoft.Alpha( Opacity=100, Style=0);\"
- ><img src=\"http://img.bestcombats.net/city/{$img}.{$ext}\" width=\"${x}\" height=\"${y}\" alt=\"{$des}\" title=\"{$des}\" class=\"aFilter\" onmouseover=\"imover(this)\" onmouseout=\"imout(this);\"
+ ><img src=\"<?=IMG_PATH?>/city/{$img}.{$ext}\" width=\"${x}\" height=\"${y}\" alt=\"{$des}\" title=\"{$des}\" class=\"aFilter\" onmouseover=\"imover(this)\" onmouseout=\"imout(this);\"
  id=\"mo_{$id}\" onclick=\"".($link?"document.location.href='$link';":($msg?"alert('$msg');return false;":"solo('".$id."','".$des."', '')"))."\" /></div>";
 }
 
@@ -5775,15 +5775,15 @@ function mainpersout($user) {
 
   if($zver && $zver["vid"]){
     $tmp="<div style=\"position:absolute; left:80px; top:147px; width:40px; height:73px; z-index:4\">
-    <IMG width=40 height=73 src='http://img.bestcombats.net/shadow/zoo/$zver[shadow]' alt=\"$zver[login] [$zver[level]]\"></div>";
+    <IMG width=40 height=73 src='<?=IMG_PATH?>/shadow/zoo/$zver[shadow]' alt=\"$zver[login] [$zver[level]]\"></div>";
     $ret1.=$tmp;
     if (!$invis) $ret0.=$tmp;
   }
 
-  $ret1.= "<IMG style=\"position:relative;z-index:3\" border=0 src=\"http://img.bestcombats.net/shadow/$user[sex]/$user[shadow]\" width=120 height=218 onmouseout='hideshow();'  onmouseover='fastshow2(\"$strtxt\", this, event);'>";
+  $ret1.= "<IMG style=\"position:relative;z-index:3\" border=0 src=\"<?=IMG_PATH?>/shadow/$user[sex]/$user[shadow]\" width=120 height=218 onmouseout='hideshow();'  onmouseover='fastshow2(\"$strtxt\", this, event);'>";
   if($invis) {
-    $ret0.="<IMG style=\"position:relative;z-index:3\" border=0 src=\"http://img.bestcombats.net/shadow/invis.gif\" width=120 height=218 onmouseout='hideshow();'  onmouseover='fastshow2(\"$strtxt\", this, event);'>";
-  } else $ret0.= "<IMG style=\"position:relative;z-index:3\" border=0 src=\"http://img.bestcombats.net/shadow/$user[sex]/$user[shadow]\" width=120 height=218 onmouseout='hideshow();'  onmouseover='fastshow2(\"$strtxt\", this, event);'>";
+    $ret0.="<IMG style=\"position:relative;z-index:3\" border=0 src=\"<?=IMG_PATH?>/shadow/invis.gif\" width=120 height=218 onmouseout='hideshow();'  onmouseover='fastshow2(\"$strtxt\", this, event);'>";
+  } else $ret0.= "<IMG style=\"position:relative;z-index:3\" border=0 src=\"<?=IMG_PATH?>/shadow/$user[sex]/$user[shadow]\" width=120 height=218 onmouseout='hideshow();'  onmouseover='fastshow2(\"$strtxt\", this, event);'>";
   
 
   $ret0.= "<!--strokes--><DIV style=\"Z-INDEX: 2; POSITION: absolute; WIDTH: 120px; HEIGHT: 220px; TOP: 0px; LEFT: 0px\"></DIV></DIV></TD></TR><TR><TD>";

@@ -16,10 +16,10 @@ if ($_GET['ch'] != null){
 
 <HTML>
 	<HEAD>
-		<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+		<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 		<meta http-equiv="Content-type" content="text/html; charset=windows-1251">
-		<SCRIPT LANGUAGE="JavaScript" SRC="http://img.bestcombats.net/js/ch.js"></SCRIPT>
-		<SCRIPT LANGUAGE="JavaScript" SRC="http://img.bestcombats.net/js/sl2.js"></SCRIPT>
+		<SCRIPT LANGUAGE="JavaScript" SRC="<?=IMG_PATH?>/js/ch.js"></SCRIPT>
+		<SCRIPT LANGUAGE="JavaScript" SRC="<?=IMG_PATH?>/js/sl2.js"></SCRIPT>
                 <script LANGUAGE="JavaScript">
         <!--
         function showItem(url)
@@ -49,7 +49,7 @@ a.hoversmile:hover {
   height:10px;
   font-size:120%;
   FONT-FAMILY:Tahoma;
-  background:url(http://img.bestcombats.net/buttons/smilestitle.gif);
+  background:url(<?=IMG_PATH?>/buttons/smilestitle.gif);
 }
 .ssm-smile-body {
   padding: 5px;
@@ -125,63 +125,63 @@ function SSm(name){
         ssminput.value+=':'+name+': ';
 }
 function clickbut(but_name) {
-        document.getElementById('td_sys').style.backgroundImage = "url(http://img.bestcombats.net/buttons/nonact_bg.gif)";
+        document.getElementById('td_sys').style.backgroundImage = "url(<?=IMG_PATH?>/buttons/nonact_bg.gif)";
         document.getElementById('td_sys').style.color = "#ffffff";
         document.getElementById('td_sys').style.fontWeight = "normal";
-        document.getElementById('td_all').style.backgroundImage = "url(http://img.bestcombats.net/buttons/nonact_bg.gif)";
+        document.getElementById('td_all').style.backgroundImage = "url(<?=IMG_PATH?>/buttons/nonact_bg.gif)";
         document.getElementById('td_all').style.color = "#ffffff";
         document.getElementById('td_all').style.fontWeight = "normal";
-        document.getElementById('td_log').style.backgroundImage = "url(http://img.bestcombats.net/buttons/nonact_bg.gif)";
+        document.getElementById('td_log').style.backgroundImage = "url(<?=IMG_PATH?>/buttons/nonact_bg.gif)";
         document.getElementById('td_log').style.color = "#ffffff";
         document.getElementById('td_log').style.fontWeight = "normal";
-        document.getElementById('td_clan').style.backgroundImage = "url(http://img.bestcombats.net/buttons/nonact_bg.gif)";
+        document.getElementById('td_clan').style.backgroundImage = "url(<?=IMG_PATH?>/buttons/nonact_bg.gif)";
         document.getElementById('td_clan').style.color = "#ffffff";
         document.getElementById('td_clan').style.fontWeight = "normal";
 
 
-    document.getElementById('ch1').innerHTML = "<img src=http://img.bestcombats.net/buttons/nonact_left.gif>";
-    document.getElementById('ch2').innerHTML = "<img src=http://img.bestcombats.net/buttons/a_0.gif>";
-    document.getElementById('ch3').innerHTML = "<img src=http://img.bestcombats.net/buttons/a_0.gif>";
-    document.getElementById('ch4').innerHTML = "<img src=http://img.bestcombats.net/buttons/a_0.gif>";
-    document.getElementById('ch7').innerHTML = "<img src=http://img.bestcombats.net/buttons/nonact_right.gif>";
+    document.getElementById('ch1').innerHTML = "<img src=<?=IMG_PATH?>/buttons/nonact_left.gif>";
+    document.getElementById('ch2').innerHTML = "<img src=<?=IMG_PATH?>/buttons/a_0.gif>";
+    document.getElementById('ch3').innerHTML = "<img src=<?=IMG_PATH?>/buttons/a_0.gif>";
+    document.getElementById('ch4').innerHTML = "<img src=<?=IMG_PATH?>/buttons/a_0.gif>";
+    document.getElementById('ch7').innerHTML = "<img src=<?=IMG_PATH?>/buttons/nonact_right.gif>";
 
     if (but_name == 'all') {
-      document.getElementById('ch1').innerHTML = "<img src=http://img.bestcombats.net/buttons/active_left.gif>";
-      document.getElementById('ch2').innerHTML = "<img src=http://img.bestcombats.net/buttons/a_l.gif>";
+      document.getElementById('ch1').innerHTML = "<img src=<?=IMG_PATH?>/buttons/active_left.gif>";
+      document.getElementById('ch2').innerHTML = "<img src=<?=IMG_PATH?>/buttons/a_l.gif>";
       document.getElementById('mes_sys').style.display = "none";
       document.getElementById('mes').style.display = "inline";
       document.getElementById('logs').style.display = "none";
       document.getElementById('mes_clan').style.display = "none";
     } else if (but_name == 'sys')  {
-      document.getElementById('ch2').innerHTML = "<img src=http://img.bestcombats.net/buttons/a_r.gif>";
+      document.getElementById('ch2').innerHTML = "<img src=<?=IMG_PATH?>/buttons/a_r.gif>";
       if (document.getElementById('td_log').style.display=='none') {
         document.getElementById('<?
           if ($inclan) echo "ch4"; else echo "ch7";
-        ?>').innerHTML = "<img src=http://img.bestcombats.net/buttons/<?
+        ?>').innerHTML = "<img src=<?=IMG_PATH?>/buttons/<?
           if ($inclan) echo "a_l"; else echo "active_right";
         ?>.gif>";        
       } else {
         document.getElementById('<?
           if ($inclan) echo "ch4"; else echo "ch3";
-        ?>').innerHTML = "<img src=http://img.bestcombats.net/buttons/a_l.gif>";
+        ?>').innerHTML = "<img src=<?=IMG_PATH?>/buttons/a_l.gif>";
       }
       document.getElementById('mes').style.display = "none";
       document.getElementById('mes_sys').style.display = "inline";
       document.getElementById('logs').style.display = "none";
       document.getElementById('mes_clan').style.display = "none";
     } else if (but_name == 'log')  {
-      document.getElementById('ch3').innerHTML = "<img src=http://img.bestcombats.net/buttons/a_r.gif>";
-      document.getElementById('ch7').innerHTML = "<img src=http://img.bestcombats.net/buttons/active_right.gif>";
+      document.getElementById('ch3').innerHTML = "<img src=<?=IMG_PATH?>/buttons/a_r.gif>";
+      document.getElementById('ch7').innerHTML = "<img src=<?=IMG_PATH?>/buttons/active_right.gif>";
       document.getElementById('mes').style.display = "none";
       document.getElementById('mes_sys').style.display = "none";
       document.getElementById('logs').style.display = "inline";
       document.getElementById('mes_clan').style.display = "none";
     } else if (but_name == 'clan')  {
-      document.getElementById('ch4').innerHTML = "<img src=http://img.bestcombats.net/buttons/a_r.gif>";
+      document.getElementById('ch4').innerHTML = "<img src=<?=IMG_PATH?>/buttons/a_r.gif>";
       if (document.getElementById('td_log').style.display=='none') {
         document.getElementById('ch7').innerHTML = "<img src=test/active_right.gif>";
       } else {
-        document.getElementById('ch3').innerHTML = "<img src=http://img.bestcombats.net/buttons/a_l.gif>";
+        document.getElementById('ch3').innerHTML = "<img src=<?=IMG_PATH?>/buttons/a_l.gif>";
       }
       document.getElementById('mes').style.display = "none";
       document.getElementById('mes_sys').style.display = "none";
@@ -190,7 +190,7 @@ function clickbut(but_name) {
     }
 
                                        
-    document.getElementById('td_' + but_name).style.backgroundImage = "url(http://img.bestcombats.net/buttons/active_bg.gif)";
+    document.getElementById('td_' + but_name).style.backgroundImage = "url(<?=IMG_PATH?>/buttons/active_bg.gif)";
     document.getElementById('td_' + but_name).style.color = "#000000";
     document.getElementById('td_' + but_name).style.fontWeight = "bold";
   if (but_name == 'log') window.scrollTo(0,0);
@@ -201,20 +201,20 @@ function clickbut(but_name) {
     </head>
         <body leftmargin=0 topmargin=0 marginheight=0 marginwidth=0 bgcolor=#eeeeee onload="top.RefreshChat()">
 <div style="z-index:100; position: fixed; top: 0px; right: 0px;"><table border=0 cellspacing=0 cellpadding=0><tr>
-<td style="width:10px"><div id="ch1"><img src="http://img.bestcombats.net/buttons/active_left.gif"></div></td>
+<td style="width:10px"><div id="ch1"><img src="<?=IMG_PATH?>/buttons/active_left.gif"></div></td>
 <td style="width:38px" valign="top"><div class="actbt" id="td_all" onclick="clickbut('all');">Чат</div>
 </td>
-<td style="width: 10px;"><div id="ch2" ><img src="http://img.bestcombats.net/buttons/a_l.gif"></div></td>
+<td style="width: 10px;"><div id="ch2" ><img src="<?=IMG_PATH?>/buttons/a_l.gif"></div></td>
 <td style="width:160px;" valign="top"><div class="nactbt" id="td_sys" onclick="clickbut('sys');">Системные&nbsp;сообщения</div></td>
-<td style="width:10px;<? if (!$inclan) echo "display:none"; ?>"><div id="ch4" ><img src="http://img.bestcombats.net/buttons/a_0.gif"></div></td>
+<td style="width:10px;<? if (!$inclan) echo "display:none"; ?>"><div id="ch4" ><img src="<?=IMG_PATH?>/buttons/a_0.gif"></div></td>
 <td style="<? if (!$inclan) echo "display:none"; else echo "width:80px"; ?>" valign="top"><div class="nactbt" id="td_clan" onclick="clickbut('clan');">Клан-чат</div></td>
-<td style="display:none;width:10px" id="ch3"><img src="http://img.bestcombats.net/buttons/a_0.gif"></td>
+<td style="display:none;width:10px" id="ch3"><img src="<?=IMG_PATH?>/buttons/a_0.gif"></td>
 <td valign="top"><div style="display:none;width:50px" id="td_log" class="nactbt" onclick="clickbut('log');" valign="top">Лог&nbsp;боя</div>
 </td>
 <td valign="top"><div style="display:none;width:50px" id="td_log" class="nactbt" onclick="clickbut('log');" valign="top">Лог&nbsp;боя</div>
 </td>
 <td>
-<div id="ch7"><img src="http://img.bestcombats.net/buttons/nonact_right.gif"></div>
+<div id="ch7"><img src="<?=IMG_PATH?>/buttons/nonact_right.gif"></div>
 </td></tr></table></div>
 
 
@@ -263,7 +263,7 @@ $ind=0;
   }
   $left=$tme-time();
 ?>
-<HTML><HEAD><link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+<HTML><HEAD><link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <script>
 function refr() {
   if (document.F1.text.value=='') {
@@ -370,15 +370,15 @@ function subm()
 if (top.ChatTranslit) translate();
 }
 
-var b___translit_on = new Image; b___translit_on.src="http://img.bestcombats.net/buttons/b___translit_on.gif"; b___translit_on.alt="(включено) Преобразовывать транслит в русский текст";
-var b___translit_off = new Image; b___translit_off.src="http://img.bestcombats.net/buttons/b___translit_off.gif"; b___translit_off.alt="(выключено) Преобразовывать транслит в русский текст";
-var b___filter_on = new Image; b___filter_on.src="http://img.bestcombats.net/buttons/b___filter_on.gif"; b___filter_on.alt="(включено) Показывать в чате только сообщения адресованные мне";
-var b___filter_off = new Image; b___filter_off.src="http://img.bestcombats.net/buttons/b___filter_off.gif"; b___filter_off.alt="(выключено) Показывать в чате только сообщения адресованные мне";
-var b___sys_on = new Image; b___sys_on.src="http://img.bestcombats.net/buttons/b___sys_on.gif"; b___sys_on.alt="(включено) Показывать в чате системные сообщения";
-var b___sys_off = new Image; b___sys_off.src="http://img.bestcombats.net/buttons/b___sys_off.gif"; b___sys_off.alt="(выключено) Показывать в чате системные сообщения";
-var b___slow_on = new Image; b___slow_on.src="http://img.bestcombats.net/buttons/b___slow_on.gif"; b___slow_on.alt="(включено) Медленное обновление чата (раз в минуту)";
-var b___slow_off = new Image; b___slow_off.src="http://img.bestcombats.net/buttons/b___slow_off.gif"; b___slow_off.alt="(выключено) Медленное обновление чата (раз в минуту)";
-var b___chat_off = new Image; b___chat_off.src="http://img.bestcombats.net/buttons/b___chat_off.gif"; b___chat_off.alt="Обновление чата выключено!";
+var b___translit_on = new Image; b___translit_on.src="<?=IMG_PATH?>/buttons/b___translit_on.gif"; b___translit_on.alt="(включено) Преобразовывать транслит в русский текст";
+var b___translit_off = new Image; b___translit_off.src="<?=IMG_PATH?>/buttons/b___translit_off.gif"; b___translit_off.alt="(выключено) Преобразовывать транслит в русский текст";
+var b___filter_on = new Image; b___filter_on.src="<?=IMG_PATH?>/buttons/b___filter_on.gif"; b___filter_on.alt="(включено) Показывать в чате только сообщения адресованные мне";
+var b___filter_off = new Image; b___filter_off.src="<?=IMG_PATH?>/buttons/b___filter_off.gif"; b___filter_off.alt="(выключено) Показывать в чате только сообщения адресованные мне";
+var b___sys_on = new Image; b___sys_on.src="<?=IMG_PATH?>/buttons/b___sys_on.gif"; b___sys_on.alt="(включено) Показывать в чате системные сообщения";
+var b___sys_off = new Image; b___sys_off.src="<?=IMG_PATH?>/buttons/b___sys_off.gif"; b___sys_off.alt="(выключено) Показывать в чате системные сообщения";
+var b___slow_on = new Image; b___slow_on.src="<?=IMG_PATH?>/buttons/b___slow_on.gif"; b___slow_on.alt="(включено) Медленное обновление чата (раз в минуту)";
+var b___slow_off = new Image; b___slow_off.src="<?=IMG_PATH?>/buttons/b___slow_off.gif"; b___slow_off.alt="(выключено) Медленное обновление чата (раз в минуту)";
+var b___chat_off = new Image; b___chat_off.src="<?=IMG_PATH?>/buttons/b___chat_off.gif"; b___chat_off.alt="Обновление чата выключено!";
 
 
 function IsIE(elem){ //также эта функция есть выше
@@ -428,8 +428,8 @@ function flashsound_DoFSCommand(command, args) {
 
 function SoundB(){
     if (top.SoundOff==true)
-        top.frames['bottom'].document.getElementById('but_sound').src='http://img.bestcombats.net/buttons/zvuk.gif';
-    else top.frames['bottom'].document.getElementById('but_sound').src='http://img.bestcombats.net/buttons/zvuk_off.gif';
+        top.frames['bottom'].document.getElementById('but_sound').src='<?=IMG_PATH?>/buttons/zvuk.gif';
+    else top.frames['bottom'].document.getElementById('but_sound').src='<?=IMG_PATH?>/buttons/zvuk_off.gif';
     top.SoundOff=!top.SoundOff;
 }
 </SCRIPT>
@@ -445,9 +445,9 @@ function SoundB(){
 <INPUT TYPE="hidden" name="lid" value="">
 
 <table width="100%" height="30" cellspacing="0" cellpadding="0">
-    <tr valign="top" style="background-image:url(http://img.bestcombats.net/buttons/beg_chat_03.gif); background-position: top; background-repeat:repeat-x; ">
-      <td width="9"><img src="http://img.bestcombats.net/buttons/bkf_l_r1_02.gif" width="9" height="30"></td>
-<td width="30"><IMG SRC="http://img.bestcombats.net/buttons/b___.gif" WIDTH=30 HEIGHT=30 BORDER=0 ALT="Чат"></td>
+    <tr valign="top" style="background-image:url(<?=IMG_PATH?>/buttons/beg_chat_03.gif); background-position: top; background-repeat:repeat-x; ">
+      <td width="9"><img src="<?=IMG_PATH?>/buttons/bkf_l_r1_02.gif" width="9" height="30"></td>
+<td width="30"><IMG SRC="<?=IMG_PATH?>/buttons/b___.gif" WIDTH=30 HEIGHT=30 BORDER=0 ALT="Чат"></td>
 
 <div id="soundM" style="position:absoluite;"></div>
 <div id="soundM2" style="position:absoluite;"></div>
@@ -455,13 +455,13 @@ function SoundB(){
 
 
 <td valign="middle" id="T2"><input type="text" id="ssmtext" name="text" maxlength="300" size=80 style="width:100%"></TD>
-<td nowrap id="T3"><a href="javascript:void(0)" onclick="if (top.ChatTranslit) {translate();}document.forms[0].submit()" title="Добавить текст в чат"><IMG SRC="http://img.bestcombats.net/buttons/b___ok.gif" WIDTH=30 HEIGHT=30 BORDER=0 ALT="Добавить текст в чат"></a><IMG SRC="http://img.bestcombats.net/buttons/1x1.gif" WIDTH="8" HEIGHT="1" BORDER=0 ALT=""><a href="javascript:void(0)" onclick="clearc();" title="Очистить строку ввода"><IMG SRC="http://img.bestcombats.net/buttons/b___clear.gif" WIDTH=30 HEIGHT=30 BORDER=0 ALT="Очистить строку ввода"></a><a href="javascript:void(0)" onclick="sw_filter();" title="(выключено) Показывать в чате только сообщения адресованные мне"><IMG SRC="http://img.bestcombats.net/buttons/b___filter_off.gif" WIDTH=30 HEIGHT=30 BORDER=0 name="b___filter" ALT="(выключено) Показывать в чате только сообщения адресованные мне"></a><a href="javascript:void(0)" onclick="sw_sys();" title="(выключено) Показывать в чате системные сообщения"><IMG SRC="http://img.bestcombats.net/buttons/b___sys_off.gif" WIDTH=30 HEIGHT=30 BORDER=0 name="b___sys" ALT="(выключено) Показывать в чате системные сообщения"></a><a href="javascript:void(0)" onclick="sw_slow();" title="(выключено) Медленное обновление чата (раз в минуту)"><IMG SRC="http://img.bestcombats.net/buttons/b___slow_off.gif" WIDTH=30 HEIGHT=30 BORDER=0 name="b___slow" ALT="(выключено) Медленное обновление чата (раз в минуту)"></a><img src="http://img.bestcombats.net/buttons/b___translit_off.gif" alt="(выключено) Преобразовывать транслит в русский текст (правила перевода см. в энциклопедии)" name="b___translit" width="30" height="30" id="b___translit" style="cursor: hand;" onclick="sw_translit();"><a href="javascript:void(0)" onclick="SoundB()" title="Звуки"><IMG SRC="http://img.bestcombats.net/buttons/zvuk_off.gif" id="but_sound" WIDTH=30 HEIGHT=30 BORDER=0></a><a href="javascript:void(0)" onclick="smiles()" title="Смайлики"><IMG SRC="http://img.bestcombats.net/buttons/1x1.gif" WIDTH="8" HEIGHT="1" BORDER=0 ALT=""><IMG SRC="http://img.bestcombats.net/buttons/b___smile.gif" WIDTH=30 HEIGHT=30 BORDER=0 ALT="Смайлики"></a>
-<IMG title="Избранное" SRC="http://img.bestcombats.net/buttons/b___cl1.gif" style="cursor:pointer" onclick="top.cht('main.php?edit=1&razdel=8&'+Math.random())" WIDTH=30 HEIGHT=30 BORDER=0 ALT="">
-<IMG title="Локация" SRC="http://img.bestcombats.net/buttons/location.gif" style="cursor:pointer" onclick="top.cht('main.php')" WIDTH=30 HEIGHT=30 BORDER=0 ALT="">
-<IMG title="Поединки" SRC="http://img.bestcombats.net/buttons/battles.gif" style="cursor:pointer" onclick="top.cht('zayavka.php')" WIDTH=30 HEIGHT=30 BORDER=0 ALT="">
+<td nowrap id="T3"><a href="javascript:void(0)" onclick="if (top.ChatTranslit) {translate();}document.forms[0].submit()" title="Добавить текст в чат"><IMG SRC="<?=IMG_PATH?>/buttons/b___ok.gif" WIDTH=30 HEIGHT=30 BORDER=0 ALT="Добавить текст в чат"></a><IMG SRC="<?=IMG_PATH?>/buttons/1x1.gif" WIDTH="8" HEIGHT="1" BORDER=0 ALT=""><a href="javascript:void(0)" onclick="clearc();" title="Очистить строку ввода"><IMG SRC="<?=IMG_PATH?>/buttons/b___clear.gif" WIDTH=30 HEIGHT=30 BORDER=0 ALT="Очистить строку ввода"></a><a href="javascript:void(0)" onclick="sw_filter();" title="(выключено) Показывать в чате только сообщения адресованные мне"><IMG SRC="<?=IMG_PATH?>/buttons/b___filter_off.gif" WIDTH=30 HEIGHT=30 BORDER=0 name="b___filter" ALT="(выключено) Показывать в чате только сообщения адресованные мне"></a><a href="javascript:void(0)" onclick="sw_sys();" title="(выключено) Показывать в чате системные сообщения"><IMG SRC="<?=IMG_PATH?>/buttons/b___sys_off.gif" WIDTH=30 HEIGHT=30 BORDER=0 name="b___sys" ALT="(выключено) Показывать в чате системные сообщения"></a><a href="javascript:void(0)" onclick="sw_slow();" title="(выключено) Медленное обновление чата (раз в минуту)"><IMG SRC="<?=IMG_PATH?>/buttons/b___slow_off.gif" WIDTH=30 HEIGHT=30 BORDER=0 name="b___slow" ALT="(выключено) Медленное обновление чата (раз в минуту)"></a><img src="<?=IMG_PATH?>/buttons/b___translit_off.gif" alt="(выключено) Преобразовывать транслит в русский текст (правила перевода см. в энциклопедии)" name="b___translit" width="30" height="30" id="b___translit" style="cursor: hand;" onclick="sw_translit();"><a href="javascript:void(0)" onclick="SoundB()" title="Звуки"><IMG SRC="<?=IMG_PATH?>/buttons/zvuk_off.gif" id="but_sound" WIDTH=30 HEIGHT=30 BORDER=0></a><a href="javascript:void(0)" onclick="smiles()" title="Смайлики"><IMG SRC="<?=IMG_PATH?>/buttons/1x1.gif" WIDTH="8" HEIGHT="1" BORDER=0 ALT=""><IMG SRC="<?=IMG_PATH?>/buttons/b___smile.gif" WIDTH=30 HEIGHT=30 BORDER=0 ALT="Смайлики"></a>
+<IMG title="Избранное" SRC="<?=IMG_PATH?>/buttons/b___cl1.gif" style="cursor:pointer" onclick="top.cht('main.php?edit=1&razdel=8&'+Math.random())" WIDTH=30 HEIGHT=30 BORDER=0 ALT="">
+<IMG title="Локация" SRC="<?=IMG_PATH?>/buttons/location.gif" style="cursor:pointer" onclick="top.cht('main.php')" WIDTH=30 HEIGHT=30 BORDER=0 ALT="">
+<IMG title="Поединки" SRC="<?=IMG_PATH?>/buttons/battles.gif" style="cursor:pointer" onclick="top.cht('zayavka.php')" WIDTH=30 HEIGHT=30 BORDER=0 ALT="">
 </TD>
-<td width="19" id="T4" background="http://img.bestcombats.net/buttons/b___bg2.gif"><img src="http://img.bestcombats.net/buttons/b___1.gif" width="19" height="30" alt="" /></td>
-<td align="right" nowrap="nowrap" bgcolor="BAB7B3" id="T5" background="http://img.bestcombats.net/buttons/b___bg2.gif">
+<td width="19" id="T4" background="<?=IMG_PATH?>/buttons/b___bg2.gif"><img src="<?=IMG_PATH?>/buttons/b___1.gif" width="19" height="30" alt="" /></td>
+<td align="right" nowrap="nowrap" bgcolor="BAB7B3" id="T5" background="<?=IMG_PATH?>/buttons/b___bg2.gif">
 
 <?php
     echo "<a href=\"javascript:void(0)\" title=\"Настройки/Инвентарь\"><IMG SRC=\"".IMGBASE."/i/$now/a___inv.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Настройки/Инвентарь\" onclick=\"top.cht('main.php?edit='+Math.random())\"></a>";
@@ -473,14 +473,14 @@ function SoundB(){
     if ($user['level'] > 1)
 		echo "<a href=\"javascript:void(0)\" title=\"Лич\"><IMG SRC=\"".IMGBASE."/i/a___lich.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Лич\" onclick=\"top.cht('lic.php')\"></a>";
     if (($user['vip']>0) && ($user['vip']<5))  {
-        echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('acounts/vip.php')\" title=\"VIP Панель\"><IMG SRC=\"http://img.bestcombats.net/buttons/a___vip.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"VIP панель\"></a>";
+        echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('acounts/vip.php')\" title=\"VIP Панель\"><IMG SRC=\"<?=IMG_PATH?>/buttons/a___vip.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"VIP панель\"></a>";
     }
     if (($user['align']>2) && ($user['align']<3))  {
         echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('a.php')\" title=\"Панель Админа\"><IMG SRC=\"".IMGBASE."/i/$now/a___haos.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Панель Админа\"></a>";
-        echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('admin/admin.php')\" title=\"Панель Админа\"><IMG SRC=\"http://img.bestcombats.net/buttons/admin.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Панель Админа\"></a>";
-        echo "<a href='https://109.206.165.115:65525/ispmgr' target='_blank'><IMG SRC=\"http://img.bestcombats.net/buttons/php.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Isp Manager\">";
-        echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('palklan.php')\" title=\"Паладины\"><IMG SRC=\"http://img.bestcombats.net/buttons/clan.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Паладины\"></a>";
-        echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('tarklan.php')\" title=\"Тарманы\"><IMG SRC=\"http://img.bestcombats.net/buttons/clan.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Тарманы\"></a>";
+        echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('admin/admin.php')\" title=\"Панель Админа\"><IMG SRC=\"<?=IMG_PATH?>/buttons/admin.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Панель Админа\"></a>";
+        echo "<a href='https://109.206.165.115:65525/ispmgr' target='_blank'><IMG SRC=\"<?=IMG_PATH?>/buttons/php.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Isp Manager\">";
+        echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('palklan.php')\" title=\"Паладины\"><IMG SRC=\"<?=IMG_PATH?>/buttons/clan.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Паладины\"></a>";
+        echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('tarklan.php')\" title=\"Тарманы\"><IMG SRC=\"<?=IMG_PATH?>/buttons/clan.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Тарманы\"></a>";
     }
     if (($user['align']>1) && ($user['align']<2)) {
         echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('palklan.php?'+Math.random())\" title=\"Клан\"><IMG SRC=\"".IMGBASE."/i/$now/clan.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Клан\"></a>";
@@ -496,7 +496,7 @@ function SoundB(){
         echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('orden.php')\" title=\"Склонность\"><IMG SRC=\"".IMGBASE."/i/$now/b__orden.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Склонность\"></a>";
     }
     if (($user['deal']>0) && ($user['align']<6)) {
-    echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('admin/dealer.php')\" title=\"Панель Алхимика\"><IMG SRC=\"http://img.bestcombats.net/buttons/alx.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Панель Алхимика\"></a>";
+    echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('admin/dealer.php')\" title=\"Панель Алхимика\"><IMG SRC=\"<?=IMG_PATH?>/buttons/alx.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Панель Алхимика\"></a>";
     }
     if ($user['align']==0.99)  {
         echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('orden.php')\" title=\"Склонность\"><IMG SRC=\"".IMGBASE."/i/$now/b__light.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Склонность\"></a>";
@@ -515,11 +515,11 @@ function SoundB(){
     echo "<a href=\"javascript:void(0)\" title=\"Орден Чести\"><IMG SRC=\"".IMGBASE."/i/$now/a___chest.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Орден Чести\" onclick=\"top.cht('ordenchesti.php')\"></a>";
     }
     if ($user['radiodj']==1) {
-	echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('admin/radiodj.php')\" title=\"Радио\"><IMG SRC=\"http://img.bestcombats.net/buttons/radiodj_but.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Радио\"></a>";
+	echo "<a href=\"javascript:void(0)\" onclick=\"top.cht('admin/radiodj.php')\" title=\"Радио\"><IMG SRC=\"<?=IMG_PATH?>/buttons/radiodj_but.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Радио\"></a>";
 	}
     if ($user['level']>=0)  {
     echo "<a href=\"javascript:void(0)\" title=\"Друзья\"><IMG SRC=\"".IMGBASE."/i/$now/a___friend3.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Друзья\" onclick=\"top.cht('friend.php')\"></a>";
-    echo "<a href=\"javascript:void(0)\" title=\"Блокнот\"><IMG SRC=\"http://img.bestcombats.net/buttons/b_notepad.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Блокнот\" onclick=\"window.open('bloknot.php', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')\"></a>";
+    echo "<a href=\"javascript:void(0)\" title=\"Блокнот\"><IMG SRC=\"<?=IMG_PATH?>/buttons/b_notepad.gif\" WIDTH=30 HEIGHT=30 BORDER=0 ALT=\"Блокнот\" onclick=\"window.open('bloknot.php', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')\"></a>";
     }
 ?>
 <a href="javascript:void(0)" title="Выход из игры"><IMG SRC="<?=IMGBASE?>/i/<?=$now?>/a___ext.gif" WIDTH=30 HEIGHT=30 BORDER=0 ALT="Выход из игры" onclick="if (confirm('Выйти из игры?')) top.window.location='index.php?exit=0.560057875997465'"></a></TD>

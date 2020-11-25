@@ -6,12 +6,12 @@
 	include "functions.php";
 	if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 ?><HTML><HEAD>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
-<SCRIPT src='http://img.bestcombats.net/js/commoninf.js'></SCRIPT>
+<SCRIPT src='<?=IMG_PATH?>/js/commoninf.js'></SCRIPT>
 <SCRIPT>
 var Hint3Name = '';
 // Заголовок, название скрипта, имя поля с логином

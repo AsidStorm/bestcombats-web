@@ -10,7 +10,7 @@
 ?>
 
 <HTML><HEAD>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
@@ -38,7 +38,7 @@
 		$i++;
 		echo "<tr>";
 		echo "<td align=center>".$i."</td>";	
-		echo '<td><A HREF="javascript:top.AddToPrivate(\'',$USER['login'],'\', top.CtrlPress)" target=refreshed><img src="http://img.bestcombats.net/chat/lock.gif" width=20 height=15></A>';
+		echo '<td><A HREF="javascript:top.AddToPrivate(\'',$USER['login'],'\', top.CtrlPress)" target=refreshed><img src="<?=IMG_PATH?>/chat/lock.gif" width=20 height=15></A>';
 		nick2($USER['id']);
 		echo "</td>";
 		echo "<td>";	
@@ -72,7 +72,7 @@
 		$i++;
 		echo "<tr>";
 		echo "<td align=center>".$i."</td>";	
-		echo '<td><A HREF="javascript:top.AddToPrivate(\'',$ON['login'],'\', top.CtrlPress)" target=refreshed><img src="http://img.bestcombats.net/chat/lock.gif" width=20 height=15></A>';
+		echo '<td><A HREF="javascript:top.AddToPrivate(\'',$ON['login'],'\', top.CtrlPress)" target=refreshed><img src="<?=IMG_PATH?>/chat/lock.gif" width=20 height=15></A>';
 		nick2($ON['id']);
 		echo "</td>";
 		echo "<td>";	

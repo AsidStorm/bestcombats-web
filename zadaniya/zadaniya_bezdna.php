@@ -6,7 +6,7 @@
 	if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 ?>
 <HTML><HEAD>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
@@ -25,7 +25,7 @@ function test() {
 </SCRIPT>
 <?php } ?>
 </HEAD>
-<body bgcolor=e2e0e0 style="background-image: url(http://img.bestcombats.net/vxod/dungeon.jpg);background-repeat:no-repeat;background-position:top right">
+<body bgcolor=e2e0e0 style="background-image: url(<?=IMG_PATH?>/vxod/dungeon.jpg);background-repeat:no-repeat;background-position:top right">
 <div id="mmoves" style="background-color:#FFFFCC; visibility:hidden; z-index: 100; overflow:visible; position:absolute; border-color:#666666; border-style:solid; border-width: 1px; padding: 2px;"></div>
 
 <TABLE width=100%>
@@ -66,7 +66,7 @@ print"<BR><INPUT type=submit name='getquest' value='Получить задан�
 
 ?>
 <form action="" method="post">
-<IMG style='cursor: hand' src='http://img.bestcombats.net/vxod/clear.gif' width=13 height=13 alt='Отказаться от задания' onclick='if (confirm("Вы уверены, что хотите отказаться от этого задания?")) {location="zadaniya_bezdna.php?del=<?=$est['id']?>"}'> <?=$est['text']?> <span onmouseout='hideshow();' onmouseover='fastshow("0.00/1")'><?=$est['ubil']?>/<?=$est['ubit']?></span>.<br>Награда: <?=$est["ed"]?> благородства.
+<IMG style='cursor: hand' src='<?=IMG_PATH?>/vxod/clear.gif' width=13 height=13 alt='Отказаться от задания' onclick='if (confirm("Вы уверены, что хотите отказаться от этого задания?")) {location="zadaniya_bezdna.php?del=<?=$est['id']?>"}'> <?=$est['text']?> <span onmouseout='hideshow();' onmouseover='fastshow("0.00/1")'><?=$est['ubil']?>/<?=$est['ubit']?></span>.<br>Награда: <?=$est["ed"]?> благородства.
 <?
 if($est['ubil']>=$est['ubit']){print'<input name="ok" type="submit" value="Выполнил">';}
 if($_POST['ok'] and $est['ubil']>=$est['ubit']){

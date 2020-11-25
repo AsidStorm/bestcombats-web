@@ -42,7 +42,7 @@
                         }
                         db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
                         db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
-                        addch("<img src=http://img.bestcombats.net/pbuttons/sleep_off.gif> $messch");
+                        addch("<img src=<?=IMG_PATH?>/pbuttons/sleep_off.gif> $messch");
                         echo "<font color=red><b>Успешно снято заклятие молчания с персонажа \"$target\"</b></font>";
                     }
                     else {

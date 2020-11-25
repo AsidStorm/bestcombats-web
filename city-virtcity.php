@@ -18,7 +18,7 @@ function smallshowpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
 
     echo "<CENTER>";
    ?>
-    <A HREF="javascript:top.AddToPrivate('<?=$user['login']?>', top.CtrlPress)" target=refreshed><img src="<?=IMGBASE?>/i/lock.gif" width=20 height=15></A><?if($user['align']>0){echo"<img src=\"".IMGBASE."/i/align_".$user['align'].".gif\">";} if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="http://img.bestcombats.net/klan/'.$user['klan'].'.gif">'; } ?><B><?=$user['login']?></B> [<?=$user['level']?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
+    <A HREF="javascript:top.AddToPrivate('<?=$user['login']?>', top.CtrlPress)" target=refreshed><img src="<?=IMGBASE?>/i/lock.gif" width=20 height=15></A><?if($user['align']>0){echo"<img src=\"".IMGBASE."/i/align_".$user['align'].".gif\">";} if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="<?=IMG_PATH?>/klan/'.$user['klan'].'.gif">'; } ?><B><?=$user['login']?></B> [<?=$user['level']?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
     <TABLE cellspacing=0 cellpadding=0 style="  border-top-width: 1px;border-right-width: 1px;border-bottom-width: 1px;border-left-width: 1px;border-top-style: solid;border-right-style: solid;border-bottom-style: solid;border-left-style: solid;border-top-color: #FFFFFF;border-right-color: #666666;border-bottom-color: #666666;border-left-color: #FFFFFF;padding: 2px;">
 <TR>
 <TD>
@@ -1939,10 +1939,10 @@ document.getElementById('buttons_on_image').style.display = 'none';
         ?>
         
          <u>Cейчас в клубе</u>: <?=$onlineS+$onlineSVC+$onlined+$onlinesun?> чел.<BR>
-         <img src="http://img.bestcombats.net/city/micro/suncity.gif"><b>Sun City</b>: <?=$onlinesun?> чел.<br>
-         <img src="http://img.bestcombats.net/city/micro/suburb.gif"><b>Angels City</b>: <?=$onlineS?> чел.<br>
-         <img src="http://img.bestcombats.net/city/micro/virtcity.gif"><b>Capital City</b>: <?=$onlineSVC?> чел.<br>
-         <img src="http://img.bestcombats.net/city/micro/dungeon.gif"><b>Abandoned Plain</b>: <?=$onlined?> чел.<br>-->
+         <img src="<?=IMG_PATH?>/city/micro/suncity.gif"><b>Sun City</b>: <?=$onlinesun?> чел.<br>
+         <img src="<?=IMG_PATH?>/city/micro/suburb.gif"><b>Angels City</b>: <?=$onlineS?> чел.<br>
+         <img src="<?=IMG_PATH?>/city/micro/virtcity.gif"><b>Capital City</b>: <?=$onlineSVC?> чел.<br>
+         <img src="<?=IMG_PATH?>/city/micro/dungeon.gif"><b>Abandoned Plain</b>: <?=$onlined?> чел.<br>-->
          <?php
          $online  = mysqli_num_rows("SELECT COUNT(*) AS cnt, `city` FROM `online` WHERE `city` IN ('suburb', 'virtcity', 'dungeon', 'suncity') AND `real_time` >= ".(time()-60)." GROUP BY `city`;");
          foreach ($online as &$value) {

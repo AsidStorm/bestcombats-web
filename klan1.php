@@ -394,7 +394,7 @@ function w(login,id,align,klan,level,boss,titul,online,block, city, color, icon,
 
 if (!icon || icon==klan) {
 if (klan) {
-icon='<IMG SRC="http://img.bestcombats.net/klan' + klan + '.gif" WIDTH=24 HEIGHT=15 ALT="">';
+icon='<IMG SRC="<?=IMG_PATH?>/klan' + klan + '.gif" WIDTH=24 HEIGHT=15 ALT="">';
 }
 } else {
 icon='<IMG SRC="<?=IMGBASE?>/i/misc/tituls/' + icon + '.gif" ALT="">';
@@ -411,7 +411,7 @@ if (city!="") {
 s+='<img src="<?=IMGBASE?>/i/misc/forum/fo'+city+'.gif" width=17 height=15>';
 }
 s+=' <IMG SRC=<?=IMGBASE?>/i/align'+align+'.gif WIDTH=12 HEIGHT=15>';
-if (klan!='') {s+='<A HREF="/encicl/klan/'+klan+'.html" target=_blank><IMG SRC="http://img.bestcombats.net/klan/'+klan+'.gif" WIDTH=24 HEIGHT=15 ALT=""></A>'}
+if (klan!='') {s+='<A HREF="/encicl/klan/'+klan+'.html" target=_blank><IMG SRC="<?=IMG_PATH?>/klan/'+klan+'.gif" WIDTH=24 HEIGHT=15 ALT=""></A>'}
 s+='<a href="javascript:top.AddTo(\''+login+'\')" style="COLOR: #003388;">';
 if (online!=0) {s+=login;} else {s+='<FONT color=gray><strong>'+login+'</strong>'}
 s+='</a>['+level+']<a href=/inf.pl?'+id+' target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Информация о персонаже"></a> ';
@@ -512,7 +512,7 @@ elseif ($_REQUEST['getmoney']!=1 && $_REQUEST['addmoney']!=1 && !$_REQUEST['add'
 <td height="32"><img src="<?=IMGBASE?>/i/misc/clans/klan_s3r3_07.jpg" width="75" height="32"></td>
 <td width="100%" background="<?=IMGBASE?>/i/misc/clans/klan_img_08.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr valign=middle>
-<th height="32"><IMG SRC="http://img.bestcombats.net/klan/<?=$klan['short']?>.gif" WIDTH=24 HEIGHT=15></th>
+<th height="32"><IMG SRC="<?=IMG_PATH?>/klan/<?=$klan['short']?>.gif" WIDTH=24 HEIGHT=15></th>
 <th class=clan nowrap><?=$klan['name']?></th>
 <th width="44"><img src="<?=IMGBASE?>/i/misc/clans/klan_img_09.jpg" width="44" height="32"></th>
 <td class="off" onmouseover="this.className='on'" onmouseout="mout(this)" onclick="setTZ('TZ14', 1)" id="14"><a href="#">События </a></th>
@@ -1269,7 +1269,7 @@ if($_SESSION['uid']==-7){
 
                 $datas = mq("SELECT short FROM `clans`;");
                 while($its = mysqli_fetch_array($datas)) {
-echo"<A HREF=\"/klan1.php?klanm=".$its['short']."\"><img src=\"http://img.bestcombats.net/klan/".$its['short'].".gif\" title=".$its['short']." width=24 height=15></A> ";
+echo"<A HREF=\"/klan1.php?klanm=".$its['short']."\"><img src=\"<?=IMG_PATH?>/klan/".$its['short'].".gif\" title=".$its['short']." width=24 height=15></A> ";
 
 if($_GET['klanm']){
 $_GET['klanm'] = addslashes($_GET['klanm']);
@@ -1573,7 +1573,7 @@ echo "<td>".$week[$i][$j]."</td>";
 </div>
 <div class=dtz ID=dTZ18>
 <FIELDSET><LEGEND><H4>Ваши права в клане</H4></LEGEND>
-<? //echo'Ваш титул в клане: <img src="http://img.bestcombats.net/klan/'.$user['klan'].'.gif"> <b style=\'color: black;\'>Маджахеды-смертники идут на барикады!!!111</b> <br>';
+<? //echo'Ваш титул в клане: <img src="<?=IMG_PATH?>/klan/'.$user['klan'].'.gif"> <b style=\'color: black;\'>Маджахеды-смертники идут на барикады!!!111</b> <br>';
 ?>
 <br>У Вас есть следующие возможности:
 <ul>
@@ -1698,7 +1698,7 @@ echo"<li>Управление союзами и альянсами</li>";
 
 <TR>
 <TD align=left  width="200">Знак клана:</TD>
-<TD><IMG SRC="http://img.bestcombats.net/klan/<?=$klan['short']?>.gif" style='margin:0;'></TD>
+<TD><IMG SRC="<?=IMG_PATH?>/klan/<?=$klan['short']?>.gif" style='margin:0;'></TD>
 </TR>
 
 <TR>
@@ -2017,9 +2017,9 @@ echo"<TR >";}
 							echo '<tr><td width=20><A HREF="javascript:top.AddToPrivate(\'',nick7($row['id']),'\', top.CtrlPress)" target=refreshed><img src="http://bkwar.ru/i/lock.gif" width=20 height=15></A></td>';
                            echo"<td nowrap=nowrap>";nick2($row['id']); echo"</td>";
 							if ($row['id'] == $klan['glava']) {
-								echo '<td align=center width=90%><img src="http://img.bestcombats.net/klan/'.$klan['name'].'.gif"><b>Глава клана</b></td></tr>';
+								echo '<td align=center width=90%><img src="<?=IMG_PATH?>/klan/'.$klan['name'].'.gif"><b>Глава клана</b></td></tr>';
 							} else {
-								echo '<td align=center width=90%><img src="http://img.bestcombats.net/klan/'.$klan['name'].'.gif"><b>',$row['status'],'</b></td></tr>';
+								echo '<td align=center width=90%><img src="<?=IMG_PATH?>/klan/'.$klan['name'].'.gif"><b>',$row['status'],'</b></td></tr>';
 
 							}
 						}
@@ -2027,9 +2027,9 @@ echo"<TR >";}
 							echo '<tr><td><img src="http://bestcombats.net/i/offline.gif" width=20 height=15 alt="Нет в клубе"></td>';
                            echo"<td nowrap=nowrap>";nick2($row['id']); echo"</td>";
 							if ($row['id'] == $klan['glava']) {
-								echo '<td align=center width=90%><img src="http://img.bestcombats.net/klan/'.$klan['name'].'.gif"><b>Глава клана</b></td></tr>';
+								echo '<td align=center width=90%><img src="<?=IMG_PATH?>/klan/'.$klan['name'].'.gif"><b>Глава клана</b></td></tr>';
 							} else {
-								echo '<td align=center width=90%><img src="http://img.bestcombats.net/klan/'.$klan['name'].'.gif"><b>',$row['status'],'</b></td></tr>';
+								echo '<td align=center width=90%><img src="<?=IMG_PATH?>/klan/'.$klan['name'].'.gif"><b>',$row['status'],'</b></td></tr>';
 							}
 						}
 					}

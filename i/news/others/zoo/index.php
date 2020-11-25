@@ -321,7 +321,7 @@
 <br>
 С недавних пор в <b>Бойцовском Клубе</b> стало возможным завести зверя в качестве спутника своему персонажу. Если Вы будете растить своего питомца - то, с временем, он сможет оказывать Вам значительную помощь в боях.<br />
 <br />
-Чтобы получить зверя, его необходимо призвать. Свитки призыва продаются в <b>Зоомагазине</b>, расположенном на <b>Центральной Площади</b>  <img src='http://img.bestcombats.net/i/sh/fo1.gif'><b>CapitalCity</br>
+Чтобы получить зверя, его необходимо призвать. Свитки призыва продаются в <b>Зоомагазине</b>, расположенном на <b>Центральной Площади</b>  <img src='<?=IMG_PATH?>/i/sh/fo1.gif'><b>CapitalCity</br>
 <center><img src="http://bestcombats.net/i/city/1_Steads.gif" border="0" alt="" style="vertical-align:text-bottom;"><br />
 
 <center><b><h2>Свитки призыва</h2></b><br /><br />
@@ -369,7 +369,7 @@
 Если у Вас есть зверь, то в в Инвенторе появляется соответствующий раздел. Зайдя в него, Вы увидите: характеристики Вашего животного, сытость, освоенные навыки и доступную для Вашего зверька еду. Образ животному дается случайным образом, и сменить его можно только вместе со зверем. <br />
 С помощью кнопки <b>Кличка</b> Вы можете дать Вашему зверю имя. Оно должно состоять не более чем из 10 символов и только из одного слова. При выборе некорректного имени вы увидите надпись: <b>&quot;Эта кличка не подходит&quot;</b>. <br />
 <br />
-<i><img src=http://img.bestcombats.net/i/align_1.99.gif><b>Орден Света</b> предупреждает: нецензурные или оскорбительные клички животных влекут за собой строгие наказания.</i><br />
+<i><img src=<?=IMG_PATH?>/i/align_1.99.gif><b>Орден Света</b> предупреждает: нецензурные или оскорбительные клички животных влекут за собой строгие наказания.</i><br />
 <br />
 <h3>Об опыте и сытости Вашего зверя Вы узнаете из системных сообщений в чате:</h3><br />
 <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td class="quoteheader">[цитата]</td></tr><tr><td class="quote link1"><i>01:23 Внимание! [Кличка зверя] достиг 1 уровня!</i><br />
@@ -418,63 +418,63 @@
 		</tr>
 		<tr>
 			<td><img src="http://img.combats.ru/i/items/summon_pet_demon.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Чёрт</b></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pepel.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pepel.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_chrt20_3.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20_3");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_chrt20_3.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20_3");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_chrt20_6.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20_6");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_chrt20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20_8");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_chrt20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20_10");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_chrt20_6.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20_6");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_chrt20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20_8");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_chrt20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20_10");' onMouseOut='onOut(event);'></td>
 		</tr>
 		<tr>
 			<td><img src="http://img.combats.ru/i/items/summon_pet_cat.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Кот</b></th>
-			<td><img src="http://img.bestcombats.net/i/sh/poxlebka.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_2");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/poxlebka.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_cat20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_2");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_4.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_4");' onMouseOut='onOut(event);'><br /><img src="http://img.bestcombats.net/i/sh/pet_food_owl20_4.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20_4");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_6.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_6");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_8");' onMouseOut='onOut(event);'><br /><img src="http://img.bestcombats.net/i/sh/pet_food_owl20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20_8");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_10");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_cat20_4.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_4");' onMouseOut='onOut(event);'><br /><img src="<?=IMG_PATH?>/i/sh/pet_food_owl20_4.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20_4");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_cat20_6.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_6");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_cat20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_8");' onMouseOut='onOut(event);'><br /><img src="<?=IMG_PATH?>/i/sh/pet_food_owl20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20_8");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_cat20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_10");' onMouseOut='onOut(event);'></td>
 		</tr>
 		<tr>
 			<td><img src="http://img.combats.ru/i/items/summon_pet_owl.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Сова</b></th>
-			<td><img src="http://img.bestcombats.net/i/sh/nasek.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_2");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/nasek.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_cat20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_2");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_owl20_4.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20_4");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_owl20_6.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20_6");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_owl20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20_8");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_10");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_owl20_4.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20_4");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_owl20_6.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20_6");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_owl20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20_8");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_cat20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_10");' onMouseOut='onOut(event);'></td>
 		</tr>
 		<tr>
 			<td><img src="http://img.combats.ru/i/items/summon_pet_dog.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Собака</b></th>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_dog20.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_dog20");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_dog20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_dog20_2");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_dog20.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_dog20");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_dog20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_dog20_2");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_4.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_4");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_6.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_6");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_8");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_dog20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_dog20_10");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_cat20_4.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_4");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_cat20_6.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_6");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_cat20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_8");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_dog20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_dog20_10");' onMouseOut='onOut(event);'></td>
 		</tr>
 		<tr>
 			<td><img src="http://img.combats.ru/i/items/summon_pet_pig.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Свин</b></th>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_pig20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_pig20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20_2");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_pig20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_pig20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20_2");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_pig20_4.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20_4");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_pig20_4.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20_4");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_pig20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20_8");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_pig20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20_10");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_pig20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20_8");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_pig20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20_10");' onMouseOut='onOut(event);'></td>
 		</tr>
 		<tr>
 			<td><img src="http://img.combats.ru/i/items/summon_pet_wisp.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Светляк</b></th>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_wisp20.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_wisp20");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_wisp20.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_wisp20");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_wisp20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_wisp20_2");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_wisp20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_wisp20_2");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_wisp20_4.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_wisp20_4");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_wisp20_6.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_wisp20_6");' onMouseOut='onOut(event);'></td>
-			<td><img src="http://img.bestcombats.net/i/sh/pet_food_wisp20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_wisp20_8");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_wisp20_4.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_wisp20_4");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_wisp20_6.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_wisp20_6");' onMouseOut='onOut(event);'></td>
+			<td><img src="<?=IMG_PATH?>/i/sh/pet_food_wisp20_8.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_wisp20_8");' onMouseOut='onOut(event);'></td>
 		</tr>
 	</table>
 </center>

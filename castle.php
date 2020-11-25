@@ -22,7 +22,7 @@
 
     function defender($user) {
       return "
-      <img src=\"".IMGBASE."/i/align_".($user["align"]>0?$user["align"]:"0").".gif\">".($user['klan']!=""?"<img title=\"".$user['klan'].'" src="http://img.bestcombats.net/klan/'.$user['klan'].'.gif">':"")."<a href=\"javascript:void(0)\" onclick=\"top.AddTo('$user[login]');return false;\"><B>$user[login]</B></a> [$user[level]]";
+      <img src=\"".IMGBASE."/i/align_".($user["align"]>0?$user["align"]:"0").".gif\">".($user['klan']!=""?"<img title=\"".$user['klan'].'" src="<?=IMG_PATH?>/klan/'.$user['klan'].'.gif">':"")."<a href=\"javascript:void(0)\" onclick=\"top.AddTo('$user[login]');return false;\"><B>$user[login]</B></a> [$user[level]]";
     }
 
     function addsiegeroutes() {
@@ -268,7 +268,7 @@ if ($castleowner) {
   } else {
     $cl=mqfa("select name, clanbig from clans where short='$castleowner'");
     echo "<br><center><b>Владелец замка: $cl[name]</b></center><br>
-    <center><img src=\"http;//img.bestcombats.net/klan/$cl[clanbig].gif\"></center><br><br>";
+    <center><img src=\"http;//" . IMG_PATH . "/klan/$cl[clanbig].gif\"></center><br><br>";
     //if ($user['id'] == 7 || $user['id'] == 2735) {
         if (time() < $siege) {
             echo '<center>Следующая осада Кланового Замка - ' . date('d.m.Y H:i', $siege) . '</center>';

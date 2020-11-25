@@ -2,18 +2,18 @@
 if($is_main!='is') die();
 ?>
 <HTML><HEAD>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <script>
 var main_uid= 'main';
 var delay = 10;		// Каждые n сек. увеличение HP на 1%
 </script>
-<script type="text/javascript" src="http://img.bestcombats.net/js/inf.0.104.js?<?=mt_rand(1436,1293286936)/10000000000?>" charset="utf-8"></script>
-<link rel="stylesheet" href="http://img.bestcombats.net/css/jquery.tooltip.css" />
-<script src="http://img.bestcombats.net/js/lib/jquery.js" type="text/javascript"></script>
-<script src="http://img.bestcombats.net/js/lib/jquery.bgiframe.js" type="text/javascript"></script>
-<script src="http://img.bestcombats.net/js/lib/jquery.dimensions.js" type="text/javascript"></script>
-<script src="http://img.bestcombats.net/js/jquery.tooltip.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?=IMG_PATH?>/js/inf.0.104.js?<?=mt_rand(1436,1293286936)/10000000000?>" charset="utf-8"></script>
+<link rel="stylesheet" href="<?=IMG_PATH?>/css/jquery.tooltip.css" />
+<script src="<?=IMG_PATH?>/js/lib/jquery.js" type="text/javascript"></script>
+<script src="<?=IMG_PATH?>/js/lib/jquery.bgiframe.js" type="text/javascript"></script>
+<script src="<?=IMG_PATH?>/js/lib/jquery.dimensions.js" type="text/javascript"></script>
+<script src="<?=IMG_PATH?>/js/jquery.tooltip.js" type="text/javascript"></script>
 <SCRIPT>
 $(function() {
 $('img').tooltip({
@@ -208,12 +208,12 @@ If($user['sex']==1){
 				}
 				
 				if($user['level']>=$work['nlevel'] and $user['sila']>=$work['nsila'] and $user['lovk']>=$work['nlovk'] and $user['inta']>=$work['ninta'] and $user['vinos']>=$work['nvinos'] and $user['intel']>=$work['nintel'] and $user['mudra']>=$work['nmudra']  and $user['noj']>=$work['noj']  and $user['mec']>=$work['mec']  and $user['topor']>=$work['topor']  and $user['dubina']>=$work['dubina']  and $user['posoh']>=$work['posoh']  and $user['mfire']>=$work['mfire']  and $user['mwater']>=$work['mwater']  and $user['mair']>=$work['mair']  and $user['mearth']>=$work['mearth']  and $user['mlight']>=$work['mlight']  and $user['mgray']>=$work['mgray']  and $user['mdark']>=$work['mdark']){
-					echo "<td><a href=\"?edit=1&obraz=".$work['img']."\"><img src=\"http://img.bestcombats.net/shadow/1/".$work['img']."\" alt=\"$ss\"></a></td>";
+					echo "<td><a href=\"?edit=1&obraz=".$work['img']."\"><img src=\"<?=IMG_PATH?>/shadow/1/".$work['img']."\" alt=\"$ss\"></a></td>";
 				}else{
-					echo "<td><img src=\"http://img.bestcombats.net/shadow/1/b/b-".$work['img']."\" alt=\"$ss\"></td>";		
+					echo "<td><img src=\"<?=IMG_PATH?>/shadow/1/b/b-".$work['img']."\" alt=\"$ss\"></td>";
 				}
 		}else{
-			echo "<td><a href=\"?edit=1&obraz=".$work['img']."\"><img src=\"http://img.bestcombats.net/shadow/1/".$work['img']."\" alt=\"Выбрать этот образ\"></a></td>";
+			echo "<td><a href=\"?edit=1&obraz=".$work['img']."\"><img src=\"<?=IMG_PATH?>/shadow/1/".$work['img']."\" alt=\"Выбрать этот образ\"></a></td>";
 		}
 
 		$i=$i-1;
@@ -230,7 +230,7 @@ If($user['sex']==1){
 			  <TABLE border='0' cellpadding='0' cellspacing='12' ><tr>";
 		while ($shadow_spec_w=mysqli_fetch_array($shadow_spec)){
 			if ($i==9){echo "<TR>";}
-			echo "<td><a href=\"?edit=1&obraz=".$shadow_spec_w['img']."\"><img src=\"http://img.bestcombats.net/shadow/1/".$shadow_spec_w['img']."\" alt=\"Выбрать этот образ\"></a></td>";
+			echo "<td><a href=\"?edit=1&obraz=".$shadow_spec_w['img']."\"><img src=\"<?=IMG_PATH?>/shadow/1/".$shadow_spec_w['img']."\" alt=\"Выбрать этот образ\"></a></td>";
 			$i=$i-1;
 			if ($i==0){echo "</TR>";$i=9;}				
 		}
@@ -397,12 +397,12 @@ If($user['sex']==1){
 				}
 				
 				if($user['level']>=$work['nlevel'] and $user['sila']>=$work['nsila'] and $user['lovk']>=$work['nlovk'] and $user['inta']>=$work['ninta'] and $user['vinos']>=$work['nvinos'] and $user['intel']>=$work['nintel'] and $user['mudra']>=$work['nmudra']  and $user['noj']>=$work['noj']  and $user['mec']>=$work['mec']  and $user['topor']>=$work['topor']  and $user['dubina']>=$work['dubina']  and $user['posoh']>=$work['posoh']  and $user['mfire']>=$work['mfire']  and $user['mwater']>=$work['mwater']  and $user['mair']>=$work['mair']  and $user['mearth']>=$work['mearth']  and $user['mlight']>=$work['mlight']  and $user['mgray']>=$work['mgray']  and $user['mdark']>=$work['mdark']){
-					echo "<td><a href=\"?edit=1&obraz=".$work['img']."\"><img src=\"http://img.bestcombats.net/shadow/0/".$work['img']."\" alt=\"$ss\"></a></td>";
+					echo "<td><a href=\"?edit=1&obraz=".$work['img']."\"><img src=\"<?=IMG_PATH?>/shadow/0/".$work['img']."\" alt=\"$ss\"></a></td>";
 				}else{
-					echo "<td><img src=\"http://img.bestcombats.net/shadow/0/b/b-".$work['img']."\" alt=\"$ss\"></td>";		
+					echo "<td><img src=\"<?=IMG_PATH?>/shadow/0/b/b-".$work['img']."\" alt=\"$ss\"></td>";
 				}
 		}else{
-			echo "<td><a href=\"?edit=1&obraz=".$work['img']."\"><img src=\"http://img.bestcombats.net/shadow/0/".$work['img']."\" alt=\"Выбрать этот образ\"></a></td>";
+			echo "<td><a href=\"?edit=1&obraz=".$work['img']."\"><img src=\"<?=IMG_PATH?>/shadow/0/".$work['img']."\" alt=\"Выбрать этот образ\"></a></td>";
 		}
 
 		$i=$i-1;
@@ -419,7 +419,7 @@ If($user['sex']==1){
 			  <TABLE border='0' cellpadding='0' cellspacing='12' ><tr>";
 		while ($shadow_spec_w=mysqli_fetch_array($shadow_spec)){
 			if ($i==9){echo "<TR>";}
-			echo "<td><a href=\"?edit=1&obraz=".$shadow_spec_w['img']."\"><img src=\"http://img.bestcombats.net/shadow/0/".$shadow_spec_w['img']."\" alt=\"Выбрать этот образ\"></a></td>";
+			echo "<td><a href=\"?edit=1&obraz=".$shadow_spec_w['img']."\"><img src=\"<?=IMG_PATH?>/shadow/0/".$shadow_spec_w['img']."\" alt=\"Выбрать этот образ\"></a></td>";
 			$i=$i-1;
 			if ($i==0){echo "</TR>";$i=9;}				
 		}

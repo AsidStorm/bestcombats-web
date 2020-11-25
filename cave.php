@@ -1065,15 +1065,15 @@ function speakattackmenu(e){
             }
         if ($user['align'] == 2.5) {
             if (isset($dialogs[$bots[$data[1]]]) && $bots[$data[1]] != 11111) {
-                $ret.="<img title=\"$botname".($cnt>1?" ($cnt)":"")."\" ".($y==1 && $x==3?"onclick=\"speakattackmenu(event);\"":"")." width=\"".$imgdata[$x][$y]["wd"]."\" height=\"".$imgdata[$x][$y]["ht"]."\" src=\"http://img.bestcombats.net/cave/mobs/".$user['room']."/$bot.gif\" style=\"position:absolute;left:".$imgdata[$x][$y]["x"][$bn]."px;top:".$imgdata[$x][$y]["y"]."px;".($x==3 && $y==1?"cursor:pointer;":"").($x==3?"z-index:".(99-($y*5)).";":"")."\">";
+                $ret.="<img title=\"$botname".($cnt>1?" ($cnt)":"")."\" ".($y==1 && $x==3?"onclick=\"speakattackmenu(event);\"":"")." width=\"".$imgdata[$x][$y]["wd"]."\" height=\"".$imgdata[$x][$y]["ht"]."\" src=\"<?=IMG_PATH?>/cave/mobs/".$user['room']."/$bot.gif\" style=\"position:absolute;left:".$imgdata[$x][$y]["x"][$bn]."px;top:".$imgdata[$x][$y]["y"]."px;".($x==3 && $y==1?"cursor:pointer;":"").($x==3?"z-index:".(99-($y*5)).";":"")."\">";
             } else {
-                $ret.="<img title=\"$botname".($cnt>1?" ($cnt)":"")."\" ".($y==1 && $x==3?"onclick=\"attackmenu(event);\"":"")." width=\"".$imgdata[$x][$y]["wd"]."\" height=\"".$imgdata[$x][$y]["ht"]."\" src=\"http://img.bestcombats.net/cave/mobs/".$user['room']."/$bot.gif\" style=\"position:absolute;left:".$imgdata[$x][$y]["x"][$bn]."px;top:".$imgdata[$x][$y]["y"]."px;".($x==3 && $y==1?"cursor:pointer;":"").($x==3?"z-index:".(99-($y*5)).";":"")."\">";
+                $ret.="<img title=\"$botname".($cnt>1?" ($cnt)":"")."\" ".($y==1 && $x==3?"onclick=\"attackmenu(event);\"":"")." width=\"".$imgdata[$x][$y]["wd"]."\" height=\"".$imgdata[$x][$y]["ht"]."\" src=\"<?=IMG_PATH?>/cave/mobs/".$user['room']."/$bot.gif\" style=\"position:absolute;left:".$imgdata[$x][$y]["x"][$bn]."px;top:".$imgdata[$x][$y]["y"]."px;".($x==3 && $y==1?"cursor:pointer;":"").($x==3?"z-index:".(99-($y*5)).";":"")."\">";
             }
         } else {
             if (isset($dialogs[$bots[$data[1]]]) && ($bots[$data[1]] == 24 && $user['room'] == 501)) {
-                $ret.="<img title=\"$botname".($cnt>1?" ($cnt)":"")."\" ".($y==1 && $x==3?"onclick=\"speakattackmenu(event);\"":"")." width=\"".$imgdata[$x][$y]["wd"]."\" height=\"".$imgdata[$x][$y]["ht"]."\" src=\"http://img.bestcombats.net/cave/mobs/".$user['room']."/$bot.gif\" style=\"position:absolute;left:".$imgdata[$x][$y]["x"][$bn]."px;top:".$imgdata[$x][$y]["y"]."px;".($x==3 && $y==1?"cursor:pointer;":"").($x==3?"z-index:".(99-($y*5)).";":"")."\">";
+                $ret.="<img title=\"$botname".($cnt>1?" ($cnt)":"")."\" ".($y==1 && $x==3?"onclick=\"speakattackmenu(event);\"":"")." width=\"".$imgdata[$x][$y]["wd"]."\" height=\"".$imgdata[$x][$y]["ht"]."\" src=\"<?=IMG_PATH?>/cave/mobs/".$user['room']."/$bot.gif\" style=\"position:absolute;left:".$imgdata[$x][$y]["x"][$bn]."px;top:".$imgdata[$x][$y]["y"]."px;".($x==3 && $y==1?"cursor:pointer;":"").($x==3?"z-index:".(99-($y*5)).";":"")."\">";
             } else {
-                $ret.="<img title=\"$botname".($cnt>1?" ($cnt)":"")."\" ".($y==1 && $x==3?"onclick=\"attackmenu(event);\"":"")." width=\"".$imgdata[$x][$y]["wd"]."\" height=\"".$imgdata[$x][$y]["ht"]."\" src=\"http://img.bestcombats.net/cave/mobs/".$user['room']."/$bot.gif\" style=\"position:absolute;left:".$imgdata[$x][$y]["x"][$bn]."px;top:".$imgdata[$x][$y]["y"]."px;".($x==3 && $y==1?"cursor:pointer;":"").($x==3?"z-index:".(99-($y*5)).";":"")."\">";
+                $ret.="<img title=\"$botname".($cnt>1?" ($cnt)":"")."\" ".($y==1 && $x==3?"onclick=\"attackmenu(event);\"":"")." width=\"".$imgdata[$x][$y]["wd"]."\" height=\"".$imgdata[$x][$y]["ht"]."\" src=\"<?=IMG_PATH?>/cave/mobs/".$user['room']."/$bot.gif\" style=\"position:absolute;left:".$imgdata[$x][$y]["x"][$bn]."px;top:".$imgdata[$x][$y]["y"]."px;".($x==3 && $y==1?"cursor:pointer;":"").($x==3?"z-index:".(99-($y*5)).";":"")."\">";
             }
         }
         $i+=2;
@@ -1114,7 +1114,7 @@ function speakattackmenu(e){
             break;
           }
         }
-        $ret.="<img title=\"$udata[login]\" width=\"".$imgdata[$x][$y]["wd"]."\" height=\"".$imgdata[$x][$y]["ht"]."\" src=\"http://img.bestcombats.net/shadow/cave_".$udata["shadow"]."\" style=\"position:absolute;left:".$imgdata[$x][$y]["x"][$bn]."px;top:".$imgdata[$x][$y]["y"]."px;".($x==3?"z-index:".(99-($y*5)).";":"")."\">";
+        $ret.="<img title=\"$udata[login]\" width=\"".$imgdata[$x][$y]["wd"]."\" height=\"".$imgdata[$x][$y]["ht"]."\" src=\"<?=IMG_PATH?>/shadow/cave_".$udata["shadow"]."\" style=\"position:absolute;left:".$imgdata[$x][$y]["x"][$bn]."px;top:".$imgdata[$x][$y]["y"]."px;".($x==3?"z-index:".(99-($y*5)).";":"")."\">";
         $i++;
       }
       return $ret;
@@ -1155,10 +1155,10 @@ function speakattackmenu(e){
       if (!isset($imgmap[$obj])) {
         $ret.="
         ".($y==1 && $x==3?"<a href=\"cave.php?useitem=1\">":"")." 
-        <img border=\"0\" title=\"$objects[$obj]\" width=\"$wd\" height=\"$ht\" src=\"http://img.bestcombats.net/cave/objects/".$user['room']."/$obj.gif?1\" style=\"position:absolute;left:{$left}px;top:{$top}px;".($x==3?"z-index:".(99-($y*5)).";":"")."\">
+        <img border=\"0\" title=\"$objects[$obj]\" width=\"$wd\" height=\"$ht\" src=\"<?=IMG_PATH?>/cave/objects/".$user['room']."/$obj.gif?1\" style=\"position:absolute;left:{$left}px;top:{$top}px;".($x==3?"z-index:".(99-($y*5)).";":"")."\">
         ".($y==1 && $x==3?"</a>":"");
       } else {
-        $ret.="<img usemap=\"#" . $imgmap[$obj]['name'] . "\" border=\"0\" title=\"$objects[$obj]\" width=\"$wd\" height=\"$ht\" src=\"http://img.bestcombats.net/cave/objects/".$user['room']."/$obj.gif?1\" style=\"position:absolute;left:{$left}px;top:{$top}px;".($x==3?"z-index:".(99-($y*5)).";":"")."\">";
+        $ret.="<img usemap=\"#" . $imgmap[$obj]['name'] . "\" border=\"0\" title=\"$objects[$obj]\" width=\"$wd\" height=\"$ht\" src=\"<?=IMG_PATH?>/cave/objects/".$user['room']."/$obj.gif?1\" style=\"position:absolute;left:{$left}px;top:{$top}px;".($x==3?"z-index:".(99-($y*5)).";":"")."\">";
         $ret.=$imgmap[$obj]['code'];
       }
       return $ret;      
@@ -1199,10 +1199,10 @@ function speakattackmenu(e){
       if (!isset($imgmap[$obj])) {
         $ret.="
         ".($y==1 && $x==3?"<a href=\"cave.php?useitem=1\">":"")." 
-        <img border=\"0\" title=\"$objects[$obj]\" width=\"$wd\" height=\"$ht\" src=\"http://img.bestcombats.net/cave/objects/".$user['room']."/$obj.gif?1\" style=\"position:absolute;left:{$left}px;top:{$top}px;".($x==3?"z-index:".(99-($y*5)-1).";":"")."\">
+        <img border=\"0\" title=\"$objects[$obj]\" width=\"$wd\" height=\"$ht\" src=\"<?=IMG_PATH?>/cave/objects/".$user['room']."/$obj.gif?1\" style=\"position:absolute;left:{$left}px;top:{$top}px;".($x==3?"z-index:".(99-($y*5)-1).";":"")."\">
         ".($y==1 && $x==3?"</a>":"");
       } else {
-        $ret.="<img usemap=\"#" . $imgmap[$obj]['name'] . "\" border=\"0\" title=\"$objects[$obj]\" width=\"$wd\" height=\"$ht\" src=\"http://img.bestcombats.net/cave/objects/".$user['room']."/$obj.gif?1\" style=\"position:absolute;left:{$left}px;top:{$top}px;".($x==3?"z-index:".(99-($y*5)-1).";":"")."\">";
+        $ret.="<img usemap=\"#" . $imgmap[$obj]['name'] . "\" border=\"0\" title=\"$objects[$obj]\" width=\"$wd\" height=\"$ht\" src=\"<?=IMG_PATH?>/cave/objects/".$user['room']."/$obj.gif?1\" style=\"position:absolute;left:{$left}px;top:{$top}px;".($x==3?"z-index:".(99-($y*5)-1).";":"")."\">";
         $ret.=$imgmap[$obj]['code'];
       }
       return $ret;      
@@ -1227,7 +1227,7 @@ function speakattackmenu(e){
       if ($i==4) {
         if ($map[0][7]) $ret.="<div class=\"lw{$i}2\"></div>";
         if ($map[0][6]) $ret.="<div class=\"lsw{$i}2\"></div>";        
-        if ($map[-1][6]) $ret.="<img width=\"37\" height=\"78\" src=\"http://img.bestcombats.net/cave/mobs/".$user['room']."/".$map[-1][6].".gif\" style=\"position:absolute;left:-20px;top:60px\">";
+        if ($map[-1][6]) $ret.="<img width=\"37\" height=\"78\" src=\"<?=IMG_PATH?>/cave/mobs/".$user['room']."/".$map[-1][6].".gif\" style=\"position:absolute;left:-20px;top:60px\">";
       }
       $wall=$i*2-1;
       $sidewall=$i*2;
@@ -1340,7 +1340,7 @@ function speakattackmenu(e){
         $nocenter=1;
       }
       if ($i==4) {
-        if ($map[7][6]) $ret.="<img width=\"37\" height=\"78\" src=\"http://img.bestcombats.net/cave/mobs/".$user['room']."/".$map[7][6].".gif\" style=\"position:absolute;left:330px;top:60px\">";
+        if ($map[7][6]) $ret.="<img width=\"37\" height=\"78\" src=\"<?=IMG_PATH?>/cave/mobs/".$user['room']."/".$map[7][6].".gif\" style=\"position:absolute;left:330px;top:60px\">";
       }
       $i--;
     }
@@ -1434,7 +1434,7 @@ function speakattackmenu(e){
           $map1[$i][$i2] = 0;
         }
         if ($map1[$i][$i2]) {
-          $ret.="<img src=\"http://img.bestcombats.net/cave/";
+          $ret.="<img src=\"<?=IMG_PATH?>/cave/";
           if (!passablewall($map1[$i][$i2-1])) $ret.="0"; else $ret.="1";
           if (!passablewall($map1[$i-1][$i2])) $ret.="0"; else $ret.="1";
           if (!passablewall($map1[$i][$i2+1])) $ret.="0"; else $ret.="1";
@@ -1541,13 +1541,13 @@ progress_update();
     }
     $wd=floor($usr["hp"]/$usr["maxhp"]*120);
     echo "<tr>
-<td background=\"http://img.bestcombats.net/cave/bg_scroll_05.gif\" align=\"center\">
+<td background=\"<?=IMG_PATH?>/cave/bg_scroll_05.gif\" align=\"center\">
 <a href=\"inf.php?$v[user]\" target=_blank title=\"Информация о $v[login]\">$v[login]</a> [$usr[level]]<a href='inf.php?$v[user]' target='_blank'><img src='/i/inf.gif' border=0></a></td>
-<td background=\"http://img.bestcombats.net/cave/bg_scroll_05.gif\" nowrap style=\"font-size:9px\">
+<td background=\"<?=IMG_PATH?>/cave/bg_scroll_05.gif\" nowrap style=\"font-size:9px\">
 <div style=\"position: relative;padding-left:5px\">
 <table cellspacing=\"0\" cellpadding=\"0\" style='line-height: 1'><td nowrap style=\"font-size:9px\" style=\"position: relative\"><SPAN ".($v["user"]==$user["id"]?"id=\"HP\"":"")." style='position: absolute; left: 5; z-index: 1; font-weight: bold; color: #FFFFFF'>$usr[hp]/$usr[maxhp]</SPAN><img src=\"/i/1green.gif\" alt=\"Уровень жизни\" ".($v["user"]==$user["id"]?"name=\"HP1\"":"")." width=\"$wd\" height=\"9\" ".($v["user"]==$user["id"]?"id=\"HP1\"":"")."><img src=\"/i/misc/bk_life_loose.gif\" alt=\"Уровень жизни\" ".($v["user"]==$user["id"]?"name=\"HP2\"":"")." width=\"".(120-$wd)."\" height=\"9\" ".($v["user"]==$user["id"]?"id=\"HP2\"":"")."></td></table></div></td>
-<td background=\"http://img.bestcombats.net/cave/bg_scroll_05.gif\" align=\"center\"></td>
-<td background=\"http://img.bestcombats.net/cave/bg_scroll_05.gif\" align=\"center\">";
+<td background=\"<?=IMG_PATH?>/cave/bg_scroll_05.gif\" align=\"center\"></td>
+<td background=\"<?=IMG_PATH?>/cave/bg_scroll_05.gif\" align=\"center\">";
 
 if ($v["user"]==$user["id"] && $user["id"]==$user["caveleader"]) echo "<IMG alt=\"Лидер группы\" src=\"/i/misc/lead1.gif\" width=24 height=15><A href=\"#\" onClick=\"findlogin( 'Выберите персонажа которого хотите выгнать','cave.php', 'kill')\"><IMG alt=\"Выгнать супостата\" src=\"/img/podzem/ico_kill_member1.gif\" WIDTH=\"14\" HEIGHT=\"17\"></A>&nbsp;<A href=\"#\" onClick=\"findlogin( 'Выберите персонажа которому хотите передать лидерство','cave.php', 'change')\"><IMG alt=\"Новый царь\" src=\"/img/podzem/ico_change_leader1.gif\" WIDTH=\"14\" HEIGHT=\"17\"></A>";
 echo "</td>

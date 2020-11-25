@@ -3,7 +3,7 @@
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//RU" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<LINK href="http://img.bestcombats.net/css/main.css" type=text/css rel=stylesheet>
+	<LINK href="<?=IMG_PATH?>/css/main.css" type=text/css rel=stylesheet>
 	<META http-equiv=Content-type content="text/html; charset=CP1251">
 	<META http-equiv=Cache-Control content=no-cache>
 	<META http-equiv=PRAGMA content=NO-CACHE>
@@ -26,7 +26,7 @@
 
 <table style='font-size:12px; border:0px; margin:0px; padding:0px;' cellpadding=0 cellspacing=0 border=0>
 	<tr>
-		<td width=124px;><img src='http://img.bestcombats.net/rememberpassword/pict_1.jpg' width=126 height=243 />
+		<td width=124px;><img src='<?=IMG_PATH?>/rememberpassword/pict_1.jpg' width=126 height=243 />
 		<td width=100% valign=top>
 
 				
@@ -99,7 +99,7 @@ else {
 ?>
 </td>
 <td width=107 align=right>
-<img src='http://img.bestcombats.net/rememberpassword/paper1.gif' width=39 height=292 />
+<img src='<?=IMG_PATH?>/rememberpassword/paper1.gif' width=39 height=292 />
 </table>
 <div style='float:left; margin-left:-87px;'></div>
 </div>

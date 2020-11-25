@@ -17,7 +17,7 @@ function smallshowpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
 
     echo "<CENTER>";
    ?>
-    <A HREF="javascript:top.AddToPrivate('<?=$user['login']?>', top.CtrlPress)" target=refreshed><img src="<?=IMGBASE?>/i/lock.gif" width=20 height=15></A><?if($user['align']>0){echo"<img src=\"".IMGBASE."/i/align_".$user['align'].".gif\">";} if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="http://img.bestcombats.net/klan/'.$user['klan'].'.gif">'; } ?><B><?=$user['login']?></B> [<?=$user['level']?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
+    <A HREF="javascript:top.AddToPrivate('<?=$user['login']?>', top.CtrlPress)" target=refreshed><img src="<?=IMGBASE?>/i/lock.gif" width=20 height=15></A><?if($user['align']>0){echo"<img src=\"".IMGBASE."/i/align_".$user['align'].".gif\">";} if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="<?=IMG_PATH?>/klan/'.$user['klan'].'.gif">'; } ?><B><?=$user['login']?></B> [<?=$user['level']?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
     <TABLE cellspacing=0 cellpadding=0 style="  border-top-width: 1px;border-right-width: 1px;border-bottom-width: 1px;border-left-width: 1px;border-top-style: solid;border-right-style: solid;border-bottom-style: solid;border-left-style: solid;border-top-color: #FFFFFF;border-right-color: #666666;border-bottom-color: #666666;border-left-color: #FFFFFF;padding: 2px;">
 <TR>
 <TD>
@@ -1180,14 +1180,14 @@ if($_GET['nap']=="attack" && $user['room']==20){include "magic/cityattack.php";}
 if ($user['room']==20) {
     $hinttop=18;
     $hintright=113;
-	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer;\" id=\"ione\"><img src=\"http://img.bestcombats.net/city/abadon/fon/ap_bg1_1.jpg\" alt=\"\" border=\"0\"/>";
+	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer;\" id=\"ione\"><img src=\"<?=IMG_PATH?>/city/abadon/fon/ap_bg1_1.jpg\" alt=\"\" border=\"0\"/>";
     buildsetnew(0,"abadon/abp_tradehouse",142,74,"Торговый Пост");
     buildsetnew(77,"abadon/ap_tower1",70,50,"Сторожевая Башня");
 	buildsetnew(2005,"abadon/ap_port",140,200,"Портал");
     buildsetnew(9000,"abadon/ap_tower3",70,330,"Храм знаний");
     buildsetnew(0,"abadon/dm_left1",200,10, "Арильские Копи");
     buildsetnew(0,"abadon/dm_right",200,470, "Загадочное место");
-  if (WINTER) echo "<div id=\"snow\"></div><script src=\"http://img.bestcombats.net/js/snow.js\"></script>";
+  if (WINTER) echo "<div id=\"snow\"></div><script src=\"<?=IMG_PATH?>/js/snow.js\"></script>";
 } elseif ($user['room']==21) {
     $hinttop=18;
     $hintright=113;
@@ -1403,9 +1403,9 @@ document.getElementById('buttons_on_image').style.display = 'none';
         ?>
         
          <u>Cейчас в клубе</u>: <?=$onlineS+$onlineSVC+$onlined?> чел.<BR>
-         <img src="http://img.bestcombats.net/city/micro/virtcity.gif"><b>Capital City</b>: <?=$onlineSVC?> чел.<br>
-         <img src="http://img.bestcombats.net/city/micro/suburb.gif"><b>Angels City</b>: <?=$onlineS?> чел.<br>
-         <img src="http://img.bestcombats.net/city/micro/dungeon.gif"><b>Abandoned Plain</b>: <?=$onlined?> чел.<br>
+         <img src="<?=IMG_PATH?>/city/micro/virtcity.gif"><b>Capital City</b>: <?=$onlineSVC?> чел.<br>
+         <img src="<?=IMG_PATH?>/city/micro/suburb.gif"><b>Angels City</b>: <?=$onlineS?> чел.<br>
+         <img src="<?=IMG_PATH?>/city/micro/dungeon.gif"><b>Abandoned Plain</b>: <?=$onlined?> чел.<br>
 
 
     <?php

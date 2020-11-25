@@ -111,7 +111,7 @@
 <table width="100" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-	<TD align=center><?if($user['align']>0){echo"<img src=\"".IMGBASE."/i/align_".$user['align'].".gif\">";} if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="http://img.bestcombats.net/klan/'.$user['klan'].'.gif">'; }if($user['deal']>0){ echo"<img src=\"".IMGBASE."/i/deal.gif\">"; } ?><B><?=$user['login']?></B> [<?=$user['level']?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
+	<TD align=center><?if($user['align']>0){echo"<img src=\"".IMGBASE."/i/align_".$user['align'].".gif\">";} if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="<?=IMG_PATH?>/klan/'.$user['klan'].'.gif">'; }if($user['deal']>0){ echo"<img src=\"".IMGBASE."/i/deal.gif\">"; } ?><B><?=$user['login']?></B> [<?=$user['level']?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
 <TABLE  border=0 cellSpacing=1 cellPadding=0 width="100%">
 <TBODY>
 <TR vAlign=top>
@@ -437,7 +437,7 @@ if($_GET['d']=='9'){print"&bull;<A href='main.php?act=none'> Спасибо... �
 <table width="100" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td>
-	<TD align=center><?if($lic['align']>0){echo"<img src=\"".IMGBASE."/i/align_".$lic['align'].".gif\">";} if ($lic['klan'] <> '') { echo '<img title="'.$lic['klan'].'" src="http://img.bestcombats.net/klan/'.$lic['klan'].'.gif">'; }if($lic['deal']>0){ echo"<img src=\"".IMGBASE."/i/deal.gif\">"; } ?><B><?=$lic['login']?></B> [<?=$lic['level']?>]<a href=inf.php?<?=$lic['id']?> target=_blank><IMG SRC=/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$lic['login']?>"></a>
+	<TD align=center><?if($lic['align']>0){echo"<img src=\"".IMGBASE."/i/align_".$lic['align'].".gif\">";} if ($lic['klan'] <> '') { echo '<img title="'.$lic['klan'].'" src="<?=IMG_PATH?>/klan/'.$lic['klan'].'.gif">'; }if($lic['deal']>0){ echo"<img src=\"".IMGBASE."/i/deal.gif\">"; } ?><B><?=$lic['login']?></B> [<?=$lic['level']?>]<a href=inf.php?<?=$lic['id']?> target=_blank><IMG SRC=/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$lic['login']?>"></a>
 <TABLE  border=0 cellSpacing=1 cellPadding=0 width="100%">
 <TBODY>
 <TR vAlign=top>

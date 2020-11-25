@@ -7,7 +7,7 @@
     if ($user['room'] != 28) header("Location: main.php");
 ?>
 <HTML><HEAD>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
@@ -85,8 +85,8 @@ if ($user['klan'] && $user['align']!=2.5 && $user['align']!=2.9 && $user['align'
             while($clan=mysqli_fetch_array($data)) {
                 echo "<form action=\"\" method=\"POST\">
                 <TR><TD>",$clan['date'],"</TD><TD>",$clan['name'],"</TD><TD>",$clan['abr'],"</TD>
-                <TD>",nick2($clan['owner']),"</TD><TD><img src='http://img.bestcombats.net/klan/",$clan['sznak'],".gif'></TD>
-                <TD><img src='http://img.bestcombats.net/klan/",$clan['bznak'],".gif'></TD><TD><img src='i/align_",$clan['align'],".gif'></TD>
+                <TD>",nick2($clan['owner']),"</TD><TD><img src='<?=IMG_PATH?>/klan/",$clan['sznak'],".gif'></TD>
+                <TD><img src='<?=IMG_PATH?>/klan/",$clan['bznak'],".gif'></TD><TD><img src='i/align_",$clan['align'],".gif'></TD>
                 <TD><a href='",$clan['http'],"'>",$clan['http'],"</a></TD><TD>",$clan['descr'],"</TD>
                 <input name=\"name\" type=\"hidden\" value=\"".$clan['name']."\">
                 <input name=\"abr\" type=\"hidden\" value=\"".$clan['abr']."\">

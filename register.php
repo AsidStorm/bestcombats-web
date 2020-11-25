@@ -41,7 +41,7 @@ if ($_POST['add'] && $_GET['edit']) {
 
        mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$user[id]','Заклятие молчания',".(time()+3600).",2);");
        reportadms("<br><b>$user[login]</b>: спам в инфе", "Комментатор");
-       addch("<img src=http://img.bestcombats.net/pbuttons/sleep.gif> Комментатор наложил заклятие молчания на &quot;$user[login]&quot;, сроком 60 мин. Причина: РВС.");
+       addch("<img src=<?=IMG_PATH?>/pbuttons/sleep.gif> Комментатор наложил заклятие молчания на &quot;$user[login]&quot;, сроком 60 мин. Причина: РВС.");
      }
      mq("UPDATE `users` SET  `city` = '".db_escape_string($_POST['city2'])."', `icq` = '".db_escape_string($_POST['icq'])."',
                  `http` = '".db_escape_string($_POST['homepage'])."', `info` = '".$_POST['hobby']."', `lozung` = '".db_escape_string($_POST['about'])."',
@@ -220,10 +220,10 @@ if(!empty($ref)){
                 ?>
 <HTML><HEAD><TITLE>BestcombatS</TITLE>
 <META content="text/html; charset=windows-1251" http-equiv=Content-type>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/reg/css/reg.css">
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
-<link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
-<script type="text/javascript" src="http://img.bestcombats.net/reg/js/jquery-1.5.1.min.js"></script>
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/reg/css/reg.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
+<link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">
+<script type="text/javascript" src="<?=IMG_PATH?>/reg/js/jquery-1.5.1.min.js"></script>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
 <script>
@@ -375,7 +375,7 @@ $(function() {
 </HEAD>
 <BODY aLink=#000000 bgColor=#000000 leftMargin=0 link=#000000 topMargin=0
 vLink=#333333 marginheight="0" marginwidth="0" 0>
-      <TABLE background="http://img.bestcombats.net/reg/regbg.jpg" width=990 align="center" cellPadding=0 cellSpacing=0><TBODY>
+      <TABLE background="<?=IMG_PATH?>/reg/regbg.jpg" width=990 align="center" cellPadding=0 cellSpacing=0><TBODY>
         <TR>
           <TD style="padding:200px 270px 0px 180px" height="1050" vAlign=top>
           <div qstyle="position:relative">

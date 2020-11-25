@@ -15,7 +15,7 @@ function nick21 ($id) {
 
     if($user[0]) {
     ?>
-    <img src="<?=IMGBASE?>/i/align_<?echo ($user['align']>0 ? $user['align']:"0");?>.gif"><?php if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="http://img.bestcombats.net/klan/'.$user['klan'].'.gif">'; }?><B><?=$user['login']?></B> [<?
+    <img src="<?=IMGBASE?>/i/align_<?echo ($user['align']>0 ? $user['align']:"0");?>.gif"><?php if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="<?=IMG_PATH?>/klan/'.$user['klan'].'.gif">'; }?><B><?=$user['login']?></B> [<?
     if (id==2236) echo "?"; else echo $user['level'];
     ?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
 <?
@@ -198,7 +198,7 @@ if (city!="") {
 s+='<img src="<?=IMGBASE?>/i/misc/forum/fo'+city+'.gif" width=17 height=15>';
 }
 s+=' <IMG SRC=<?=IMGBASE?>/i/align'+align+'.gif WIDTH=12 HEIGHT=15>';
-if (klan!='') {s+='<A HREF="/encicl/klan/'+klan+'.html" target=_blank><IMG SRC="http://img.bestcombats.net/klan/'+klan+'.gif" WIDTH=24 HEIGHT=15 ALT=""></A>'}
+if (klan!='') {s+='<A HREF="/encicl/klan/'+klan+'.html" target=_blank><IMG SRC="<?=IMG_PATH?>/klan/'+klan+'.gif" WIDTH=24 HEIGHT=15 ALT=""></A>'}
 s+='<a href="javascript:top.AddTo(\''+login+'\')">'+login+'</a>['+level+']<a href=/inf.pl?'+id+' target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Информация о персонаже"></a>';
 s+='</td><td bgcolor=efeded nowrap>';
 if (city!="") {
@@ -214,7 +214,7 @@ s+='<img src="<?=IMGBASE?>/i/misc/forum/fo'+city+'.gif" width=17 height=15>';
 }
 if (align == "") align="0";
 s+=' <IMG SRC=<?=IMGBASE?>/i/align'+align+'.gif WIDTH=12 HEIGHT=15>';
-if (klan!='') {s+='<A HREF="/encicl/klan/'+klan+'.html" target=_blank><IMG SRC="http://img.bestcombats.net/klan/'+klan+'.gif" WIDTH=24 HEIGHT=15 ALT=""></A>'}
+if (klan!='') {s+='<A HREF="/encicl/klan/'+klan+'.html" target=_blank><IMG SRC="<?=IMG_PATH?>/klan/'+klan+'.gif" WIDTH=24 HEIGHT=15 ALT=""></A>'}
 if (level) {
 if (nlevel==0) {
 nlevel=1; //s="<BR>"+s;
@@ -237,7 +237,7 @@ var s='';
 s+='<a href="javascript:top.AddToPrivate(\''+login+'\',true)"><IMG SRC=<?=IMGBASE?>/i/lock.gif WIDTH=20 HEIGHT=15 ALT="Приватно"></a>';
 s+=' <IMG SRC=<?=IMGBASE?>/i/align'+align+'.gif WIDTH=12 HEIGHT=15>';
 if (klan!='') {
-s+='<A HREF="/encicl/klan/'+klan+'.html" target=_blank><IMG SRC="http://img.bestcombats.net/klan/'+klan+'.gif" WIDTH=24 HEIGHT=15 ALT=""></A>'
+s+='<A HREF="/encicl/klan/'+klan+'.html" target=_blank><IMG SRC="<?=IMG_PATH?>/klan/'+klan+'.gif" WIDTH=24 HEIGHT=15 ALT=""></A>'
 }
 s+='<a href="javascript:top.AddTo(\''+login+'\')">'+login+'</a>['+level+']<a href=/inf.pl?'+id+' target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Информация о персонаже"></a>';
 document.write(s+'<BR>');
@@ -246,7 +246,7 @@ function drw(name, id, level, align, klan, img, sex)
 {
 var s="";
 if (align!="0") s+="<A HREF='"+getalignurl(align)+"' target=_blank><IMG SRC='<?=IMGBASE?>/i/align_"+align+".gif' WIDTH=12 HEIGHT=15 ALT=\""+getalign(align)+"\"></A>";
-if (klan) s+="<A HREF='claninf.php?"+klan+"' target=_blank><IMG SRC='http://img.bestcombats.net/klan/"+klan+".gif' WIDTH=24 HEIGHT=15 ALT=''></A>";
+if (klan) s+="<A HREF='claninf.php?"+klan+"' target=_blank><IMG SRC='<?=IMG_PATH?>/klan/"+klan+".gif' WIDTH=24 HEIGHT=15 ALT=''></A>";
 s+="<B>"+name+"</B>";
 if (level!=-1) s+=" ["+level+"]";
 if (id!=-1 && !img) s+="<A HREF='/inf.php?"+id+"' target='_blank'><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT='Инф. о "+name+"'></A>";

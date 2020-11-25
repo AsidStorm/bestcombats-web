@@ -8,7 +8,7 @@
 	
 ?>
 <HTML><HEAD>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 </HEAD>
 <body leftmargin=5 topmargin=5 marginwidth=0 marginheight=0 bgcolor=#e2e0e0 >
 <table align=right><tr><td><INPUT TYPE="button" onclick="location.href='../main.php';" value="Вернуться" title="Вернуться"></td></tr></table>
@@ -34,7 +34,7 @@
 if ($_POST['action']!="") {
 switch ($_POST['action']) {			
 case "sysmsg":
-systemmsg('<font color=\"#CB0000\"><b>Внимание!</b> '.($_POST['msg']).' (с Ув. <img src=http://img.bestcombats.net/radio/radiodj.png></a><b>DJ '.$user["login"].'</b>)</font>');
+systemmsg('<font color=\"#CB0000\"><b>Внимание!</b> '.($_POST['msg']).' (с Ув. <img src=<?=IMG_PATH?>/radio/radiodj.png></a><b>DJ '.$user["login"].'</b>)</font>');
 break;
 }
 }

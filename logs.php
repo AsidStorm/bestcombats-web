@@ -21,7 +21,7 @@ function lognick4 ($id, $st) {
  ?>
 <link rel=stylesheet type="text/css" href="i/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
-<link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
+<link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>

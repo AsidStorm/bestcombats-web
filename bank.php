@@ -24,10 +24,10 @@ ob_start("ob_gzhandler");
             top.frames['main'].location='city.php?'+s+'tmp='+Math.random()
         }
     </script>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
-<SCRIPT src='http://img.bestcombats.net/js/commoninf.js'></SCRIPT>
-<SCRIPT LANGUAGE="JavaScript1.2" SRC="http://img.bestcombats.net/js/keypad.js"></SCRIPT>
+<SCRIPT src='<?=IMG_PATH?>/js/commoninf.js'></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="<?=IMG_PATH?>/js/keypad.js"></SCRIPT>
 <style type="text/css">
 <!--
 .btkey {
@@ -45,7 +45,7 @@ ob_start("ob_gzhandler");
 <body bgcolor=e2e0e0 style="margin-left:10px">
 <TABLE width=100%>
 <TR><TD><H3>Банк</TD>
-<link href="http://img.bestcombats.net/js/design6.css" rel="stylesheet" type="text/css">
+<link href="<?=IMG_PATH?>/js/design6.css" rel="stylesheet" type="text/css">
 <td align=right width=60><INPUT TYPE=button value="Вернуться" onClick="returned2('strah=3&');"></td>
 </tr>
 </table>

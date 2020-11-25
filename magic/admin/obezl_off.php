@@ -37,7 +37,7 @@
                         }
                         db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
                         db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
-                        addch("<img src=http://img.bestcombats.net/pbuttons/obezl_off.gif> $messch");
+                        addch("<img src=<?=IMG_PATH?>/pbuttons/obezl_off.gif> $messch");
                         echo "<font color=red><b>Успешно снято заклятие обезличивания с персонажа \"$target\"</b></font>";
                     }
                     else {

@@ -17,7 +17,7 @@ function expa ($str) {
 ?>
 <HTML>
 <HEAD>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 <meta http-equiv=PRAGMA content=NO-CACHE>
@@ -102,7 +102,7 @@ Hint3Name='';
 <body leftmargin=5 topmargin=5 marginwidth=0 marginheight=0 bgcolor=#e2e0e0 >
 <table align=right><tr><td><INPUT TYPE="button" class=btn onclick="location.href='dealer.php';" value="Обновить" title="Обновить"> 
 <INPUT TYPE="button" class=btn onclick="location.href='../main.php';" value="Вернуться" title="Вернуться"></table>
-<center><img src=http://img.bestcombats.net/align/align_5.gif><b><?echo $user['login']?></b>[<?echo $user['level']?>]<a href=/inf.php?<?echo $user['id']?> target="_blank"><img src=http://img.bestcombats.net/chat/inf.gif></a></center>
+<center><img src=<?=IMG_PATH?>/align/align_5.gif><b><?echo $user['login']?></b>[<?echo $user['level']?>]<a href=/inf.php?<?echo $user['id']?> target="_blank"><img src=<?=IMG_PATH?>/chat/inf.gif></a></center>
 </HEAD>
 <?
 echo "<div align=center id=hint3></div>";

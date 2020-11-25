@@ -7,7 +7,7 @@
     header("Cache-Control: no-cache");
 ?>
 <HTML><HEAD>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 <meta http-equiv=PRAGMA content=NO-CACHE>
@@ -51,7 +51,7 @@ if($i==1){echo"<center>Список игроков которых Вы прив�
 
 
                         if ($row['online']>0) {
-                            echo '<A HREF="javascript:top.AddToPrivate(\'',nick7($row['id']),'\', top.CtrlPress)" target=refreshed><img src="http://img.bestcombats.net/chat/lock.gif" width=20 height=15></A>';
+                            echo '<A HREF="javascript:top.AddToPrivate(\'',nick7($row['id']),'\', top.CtrlPress)" target=refreshed><img src="<?=IMG_PATH?>/chat/lock.gif" width=20 height=15></A>';
                             nick2($row['id']);
                             if ($row['id'] == $user['deal']) {
                                 echo ' - '.$row['status'].'';
@@ -60,7 +60,7 @@ if($i==1){echo"<center>Список игроков которых Вы прив�
                             echo ' - <i>',$rrm,'</i><BR>';
                         }
                         if ($row['online']<1) {
-                            echo '<font color=gray><img src="http://img.bestcombats.net/chat/offline.gif" width=20 height=15 alt="Нет в клубе">';
+                            echo '<font color=gray><img src="<?=IMG_PATH?>/chat/offline.gif" width=20 height=15 alt="Нет в клубе">';
                             nick2($row['id']);
                             if ($row['id'] == $user['deal']) {
                                 echo ' - ',$row['status'],'';
@@ -85,7 +85,7 @@ if($i==1){echo"<center>Список игроков которых Вы прив�
 11-го уровня Вы получаете еще <font color="#9d9f06">25</font> екр.<br>
 12-го уровня Вы получаете еще <font color="#9d9f06">50</font> екр.<br>
 
-<IMG src="http://img.bestcombats.net/ref/ref.gif" width="160" height="150"><br>
+<IMG src="<?=IMG_PATH?>/ref/ref.gif" width="160" height="150"><br>
 
 Ваша ссылка на регистрацию новых игроков: <b>http://bestcombats.net/r<?echo $user["id"]?></b><br>
 <Br></div></TD>

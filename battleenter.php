@@ -321,7 +321,7 @@ if ($user["room"]==56) {
       $r=mq("select winner, count(id) as cid from fieldlogs where room='72' and winner>0 group by winner order by cid desc limit 0, 10");
       while ($rec=mysqli_fetch_assoc($r)) {
         echo "<tr><td width=\"30\"><b>$rec[cid]</b></td><td>".fullnick($rec["winner"])."</td></tr>";
-      }                                                                 //".($user["klan"]?"<img title=\"$user[klan]\" src=\"http://img.bestcombats.net/klan/$user[klan].gif">":"")."
+      }                                                                 //".($user["klan"]?"<img title=\"$user[klan]\" src=\"<?=IMG_PATH?>/klan/$user[klan].gif">":"")."
       echo "</table>";
 
       function fieldrow($rec) {

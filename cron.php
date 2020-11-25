@@ -134,7 +134,7 @@ $tme1=getmicrotime();
       while ($rec=mysqli_fetch_assoc($r)) {
         if($lors) $lors .= ", ";
         $lors.="<img src=\"i/align_".($rec['align']>0 ? $rec['align']:"0").".gif\">";
-        if ($rec['klan'] <> '') $lors.='<img title="'.$rec['klan'].'" src="http://img.bestcombats.net/klan/'.$rec['klan'].'.gif">';
+        if ($rec['klan'] <> '') $lors.='<img title="'.$rec['klan'].'" src="<?=IMG_PATH?>/klan/'.$rec['klan'].'.gif">';
         $lors.= "<B>$rec[login]</B> [$rec[level]]<a href=inf.php?$rec[id] target=_blank><IMG SRC=i/inf.gif WIDTH=12 HEIGHT=11 ALT=\"Инф. о $rec[login]\"></a>";
       }           
       // формируем лог

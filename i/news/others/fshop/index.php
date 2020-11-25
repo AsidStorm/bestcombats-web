@@ -409,137 +409,137 @@
 <td class=medium>9</td>
 <td class=medium>21</td></tr>
 <tr bgcolor=#f1f1f1 align=center><td>-</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design1.gif" alt=""><br>трава 1<br>Цена: 0,1 кр.</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design2.gif" alt=""><br>трава 2<br>Цена: 0,3 кр.</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design3.gif" alt=""><br>трава 3<br>Цена: 0,5 кр.</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design4.gif" alt=""><br>трава 4<br>Цена: 1 кр.</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design5.gif" alt=""><br>трава 5<br>Цена: 5 кр.</td></tr>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/f_design1.gif" alt=""><br>трава 1<br>Цена: 0,1 кр.</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/f_design2.gif" alt=""><br>трава 2<br>Цена: 0,3 кр.</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/f_design3.gif" alt=""><br>трава 3<br>Цена: 0,5 кр.</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/f_design4.gif" alt=""><br>трава 4<br>Цена: 1 кр.</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/f_design5.gif" alt=""><br>трава 5<br>Цена: 5 кр.</td></tr>
 
 <!--Тюльпаны-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Тюльпан</b><br><img src="http://img.bestcombats.net/i/sh/f_tulip.gif" alt=""><br>Цена: 5 кр.<br>Срок жизни: 3 дня</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip3.gif" alt="Букет тюльпанов 3"><br>Цена: 15,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip5.gif" alt="Букет тюльпанов 5"><br>Цена: 25,3 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip7.gif" alt="Букет тюльпанов 7"><br>Цена: 35,5 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +7</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip9.gif" alt="Букет тюльпанов 9"><br>Цена: 46 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +9<br>• Мф. увертывания (%): +1</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip21.gif" alt="Букет тюльпанов 21"><br>Цена: 110 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +21<br>• Мф. увертывания (%): +5</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Тюльпан</b><br><img src="<?=IMG_PATH?>/i/sh/f_tulip.gif" alt=""><br>Цена: 5 кр.<br>Срок жизни: 3 дня</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/tulip3.gif" alt="Букет тюльпанов 3"><br>Цена: 15,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/tulip5.gif" alt="Букет тюльпанов 5"><br>Цена: 25,3 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +5</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/tulip7.gif" alt="Букет тюльпанов 7"><br>Цена: 35,5 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +7</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/tulip9.gif" alt="Букет тюльпанов 9"><br>Цена: 46 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +9<br>• Мф. увертывания (%): +1</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/tulip21.gif" alt="Букет тюльпанов 21"><br>Цена: 110 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +21<br>• Мф. увертывания (%): +5</td></tr>
 
 <!--Нарциссы-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Нарцисс</b><br><img src="http://img.bestcombats.net/i/sh/f_narcissus.gif" alt=""><br>Цена: 5 кр.<br>Срок жизни: 5 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus3.gif" alt="Букет нарциссов 3"><br>Цена: 15,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus5.gif" alt="Букет нарциссов 5"><br>Цена: 25,3 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus7.gif" alt="Букет нарциссов 7"><br>Цена: 35,5 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +7 </td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus9.gif" alt="Букет нарциссов 9"><br>Цена: 46 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +9<br>• Мф. против увертывания (%): +2</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus21.gif" alt="Букет нарциссов 21"><br>Цена: 110 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +21<br>• Мф. против увертывания (%): +5</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Нарцисс</b><br><img src="<?=IMG_PATH?>/i/sh/f_narcissus.gif" alt=""><br>Цена: 5 кр.<br>Срок жизни: 5 дней</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/narcissus3.gif" alt="Букет нарциссов 3"><br>Цена: 15,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/narcissus5.gif" alt="Букет нарциссов 5"><br>Цена: 25,3 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +5</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/narcissus7.gif" alt="Букет нарциссов 7"><br>Цена: 35,5 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +7 </td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/narcissus9.gif" alt="Букет нарциссов 9"><br>Цена: 46 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +9<br>• Мф. против увертывания (%): +2</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/narcissus21.gif" alt="Букет нарциссов 21"><br>Цена: 110 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +21<br>• Мф. против увертывания (%): +5</td></tr>
 
 <!--Хризантемы-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Хризантема</b><br><img src="http://img.bestcombats.net/i/sh/f_chrysanthemum.gif" alt=""><br>Цена: 7 кр.<br>Срок жизни: 3 дня</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum3.gif" alt="Букет хризантем 3"><br>Цена: 21,1 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum5.gif" alt="Букет хризантем 5"><br>Цена: 35,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum7.gif" alt="Букет хризантем 7"><br>Цена: 49,5 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum9.gif" alt="Букет хризантем 9"><br>Цена: 64 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +12<br>• Мф. критического удара (%): +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum21.gif" alt="Букет хризантем 21"><br>Цена: 152 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +24<br>• Мф. критического удара (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Хризантема</b><br><img src="<?=IMG_PATH?>/i/sh/f_chrysanthemum.gif" alt=""><br>Цена: 7 кр.<br>Срок жизни: 3 дня</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/chrysanthemum3.gif" alt="Букет хризантем 3"><br>Цена: 21,1 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/chrysanthemum5.gif" alt="Букет хризантем 5"><br>Цена: 35,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/chrysanthemum7.gif" alt="Букет хризантем 7"><br>Цена: 49,5 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +10</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/chrysanthemum9.gif" alt="Букет хризантем 9"><br>Цена: 64 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +12<br>• Мф. критического удара (%): +5</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/chrysanthemum21.gif" alt="Букет хризантем 21"><br>Цена: 152 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +24<br>• Мф. критического удара (%): +10</td></tr>
 
 <!--Гортензии-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Гортензия</b><br><img src="http://img.bestcombats.net/i/sh/f_hydrangea.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 10 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea3.gif" alt="Букет гортензий 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +7</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea5.gif" alt="Букет гортензий 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +9</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea7.gif" alt="Букет гортензий 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +11</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea9.gif" alt="Букет гортензий 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +13<br>• Мф. увертывания (%): +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea21.gif" alt="Букет гортензий 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +25<br>• Мф. увертывания (%): +10<br>• Мф. против увертывания (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Гортензия</b><br><img src="<?=IMG_PATH?>/i/sh/f_hydrangea.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 10 дней</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/hydrangea3.gif" alt="Букет гортензий 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +7</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/hydrangea5.gif" alt="Букет гортензий 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +9</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/hydrangea7.gif" alt="Букет гортензий 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +11</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/hydrangea9.gif" alt="Букет гортензий 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +13<br>• Мф. увертывания (%): +10</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/hydrangea21.gif" alt="Букет гортензий 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +25<br>• Мф. увертывания (%): +10<br>• Мф. против увертывания (%): +10</td></tr>
 
 <!--Жёлтые розы-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Желтая роза</b><br><img src="http://img.bestcombats.net/i/sh/f_yrose.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 7 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose3.gif" alt="Букет желтых роз 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +7</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose5.gif" alt="Букет желтых роз 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +9</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose7.gif" alt="Букет желтых роз 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +11</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose9.gif" alt="Букет желтых роз 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +13<br>• Мф. против критического удара (%): +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose21.gif" alt="Букет желтых роз 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +25<br>• Мф. против критического удара (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Желтая роза</b><br><img src="<?=IMG_PATH?>/i/sh/f_yrose.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 7 дней</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/yrose3.gif" alt="Букет желтых роз 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +7</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/yrose5.gif" alt="Букет желтых роз 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +9</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/yrose7.gif" alt="Букет желтых роз 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +11</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/yrose9.gif" alt="Букет желтых роз 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +13<br>• Мф. против критического удара (%): +5</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/yrose21.gif" alt="Букет желтых роз 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +25<br>• Мф. против критического удара (%): +10</td></tr>
 
 <!--Лотосы-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Лотос</b><br><img src="http://img.bestcombats.net/i/sh/f_lotus.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 5 дней</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_3sdcfse.gif" alt="Букет лотосов 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_5.gif" alt="Букет лотосов 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +5</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_7vsw.gif" alt="Букет лотосов 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +4<br><br>• Максимальное наносимое повреждение: +8<br>• Мф. увертывания (%): +10</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_9verg.gif" alt="Букет лотосов 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +15<br>• Мф. увертывания (%): +10</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_21svs.gif" alt="Лотос"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +20<br>• Мф. увертывания (%): +15<br><br>• Мф. против увертывания (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Лотос</b><br><img src="<?=IMG_PATH?>/i/sh/f_lotus.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 5 дней</td>
+<td><img src="<?=IMG_PATH?>/i/sh/fp_lotus_3sdcfse.gif" alt="Букет лотосов 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
+<td><img src="<?=IMG_PATH?>/i/sh/fp_lotus_5.gif" alt="Букет лотосов 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +5</td>
+<td><img src="<?=IMG_PATH?>/i/sh/fp_lotus_7vsw.gif" alt="Букет лотосов 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +4<br><br>• Максимальное наносимое повреждение: +8<br>• Мф. увертывания (%): +10</td>
+<td><img src="<?=IMG_PATH?>/i/sh/fp_lotus_9verg.gif" alt="Букет лотосов 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +15<br>• Мф. увертывания (%): +10</td>
+<td><img src="<?=IMG_PATH?>/i/sh/fp_lotus_21svs.gif" alt="Лотос"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +20<br>• Мф. увертывания (%): +15<br><br>• Мф. против увертывания (%): +10</td></tr>
 
 <!--Ландыши-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Ландыш</b><br><img src="http://img.bestcombats.net/i/sh/fp_landish1.gif" alt=""><br>Цена: 8 кр.<br>Срок жизни: 3 дня</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_landish3sdfsdf.gif" alt="Букет ландышей 3"><br>Цена: 24,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_landish5.gif" alt="Букет ландышей 5"><br>Цена: 40,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +5</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_landish7dv9.gif" alt="Букет ландышей 7"><br>Цена: 56,5 кр.<br>• Минимальное наносимое повреждение: +4<br><br>• Максимальное наносимое повреждение: +8<br>• Мф. против критического удара (%): +5</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_landish9sd5qx.gif" alt="Букет ландышей 9"><br>Цена: 73 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +10<br>• Мф. против критического удара (%): +5<br><br>• Мф. против увертывания (%): +10</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_landish21d348j.gif" alt="Букет ландышей 21"><br>Цена: 173 кр.<br>• Минимальное наносимое повреждение: +7<br>• Максимальное наносимое повреждение: +15<br><br>• Мф. против критического удара (%): +15<br><br>• Мф. против увертывания (%): +15</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Ландыш</b><br><img src="<?=IMG_PATH?>/i/sh/fp_landish1.gif" alt=""><br>Цена: 8 кр.<br>Срок жизни: 3 дня</td>
+<td><img src="<?=IMG_PATH?>/i/sh/fp_landish3sdfsdf.gif" alt="Букет ландышей 3"><br>Цена: 24,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
+<td><img src="<?=IMG_PATH?>/i/sh/fp_landish5.gif" alt="Букет ландышей 5"><br>Цена: 40,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +5</td>
+<td><img src="<?=IMG_PATH?>/i/sh/fp_landish7dv9.gif" alt="Букет ландышей 7"><br>Цена: 56,5 кр.<br>• Минимальное наносимое повреждение: +4<br><br>• Максимальное наносимое повреждение: +8<br>• Мф. против критического удара (%): +5</td>
+<td><img src="<?=IMG_PATH?>/i/sh/fp_landish9sd5qx.gif" alt="Букет ландышей 9"><br>Цена: 73 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +10<br>• Мф. против критического удара (%): +5<br><br>• Мф. против увертывания (%): +10</td>
+<td><img src="<?=IMG_PATH?>/i/sh/fp_landish21d348j.gif" alt="Букет ландышей 21"><br>Цена: 173 кр.<br>• Минимальное наносимое повреждение: +7<br>• Максимальное наносимое повреждение: +15<br><br>• Мф. против критического удара (%): +15<br><br>• Мф. против увертывания (%): +15</td></tr>
 
 <!--Магнолии-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Магнолия</b><br><img src="http://img.bestcombats.net/i/sh/f_magnolia.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 7 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia3dg3f.gif" alt="Букет магнолий 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia5.gif" alt="Букет магнолий 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +7</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia7cvs9.gif" alt="Букет магнолий 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia9v34t.gif" alt="Букет магнолий 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +15<br>• Мф. увертывания (%): +15</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia21gew3.gif" alt="Букет магнолий 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +25<br>• Мф. увертывания (%): +15</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Магнолия</b><br><img src="<?=IMG_PATH?>/i/sh/f_magnolia.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 7 дней</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_magnolia3dg3f.gif" alt="Букет магнолий 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +5</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_magnolia5.gif" alt="Букет магнолий 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +7</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_magnolia7cvs9.gif" alt="Букет магнолий 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +10</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_magnolia9v34t.gif" alt="Букет магнолий 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +15<br>• Мф. увертывания (%): +15</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_magnolia21gew3.gif" alt="Букет магнолий 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +25<br>• Мф. увертывания (%): +15</td></tr>
 
 <!--Лилии-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Лилия</b><br><img src="http://img.bestcombats.net/i/sh/f_lillyp.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 7 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp3.gif" alt="Букет лилий 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp5.gif" alt="Букет лилий 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp7lgfdd.gif" alt="Букет лилий 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp9.gif" alt="Букет лилий 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +4<br><br>• Максимальное наносимое повреждение: +14<br>• Мф. критического удара (%): +10<br><br>• Мф. увертывания (%): +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp21mxx92.gif" alt="Букет лилий 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +17<br>• Мф. критического удара (%): +20<br><br>• Мф. увертывания (%): +20</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Лилия</b><br><img src="<?=IMG_PATH?>/i/sh/f_lillyp.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 7 дней</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_lillyp3.gif" alt="Букет лилий 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_lillyp5.gif" alt="Букет лилий 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +5</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_lillyp7lgfdd.gif" alt="Букет лилий 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +10</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_lillyp9.gif" alt="Букет лилий 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +4<br><br>• Максимальное наносимое повреждение: +14<br>• Мф. критического удара (%): +10<br><br>• Мф. увертывания (%): +10</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_lillyp21mxx92.gif" alt="Букет лилий 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +17<br>• Мф. критического удара (%): +20<br><br>• Мф. увертывания (%): +20</td></tr>
 
 <!--Камелии-->
 
 <tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Камелия</b><br><img src="http://angelscity.combats.ru/i/f_sasanqua.gif" alt=""><br>Цена: 7 кр.<br>Срок жизни: 5 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki3ki3.gif" alt="Букет камелий 3"><br>Цена: 21,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki5.gif" alt="Букет камелий 5"><br>Цена: 35,3 кр.<br>• Минимальное наносимое повреждение: +6<br>• Максимальное наносимое повреждение: 6</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki7.gif" alt="Букет камелий 7"><br>Цена: 50 кр.<br>• Минимальное наносимое повреждение: +4<br>• Максимальное наносимое повреждение: +8</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki9.gif" alt="Букет камелий 9"><br>Цена: 68 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +10<br>• Мф. критического удара (%): +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki21mcmk4.gif" alt="Букет камелий 21"><br>Цена: 152 кр.><br>• Минимальное наносимое повреждение: +15<br><br>• Максимальное наносимое повреждение: +15<br>• Мф. критического удара (%): +15<br><br>• Мф. против критического удара (%): +10</td></tr>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_kantubaki3ki3.gif" alt="Букет камелий 3"><br>Цена: 21,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_kantubaki5.gif" alt="Букет камелий 5"><br>Цена: 35,3 кр.<br>• Минимальное наносимое повреждение: +6<br>• Максимальное наносимое повреждение: 6</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_kantubaki7.gif" alt="Букет камелий 7"><br>Цена: 50 кр.<br>• Минимальное наносимое повреждение: +4<br>• Максимальное наносимое повреждение: +8</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_kantubaki9.gif" alt="Букет камелий 9"><br>Цена: 68 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +10<br>• Мф. критического удара (%): +10</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_kantubaki21mcmk4.gif" alt="Букет камелий 21"><br>Цена: 152 кр.><br>• Минимальное наносимое повреждение: +15<br><br>• Максимальное наносимое повреждение: +15<br>• Мф. критического удара (%): +15<br><br>• Мф. против критического удара (%): +10</td></tr>
 
 <!--Космеи-->
 
 <tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Космея</b><br><img src="http://angelscity.combats.ru/i/f_cosmos.gif" alt=""><br>Цена: 20 кр.<br>Срок жизни: 15 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_cosmos3.gif" alt="Букет космей 3"><br>Цена: 60,1 кр.<br>• Минимальное наносимое повреждение: +1<br><br>• Максимальное наносимое повреждение: +3</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_cosmos5.gif" alt="Букет космей 5"><br>Цена: 100,3 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +7<br>• Мф. против критического удара (%): +10</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_cosmos3.gif" alt="Букет космей 3"><br>Цена: 60,1 кр.<br>• Минимальное наносимое повреждение: +1<br><br>• Максимальное наносимое повреждение: +3</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_cosmos5.gif" alt="Букет космей 5"><br>Цена: 100,3 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +7<br>• Мф. против критического удара (%): +10</td>
 <td class=medium>-</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_cosmos9.gif" alt="Букет космей 9"><br>Цена: 181 кр.<br>• Минимальное наносимое повреждение: +7<br><br>• Максимальное наносимое повреждение: +10<br>• Мф. против критического удара (%): +15</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_cosmos21sdf3j.gif" alt="Букет космей 21"><br>Цена: 425 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +20<br>• Мф. против критического удара (%): +20</td></tr>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_cosmos9.gif" alt="Букет космей 9"><br>Цена: 181 кр.<br>• Минимальное наносимое повреждение: +7<br><br>• Максимальное наносимое повреждение: +10<br>• Мф. против критического удара (%): +15</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_cosmos21sdf3j.gif" alt="Букет космей 21"><br>Цена: 425 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +20<br>• Мф. против критического удара (%): +20</td></tr>
 
 <!--Сирень-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Сирень</b><br><img src="http://img.bestcombats.net/i/sh/siren_1.gif" alt=""><br>Цена: 7 кр.<br>Срок жизни: 3 дня</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_3.gif" alt="Букет хризантем 3"><br>Цена: 21,1 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_5.gif" alt="Букет хризантем 5"><br>Цена: 35,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +7 </td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_7.gif" alt="Букет хризантем 7"><br>Цена: 49,5 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_9.gif" alt="Букет хризантем 9"><br>Цена: 64 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +12<br>• Мф. критического удара (%): +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_21.gif" alt="Букет хризантем 21"><br>Цена: 152 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +24<br>• Мф. критического удара (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Сирень</b><br><img src="<?=IMG_PATH?>/i/sh/siren_1.gif" alt=""><br>Цена: 7 кр.<br>Срок жизни: 3 дня</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/siren_3.gif" alt="Букет хризантем 3"><br>Цена: 21,1 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/siren_5.gif" alt="Букет хризантем 5"><br>Цена: 35,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +7 </td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/siren_7.gif" alt="Букет хризантем 7"><br>Цена: 49,5 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +10</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/siren_9.gif" alt="Букет хризантем 9"><br>Цена: 64 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +12<br>• Мф. критического удара (%): +5</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/siren_21.gif" alt="Букет хризантем 21"><br>Цена: 152 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +24<br>• Мф. критического удара (%): +10</td></tr>
 
 <!--Рихардия-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Рихардия</b><br><img src="http://img.bestcombats.net/i/sh/cally_1.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 3 дня</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_3.gif" alt="Букет Рихардий 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_5.gif" alt="Букет Рихардий 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6 </td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_7.gif" alt="Букет Рихардий 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_9.gif" alt="Букет Рихардий 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +12<br>• Мф. критического удара (%): +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_21.gif" alt="Букет Рихардий 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +24<br>• Мф. критического удара (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Рихардия</b><br><img src="<?=IMG_PATH?>/i/sh/cally_1.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 3 дня</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/cally_3.gif" alt="Букет Рихардий 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/cally_5.gif" alt="Букет Рихардий 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6 </td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/cally_7.gif" alt="Букет Рихардий 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +10</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/cally_9.gif" alt="Букет Рихардий 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +12<br>• Мф. критического удара (%): +5</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/cally_21.gif" alt="Букет Рихардий 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +24<br>• Мф. критического удара (%): +10</td></tr>
 
 <!--Красные розы-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Красная роза</b><br><img src="http://img.bestcombats.net/i/sh/f_rose.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 7 дней</td>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Красная роза</b><br><img src="<?=IMG_PATH?>/i/sh/f_rose.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 7 дней</td>
 <td class=medium>-</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_rose_5eudmje.gif" alt="Букет красных роз 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +9</td>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_rose_5eudmje.gif" alt="Букет красных роз 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +9</td>
 <td class=medium>-</td>
 <td class=medium>-</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_rose_21dfioehjf.gif" alt="Букет красных роз 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +25<br>• Мф. против критического удара (%): +10</td></tr>
+<td class=medium><img src="<?=IMG_PATH?>/i/sh/fp_rose_21dfioehjf.gif" alt="Букет красных роз 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +25<br>• Мф. против критического удара (%): +10</td></tr>
 
 </table>
 </td>

@@ -313,7 +313,7 @@
 <HR align=center width="90%" color=#aa0000 noShade SIZE=0.1><TABLE width=100% border="0">													  														  
 <TABLE class=BL>
 <TR><TD>
-        Слева от Центральной Площади <SPAN title="Capital"><IMG src="http://img.bestcombats.net/i/sh/fo1.gif" width=17 height=16 border=0></SPAN><B>Столицы</B>, на Локации "Новая Земля", в скромном сером особнячке расположен единственный на данный момент в <B>Бойцовском Клубе</B> <B>Книжный магазин</B>:<br />
+        Слева от Центральной Площади <SPAN title="Capital"><IMG src="<?=IMG_PATH?>/i/sh/fo1.gif" width=17 height=16 border=0></SPAN><B>Столицы</B>, на Локации "Новая Земля", в скромном сером особнячке расположен единственный на данный момент в <B>Бойцовском Клубе</B> <B>Книжный магазин</B>:<br />
 <br />
 <DIV style="text-align: center;"><IMG SRC="http://bestcombats.net/i/city/4_bkm.gif" border=0></DIV><br />
 <br />

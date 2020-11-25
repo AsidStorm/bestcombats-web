@@ -1,7 +1,7 @@
 <HTML><HEAD><TITLE>BestCombats - Браузерная онлайн игра</TITLE>
-<link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="http://img.bestcombats.net/apple-touch-icon.png" />
-<link rel="apple-touch-icon-precomposed" href="http://img.bestcombats.net/apple-touch-icon.png" />
+<link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="<?=IMG_PATH?>/apple-touch-icon.png" />
+<link rel="apple-touch-icon-precomposed" href="<?=IMG_PATH?>/apple-touch-icon.png" />
 <META content="Fight Club, игра, online" http-equiv=Keywords name=Keywords>
 <META content="Fight Club" http-equiv=Description name=Description>
 <META content="text/html; charset=windows-1251" http-equiv=Content-type>

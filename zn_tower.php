@@ -126,15 +126,15 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
     }
     </SCRIPT>
     <?php } ?>
-    <link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+    <link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
     <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
     <META Http-Equiv=Cache-Control Content=no-cache>
     <meta http-equiv=PRAGMA content=NO-CACHE>
     <META Http-Equiv=Expires Content=0>
-    <script src="http://img.bestcombats.net/js/lib/jquery.js" type="text/javascript"></script>
+    <script src="<?=IMG_PATH?>/js/lib/jquery.js" type="text/javascript"></script>
 </HEAD>
 
-<body bgcolor=e2e0e0 style="background-image: url(http://img.bestcombats.net/zntower/iqtower_in.png);background-repeat:no-repeat;background-position:top right">
+<body bgcolor=e2e0e0 style="background-image: url(<?=IMG_PATH?>/zntower/iqtower_in.png);background-repeat:no-repeat;background-position:top right">
 
     <div id=hint4 class=ahint></div>
     <TABLE width=100%>

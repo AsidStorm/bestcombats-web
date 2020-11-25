@@ -248,7 +248,7 @@ hr { height: 1px; }
       $rec["klan"]=$ur["klan"];
       $rec["level"]=$ur["level"];
     }
-    echo "<tr><td height=\"20\">$i</td><td><img src=\"http://img.bestcombats.net/klan/$rec[klan].gif\"></td><td><b>$rec[login]</b> [$rec[level]] <a target=\"_blank\" href=\"inf.php?$rec[user]\"><img src=\"".IMGBASE."/i/inf.gif\" border=\"0\"></a></td></tr>";
+    echo "<tr><td height=\"20\">$i</td><td><img src=\"<?=IMG_PATH?>/klan/$rec[klan].gif\"></td><td><b>$rec[login]</b> [$rec[level]] <a target=\"_blank\" href=\"inf.php?$rec[user]\"><img src=\"".IMGBASE."/i/inf.gif\" border=\"0\"></a></td></tr>";
   }
   echo "</table>";
 ?>

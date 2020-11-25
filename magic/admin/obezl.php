@@ -1,6 +1,6 @@
 <?php
 $coma[] = "<font color=red><b>Я и не вспомню как его зовут...</b></font>";
-        $im="<img src=http://img.bestcombats.net/pbuttons/obezl.gif>";
+        $im="<img src=<?=IMG_PATH?>/pbuttons/obezl.gif>";
 
 
         if ($_SESSION['uid'] == null) header("Location: index.php");

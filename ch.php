@@ -39,7 +39,7 @@
               align='<img src="<?=IMGBASE?>/i/align_'+align+'.gif" title="'+altext+'" width=13 height=15>';
             }
             if(battle>0){filter = 'style="filter:invert"';}else{filter = '';}
-            if (klan.length>0) { klan='<A HREF="/claninf.php?'+klan+'" target=_blank><img src="http://img.bestcombats.net/klan/'+klan+'.gif" title="'+klan+'" width=24 height=15></A>';}
+            if (klan.length>0) { klan='<A HREF="/claninf.php?'+klan+'" target=_blank><img src="<?=IMG_PATH?>/klan/'+klan+'.gif" title="'+klan+'" width=24 height=15></A>';}
             document.write('<A HREF="javascript:top.AddToPrivate(\''+name+'\', top.CtrlPress)" target=refreshed><img src="<?=IMGBASE?>/i/lock.gif" '+filter+' title="Приват" width=20 height=15></A>'+align+'<a href="(\''+name+'\',true)"></a>'+klan+'<a href="javascript:top.AddTo(\''+name+'\')" target=refreshed>'+name2+'</a>['+level+']<a href="inf.php?'+id+'" target=_blank title="Инф. о '+name+'">'+'<IMG SRC="<?=IMGBASE?>/i/inf'+sex+'.gif" WIDTH=12 HEIGHT=11 BORDER=0 ALT="Инф. о '+name+'"></a>');
             if (slp>0) { document.write(' <IMG SRC="<?=IMGBASE?>/i/sleep2.gif" WIDTH=24 HEIGHT=15 BORDER=0 ALT="Наложено заклятие молчания">'); }
             if (trv>0) { document.write(' <IMG SRC="<?=IMGBASE?>/i/travma2.gif" WIDTH=24 HEIGHT=15 BORDER=0 ALT="Инвалидность">'); }
@@ -298,7 +298,7 @@ if (strpos($math[3],"private [pal]" ) !== FALSE) {
                 $_GET["text"]=str_replace("private","рrivate", $_GET["text"]);
                 reportadms("<br><b>$user[login]</b>: $_GET[text]", "Комментатор");
             }
-            addch("<img src=http://img.bestcombats.net/pbuttons/sleep.gif> Комментатор наложил заклятие молчания на &quot;{$user['login']}&quot;, сроком 30 мин. Причина: РВС.");
+            addch("<img src=<?=IMG_PATH?>/pbuttons/sleep.gif> Комментатор наложил заклятие молчания на &quot;{$user['login']}&quot;, сроком 30 мин. Причина: РВС.");
           } elseif ($bad) {
             $f=fopen("logs/autosleep.txt","ab");
             fwrite($f, "$user[login]: $_GET[text]\r\n");
@@ -307,7 +307,7 @@ if (strpos($math[3],"private [pal]" ) !== FALSE) {
             mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','Заклятие молчания',".(time()+900).",2);");
             $_GET["text"]=str_replace("private","рrivate", $_GET["text"]);
             addchp("<font color=\"Black\">private [pal] private [tar] <br><b>$user[login]</b>: $_GET[text]</font>", "Комментатор");
-            addch("<img src=http://img.bestcombats.net/pbuttons/sleep.gif> Комментатор наложил заклятие молчания на &quot;{$user['login']}&quot;, сроком 15 мин. Причина: мат.");
+            addch("<img src=<?=IMG_PATH?>/pbuttons/sleep.gif> Комментатор наложил заклятие молчания на &quot;{$user['login']}&quot;, сроком 15 мин. Причина: мат.");
           } elseif ($_GET["text"]==$_SESSION["lastmsg"]) {
           } else {
             $_SESSION["lastmsg"]=$_GET["text"];

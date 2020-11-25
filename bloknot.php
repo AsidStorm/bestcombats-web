@@ -11,7 +11,7 @@ die("<script>window.location='bloknot.php';</script>");
 }
 ?>
 	<HTML><HEAD>
-	<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+	<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 	<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 	<META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 	<meta http-equiv=PRAGMA content=NO-CACHE>
@@ -21,8 +21,8 @@ die("<script>window.location='bloknot.php';</script>");
 			cursor:pointer;
 		}
 	</style>
-<script type="text/javascript" src="http://img.bestcombats.net/bloknot/js/jquery.js"></script>
-<script type="text/javascript" src="http://img.bestcombats.net/bloknot/js/jquery.limit.js"></script>
+<script type="text/javascript" src="<?=IMG_PATH?>/bloknot/js/jquery.js"></script>
+<script type="text/javascript" src="<?=IMG_PATH?>/bloknot/js/jquery.limit.js"></script>
 <script type="text/javascript">			
 $(document).ready(function(){				
 $('textarea').limit('500','#charsLeft');			

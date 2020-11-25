@@ -21,21 +21,21 @@
                 case 'abandonedplain':
                     db_query("UPDATE `users` SET `money`=`money`-0, `incity`='dungeon' where `id`='".$_SESSION['uid']."'");
                     db_query("UPDATE `online` SET `city`='dungeon' where `id`='".$_SESSION['uid']."'");
-                    $messab="<b>".$kto."</b> отправился в <img src=http://img.bestcombats.net/city/micro/dungeon.gif> Abandoned Plain через <b>Портал</b>";					
+                    $messab="<b>".$kto."</b> отправился в <img src=<?=IMG_PATH?>/city/micro/dungeon.gif> Abandoned Plain через <b>Портал</b>";
 					addch('<img src=i/magic/teleport.gif width="25"> '.$messab.'');
                     die("<script>top.window.location='/battle.php';</script>");
                     break;
                     case 'capital':
                     db_query("UPDATE `users` SET `money`=`money`-0, `incity`='virtcity' where `id`='".$_SESSION['uid']."'");
                     db_query("UPDATE `online` SET `city`='virtcity' where `id`='".$_SESSION['uid']."'");
-                    $messcp="<b>".$kto."</b> отправился в <img src=http://img.bestcombats.net/city/micro/virtcity.gif> Devils City через <b>Портал</b>";					
+                    $messcp="<b>".$kto."</b> отправился в <img src=<?=IMG_PATH?>/city/micro/virtcity.gif> Devils City через <b>Портал</b>";
 					addch('<img src=i/magic/teleport.gif width="25"> '.$messcp.'');
                     die("<script>top.window.location='/battle.php';</script>");
                     break;
                     case 'angel':
                     db_query("UPDATE `users` SET `money`=`money`-0, `incity`='suburb' where `id`='".$_SESSION['uid']."'");
                     db_query("UPDATE `online` SET `city`='suburb' where `id`='".$_SESSION['uid']."'");
-                    $messan="<b>".$kto."</b> отправился в <img src=http://img.bestcombats.net/city/micro/suburb.gif> Angels City через <b>Портал</b>";					
+                    $messan="<b>".$kto."</b> отправился в <img src=<?=IMG_PATH?>/city/micro/suburb.gif> Angels City через <b>Портал</b>";
 					addch('<img src=i/magic/teleport.gif width="25"> '.$messan.'');
                     die("<script>top.window.location='/battle.php';</script>");
                     break;
@@ -64,14 +64,14 @@ function test() {
  return false
 }
 </SCRIPT>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
-<script src="http://img.bestcombats.net/js/lib/jquery.js" type="text/javascript"></script>
+<script src="<?=IMG_PATH?>/js/lib/jquery.js" type="text/javascript"></script>
 </HEAD>
-<body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=#e2e0e0 style="background-image: url(http://img.bestcombats.net/portal/p_portal21.jpg);background-repeat:no-repeat;background-position:top right">
+<body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=#e2e0e0 style="background-image: url(<?=IMG_PATH?>/portal/p_portal21.jpg);background-repeat:no-repeat;background-position:top right">
 
 <div id=hint4 class=ahint></div>
 

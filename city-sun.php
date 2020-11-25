@@ -17,7 +17,7 @@ function smallshowpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
 
     echo "<CENTER>";
    ?>
-    <A HREF="javascript:top.AddToPrivate('<?=$user['login']?>', top.CtrlPress)" target=refreshed><img src="<?=IMGBASE?>/i/lock.gif" width=20 height=15></A><?if($user['align']>0){echo"<img src=\"".IMGBASE."/i/align_".$user['align'].".gif\">";} if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="http://img.bestcombats.net/klan/'.$user['klan'].'.gif">'; } ?><B><?=$user['login']?></B> [<?=$user['level']?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
+    <A HREF="javascript:top.AddToPrivate('<?=$user['login']?>', top.CtrlPress)" target=refreshed><img src="<?=IMGBASE?>/i/lock.gif" width=20 height=15></A><?if($user['align']>0){echo"<img src=\"".IMGBASE."/i/align_".$user['align'].".gif\">";} if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="<?=IMG_PATH?>/klan/'.$user['klan'].'.gif">'; } ?><B><?=$user['login']?></B> [<?=$user['level']?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
     <TABLE cellspacing=0 cellpadding=0 style="  border-top-width: 1px;border-right-width: 1px;border-bottom-width: 1px;border-left-width: 1px;border-top-style: solid;border-right-style: solid;border-bottom-style: solid;border-left-style: solid;border-top-color: #FFFFFF;border-right-color: #666666;border-bottom-color: #666666;border-left-color: #FFFFFF;padding: 2px;">
 <TR>
 <TD>
@@ -1118,7 +1118,7 @@ if ($user['room']==20) {
     $shop = 'sn_shop' . TIME_OF_DAY . SEASON;
     $gluja = 'sn_arrow';
 
-	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer;\" id=\"ione\"><img src=\"http://img.bestcombats.net/city/sun/fon/",$fon,".jpg\" alt=\"\" border=\"0\"/>";
+	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer;\" id=\"ione\"><img src=\"<?=IMG_PATH?>/city/sun/fon/",$fon,".jpg\" alt=\"\" border=\"0\"/>";
     buildsetnew(0,"sun/$bk",69,189,"Бойцовский Клуб");
     buildsetnew(0,"sun/$poct",80,36,"Почтовое отделение");
 	buildsetnew(2005,"sun/$vok",139,78,"Вокзал");
@@ -1130,7 +1130,7 @@ if ($user['room']==20) {
     buildsetnew(21,"sun/$gluja",188,459, "Грибная лужайка");
     buildsetnew(0,"sun/$gluja",188,24, "Овраг Возрождения");
 
-  if (WINTER) echo "<div id=\"snow\"></div><script src=\"http://img.bestcombats.net/js/snow.js\"></script>";
+  if (WINTER) echo "<div id=\"snow\"></div><script src=\"<?=IMG_PATH?>/js/snow.js\"></script>";
   
 } elseif ($user['room']==21) {
     $hinttop=18;
@@ -1138,28 +1138,28 @@ if ($user['room']==20) {
     $fon = 'sn_bg2_1' . TIME_OF_DAY . SEASON;
     $stm = 'sn_arrow' . TIME_OF_DAY . SEASON;
     $bs = 'sn_dtower' . TIME_OF_DAY . SEASON;
-	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer;\" id=\"ione\"><img src=\"http://img.bestcombats.net/city/sun/fon/",$fon,".jpg\" alt=\"\" border=\"0\"/>";
+	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer;\" id=\"ione\"><img src=\"<?=IMG_PATH?>/city/sun/fon/",$fon,".jpg\" alt=\"\" border=\"0\"/>";
     buildsetnew(9000,"sun/$stm",197,463,"Странное место");
     buildsetnew(21,"sun/$bs",21,209,"Башня Смерти", "", "Не работает. Находится на реконструкции.");
-    if (WINTER) echo "<div id=\"snow\"></div><script src=\"http://img.bestcombats.net/js/snow.js\"></script>";
+    if (WINTER) echo "<div id=\"snow\"></div><script src=\"<?=IMG_PATH?>/js/snow.js\"></script>";
 } elseif ($user['room'] == 9000) {
     $hinttop=18;
     $hintright=113;
     $fon = 'sn_bg3_1' . TIME_OF_DAY . SEASON;
     $gpol = 'sn_dung' . TIME_OF_DAY . SEASON;
-	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer;\" id=\"ione\"><img src=\"http://img.bestcombats.net/city/sun/fon/",$fon,".jpg\" alt=\"\" border=\"0\"/>";
+	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer;\" id=\"ione\"><img src=\"<?=IMG_PATH?>/city/sun/fon/",$fon,".jpg\" alt=\"\" border=\"0\"/>";
     buildsetnew(26,"sun/$gpol",119,219,"Грибная поляна");
-    if (WINTER) echo "<div id=\"snow\"></div><script src=\"http://img.bestcombats.net/js/snow.js\"></script>";
+    if (WINTER) echo "<div id=\"snow\"></div><script src=\"<?=IMG_PATH?>/js/snow.js\"></script>";
 } elseif ($user['room']==26) {
     $hinttop=18;
     $hintright=113;
     $fon = 'sn_bg4_1' . TIME_OF_DAY . SEASON;
     //$stm = 'sn_arrow' . TIME_OF_DAY . SEASON;
     //$bs = 'sn_dtower' . TIME_OF_DAY . SEASON;
-	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer;\" id=\"ione\"><img src=\"http://img.bestcombats.net/city/sun/fon/",$fon,".jpg\" alt=\"\" border=\"0\"/>";
+	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer;\" id=\"ione\"><img src=\"<?=IMG_PATH?>/city/sun/fon/",$fon,".jpg\" alt=\"\" border=\"0\"/>";
     //buildsetnew(9000,"sun/$stm",197,463,"Странное место");
     //buildsetnew(21,"sun/$bs",21,209,"Башня Смерти", "", "Не работает. Находится на реконструкции.");
-    if (WINTER) echo "<div id=\"snow\"></div><script src=\"http://img.bestcombats.net/js/snow.js\"></script>";
+    if (WINTER) echo "<div id=\"snow\"></div><script src=\"<?=IMG_PATH?>/js/snow.js\"></script>";
 
 }
 ?>
@@ -1339,10 +1339,10 @@ document.getElementById('buttons_on_image').style.display = 'none';
         ?>
         
          <u>Cейчас в клубе</u>: <?=$onlineS+$onlineSVC+$onlined+$onlinesun?> чел.<BR>
-         <img src="http://img.bestcombats.net/city/micro/suncity.gif"><b>Sun City</b>: <?=$onlinesun?> чел.<br>
-         <img src="http://img.bestcombats.net/city/micro/suburb.gif"><b>Angels City</b>: <?=$onlineS?> чел.<br>
-         <img src="http://img.bestcombats.net/city/micro/virtcity.gif"><b>Capital City</b>: <?=$onlineSVC?> чел.<br>
-         <img src="http://img.bestcombats.net/city/micro/dungeon.gif"><b>Abandoned Plain</b>: <?=$onlined?> чел.<br>
+         <img src="<?=IMG_PATH?>/city/micro/suncity.gif"><b>Sun City</b>: <?=$onlinesun?> чел.<br>
+         <img src="<?=IMG_PATH?>/city/micro/suburb.gif"><b>Angels City</b>: <?=$onlineS?> чел.<br>
+         <img src="<?=IMG_PATH?>/city/micro/virtcity.gif"><b>Capital City</b>: <?=$onlineSVC?> чел.<br>
+         <img src="<?=IMG_PATH?>/city/micro/dungeon.gif"><b>Abandoned Plain</b>: <?=$onlined?> чел.<br>
 
 
 

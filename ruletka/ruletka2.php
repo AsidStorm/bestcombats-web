@@ -47,7 +47,7 @@ if($user['align']=='2.5')
 	text-align: center;
 }
     </style>
-	<script src="http://img.bestcombats.net/js/swfobject_modified.js" type="text/javascript"></script>
+	<script src="<?=IMG_PATH?>/js/swfobject_modified.js" type="text/javascript"></script>
 <TABLE width="100%" cellspacing="0" cellpadding="0">
 	<tr><td valign="top"><div align="center" class="pH3">Рулетка</div>
       <br />
@@ -55,21 +55,21 @@ if($user['align']=='2.5')
 	    <p>Рулетка работает в тестовом режиме. Вы можете потерять кр., возмещаться потери не будут.</p>
 	    <p>
           <object id="ruletka" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="940" height="340">
-	        <param name="movie" value="http://img.bestcombats.net/swf/ruletka.swf" />
+	        <param name="movie" value="<?=IMG_PATH?>/swf/ruletka.swf" />
 	        <param name="quality" value="high" />
 	        <param name="wmode" value="opaque" />
 	        <param name="swfversion" value="6.0.65.0" />
 	        <!-- Этот тег param предлагает пользователям Flash Player 6.0 r65 и более поздних версий загрузить последнюю версию Flash Player. Удалите его, если не хотите, чтобы пользователи видели запрос. -->
-	        <param name="expressinstall" value="http://img.bestcombats.net/swf/expressInstall.swf" />
+	        <param name="expressinstall" value="<?=IMG_PATH?>/swf/expressInstall.swf" />
 	        <param name="BGCOLOR" value="#dedfde" />
 	        <!-- Следующий тег object не поддерживается браузером Internet Explorer. Поэтому скройте его от Internet Explorer при помощи IECC. -->
 	        <!--[if !IE]>-->
-	        <object type="application/x-shockwave-flash" data="http://img.bestcombats.net/swf/ruletka.swf" width="940" height="340">
+	        <object type="application/x-shockwave-flash" data="<?=IMG_PATH?>/swf/ruletka.swf" width="940" height="340">
 	          <!--<![endif]-->
 	          <param name="quality" value="high" />
 	          <param name="wmode" value="opaque" />
 	          <param name="swfversion" value="6.0.65.0" />
-	          <param name="expressinstall" value="http://img.bestcombats.net/swf/expressInstall.swf" />
+	          <param name="expressinstall" value="<?=IMG_PATH?>/swf/expressInstall.swf" />
 	          <param name="BGCOLOR" value="#dedfde" />
 	          <!-- Браузер отображает следующее альтернативное содержимое для пользователей Flash Player 6.0 и более старых версий. -->
 	          <div>

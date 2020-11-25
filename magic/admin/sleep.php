@@ -99,7 +99,7 @@ $coma[] = "Помолчи, за умного сойдешь. ";
                         }
                         db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
                         db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
-                        addch("<img src=http://img.bestcombats.net/pbuttons/sleep.gif> $messch");
+                        addch("<img src=<?=IMG_PATH?>/pbuttons/sleep.gif> $messch");
                         addchp($coma[rand(0,count($coma)-1)],"Комментатор");
                         echo "<font color=red><b>Успешно наложено заклятие молчания на персонажа \"$target\"</b></font>";
                     }

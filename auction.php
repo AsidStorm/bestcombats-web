@@ -70,13 +70,13 @@
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
-<link rel="stylesheet" href="http://img.bestcombats.net/css/jquery.tooltip.css" />
-<script src="http://img.bestcombats.net/js/lib/jquery.js" type="text/javascript"></script>
-<script src="http://img.bestcombats.net/js/sl.js" type="text/javascript"></script>
-<script src="http://img.bestcombats.net/js/lib/jquery.bgiframe.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<?=IMG_PATH?>/css/jquery.tooltip.css" />
+<script src="<?=IMG_PATH?>/js/lib/jquery.js" type="text/javascript"></script>
+<script src="<?=IMG_PATH?>/js/sl.js" type="text/javascript"></script>
+<script src="<?=IMG_PATH?>/js/lib/jquery.bgiframe.js" type="text/javascript"></script>
 
-<script src="http://img.bestcombats.net/js/lib/jquery.dimensions.js" type="text/javascript"></script>
-<script src="http://img.bestcombats.net/js/jquery.tooltip.js" type="text/javascript"></script>
+<script src="<?=IMG_PATH?>/js/lib/jquery.dimensions.js" type="text/javascript"></script>
+<script src="<?=IMG_PATH?>/js/jquery.tooltip.js" type="text/javascript"></script>
 <SCRIPT>
 $(function() {
 $('img').tooltip({

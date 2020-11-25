@@ -779,7 +779,7 @@ echo"<font color=red>Вы избавились от эффекта невиди�
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
-<SCRIPT LANGUAGE="JavaScript" SRC="http://img.bestcombats.net/js/sl2.27.js?1"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="<?=IMG_PATH?>/js/sl2.27.js?1"></SCRIPT>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
 <script>
@@ -1020,7 +1020,7 @@ top.changeroom=<?=$user['room']?>;
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
-<SCRIPT LANGUAGE="JavaScript" SRC="http://img.bestcombats.net/js/sl2.27.js?1"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="<?=IMG_PATH?>/js/sl2.27.js?1"></SCRIPT>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
 <div id=hint4 class=ahint></div>

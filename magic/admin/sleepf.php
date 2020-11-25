@@ -69,7 +69,7 @@ $coma[] = "Повышаем, повышаем уровень грамотнос�
 						}
 						db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
 						db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
-						addch("<font color=red><b>Внимание!</b> </font><img src=http://img.bestcombats.net/pbuttons/sleepf.gif> $messch");
+						addch("<font color=red><b>Внимание!</b> </font><img src=<?=IMG_PATH?>/pbuttons/sleepf.gif> $messch");
 						addchp($coma[rand(0,count($coma)-1)],"Комментатор");
 						echo "<font color=red><b>Успешно наложено заклятие форумного молчания на персонажа \"$target\"</b></font>";			
 					} 

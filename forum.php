@@ -34,14 +34,14 @@
 
 ?>
 <HTML>
-<link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
+<link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">
 <HEAD><TITLE>Форум Бойцовского Клуба</TITLE>
 <META content="INDEX,FOLLOW" name="robots">
 <META content="1 days" name="revisit-after">
 <META http-equiv="Content-type" content="text/html; charset=windows-1251">
 <META http-equiv="Pragma" content="no-cache">
 <META http-equiv="Cache-control" content="private">
-<META http-equiv="Expires" content="0"><LINK href="http://img.bestcombats.net/css/forum.css" type="text/css" rel="stylesheet">
+<META http-equiv="Expires" content="0"><LINK href="<?=IMG_PATH?>/css/forum.css" type="text/css" rel="stylesheet">
 <style>
 .pleft {
     PADDING-RIGHT: 0px; PADDING-LEFT: 20px; PADDING-BOTTOM: 7px; MARGIN: 0px; PADDING-TOP: 3px
@@ -110,23 +110,23 @@ function test() {
 <BODY bottomMargin=0 vLink=#333333 aLink=#000000 link=#000000 bgColor=#666666 leftMargin=0 topMargin=0 rightMargin=0 marginheight="0" marignwidth="0"><br>
 <body style="margin:0px">
 <table width="100%" cellspacing="0" cellpadding="0" height="100%">
-<tr><td width="93" height="143"><img src="http://img.bestcombats.net/forum/topl.gif"></td><td background="http://img.bestcombats.net/forum/top.gif"></td><td width="93" height="143"><img src="http://img.bestcombats.net/forum/topr.gif"></td></tr>
-<tr><td background="http://img.bestcombats.net/forum/left.jpg">&nbsp;</td>
+<tr><td width="93" height="143"><img src="<?=IMG_PATH?>/forum/topl.gif"></td><td background="<?=IMG_PATH?>/forum/top.gif"></td><td width="93" height="143"><img src="<?=IMG_PATH?>/forum/topr.gif"></td></tr>
+<tr><td background="<?=IMG_PATH?>/forum/left.jpg">&nbsp;</td>
 <td style="padding-left:8px;padding-right:8px" bgcolor="#3d3d3d">
 
 <table width="100%" cellspacing="0" cellpadding="0" height="100%">
-<tr><td width="56" height="41" align="right" valign="bottom"><img src="http://img.bestcombats.net/forum/5.gif"></td>
+<tr><td width="56" height="41" align="right" valign="bottom"><img src="<?=IMG_PATH?>/forum/5.gif"></td>
 <td valign="bottom">
-  <div style="background-image:url(http://img.bestcombats.net/forum/2.gif);height:25px">&nbsp;</div>
+  <div style="background-image:url(<?=IMG_PATH?>/forum/2.gif);height:25px">&nbsp;</div>
 </td>
 </tr>
 <tr>
-<td background="http://img.bestcombats.net/forum/3.gif">&nbsp;</td>
-<td background="http://img.bestcombats.net/forum/light2.jpg" valign="top" style="padding-top:10px">
+<td background="<?=IMG_PATH?>/forum/3.gif">&nbsp;</td>
+<td background="<?=IMG_PATH?>/forum/light2.jpg" valign="top" style="padding-top:10px">
   <table width="100%">
   <tr><td width="100" valign="top">
    <TR>
-          <TD vAlign=top width="10%"> <IMG<IMG height=243 alt=""img src="http://img.bestcombats.net/forum/ink.gif" width=126
+          <TD vAlign=top width="10%"> <IMG<IMG height=243 alt=""img src="<?=IMG_PATH?>/forum/ink.gif" width=126
             border=0><table>
 	<?php
 
@@ -663,11 +663,11 @@ function test() {
 <?php
 if(($user['align']>1.4 && $user['align']<2) || ($user['align']>2 && $user['align']<3)  || $user['align'] == '777' || ($user['align'] > '3.05' && $user['align'] < '4')) {
 ?>
-<td background="http://img.bestcombats.net/forum/right.jpg" align="center">
+<td background="<?=IMG_PATH?>/forum/right.jpg" align="center">
 &nbsp;
 </td>
-<tr><td width="93" height="143"><img src="http://img.bestcombats.net/forum/bottoml.gif"></td><td background="http://img.bestcombats.net/forum/bottom.gif" align="center">
-</td><td width="93" height="143"><img src="http://img.bestcombats.net/forum/bottomr.gif"></td></tr>
+<tr><td width="93" height="143"><img src="<?=IMG_PATH?>/forum/bottoml.gif"></td><td background="<?=IMG_PATH?>/forum/bottom.gif" align="center">
+</td><td width="93" height="143"><img src="<?=IMG_PATH?>/forum/bottomr.gif"></td></tr>
 <?php
 }
 ?>

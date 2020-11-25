@@ -17,7 +17,7 @@ function expa ($str) {
 ?>
 <HTML>
 <HEAD>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 <meta http-equiv=PRAGMA content=NO-CACHE>
@@ -28,7 +28,7 @@ function runmagic1(title, magic, name){
 document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=B1A993><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><BIG><B><IMG src="/i/clear.gif" width=13 height=13>&nbsp;</td></tr><tr><td colspan=2>'+
 '<form action="vip.php" method=POST><table width=100% cellspacing=0 cellpadding=2 bgcolor=DDD5BF><tr><td colspan=2><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
 'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
-'</TD><TD width=120><INPUT TYPE="image" src="http://img.bestcombats.net/func/b__ok.gif"></TD></TR></TABLE></FORM></td></tr></table>';
+'</TD><TD width=120><INPUT TYPE="image" src="<?=IMG_PATH?>/func/b__ok.gif"></TD></TR></TABLE></FORM></td></tr></table>';
 document.all("hint3").style.visibility = "visible";
 document.all("hint3").style.left = 500;
 document.all("hint3").style.top = 100;

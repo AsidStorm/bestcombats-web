@@ -10,7 +10,7 @@ if ($user['align']<2 || $user['align']>3) header("Location: /index.php");
 ?>
 <HTML>
 <HEAD>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/admin/maina.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/admin/maina.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 <meta http-equiv=PRAGMA content=NO-CACHE>

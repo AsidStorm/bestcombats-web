@@ -149,7 +149,7 @@
     $i=0;
     while ($rec=mysqli_fetch_assoc($r)) {
       $i++;
-      echo "<tr><td height=\"20\">$i</td><td><img src=\"http://img.bestcombats.net/klan/$rec[klan].gif\"></td><td><b>$rec[login]</b> [$rec[level]]</td></tr>";
+      echo "<tr><td height=\"20\">$i</td><td><img src=\"<?=IMG_PATH?>/klan/$rec[klan].gif\"></td><td><b>$rec[login]</b> [$rec[level]]</td></tr>";
     }
     echo "</table>";
     
@@ -168,7 +168,7 @@
           $rec["klan"]=$ur["klan"];
           $rec["level"]=$ur["level"];
         }
-        echo "<tr><td height=\"20\">$i</td><td><img src=\"http://img.bestcombats.net/klan/$rec[klan].gif\"></td><td><b>$rec[login]</b> [$rec[level]]</td></tr>";
+        echo "<tr><td height=\"20\">$i</td><td><img src=\"<?=IMG_PATH?>/klan/$rec[klan].gif\"></td><td><b>$rec[login]</b> [$rec[level]]</td></tr>";
       }
       echo "</table>";
     }

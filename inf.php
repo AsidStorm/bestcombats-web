@@ -115,9 +115,9 @@ return $city[1];
 
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
+<link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">
 <meta http-equiv="Content-Language" content="ru">
-<link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
+<link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">
 <TITLE>Произошла ошибка</TITLE></HEAD><BODY text="#FFFFFF"><p><font color=black>
 Произошла ошибка: <pre>Персонаж <?=($_GET['login']?"\"".$_GET['login']."\"":"")?> не найден...</pre>
 <b><p><a href = "javascript:window.history.go(-1);">Назад</b></a>
@@ -165,11 +165,11 @@ die();
 <HTML>
 <HEAD>
 <TITLE>Информация о <?=$user['login']?></TITLE>
-<link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/inf.css">
+<link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/inf.css">
 <meta content="text/html; charset=utf-8" http-equiv=Content-type>
-<link href="http://img.bestcombats.net/css/design3.css" rel="stylesheet" type="text/css">
+<link href="<?=IMG_PATH?>/css/design3.css" rel="stylesheet" type="text/css">
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
@@ -185,27 +185,27 @@ gift = new Array('Подарок от ','','Анонимный подарок');
 
 <BODY class="align20"> 
 <DIV class="alignlogo"> 
-<IMG src="http://img.bestcombats.net/inf/design/chicken.png"><BR><BR> 
+<IMG src="<?=IMG_PATH?>/inf/design/chicken.png"><BR><BR>
 
 </DIV> 
  
 <DIV class="bglogo"> 
-<IMG src="http://img.bestcombats.net/inf/design/x.gif" style="height: 120px; width: 120px; "> 
- <IMG src="http://img.bestcombats.net/inf/design/11.png" style="height: 120px; width: 120px; "> 
-<IMG src="http://img.bestcombats.net/inf/design/ud.png" style="height: 100px; width: 100px; "> 
-<IMG src="http://img.bestcombats.net/inf/design/20.png" style="height: 120px; width: 120px; "> 
+<IMG src="<?=IMG_PATH?>/inf/design/x.gif" style="height: 120px; width: 120px; ">
+ <IMG src="<?=IMG_PATH?>/inf/design/11.png" style="height: 120px; width: 120px; ">
+<IMG src="<?=IMG_PATH?>/inf/design/ud.png" style="height: 100px; width: 100px; ">
+<IMG src="<?=IMG_PATH?>/inf/design/20.png" style="height: 120px; width: 120px; ">
 </DIV> 
 
 
  
 <TABLE class="align20" cellspacing="0" cellpadding="0"> 
 <TR> 
-<TD class="topleftcorner"><IMG src="http://img.bestcombats.net/inf/design/x.gif"></TD> 
-<TD class="topcenterline"><IMG src="http://img.bestcombats.net/inf/design/x.gif"></TD> 
-<TD class="toprightcorner"><IMG src="http://img.bestcombats.net/inf/design/x.gif"></TD> 
+<TD class="topleftcorner"><IMG src="<?=IMG_PATH?>/inf/design/x.gif"></TD>
+<TD class="topcenterline"><IMG src="<?=IMG_PATH?>/inf/design/x.gif"></TD>
+<TD class="toprightcorner"><IMG src="<?=IMG_PATH?>/inf/design/x.gif"></TD>
 </TR>
 <TR>
-<TD class="middleleftline"><IMG src="http://img.bestcombats.net/inf/design/x.gif"></TD>
+<TD class="middleleftline"><IMG src="<?=IMG_PATH?>/inf/design/x.gif"></TD>
 <TD class="middlecenterarea">
 <script>
 var main_uid= 'main';
@@ -438,8 +438,8 @@ echo "</small>)<br />";
 	}	
 
 	$lplist = db_query("SELECT * FROM `iplog` WHERE `owner` = '".db_escape_string($user['id'])."' ORDER by `id` DESC LIMIT 25;");
-	echo "<DIV id=dv66 style='display: block'><A href='#' onclick=\"dv55.style.display='block'; dv66.style.display='none'; return false\"><H4><img src='http://img.bestcombats.net/inf/design/plus_big.gif' align='absmiddle'><u>Последние заходы персонажа:</u></H4></u></H4></A></DIV>
-<DIV id='dv55' style='display: none'><A href='#' onclick=\"dv66.style.display='block'; dv55.style.display='none'; return false\"><H4><img src='http://img.bestcombats.net/inf/design/minus_big.png' align='absmiddle'><u>Последние заходы персонажа:</u></H4></A>";
+	echo "<DIV id=dv66 style='display: block'><A href='#' onclick=\"dv55.style.display='block'; dv66.style.display='none'; return false\"><H4><img src='<?=IMG_PATH?>/inf/design/plus_big.gif' align='absmiddle'><u>Последние заходы персонажа:</u></H4></u></H4></A></DIV>
+<DIV id='dv55' style='display: none'><A href='#' onclick=\"dv66.style.display='block'; dv55.style.display='none'; return false\"><H4><img src='<?=IMG_PATH?>/inf/design/minus_big.png' align='absmiddle'><u>Последние заходы персонажа:</u></H4></A>";
 	echo "<table border=1><tr><td>&nbsp;</td><td><center><b>Дата</b></center></td><td><center><b>IP</b></center></td></tr>";
 	$ind=0;
 	while ($iplog = mysqli_fetch_array($lplist)) {
@@ -505,16 +505,16 @@ $bank_ekr = mysqli_fetch_array(db_query("SELECT SUM(`ekr`) AS `evrokr` FROM `ban
 }
 }
 ?>
-<TD class="middlerightline"><IMG src="http://img.bestcombats.net/inf/design/x.gif"></TD>
+<TD class="middlerightline"><IMG src="<?=IMG_PATH?>/inf/design/x.gif"></TD>
 </TR>
 <TR>
-<TD class="bottomleftcorner"><IMG src="http://img.bestcombats.net/inf/design/x.gif"></TD>
+<TD class="bottomleftcorner"><IMG src="<?=IMG_PATH?>/inf/design/x.gif"></TD>
 <TD class="bottomcenterline"><TABLE class="footer">
 <center><TD class="copyright"><SPAN>&copy; 2012 - 2013, &laquo;<A href="/" target="_blank">BestCombats.net</A>&raquo;&trade;<BR>All rights reserved</SPAN></TD></center>
-<TD><IMG src="http://img.bestcombats.net/inf/design/x.gif"></TD>
+<TD><IMG src="<?=IMG_PATH?>/inf/design/x.gif"></TD>
 </TR>
 </TABLE></TD>
-<TD class="bottomrightcorner"><IMG src="http://img.bestcombats.net/inf/design/x.gif"></TD>
+<TD class="bottomrightcorner"><IMG src="<?=IMG_PATH?>/inf/design/x.gif"></TD>
 </TR>
 </TABLE>
 </body>

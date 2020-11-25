@@ -11,15 +11,15 @@ ob_start("ob_gzhandler");
 echo"
 <table><td></td><td width=\"100%\" valign=\"top\">
 <HTML><HEAD>
-<link rel=stylesheet type=\"text/css\" href=\"http://img.bestcombats.net/css/main.css\">
+<link rel=stylesheet type=\"text/css\" href=\"<?=IMG_PATH?>/css/main.css\">
 <meta content=\"text/html; charset=windows-1251\" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
-<SCRIPT LANGUAGE=\"JavaScript\" SRC=\"http://img.bestcombats.net/js/sl2.24.js\"></SCRIPT>
+<SCRIPT LANGUAGE=\"JavaScript\" SRC=\"<?=IMG_PATH?>/js/sl2.24.js\"></SCRIPT>
 </HEAD>
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=#e2e0e0>
-<SCRIPT src='http://img.bestcombats.net/js/commoninf.js'></SCRIPT>
+<SCRIPT src='<?=IMG_PATH?>/js/commoninf.js'></SCRIPT>
 <div id=hint4 class=ahint></div>
 ";?>
 </FORM>
@@ -37,7 +37,7 @@ if ($user['prison']==0) {
               </tr></table><BR><br>";
 }
 print "<center>Тюряга - место покоя тех, кто был глуп и наивен.</center>
-<center><IMG src=\"http://img.bestcombats.net/prison/prison.gif\"></center>";
+<center><IMG src=\"<?=IMG_PATH?>/prison/prison.gif\"></center>";
 
 $R_ONLINE = db_query("SELECT prison FROM users WHERE prison ='1'");
 $xaos = 0;

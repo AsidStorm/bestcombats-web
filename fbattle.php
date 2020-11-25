@@ -97,15 +97,15 @@ function drawtrick($can_use, $img,  $txt, $free_cast, $dsc, $resource, $select_t
             $ret.="<A HREF=\"/fbattle.php?special=$name&r=".time()."\">";
         }
     }
-    $ret.="<IMG style=\"".($can_use?'cursor:pointer': " -moz-opacity:.70; opacity:.70;filter:gray(), Alpha(Opacity='70');").'" width=40 height=25 '."src='http://img.bestcombats.net/priem/".$img.".gif'";
+    $ret.="<IMG style=\"".($can_use?'cursor:pointer': " -moz-opacity:.70; opacity:.70;filter:gray(), Alpha(Opacity='70');").'" width=40 height=25 '."src='<?=IMG_PATH?>/priem/".$img.".gif'";
     if ($txt) {
         $ret.= "onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$txt."</B><BR>" ;
-        $ret.= ($res[0]=='0'? '': "<IMG width=8 height=8 src=http://img.bestcombats.net/battle/hit.gif> ".$res[0].'&nbsp;&nbsp;');
-        $ret.= ($res[1]=='0'? '': '<IMG width=8 height=8 src=http://img.bestcombats.net/battle/krit.gif> '.$res[1].'&nbsp;&nbsp;');
-        $ret.=  ($res[2]=='0'? '': '<IMG width=8 height=8 src=http://img.bestcombats.net/battle/counter.gif> '.$res[2].'&nbsp;&nbsp;');
-        $ret.=  ($res[3]=='0'? '': '<IMG width=8 height=8 src=http://img.bestcombats.net/battle/block.gif> '.$res[3].'&nbsp;&nbsp;');
-        $ret.=  ($res[4]=='0'? '': '<IMG width=8 height=8 src=http://img.bestcombats.net/battle/parry.gif> '.$res[4].'&nbsp;&nbsp;');
-        $ret.=  ($res[5]=='0'? '': '<IMG width=8 height=8 src=http://img.bestcombats.net/battle/hp.gif> '.$res[5].'&nbsp;&nbsp;');
+        $ret.= ($res[0]=='0'? '': "<IMG width=8 height=8 src=<?=IMG_PATH?>/battle/hit.gif> ".$res[0].'&nbsp;&nbsp;');
+        $ret.= ($res[1]=='0'? '': '<IMG width=8 height=8 src=<?=IMG_PATH?>/battle/krit.gif> '.$res[1].'&nbsp;&nbsp;');
+        $ret.=  ($res[2]=='0'? '': '<IMG width=8 height=8 src=<?=IMG_PATH?>/battle/counter.gif> '.$res[2].'&nbsp;&nbsp;');
+        $ret.=  ($res[3]=='0'? '': '<IMG width=8 height=8 src=<?=IMG_PATH?>/battle/block.gif> '.$res[3].'&nbsp;&nbsp;');
+        $ret.=  ($res[4]=='0'? '': '<IMG width=8 height=8 src=<?=IMG_PATH?>/battle/parry.gif> '.$res[4].'&nbsp;&nbsp;');
+        $ret.=  ($res[5]=='0'? '': '<IMG width=8 height=8 src=<?=IMG_PATH?>/battle/hp.gif> '.$res[5].'&nbsp;&nbsp;');
         $ret.=  ($res[6] == '0' ? '': '<BR>Сила духа: '.$res[6]) ;
         $ret.=  ($res[7] == '0' ? '': '<BR>Расход маны: '.$res[7] ) ;
         $ret.=  ($res[8] == '0' ? '': '<BR>Задержка: '.$res[8].($res[9]=='0'?'':' (ещё '.$res[9].")")) ;
@@ -115,7 +115,7 @@ function drawtrick($can_use, $img,  $txt, $free_cast, $dsc, $resource, $select_t
         $ret.=  ($free_cast? '': '<BR>&bull; Приём тратит ход') ;
         $ret.=  '<br><br>'.$dsc."\", this, event)'" ;
     }
-    $ret.= '>'.($can_use?'</A><IMG SRC="http://img.bestcombats.net/battle/1x1.gif" WIDTH="2" HEIGHT="1" BORDER=0 ALT="">': '<IMG SRC="http://img.bestcombats.net/battle/1x1.gif" WIDTH="2" HEIGHT="1" BORDER=0 ALT="">');
+    $ret.= '>'.($can_use?'</A><IMG SRC="<?=IMG_PATH?>/battle/1x1.gif" WIDTH="2" HEIGHT="1" BORDER=0 ALT="">': '<IMG SRC="<?=IMG_PATH?>/battle/1x1.gif" WIDTH="2" HEIGHT="1" BORDER=0 ALT="">');
     return $ret;
 }
 
@@ -131,7 +131,7 @@ function bnick4($id,$st) {
       $ud["maxhp"]="??";
       $ud["level"]=0;
       $inf="";
-    } else $inf="<a href=\"/inf.php?$id\" target=\"_blank\"><img alt=\"".$ud["login"]."\" border=\"0\" src=\"http://img.bestcombats.net/chat/inf.gif\"></a>";
+    } else $inf="<a href=\"/inf.php?$id\" target=\"_blank\"><img alt=\"".$ud["login"]."\" border=\"0\" src=\"<?=IMG_PATH?>/chat/inf.gif\"></a>";
     $ret="<span onclick=\"top.AddTo('".$ud['login']."')\" oncontextmenu=\"return OpenMenu(event,".$ud['level'].")\" id=\"enemy$id\" class={$st}>".($fbattle->battle[$id][$fbattle->user['id']][0]>0?"<u>":"").$ud['login'].($fbattle->battle[$id][$fbattle->user['id']][0]>0?"</u>":"")."</span> [".$ud['hp']."/".$ud['maxhp']."] $inf";
     $tmo=($fbattle->battle_data["timeout"]*60-(time()-$fbattle->battle[$id][$user["id"]][2])-30)*1000;
     if ($tmo<1) $tmo=1;
@@ -220,13 +220,13 @@ function geteffectval($val, $len, $maxlen) {
             }
             $ret.="\" href='#'>";
           }
-          $ret.='<img '.($fbattle->battleunits[$user["id"]]["additdata"]["scrollused"] || $dress["wait"]?"style=\"filter:gray(), Alpha(Opacity='70');\"":"").' src="http://img.bestcombats.net/shmot/'.$dress['img'].'" width=40 onmouseout="hideshow();" onmouseover="fastshow2(\''.$dress['name'].'<br>Прочность '.$dress['duration'].'/'.$dress['maxdur'].($dress["wait"]?"<br>Задержка: $dress[wait]":"").'\', this, event)"  height=25></a>';
-        } else $ret.="<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25  onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>";
+          $ret.='<img '.($fbattle->battleunits[$user["id"]]["additdata"]["scrollused"] || $dress["wait"]?"style=\"filter:gray(), Alpha(Opacity='70');\"":"").' src="<?=IMG_PATH?>/shmot/'.$dress['img'].'" width=40 onmouseout="hideshow();" onmouseover="fastshow2(\''.$dress['name'].'<br>Прочность '.$dress['duration'].'/'.$dress['maxdur'].($dress["wait"]?"<br>Задержка: $dress[wait]":"").'\', this, event)"  height=25></a>';
+        } else $ret.="<img src=\"<?=IMG_PATH?>/user/w13.gif\" width=40 height=25  onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>";
       }
     } else {
       $i=0;
       while ($i<12) {
-        $ret.="<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>";
+        $ret.="<img src=\"<?=IMG_PATH?>/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>";
         $i++;
       }
     }
@@ -240,7 +240,7 @@ function geteffectval($val, $len, $maxlen) {
     if ($user[$slot] > 0) {
         $row['id'] = $user[$slot];
         $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user[$slot]}' LIMIT 1;"));
-        if (!$dress) return "<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>";
+        if (!$dress) return "<img src=\"<?=IMG_PATH?>/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>";
         if ($dress['magic']) {
           $magic = magicinf ($dress['magic']);
           $ret.="<a  onclick=\"";
@@ -257,8 +257,8 @@ function geteffectval($val, $len, $maxlen) {
           }
           $ret.="\" href='#'>";
         }
-        $ret.='<img src="http://img.bestcombats.net/shmot/'.$dress['img'].'" width=40 title="'.$dress['name'].'  Прочность '.$dress['duration'].'/'.$dress['maxdur'].'"  Прочность '.$dress['duration'].'/'.$dress['maxdur'].'" height=25 alt="Использовать  '.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur'].'"></a>';
-    } else { $ret.="<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>"; }
+        $ret.='<img src="<?=IMG_PATH?>/shmot/'.$dress['img'].'" width=40 title="'.$dress['name'].'  Прочность '.$dress['duration'].'/'.$dress['maxdur'].'"  Прочность '.$dress['duration'].'/'.$dress['maxdur'].'" height=25 alt="Использовать  '.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur'].'"></a>';
+    } else { $ret.="<img src=\"<?=IMG_PATH?>/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>"; }
     return $ret;
   }
 
@@ -344,7 +344,7 @@ function geteffectval($val, $len, $maxlen) {
       list($left, $top)=effectpos($i);
       $priem1=$rec["priem"];
       if ($rec["priem"]=="wis_fire_mark" || $rec["priem"]=="wis_water_mark" || $rec["priem"]=="wis_earth_mark" || $rec["priem"]=="wis_air_mark") $rec["priem"].=$rec["value"]/$strokes[$rec["priem"]]->value;
-      $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:3\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/$rec[priem].gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$priem1]->name."</B><center>$hint</center>\", this, event)';> </div>";
+      $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:3\"><IMG width=40 height=25 src='<?=IMG_PATH?>/priem/$rec[priem].gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$priem1]->name."</B><center>$hint</center>\", this, event)';> </div>";
     }
     return $strokes1;
   }
@@ -516,23 +516,23 @@ function geteffectval($val, $len, $maxlen) {
             if ($tmp[1]=="oncaster") continue;
           }
           $k.=$tail;
-          $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG ".(@$v["effect"]==IMMUNITY?"style=\"cursor:pointer; filter:gray(), Alpha(Opacity='70');\"":"")." width=40 height=25 src='http://img.bestcombats.net/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".($v["effect"]==IMMUNITY?"Иммунитет":$strokes[$k1]->name)."</B>".($k1=="wis_air_shield"?"($v[value])":"")."<br>$hint\", this, event)';> </div>";
+          $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG ".(@$v["effect"]==IMMUNITY?"style=\"cursor:pointer; filter:gray(), Alpha(Opacity='70');\"":"")." width=40 height=25 src='<?=IMG_PATH?>/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".($v["effect"]==IMMUNITY?"Иммунитет":$strokes[$k1]->name)."</B>".($k1=="wis_air_shield"?"($v[value])":"")."<br>$hint\", this, event)';> </div>";
         }
       }
       if ($fbattle->battleunits[$id]["resurrect"]>0) {
         $i++;
         list($left, $top)=effectpos($i);
-        $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/shmot/preservation.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Спасение</B> (заклятие)\", this, event)'> </div>";
+        $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='<?=IMG_PATH?>/shmot/preservation.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Спасение</B> (заклятие)\", this, event)'> </div>";
       }
       if ($fbattle->battleunits[$id]["forcefield"]>0) {
         $i++;
         list($left, $top)=effectpos($i);
-        $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/wis_gray_forcefield07.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Силовое поле</B> (".$fbattle->battleunits[$id]["forcefield"].")\", this, event)'> </div>";
+        $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='<?=IMG_PATH?>/priem/wis_gray_forcefield07.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Силовое поле</B> (".$fbattle->battleunits[$id]["forcefield"].")\", this, event)'> </div>";
       }
       if ($fbattle->battleunits[$id]["manabarrier"]>0) {
         $i++;
         list($left, $top)=effectpos($i);
-        $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/wis_gray_manabarrier04.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Магический Барьер</B> (магия)<br>Барьер способен поглотить ещё <b>".$fbattle->battleunits[$id]["manabarrier"]."</b> ед. урона\", this, event)'> </div>";
+        $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='<?=IMG_PATH?>/priem/wis_gray_manabarrier04.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Магический Барьер</B> (магия)<br>Барьер способен поглотить ещё <b>".$fbattle->battleunits[$id]["manabarrier"]."</b> ед. урона\", this, event)'> </div>";
       }
 
       foreach ($mystrokes as $k=>$v) {
@@ -540,15 +540,15 @@ function geteffectval($val, $len, $maxlen) {
         if ($strokes[$k]->maxuses && $v["uses"]>1 && $strokes[$k]->showinpersout) {
           $i++;
           list($left, $top)=effectpos($i);
-          $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/$k".($v["uses"]-1).".gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$k]->name."</B> (приём)<BR><BR> ".$strokes[$k]->opisan."\", this, event)';> </div>";
+          $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='<?=IMG_PATH?>/priem/$k".($v["uses"]-1).".gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$k]->name."</B> (приём)<BR><BR> ".$strokes[$k]->opisan."\", this, event)';> </div>";
         } elseif (@$strokes[$k]->eternal && $v["active"]==3) {
           $i++;
           list($left, $top)=effectpos($i);
-          $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$k]->name."</B> (приём)<BR><BR> ".$strokes[$k]->opisan."\", this, event)';> </div>";
+          $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='<?=IMG_PATH?>/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$k]->name."</B> (приём)<BR><BR> ".$strokes[$k]->opisan."\", this, event)';> </div>";
         } elseif ($v["active"]==2) {
           $i++;
           list($left, $top)=effectpos($i);
-          $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$k]->name."</B> (приём)<BR><BR> ".$strokes[$k]->opisan."\", this, event)';> </div>";
+          $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='<?=IMG_PATH?>/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$k]->name."</B> (приём)<BR><BR> ".$strokes[$k]->opisan."\", this, event)';> </div>";
         }
       }
       $ret=str_replace("<!--strokes-->", $strokes1, $ret);
@@ -590,11 +590,11 @@ function geteffectval($val, $len, $maxlen) {
           if ($tmp[1]=="oncaster") continue;
         }
         $k.=$tail;                                                                                                                                                         
-        $effs.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG ".(@$v["effect"]==IMMUNITY?"style=\"cursor:pointer; filter:gray(), Alpha(Opacity='70');\"":"")." width=40 height=25 src='http://img.bestcombats.net/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".($v["effect"]==IMMUNITY?"Иммунитет":$strokes[$k1]->name)."</B><br>$hint\", this, event)';> </div>";
+        $effs.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG ".(@$v["effect"]==IMMUNITY?"style=\"cursor:pointer; filter:gray(), Alpha(Opacity='70');\"":"")." width=40 height=25 src='<?=IMG_PATH?>/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".($v["effect"]==IMMUNITY?"Иммунитет":$strokes[$k1]->name)."</B><br>$hint\", this, event)';> </div>";
       }                           
       $ret=str_replace("<!--strokes-->", $effs, $ret);
     }
-    if ($user1["invis"] && !$me) $tmp="<IMG SRC='http://img.bestcombats.net/func/1green.gif' WIDTH=120
+    if ($user1["invis"] && !$me) $tmp="<IMG SRC='<?=IMG_PATH?>/func/1green.gif' WIDTH=120
     HEIGHT=9 ALT=\"Уровень жизни\">
     <div style=\"position: absolute; left: 5px; top:0px; z-index: 1; font-weight: bold; color:#FFFFFF;\"><b>??/??</b></div>";
     else $tmp=setHP2($user1['hp'],$user1['maxhp'],$battle);
@@ -613,14 +613,14 @@ function geteffectval($val, $len, $maxlen) {
       if ($fbattle->battleunits[$id]["p2"]) $p2=unserialize($fbattle->battleunits[$id]["p2"]); else $p2="";
       $tmp="<table cellspacing=0 cellpadding=0>
       <tr>
-      <td>".($p1?"<a href=\"fbattle.php?use=p1\" title=\"Использовать $p1[name]\"><img src=\"http://img.bestcombats.net/shmot/$p1[img]\"></a>":"<img alt=\"Пустой слот левый карман\" src=\"http://img.bestcombats.net/user/w15.gif\">")."</td>
-      <td><img alt=\"Пустой слот карман\" src=\"http://img.bestcombats.net/user/w15.gif\"></td>
-      <td>".($p2?"<a href=\"fbattle.php?use=p2\" title=\"Использовать $p2[name]\"><img src=\"http://img.bestcombats.net/shmot/$p2[img]\"></a>":"<img alt=\"Пустой слот правый карман\" src=\"http://img.bestcombats.net/user/w15.gif\">")."</td>
+      <td>".($p1?"<a href=\"fbattle.php?use=p1\" title=\"Использовать $p1[name]\"><img src=\"<?=IMG_PATH?>/shmot/$p1[img]\"></a>":"<img alt=\"Пустой слот левый карман\" src=\"<?=IMG_PATH?>/user/w15.gif\">")."</td>
+      <td><img alt=\"Пустой слот карман\" src=\"<?=IMG_PATH?>/user/w15.gif\"></td>
+      <td>".($p2?"<a href=\"fbattle.php?use=p2\" title=\"Использовать $p2[name]\"><img src=\"<?=IMG_PATH?>/shmot/$p2[img]\"></a>":"<img alt=\"Пустой слот правый карман\" src=\"<?=IMG_PATH?>/user/w15.gif\">")."</td>
       </tr>
       <tr>
-      <td><img src=\"http://img.bestcombats.net/user/w20.gif\"></td>
-      <td><img src=\"http://img.bestcombats.net/user/w20.gif\"></td>
-      <td><img src=\"http://img.bestcombats.net/user/w20.gif\"></td>
+      <td><img src=\"<?=IMG_PATH?>/user/w20.gif\"></td>
+      <td><img src=\"<?=IMG_PATH?>/user/w20.gif\"></td>
+      <td><img src=\"<?=IMG_PATH?>/user/w20.gif\"></td>
       </tr></table>";
       $ret=str_replace("<!--belt-->", $tmp, $ret);
     }
@@ -930,7 +930,7 @@ class fbattle {
   }
 
   function fullnick($u) {
-    return "<b>".$this->userdata[$u]["login"]."</b> [".$this->userdata[$u]["level"]."] <a href=\"inf.php?$u\" target=\"_blank\"><IMG SRC=\"http://img.bestcombats.net/chat/inf.gif\" WIDTH=12 HEIGHT=11 ALT=\"Инф. о ".$this->userdata[$u]["login"]."\"></a>";
+    return "<b>".$this->userdata[$u]["login"]."</b> [".$this->userdata[$u]["level"]."] <a href=\"inf.php?$u\" target=\"_blank\"><IMG SRC=\"<?=IMG_PATH?>/chat/inf.gif\" WIDTH=12 HEIGHT=11 ALT=\"Инф. о ".$this->userdata[$u]["login"]."\"></a>";
   }
 
   function bottouser($id) {
@@ -1356,7 +1356,7 @@ class fbattle {
 
   function showkillown() {
     global $user;
-    if ($user["level"]>=10 && count($this->team_mine)>0 && $this->battle_data["type"]!=3 && $this->battle_data["type"]!=10 && ($this->battle_data["leader1"]==$user["id"] || $this->battle_data["leader2"]==$user["id"]) && $this->battle_data["type"]!=UNLIMCHAOS) return "<a href=\"javascript:void(0)\" onClick=\"findlogin('Исключить персонажа из боя', 'fbattle.php?killown=1', 'target', '')\"><img onmouseover='fastshow2(\"<B>Исключить из боя</B>\", this, event)' onmouseout='hideshow();' border=\"\" src=\"http://img.bestcombats.net/priem/killplayer.gif\"></a>";
+    if ($user["level"]>=10 && count($this->team_mine)>0 && $this->battle_data["type"]!=3 && $this->battle_data["type"]!=10 && ($this->battle_data["leader1"]==$user["id"] || $this->battle_data["leader2"]==$user["id"]) && $this->battle_data["type"]!=UNLIMCHAOS) return "<a href=\"javascript:void(0)\" onClick=\"findlogin('Исключить персонажа из боя', 'fbattle.php?killown=1', 'target', '')\"><img onmouseover='fastshow2(\"<B>Исключить из боя</B>\", this, event)' onmouseout='hideshow();' border=\"\" src=\"<?=IMG_PATH?>/priem/killplayer.gif\"></a>";
     else return "";
   }
 
@@ -2334,7 +2334,7 @@ class fbattle {
           $effname="Сила Стихий";
         }
         if ($rec["level"]>0) {
-          $effects["$rec[id]"]["img"]="http://img.bestcombats.net/icon/pet$rec[vid].gif";
+          $effects["$rec[id]"]["img"]="<?=IMG_PATH?>/icon/pet$rec[vid].gif";
           $effects["$rec[id]"]["name"]="<b>$effname [$rec[level]]</b> (эффект)<br>".str_replace(",","<br>",$effresult);
           $effects["$rec[id]"]["type"]=1;
           if ($rec["sex"]==1) $a=""; else $a="а";
@@ -2388,7 +2388,7 @@ class fbattle {
       list($left, $top)=effectpos($i);
       $effect=effectdata($rec);
 
-      $effects["$rec[id]"]["img"]="http://img.bestcombats.net/icon/icon_$effect[img]";
+      $effects["$rec[id]"]["img"]="<?=IMG_PATH?>/icon/icon_$effect[img]";
       $effects["$rec[id]"]["name"]="<b>$rec[name]</b> ($effect[type])".($effect["mfs"]?"<div>&nbsp;</div>$effect[mfs]":"");
       $effects["$rec[id]"]["type"]=1;
     }
@@ -4269,9 +4269,9 @@ class fbattle {
 
         // sys
         if ($flag==1) {
-          $rr = implode("</B>, <B>",$nks1)."<img src=http://img.bestcombats.net/battle/flag.gif></B> и <B>".implode("</B>, <B>",$nks2);
+          $rr = implode("</B>, <B>",$nks1)."<img src=<?=IMG_PATH?>/battle/flag.gif></B> и <B>".implode("</B>, <B>",$nks2);
         } elseif ($flag==2) {
-          $rr = implode("</B>, <B>",$nks1)."</B> и <B>".implode("</B>, <B>",$nks2)."<img src=http://img.bestcombats.net/battle/flag.gif>";
+          $rr = implode("</B>, <B>",$nks1)."</B> и <B>".implode("</B>, <B>",$nks2)."<img src=<?=IMG_PATH?>/battle/flag.gif>";
         } else {
           $rr = implode("</B>, <B>",$nks1)."</B> и <B>".implode("</B>, <B>",$nks2)."";
         }
@@ -5174,7 +5174,7 @@ function hits($attack, $block, $enemy, $class) {
     else $src.="0";
     if ($attack==$i) $src.="1";
     else $src.="0";
-    $ret.="<img src=\"http://img.bestcombats.net/battle/hits/$class$src.gif\">";
+    $ret.="<img src=\"<?=IMG_PATH?>/battle/hits/$class$src.gif\">";
   }
   return $ret;
 }
@@ -7070,7 +7070,7 @@ $fbattle->write_log();
       }
     ?>
        <TABLE border=0 width="100%" cellspacing=0 cellpadding=0><TR><TD colspan=3 style="font-size:3px">&nbsp;</td></tr>
-       <TR><TD width="50%"><?echo "<b><a style=\"color=#003388\" onclick=\"top.AddTo('$user[login]');return false\" href=\"javascript:void(0)\">".$user['login']." [".$user['level']."]</a> <a href=\"inf.php?".$user['id']."\" target=_blank><IMG SRC=\"http://img.bestcombats.net/chat/inf.gif\" WIDTH=12 HEIGHT=11 ALT=\"Инф. о ".$user['login']."\"></a></b>";?></TD>
+       <TR><TD width="50%"><?echo "<b><a style=\"color=#003388\" onclick=\"top.AddTo('$user[login]');return false\" href=\"javascript:void(0)\">".$user['login']." [".$user['level']."]</a> <a href=\"inf.php?".$user['id']."\" target=_blank><IMG SRC=\"<?=IMG_PATH?>/chat/inf.gif\" WIDTH=12 HEIGHT=11 ALT=\"Инф. о ".$user['login']."\"></a></b>";?></TD>
 <td align="center"><div style="font-size:20px;font-weight:bold;padding-left:10px;line-height:15px;<? if ($user["id"]!=7) echo "visibility:hidden"; ?>">
 </div></td>
 <? if(@$unemli['invis']==1) {?>
@@ -7131,10 +7131,10 @@ $_SESSION['batl']=$user['battle'];
 
 <td align="right">
 <? if ($fbattle->battleunits[$user["id"]]["changes"]>0) { ?>
-<a href="javascript:void(0)" onClick="findlogin('Смена противника', 'fbattle.php?changeenemy=1', 'target', '')"><img src='http://img.bestcombats.net/battle/ico_change.gif' width=16 height=19 style='cursor:pointer' <?=fastshow("Смена противника (".$fbattle->battleunits[$user["id"]]["changes"].")");?>></a>
+<a href="javascript:void(0)" onClick="findlogin('Смена противника', 'fbattle.php?changeenemy=1', 'target', '')"><img src='<?=IMG_PATH?>/battle/ico_change.gif' width=16 height=19 style='cursor:pointer' <?=fastshow("Смена противника (".$fbattle->battleunits[$user["id"]]["changes"].")");?>></a>
 <? } ?>
 &nbsp;
-<a onClick="location.href='<?=$_SERVER['PHP_SELF']?>?batl=<?=@$_REQUEST['batl']?>';"><img src='http://img.bestcombats.net/battle/ico_refresh.gif' width=16 height=19 style='cursor:pointer' <?=fastshow("Обновить")?>></a>
+<a onClick="location.href='<?=$_SERVER['PHP_SELF']?>?batl=<?=@$_REQUEST['batl']?>';"><img src='<?=IMG_PATH?>/battle/ico_refresh.gif' width=16 height=19 style='cursor:pointer' <?=fastshow("Обновить")?>></a>
 </td></tr></table><INPUT TYPE=hidden name=enemy value="<?=$fbattle->enemy?>"></TD>
                 </TR>
             </TABLE><? } else { ?>                                   
@@ -7150,7 +7150,7 @@ $_SESSION['batl']=$user['battle'];
 
 <td align="right">
 &nbsp;
-<a onClick="location.href='<?=$_SERVER['PHP_SELF']?>?batl=<?=@$_REQUEST['batl']?>';"><img src='http://img.bestcombats.net/battle/ico_refresh.gif' width=16 height=19 style='cursor:pointer' <?=fastshow("Обновить")?>></a>
+<a onClick="location.href='<?=$_SERVER['PHP_SELF']?>?batl=<?=@$_REQUEST['batl']?>';"><img src='<?=IMG_PATH?>/battle/ico_refresh.gif' width=16 height=19 style='cursor:pointer' <?=fastshow("Обновить")?>></a>
 
 </td></tr></table>
             <? } ?>
@@ -7169,13 +7169,13 @@ $_SESSION['enemy']=$fbattle->enemy;
 
 ?>
 <div style="font-size:4px">&nbsp;</div>
-<TABLE width=238><tr><TD width=34 align=center><SMALL><IMG alt='Нанесенный удар' width=8 height=8 src='http://img.bestcombats.net/battle/hit.gif'><?=$hit?></TD>
-<TD width=34 align=center><SMALL><IMG alt='Критический удар' width=7 height=8 src='http://img.bestcombats.net/battle/krit.gif'><?=$krit?></TD>
-<TD width=34 align=center><SMALL><IMG alt='Проведенный контрудар' width=8 height=8 src='http://img.bestcombats.net/battle/counter.gif'><?=$counter?></TD>
-<TD width=34 align=center><SMALL><IMG alt='Успешный блок' width=7 height=8 src='http://img.bestcombats.net/battle/block.gif'><?=$block?></TD>
-<TD width=34 align=center><SMALL><IMG alt='Успешное парирование' width=8 height=8 src='http://img.bestcombats.net/battle/parry.gif'><?=$parry?></TD>
-<TD width=34 align=center><SMALL><IMG alt='Нанесенный урон' width=8 height=8 src='http://img.bestcombats.net/battle/hp.gif'><?=floor($hp)?></TD>
-<TD width=34 align=center><SMALL><IMG alt='Уровень духа (<?=(number_format($s_duh/100,2))?>)' width=7 height=8 src='http://img.bestcombats.net/battle/spirit.gif'><?=1*number_format($s_duh/100,2)?></TD>
+<TABLE width=238><tr><TD width=34 align=center><SMALL><IMG alt='Нанесенный удар' width=8 height=8 src='<?=IMG_PATH?>/battle/hit.gif'><?=$hit?></TD>
+<TD width=34 align=center><SMALL><IMG alt='Критический удар' width=7 height=8 src='<?=IMG_PATH?>/battle/krit.gif'><?=$krit?></TD>
+<TD width=34 align=center><SMALL><IMG alt='Проведенный контрудар' width=8 height=8 src='<?=IMG_PATH?>/battle/counter.gif'><?=$counter?></TD>
+<TD width=34 align=center><SMALL><IMG alt='Успешный блок' width=7 height=8 src='<?=IMG_PATH?>/battle/block.gif'><?=$block?></TD>
+<TD width=34 align=center><SMALL><IMG alt='Успешное парирование' width=8 height=8 src='<?=IMG_PATH?>/battle/parry.gif'><?=$parry?></TD>
+<TD width=34 align=center><SMALL><IMG alt='Нанесенный урон' width=8 height=8 src='<?=IMG_PATH?>/battle/hp.gif'><?=floor($hp)?></TD>
+<TD width=34 align=center><SMALL><IMG alt='Уровень духа (<?=(number_format($s_duh/100,2))?>)' width=7 height=8 src='<?=IMG_PATH?>/battle/spirit.gif'><?=1*number_format($s_duh/100,2)?></TD>
 </tr></TABLE>
 <?
 $inssql="";
@@ -7215,14 +7215,14 @@ for ($i=201;$i<=220;$i++) {
     (0+$p2->n_hit).",".(0+$p2->n_krit).",".(0+$p2->n_counter).",".(0+$p2->n_block).",".(0+$p2->n_parry).",".(0+$p2->n_hp).",".(0+$p2->sduh).",".(0+$p2->mana).",".(0+$p2->wait).",".($act['wait']>0?$act['wait']:0).",".(0+$p2->maxuses).",".($p2->maxuses?$act['uses']-1:0).",".($p2->startwait?$p2->startwait:0),
     ($p2->target?"1":"0"),'','', remquotesjs($p2->target==1?"$enemynick":"$user[login]"), $p2->priem);
   } elseif ($i<=210) {
-    echo"<IMG style=\"\" width=40 height=25 src='http://img.bestcombats.net/priem/clear.gif'>";
+    echo"<IMG style=\"\" width=40 height=25 src='<?=IMG_PATH?>/priem/clear.gif'>";
   }
 }
 
 unset($i);
 if($user['zver_id']>0 && !incommontower($user) && $fbattle->battle_data["quest"]!=4){
   if($fbattle->battleunits[$user["id"]]["petunleashed"]){$temn = "style=\"filter:gray(), Alpha(Opacity='70');\""; $ogogo=""; $ogogo2="";}else{$ogogo="<a href=\"?uszver=1\">"; $ogogo2="</a>";$temn="";}
-  echo $ogogo."<img src=\"http://img.bestcombats.net/priem/pet_unleash.gif\" ".$temn." onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Выпустить зверя</B>\", this, event)'>".$ogogo2;
+  echo $ogogo."<img src=\"<?=IMG_PATH?>/priem/pet_unleash.gif\" ".$temn." onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Выпустить зверя</B>\", this, event)'>".$ogogo2;
 }
   echo $fbattle->showkillown();
 ?>
@@ -7317,7 +7317,7 @@ if($fbattle->battle) {
         @$zz .= "private [".$fbattle->userdata[$v]["login"]."] ";
       }
     }
-    if ($i>0) echo "<IMG SRC=\"http://img.bestcombats.net/chat/lock.gif\" WIDTH=20 HEIGHT=15 BORDER=0 ALT=\"приват\" style=\"cursor:pointer\" onClick=\"Prv('$zz')\">    
+    if ($i>0) echo "<IMG SRC=\"<?=IMG_PATH?>/chat/lock.gif\" WIDTH=20 HEIGHT=15 BORDER=0 ALT=\"приват\" style=\"cursor:pointer\" onClick=\"Prv('$zz')\">    
     $ffs <b>против</b>";
     elseif ($user["hp"]>0 && $fbattle->batle_data["win"]!=3 && $user["battle"]) {
       mq("update users set battle=0 where id='$user[id]'");
@@ -7340,7 +7340,7 @@ if($fbattle->battle) {
     }
     $i=0;
 ?>
-<IMG SRC="http://img.bestcombats.net/chat/lock.gif" WIDTH=20 HEIGHT=15 BORDER=0 ALT="приват" style="cursor:pointer" onClick="Prv('<?=$zz?> ')">
+<IMG SRC="<?=IMG_PATH?>/chat/lock.gif" WIDTH=20 HEIGHT=15 BORDER=0 ALT="приват" style="cursor:pointer" onClick="Prv('<?=$zz?> ')">
 <?=$ffs?>
 <HR>
 </div>
@@ -7420,13 +7420,13 @@ if(@$fbattle->return == 1){
 
     if ($fbattle->battle_data['type']==4 OR $fbattle->battle_data['type']==5) {
         $a = array(6,16);
-        echo "<img src='http://img.bestcombats.net/battle/bim/",$a[rand(0,1)],".gif'>";
+        echo "<img src='<?=IMG_PATH?>/battle/bim/",$a[rand(0,1)],".gif'>";
     } elseif (@$fbattle->return > 1) {
-        echo "<img src='http://img.bestcombats.net/battle/bim/",rand(1,34),".jpg'>";
+        echo "<img src='<?=IMG_PATH?>/battle/bim/",rand(1,34),".jpg'>";
     } elseif(@$exp[$user['id']] > 0) {
-        echo "<img src='http://img.bestcombats.net/battle/bim/",rand(113,115),".jpg'>";
+        echo "<img src='<?=IMG_PATH?>/battle/bim/",rand(113,115),".jpg'>";
     } else {
-        echo "<img src='http://img.bestcombats.net/battle/bim/",rand(110,112),".jpg'>";
+        echo "<img src='<?=IMG_PATH?>/battle/bim/",rand(110,112),".jpg'>";
     }
 }
 

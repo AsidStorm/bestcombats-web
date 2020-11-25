@@ -333,7 +333,7 @@
 <?If ($_GET['page']==1 or $_GET['page']==NULL){?>
   <DIV style="text-align: center;"><B>ИЗЛОМ ХАОСА</B></DIV><br />
 
-<DIV style="text-align: center;"><TABLE class=QUOTE><TR><TD>Для гостей <SPAN title="Old City"><IMG src="http://img.bestcombats.net/i/sh/fo11.gif" width=17 height=16 border=0></SPAN><B>Old City</B> открыта новая локация, рассчитанная на игроков-одиночек <B><span style="color:#F93737">7+</span></B> уровней - <IMG src="http://img.combats.com/i/align2.gif" width=12 height=15 border=0><B>Излом Хаоса</B>.</TD></TR></TABLE>
+<DIV style="text-align: center;"><TABLE class=QUOTE><TR><TD>Для гостей <SPAN title="Old City"><IMG src="<?=IMG_PATH?>/i/sh/fo11.gif" width=17 height=16 border=0></SPAN><B>Old City</B> открыта новая локация, рассчитанная на игроков-одиночек <B><span style="color:#F93737">7+</span></B> уровней - <IMG src="http://img.combats.com/i/align2.gif" width=12 height=15 border=0><B>Излом Хаоса</B>.</TD></TR></TABLE>
 <IMG src="http://img.combats.com/i/align2.9.gif" width=12 height=15 border=0><B>Мы</B> немного приоткрыли завесу тайны, нависшую над новым развлечением сорвиголов.</DIV><br />
 <TABLE><TR><TD><IMG SRC="http://img.combats.ru/i/images/subimages/ab_iz_npc.gif" border=0></TD>
 <br />

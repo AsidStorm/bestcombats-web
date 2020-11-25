@@ -75,15 +75,15 @@
     }
 ### Показываем аккаунты в информации о персонаже ###
     if ($user['vip']==1) {
-      $ret.=' <img src="http://img.bestcombats.net/znaks/vip1.gif" onmouseover=\'fastshow("<b>Silver Account</b>")\' onmouseout=\'hideshow();\'> ';
+      $ret.=' <img src="<?=IMG_PATH?>/znaks/vip1.gif" onmouseover=\'fastshow("<b>Silver Account</b>")\' onmouseout=\'hideshow();\'> ';
     }elseif ($user['vip']==2) {
-      $ret.=' <img src="http://img.bestcombats.net/znaks/vip2.gif" onmouseover=\'fastshow("<b>Gold Account</b>")\' onmouseout=\'hideshow();\'> ';
+      $ret.=' <img src="<?=IMG_PATH?>/znaks/vip2.gif" onmouseover=\'fastshow("<b>Gold Account</b>")\' onmouseout=\'hideshow();\'> ';
     }elseif ($user['vip']==3) {
-      $ret.=' <img src="http://img.bestcombats.net/znaks/vip3.gif" onmouseover=\'fastshow("<b>Platinum Account</b>")\' onmouseout=\'hideshow();\'> ';
+      $ret.=' <img src="<?=IMG_PATH?>/znaks/vip3.gif" onmouseover=\'fastshow("<b>Platinum Account</b>")\' onmouseout=\'hideshow();\'> ';
     }   
 ##################
     if ($user['radiodj']==1) {
-      $ret.=' <img src="http://img.bestcombats.net/znaks/radio.gif" onmouseover=\'fastshow("Персонаж является радистом Бойцовского Клуба")\' onmouseout=\'hideshow();\'> ';
+      $ret.=' <img src="<?=IMG_PATH?>/znaks/radio.gif" onmouseover=\'fastshow("Персонаж является радистом Бойцовского Клуба")\' onmouseout=\'hideshow();\'> ';
     }
     if ($user['spellfreedom']==1) {
       $ret.=' <img src="'.IMGBASE.'/i/freedom.gif" onmouseover=\'fastshow("<b>Свобода. Магия истинного хаоса.</b><br>Персонаж свободен.")\' onmouseout=\'hideshow();\'>';
@@ -105,13 +105,13 @@
     
     $znTowerLevel = db_result(db_query("SELECT reputation FROM zn_tower WHERE user_id = " . $user['id']), 0, 0);
     if ($znTowerLevel >= 100 && $znTowerLevel <= 999) {
-        $ret.="<img src=\"http://img.bestcombats.net/znaks/znrune_1.gif\" onmouseover=\"fastshow('<b>Храм Знаний</b><br>Посвящённый 1-го круга')\" onmouseout=\"hideshow();\">";
+        $ret.="<img src=\"<?=IMG_PATH?>/znaks/znrune_1.gif\" onmouseover=\"fastshow('<b>Храм Знаний</b><br>Посвящённый 1-го круга')\" onmouseout=\"hideshow();\">";
     }
     if ($znTowerLevel >= 1000 && $znTowerLevel <= 9999) {
-        $ret.="<img src=\"http://img.bestcombats.net/znaks/znrune_2.gif\" onmouseover=\"fastshow('<b>Храм Знаний</b><br>Посвящённый 2-го круга')\" onmouseout=\"hideshow();\">";
+        $ret.="<img src=\"<?=IMG_PATH?>/znaks/znrune_2.gif\" onmouseover=\"fastshow('<b>Храм Знаний</b><br>Посвящённый 2-го круга')\" onmouseout=\"hideshow();\">";
     }
     if ($znTowerLevel >= 9999) {
-        $ret.="<img src=\"http://img.bestcombats.net/znaks/znrune_3.gif\" onmouseover=\"fastshow('<b>Храм Знаний</b><br>Посвящённый 3-го круга')\" onmouseout=\"hideshow();\">";
+        $ret.="<img src=\"<?=IMG_PATH?>/znaks/znrune_3.gif\" onmouseover=\"fastshow('<b>Храм Знаний</b><br>Посвящённый 3-го круга')\" onmouseout=\"hideshow();\">";
     }
 //Значки за победы by InvadeR
 ###########################################################################

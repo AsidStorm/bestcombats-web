@@ -277,7 +277,7 @@ if($tr['id'] == 0){ ?>
                 $i++;
                 if($i>1) { $lors .= ", "; }
                 $lors.="<img src=\"".IMGBASE."/i/align_".($user1['align']>0 ? $user1['align']:"0").".gif\">";
-                if ($user1['klan'] <> '') $lors.= '<img title="'.$user1['klan'].'" src="http://img.bestcombats.net/klan/'.$user1['klan'].'.gif">'; 
+                if ($user1['klan'] <> '') $lors.= '<img title="'.$user1['klan'].'" src="<?=IMG_PATH?>/klan/'.$user1['klan'].'.gif">';
                 $lors.= "<B>{$user1['login']}</B> [{$user1['level']}]<a href=inf.php?{$user1['id']} target=_blank><IMG SRC=".IMGBASE."/i/inf.gif WIDTH=12 HEIGHT=11 ALT=\"Инф. о {$user1['login']}\"></a>";
                 //$lors .= nick3($in[0]);
             }
@@ -322,8 +322,8 @@ if($tr['id'] == 0){ ?>
   echo "<P><H4>Наибольшее количество побед</H4><table>";
   while ($rec=mysqli_fetch_assoc($r)) {
     if (!$rec["login"]) $rec["login"]=mqfa1("select login from allusers where id='$rec[id]'");
-    echo "<tr><td width=\"30\"><b>$rec[cid]</b></td><td>$rec[login] ".($rec["klan"]?"<img title=\"$rec[klan]\" src=\"http://img.bestcombats.net/klan/$rec[klan].gif\">":"")." <a target=\"_blank\" href=\"inf.php?$rec[id]\"><img src=\"/i/inf.gif\" border=\"0\"></a></td></tr>";
-  }                                                                 //".($user["klan"]?"<img title=\"$user[klan]\" src=\"http://img.bestcombats.net/klan/$user[klan].gif">":"")."
+    echo "<tr><td width=\"30\"><b>$rec[cid]</b></td><td>$rec[login] ".($rec["klan"]?"<img title=\"$rec[klan]\" src=\"<?=IMG_PATH?>/klan/$rec[klan].gif\">":"")." <a target=\"_blank\" href=\"inf.php?$rec[id]\"><img src=\"/i/inf.gif\" border=\"0\"></a></td></tr>";
+  }                                                                 //".($user["klan"]?"<img title=\"$user[klan]\" src=\"<?=IMG_PATH?>/klan/$user[klan].gif">":"")."
   echo "</table>";
   echo db_error();
     $row = db_query("SELECT * FROM `deztow_turnir` WHERE `active` = FALSE ORDER by `id` DESC LIMIT 10;");

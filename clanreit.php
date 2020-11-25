@@ -4,25 +4,25 @@ include "connect.php";
 <HTML>
 <HEAD>
 <title>Таблица кланового опыта</title>
-<link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
-<link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
+<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
+<link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
-<link href="http://img.bestcombats.net/css/design3.css" rel="stylesheet" type="text/css">
+<link href="<?=IMG_PATH?>/css/design3.css" rel="stylesheet" type="text/css">
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
  
 <style type="text/css">
 img.pnged {
-    behavior:  url(http://img.bestcombats.net/pngbehavior.htc);
+    behavior:  url(<?=IMG_PATH?>/pngbehavior.htc);
 }
 </style>
  
-<script type="text/javascript" language="javascript" src='http://img.bestcombats.net/js/commoninf.js'></script>
-<script type="text/javascript" language="JavaScript1.3" src='http://img.bestcombats.net/js/inf.0.102.js'></script>
+<script type="text/javascript" language="javascript" src='<?=IMG_PATH?>/js/commoninf.js'></script>
+<script type="text/javascript" language="JavaScript1.3" src='<?=IMG_PATH?>/js/inf.0.102.js'></script>
 </HEAD>
 <body style="margin:10px; margin-top:5px; background-repeat:no-repeat; background-position: top right" bgcolor=e2e0e0>
-<center><img src="http://img.bestcombats.net/clans/clans.png"></center>
+<center><img src="<?=IMG_PATH?>/clans/clans.png"></center>
 <style>
 .exptable td {border-bottom: 1px dotted #666666; padding: 2 4 2 4;}
 .exptable td.last {border-bottom: 0px;}
@@ -47,11 +47,11 @@ $nu=1;
                         $total = 0;
                         $total1 = mysqli_num_rows(db_query("SELECT * FROM `users` WHERE `klan` = '{$row['short']}'"));
                         if ($row['guard']==1) {
-                        echo "<tr><td width=12  align=center><b>".$nu++.".</b></td><td width=12  align=center><img src='http://img.bestcombats.net/clans/guard.gif' alt='Гвардейский клан'>";
+                        echo "<tr><td width=12  align=center><b>".$nu++.".</b></td><td width=12  align=center><img src='<?=IMG_PATH?>/clans/guard.gif' alt='Гвардейский клан'>";
                         }else{
                         echo "<tr><td width=12  align=center><b>".$nu++.".</b></td><td width=12  align=center>&nbsp;</td>";
                         }
-                        echo"</td><td width=12 align=center><img src='http://img.bestcombats.net/align/align_{$row['align']}.gif'></td><td width=12 align=center ><img src='http://img.bestcombats.net/klan/{$row['short']}.gif'></td><td ><a href='/claninf.php?{$row['short']}'>{$row['name']}</a></td><td >{$row['clanlevel']}</td><td  align=center>{$total1}</td></tr>";
+                        echo"</td><td width=12 align=center><img src='<?=IMG_PATH?>/align/align_{$row['align']}.gif'></td><td width=12 align=center ><img src='<?=IMG_PATH?>/klan/{$row['short']}.gif'></td><td ><a href='/claninf.php?{$row['short']}'>{$row['name']}</a></td><td >{$row['clanlevel']}</td><td  align=center>{$total1}</td></tr>";
                     }
 ?>
  
