@@ -27,12 +27,7 @@ if($_SESSION['uid']!='241959'){die("Текнические работы.");}
 }
   #Коннект с БД#
 include_once("nbm,jkl,ggbdfgdrgv.ini");
-If (!$mysql = mysql_connect($con_adr,$con_use,$con_pas)){echo "Нарушена связь с базой данных!";}
-If (!mysql_select_db ($con_bd, $mysql)){echo "Невозможно выбрать данную БД!";}
- 
-     mysql_query("SET NAMES CP1251");
-	mysql_query("SET time_zone = '+03:00'");
-
+include_once("include/database.inc");
 
     foreach ($_POST as $k=>$v) {
         $_POST[$k] = htmlspecialchars(mysql_real_escape_string($v));
@@ -44,43 +39,6 @@ If (!mysql_select_db ($con_bd, $mysql)){echo "Невозможно выбрат�
         $_REQUEST[$k] = htmlspecialchars(mysql_real_escape_string($v));
     }
 
-if(!function_exists('mqfa1')){
-  function mqfa1($sql, $pos=0){
-    if (strpos($sql,"show fields")===false && strpos($sql," limit ")===false) $sql.=" limit 1";
-    $a=mysql_fetch_row(mq("$sql"));
-    return $a[$pos];
-  }
-}
-if(!function_exists('mqfa')){
-  function mqfa($sql){
-    if (strpos($sql,"show fields")===false && strpos($sql," limit ")===false) $sql.=" limit 1";
-    $a=mysql_fetch_assoc(mq("$sql"));
-    return $a;
-  }
-}
-if(!function_exists('mqfaa')){
-  function mqfaa($sql){
-    $a=mq("$sql");
-    $res = array();
-    while ($row = mysql_fetch_assoc($a)) {
-        $res[] = $row;
-    }
-    return $res;
-  }
-}
-if(!function_exists('mqfr')){
-  function mqfr($sql){
-    if (strpos($sql,"show fields")===false && strpos($sql," limit ")===false) $sql.=" limit 1";
-    $a=mysql_fetch_row(mq("$sql"));
-    return $a;
-  }
-}
-if(!function_exists('mq')){
-  function mq($sql){
-    $a=mysql_query($sql);
-    return $a;
-  }
-}
 if(!function_exists('remquotes')){
   function remquotes($s) {
     $ret=str_replace('&','&amp;',$s);
@@ -91,11 +49,7 @@ if(!function_exists('remquotes')){
     return $ret;
   }
 }
-if(!function_exists('mnr')){
-  function mnr($q) {
-    return mysql_num_rows(mq($q));
-  }
-}
+
 if(!function_exists("format_string")) {
 function format_string(&$string)
    {
@@ -138,5 +92,3 @@ function debug($s) {
 }
 }
 define("SELLCOEF", "1");
-include_once 'connect_injection.php';
-?>
