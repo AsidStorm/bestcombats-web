@@ -14,7 +14,6 @@
 
 // Ядро
 
-   session_register('securityCode');
    $SECURITY_FONT_SIZE = intval($SECURITY_HEIGHT/(($SECURITY_HEIGHT/$SECURITY_WIDTH)*7));
    $SECURITY_NUM_SIGN = intval(($SECURITY_WIDTH*$SECURITY_HEIGHT)/150);
    $CODE = array();
@@ -82,4 +81,3 @@
    }
 
    imagedestroy($src);
-?>
