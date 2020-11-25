@@ -312,7 +312,7 @@ if ((user == null)||(user == "")) {
 
 
 
-    } else { alert("Рекомендуемый браузер для игры - Internet Explorer 5.0 или выше.");
+    } else {
     document.write(
     '<frameset rows="37, *, 30, 5" FRAMEBORDER="0" BORDER="0" FRAMESPACING="0">'+
         '<frame src="top.php" target="_top" scrolling=NO NORESIZE FRAMEBORDER="0" BORDER="0" FRAMESPACING="0" MARGINWIDTH="0" MARGINHEIGHT="0">'+
