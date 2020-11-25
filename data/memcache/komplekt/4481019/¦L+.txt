@@ -1,9 +1,0 @@
-Fiery Belt of Concealed{||||}927885{||||}belt
-Fiery Hat of Concealed{||||}1284737{||||}helm
-Fiery Pants of Concealed{||||}1284739{||||}leg
-Fiery Robe of Concealed{||||}1293472{||||}bron
-Fiery Gloves of Concealed{||||}1383469{||||}perchi
-Fiery Cuffs of Concealed{||||}1426413{||||}naruchi
-Fiery Boots of Concealed{||||}1428427{||||}boots
-Fiery Amulet Of Abstruse{||||}1442057{||||}kulon
-Рубаха Мага [8]{||||}1449263{||||}rybax
