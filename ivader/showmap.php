@@ -81,7 +81,7 @@ echo '
         }
     </style>
 ';
-$map = unserialize(mysql_result(mysql_query("SELECT map FROM cavemaps WHERE id = 29"), 0, 0));
+$map = unserialize(db_result(db_query("SELECT map FROM cavemaps WHERE id = 29"), 0, 0));
 $map[$_POST['x']][$_POST['y']]=$_POST['data'];
 if (mq('UPDATE cavemaps SET `map`= \''.serialize($map).'\' WHERE id = 29')); echo "Карта удачно сохранена";
  

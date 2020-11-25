@@ -61,14 +61,14 @@ if ($step >= 6 && $step <= 9) {
     $isPages = array();
     $isCover = array();
     for ($i = $ids[$step]['fr']; $i <= $ids[$step]['to']; $i++) {
-        $isPage = mysql_fetch_assoc(mysql_query("SELECT id, name, koll FROM inventory WHERE owner = $user[id] AND prototype = $i AND koll > 0 LIMIT 1"));
+        $isPage = mysqli_fetch_assoc(db_query("SELECT id, name, koll FROM inventory WHERE owner = $user[id] AND prototype = $i AND koll > 0 LIMIT 1"));
         if (!$isPage) {
             break;
         } else {
             $isPages[] = $isPage;
         }
     }
-    $isCover = mysql_fetch_assoc(mysql_query("SELECT id, name, koll FROM inventory WHERE owner = $user[id] AND prototype = 2588 AND koll > 0 LIMIT 1"));
+    $isCover = mysqli_fetch_assoc(db_query("SELECT id, name, koll FROM inventory WHERE owner = $user[id] AND prototype = 2588 AND koll > 0 LIMIT 1"));
     if (count($isPages) != 10 || !$isCover) {
         $speach .= "<span style=\"color: red\">У Вас нет не хватает страниц или обложки.</span>";    
         $answers = array(
@@ -84,16 +84,16 @@ if ($step >= 6 && $step <= 9) {
         foreach ($isPages as $v) {
             $speach .= 'Вы отдали "' . $v['name'] . '"<br />';
             if ($v['koll'] > 1) {
-                mysql_query("UPDATE inventory SET koll = (koll - 1) WHERE id = $v[id] AND owner = $user[id]");
+                db_query("UPDATE inventory SET koll = (koll - 1) WHERE id = $v[id] AND owner = $user[id]");
             } else {
-                mysql_query("DELETE FROM inventory WHERE id = $v[id] AND owner = $user[id]");
+                db_query("DELETE FROM inventory WHERE id = $v[id] AND owner = $user[id]");
             }
         }
         // удаление обложки
         if ($isCover['koll'] > 1) {
-            mysql_query("UPDATE inventory SET koll = (koll - 1) WHERE id = $isCover[id] AND owner = $user[id]");
+            db_query("UPDATE inventory SET koll = (koll - 1) WHERE id = $isCover[id] AND owner = $user[id]");
         } else {
-            mysql_query("DELETE FROM inventory WHERE id = $isCover[id] AND owner = $user[id]");
+            db_query("DELETE FROM inventory WHERE id = $isCover[id] AND owner = $user[id]");
         }
         $speach .= 'Вы отдали "' . $isCover['name'] . '"<br />';
         // получение книги

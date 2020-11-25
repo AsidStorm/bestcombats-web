@@ -147,7 +147,7 @@
     echo "<b>10 лучших воинов".($cond?" в этой битве":"").":</b><br><br>";
     echo "<table>";
     $i=0;
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $i++;
       echo "<tr><td height=\"20\">$i</td><td><img src=\"http://img.bestcombats.net/klan/$rec[klan].gif\"></td><td><b>$rec[login]</b> [$rec[level]]</td></tr>";
     }
@@ -160,7 +160,7 @@
       $r=mq("select sum(step), users.login, users.klan, users.level, quests.user from quests left join users on quests.user=users.id where quest='$speakto[quest]' $cond group by quests.user order by 1 desc limit 0, 10");
       echo "<table>";
       $i=0;
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         $i++;
         if (!$rec["login"]) {
           $ur=mqfa("select login, klan, level from allusers where id='$rec[user]'");

@@ -1,7 +1,7 @@
 <?
 if(in_array($user['room'], $canalrooms)){
-$nes = mysql_query("SELECT * FROM podzem2 WHERE name='".$mir['name']."'");
-$s = mysql_fetch_array($nes);
+$nes = db_query("SELECT * FROM podzem2 WHERE name='".$mir['name']."'");
+$s = mysqli_fetch_array($nes);
 $rooms[0] = "";
     // характеристики комнат
 $rhar=array();

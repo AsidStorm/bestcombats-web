@@ -1,8 +1,8 @@
 <?php
-$_POST['target']=mysql_real_escape_string($_POST['target']);
-$us = mysql_fetch_array(mysql_query("SELECT *,(select `id` from `online` WHERE `real_time` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
-$magic = mysql_fetch_array(mysql_query("SELECT `chanse` FROM `magic` WHERE `id` = '263' ;")); 
-$battle = mysql_fetch_array(mysql_query("SELECT `closed` FROM `battle` WHERE `id` = '{$us['battle']}' ;"));
+$_POST['target']=db_escape_string($_POST['target']);
+$us = mysqli_fetch_array(db_query("SELECT *,(select `id` from `online` WHERE `real_time` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+$magic = mysqli_fetch_array(db_query("SELECT `chanse` FROM `magic` WHERE `id` = '263' ;"));
+$battle = mysqli_fetch_array(db_query("SELECT `closed` FROM `battle` WHERE `id` = '{$us['battle']}' ;"));
 $owntravma=mqfa("SELECT id FROM `effects` WHERE `owner` = '".$us['id']."' AND (type=13 OR type=12 OR type=14)");
 if (!$us["online"]) {
   $us=mqfa("select * from bots where battle='$user[battle]' and name='$_POST[target]'");

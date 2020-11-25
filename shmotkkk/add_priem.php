@@ -2,7 +2,7 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "../connect.php";	
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	if ($user['align']==2.5)  {
 
 ?>
@@ -64,7 +64,7 @@
 <?
 
  if ($_POST['name']) {
-	if (mysql_query("insert into priem (name,opisan,type,priem,n_block,n_hit,n_hp,n_krit,n_counter,n_parry,minlevel,wait,sduh,intel,m_magic1,m_magic2,m_magic3,m_magic4,m_magic5,m_magic6,m_magic7,need_sil,need_vyn,hod,mana) values ('".$_POST['name']."','".$_POST['opisan']."','".$_POST['type']."','".$_POST['priem']."','".$_POST['n_block']."','".$_POST['n_hit']."','".$_POST['n_hp']."','".$_POST['n_krit']."','".$_POST['n_counter']."','".$_POST['n_parry']."','".$_POST['minlevel']."','".$_POST['wait']."','".$_POST['sduh']."','".$_POST['intel']."','".$_POST['m_magic1']."','".$_POST['m_magic2']."','".$_POST['m_magic3']."','".$_POST['m_magic4']."','".$_POST['m_magic5']."','".$_POST['m_magic6']."','".$_POST['m_magic7']."','".$_POST['need_sil']."','".$_POST['need_vyn']."','".$_POST['hod']."','".$_POST['mana']."');")) 	{	echo "OK";	}
+	if (db_query("insert into priem (name,opisan,type,priem,n_block,n_hit,n_hp,n_krit,n_counter,n_parry,minlevel,wait,sduh,intel,m_magic1,m_magic2,m_magic3,m_magic4,m_magic5,m_magic6,m_magic7,need_sil,need_vyn,hod,mana) values ('".$_POST['name']."','".$_POST['opisan']."','".$_POST['type']."','".$_POST['priem']."','".$_POST['n_block']."','".$_POST['n_hit']."','".$_POST['n_hp']."','".$_POST['n_krit']."','".$_POST['n_counter']."','".$_POST['n_parry']."','".$_POST['minlevel']."','".$_POST['wait']."','".$_POST['sduh']."','".$_POST['intel']."','".$_POST['m_magic1']."','".$_POST['m_magic2']."','".$_POST['m_magic3']."','".$_POST['m_magic4']."','".$_POST['m_magic5']."','".$_POST['m_magic6']."','".$_POST['m_magic7']."','".$_POST['need_sil']."','".$_POST['need_vyn']."','".$_POST['hod']."','".$_POST['mana']."');")) 	{	echo "OK";	}
 else { echo "NO";}
  
  }

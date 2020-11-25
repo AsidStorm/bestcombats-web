@@ -1,6 +1,6 @@
 <?
  if ($_SESSION['uid'] == null) header("Location: index.php");
-$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 if ($user['battle']==0) {
 echo'Нельзя использовать вне боя';
 }

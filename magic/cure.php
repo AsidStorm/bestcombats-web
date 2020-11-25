@@ -21,7 +21,7 @@ if ($_SESSION['uid'] == null) header("Location: index.php");
       }
     }
   } else {
-    $us = mysql_fetch_array(mysql_query("SELECT *, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+    $us = mysqli_fetch_array(db_query("SELECT *, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
   }
 
   if ($us["id"]>_BOTSEPARATOR_) { $report="Нельзя лечить ботов!"; }
@@ -35,7 +35,7 @@ if ($_SESSION['uid'] == null) header("Location: index.php");
       $scrollresult=array();
       $scrollresult["target"]=$us["id"];
       $scrollresult["deltahp"]=$ghp;
-      //mysql_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' использовал заклятие восстановления энергии '.(($us['id']!=$user['id'])?"на ".nick5($us['id'],$fbattle->my_class):"").' и восстановил уровень жизни <B>+60</B> ['.($hp).'/'.$us['maxhp'].']<BR>\') WHERE `id` = '.$us['battle'].'');
+      //db_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' использовал заклятие восстановления энергии '.(($us['id']!=$user['id'])?"на ".nick5($us['id'],$fbattle->my_class):"").' и восстановил уровень жизни <B>+60</B> ['.($hp).'/'.$us['maxhp'].']<BR>\') WHERE `id` = '.$us['battle'].'');
       //$fbattle->add_log('');
     } else {
       mq("UPDATE `users` SET `hp` = if (hp+$ghp>maxhp,maxhp,hp+$ghp) WHERE `id` = ".$us['id'].";");

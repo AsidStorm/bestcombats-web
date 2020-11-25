@@ -72,9 +72,9 @@ If (
 
 echo "Финальный вариант: ".$_GET['text'];
 
-//$users_u=mysql_query("SELECT * from `users` where `login` like '%у'  ");
+//$users_u=db_query("SELECT * from `users` where `login` like '%у'  ");
 
-while ($users_u_w=mysql_fetch_array($users_u)){
+while ($users_u_w=mysqli_fetch_array($users_u)){
 	echo $users_u_w['login']."<br/>";
 }
 ?>

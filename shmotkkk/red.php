@@ -1,16 +1,16 @@
 <?
 session_start();
 include "../connect.php";
-$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	if ($user['align']>2 && ($user['align']<3)) {
 ?>
 
 <?
 if($_POST['save']){
-mysql_query("UPDATE `shop` SET `count`='".$_POST['count']."' WHERE `id`='".$_POST['id']."'");
+db_query("UPDATE `shop` SET `count`='".$_POST['count']."' WHERE `id`='".$_POST['id']."'");
 }
 $min = $_GET['page']-100;
-$b=mysql_query("SELECT * FROM `shop` WHERE `id`>'".$min."' and `id`<'".$_GET['page']."'");
+$b=db_query("SELECT * FROM `shop` WHERE `id`>'".$min."' and `id`<'".$_GET['page']."'");
 ?>
 
 
@@ -21,7 +21,7 @@ $b=mysql_query("SELECT * FROM `shop` WHERE `id`>'".$min."' and `id`<'".$_GET['pa
   
 <?
 $v=0;
- while($shop=mysql_fetch_array($b)){
+ while($shop=mysqli_fetch_array($b)){
 $v++;
 ?>
 <td>	

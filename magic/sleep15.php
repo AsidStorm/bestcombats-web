@@ -1,7 +1,7 @@
 <?php
-$us = mysql_fetch_array(mysql_query("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
-$magic = mysql_fetch_array(mysql_query("SELECT `chanse` FROM `magic` WHERE `id` = '14' ;"));
-$effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE `owner` = '{$us['id']}' and `type` = '2' LIMIT 1;"));
+$us = mysqli_fetch_array(db_query("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+$magic = mysqli_fetch_array(db_query("SELECT `chanse` FROM `magic` WHERE `id` = '14' ;"));
+$effect = mysqli_fetch_array(db_query("SELECT `time` FROM `effects` WHERE `owner` = '{$us['id']}' and `type` = '2' LIMIT 1;"));
 
 if ($user['intel'] >= 1) {
         $int=$magic['chanse'] + ($user['intel'] - 1)*3;
@@ -18,7 +18,7 @@ elseif ($us['align'] > 2 && $us['align'] < 3) { echo "Решились подн�
 elseif (rand(1,100) < $int) {
 
             addch("<img src=i/magic/sleep.gif>Персонаж &quot;{$user['login']}&quot; наложил заклятие молчания на &quot;{$_POST['target']}&quot;, сроком 15 мин.");
-            mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$us['id']."','Заклятие молчания',".(time()+900).",2);");
+            db_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$us['id']."','Заклятие молчания',".(time()+900).",2);");
             echo "<font color=red><b>На персонажа \"{$_POST['target']}\" наложено заклятие молчания </b></font>";
             $bet=1;
 

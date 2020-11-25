@@ -4,7 +4,7 @@ $djs=array();
     session_start();
     if (@$_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
-    $user = mysql_fetch_array(mysql_query("SELECT id,level,vip,align,deal,radiodj,login,klan FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $user = mysqli_fetch_array(db_query("SELECT id,level,vip,align,deal,radiodj,login,klan FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     header("Cache-Control: no-cache");
     $inclan=mqfa1("select klan from users where id='$_SESSION[uid]'");
 
@@ -232,9 +232,9 @@ if (isset($news[date('d.m.y')])) {
 }
 echo '<br>';
 
-$lplist = mysql_query("SELECT * FROM `iplog` WHERE `owner` = '{$user['id']}' ORDER by `id` DESC LIMIT 1;");
+$lplist = db_query("SELECT * FROM `iplog` WHERE `owner` = '{$user['id']}' ORDER by `id` DESC LIMIT 1;");
 $ind=0;
-        while ($iplog = mysql_fetch_array($lplist)) {
+        while ($iplog = mysqli_fetch_array($lplist)) {
           $ind++;
           $dat=date("m.d.y H:i",$iplog['date']);
           $ip=$iplog['ip'];

@@ -24,11 +24,11 @@ $coma[] = "Хвала Мироздателю!";
 		if ($_SESSION['uid'] == null) header("Location: index.php");
 
 		$magictime=time()+($_POST['timer']*60*1440);
-		$tar = mysql_fetch_array(mysql_query("SELECT `id`,`prison`,`room` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;")); 
-		mysql_query("select * from `online`  WHERE `id` = '{$tar['id']}';");
+		$tar = mysqli_fetch_array(db_query("SELECT `id`,`prison`,`room` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+		db_query("select * from `online`  WHERE `id` = '{$tar['id']}';");
 		$target=$_POST['target'];
 		if ($tar['id']) {
-			$effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE `owner` = '{$tar['id']}' and `type` = '21' LIMIT 1;")); 
+			$effect = mysqli_fetch_array(db_query("SELECT `time` FROM `effects` WHERE `owner` = '{$tar['id']}' and `type` = '21' LIMIT 1;"));
 			
 			if ($effect['time']) {
 				$time_still=$effect['time'] - time();
@@ -52,7 +52,7 @@ $coma[] = "Хвала Мироздателю!";
 						$ok=1;
                                                                                 }
 					if ($ok == 1) {
-						if (mysql_query("UPDATE `effects` SET `time`='$magictime' WHERE `id` = '{$tar['id']}' LIMIT 1;")) {
+						if (db_query("UPDATE `effects` SET `time`='$magictime' WHERE `id` = '{$tar['id']}' LIMIT 1;")) {
 							$ldtarget=$target;
 							$ldblock=1;
 						
@@ -86,8 +86,8 @@ $coma[] = "Хвала Мироздателю!";
 						$mess="Продление заточения. $angel &quot;{$user['login']}&quot; $action в заточение персонажа &quot;$target&quot; сроком $magictime";
 						$messch="Продление заточения. &quot;невидимка&quot; отправил в заточение персонажа &quot;$target&quot; сроком $magictime";
                         }
-							mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
-							mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
+							db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
+							db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 							addch("<img src=i/magic/jail.gif> $messch");
 							addchp($coma[rand(0,count($coma)-1)],"Комментатор");
 							echo "<font color=red><b>Персонаж \"$target\" отправлен в заточение</b></font>";	
@@ -122,11 +122,11 @@ $coma[] = "Хвала Мироздателю!";
 						$ok=1;
                                                                                 }
 				if ($ok == 1) {
-					if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Заточение','$magictime',21);")) {
+					if (db_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Заточение','$magictime',21);")) {
 					        include "functions/wake.php";
 					        wake($tar['id']);
-						mysql_query("UPDATE `users` SET  `prison`='1', `room`='666' WHERE `id` = {$tar['id']} LIMIT 1;");
-						mysql_query("UPDATE `online` SET  `room`='666' WHERE `id` = {$tar['id']} LIMIT 1;");
+						db_query("UPDATE `users` SET  `prison`='1', `room`='666' WHERE `id` = {$tar['id']} LIMIT 1;");
+						db_query("UPDATE `online` SET  `room`='666' WHERE `id` = {$tar['id']} LIMIT 1;");
 						
 						$ldtarget=$target;
 						$ldblock=1;
@@ -158,8 +158,8 @@ $coma[] = "Хвала Мироздателю!";
 						$mess="$angel &quot;{$user['login']}&quot; $action в заточение персонажа &quot;$target&quot; сроком $magictime";
 						$messch="&quot;невидимка&quot; отправил в заточение персонажа &quot;$target&quot; сроком $magictime";
                         }
-						mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
-						mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
+						db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
+						db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 						addch("<img src=i/magic/jail.gif> $messch");
 						addchp($coma[rand(0,count($coma)-1)],"Комментатор");
 						echo "<font color=red><b>Персонаж \"$target\" отправлен в заточение</b></font>";			

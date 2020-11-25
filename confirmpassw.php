@@ -20,12 +20,12 @@
 			$realtime=mktime(date("H"), date("i"), date("s"), date("m")  , date("d"), date("Y"));
 			if (@$_GET['newpass']!='') {
 				include ("connect.php");
-				$sql=mysql_query("select * from confirmpasswd where login='".mysql_real_escape_string($_GET['login'])."' and passwd='".mysql_real_escape_string($_GET['newpass'])."' and date='".mysql_real_escape_string($_GET['timev'])."' and active=1") or die("Ошибка обработки запроса.");
-				if (mysql_num_rows($sql)==0 or mysql_num_rows($sql)=='') die("<br/><br/><br/><center>Ссылка устарела!</center>");
-				$sql=mysql_fetch_array($sql,MYSQL_ASSOC) or die("Ошибка обработки запроса!!");
-				mysql_query("update users set pass='".md5($_GET['newpass'])."' where login='".mysql_real_escape_string($sql['login'])."'") or die("Ошибка обработки запроса!");
+				$sql=db_query("select * from confirmpasswd where login='".db_escape_string($_GET['login'])."' and passwd='".db_escape_string($_GET['newpass'])."' and date='".db_escape_string($_GET['timev'])."' and active=1") or die("Ошибка обработки запроса.");
+				if (mysqli_num_rows($sql)==0 or mysqli_num_rows($sql)=='') die("<br/><br/><br/><center>Ссылка устарела!</center>");
+				$sql=mysqli_fetch_array($sql,MYSQLI_ASSOC) or die("Ошибка обработки запроса!!");
+				db_query("update users set pass='".md5($_GET['newpass'])."' where login='".db_escape_string($sql['login'])."'") or die("Ошибка обработки запроса!");
 				echo "<center>Пароль изменен. Не забывайте пароль.<br>Для входа в игру перейдите по сылке <a href='/'>BestcombatS</a></center>";
-				mysql_query("update confirmpasswd set active=0 where login='".mysql_real_escape_string($_GET['login'])."' and passwd='".mysql_real_escape_string($_GET['newpass'])."' and date='".mysql_real_escape_string($_GET['timev'])."' and active=1");
+				db_query("update confirmpasswd set active=0 where login='".db_escape_string($_GET['login'])."' and passwd='".db_escape_string($_GET['newpass'])."' and date='".db_escape_string($_GET['timev'])."' and active=1");
 			}else{
 				echo "Ссылка устарела!";
 			}

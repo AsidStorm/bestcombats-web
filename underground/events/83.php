@@ -24,7 +24,7 @@ if ($tx*2==18 && $ty*2==18 && (int)$floor == 3) {
 
 // решетка
 if ($tx*2==18 && $ty*2==14 && (int)$floor == 3) {
-    $iskey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE prototype = 2589 AND owner = " . $user['id']), 0, 0);
+    $iskey = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE prototype = 2589 AND owner = " . $user['id']), 0, 0);
     if (!$iskey) {
         gotoxy(18, 16, 3, "Для прохода необходим Ключ от клетки");
     }

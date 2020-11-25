@@ -2,23 +2,23 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
-	$kasanie_haosa = mysql_fetch_array(mysql_query("SELECT time FROM `effects` WHERE `owner` = '{$_SESSION['uid']}' and name='Касание хаоса' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$kasanie_haosa = mysqli_fetch_array(db_query("SELECT time FROM `effects` WHERE `owner` = '{$_SESSION['uid']}' and name='Касание хаоса' LIMIT 1;"));
 	include "functions.php";
 	if ($user['room'] != 2002) {header("Location: main.php");}
     if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 	header("Cache-Control: no-cache");	
 	
-	$exs=mysql_num_rows(mysql_query("SELECT * FROM hellround_pohod WHERE owner='".$user['id']."'"));
+	$exs=mysqli_num_rows(db_query("SELECT * FROM hellround_pohod WHERE owner='".$user['id']."'"));
 	if ($exs<=0){
-		mysql_query("INSERT INTO hellround_pohod (owner,end,level) VALUES ('".$user['id']."','1','".$user['level']."')");
+		db_query("INSERT INTO hellround_pohod (owner,end,level) VALUES ('".$user['id']."','1','".$user['level']."')");
 	}
 	
 	If ($exs['level']<$user['level']){
-		mysql_query("UPDATE `hellround_pohod` SET `level`='".$user['level']."' WHERE `owner` = ".$user['id']." LIMIT 1;");		
+		db_query("UPDATE `hellround_pohod` SET `level`='".$user['level']."' WHERE `owner` = ".$user['id']." LIMIT 1;");
 	}
 	
-	$pohod1=mysql_fetch_array(mysql_query("SELECT * FROM hellround_pohod WHERE owner='".$user['id']."'"));
+	$pohod1=mysqli_fetch_array(db_query("SELECT * FROM hellround_pohod WHERE owner='".$user['id']."'"));
 	if ($pohod1['end']==0) {header('location: peshera.php'); die();}
 
 
@@ -196,9 +196,9 @@ progress_update();
 </TR>
 	
 	<?
-	$tt=mysql_fetch_array(mysql_query("SELECT * FROM hellround_pohod WHERE owner='".$user['id']."'"));
+	$tt=mysqli_fetch_array(db_query("SELECT * FROM hellround_pohod WHERE owner='".$user['id']."'"));
 	$l=time()-60*60*12;
-	$pro=mysql_num_rows(mysql_query("SELECT * FROM inventory WHERE owner='".$user['id']."' and name='Пропуск'"));
+	$pro=mysqli_num_rows(db_query("SELECT * FROM inventory WHERE owner='".$user['id']."' and name='Пропуск'"));
 	
 	//echo "<center><input type=submit name=start value='Начать поход'></center>";
 	/*

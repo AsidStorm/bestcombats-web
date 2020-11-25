@@ -8,7 +8,7 @@ if ($_SESSION['uid'] == null) {
     header("Location: index.php");
 }
 include './connect.php';
-$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".mysql_real_escape_string($_SESSION['uid'])."' LIMIT 1;"));
+$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".db_escape_string($_SESSION['uid'])."' LIMIT 1;"));
 include './functions.php';
 if ($user['room'] != 7777 && $user['id'] != 7) { 
     header("Location: main.php"); 
@@ -88,33 +88,33 @@ class Lottery {
 		if ($user['money'] < 1) {
 			$this->mess = 'Не хватает денег<BR>';
 		} else {
-			mysql_query("update users set money = money - 1 where id = '".mysql_real_escape_string($user['id'])."';");
-			mysql_query("insert into inventory (`owner`,`name`,`maxdur`,`img`,`letter`,`type`) values ('".mysql_real_escape_string($user['id'])."','Лотерейный билет Nr. $lottery_id','1','loto.gif','".mysql_real_escape_string($txt)."','210');");
+			db_query("update users set money = money - 1 where id = '".db_escape_string($user['id'])."';");
+			db_query("insert into inventory (`owner`,`name`,`maxdur`,`img`,`letter`,`type`) values ('".db_escape_string($user['id'])."','Лотерейный билет Nr. $lottery_id','1','loto.gif','".db_escape_string($txt)."','210');");
 		}
 	}
 
 	function pay_for_5($summ) {
 		// оплата если 5 из 5 угадано
 		global $user;
-        mysql_query("update users set money = money + '".mysql_real_escape_string($summ)."' where id = '".mysql_real_escape_string($user['id'])."';");
+        db_query("update users set money = money + '".db_escape_string($summ)."' where id = '".db_escape_string($user['id'])."';");
 	}
 
 	function pay_for_4($summ) {
 		// оплата если 4 из 5 угадано
 		global $user;
-        mysql_query("update users set money = money + '".mysql_real_escape_string($summ)."' where id = '".mysql_real_escape_string($user['id'])."';");
+        db_query("update users set money = money + '".db_escape_string($summ)."' where id = '".db_escape_string($user['id'])."';");
 	}
 
 	function pay_for_3($summ) {
 		// оплата если 3 из 5 угадано
 		global $user;
-		mysql_query("update users set money = money + '".mysql_real_escape_string($summ)."' where id = '".mysql_real_escape_string($user['id'])."';");
+		db_query("update users set money = money + '".db_escape_string($summ)."' where id = '".db_escape_string($user['id'])."';");
 	}
 
 	function pay_for_klan($summ) {
 		// 10% клану
 		global $user;
-		//mysql_query("update users set money = money + '".mysql_real_escape_string($summ)."' where id = 7014;");
+		//db_query("update users set money = money + '".db_escape_string($summ)."' where id = 7014;");
 	}
 
 	function buy_ticket($selected_str) {
@@ -125,8 +125,8 @@ class Lottery {
 		$id_user = $this->get_this_user_id();
 
 		if (sizeof($selected_array) > 5){
-			$sql_ins_cheat = "insert into lottery_cheaters(`id_user`,`values`,`date`) values('".mysql_real_escape_string($id_user)."','".mysql_real_escape_string($selected_str)."','".date('Y-m-d H:i:s')."')";
-			mysql_query($sql_ins_cheat);
+			$sql_ins_cheat = "insert into lottery_cheaters(`id_user`,`values`,`date`) values('".db_escape_string($id_user)."','".db_escape_string($selected_str)."','".date('Y-m-d H:i:s')."')";
+			db_query($sql_ins_cheat);
 		}
 
 		for($i=0;$i<5;$i++){
@@ -134,8 +134,8 @@ class Lottery {
 		}
 
         $sql = "select id from lottery where end='0'";
-		$res = mysql_query($sql);
-		while($result_lottery = mysql_fetch_assoc($res)){
+		$res = db_query($sql);
+		while($result_lottery = mysqli_fetch_assoc($res)){
 			$id_lottery = $result_lottery['id'];
 		}
 
@@ -143,10 +143,10 @@ class Lottery {
 
 
 
-		$sql = "insert into lottery_log(`id_user`,`values`,`date`,`id_lottery`) values('".mysql_real_escape_string($id_user)."','".mysql_real_escape_string($values)."','".mysql_real_escape_string($date)."','".mysql_real_escape_string($id_lottery)."')";
-		$res = mysql_query($sql);
+		$sql = "insert into lottery_log(`id_user`,`values`,`date`,`id_lottery`) values('".db_escape_string($id_user)."','".db_escape_string($values)."','".db_escape_string($date)."','".db_escape_string($id_lottery)."')";
+		$res = db_query($sql);
         
-		$this->buy("Тираж № ".$id_lottery."<BR>Выбраные номера: ".$values, mysql_insert_id());
+		$this->buy("Тираж № ".$id_lottery."<BR>Выбраные номера: ".$values, db_insert_id());
         if($this->mess != null) {
         	return "<font color=red><B>".$this->mess."</font></b>";
         }
@@ -154,8 +154,8 @@ class Lottery {
 
 		$jackpot = 0;
 		$sql = "select * from `lottery` where end=0 limit 1";
-		$res = mysql_query($sql);
-		while($result = mysql_fetch_assoc($res)){
+		$res = db_query($sql);
+		while($result = mysqli_fetch_assoc($res)){
 			$id = $result['id'];
 			$jackpot = $result['jackpot'];
 			$fond = $result['fond'];
@@ -163,8 +163,8 @@ class Lottery {
 
 		$fond += 1;
 
-		$sql = "update lottery set fond='".mysql_real_escape_string($fond)."' where id='".mysql_real_escape_string($id)."' ";
-		mysql_query($sql);
+		$sql = "update lottery set fond='".db_escape_string($fond)."' where id='".db_escape_string($id)."' ";
+		db_query($sql);
 	}
 
 	function get_result() {
@@ -201,23 +201,23 @@ class Lottery {
 
 
 		$sql = "select id,jackpot,fond from lottery where end='0'";
-		$res = mysql_query($sql);
-		while($result = mysql_fetch_assoc($res)){
+		$res = db_query($sql);
+		while($result = mysqli_fetch_assoc($res)){
 			$id_lottery = $result['id'];
 			$jackpot = $result['jackpot'];
 			$fond = $result['fond'];
 		}
         
-		$sql = "insert into lottery_win_combination(`values`,`date`,`id_lottery`) values('".mysql_real_escape_string($win_combination_str)."','".date('Y-m-d H:i:s')."','".mysql_real_escape_string($id_lottery)."') ";
-		mysql_query($sql);
+		$sql = "insert into lottery_win_combination(`values`,`date`,`id_lottery`) values('".db_escape_string($win_combination_str)."','".date('Y-m-d H:i:s')."','".db_escape_string($id_lottery)."') ";
+		db_query($sql);
 
 		$people_5 = 0;
 		$people_4 = 0;
 		$people_3 = 0;
 
-		$sql = "select * from lottery_log where id_lottery='".mysql_real_escape_string($id_lottery)."' ";
-		$res = mysql_query($sql);
-		while($result = mysql_fetch_assoc($res)){
+		$sql = "select * from lottery_log where id_lottery='".db_escape_string($id_lottery)."' ";
+		$res = db_query($sql);
+		while($result = mysqli_fetch_assoc($res)){
 			$count = $this->get_count($win_combination_str,$result['values']);
 
 			if ($count == 5){
@@ -258,12 +258,12 @@ class Lottery {
 		}
 
 
-		$sql_upd = "update lottery set end='1' , fond='".mysql_real_escape_string($fond)."' , summ_5='".mysql_real_escape_string($summ_5)."' , summ_4='".mysql_real_escape_string($summ_4)."' , summ_3='".mysql_real_escape_string($summ_3)."' , count_5='".mysql_real_escape_string($people_5)."' , count_4='".mysql_real_escape_string($people_4)."' , count_3='".mysql_real_escape_string($people_3)."' where id='".mysql_real_escape_string($id_lottery)."'";
-		mysql_query($sql_upd);
+		$sql_upd = "update lottery set end='1' , fond='".db_escape_string($fond)."' , summ_5='".db_escape_string($summ_5)."' , summ_4='".db_escape_string($summ_4)."' , summ_3='".db_escape_string($summ_3)."' , count_5='".db_escape_string($people_5)."' , count_4='".db_escape_string($people_4)."' , count_3='".db_escape_string($people_3)."' where id='".db_escape_string($id_lottery)."'";
+		db_query($sql_upd);
         $nDate = mktime(20,0,0,date('m',strtotime("+1 day")),date('d',strtotime("+1 day")),date('Y',strtotime("+1 day")));
-		$sql_ins = "insert into lottery(`date`,`jackpot`,`fond`,`end`,`summ_5`,`summ_4`,`summ_3`,`count_5`,`count_4`,`count_3`) values('".date('Y-m-d H:i:s',$nDate)."','".mysql_real_escape_string($jackpot)."','0','0','0','0','0','0','0','0')";
-        //$sql_ins = "insert into lottery(`date`,`jackpot`,`fond`,`end`,`summ_5`,`summ_4`,`summ_3`,`count_5`,`count_4`,`count_3`) values('".mktime(21,0,0,date('m',strtotime("+1 day")),date('d',strtotime("+1 day")),date('Y',strtotime("+1 day")))."','".mysql_real_escape_string($jackpot)."','0','0','0','0','0','0','0','0')";
-		mysql_query($sql_ins);
+		$sql_ins = "insert into lottery(`date`,`jackpot`,`fond`,`end`,`summ_5`,`summ_4`,`summ_3`,`count_5`,`count_4`,`count_3`) values('".date('Y-m-d H:i:s',$nDate)."','".db_escape_string($jackpot)."','0','0','0','0','0','0','0','0')";
+        //$sql_ins = "insert into lottery(`date`,`jackpot`,`fond`,`end`,`summ_5`,`summ_4`,`summ_3`,`count_5`,`count_4`,`count_3`) values('".mktime(21,0,0,date('m',strtotime("+1 day")),date('d',strtotime("+1 day")),date('Y',strtotime("+1 day")))."','".db_escape_string($jackpot)."','0','0','0','0','0','0','0','0')";
+		db_query($sql_ins);
 	}
 
 	function check($id_lottery) {
@@ -273,31 +273,31 @@ class Lottery {
 
 		if ($id_lottery < 1)  {
 			$sql_comb = "select * from lottery where end=1 order by id DESC LIMIT 1;";
-			$res_comb = mysql_fetch_array(mysql_query($sql_comb));
+			$res_comb = mysqli_fetch_array(db_query($sql_comb));
 			$id_lottery = $res_comb['id'];
 		}
 
-        $sql_comb = "select * from lottery_win_combination where id_lottery='".mysql_real_escape_string($id_lottery)."'";
+        $sql_comb = "select * from lottery_win_combination where id_lottery='".db_escape_string($id_lottery)."'";
 
-		$res_comb = mysql_query($sql_comb);
+		$res_comb = db_query($sql_comb);
 
 
-		while($result_comb = mysql_fetch_assoc($res_comb)){
+		while($result_comb = mysqli_fetch_assoc($res_comb)){
 			$win_combination_str = $result_comb['values'];
 		}
 
-		$sql_summ = "select * from lottery where id='".mysql_real_escape_string($id_lottery)."'";
-		$res_summ = mysql_query($sql_summ);
-		while($result_summ = mysql_fetch_assoc($res_summ)){
+		$sql_summ = "select * from lottery where id='".db_escape_string($id_lottery)."'";
+		$res_summ = db_query($sql_summ);
+		while($result_summ = mysqli_fetch_assoc($res_summ)){
 			$summ_5 = $result_summ['summ_5'];
 			$summ_4 = $result_summ['summ_4'];
 			$summ_3 = $result_summ['summ_3'];
 			$jackpot = $result_summ['jackpot'];
 		}
 
-		$sql = "select * from lottery_log where id_lottery='".mysql_real_escape_string($id_lottery)."' and id_user='".mysql_real_escape_string($id_user)."' AND send='0' ";
-		$res = mysql_query($sql);
-		while($result = mysql_fetch_assoc($res)){
+		$sql = "select * from lottery_log where id_lottery='".db_escape_string($id_lottery)."' and id_user='".db_escape_string($id_user)."' AND send='0' ";
+		$res = db_query($sql);
+		while($result = mysqli_fetch_assoc($res)){
 			$count = $this->get_count($win_combination_str,$result['values']);
 
 			if ($count == 5){
@@ -316,8 +316,8 @@ class Lottery {
 				$zz = 1;
 			}
 
-			$sql_upd = "update lottery_log set send='1' where id='".mysql_real_escape_string($result['id'])."'";
-			mysql_query($sql_upd);
+			$sql_upd = "update lottery_log set send='1' where id='".db_escape_string($result['id'])."'";
+			db_query($sql_upd);
 		}
 		if (!$zz) {
 			echo "<p style=\"color: red;\"><b>У Вас нет выигрышных билетов</b></p>";
@@ -332,9 +332,9 @@ class Lottery {
 		else {
 			$sql = "select * from lottery where end=1 order by id DESC LIMIT 1;";
 		}
-        $res = mysql_query($sql);
+        $res = db_query($sql);
 
-		while ($result = mysql_fetch_assoc($res)){
+		while ($result = mysqli_fetch_assoc($res)){
 			$id_lottery = $result['id'];
 			$date = $result['date'];
 			$jackpot = $result['jackpot'];
@@ -350,15 +350,15 @@ class Lottery {
 		$summ = $summ_5 + $summ_4 + $summ_3;
 		$count = $count_5 + $count_4 + $count_3;
 
-		$sql_combination = "select * from lottery_win_combination where id_lottery='".mysql_real_escape_string($id_lottery)."'";
-		$res_combination = mysql_query($sql_combination);
-		while($result_combination = mysql_fetch_assoc($res_combination)){
+		$sql_combination = "select * from lottery_win_combination where id_lottery='".db_escape_string($id_lottery)."'";
+		$res_combination = db_query($sql_combination);
+		while($result_combination = mysqli_fetch_assoc($res_combination)){
 			$combination = $result_combination['values'];
 		}
 
-		$sql = "select * from lottery_log where id_lottery='".mysql_real_escape_string($id_lottery)."'";
-		$res = mysql_query($sql);
-        $allbillets = mysql_num_rows($res);
+		$sql = "select * from lottery_log where id_lottery='".db_escape_string($id_lottery)."'";
+		$res = db_query($sql);
+        $allbillets = mysqli_num_rows($res);
 
 		$str .= '<form method="post" style="margin:0px;"><h4>Итоги тиража номер <input style="text-align: center;" type="text" value="'.$id_lottery.'" size=4 name="tiraj"> <input type=submit value="посмотреть"></h4></form>';
 		if (!$date) {
@@ -549,9 +549,9 @@ if ($_POST['value']) {
 
 		$sql = "select * from lottery where end=0 order by id DESC LIMIT 1;";
 
-        $res = mysql_query($sql);
+        $res = db_query($sql);
 
-		while ($result = mysql_fetch_assoc($res)){
+		while ($result = mysqli_fetch_assoc($res)){
 			$id_lottery = $result['id'];
 			$date = $result['date'];
 			$jackpot = $result['jackpot'];

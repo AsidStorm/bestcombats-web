@@ -2,15 +2,15 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "../connect.php";	
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".mysql_real_escape_string($_SESSION['uid'])."' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".db_escape_string($_SESSION['uid'])."' LIMIT 1;"));
 	//if ($user['align']==2.5)  {
 
 ?>
 <table width="100%" border="1" cellspacing="0" cellpadding="0"><tr>
 <td align="left" valign="top">
 <?
-$nes = mysql_query("SELECT * FROM `podzem2` WHERE name='".mysql_real_escape_string($_GET['name'])."'");
-$s = mysql_fetch_array($nes);
+$nes = db_query("SELECT * FROM `podzem2` WHERE name='".db_escape_string($_GET['name'])."'");
+$s = mysqli_fetch_array($nes);
 ?>
 <table width="460" border="1" cellspacing="0" cellpadding="0">
   <tr>
@@ -1580,23 +1580,23 @@ print'<td height="50" width="50" align="center" bgcolor="#0066FF"><a href="?n=9&
 </table>
 <?
 if($_GET['v']){
-if($s["n".$_GET['v'].""]!=''){$Up = mysql_query("UPDATE podzem2 SET `v".mysql_real_escape_string($_GET['n'])."`='',`n".mysql_real_escape_string($_GET['v'])."`='' WHERE name='".mysql_real_escape_string($_GET['name'])."'");}
-else{$Up = mysql_query("UPDATE podzem2 SET `v".mysql_real_escape_string($_GET['n'])."`='".mysql_real_escape_string($_GET['v'])."',`n".mysql_real_escape_string($_GET['v'])."`='".mysql_real_escape_string($_GET['n'])."' WHERE name='".mysql_real_escape_string($_GET['name'])."'");}
+if($s["n".$_GET['v'].""]!=''){$Up = db_query("UPDATE podzem2 SET `v".db_escape_string($_GET['n'])."`='',`n".db_escape_string($_GET['v'])."`='' WHERE name='".db_escape_string($_GET['name'])."'");}
+else{$Up = db_query("UPDATE podzem2 SET `v".db_escape_string($_GET['n'])."`='".db_escape_string($_GET['v'])."',`n".db_escape_string($_GET['v'])."`='".db_escape_string($_GET['n'])."' WHERE name='".db_escape_string($_GET['name'])."'");}
 print "<script>location.href='?n=".$_GET['v']."&name=".$_GET['name']."'</script>";
 }
 if($_GET['d']){
-if($s["v".$_GET['d'].""]!=''){$Up = mysql_query("UPDATE podzem2 SET `n".mysql_real_escape_string($_GET['n'])."`='',`v".mysql_real_escape_string($_GET['v'])."`='' WHERE name='".mysql_real_escape_string($_GET['name'])."'");}
-else{$Up = mysql_query("UPDATE podzem2 SET `n".mysql_real_escape_string($_GET['n'])."`='".mysql_real_escape_string($_GET['d'])."',`v".mysql_real_escape_string($_GET['d'])."`='".mysql_real_escape_string($_GET['n'])."' WHERE name='".mysql_real_escape_string($_GET['name'])."'");}
+if($s["v".$_GET['d'].""]!=''){$Up = db_query("UPDATE podzem2 SET `n".db_escape_string($_GET['n'])."`='',`v".db_escape_string($_GET['v'])."`='' WHERE name='".db_escape_string($_GET['name'])."'");}
+else{$Up = db_query("UPDATE podzem2 SET `n".db_escape_string($_GET['n'])."`='".db_escape_string($_GET['d'])."',`v".db_escape_string($_GET['d'])."`='".db_escape_string($_GET['n'])."' WHERE name='".db_escape_string($_GET['name'])."'");}
 print "<script>location.href='?n=".$_GET['n']."&name=".$_GET['name']."'</script>";
 }
 if($_GET['p']){
-if($s["l".$_GET['p'].""]==''){$Up = mysql_query("UPDATE podzem2 SET `p".mysql_real_escape_string($_GET['n'])."`='".mysql_real_escape_string($_GET['p'])."',`l".mysql_real_escape_string($_GET['p'])."`='".mysql_real_escape_string($_GET['n'])."' WHERE name='".mysql_real_escape_string($_GET['name'])."'");}
-else{$Up = mysql_query("UPDATE podzem2 SET `p".mysql_real_escape_string($_GET['n'])."`='',`l".mysql_real_escape_string($_GET['p'])."`='' WHERE name='".mysql_real_escape_string($_GET['name'])."'");}
+if($s["l".$_GET['p'].""]==''){$Up = db_query("UPDATE podzem2 SET `p".db_escape_string($_GET['n'])."`='".db_escape_string($_GET['p'])."',`l".db_escape_string($_GET['p'])."`='".db_escape_string($_GET['n'])."' WHERE name='".db_escape_string($_GET['name'])."'");}
+else{$Up = db_query("UPDATE podzem2 SET `p".db_escape_string($_GET['n'])."`='',`l".db_escape_string($_GET['p'])."`='' WHERE name='".db_escape_string($_GET['name'])."'");}
 print "<script>location.href='?n=".$_GET['p']."&name=".$_GET['name']."'</script>";
 }
 if($_GET['l']){
-if($s["p".$_GET['l'].""]==''){$Up = mysql_query("UPDATE podzem2 SET `l".mysql_real_escape_string($_GET['n'])."`='".mysql_real_escape_string($_GET['l'])."',`p".mysql_real_escape_string($_GET['l'])."`='".mysql_real_escape_string($_GET['n'])."' WHERE name='".mysql_real_escape_string($_GET['name'])."'");}
-else{$Up = mysql_query("UPDATE podzem2 SET `l".mysql_real_escape_string($_GET['n'])."`='',`p".mysql_real_escape_string($_GET['l'])."`='' WHERE name='".mysql_real_escape_string($_GET['name'])."'");}
+if($s["p".$_GET['l'].""]==''){$Up = db_query("UPDATE podzem2 SET `l".db_escape_string($_GET['n'])."`='".db_escape_string($_GET['l'])."',`p".db_escape_string($_GET['l'])."`='".db_escape_string($_GET['n'])."' WHERE name='".db_escape_string($_GET['name'])."'");}
+else{$Up = db_query("UPDATE podzem2 SET `l".db_escape_string($_GET['n'])."`='',`p".db_escape_string($_GET['l'])."`='' WHERE name='".db_escape_string($_GET['name'])."'");}
 print "<script>location.href='?n=".$_GET['l']."&name=".$_GET['name']."'</script>";
 }
 
@@ -1643,13 +1643,13 @@ if($_GET['w']==1){print"<font>Вы добавили бота на клетку "
 if($_GET['w']==2){print"<font>Вы удалили бота с клетки ".$_GET['n']."</font>";}
 
 if($_GET['sozdat']){
-mysql_query("UPDATE podzem3 SET `n".mysql_real_escape_string($_GET['n'])."`='".mysql_real_escape_string($_GET['botd'])."' WHERE glava='default' and name='".mysql_real_escape_string($_GET['nas'])."'");
-mysql_query("UPDATE podzem3 SET `n".mysql_real_escape_string($_GET['n'])."`='".mysql_real_escape_string($_GET['botd'])."' WHERE glava='Adversary' and name='".mysql_real_escape_string($_GET['nas'])."'");
+db_query("UPDATE podzem3 SET `n".db_escape_string($_GET['n'])."`='".db_escape_string($_GET['botd'])."' WHERE glava='default' and name='".db_escape_string($_GET['nas'])."'");
+db_query("UPDATE podzem3 SET `n".db_escape_string($_GET['n'])."`='".db_escape_string($_GET['botd'])."' WHERE glava='Adversary' and name='".db_escape_string($_GET['nas'])."'");
 print "<script>location.href='?n=".$_GET['n']."&w=1&name=".$_GET['nas']."'</script>";
 exit();
 }
 if($_GET['delite']){
-mysql_query("UPDATE podzem3 SET `n".mysql_real_escape_string($_GET['n'])."`='' WHERE glava='default' and name='".mysql_real_escape_string($_GET['name'])."'");
+db_query("UPDATE podzem3 SET `n".db_escape_string($_GET['n'])."`='' WHERE glava='default' and name='".db_escape_string($_GET['name'])."'");
 print "<script>location.href='?n=".$_GET['n']."&w=2&name=".$_GET['name']."'</script>";
 exit();
 }

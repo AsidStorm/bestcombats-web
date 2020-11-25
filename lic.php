@@ -2,22 +2,22 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".mysql_real_escape_string($_SESSION['uid'])."' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".db_escape_string($_SESSION['uid'])."' LIMIT 1;"));
 	if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
-	$lic = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = 'Лич' LIMIT 1;"));
-	$travma1 = mysql_fetch_array(mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13') LIMIT 1 ;"));
+	$lic = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `login` = 'Лич' LIMIT 1;"));
+	$travma1 = mysqli_fetch_array(db_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13') LIMIT 1 ;"));
 
-	$travma_1 = mysql_fetch_array(mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND `type`='11' LIMIT 1 ;"));
-	$travma_2 = mysql_fetch_array(mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND `type`='12' LIMIT 1 ;"));
-	$travma_3 = mysql_fetch_array(mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND `type`='13' LIMIT 1 ;"));
+	$travma_1 = mysqli_fetch_array(db_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND `type`='11' LIMIT 1 ;"));
+	$travma_2 = mysqli_fetch_array(db_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND `type`='12' LIMIT 1 ;"));
+	$travma_3 = mysqli_fetch_array(db_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND `type`='13' LIMIT 1 ;"));
 	
 	
 	include "functions.php";
 	header("Cache-Control: no-cache");
 	
 	if($_GET['travma']==1){
-	$travma1 = mysql_fetch_array(mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14') LIMIT 1 ;"));
-	$travma = mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14') LIMIT 1 ;");
+	$travma1 = mysqli_fetch_array(db_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14') LIMIT 1 ;"));
+	$travma = db_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14') LIMIT 1 ;");
 	if ($user['battle'] <> 0) {
 		echo "Это не боевая магия...";
 	}elseif (!$travma1) {
@@ -29,7 +29,7 @@
 		elseif($travma1['type']==13){$bet=3;}	
 		elseif($travma1['type']==14){$bet=4;}	
 		
-		while ($owntravma = mysql_fetch_array($travma)) {
+		while ($owntravma = mysqli_fetch_array($travma)) {
 				deltravma($owntravma['id']);
 		}
 		echo "Вы использовали Cеребряную Книгу Саныча.";
@@ -37,8 +37,8 @@
 	}
 	
 	if (@(int)$_POST['travma']>0) {
-	$travma1 = mysql_fetch_array(mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14') LIMIT 1 ;"));
-	$travma = mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14') LIMIT 1 ;");
+	$travma1 = mysqli_fetch_array(db_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14') LIMIT 1 ;"));
+	$travma = db_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14') LIMIT 1 ;");
 	if ($user['battle'] <> 0) {
 		echo "Это не боевая магия...";
 	}elseif (!$travma1) {
@@ -50,7 +50,7 @@
 		elseif($travma1['type']==13){$bet=3;}	
 		elseif($travma1['type']==14){$bet=4;}	
 		
-		while ($owntravma = mysql_fetch_array($travma)) {
+		while ($owntravma = mysqli_fetch_array($travma)) {
 				deltravma($owntravma['id']);
 		}
 		echo "Вы использовали Cеребряную Книгу Саныча.";
@@ -121,7 +121,7 @@
 
 <TR><TD style="BACKGROUND-IMAGE:none">
 <?php if ($user['helm'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['helm'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['helm'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -133,7 +133,7 @@ print "<img src=\"".IMGBASE."/i/w9.gif\" width=60 height=60 onMouseMove=\"TipSho
 
 <TR><TD style="BACKGROUND-IMAGE:none">
 <?php if ($user['naruchi'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['naruchi'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['naruchi'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -144,7 +144,7 @@ print "<img src=\"".IMGBASE."/i/w18.gif\" width=60 height=40 onMouseMove=\"TipSh
 
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($user['weap'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['weap'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['weap'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -155,7 +155,7 @@ print "<img src=\"".IMGBASE."/i/w3.gif\" width=60 height=60 onMouseMove=\"TipSho
 
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($user['bron'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['bron'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['bron'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -166,7 +166,7 @@ print "<img src=\"".IMGBASE."/i/w4.gif\" width=60 height=80 onMouseMove=\"TipSho
 
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($user['belt'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['belt'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['belt'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -238,7 +238,7 @@ echo'<IMG border=0 alt="" src="/i/slot_bottom0.gif" width=120 height=40>';
 <TD><TABLE border=0 cellSpacing=0 cellPadding=0 width="100%"><TBODY>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($user['sergi'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['sergi'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['sergi'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -248,7 +248,7 @@ print "<img src=\"".IMGBASE."/i/w1.gif\" width=60 height=20 onMouseMove=\"TipSho
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($user['kulon'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['kulon'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['kulon'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -261,7 +261,7 @@ print "<img src=\"".IMGBASE."/i/w2.gif\" width=60 height=20 onMouseMove=\"TipSho
 <TBODY> <TR>
 <TD style="BACKGROUND-IMAGE: none">
 <?php if ($user['r1'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['r1'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['r1'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -271,7 +271,7 @@ print "<img src=\"".IMGBASE."/i/w6.gif\" width=20 height=20 onMouseMove=\"TipSho
 }?>
 <TD style="BACKGROUND-IMAGE: none">
 <?php if ($user['r2'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['r2'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['r2'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -281,7 +281,7 @@ print "<img src=\"".IMGBASE."/i/w6.gif\" width=20 height=20 onMouseMove=\"TipSho
 }?>
 <TD style="BACKGROUND-IMAGE: none">
 <?php if ($user['r3'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['r3'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['r3'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -292,7 +292,7 @@ print "<img src=\"".IMGBASE."/i/w6.gif\" width=20 height=20 onMouseMove=\"TipSho
 </TR></TBODY></TABLE></TD></TR>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($user['perchi'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['perchi'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['perchi'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -302,7 +302,7 @@ print "<img src=\"".IMGBASE."/i/w11.gif\" width=60 height=40 onMouseMove=\"TipSh
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($user['shit'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['shit'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['shit'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -312,7 +312,7 @@ print "<img src=\"".IMGBASE."/i/w10.gif\" width=60 height=60 onMouseMove=\"TipSh
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($user['leg'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['leg'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['leg'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -322,7 +322,7 @@ print "<img src=\"".IMGBASE."/i/w19.gif\" width=60 height=80 onMouseMove=\"TipSh
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($user['boots'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($user['boots'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($user['boots'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -343,21 +343,21 @@ if($_GET['d']=='1'){print"К сожалению, я не уполномочен 
 if($_GET['d']=='2'){print"Вам придется заплатить 5 кр. Вы согласны? ";}
 if($_GET['d']=='3'){print"Несомненно. Данная услуга предоставляется в полной мере. <br><br> Расценки на данную услугу составляют:<br> Легкая травма:<b>15</b> <br> Средняя травма: <b>30</b><br> Тяжелая травма:<b>45</b><br><br>Исцеление какого вида травмы вас интересует? ";}
 if($_GET['d']=='4'){print"<FONT color='red'>Вы заплатили <b>5.00 кр.</b></font><br><br>Ваш запрос был переадресован ближайшему свободному Личу. Пожалуйста, ожидайте.";
-					mysql_query("UPDATE `users` SET `money`=`money`-5 WHERE `id`='".$user['id']."'");
-					mysql_query("UPDATE `users` SET `hp`=`maxhp` WHERE `id`='".$user['id']."'");
-					mysql_query("UPDATE `users` SET `mana`=`maxmana` WHERE `id`='".$user['id']."'");}
+					db_query("UPDATE `users` SET `money`=`money`-5 WHERE `id`='".$user['id']."'");
+					db_query("UPDATE `users` SET `hp`=`maxhp` WHERE `id`='".$user['id']."'");
+					db_query("UPDATE `users` SET `mana`=`maxmana` WHERE `id`='".$user['id']."'");}
 if($_GET['d']=='5'){print"<i>И вот именно в этот момент вы ощущаете чудесную легкость в теле, ощущение счастья и радости. Ваши мускулы наливаются силой, в голове проясняется, и вы видите искорки вокруг. А потом они проходят, и остаётся только довольно осклабившийся Лич.</i>";}
 if($_GET['d']=='6'){print"Вам придется заплатить <b>15 кр</b>. Вы согласны? ";}
 if($_GET['d']=='7'){print"Вам придется заплатить <b>30 кр</b>. Вы согласны? ";}
 if($_GET['d']=='8'){print"Вам придется заплатить <b>45 кр</b>. Вы согласны? ";}
 if($_GET['d']=='9'){print"Вы чувствуете свежий приток сил! Идите и сражайтесь!!! ";
-					$travma = mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13') LIMIT 1 ;");
-					$travma1 = mysql_fetch_array(mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13') LIMIT 1 ;"));
-					if ($travma1['type']==11){mysql_query("UPDATE `users` SET `money`=`money`-15 WHERE `id`='".$user['id']."'");}
-					elseif($travma1['type']==12){mysql_query("UPDATE `users` SET `money`=`money`-30 WHERE `id`='".$user['id']."'");}
-					elseif($travma1['type']==13){mysql_query("UPDATE `users` SET `money`=`money`-45 WHERE `id`='".$user['id']."'");}	
+					$travma = db_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13') LIMIT 1 ;");
+					$travma1 = mysqli_fetch_array(db_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type`='11' OR `type`='12' OR `type`='13') LIMIT 1 ;"));
+					if ($travma1['type']==11){db_query("UPDATE `users` SET `money`=`money`-15 WHERE `id`='".$user['id']."'");}
+					elseif($travma1['type']==12){db_query("UPDATE `users` SET `money`=`money`-30 WHERE `id`='".$user['id']."'");}
+					elseif($travma1['type']==13){db_query("UPDATE `users` SET `money`=`money`-45 WHERE `id`='".$user['id']."'");}	
 
-					while ($owntravma = mysql_fetch_array($travma)) {
+					while ($owntravma = mysqli_fetch_array($travma)) {
 						deltravma($owntravma['id']);
 					}}
 ?>
@@ -447,7 +447,7 @@ if($_GET['d']=='9'){print"&bull;<A href='main.php?act=none'> Спасибо... �
 
 <TR><TD style="BACKGROUND-IMAGE:none">
 <?php if ($lic['helm'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['helm'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['helm'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -459,7 +459,7 @@ print "<img src=\"".IMGBASE."/i/w9.gif\" width=60 height=60 onMouseMove=\"TipSho
 
 <TR><TD style="BACKGROUND-IMAGE:none">
 <?php if ($lic['naruchi'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['naruchi'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['naruchi'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -470,7 +470,7 @@ print "<img src=\"".IMGBASE."/i/w18.gif\" width=60 height=40 onMouseMove=\"TipSh
 
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($lic['weap'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['weap'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['weap'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -481,7 +481,7 @@ print "<img src=\"".IMGBASE."/i/w3.gif\" width=60 height=60 onMouseMove=\"TipSho
 
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($lic['bron'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['bron'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['bron'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -492,7 +492,7 @@ print "<img src=\"".IMGBASE."/i/w4.gif\" width=60 height=80 onMouseMove=\"TipSho
 
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($lic['belt'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['belt'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['belt'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -557,7 +557,7 @@ echo'<IMG border=0 alt="" src="/i/slot_bottom0.gif" width=120 height=40>';
 <TD><TABLE border=0 cellSpacing=0 cellPadding=0 width="100%"><TBODY>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($lic['sergi'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['sergi'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['sergi'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -567,7 +567,7 @@ print "<img src=\"".IMGBASE."/i/w1.gif\" width=60 height=20 onMouseMove=\"TipSho
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($lic['kulon'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['kulon'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['kulon'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -580,7 +580,7 @@ print "<img src=\"".IMGBASE."/i/w2.gif\" width=60 height=20 onMouseMove=\"TipSho
 <TBODY> <TR>
 <TD style="BACKGROUND-IMAGE: none">
 <?php if ($lic['r1'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['r1'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['r1'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -590,7 +590,7 @@ print "<img src=\"".IMGBASE."/i/w6.gif\" width=20 height=20 onMouseMove=\"TipSho
 }?>
 <TD style="BACKGROUND-IMAGE: none">
 <?php if ($lic['r2'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['r2'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['r2'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -600,7 +600,7 @@ print "<img src=\"".IMGBASE."/i/w6.gif\" width=20 height=20 onMouseMove=\"TipSho
 }?>
 <TD style="BACKGROUND-IMAGE: none">
 <?php if ($lic['r3'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['r3'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['r3'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -611,7 +611,7 @@ print "<img src=\"".IMGBASE."/i/w6.gif\" width=20 height=20 onMouseMove=\"TipSho
 </TR></TBODY></TABLE></TD></TR>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($lic['perchi'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['perchi'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['perchi'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -621,7 +621,7 @@ print "<img src=\"".IMGBASE."/i/w11.gif\" width=60 height=40 onMouseMove=\"TipSh
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($lic['shit'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['shit'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['shit'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -631,7 +631,7 @@ print "<img src=\"".IMGBASE."/i/w10.gif\" width=60 height=60 onMouseMove=\"TipSh
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($lic['leg'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['leg'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['leg'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -641,7 +641,7 @@ print "<img src=\"".IMGBASE."/i/w19.gif\" width=60 height=80 onMouseMove=\"TipSh
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($lic['boots'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($lic['boots'])."' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($lic['boots'])."' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {

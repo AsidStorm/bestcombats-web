@@ -13,11 +13,11 @@
 <?
 	echo "<left><img src='http://img.combats.com/i/city/gerb/6.gif'></left>";
 	
-$online = mysql_query("select * from `online`  WHERE `real_time` >= ".(time()-60)." and `city`='emeraldscity';");
+$online = db_query("select * from `online`  WHERE `real_time` >= ".(time()-60)." and `city`='emeraldscity';");
 ?>
 <br><br><b>Emeralds City</b><br>
-Сейчас в городе: <?=mysql_num_rows($online)?> чел .
-<br><?//$num = mysql_num_rows(mysql_query("SELECT `id` FROM `users`"));echo"Всего жителей: ".$num." чел.";?>
+Сейчас в городе: <?=mysqli_num_rows($online)?> чел .
+<br><?//$num = mysqli_num_rows(db_query("SELECT `id` FROM `users`"));echo"Всего жителей: ".$num." чел.";?>
 <?
 	echo "Нагрузка на сервер: ";
 	if ($la[1] < 0.70) {

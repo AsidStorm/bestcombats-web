@@ -28,7 +28,7 @@
         global $user;
         $rand = mt_rand(0, (func_num_args() - 1));
         $type = func_get_arg($rand);
-        $inUse  = mysql_result(mysql_query("SELECT COUNT(*) FROM effects WHERE owner = $user[id] AND type = $type"), 0, 0);
+        $inUse  = db_result(db_query("SELECT COUNT(*) FROM effects WHERE owner = $user[id] AND type = $type"), 0, 0);
         if ($inUse) {
             if ($type == 9999) {
                 $msg = 'У Вас уже есть болезнь';
@@ -45,8 +45,8 @@
             header("Location: " . $_SERVER['PHP_SELF'] . ($msg ? '?msg=' . $msg : '' ));
             exit;
         }
-        $effect = mqfa("SELECT * FROM caveeffects WHERE type = $type ORDER BY RAND()") or die(mysql_error());
-        mysql_query("
+        $effect = mqfa("SELECT * FROM caveeffects WHERE type = $type ORDER BY RAND()") or die(db_error());
+        db_query("
             INSERT INTO effects 
             SET
                 type  = $effect[type],
@@ -59,8 +59,8 @@
                 ghp   = $effect[ghp],
                 owner = $user[id],
                 hprestore = hprestore + $effect[hprestore]
-        ") or die(mysql_error());
-        mysql_query("
+        ") or die(db_error());
+        db_query("
             UPDATE users 
             SET 
                 sila  = ($effect[sila] + sila), 
@@ -69,7 +69,7 @@
                 vinos = ($effect[vinos] + vinos),
                 maxhp = ($effect[ghp] + maxhp)
             WHERE id = $user[id]
-        ") or die(mysql_error());
+        ") or die(db_error());
         if ($effect['type'] == 9999 || $effect['type'] == 9994) {
             $strAction = 'заразились';
             $strItem   = ($effect['type'] == 9999) ? 'болезнью' : 'ядом' ;

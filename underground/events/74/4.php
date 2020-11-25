@@ -19,7 +19,7 @@ include '../../../questfuncs.php';
                 $otherbots[]=array("id"=>$bots[$bBots[$i]['bot']], "name"=>$botnames[$bBots[$i]['bot']]);
             }
             $btl = battlewithbot($firstbot, "", "", 10, 0, 0, 0, 0, 0, $otherbots);
-            mysql_query("
+            db_query("
                 UPDATE cavebots 
                 SET battle='$btl' 
                 WHERE 
@@ -41,7 +41,7 @@ include '../../../questfuncs.php';
             $firstbot=$bots[$bBot['bot']];
             $otherbots=array();
             $btl = battlewithbot($firstbot, "", "", 10, 0, 0, 0, 0, 0, $otherbots);
-            mysql_query("
+            db_query("
                 UPDATE cavebots 
                 SET battle='$btl' 
                 WHERE leader='$user[caveleader]' AND x = 6 AND y = 6 AND floor='4'

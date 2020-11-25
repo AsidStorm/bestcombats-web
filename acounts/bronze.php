@@ -2,8 +2,8 @@
 session_start();
 if ($_SESSION['uid'] == null) header("Location: index.php");
 include "../connect.php";
-$user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
-$al = mysql_fetch_array(mq("SELECT * FROM `aligns` WHERE `vip` = '1' LIMIT 1;"));
+$user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+$al = mysqli_fetch_array(mq("SELECT * FROM `aligns` WHERE `vip` = '1' LIMIT 1;"));
 include "../functions.php";
 if ($user['vip']!= 1) die;
 if ($user['battle'] != 0) { header('location: /fbattle.php');die();}

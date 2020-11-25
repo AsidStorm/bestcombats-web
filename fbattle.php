@@ -239,7 +239,7 @@ function geteffectval($val, $len, $maxlen) {
     $ret="";
     if ($user[$slot] > 0) {
         $row['id'] = $user[$slot];
-        $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user[$slot]}' LIMIT 1;"));
+        $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user[$slot]}' LIMIT 1;"));
         if (!$dress) return "<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>";
         if ($dress['magic']) {
           $magic = magicinf ($dress['magic']);
@@ -333,7 +333,7 @@ function geteffectval($val, $len, $maxlen) {
     $strokes1="";
     $r=mq("select priem, value, effect, length from battleeffects where user='$user' and battle='$battle' and effect>=1 and effect<=14 and length>0 order by id desc");
     $i=0;
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $i++;
       if ($rec["effect"]==FIREDAMAGE || $rec["effect"]==WATERDAMAGE) {
         $hint=" (".($rec["length"])." ход";
@@ -680,7 +680,7 @@ function notzero($d) {
 
 function checkanimalexp($id, $exp) {
   $level=mq("select level from users where id='$id'");
-  $level=mysql_fetch_assoc($level);
+  $level=mysqli_fetch_assoc($level);
   $level=$level["level"];
   if ($level==0) $me=50;
   if ($level==1) $me=60;
@@ -813,16 +813,16 @@ class prieminfo{
 
   if (@$_GET['uszver'] && $user["hp"]>0 && $user['zver_id']>0 && !incommontower($user)) {
 
-    $zver=mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$user['zver_id']}' LIMIT 1;"));
+    $zver=mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$user['zver_id']}' LIMIT 1;"));
     $q=mqfa1("select quest from battle where id='$user[battle]'");
     if($zver && $q!=4){
     if($zver['sitost']>=1){
-        $nb = mysql_fetch_array(mq("SELECT id FROM `bots` WHERE battle='".$user['battle']."' and prototype='".$user['zver_id']."';"));
+        $nb = mysqli_fetch_array(mq("SELECT id FROM `bots` WHERE battle='".$user['battle']."' and prototype='".$user['zver_id']."';"));
         if(!$nb){
         mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$zver['login']."','".$zver['id']."','".$user['battle']."','".$zver['maxhp']."');");
-        $bot = mysql_insert_id();
+        $bot = db_insert_id();
 
-        $bd = mysql_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$user['battle'].' LIMIT 1;'));
+        $bd = mysqli_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$user['battle'].' LIMIT 1;'));
         $battle = unserialize($bd['teams']);
         $battle[$bot] = $battle[$user['id']];
         foreach($battle[$bot] as $k => $v) {
@@ -1062,14 +1062,14 @@ class fbattle {
     $uid=$id;
     if (!$user) {
       if($id > _BOTSEPARATOR_) {
-        $bots = mysql_fetch_array(mq('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
+        $bots = mysqli_fetch_array(mq('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
         $id=$bots['prototype'];
-        $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
         $user['login'] = $bots['name'];
         $user['hp'] = $bots['hp'];
         $user['id'] = $bots['id'];
       } else {
-        $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
       }
     }
     if ($this->battle_data["type"]==4) {
@@ -1295,7 +1295,7 @@ class fbattle {
       }
     }
     mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('$name','$prototype','".$this->battle_data["id"]."','$ud[maxhp]');");
-    $bot = mysql_insert_id();
+    $bot = db_insert_id();
     $this->battle[$bot] = $this->battle[$userinteam];
     foreach($this->battle[$bot] as $k => $v) {
       $this->battle[$k][$bot] = array(0,0,time());
@@ -2172,8 +2172,8 @@ class fbattle {
       sum(type=10) as hasshield
       from `inventory` WHERE (`dressed`=1 and type<>25 AND `owner` = \''.$prototype.'\')'.$cond);
       $r=mq("select magic from inventory where ((dressed=1 and type<>25 and owner=".$prototype.") $cond) and magic>60 and magic<=90 ");
-      if (mysql_num_rows($r)>0) $additdata["magics"]=array();
-      while ($rec=mysql_fetch_assoc($r)) {
+      if (mysqli_num_rows($r)>0) $additdata["magics"]=array();
+      while ($rec=mysqli_fetch_assoc($r)) {
         $mag=magicinf($rec["magic"]);
         $tmp=explode("/",$mag["file"]);
         $additdata["magics"][]=array("magic"=>$rec["magic"], "from"=>$tmp[0], "to"=>$tmp[1], "prof"=>$tmp[2], "chance"=>$mag["chanse"]);
@@ -2248,7 +2248,7 @@ class fbattle {
     $defs=array("mfdhit1"=>0,"mfdhit2"=>0,"mfdhit3"=>0,"mfdhit4"=>0,"mfdhit5"=>0);
     if ($this->battle_data["type"]!=4 && $usr["helm"]+$usr["bron"]+$usr["leg"]+$usr["boots"]>0) {
       $r=mq("select id, mfdhit from inventory where id='$usr[helm]' or id='$usr[bron]' or id='$usr[leg]' or id='$usr[boots]'");
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         $dress["mfdhit"]-=$rec["mfdhit"];
         if ($rec["id"]==$usr["helm"]) $defs["mfdhit1"]+=$rec["mfdhit"];
         if ($rec["id"]==$usr["bron"]) {
@@ -2346,7 +2346,7 @@ class fbattle {
     $zo=0;
     $r=mq('SELECT * FROM `effects` WHERE `owner` = '.$id.' and (mfval<>\'\' or ghp<>0 or gmana<>0 or type=31 or type=32 or type=11 or type=12 or type=13 or type=14 or `type`=187 or `type`=185 or `type`=188 or `type`=201 or `type`=202 or `type`=1022 or type='.PROTFROMATTACK.')');
     $effs=array();
-    while($rec=mysql_fetch_array($r)){
+    while($rec=mysqli_fetch_array($r)){
       if ($rec["type"]==PROTFROMATTACK) {
         mq("delete from effects where id='$rec[id]'");
         continue;
@@ -2522,7 +2522,7 @@ class fbattle {
     $puton2=array();
     if ($id<_BOTSEPARATOR_) {
       $r=mq("select slot, id_thing from puton where id_person='".$id."' and slot>=201 and slot<=220;");
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         $puton[]=$rec;
         $puton2[$rec["slot"]]=$rec["id_thing"];
       }
@@ -2579,7 +2579,7 @@ class fbattle {
     $p2="";
     if ($this->battle_data["type"]!=4 && ($usr["p1"] || $usr["p2"])) {
       $r=mq("select id, name, img, prototype from inventory where id='$usr[p1]' or id='$usr[p2]'");
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         if ($rec["id"]==$usr["p1"]) $p1=serialize($rec);
         else $p2=serialize($rec);
       }
@@ -2611,7 +2611,7 @@ class fbattle {
     mq("insert into battleunits set user='$id', $sql");
 
     if ($usr["invis"]) mq("insert into invisbattles set user='$id', battle='".$this->battle_data["id"]."'");
-    $newbus[]=mysql_insert_id();
+    $newbus[]=db_insert_id();
     $this->battleunits[$id]=mqfa("select * from battleunits where user='$id' and battle='".$this->battle_data["id"]."'");
     $this->needupdateaddit[$id]=1;
     $this->battleunits[$id]["additdata"]=$additdata;
@@ -3574,7 +3574,7 @@ class fbattle {
       // ставим статус битвы на "есть битва"
       $this->status = 1;
       // вставляем драчующихся
-      $this->battle_data = mysql_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$battle_id.' LIMIT 1;'));
+      $this->battle_data = mysqli_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$battle_id.' LIMIT 1;'));
 
       if ($this->battle_data["type"]==UNLIMCHAOS) $leveldefs=array(250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250);
 
@@ -3650,10 +3650,10 @@ class fbattle {
                 $this->add_log("<span class=date>".date("H:i")."</span> Бой закончен по таймауту.<BR>");
                 foreach ($this->battle[$bot['id']] as $k => $v) {
                   if($k > _BOTSEPARATOR_) {
-                    $bots = mysql_fetch_array(mq ('SELECT `hp` FROM `bots` WHERE `id` = '.$k.' LIMIT 1;'));
+                    $bots = mysqli_fetch_array(mq ('SELECT `hp` FROM `bots` WHERE `id` = '.$k.' LIMIT 1;'));
                     $us['hp'] = $bots['hp'];
                   } else {
-                    $us = mysql_fetch_array(mq('SELECT `hp` FROM `users` WHERE `id` = '.$k.' LIMIT 1;'));
+                    $us = mysqli_fetch_array(mq('SELECT `hp` FROM `users` WHERE `id` = '.$k.' LIMIT 1;'));
                   }
                   if($us && (int)$us['hp']>0) {
                     $tr = settravma($k,0,86400,1);
@@ -3793,7 +3793,7 @@ class fbattle {
       }
       $all=array_merge($this->t1, $this->t2);
       if($t2life == 0 OR $t1life == 0) {
-        $charge = mysql_fetch_array(mq ('SELECT `win` FROM `battle` WHERE `id` = '.$this->battle_data['id'].' LIMIT 1;'));
+        $charge = mysqli_fetch_array(mq ('SELECT `win` FROM `battle` WHERE `id` = '.$this->battle_data['id'].' LIMIT 1;'));
       }
       if(($t2life == 0 OR $t1life == 0) && ($charge[0] == 3 || $charge[0] == 9)) {
         // ============================= конец боя ==========================
@@ -3890,7 +3890,7 @@ class fbattle {
               mq("UPDATE `effects` SET `isp` = '0' WHERE `owner` = '".$v."'");
             }
 
-            $vrag_w = mysql_fetch_array(mq("SELECT `name` FROM `bots` WHERE  `id` = ".$v." LIMIT 1 ;"));
+            $vrag_w = mysqli_fetch_array(mq("SELECT `name` FROM `bots` WHERE  `id` = ".$v." LIMIT 1 ;"));
             if($vrag_w['name']=="Общий Враг"){
               mq('UPDATE users SET `win`=`win` +1 WHERE `id` = 99;');
             }
@@ -3910,7 +3910,7 @@ class fbattle {
 
           ///////////////////////при победе = для подземки/////////////////////////////////////
           $gess = mq ('SELECT * FROM `labirint` WHERE `user_id` = '.$this->user['id'].'');
-          if($hokke = mysql_fetch_array($gess)) {
+          if($hokke = mysqli_fetch_array($gess)) {
             include "podzem/win.php";
           }
           
@@ -3935,7 +3935,7 @@ class fbattle {
             mq("update caveparties set x=2, y=1, dir=3 where user='$user[id]'");
           } else {
             $sd=mq("SELECT glav_id,boi,glava,dead,name FROM `labirint` WHERE `user_id`=".$this->user['id']." and `di`='0'");
-            if($dd=mysql_fetch_array($sd)) {
+            if($dd=mysqli_fetch_array($sd)) {
               $glav_id = $dd["glav_id"];
               $glava = $dd["glava"];
               $nm = $dd["boi"];
@@ -3987,13 +3987,13 @@ class fbattle {
               if ($v<_BOTSEPARATOR_) addchp ('<font color=red>Внимание!</font> Бой закончен. Всего вами нанесено урона: <b>'.(int)$this->damage[$v].' HP</b>. Получено опыта: <b>'.$this->exp[$v].'</b> ('.($proc_exp+$warrior["smart"]).'%).  ','{[]}'.nick7 ($v).'{[]}');
             }
                           							If ($this->battle_data['type']==3){
-									mysql_query('UPDATE `users` SET `honorpoints`=`honorpoints`+5 WHERE `id` = '.$v.'');
+									db_query('UPDATE `users` SET `honorpoints`=`honorpoints`+5 WHERE `id` = '.$v.'');
 									addchp('<font color=red><b>Внимание!</b></font> Вы получили в бою <b>5</b> Благородства.' ,'{[]}'.nick7 ($v).'{[]}');								
 							}
 
             mq("DELETE FROM `person_on` WHERE `id_person`='".$v."'");
             mq("UPDATE `effects` SET `isp` = '0' WHERE `owner` = '".$v."'");
-            $vrag_w = mysql_fetch_array(mq("SELECT `name` FROM `bots` WHERE  `id` = ".$v." LIMIT 1 ;"));
+            $vrag_w = mysqli_fetch_array(mq("SELECT `name` FROM `bots` WHERE  `id` = ".$v." LIMIT 1 ;"));
             if($vrag_w['name']=="Общий Враг"){mq('UPDATE users SET `win`=`win` +1 WHERE `id` = 99;');}
             if ($this->battleunits[$v]["additdata"]) {
               $dat=$this->battleunits[$v]["additdata"];
@@ -4186,7 +4186,7 @@ class fbattle {
             } 
             mq("DELETE FROM `person_on` WHERE `id_person`='".$v."'");
             mq("UPDATE `effects` SET `isp` = '0' WHERE `owner` = '".$v."'");
-            $vrag_w = mysql_fetch_array(mq("SELECT `name` FROM `bots` WHERE  `id` = ".$v." LIMIT 1 ;"));
+            $vrag_w = mysqli_fetch_array(mq("SELECT `name` FROM `bots` WHERE  `id` = ".$v." LIMIT 1 ;"));
             if($vrag_w['name']=="Общий Враг"){mq('UPDATE users SET `lose`=`lose` +1 WHERE `id` = 99;');}
             mq('UPDATE `users` SET `lose`=`lose` +1 WHERE `id` = \''.$v.'\';');
             // если поединок был кровавым - еще и ставм травмы
@@ -4195,14 +4195,14 @@ class fbattle {
         if ($this->battle_data["type"]!=4) {
           foreach ($this->t1 as $k => $v) {
             $us = mq('SELECT duration, maxdur, name FROM `inventory` WHERE `type` <> 25 AND `type` <> 187 and `dressed` = 1 AND `owner` = \''.$v.'\';');
-            while ($rrow=mysql_fetch_row($us)) {
+            while ($rrow=mysqli_fetch_row($us)) {
               if (($rrow[1]-$rrow[0])==1) $this->add_log('<span class=date>'.date("H:i").'</span> Внимание! У "'.$this->nick7($v).'" предмет "'.$rrow[2].'" в критическом состоянии! <BR><small>(на правах рекламы) <b>Ремонтная мастерская BestCombats</b>. Мы даем вторую жизнь старым вещам!</small><BR>');
               elseif (($rrow[1]-$rrow[0])==2) $this->add_log('<span class=date>'.date("H:i").'</span> Внимание! У "'.$this->nick7($v).'" предмет "'.$rrow[2].'" нуждается в ремонте! <BR><small>(на правах рекламы) <b>Ремонтная мастерская BestCombats</b>. Мы даем вторую жизнь старым вещам!</small><BR>');
             }
           }
           foreach ($this->t2 as $k => $v) {
             $us = mq('SELECT duration, maxdur, name FROM `inventory` WHERE `type` <> 25 AND `type` <> 187 AND `dressed` = 1 AND `owner` = \''.$v.'\';');
-            while ($rrow=mysql_fetch_row($us)) {
+            while ($rrow=mysqli_fetch_row($us)) {
               if (($rrow[1]-$rrow[0])==1) $this->add_log('<span class=date>'.date("H:i").'</span> Внимание! У "'.$this->nick7($v).'" предмет '.$rrow[2].' в критическом состоянии! <BR><small>(на правах рекламы) <b>Ремонтная мастерская BestCombats</b>. Мы даем вторую жизнь старым вещам!</small><BR>');
               elseif (($rrow[1]-$rrow[0])==2) $this->add_log('<span class=date>'.date("H:i").'</span> Внимание! У "'.$this->nick7($v).'" предмет "'.$rrow[2].'" нуждается в ремонте! <BR><small>(на правах рекламы) <b>Ремонтная мастерская BestCombats</b>. Мы даем вторую жизнь старым вещам!</small><BR>');
             }
@@ -4242,13 +4242,13 @@ class fbattle {
               addchp ('<font color=red>Внимание!</font> Бой закончен. Всего вами нанесено урона: <b>'.(int)$this->damage[$k].' HP</b>. Получено опыта: <b>'.$this->exp[$k].'</b> '.($this->exp[$k]?'('.($proc_exp).'%).':''), '{[]}'.nick7 ($k).'{[]}');
             }
           }
-          $vrag_w = mysql_fetch_array(mq("SELECT `name` FROM `bots` WHERE  `battle` = ".$this->user['battle']." LIMIT 1 ;"));
+          $vrag_w = mysqli_fetch_array(mq("SELECT `name` FROM `bots` WHERE  `battle` = ".$this->user['battle']." LIMIT 1 ;"));
           if($vrag_w['name']=="Общий Враг"){mq('UPDATE users SET `nich`=`nich` +1 WHERE `id` = 99;');}
           mq("UPDATE users SET `nich` = `nich`+'1',`fullhptime` = ".time().",`fullmptime` = ".time().",`udar` = '0' WHERE `battle` = {$this->user['battle']}");
 
            ////////////////при пройгрыше = для подземки///////////////////
            $sd=mq("SELECT glav_id,boi,glava,dead,name FROM `labirint` WHERE `user_id`=".$this->user['id']." and `di`='0'");
-           if($dd=mysql_fetch_array($sd)) {
+           if($dd=mysqli_fetch_array($sd)) {
              $glav_id = $dd["glav_id"];
              $glava = $dd["glava"];
              $nm = $dd["boi"];
@@ -4319,10 +4319,10 @@ class fbattle {
 
               foreach ($this->team_enemy as $v => $k) {
                   if($k > _BOTSEPARATOR_) {
-                      $bots = mysql_fetch_array(mq ('SELECT `hp` FROM `bots` WHERE `id` = '.$k.' LIMIT 1;'));
+                      $bots = mysqli_fetch_array(mq ('SELECT `hp` FROM `bots` WHERE `id` = '.$k.' LIMIT 1;'));
                       $us['hp'] = $bots['hp'];
                   } else {
-                      $us = mysql_fetch_array(mq('SELECT `hp` FROM `users` WHERE `id` = '.$k.' LIMIT 1;'));
+                      $us = mysqli_fetch_array(mq('SELECT `hp` FROM `users` WHERE `id` = '.$k.' LIMIT 1;'));
                   }
                   if($us && (int)$us['hp']>0) {
                       if(!$this->battle_data['blood']) {
@@ -4365,7 +4365,7 @@ function killplayer($us) {
   //if (!isset($this->battle[$us["id"]])) return;
   $this->needupdate=1;
   //$us - id, sex, battle
-  //$battle_data = mysql_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$this->user['battle'].' LIMIT 1;'));
+  //$battle_data = mysqli_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$this->user['battle'].' LIMIT 1;'));
   //$war = unserialize($battle_data['teams']);
   // unset($battle_data);
   //$war=array_keys($war);
@@ -4433,10 +4433,10 @@ function killplayer($us) {
     }
 
     if(bottouser($us['id'])==99) {
-      //$battle_datav = mysql_fetch_array(mq ('SELECT t1 FROM `battle` WHERE `id` = '.$us['battle'].' LIMIT 1;'));
+      //$battle_datav = mysqli_fetch_array(mq ('SELECT t1 FROM `battle` WHERE `id` = '.$us['battle'].' LIMIT 1;'));
       $t1v = explode(";",$this->battle_data["t1"]);
       foreach ($t1v as $ff => $ll) {
-        $zashc = mysql_fetch_array(mq("SELECT name FROM `effects` WHERE `owner` = ".$ll." and `type`=395 limit 1;"));
+        $zashc = mysqli_fetch_array(mq("SELECT name FROM `effects` WHERE `owner` = ".$ll." and `type`=395 limit 1;"));
         if(!$zashc) {
           mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$ll."','Защитник клуба',".(time()+2592000).",395);");
         } else {
@@ -4589,26 +4589,26 @@ function solve_exp ($at_id,$def_id,$damage) {
   $baseexp = array("0" => "5", "1" => "10", "2" => "20", "3" => "30", "4" => "60", "5" => "120", "6" => "180", "7" => "230", "8" => "350", "9" => "500", "10" => "800", "11" => "1500", "12" => "2000", "13" => "3000", "14" => "5000", "15" => "7000");
   if($at_id > _BOTSEPARATOR_ || $def_id > _BOTSEPARATOR_) $bot_active=true;
                     /*if($at_id > _BOTSEPARATOR_) {
-                      $bots = mysql_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$at_id.' LIMIT 1;'));
+                      $bots = mysqli_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$at_id.' LIMIT 1;'));
                       $at_id = $bots['prototype'];
                       $bot_active = true;
                     }*/
                     if ($at_id==$this->user["id"]) $at=$this->user;
                     elseif ($at_id==$this->enemyhar["id"]) $at=$this->enemyhar;
-                    else $at = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '".bottouser($at_id)."'"));
+                    else $at = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '".bottouser($at_id)."'"));
                     $at_cost[0]=$this->battleunits[$at_id]["cost"]+1;
                     $kulak1=$this->battleunits[$at_id]["cost"];
-                    //$at_cost = mysql_fetch_array(mq("select 1+IFNULL((select SUM(cost)+(SUM(ecost)*10) FROM inventory WHERE owner = users.id AND dressed=1),0), `align` FROM users WHERE id = ".$at_id." LIMIT 1;"));
-                    //$kulak1 = mysql_fetch_array(mq("select SUM(cost)+(SUM(ecost)*10) FROM inventory WHERE owner = ".$at_id." AND dressed=1 LIMIT 1;"));
+                    //$at_cost = mysqli_fetch_array(mq("select 1+IFNULL((select SUM(cost)+(SUM(ecost)*10) FROM inventory WHERE owner = users.id AND dressed=1),0), `align` FROM users WHERE id = ".$at_id." LIMIT 1;"));
+                    //$kulak1 = mysqli_fetch_array(mq("select SUM(cost)+(SUM(ecost)*10) FROM inventory WHERE owner = ".$at_id." AND dressed=1 LIMIT 1;"));
 
                     /*if($def_id > _BOTSEPARATOR_) {
-                      $bots = mysql_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$def_id.' LIMIT 1;'));
+                      $bots = mysqli_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$def_id.' LIMIT 1;'));
                       $def_id = $bots['prototype'];
                       $bot_def=true;
                     }*/
                     if ($def_id==$this->user["id"]) $def=$this->user;
                     elseif ($def_id==$this->enemyhar["id"]) $def=$this->enemyhar;
-                    else $def = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '".bottouser($def_id)."'"));
+                    else $def = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '".bottouser($def_id)."'"));
                     $di=bottouser($def_id);
                     foreach ($chardata as $k=>$v) {
                       if ($v["id"]==$di) {
@@ -4639,9 +4639,9 @@ function solve_exp ($at_id,$def_id,$damage) {
                       $at_cost[0]=1;
                       $kulak1=1;
                     }
-                    /*$def = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '".$def_id."' LIMIT 1;"));
-                    $def_cost = mysql_fetch_array(mq("select 1+IFNULL((select SUM(cost)+(SUM(ecost)*8) FROM inventory WHERE owner = users.id AND dressed=1),0), `align` FROM users WHERE id = ".$def_id." LIMIT 1;"));
-                    $kulak2 = mysql_fetch_array(mq("select SUM(cost)+(SUM(ecost)*10) FROM inventory WHERE owner = ".$def_id." AND dressed=1 LIMIT 1;"));*/
+                    /*$def = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '".$def_id."' LIMIT 1;"));
+                    $def_cost = mysqli_fetch_array(mq("select 1+IFNULL((select SUM(cost)+(SUM(ecost)*8) FROM inventory WHERE owner = users.id AND dressed=1),0), `align` FROM users WHERE id = ".$def_id." LIMIT 1;"));
+                    $kulak2 = mysqli_fetch_array(mq("select SUM(cost)+(SUM(ecost)*10) FROM inventory WHERE owner = ".$def_id." AND dressed=1 LIMIT 1;"));*/
 
                     // модификаторы опыта
                     // 100% опыта
@@ -4692,7 +4692,7 @@ function solve_exp ($at_id,$def_id,$damage) {
 
                     }
 
-/*$zv33=mysql_fetch_array(mq("SELECT `prototype`,`id` FROM `bots` WHERE `prototype` = '".$user['zver_id']."' and `battle` = ".$user['battle'].""));
+/*$zv33=mysqli_fetch_array(mq("SELECT `prototype`,`id` FROM `bots` WHERE `prototype` = '".$user['zver_id']."' and `battle` = ".$user['battle'].""));
 if($zv33){
 $expmf=floor(($expmf/3)*2);
 }*/
@@ -4822,7 +4822,7 @@ function get_wep_type($idwep) {
     return "kulak";
   }
   if (@$wts[$idwep]) return $wts[$idwep];
-  $wep = mysql_fetch_array(mq('SELECT `otdel`,`minu` FROM `inventory` WHERE `id` = '.$idwep.' LIMIT 1;'));
+  $wep = mysqli_fetch_array(mq('SELECT `otdel`,`minu` FROM `inventory` WHERE `id` = '.$idwep.' LIMIT 1;'));
   if($wep[0] == '1') {
     $ret="noj";
   } elseif($wep[0] == '12') {
@@ -5908,12 +5908,12 @@ function solve_mf($user, $enemy,$myattack,$myattack1,$myattack2,$myattack3,$myat
   $this->getbu($enemy);
   if (count($this->enemy_dress)==0) {
     /*if($enemy > _BOTSEPARATOR_) {
-      $bots = mysql_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$enemy.' LIMIT 1;'));
-      $this->enemyhar = mysql_fetch_array(mq('SELECT * FROM `users` WHERE `id` = \''.$bots['prototype'].'\' LIMIT 1;'));
+      $bots = mysqli_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$enemy.' LIMIT 1;'));
+      $this->enemyhar = mysqli_fetch_array(mq('SELECT * FROM `users` WHERE `id` = \''.$bots['prototype'].'\' LIMIT 1;'));
       $this->enemyhar['hp'] = $bots['hp'];
       $this->enemyhar["id"]=$enemy;
     } else {
-      $this->enemyhar = mysql_fetch_array(mq('SELECT * FROM `users` WHERE `id` = \''.$enemy.'\' LIMIT 1;'));
+      $this->enemyhar = mysqli_fetch_array(mq('SELECT * FROM `users` WHERE `id` = \''.$enemy.'\' LIMIT 1;'));
     }*/
     $this->enemyhar=$this->battleunits[$enemy];
     $this->enemyhar["id"]=$enemy;
@@ -5927,7 +5927,7 @@ function solve_mf($user, $enemy,$myattack,$myattack1,$myattack2,$myattack3,$myat
   }
   if (count($this->user_dress)==0) {
     $this->user_dress=$this->battleunits[$this->user['id']];
-    //$this->user_dress = mysql_fetch_array(mq('SELECT sum(minu) as minu, sum(maxu) as maxu, sum(mfkrit) as mfkrit, sum(mfakrit) as mfakrit, sum(mfuvorot) as mfuvorot, sum(mfauvorot) as mfauvorot, sum(bron1) as bron1, sum(bron2) as bron2, sum(bron2) as bron3, sum(bron3) as bron4, sum(bron4) as bron5, sum(mfkritpow) as mfkritpow, sum(mfantikritpow) as mfantikritpow, sum(mfparir) as mfparir, sum(mfshieldblock) as mfshieldblock, sum(mfcontr) as mfcontr, sum(mfdhit) as mfdhit, sum(mfhitp) as mfhitp, sum(mfkol) as mfkol, sum(mfrej) as mfrej, sum(mfrub) as mfrub, sum(mfdrob) as mfdrob, sum(mfproboj) as mfproboj, sum(mfdmag) as mfdmag FROM `inventory` WHERE `dressed`=1 AND `owner` = \''.$this->user['id'].'\''));
+    //$this->user_dress = mysqli_fetch_array(mq('SELECT sum(minu) as minu, sum(maxu) as maxu, sum(mfkrit) as mfkrit, sum(mfakrit) as mfakrit, sum(mfuvorot) as mfuvorot, sum(mfauvorot) as mfauvorot, sum(bron1) as bron1, sum(bron2) as bron2, sum(bron2) as bron3, sum(bron3) as bron4, sum(bron4) as bron5, sum(mfkritpow) as mfkritpow, sum(mfantikritpow) as mfantikritpow, sum(mfparir) as mfparir, sum(mfshieldblock) as mfshieldblock, sum(mfcontr) as mfcontr, sum(mfdhit) as mfdhit, sum(mfhitp) as mfhitp, sum(mfkol) as mfkol, sum(mfrej) as mfrej, sum(mfrub) as mfrub, sum(mfdrob) as mfdrob, sum(mfproboj) as mfproboj, sum(mfdmag) as mfdmag FROM `inventory` WHERE `dressed`=1 AND `owner` = \''.$this->user['id'].'\''));
     $this->user_dress["bron0"]=0;
     $this->user_dress["mf0"]=0;
     $this->enemy_dress["mfmag"]=0;
@@ -6507,7 +6507,7 @@ if (@$_GET['use'] && $user["hp"]>0 && $fbattle->battle_data["type"]!=4) {
     $slot=getscrollslot($_GET["use"]);
     if (!$fbattle->battleunits[$user["id"]]["additdata"]["scrollused"] && $fbattle->battleunits[$user["id"]]["additdata"]["scrolls"][$slot]["wait"]==0) {
       $scrollname=$fbattle->battleunits[$user["id"]]["additdata"]["scrolls"][$slot]["name"];
-      $dressed=mysql_fetch_row(mq("SELECT id FROM inventory WHERE id=".$_GET['use']." AND dressed='1'"));
+      $dressed=mysqli_fetch_row(mq("SELECT id FROM inventory WHERE id=".$_GET['use']." AND dressed='1'"));
       if ((int)$dressed[0]>0) {
         $my_class = $fbattle->my_class;
         ob_start();
@@ -6778,8 +6778,8 @@ if (@$_REQUEST['special'] && $user["hp"]>0) {
   /*$puton=array();
 
   $res=mq("select slot,id_thing from puton where id_person='".$_SESSION['uid']."' and slot>=201 and slot<=210;");
-  while($s=mysql_fetch_array($res)) {
-    $res4=mysql_fetch_array(mq("select priem from priem where id_priem='".$s['id_thing']."';"));
+  while($s=mysqli_fetch_array($res)) {
+    $res4=mysqli_fetch_array(mq("select priem from priem where id_priem='".$s['id_thing']."';"));
     $puton[$s['slot']]=$res4['priem'];
   }
   print_r($puton);*/
@@ -7050,10 +7050,10 @@ $fbattle->write_log();
   switch($ret) {
     case 1:
       /*if($fbattle->enemy < _BOTSEPARATOR_){
-        $unemli = mysql_fetch_array(mq("SELECT login,id,level,invis FROM `users` WHERE `id` = '".$fbattle->enemy."' LIMIT 1;"));
+        $unemli = mysqli_fetch_array(mq("SELECT login,id,level,invis FROM `users` WHERE `id` = '".$fbattle->enemy."' LIMIT 1;"));
       } else {
-        $unemli = mysql_fetch_array(mq("SELECT name,id,prototype FROM `bots` WHERE `id` = '".$fbattle->enemy."' LIMIT 1;"));
-        $lvl_bo = mysql_fetch_array(mq("SELECT id,level,invis FROM `users` WHERE `id` = '".$unemli['prototype']."' LIMIT 1;"));
+        $unemli = mysqli_fetch_array(mq("SELECT name,id,prototype FROM `bots` WHERE `id` = '".$fbattle->enemy."' LIMIT 1;"));
+        $lvl_bo = mysqli_fetch_array(mq("SELECT id,level,invis FROM `users` WHERE `id` = '".$unemli['prototype']."' LIMIT 1;"));
         if($lvl_bo){$unemli['level']=$lvl_bo['level']; $unemli['id']=$lvl_bo['id'];$unemli["invis"]=$lvl_bo['invis'];}else{$unemli['level']=$user['level'];}
         $unemli['login']=$unemli['name'];
       }*/
@@ -7211,7 +7211,7 @@ for ($i=201;$i<=220;$i++) {
     }
     # wait если есть активный - вывод сколько еще
     # uses - определить
-    echo drawtrick($enable, $p2->priem, $p2->name, ($p2->hod?0:1), mysql_escape_string($p2->opisan),
+    echo drawtrick($enable, $p2->priem, $p2->name, ($p2->hod?0:1), db_escape_string($p2->opisan),
     (0+$p2->n_hit).",".(0+$p2->n_krit).",".(0+$p2->n_counter).",".(0+$p2->n_block).",".(0+$p2->n_parry).",".(0+$p2->n_hp).",".(0+$p2->sduh).",".(0+$p2->mana).",".(0+$p2->wait).",".($act['wait']>0?$act['wait']:0).",".(0+$p2->maxuses).",".($p2->maxuses?$act['uses']-1:0).",".($p2->startwait?$p2->startwait:0),
     ($p2->target?"1":"0"),'','', remquotesjs($p2->target==1?"$enemynick":"$user[login]"), $p2->priem);
   } elseif ($i<=210) {
@@ -7284,7 +7284,7 @@ if($user['zver_id']>0 && !incommontower($user) && $fbattle->battle_data["quest"]
         if(!$fbattle->battle) {
             if($user['battle']) { $ll = $user['battle'];} elseif($_REQUEST['batl']) { $ll = $_REQUEST['batl']; }else{$ll = $_SESSION['batl'];}
             $ll=(int)$ll;
-            $data = @mysql_fetch_array(mq ("SELECT damage,exp FROM `battle` WHERE `id` = {$ll}"));
+            $data = @mysqli_fetch_array(mq ("SELECT damage,exp FROM `battle` WHERE `id` = {$ll}"));
             $damage = unserialize($data['damage']);
             $exp = unserialize($data['exp']);
                         if(empty($damage[$user['id']])){$damage[$user['id']]=0;}

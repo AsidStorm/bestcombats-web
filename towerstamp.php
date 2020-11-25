@@ -44,11 +44,11 @@
     }
 
     //undressall($_SESSION['uid']);
-    //$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    //$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 
     //
     if ((int)$_GET['delsn']>0) {
-      mysql_query("DELETE FROM `deztow_charstams` WHERE `id`=".(int)$_GET['delsn']." AND name='".$_GET['ddname']."' AND `owner`=".(int)$_SESSION['uid']);
+      db_query("DELETE FROM `deztow_charstams` WHERE `id`=".(int)$_GET['delsn']." AND name='".$_GET['ddname']."' AND `owner`=".(int)$_SESSION['uid']);
     }
     if ($_SERVER["REQUEST_METHOD"]=="POST" && !$_POST["name"]) $_POST["name"]="$_POST[sila]-$_POST[lovk]-$_POST[inta]-$_POST[vinos]";
     if($_POST['name']){
@@ -108,7 +108,7 @@
     $tec=mqfa("SELECT * FROM `deztow_charstams` WHERE `owner` = '{$_SESSION['uid']}' AND `id`='".$_GET['id']."' and room='$statsroom'");
     if (isset($_GET["undressitem"])) {
       mq("update deztow_charstams set ".$dressslots[$_GET["undressitem"]]."=0 where id='$tec[id]'");
-      $tec=mysql_fetch_array(mq("SELECT * FROM `deztow_charstams` WHERE `owner` = '{$_SESSION['uid']}' AND `id`='".$_GET['id']."' and room='$statsroom';"));
+      $tec=mysqli_fetch_array(mq("SELECT * FROM `deztow_charstams` WHERE `owner` = '{$_SESSION['uid']}' AND `id`='".$_GET['id']."' and room='$statsroom';"));
     }
     function maketec1() {
       global $tec1, $tec;
@@ -150,14 +150,14 @@
           }
         }
       }
-      $tec=mysql_fetch_array(mq("SELECT * FROM `deztow_charstams` WHERE `owner` = '{$_SESSION['uid']}' AND `id`='".$_GET['id']."' and room='$statsroom';"));
+      $tec=mysqli_fetch_array(mq("SELECT * FROM `deztow_charstams` WHERE `owner` = '{$_SESSION['uid']}' AND `id`='".$_GET['id']."' and room='$statsroom';"));
       maketec1();
     }
     if($_GET['setdef']){
-      //$tec = mysql_fetch_array(mysql_query("SELECT * FROM `deztow_charstams` WHERE `owner` = '{я.$_SESSION['uid']}' AND `id`='".$_POST['setdef']."';"));
+      //$tec = mysqli_fetch_array(db_query("SELECT * FROM `deztow_charstams` WHERE `owner` = '{я.$_SESSION['uid']}' AND `id`='".$_POST['setdef']."';"));
       mq("UPDATE `deztow_charstams` SET `def` = 1 WHERE `owner` = '{$_SESSION['uid']}' AND  `id` = ".$_GET['setdef'].";");
       mq("UPDATE `deztow_charstams` SET `def` = 0 WHERE `owner` = '{$_SESSION['uid']}' AND  `id` <> ".$_GET['setdef']." and room='$statsroom';");
-      echo "<font color=red><b>Сохранено.</b></font>".mysql_error();
+      echo "<font color=red><b>Сохранено.</b></font>".db_error();
     }
 ?>
 <HTML><HEAD>
@@ -190,8 +190,8 @@
         <td>Название</td><td width=25%>По ум.</td><td>Удалить</td>
     </tr>
     <?php
-     $data = mysql_query("SELECT * FROM `deztow_charstams` WHERE `owner` = '{$_SESSION['uid']}' and room='$statsroom';");
-     while($row = mysql_fetch_array($data)) {
+     $data = db_query("SELECT * FROM `deztow_charstams` WHERE `owner` = '{$_SESSION['uid']}' and room='$statsroom';");
+     while($row = mysqli_fetch_array($data)) {
         echo "<tr onclick='location.href=\"towerstamp.php?id={$row['id']}\";' style='cursor:pointer;'><td><B>{$row['name']}</B></td><td><a href='?setdef=$row[id]'>".($row['def']?"<font color=red>По умолчанию</font>":"Установить")."</a></td>
         <td><a href='?delsn=".$row['id']."&ddname=".$row['name']."'>X</a></td></tr>\n";
      }
@@ -321,7 +321,7 @@
       $dress=array();
       $r=mq("select id, img, name, nsila, nlovk, ninta, nvinos, nintel, nmudra, nmech, nnoj, ndubina, ntopor, nposoh 
       from inventory where ".dresscond($tec, "id"));
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         if ($rec["nsila"]>$tec1["sila"] || $rec["nlovk"]>$tec1["lovk"] || $rec["ninta"]>$tec1["inta"] || $rec["nintel"]>$tec1["intel"] || $rec["nmudra"]>$tec1["mudra"] 
         || $rec["nmech"]>$tec1["mec"] || $rec["nnoj"]>$tec1["noj"] || $rec["ndubina"]>$tec1["dubina"] || $rec["ntopor"]>$tec1["topor"] || $rec["nposoh"]>$tec1["posoh"]) {
           $dropped=1;
@@ -368,7 +368,7 @@
     echo "<table cellspacing=0 style=\"border:solid #cccccc 1px\">";
     $i=0;
     $tec1["level"]=9;
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $i++;
       $rec["count"]=-1;
       echo "<tr><td ".($i%2==0?"bgcolor=\"#cccccc\" style=\"border-right:solid #eeeeee 1px;padding-left:20px;padding-right:20px\"":"style=\"border-right:solid #cccccc 1px;padding-left:20px;padding-right:20px\"")." valign=\"top\" align=\"center\"><br>

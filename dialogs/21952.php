@@ -24,7 +24,7 @@ if ($step == 1) {
         "3"=>"Молот? У меня тут как раз есть части молота!", // ok
         "4"=>"Простите, я, кажется, адресом ошибся... (завершить разговор)" // ok
     );
-    $isHammer = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE prototype = 2580 AND owner = $user[id]"), 0, 0);
+    $isHammer = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE prototype = 2580 AND owner = $user[id]"), 0, 0);
     if ($isHammer) {
         unset($answers[3]);
     }
@@ -33,8 +33,8 @@ if ($step == 1) {
 if ($step == 2) {
     $rnd = mt_rand(1,100);
     if ($rnd <= 40) {
-        mysql_query("INSERT INTO cavebots SET leader = $user[caveleader], x = 2, y = 6, bot = 85, battle = 0, cnt = 2, floor = 1, type = 2, startx = 2, starty = 6");
-        mysql_query("INSERT INTO cavebots SET leader = $user[caveleader], x = 2, y = 6, bot = 82, battle = 0, cnt = 1, floor = 1, type = 2, startx = 2, starty = 6");
+        db_query("INSERT INTO cavebots SET leader = $user[caveleader], x = 2, y = 6, bot = 85, battle = 0, cnt = 2, floor = 1, type = 2, startx = 2, starty = 6");
+        db_query("INSERT INTO cavebots SET leader = $user[caveleader], x = 2, y = 6, bot = 82, battle = 0, cnt = 1, floor = 1, type = 2, startx = 2, starty = 6");
         $speach.="Наклонившись над горкой подаяний, вы внезапно осознали, что прямо на вас смотрит сердитого вида охранник. И что он – не один.";
         $answers=array(
             "4"=>"Вступить в бой. Ничего не остается.", // ok
@@ -59,7 +59,7 @@ if ($step == 2) {
             $podzem = 1;
         }
         $rec = mqfa("select name, img from shop where id='" . $itemID . "'");
-        mysql_query("insert into caveitems set leader='$user[caveleader]', name='$rec[name]', img='$rec[img]', small='0', x='" . ($crd['x'] * 2) . "', y='" . ($crd['y'] * 2) . "', floor='1', item='$itemID', foronetrip='0', incave='0', podzem='$podzem'") or die(mysql_error());
+        db_query("insert into caveitems set leader='$user[caveleader]', name='$rec[name]', img='$rec[img]', small='0', x='" . ($crd['x'] * 2) . "', y='" . ($crd['y'] * 2) . "', floor='1', item='$itemID', foronetrip='0', incave='0', podzem='$podzem'") or die(db_error());
         $speach .= "Оглядевшись по сторонам, вы наклоняетесь и хватаете первое, что попало под руку. Кажется, все прошло успешно. ";
         $answers=array(
             "4"=>"Рассмотреть добычу.", // ok
@@ -81,7 +81,7 @@ if ($step == 5) {
     $parts[] = '2579';
     $isParts = array();
     foreach ($parts as $part) {
-        $isPart = mysql_fetch_assoc(mysql_query("SELECT id, name, koll FROM inventory WHERE owner = $user[id] AND prototype = $part AND koll > 0 LIMIT 1"));
+        $isPart = mysqli_fetch_assoc(db_query("SELECT id, name, koll FROM inventory WHERE owner = $user[id] AND prototype = $part AND koll > 0 LIMIT 1"));
         if (!$isPart) {
             break;
         } else {
@@ -94,9 +94,9 @@ if ($step == 5) {
         foreach ($isParts as $v) {
             $speach .= 'Вы отдали "' . $v['name'] . '"<br />';
             if ($v['koll'] > 1) {
-                mysql_query("UPDATE inventory SET koll = (koll - 1) WHERE id = $v[id] AND owner = $user[id]");
+                db_query("UPDATE inventory SET koll = (koll - 1) WHERE id = $v[id] AND owner = $user[id]");
             } else {
-                mysql_query("DELETE FROM inventory WHERE id = $v[id] AND owner = $user[id]");
+                db_query("DELETE FROM inventory WHERE id = $v[id] AND owner = $user[id]");
             }
         }
         // получение молота

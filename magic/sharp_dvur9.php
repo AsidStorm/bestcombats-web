@@ -1,6 +1,6 @@
 <?php
 // magic идентификацыя
-$magic = mysql_fetch_array(mysql_query("SELECT `chanse` FROM `magic` WHERE `id` = '99' ;"));  
+$magic = mysqli_fetch_array(db_query("SELECT `chanse` FROM `magic` WHERE `id` = '99' ;"));
       
 if ($user['intel'] >= 15) {
     $int=$magic['chanse'] + ($user['intel'] - 15)*3;
@@ -13,11 +13,11 @@ if ($user['battle'] > 0) {
 	
 		if ($_SESSION['uid'] == null) header("Location: index.php");
 	
-		$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE  `type` = '3' AND `dvur` = '1' AND `owner` = '{$user['id']}' AND `name` = '{$_POST['target']}' AND `sharped` = 0 LIMIT 1;"));
-		$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = 'Заточка на +9: двуручное оружие' AND `owner` = '{$user['id']}' LIMIT 1;"));
+		$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE  `type` = '3' AND `dvur` = '1' AND `owner` = '{$user['id']}' AND `name` = '{$_POST['target']}' AND `sharped` = 0 LIMIT 1;"));
+		$svitok = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `name` = 'Заточка на +9: двуручное оружие' AND `owner` = '{$user['id']}' LIMIT 1;"));
 		
 		if ($dress && $svitok) {
-			if (mysql_query("UPDATE `inventory` SET `sharped` = 1, `name` = CONCAT(`name`,' +9'), `minu` = `minu`+9, `maxu`=`maxu`+9, `nmech` = `nmech`+0, `cost` = `cost`+30, `nvinos` = `nvinos`+0 WHERE `id` = {$dress['id']} LIMIT 1;")) {
+			if (db_query("UPDATE `inventory` SET `sharped` = 1, `name` = CONCAT(`name`,' +9'), `minu` = `minu`+9, `maxu`=`maxu`+9, `nmech` = `nmech`+0, `cost` = `cost`+30, `nvinos` = `nvinos`+0 WHERE `id` = {$dress['id']} LIMIT 1;")) {
 				echo "<font color=red><b>Предмет \"{$_POST['target']}\" удачно заточен +9.<b></font> ";
 				$bet=1;
 			}

@@ -49,8 +49,46 @@ function db_fetch_array($query) {
     return $rows;
 }
 
+// Считает число строк в запросе
 function db_num_rows($sql) {
     return mysqli_num_rows(db_query($sql));
+}
+
+// Экранирует спец. символы в запросе
+function db_escape_string($in) {
+    global $db;
+    return mysqli_real_escape_string($db, $in);
+}
+
+// Возвращает последнюю ошибку mysql
+function db_error() {
+    global $db;
+    return mysqli_error($db);
+}
+
+// Возвращает вставленный id из последнего запроса
+function db_insert_id() {
+    global $db;
+    return mysqli_insert_id($db);
+}
+
+// Возвращает указанную строку и поле после запроса mysql
+function db_result($result, $number, $field=0) {
+    mysqli_data_seek($result, $number);
+    $row = mysqli_fetch_array($result);
+    return $row[$field];
+}
+
+// Закрывает соединение с базой данных
+function db_close() {
+    global $db;
+    mysqli_close($db);
+}
+
+// Число затронутых запросом строк
+function db_affected_rows() {
+    global $db;
+    return mysqli_affected_rows($db);
 }
 
 function mqfa1($sql, $pos = 0) {

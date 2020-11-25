@@ -71,7 +71,7 @@ if(in_array($user["room"], $battleenters)){
     
     $hfv=6;
     $r=mq("select sila, lovk, inta, vinos, hpforvinos, intel, mudra, type, ghp from effects where owner='$user'");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       if ($rec["type"]==11 || $rec["type"]==12 || $rec["type"]==13 || $rec["type"]==14) {
         $rec1["sila"]-=$rec["sila"];
         $rec1["lovk"]-=$rec["lovk"];
@@ -132,14 +132,14 @@ if(in_array($user["room"], $battleenters)){
     if ($rec1) {
       echo "Турнир начался. Количество живых участников: ";
       $r=mq("select id, align, klan, login, level, battle from users where in_tower=71");
-      $cnt=mysql_num_rows($r);
+      $cnt=mysqli_num_rows($r);
       echo $cnt;
       if ($cnt==0) {
         mq("delete from fields where id='$rec1[id]'");
         mq("update variables set value=".(60*60+time())." where var='startbs2'");
         echo "<script>document.location.replace('battleenter.php');</script>";
       } elseif ($cnt==1) {
-        $rec=mysql_fetch_assoc($r);
+        $rec=mysqli_fetch_assoc($r);
         if (!$rec["battle"]) {
           $win=getvar("fieldwin$user[room]");
           mq("delete from fields where id='$rec1[id]'");
@@ -157,7 +157,7 @@ if(in_array($user["room"], $battleenters)){
         }
       }
       $i=0;
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         $i++;
         if ($i>1) echo ", ";
         echo "<nobr>".fullnick($rec)."</nobr> ";
@@ -181,11 +181,11 @@ if(in_array($user["room"], $battleenters)){
     $gi=mqfa1("select groupid from fieldmembers where user='$user[id]'");
     if ($gi) {
       $r=mq("select users.login from fieldmembers left join users on users.id=fieldmembers.user where fieldmembers.groupid='$gi' and fieldmembers.user<>'$user[id]'");
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         privatemsg("Ваша группа для пещеры кристаллов отменяется, т. к. персонаж $user[login] отказался от участия.", $rec["login"]);
       }
       $r=mq("select user from fieldmembers where groupid='$gi'");
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         remfieldmember($rec["user"]);
       }
       //mq("delete from fieldmembers where groupid='$gi'");
@@ -214,7 +214,7 @@ if(in_array($user["room"], $battleenters)){
     }
     $enemy=0;
     if (CONTEST && @$_POST["enemy"]) {
-      $enemy=mqfa1("select id from users where login='".mysql_real_escape_string($_POST["enemy"])."'");
+      $enemy=mqfa1("select id from users where login='".db_escape_string($_POST["enemy"])."'");
       if (!$enemy) $bad=1;
       $_POST["enemy"]="";
     }
@@ -222,7 +222,7 @@ if(in_array($user["room"], $battleenters)){
       echo "<b><font color=red>У участника группы неверно указан ник, персонаж не онлайн, в другой комнате или уже в заявке.</font></b>";
     } else {
       mq("insert into fieldgroups set room='$user[room]', enemy='$enemy'");
-      $group=mysql_insert_id();
+      $group=db_insert_id();
       mq("insert into fieldmembers set room='$user[room]', groupid='$group', user='$user[id]', valid=1, started=".time());
       $i=0;
       while ($i<$fielddata[$user["room"]]["team"]-1) {
@@ -243,7 +243,7 @@ if(in_array($user["room"], $battleenters)){
         echo "<br><table>";
         $r=mq("select users.login, fieldmembers.valid from fieldmembers left join users on users.id=fieldmembers.user where fieldmembers.groupid='$groupid'");
         $needverify=0;
-        while ($rec=mysql_fetch_assoc($r)) {
+        while ($rec=mysqli_fetch_assoc($r)) {
           if (!$rec["valid"] && $rec["login"]==$user["login"]) $needverify=1;
           echo "<tr><td><b>$rec[login]</b></td><td>".($rec["valid"]?"<font color=green>подтвердил участие</font>":"<font color=red>ожидание подтверждения</font>")."</td></tr>";
         }
@@ -308,7 +308,7 @@ if (!@$fielddata[$user["room"]]["nostamp"]) echo "<input type=\"button\" value=\
 if ($user["room"]==56) {
   echo "<br><br><b>Последние 10 поединков:</b><br><br>";
   $r=mq("select * from fieldlogs where room=".($user["room"]+1)." and (pts1=10 or pts2=10) order by id desc limit 0, 10");
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     echo "<b>$rec[team1]</b> ".($rec["pts1"]==10?"<img src=\"".IMGBASE."/i/flag.gif\">":"")." против <b>$rec[team2]</b> ".($rec["pts2"]==10?"<img src=\"".IMGBASE."/i/flag.gif\">":"")." <a href=\"fieldlog.php?log=$rec[id]\" target=\"_blank\">»»</a><br>";
   }
 }
@@ -319,7 +319,7 @@ if ($user["room"]==56) {
     if ($user["room"]==71) {
       echo "<H4>Наибольшее количество побед</H4><table>";
       $r=mq("select winner, count(id) as cid from fieldlogs where room='72' and winner>0 group by winner order by cid desc limit 0, 10");
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         echo "<tr><td width=\"30\"><b>$rec[cid]</b></td><td>".fullnick($rec["winner"])."</td></tr>";
       }                                                                 //".($user["klan"]?"<img title=\"$user[klan]\" src=\"http://img.bestcombats.net/klan/$user[klan].gif">":"")."
       echo "</table>";
@@ -341,7 +341,7 @@ if ($user["room"]==56) {
 
       echo "<br><br><b>Последние 10 турниров:</b><br><br>";
       $r=mq("select * from fieldlogs where room=".($user["room"]+1)." order by id desc limit 0, 10");
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         echo fieldrow($rec);
       }
     }
@@ -351,7 +351,7 @@ if ($user["room"]==56) {
 if (!@$fielddata[$user["room"]]["cronstart"]) {
   $r=mq("select user, groupid from fieldmembers where valid=1 and room='$user[room]' order by id desc");
   $groups=array();
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     @$groups[$rec["groupid"]][]=$rec["user"];
   }
   $cnt=0;
@@ -447,7 +447,7 @@ if (!@$fielddata[$user["room"]]["cronstart"]) {
       mq("lock tables fieldlogs write, fields write, users write, online write, fieldparties write, fieldmembers write, obshagaeffects write, inventory write, deztow_charstams write, effects write, setstats write");
       if (!mqfa1("select id from fields where team1 like '%-".$tostart[0][0]."-%' or team2 like '%-".$tostart[0][0]."-%'")) {
         mq("insert into fields set map='".serialize($map)."', team1='-".implode("-",$tostart[0])."-', team2='-".implode("-",$tostart[1])."-'");
-        $field=mysql_insert_id();
+        $field=db_insert_id();
         $cond="";
         $team1="";
         $team2="";
@@ -475,7 +475,7 @@ if (!@$fielddata[$user["room"]]["cronstart"]) {
         $log="<span class=date>".date("d.m.y H:i")."</span> Начало поединка. Участники: $team1 против $team2<BR>";
         mq("insert into fieldlogs set id='$field', team1='$team1', team2='$team2', room='".($user["room"]+1)."', log='$log'");
         $r=mq("select login from users where $cond");
-        while ($rec=mysql_fetch_assoc($r)) {
+        while ($rec=mysqli_fetch_assoc($r)) {
           addchnavig("Поединок в пещере кристаллов начался!", $rec["login"], "field.php");
         }
         mq("update users set caveleader='$field' where $cond");

@@ -31,7 +31,7 @@ $coma[] = "И разложится его труп на нолики и един
 
         if ($_SESSION['uid'] == null) header("Location: index.php");
 
-        $tar = mysql_fetch_array(mysql_query("SELECT `id`,`align`,`block`,`level`,`spellfreedom` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+        $tar = mysqli_fetch_array(db_query("SELECT `id`,`align`,`block`,`level`,`spellfreedom` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
         $target=$_POST['target'];
         if ($tar['id']) {
             if ($tar['block'] == 1) {
@@ -52,7 +52,7 @@ $coma[] = "И разложится его труп на нолики и един
                 }
                                 if ($user['align']==5) $ok=1;
                 if ($ok == 1) {
-                    if (mysql_query("UPDATE `users` SET `block`='1' WHERE `id` = {$tar['id']} LIMIT 1;")) {
+                    if (db_query("UPDATE `users` SET `block`='1' WHERE `id` = {$tar['id']} LIMIT 1;")) {
                         $ldtarget=$target;
                         $ldblock=1;
                         if ($user['sex'] == 1) {$action="наложил";}
@@ -69,8 +69,8 @@ $coma[] = "И разложится его труп на нолики и един
                         $mess="$angel &quot;{$user['login']}&quot; $action заклятие смерти на персонажа &quot;$target&quot;..";
                         $messch="&quot;невидимка&quot; наложил заклятие смерти на персонажа &quot;$target&quot;..";
                         }
-                        mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
-                        mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
+                        db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
+                        db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
                         addch("<img src=i/magic/death.gif> $messch");
                         addchp($coma[rand(0,count($coma)-1)],"Комментатор");
                         echo "<font color=red><b>Успешно наложено заклятие смерти на персонажа \"$target\"</b></font>";

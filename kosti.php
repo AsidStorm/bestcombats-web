@@ -3,7 +3,7 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$db = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));;
+	$db = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));;
 	
 
 
@@ -15,7 +15,7 @@
 
 
 if($db['room'] = 315 and $db['room'] != 3152){
-mysql_query("UPDATE `users`,`online` SET `users`.`room` = '3152',`online`.`room` = '3152' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+db_query("UPDATE `users`,`online` SET `users`.`room` = '3152',`online`.`room` = '3152' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
 
 
 }
@@ -87,14 +87,14 @@ $valuta=$_POST['valuta'];
 $chislo=$_POST['chislo'];
 $state=$_POST['state'];
 
-$result1=mysql_query("select * from game_bank where name='lloto'");
-$row1=mysql_fetch_array($result1);
+$result1=db_query("select * from game_bank where name='lloto'");
+$row1=mysqli_fetch_array($result1);
 //echo $row1[proc];
 $priz=0;$date=date("d.m.y"); $time=date("H:i:s");
 
 if ($valuta=="ekr") {
-$result=mysql_query("select * from users where login='".$db['login']."'");
-$row=mysql_fetch_array($result); if ($row['ekr'] < "$stavka")
+$result=db_query("select * from users where login='".$db['login']."'");
+$row=mysqli_fetch_array($result); if ($row['ekr'] < "$stavka")
 {echo "<font color=red>Для этой ставки Вам не хватает средств на счету! Вы можете пополнить его у Дилера игры.</font></table>"; exit;}
 
 //началорезультат игры
@@ -102,16 +102,16 @@ $row=mysql_fetch_array($result); if ($row['ekr'] < "$stavka")
 
 
 //вычитает ставку из кассы игрока
-mysql_query("update users set ekr=ekr-'$stavka' where login='".$db['login']."'");
+db_query("update users set ekr=ekr-'$stavka' where login='".$db['login']."'");
 $wmekrm=$stavka/(100-$row1[proc]);
-mysql_query("update game_bank  set wmekrmin=wmekrmin+'$wmekrm' where name='lloto'");
-mysql_query("update game_bank  set wmekr=wmekr+'$stavka'-'$wmekrm' where name='lloto'");
+db_query("update game_bank  set wmekrmin=wmekrmin+'$wmekrm' where name='lloto'");
+db_query("update game_bank  set wmekr=wmekr+'$stavka'-'$wmekrm' where name='lloto'");
 // Проверяем сумму банка после игры с риском
 $risk=$row1[wmekr]-($stavka*2);
 if ($risk >=$row1[wmekrmin] ) {$ches=" честно";
 srand((double)microtime()*1000000);
 $chislo2  = rand(1, 500);
-if ($chislo<$chislo2&$state==1){$priz=$stavka*2;mysql_query("update game_bank  set wmekr=wmekr-'$priz' where name='lloto'");mysql_query("update users set ekr=ekr+'$priz' where login='".$db['login']."'"); }else{if ($chislo>$chislo2&$state==2){$priz=$stavka*2;}mysql_query("update game_bank  set wmekr=wmekr-'$priz' where name='lloto'");mysql_query("update users set ekr=ekr+'$priz' where login='".$db['login']."'"); }
+if ($chislo<$chislo2&$state==1){$priz=$stavka*2;db_query("update game_bank  set wmekr=wmekr-'$priz' where name='lloto'");db_query("update users set ekr=ekr+'$priz' where login='".$db['login']."'"); }else{if ($chislo>$chislo2&$state==2){$priz=$stavka*2;}db_query("update game_bank  set wmekr=wmekr-'$priz' where name='lloto'");db_query("update users set ekr=ekr+'$priz' where login='".$db['login']."'"); }
 }else{
     $ches="не честно";
     //не честно
@@ -129,24 +129,24 @@ if ($state==1){$chislo2=$chislo1;}else{if ($state==2){$chislo2=$chislo2;}}
 
 
 if ($valuta=="money") {
-$result=mysql_query("select * from users where login='".$db['login']."'");
-$row=mysql_fetch_array($result); if ($row['money'] < "$stavka")
+$result=db_query("select * from users where login='".$db['login']."'");
+$row=mysqli_fetch_array($result); if ($row['money'] < "$stavka")
 {echo "<font color=red>Для этой ставки Вам не хватает средств на счету! </font></table>"; exit;}
 
 
 
 //начало результат игры
 
-mysql_query("update users set money=money-'$stavka' where login='".$db['login']."'");
+db_query("update users set money=money-'$stavka' where login='".$db['login']."'");
 $wmkrm=$stavka/(100-$row1[proc]);
-mysql_query("update game_bank  set wmkrmin=wmkrmin+'$wmkrm' where name='lloto'");
-mysql_query("update game_bank  set wmkr=wmkr+'$stavka'-'$wmkrm' where name='lloto'");
+db_query("update game_bank  set wmkrmin=wmkrmin+'$wmkrm' where name='lloto'");
+db_query("update game_bank  set wmkr=wmkr+'$stavka'-'$wmkrm' where name='lloto'");
 // Проверяем сумму банка после игры с риском
 $risk=$row1[wmkr]-($stavka*2);
 if ($risk >=$row1[wmkrmin] ){$ches="честно";
 srand((double)microtime()*1000000);
 $chislo2  = rand(1, 500);
-if ($chislo<$chislo2&$state==1){$priz=$stavka*2;mysql_query("update game_bank  set wmkr=wmkr-'$priz' where name='lloto'");mysql_query("update users set money=money+'$priz' where login='".$db['login']."'"); }else{if ($chislo>$chislo2&$state==2){$priz=$stavka*2;}mysql_query("update game_bank  set wmkr=wmkr-'$priz' where name='lloto'");mysql_query("update users set money=money+'$priz' where login='".$db['login']."'");}
+if ($chislo<$chislo2&$state==1){$priz=$stavka*2;db_query("update game_bank  set wmkr=wmkr-'$priz' where name='lloto'");db_query("update users set money=money+'$priz' where login='".$db['login']."'"); }else{if ($chislo>$chislo2&$state==2){$priz=$stavka*2;}db_query("update game_bank  set wmkr=wmkr-'$priz' where name='lloto'");db_query("update users set money=money+'$priz' where login='".$db['login']."'");}
 }else{
     //не честно
     $ches="не честно";
@@ -205,7 +205,7 @@ echo "<td width=25% height=24 bgcolor=#FFE280 >
 if ($win_state == "not") {echo "Информации о Вашей ставке нет!";}} ?>    </td></tr> </table>
 
 У вас на счету:<br><b> <?
-$dba = mysql_fetch_array(mysql_query("SELECT money,ekr FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));;
+$dba = mysqli_fetch_array(db_query("SELECT money,ekr FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));;
 
 
  echo $dba['money']; ?></b> кр.<br>

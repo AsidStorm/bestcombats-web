@@ -8,8 +8,8 @@ if (!isset($_GET['id']))
 }
 else 
 {
-	$id = mysql_real_escape_string($_GET['id']);
-	$showItem = mysql_query("
+	$id = db_escape_string($_GET['id']);
+	$showItem = db_query("
 		SELECT 
 			inventory.*,
 			users.login
@@ -236,7 +236,7 @@ if (!$row['needident']) {
 <TABLE BORDER=0 WIDTH=100% >
 
 ';
-$row = mysql_fetch_assoc($showItem);
+$row = mysqli_fetch_assoc($showItem);
 showitem($row);
 	
 echo '

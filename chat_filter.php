@@ -31,7 +31,7 @@ Function filter_msg($msg){
 	If (substr_count($msg,"u.to/") or substr_count(strrev($msg),"u.to/")
 	
 	){
-		mysql_query("insert into `temp_chat_filter`(`owner`,`message`,`original`)values('".$_SESSION['uid']."','".$msg."','".$original."')");
+		db_query("insert into `temp_chat_filter`(`owner`,`message`,`original`)values('".$_SESSION['uid']."','".$msg."','".$original."')");
 		return 1;	
 	}
 	
@@ -53,7 +53,7 @@ Function filter_msg($msg){
 include'chat/antispam.txt';	
 		
 	){
-		mysql_query("insert into `temp_chat_filter`(`owner`,`message`,`original`)values('".$_SESSION['uid']."','".$msg."','".$original."')");
+		db_query("insert into `temp_chat_filter`(`owner`,`message`,`original`)values('".$_SESSION['uid']."','".$msg."','".$original."')");
 		return 1;
 	}
 }

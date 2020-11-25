@@ -52,12 +52,12 @@ document.write('<table cellspacing=0 cellpadding=0 bgcolor=#f2e5b1 border=0 widt
         <!--&gt;&gt;</b> <a href="../index.html">Содержание</a> / <a href="../subjects.html">Предметы</a> / <a href="../weapon.html">Оружие</a> / <a href="../axe.html">Топоры</a> / <b><i>Топор Паука</i></b> -->
       <p>
 	  <?
-	  if($_GET['a']==2){$data = mysql_query("SELECT * FROM `shop_luka` WHERE `id`='".(int)$_GET['id']."' ORDER by `nlevel` ASC");
-	$row = mysql_fetch_array($data);}
-	elseif($_GET['a']==1){$data = mysql_query("SELECT * FROM `berezka` WHERE `id`='".(int)$_GET['id']."' ORDER by `nlevel` ASC");
-	$row = mysql_fetch_array($data);}
-	else{$data = mysql_query("SELECT * FROM `shop` WHERE `id`='".(int)$_GET['id']."' ORDER by `nlevel` ASC");
-	$row = mysql_fetch_array($data);}
+	  if($_GET['a']==2){$data = db_query("SELECT * FROM `shop_luka` WHERE `id`='".(int)$_GET['id']."' ORDER by `nlevel` ASC");
+	$row = mysqli_fetch_array($data);}
+	elseif($_GET['a']==1){$data = db_query("SELECT * FROM `berezka` WHERE `id`='".(int)$_GET['id']."' ORDER by `nlevel` ASC");
+	$row = mysqli_fetch_array($data);}
+	else{$data = db_query("SELECT * FROM `shop` WHERE `id`='".(int)$_GET['id']."' ORDER by `nlevel` ASC");
+	$row = mysqli_fetch_array($data);}
 	if($row['id']!=$_GET['id']){die('Not found');}
 		//if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
 		//echo "<TR><TD align=center style='width:150px'><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";

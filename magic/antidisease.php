@@ -9,8 +9,8 @@ if ($d) {
     } elseif ($user['battle'] > 0) {
       echo "Не в бою...";               
     } else {
-        mysql_query('DELETE FROM effects WHERE id = ' . $d['id']);
-        mysql_query("
+        db_query('DELETE FROM effects WHERE id = ' . $d['id']);
+        db_query("
             UPDATE users 
             SET 
               sila  = (".((-1)*$d['sila'])." + sila), 
@@ -18,7 +18,7 @@ if ($d) {
               inta  = (".((-1)*$d['inta'])." + inta), 
               vinos = (".((-1)*$d['vinos'])." + vinos)
             WHERE id = $user[id]
-        ") or die(mysql_error());
+        ") or die(db_error());
         echo "Вы успешно вылечены от болезни " . $d['name'];
         addchp ('<font color=red>Внимание!</font> Вы успешно вылечены от болезни <b>' . $d['name'] . '</b>', '{[]}'.$user['login'].'{[]}');
         $bet=1;

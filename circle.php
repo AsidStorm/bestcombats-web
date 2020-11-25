@@ -44,13 +44,13 @@
       }
       if (@$_GET["read"]) {
         $r=mq("select users.id, users.intel, users.mana, users.login from users left join online on users.id=online.id left join qtimes on qtimes.user=users.id where qtimes.q4<".time()." and online.date>=".(time()-90)." and users.intel>25 and users.mana=maxmana and users.room=80");
-        if (mysql_num_rows($r)<=1) {
+        if (mysqli_num_rows($r)<=1) {
           echo "<b><font color=red>Для чтения заклинания необходима группа магов, не стоит пытаться прочесть заклинание одному.</font></b><br><br>";
         } else {
           $power=0;
           $cond="0";
           $logins="";
-          while ($rec=mysql_fetch_assoc($r)) {
+          while ($rec=mysqli_fetch_assoc($r)) {
             makequest(4, 1, $rec["id"]);
             $power+=$rec["intel"]*$rec["mana"];
             $cond.=" or id=$rec[id] ";

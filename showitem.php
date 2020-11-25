@@ -24,7 +24,7 @@ echo '<table style="width: 50%; margin: 1em auto">';
 foreach ($items as $k=>$item) {
     //echo '<div style="float: left; width: 22%; padding: 1%;">';
     //echo $item['id'] . ' ';
-    //$item = mysql_fetch_assoc(mysql_query("SELECT * FROM shop WHERE id = 2534"));
+    //$item = mysqli_fetch_assoc(db_query("SELECT * FROM shop WHERE id = 2534"));
     echo '<tr>';
     echo '<td style="padding: 1em">';
     echo $item['id'] . '<br />';

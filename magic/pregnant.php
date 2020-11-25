@@ -1,5 +1,5 @@
 <?php
-$target=mqfa("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".mysql_escape_string($_POST['target'])."'");
+$target=mqfa("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".db_escape_string($_POST['target'])."'");
 $elix=mqfa("select id, name, time from effects where owner=$target[id] and type=30");
 $efftime=60*60*24*270;
 

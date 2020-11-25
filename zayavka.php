@@ -3,7 +3,7 @@
     if (@$_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
     include "functions.php";
-    //$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    //$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 
     if ($user['battle'] != 0) { header('Location: fbattle.php'); die(); }
 
@@ -14,7 +14,7 @@
     //}
 
     // ставим блокировку на таблицу
-    mysql_query("LOCK TABLES `bots` WRITE, `battle` WRITE, `logs` WRITE, `users` WRITE, `inventory` WRITE, `zayavka` WRITE, `effects` WRITE, `online` WRITE, invisbattles write, chaosstats write;");
+    db_query("LOCK TABLES `bots` WRITE, `battle` WRITE, `logs` WRITE, `users` WRITE, `inventory` WRITE, `zayavka` WRITE, `effects` WRITE, `online` WRITE, invisbattles write, chaosstats write;");
 
     //===================================================================================================================
     // стираем коммент
@@ -22,7 +22,7 @@
     if (($_GET['do'] == "clear") && (($user['align']>1.4 && $user['align']<2) || ($user['align']>2 && $user['align']<3))) {
         if ($user['align']>1.1 && $user['align']<2) {$angel="паладином";}
         if ($user['align']>2 && $user['align']<3) {$angel="Ангелом";}
-        mysql_query("UPDATE `zayavka` SET `coment`='Удалено $angel <b>".$user['login']."</b>' where `id`='{$_GET['zid']}' LIMIT 1;");
+        db_query("UPDATE `zayavka` SET `coment`='Удалено $angel <b>".$user['login']."</b>' where `id`='{$_GET['zid']}' LIMIT 1;");
     }
     if(isset($_REQUEST['view'])) {
         $_SESSION['view'] = $_REQUEST['view'];
@@ -48,29 +48,29 @@
 
         // функция получения списка заявок
         function getlist ($razdel = 1, $level = null, $id = null ) {
-            $fict = mysql_query("SELECT * FROM `zayavka` WHERE ".
+            $fict = db_query("SELECT * FROM `zayavka` WHERE ".
                 (( $level != null )? " ((`t1min` <= '{$level}' OR `t1min` = '99') AND (`t1max` >= '{$level}' OR `t1max` = '99') ".(($razdel==4)?"AND (`t2min` <= '{$level}' OR `t2min` = '99') AND (`t2max` >= '{$level}' OR `t2max` = '99')":"").") AND " : "" ).
                 " `level` = {$razdel} ".
                 (( $id != null )? " AND `id` = {$id} " : "")
                 ." ORDER by `podan` DESC;" );
 
-            while ( $row = @mysql_fetch_array($fict) ) {
+            while ( $row = @mysqli_fetch_array($fict) ) {
                 if($row['start']+1800 < time()) {
-                    if (mysql_query("DELETE FROM `zayavka` WHERE `id` = '{$row['id']}';")) {
+                    if (db_query("DELETE FROM `zayavka` WHERE `id` = '{$row['id']}';")) {
                         $team1 = $this->fteam($row['team1']);
                         foreach ($team1 as $k => $v) {
-                            mysql_query("UPDATE `users` SET `zayavka` = '' WHERE `id` = {$v} LIMIT 1;");
+                            db_query("UPDATE `users` SET `zayavka` = '' WHERE `id` = {$v} LIMIT 1;");
                         }
                         $team2 = $this->fteam($row['team2']);
                         foreach ($z[$zay]['team2'] as $k => $v) {
-                            mysql_query("UPDATE `users` SET `zayavka` = '' WHERE `id` = {$v} LIMIT 1;");
+                            db_query("UPDATE `users` SET `zayavka` = '' WHERE `id` = {$v} LIMIT 1;");
                         }
                     }
                 }
 
                 //$t1 = $this->fteam($row['team1']);
                 //$t1 = (int)$t1[0];
-                //$t1 = mysql_fetch_array(mysql_query("select * from `online` WHERE `date` >= ".(time()-120)." AND `id` = ".$t1.";"));
+                //$t1 = mysqli_fetch_array(db_query("select * from `online` WHERE `date` >= ".(time()-120)." AND `id` = ".$t1.";"));
                 //if($t1) {
                     $zay[$row['id']] = array(
                                         "team1" => $this->fteam($row['team1']),
@@ -98,9 +98,9 @@
 
         // добавление в тиму перса
         function addteam ( $team = 1, $id, $zay , $r) {
-            $owntravma = mysql_fetch_array(mysql_query("SELECT `type`,`id`,`sila`,`lovk`,`inta` FROM `effects` WHERE `owner` = ".$id." AND (type=12 OR type=13 OR type=14);"));
+            $owntravma = mysqli_fetch_array(db_query("SELECT `type`,`id`,`sila`,`lovk`,`inta` FROM `effects` WHERE `owner` = ".$id." AND (type=12 OR type=13 OR type=14);"));
             $z = @$this->getlist($r,null,$zay);
-            $user = mysql_fetch_array(mysql_query("SELECT `hp`,`maxhp`,`level`,`klan`,`align` FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+            $user = mysqli_fetch_array(db_query("SELECT `hp`,`maxhp`,`level`,`klan`,`align` FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
             if ($owntravma) {
                 switch($owntravma['type']) {
                     case ($owntravma['type']==12 && ($z[$zay]['type']!=4 AND $z[$zay]['type']!=5)):
@@ -126,7 +126,7 @@
 
             if ($team == 1) { $teamz = 2; } else { $teamz = 1; }
             foreach($z[$zay]['team'.$teamz] as $v) {
-                $toper = mysql_fetch_array(mysql_query("SELECT `klan`,`align` FROM `users` WHERE `id`='{$v}' LIMIT 1;"));
+                $toper = mysqli_fetch_array(db_query("SELECT `klan`,`align` FROM `users` WHERE `id`='{$v}' LIMIT 1;"));
                 if($toper['klan']!='') {
                     if($user['klan']==$toper['klan']) {
                         return "Чтите честь ваших сокланов.";
@@ -140,7 +140,7 @@
                 //echo "111";
             }
             foreach($z[$zay]['team'.$team] as $v) {
-                $toper = mysql_fetch_array(mysql_query("SELECT `align` FROM `users` WHERE `id`='{$v}' LIMIT 1;"));
+                $toper = mysqli_fetch_array(db_query("SELECT `align` FROM `users` WHERE `id`='{$v}' LIMIT 1;"));
                 if((int)$user['align']==1) {
                     if($toper['align']==3) {
                         return "Не предавайте свет.";
@@ -154,7 +154,7 @@
             // кланы
             if($z[$zay]['t'.$team.'min'] == 99) {
                 $toper = $z[$zay]['team'.$team][0];
-                $toper = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id`='{$toper}' LIMIT 1;"));
+                $toper = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id`='{$toper}' LIMIT 1;"));
                 //echo $user['klan'];
                 if($toper['klan']!='') {
                     if($user['klan']!=$toper['klan'])
@@ -165,7 +165,7 @@
             }
             if ( count($z[$zay]['team'.$team]) >= $z[$zay]['t'.$team.'c'] ) { return "Группа уже набрана."; }
             $z[$zay]['team'.$team][]='';
-            if (mysql_query("UPDATE `users`, `zayavka` SET
+            if (db_query("UPDATE `users`, `zayavka` SET
                             `users`.zayavka = {$zay},
                             `zayavka`.team{$team} = '".implode(";",$z[$zay]['team'.$team])."".$id.";'
                         WHERE
@@ -194,7 +194,7 @@
             }
 
 
-            if(mysql_query("UPDATE `users`, `zayavka` SET
+            if(db_query("UPDATE `users`, `zayavka` SET
                                 `users`.zayavka = '',
                                 `zayavka`.team{$team} = '{$teams}'
                             WHERE
@@ -222,7 +222,7 @@
 
             // время начала заявки
             if ( $this->ustatus($creator) != 0) { exit;}
-            $owntravma = mysql_fetch_array(mysql_query("SELECT `type`,`id`,`sila`,`lovk`,`inta` FROM `effects` WHERE `owner` = ".$creator." AND (type=12 OR type=13 OR type=14);"));
+            $owntravma = mysqli_fetch_array(db_query("SELECT `type`,`id`,`sila`,`lovk`,`inta` FROM `effects` WHERE `owner` = ".$creator." AND (type=12 OR type=13 OR type=14);"));
             if ($owntravma) {
                 switch($owntravma['type']) {
                     case ($owntravma['type']==12 && ($type!=4 AND $type!=5)):
@@ -241,16 +241,16 @@
                 return "Вы не состоите в клане.";
             }
             // хп
-            //$user = mysql_fetch_array(mysql_query("SELECT `hp`,`maxhp` FROM `users` WHERE `id` = '{$creator}' LIMIT 1;"));
+            //$user = mysqli_fetch_array(db_query("SELECT `hp`,`maxhp` FROM `users` WHERE `id` = '{$creator}' LIMIT 1;"));
             if ($user['hp'] < $user['maxhp']*0.33) {
                 return "Вы слишком ослаблены для боя, восстановитесь.";
             }
             $start = time()+$start*60;
             $stavka = round($stavka,2);
-            mysql_query("INSERT INTO `zayavka`
+            db_query("INSERT INTO `zayavka`
                 (`start`, `timeout`, `t1c`, `t2c`, `type`, `level`, `coment`, `team1`, `stavka`, `t1min`, `t2min`, `t1max`, `t2max`,`podan`,`blood`, closed) values
                 ({$start},{$timeout},{$t1c},{$t2c},{$type},{$level},'{$coment}','{$creator};','{$stavka}',{$t1min}, {$t2min}, {$t1max}, {$t2max}, '".date("H:i")."', '{$blood}', '$closed');");
-            mysql_query("UPDATE `users` SET `zayavka` = ".mysql_insert_id()." WHERE `id` = {$creator};");
+            db_query("UPDATE `users` SET `zayavka` = ".db_insert_id()." WHERE `id` = {$creator};");
         }
 
         // отзыв заявки
@@ -261,14 +261,14 @@
                     return 'Ай-ай-ай!';
                 }
             }
-            if (mysql_query("DELETE FROM `zayavka` WHERE `id` = {$zay} AND `team1` LIKE '{$id};%';")) {
+            if (db_query("DELETE FROM `zayavka` WHERE `id` = {$zay} AND `team1` LIKE '{$id};%';")) {
                 if(count($z[$zay]['team1'])>0)
                 foreach ($z[$zay]['team1'] as $k => $v) {
-                    mysql_query("UPDATE `users` SET `zayavka` = 0 WHERE `id` = {$v} LIMIT 1;");
+                    db_query("UPDATE `users` SET `zayavka` = 0 WHERE `id` = {$v} LIMIT 1;");
                 }
                 if(count($z[$zay]['team2'])>0)
                 foreach ($z[$zay]['team2'] as $k => $v) {
-                    mysql_query("UPDATE `users` SET `zayavka` = 0 WHERE `id` = {$v} LIMIT 1;");
+                    db_query("UPDATE `users` SET `zayavka` = 0 WHERE `id` = {$v} LIMIT 1;");
                 }
                 return 'Вы отозвали заявку.';
             }
@@ -330,7 +330,7 @@
             if ($row['blood'] && $row['type'] == 5) {
                 $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"\">";
             }
-            $ali = mysql_fetch_array(mysql_query("SELECT align FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+            $ali = mysqli_fetch_array(db_query("SELECT align FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
             $rr .= ")&nbsp; тип боя: ";
             if ($row['blood'] && $row['type'] == 4) {
                 $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный бой\"><IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\">";
@@ -368,7 +368,7 @@
             $rr .= "";
             if (count($row['team1']) ==0) { $rr.= "<i>группа не набрана</i>"; }
 
-            $ali = mysql_fetch_array(mysql_query("SELECT align FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+            $ali = mysqli_fetch_array(db_query("SELECT align FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 
             $rr .= ") (".($row["t1max"]==99?"общий хаотичный бой":"$row[t1min]-$row[t1max]").") &nbsp; тип боя: ";
             if ($row['blood'] && $row['type'] == 5) {
@@ -395,9 +395,9 @@
 
         // user status
         function ustatus ( $id ) {
-            $fict = mysql_fetch_array(mq("SELECT * FROM `zayavka`, `users` WHERE users.id =".$id." AND zayavka.id = users.zayavka LIMIT 1;"));
-            //$fict1 = mysql_fetch_array(mysql_query("SELECT * FROM `zayavka` WHERE `team1` LIKE '{$id};%' OR `team1` LIKE '%;{$id};%' LIMIT 1;"));
-            //$fict2 = mysql_fetch_array(mysql_query("SELECT * FROM `zayavka` WHERE `team2` LIKE '{$id};%' OR `team2` LIKE '%;{$id};%' LIMIT 1;"));
+            $fict = mysqli_fetch_array(mq("SELECT * FROM `zayavka`, `users` WHERE users.id =".$id." AND zayavka.id = users.zayavka LIMIT 1;"));
+            //$fict1 = mysqli_fetch_array(db_query("SELECT * FROM `zayavka` WHERE `team1` LIKE '{$id};%' OR `team1` LIKE '%;{$id};%' LIMIT 1;"));
+            //$fict2 = mysqli_fetch_array(db_query("SELECT * FROM `zayavka` WHERE `team2` LIKE '{$id};%' OR `team2` LIKE '%;{$id};%' LIMIT 1;"));
 
             $t1 = $this->fteam($fict['team1']);
             $t2 = $this->fteam($fict['team2']);
@@ -410,10 +410,10 @@
                 return 0;
             }
             //$t1 = $this->fteam($z['team1']); $t1 = (int)$t1[0];
-            //$t1 = mysql_fetch_array(mysql_query("select * from `online` WHERE `date` >= ".(time()-120)." AND `id` = ".$t1.";"));
+            //$t1 = mysqli_fetch_array(db_query("select * from `online` WHERE `date` >= ".(time()-120)." AND `id` = ".$t1.";"));
             //if(!$t1) {
                 $teams = str_replace($id.";","",implode(";",$z['team2']));
-                if(mysql_query("UPDATE `users` as u, `zayavka` as z SET
+                if(db_query("UPDATE `users` as u, `zayavka` as z SET
                                 u.zayavka = '',
                                 z.team2 = '{$teams}'
                             WHERE
@@ -458,11 +458,11 @@
             // генерим ТИМС
             if ($z['type'] == 3 OR $z['type'] == 5) {
                 if(count($z['team1']) < 1) {
-                    mysql_query("UPDATE `users` SET `zayavka`=0 WHERE `zayavka` = '".$zay."';");
+                    db_query("UPDATE `users` SET `zayavka`=0 WHERE `zayavka` = '".$zay."';");
                     foreach($z['team1'] as $k=>$v) {
                         addchp ('<font color=red>Внимание!</font> Ваш бой не может начаться по причине "Группа не набрана".   ','{[]}'.nick7 ($v).'{[]}');
                     }
-                    mysql_query("DELETE FROM `zayavka` WHERE `id`= '".$zay."';");
+                    db_query("DELETE FROM `zayavka` WHERE `id`= '".$zay."';");
                     header("Location: zayavka.php");
                     die();
                 }
@@ -624,11 +624,11 @@
                 }
 
                 if(count($z['team2']) ==0) {
-                    mysql_query("UPDATE `users` SET `zayavka`=0 WHERE `zayavka` = '".$zay."';");
+                    db_query("UPDATE `users` SET `zayavka`=0 WHERE `zayavka` = '".$zay."';");
                     foreach($z['team1'] as $k=>$v) {
                         addchp ('<font color=red>Внимание!</font> Ваш бой не может начаться по причине "Группа не набрана".   ','{[]}'.nick7 ($v).'{[]}');
                     }
-                    mysql_query("DELETE FROM `zayavka` WHERE `id`= '".$zay."';");
+                    db_query("DELETE FROM `zayavka` WHERE `id`= '".$zay."';");
                     header("Location: zayavka.php");
                     die();
                 }
@@ -639,7 +639,7 @@
             }
             //print_r($teams);
             if (count($teams)>1) {
-                mysql_query("INSERT INTO `battle`
+                db_query("INSERT INTO `battle`
                         (
                             `id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`,`blood`, closed, date
                         )
@@ -647,7 +647,7 @@
                         (
                             NULL,'{$z['coment']}','".serialize($teams)."','{$z['timeout']}','{$z['type']}','0','".implode(";",$z['team1'])."','".implode(";",$z['team2'])."','".time()."','".time()."','".$z['blood']."','".$z['closed']."', '".date("Y-m-d H:i")."'
                         )");
-                $id = mysql_insert_id();
+                $id = db_insert_id();
                 if ($bot) mq("update bots set battle='$id' where id='$bot[id]'");
                 // создаем лог
                 $rr = "<b>";
@@ -666,7 +666,7 @@
                 }
                 $rr .= "</b>";
                 addch ("<a href=logs.php?log=".$id." target=_blank>Поединок</a> между <B>".$rrc."</B> начался.   ",$user['room']);
-                mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
+                db_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
 
                 addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
 
@@ -831,14 +831,14 @@ if ($_REQUEST['level'] == 'begin') {
                     //здесь удаляем файл
                     unlink("tmp/zayavka/".$user['id'].".txt");
                     $zay->delzayavka ($user['id'], $user['zayavka'], 1,0);
-                    if ($user["id"]==7) mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$user['login']." (клон 1)','".$user['id']."','','".$user['maxhp']."');");
-                    else mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('Клон','11121','','48');");
-                    $bot = mysql_insert_id();
+                    if ($user["id"]==7) db_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$user['login']." (клон 1)','".$user['id']."','','".$user['maxhp']."');");
+                    else db_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('Клон','11121','','48');");
+                    $bot = db_insert_id();
                     $teams = array();
 
                     $teams[$user['id']][$bot] = array(0,0,time());
                     $teams[$bot][$user['id']] = array(0,0,time());
-                    mysql_query("INSERT INTO `battle`
+                    db_query("INSERT INTO `battle`
                         (
                             `id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`,date
                         )
@@ -847,18 +847,18 @@ if ($_REQUEST['level'] == 'begin') {
                             NULL,'','".serialize($teams)."','3','1','0','".$user['id']."','".$bot."','".time()."','".time()."', '".date("Y-m-d H:i")."'
                         )");
 
-                    $id = mysql_insert_id();
+                    $id = db_insert_id();
 
                     // апдейтим бота
-                    mysql_query("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$bot} LIMIT 1;");
+                    db_query("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$bot} LIMIT 1;");
 
                     // создаем лог
                     $rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($bot)."</b>";
 
-                    //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
+                    //db_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
                     addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
 
-                    mysql_query("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']};");
+                    db_query("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']};");
 
                     addch ("Начался <a href=logs.php?log=$id target=_blank>поединок</a> между <B>$user[login]</B> и <b>$user[login] (клон 1)</b>.",$user['room']);
                     die("<script>location.href='fbattle.php';</script>");
@@ -921,7 +921,7 @@ if ($_REQUEST['level'] == 'fiz') {
     if($_POST['confirm2'] && !$user['zayavka']) {
         $z =  $zay->getlist(2,null,$_REQUEST['gocombat']);
         $toper = $z[$_REQUEST['gocombat']]['team1'][0];
-        $toper = mysql_fetch_array(mysql_query("SELECT `klan` FROM `users` WHERE `id`='{$toper}' LIMIT 1;"));
+        $toper = mysqli_fetch_array(db_query("SELECT `klan` FROM `users` WHERE `id`='{$toper}' LIMIT 1;"));
         //echo $user['klan'] . " " . $toper['klan'];
         if($user['klan'] != $toper['klan'] OR $user['klan']==''){
             addchp ('<font color=red>Внимание!</font> '.nick3($user['id']).' принял заявку, нужно принять вызов или отказать.  ','{[]}'.nick7 ($z[$_REQUEST['gocombat']]['team1'][0]).'{[]}');
@@ -980,18 +980,18 @@ if ($_REQUEST['level'] == 'fiz') {
                       } else {
                         $opp=mqfa("select login, maxhp from users where id='".$trainers[$user["level"]]["$_POST[opponent]"]["id"]."'");
                         mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('$opp[login]','".$trainers[$user["level"]]["$_POST[opponent]"]["id"]."','','$opp[maxhp]');");
-                        $bot=mysql_insert_id();
+                        $bot=db_insert_id();
                       }
                     } else {
-                      mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$user['login']." (клон 1)','".$user['id']."','','".$user['maxhp']."');");
-                      $bot = mysql_insert_id();
+                      db_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$user['login']." (клон 1)','".$user['id']."','','".$user['maxhp']."');");
+                      $bot = db_insert_id();
                     }
                     if (!$joined) {
                       $teams = array();
                       $teams[$user['id']][$bot] = array(0,0,time());
                       $teams[$bot][$user['id']] = array(0,0,time());
 
-                      mysql_query("INSERT INTO `battle`
+                      db_query("INSERT INTO `battle`
                           (
                               `id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`,date
                           )
@@ -1000,19 +1000,19 @@ if ($_REQUEST['level'] == 'fiz') {
                               NULL,'','".serialize($teams)."','".($user["level"]==1?"1":"3")."','1','0','".$user['id']."','".$bot."','".time()."','".time()."', '".date("Y-m-d H:i")."'
                           )");
 
-                      $id = mysql_insert_id();
+                      $id = db_insert_id();
 
                       // апдейтим бота
-                      mysql_query("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$bot} LIMIT 1;");
+                      db_query("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$bot} LIMIT 1;");
 
                       // создаем лог
                       $rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($bot)."</b>";
 
-                      //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
+                      //db_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
                       addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
 
 
-                      mysql_query("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']};");
+                      db_query("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']};");
                     }
 
                     die("<script>location.href='fbattle.php';</script>");
@@ -1395,8 +1395,8 @@ if ($_REQUEST['level'] == 'haos') {
 if ($_REQUEST['tklogs'] != null) {
 $t1=floor(time()-900);
 
-    $data = mysql_query("SELECT battle.*, date_format(`date`,'%d.%m.%Y %H:%i') as `date` FROM `battle` WHERE `win`='3' and `to1`>'".$t1."' and `to2`>'".$t1."' and teams<>'N;' ORDER by `date` ASC;");
-    while($row = @mysql_fetch_array($data)) {
+    $data = db_query("SELECT battle.*, date_format(`date`,'%d.%m.%Y %H:%i') as `date` FROM `battle` WHERE `win`='3' and `to1`>'".$t1."' and `to2`>'".$t1."' and teams<>'N;' ORDER by `date` ASC;");
+    while($row = @mysqli_fetch_array($data)) {
         echo "<span class=date>{$row['date']}</span>";
         if ($user['id'] == 7) {
             echo $row['id'];
@@ -1430,14 +1430,14 @@ if ($_REQUEST['logs'] != null) {
             </TR><TR><TD colspan=3 align=center>Показать только бои персонажа: <INPUT TYPE=text NAME=filter value="'.(($_REQUEST['filter'])?$_REQUEST['filter']:$user['login']).'"> за <INPUT TYPE=text NAME=logs size=12 value="'.(($_REQUEST['logs']!=1)?"{$_REQUEST['logs']}":"".date("d.m.y")).'"> <INPUT TYPE=submit value="фильтр!"></TD>
             </TR></TABLE>';
 
-    $u = mysql_fetch_array(mysql_query("SELECT `id` FROM `users` WHERE `login` = '".(($_REQUEST['filter'])?"{$_REQUEST['filter']}":"{$user['login']}")."' LIMIT 1;"));
+    $u = mysqli_fetch_array(db_query("SELECT `id` FROM `users` WHERE `login` = '".(($_REQUEST['filter'])?"{$_REQUEST['filter']}":"{$user['login']}")."' LIMIT 1;"));
     $cond="";
     $r=mq("select battle from invisbattles where user='$u[id]'");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $cond.=" id<>$rec[battle] and ";
     }
     $data = mq("SELECT * FROM `battle` WHERE $cond ((`t1` LIKE '%;{$u[0]};%' OR `t1` LIKE '{$u[0]}' OR `t1` LIKE '{$u[0]};%' OR `t1` LIKE '%;{$u[0]}') OR (`t2` LIKE '%;{$u[0]};%' OR `t2` LIKE '{$u[0]}' OR `t2` LIKE '{$u[0]};%' OR `t2` LIKE '%;{$u[0]}')) AND `date` LIKE '".(($_REQUEST['logs']!=1)?"20".substr($_REQUEST['logs'],6,2)."-".substr($_REQUEST['logs'],3,2)."-".substr($_REQUEST['logs'],0,2):"".date("Y-m-d"))." %' ORDER by `id` ASC;");
-    while($row = @mysql_fetch_array($data)) {
+    while($row = @mysqli_fetch_array($data)) {
         echo "<span class=date>{$row['date']}</span>";
         //$z = split(";",$row['t1']);
         /*foreach($z as $k=>$v) {
@@ -1483,7 +1483,7 @@ if ($_REQUEST['logs'] != null) {
 
 
 
-mysql_query("UNLOCK TABLES;");
+db_query("UNLOCK TABLES;");
 
 ?>
 </FORM>

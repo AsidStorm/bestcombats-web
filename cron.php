@@ -23,22 +23,22 @@ function remfieldmember($user, $rec=0, $del=1) {
     
 // бонус за 25 игроков
 
-$online = mysql_query("select id, real_time from `online`  WHERE `real_time` >= ".(time()-60).";");
-$users_count = mysql_num_rows($online)+6;
+$online = db_query("select id, real_time from `online`  WHERE `real_time` >= ".(time()-60).";");
+$users_count = mysqli_num_rows($online)+6;
 if ($users_count>=25 && !mqfa1("SELECT COUNT(*) FROM visitors_counter WHERE date = CURDATE()")) {
-    while ($row = mysql_fetch_assoc($online)) {
-        mysql_query('UPDATE users SET money = money + 100 WHERE id = ' . $row['id']);
+    while ($row = mysqli_fetch_assoc($online)) {
+        db_query('UPDATE users SET money = money + 100 WHERE id = ' . $row['id']);
     }
-    mysql_query('INSERT INTO visitors_counter SET count = ' . $users_count . ', date = CURDATE()');
+    db_query('INSERT INTO visitors_counter SET count = ' . $users_count . ', date = CURDATE()');
     sysmsg("Сейчас в BestCombats более 25 чел. В связи с этим, всем кто присутствует в игре зачислены кредиты. Приятной игры и покупок!"); 
 }
 
 
 // запускаем лотерею
-$cLottery = mysql_result(mysql_query('SELECT COUNT(*) FROM lottery WHERE end = 0 AND date < NOW()'), 0, 0);
+$cLottery = db_result(db_query('SELECT COUNT(*) FROM lottery WHERE end = 0 AND date < NOW()'), 0, 0);
 if ($cLottery) {
     file_get_contents('http://bestcombats.net/lottery.php?cronstartlotery=whf784whfy7w8jfyw8hg745g3y75h7f23785yh38259648gjn6f6734h798h2q398fgsdhnit734');
-    $cLottery = mysql_result(mysql_query('SELECT COUNT(*) FROM lottery WHERE end = 0 AND date < NOW()'), 0, 0);
+    $cLottery = db_result(db_query('SELECT COUNT(*) FROM lottery WHERE end = 0 AND date < NOW()'), 0, 0);
     if (!$cLottery) {
         sysmsg("Уважаемые игроки! Закончился очередной тираж Лотереи. Чтобы ознакомиться с результатами и получить выигрыш, посетите Уголок Удачи.");    
     }
@@ -48,13 +48,13 @@ $tme1=getmicrotime();
     //====================================================================================
   $r=mq("select fieldmembers.id, fieldmembers.groupid, fieldmembers.user, fieldmembers.started from fieldmembers left join online on fieldmembers.user=online.id where online.date<".(time()-60));
   $remgroups=array();
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     if ($rec["groupid"]) {
       if (@$remgroups[$rec["groupid"]]) continue;
       $remgroups[$rec["groupid"]]=1;
       $login=mqfa1("select login from users where id='$rec[user]'");
       $r2=mq("select fieldmembers.id, fieldmembers.user, fieldmembers.started, users.login from fieldmembers left join users on users.id=fieldmembers.user where users.id<>$rec[id] and fieldmembers.groupid='$rec[groupid]'");
-      while ($rec2=mysql_fetch_assoc($r2)) {
+      while ($rec2=mysqli_fetch_assoc($r2)) {
         privatemsg("Ваша группа для пещеры кристаллов отменяется, т. к. персонаж $login вышел из игры.", $rec2["login"]);
         remfieldmember($rec2["user"], $rec2);
       }
@@ -64,12 +64,12 @@ $tme1=getmicrotime();
   }
 
     // start BS
-    $tr = mysql_fetch_array(mysql_query("SELECT * FROM `deztow_turnir` WHERE `active` = TRUE"));
+    $tr = mysqli_fetch_array(db_query("SELECT * FROM `deztow_turnir` WHERE `active` = TRUE"));
     if (!$tr) {
-      $turnirstart = mysql_fetch_array(mysql_query("SELECT `value` FROM `variables` WHERE `var` = 'startbs' LIMIT 1;"));
-      $dd = mysql_fetch_array(mysql_query("SELECT count(`kredit`) FROM `deztow_stavka`;"));
+      $turnirstart = mysqli_fetch_array(db_query("SELECT `value` FROM `variables` WHERE `var` = 'startbs' LIMIT 1;"));
+      $dd = mysqli_fetch_array(db_query("SELECT count(`kredit`) FROM `deztow_stavka`;"));
       if($dd[0] < 2 && $turnirstart[0] <= time()) {
-        mysql_query('UPDATE `variables` SET `value` = \''.(time()+60).'\' WHERE `var` = \'startbs\';');
+        db_query('UPDATE `variables` SET `value` = \''.(time()+60).'\' WHERE `var` = \'startbs\';');
       }
       $fromprev=time()-mqfa1("select max(endtime) from deztow_turnir");
     }
@@ -79,15 +79,15 @@ $tme1=getmicrotime();
       $minroom = 501;
       $maxroom = 560;
       // вычисляем кто прошел в турнир
-      $stavka = mysql_fetch_array(mysql_query("SELECT SUM(`kredit`)*0.7 FROM `deztow_stavka`;"));
+      $stavka = mysqli_fetch_array(db_query("SELECT SUM(`kredit`)*0.7 FROM `deztow_stavka`;"));
       // создаем запись о турнире
       mq("INSERT `deztow_turnir` (`type`,`winner`,`coin`,`start_time`,`log`,`endtime`,`active`) values ('".rand(1,7)."','','".$stavka[0]."','".time()."','".$log."','0','1');");
-      $dtid=mysql_insert_id();
+      $dtid=db_insert_id();
       $data=mq("SELECT dt.owner FROM `deztow_stavka` as dt, `online` as o, users WHERE (SELECT count(`id`) FROM `effects` WHERE `effects`.`owner` = dt.owner AND ( type=11 OR type=12 OR type=13 OR type=14)) = 0  AND o.id = dt.owner AND users.id = dt.owner AND users.room = 31 AND o.`date` >= '".(time()-300)."' ORDER by `kredit` DESC, dt.`time` ASC  LIMIT 100;");
       // удаляем сразу, чтоб другим не повадно было
       if($data) {
-        mysql_query("TRUNCATE TABLE `deztow_stavka`;");
-        mysql_query("TRUNCATE TABLE `deztow_gamers_inv`;");
+        db_query("TRUNCATE TABLE `deztow_stavka`;");
+        db_query("TRUNCATE TABLE `deztow_gamers_inv`;");
       }
       $invcond="";
       $dtcond="";
@@ -96,11 +96,11 @@ $tme1=getmicrotime();
         $slotsto0.=", $v='0'";
       }
 
-      while($row=mysql_fetch_array($data)) {
+      while($row=mysqli_fetch_array($data)) {
         $invcond.=" or id='$row[0]' ";
         if ($type==1) {
 
-          $tec = mysql_fetch_array(mysql_query("SELECT * FROM `deztow_charstams` WHERE `owner` = '{$row[0]}' and room=0 order by `def`='1' desc;"));
+          $tec = mysqli_fetch_array(db_query("SELECT * FROM `deztow_charstams` WHERE `owner` = '{$row[0]}' and room=0 order by `def`='1' desc;"));
           if (!$tec) {
             $tec=array(25,25,25,25);
             $tec["sila"]=25;
@@ -131,7 +131,7 @@ $tme1=getmicrotime();
       }
       $r=mq("select id, login, level, align, klan from users where (0 $invcond)");
       $lors="";
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         if($lors) $lors .= ", ";
         $lors.="<img src=\"i/align_".($rec['align']>0 ? $rec['align']:"0").".gif\">";
         if ($rec['klan'] <> '') $lors.='<img title="'.$rec['klan'].'" src="http://img.bestcombats.net/klan/'.$rec['klan'].'.gif">';
@@ -141,7 +141,7 @@ $tme1=getmicrotime();
       $log = '<span class=date>'.date("d.m.y H:i").'</span> Начало турнира. Участники: '.$lors.'<BR>';
       mq("update `deztow_turnir` set log='$log' where id='$dtid'");
       mq("UPDATE `users` SET invis=0, in_tower=$type, `room` = floor(rand()*60)+501 WHERE 0 $invcond");
-      sysmsg("Началась ".($type==1?"Общая битва":"Битва мастеров")." в <b>Башне Смерти</b>. Всего участников: ".mysql_num_rows($data).".");
+      sysmsg("Началась ".($type==1?"Общая битва":"Битва мастеров")." в <b>Башне Смерти</b>. Всего участников: ".mysqli_num_rows($data).".");
     } elseif (!$tr) {
       
       $i=mqfa1("select id from deztow_items");
@@ -196,13 +196,13 @@ $tme1=getmicrotime();
         $wmot=unserialize(implode("",file("data/deztowshmot.dat")));
         while($sh = array_shift($shmots)) {
           $shopid=$wmot[$sh];
-          mysql_query("INSERT `deztow_items` (`iteam_id`, `name`, `img`, `room`) values ('".$shopid['id']."', '".$shopid['name']."', '".$shopid['img']."', '".rand($minroom,$maxroom)."');");
+          db_query("INSERT `deztow_items` (`iteam_id`, `name`, `img`, `room`) values ('".$shopid['id']."', '".$shopid['name']."', '".$shopid['img']."', '".rand($minroom,$maxroom)."');");
         }
         if ($type!=1) {
           $shopid = mqfa("SELECT * FROM `shop` WHERE `id` = '1766'");
           $i=$minroom;
           while ($i<=$maxroom) {
-            mysql_query("INSERT `deztow_items` (`iteam_id`, `name`, `img`, `room`) values ('".$shopid['id']."', '".$shopid['name']."', '".$shopid['img']."', '".$i."');");
+            db_query("INSERT `deztow_items` (`iteam_id`, `name`, `img`, `room`) values ('".$shopid['id']."', '".$shopid['name']."', '".$shopid['img']."', '".$i."');");
             $i++;
           }
         }
@@ -213,11 +213,11 @@ $tme1=getmicrotime();
 
     $r=mq("select id, win from battle where needbb=2 and win=3");
     $r2=mq("select id, win from battle where needbb=1 and win=3 and (timeout*90+to1<".time()." or timeout*90+to2<".time().")");
-    if (mysql_num_rows($r)>0 || mysql_num_rows($r2)>0) include "fbattle.php";
+    if (mysqli_num_rows($r)>0 || mysqli_num_rows($r2)>0) include "fbattle.php";
     include_once DOCUMENTROOT."incl/strokedata.php";
     $battles=array();
 
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       mq("LOCK TABLES `bots` WRITE, `puton` WRITE, `userdata` WRITE, `priem` WRITE, `deztow_realchars` write, `shop` WRITE, `person_on` WRITE, `podzem3` WRITE, `canal_bot` WRITE, `labirint` WRITE, `battle` WRITE, `logs` WRITE, `users` WRITE, `inventory` WRITE, `magic` WRITE, `effects` WRITE, `clans` WRITE, `online` WRITE, `telegraph` WRITE, `allusers` WRITE, `quests` WRITE, `battleeffects` WRITE, `items` WRITE, `podzem2` WRITE, `battleunits` WRITE, `berezka` WRITE, `qtimes` WRITE, `smallitems` WRITE, `podzem_zad_login` write, `caveparties` write, `caveitems` write, `cavebots` write, errorstats write, caves write, userstrokes write, variables write, droplog write;");      
       $fbattle=new fbattle($rec["id"]);
       foreach ($fbattle->battle as $k=>$v) {
@@ -240,7 +240,7 @@ $tme1=getmicrotime();
       $fbattle->updatebattleunits();
       mq("unlock tables");
     }
-    while ($rec=mysql_fetch_assoc($r2)) {
+    while ($rec=mysqli_fetch_assoc($r2)) {
       mq("LOCK TABLES `bots` WRITE, `puton` WRITE, `userdata` WRITE, `priem` WRITE, `deztow_realchars` write, `shop` WRITE, `person_on` WRITE, `podzem3` WRITE, `canal_bot` WRITE, `labirint` WRITE, `battle` WRITE, `logs` WRITE, `users` WRITE, `inventory` WRITE, `magic` WRITE, `effects` WRITE, `clans` WRITE, `online` WRITE, `telegraph` WRITE, `allusers` WRITE, `quests` WRITE, `battleeffects` WRITE, `items` WRITE, `podzem2` WRITE, `battleunits` WRITE, `berezka` WRITE, `qtimes` WRITE, `smallitems` WRITE, `podzem_zad_login` write, `caveparties` write, `caveitems` write, `cavebots` write, errorstats write, caves write, userstrokes write, variables write, droplog write;");      
       $fbattle=new fbattle($rec["id"]);
       foreach ($fbattle->battle as $k=>$v) {
@@ -308,9 +308,9 @@ $tme1=getmicrotime();
 
     $teams=maketeams($team1, $team2);
 
-    mysql_query("INSERT INTO `battle` (`id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`,`blood`,`quest`, `closed`)
+    db_query("INSERT INTO `battle` (`id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`,`blood`,`quest`, `closed`)
     VALUES (NULL,'$coment','".serialize($teams)."','$timeout','$type','0','".implode(";",$team1)."','".implode(";",$team2)."','".time()."','".time()."','".$blood."', '$quest', '$closed')");
-    $id = mysql_insert_id();
+    $id = db_insert_id();
     // создаем лог
     $rr = "<b>";
     foreach( $team1 as $k=>$v ) {
@@ -328,15 +328,15 @@ $tme1=getmicrotime();
     }
     $rr .= "</b>";
     addch ("<a href=logs.php?log=".$id." target=_blank>Поединок</a> между <B>".$rrc."</B> начался.   ",$user['room']);
-    mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
+    db_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
     addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
 
     // всех в БОЙ!!!
     foreach($team1 as $k=>$v) {
-      mysql_query("UPDATE users SET `battle`='$id',`zayavka`=0 WHERE `id`=$v");
+      db_query("UPDATE users SET `battle`='$id',`zayavka`=0 WHERE `id`=$v");
     }
     foreach($team2 as $k=>$v) {
-      mysql_query("UPDATE users SET `battle`='$id',`zayavka`=0 WHERE `id`=$v");
+      db_query("UPDATE users SET `battle`='$id',`zayavka`=0 WHERE `id`=$v");
     }
     return true;
   }
@@ -349,7 +349,7 @@ $tme1=getmicrotime();
 
   function remelix($u) {
     $r=mq("select * from effects where owner='$u' and type=188");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       deleffect($rec);
     }
     mq("delete from effects where (type=201 or type=202) and owner='$u'");
@@ -361,11 +361,11 @@ $tme1=getmicrotime();
     if (!$dtf) {
       $r=mq("select user from fieldmembers where valid=1 and room=71 order by stake desc limit 0, 40");
       $cond="";
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         if ($cond) $cond.=" or ";
         $cond.=" id='$rec[user]' ";
       }
-      if (mysql_num_rows($r)>1) {
+      if (mysqli_num_rows($r)>1) {
         $slotsto0="";
         foreach ($userslots as $k=>$v) {
           $slotsto0.=", $v='0'";
@@ -421,14 +421,14 @@ $tme1=getmicrotime();
         mq("lock tables fields write, fielditems write, users write, online write, fieldparties write, fieldmembers write, obshagaeffects write, inventory write, deztow_charstams write, effects write, setstats write, variables write, fieldlogs write");
         mq("delete from fieldparties where user=11137 or user=11138 or user=11139");
         mq("insert into fields set map='".serialize($map)."', room=72, start=".time());
-        $field=mysql_insert_id();                        
+        $field=db_insert_id();
         mq("update fielditems set field='$field' where id<1000");
         $x=1;
         $r=mq("select id, login, shadow, sex, level, klan from users where $cond");
         $members=0;
         $x=1;$y=3;
         $membersstr="";
-        while ($rec=mysql_fetch_assoc($r)) {
+        while ($rec=mysqli_fetch_assoc($r)) {
           $start=array_pop($starts);
           mq("insert into fieldparties set user='$rec[id]', field='$field', x='$start[0]', y='$start[1]', dir='".rand(0,3)."', login='$rec[login]', shadow='$rec[sex]/$rec[shadow]'");
           addchnavig("Начался турнир Башни смерти", $rec["login"], "field.php");
@@ -533,7 +533,7 @@ $tme1=getmicrotime();
   if (date('G')>=23 && !$ldfield) {
     $r=mq("select user from fieldmembers where valid=1 and room=62 order by id");
     $cond="";
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       if ($cond) $cond.=" or ";
       $cond.=" users.id='$rec[user]' ";
     }
@@ -543,7 +543,7 @@ $tme1=getmicrotime();
     $other=array();
     $tostart=array();
 
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $at=aligntype($rec["align"]);
       if (LDSIMPLEBATTLE) $at=0; 
       if ($at==1) {
@@ -596,7 +596,7 @@ $tme1=getmicrotime();
     mq("update variables set value='-".implode("-",$tostart[0])."-' where var='ldteam1'");
     mq("update variables set value='-".implode("-",$tostart[1])."-' where var='ldteam2'");
     mq("insert into fields set map='".serialize($map)."', team1='-".implode("-",$tostart[0])."-', team2='-".implode("-",$tostart[1])."-', room=63");
-    $field=mysql_insert_id();
+    $field=db_insert_id();
     $cond="";
     $x=1;
     foreach ($tostart[0] as $k=>$v) {
@@ -637,7 +637,7 @@ $tme1=getmicrotime();
   "75000000" => array (1,95000000),
   "95000000" => array (1,110000000));
   $r=mq("SELECT * FROM `clans` WHERE clanexp>=needexp");
-  while ($klan=mysql_fetch_assoc($r)) {
+  while ($klan=mysqli_fetch_assoc($r)) {
     mq("UPDATE `clans` SET `needexp` = ".$klanexptable[$klan['needexp']][1].",`clanlevel` = `clanlevel`+".$klanexptable[$klan['needexp']][0]."
     WHERE `id` = '$klan[id]'");
   }
@@ -646,7 +646,7 @@ $tme1=getmicrotime();
   $siege=mqfa1("select value from variables where var='siege'");
   if ($siege<=2) {
     $r=mq("select users.id from `online` left join users on users.id=online.id WHERE users.room>=700 and users.room<800 and users.battle=0 and (`date`<".time()."-60 or users.hp<=0 ".($siege==0?" or users.klan=''":"").")");
-    while ($rec=mysql_fetch_assoc($r)) moveuser($rec["id"], 49);
+    while ($rec=mysqli_fetch_assoc($r)) moveuser($rec["id"], 49);
   }
   if ($siege==1 || $siege==2) {
     $owner=mqfa1("select value from variables where var='castleowner'");
@@ -666,17 +666,17 @@ $tme1=getmicrotime();
     }
   } elseif (!$siege) {
     $r=mq("select distinct klan from users where room>=700 and room<800");
-    if (mysql_num_rows($r)<=1) {
-      $rec=mysql_fetch_assoc($r);
+    if (mysqli_num_rows($r)<=1) {
+      $rec=mysqli_fetch_assoc($r);
       mq("update variables set value='".(strtotime("next Sunday") + (21 * 3600))."' where var='siege'");
       mq("update variables set value='$rec[klan]' where var='castleowner'");
       if ($rec["klan"]) sysmsg("Битва за замок окончена. Владелец: клан <b>".mqfa1("select name from clans where short='$rec[klan]'")."</b>.");
     }
   } elseif ($siege<=time()) {
     $r=mq("select users.id from `online` left join users on users.id=online.id WHERE users.room>=700 and users.room<800 and `date`<".time()."-60");
-    while ($rec=mysql_fetch_assoc($r)) moveuser($rec["id"], 49);
+    while ($rec=mysqli_fetch_assoc($r)) moveuser($rec["id"], 49);
     $r=mq("select effects.id, users.room from effects left join users on effects.owner=users.id where effects.type=1022");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       if (incastle($rec["room"])) {
         mq("update effects set time=1 where id='$rec[id]'");
       }
@@ -699,7 +699,7 @@ $tme1=getmicrotime();
   $a=getvar("auction");
   if ($a<time()) {
     $r=mq("select * from lots");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       if (!$rec["user"]) continue;
       if ($rec["id"]==1) {
         mq("lock tables userdata write, users write");
@@ -744,7 +744,7 @@ echo "Finished";
 
 $nowtime = time();
 
-$info_pole = mysql_fetch_array(mysql_query("select * from `variables` where `var`='pole_random'"));
+$info_pole = mysqli_fetch_array(db_query("select * from `variables` where `var`='pole_random'"));
 
 $ff_time = time();
 $f_time = $ff_time +  14400; 
@@ -770,9 +770,9 @@ elseif($rand == 7 || $rand == 8 || $rand == 9){$h = 0;}
 $hh = $h * $hrand;
 $h = $h + $hh;
 
-mysql_query("UPDATE `pole` set `type`='".$rand."',`heals`='".$h."',`ekr`='".$rekrr."' where `id`='".$i."'");
+db_query("UPDATE `pole` set `type`='".$rand."',`heals`='".$h."',`ekr`='".$rekrr."' where `id`='".$i."'");
 }
-mysql_query("update `variables` set `value`='".$f_time."' where `var`='".$info_pole['var']."'");}
+db_query("update `variables` set `value`='".$f_time."' where `var`='".$info_pole['var']."'");}
 
 
 
@@ -800,9 +800,9 @@ elseif($rand == 7 || $rand == 8 || $rand == 9){$h = 0;}
 $hh = $h * $hrand;
 $h = $h + $hh;
 
-mysql_query("UPDATE `pole` set `type`='".$rand."',`heals`='".$h."',`ekr`='".$rekrr."' where `id`='".$i."'");
+db_query("UPDATE `pole` set `type`='".$rand."',`heals`='".$h."',`ekr`='".$rekrr."' where `id`='".$i."'");
 }
-mysql_query("update `variables` set `value`=`value`+'14400' where `var`='".$info_pole['var']."'");
+db_query("update `variables` set `value`=`value`+'14400' where `var`='".$info_pole['var']."'");
 }
 }
 ?>

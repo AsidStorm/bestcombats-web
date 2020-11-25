@@ -1,7 +1,7 @@
 <?
 
-$ma1 = mysql_fetch_array(mysql_query("SELECT * from inventory where owner='$_SESSION[uid]' and id='$_GET[use]' AND (prototype=101779 OR prototype=101780 OR prototype=101781 OR prototype=101782);"));
-$vo1 = mysql_fetch_array(mysql_query("SELECT * from inventory where owner='$_SESSION[uid]' and id='$_GET[use]' AND (prototype=101775 OR prototype=101776 OR prototype=101777 OR prototype=101778);"));
+$ma1 = mysqli_fetch_array(db_query("SELECT * from inventory where owner='$_SESSION[uid]' and id='$_GET[use]' AND (prototype=101779 OR prototype=101780 OR prototype=101781 OR prototype=101782);"));
+$vo1 = mysqli_fetch_array(db_query("SELECT * from inventory where owner='$_SESSION[uid]' and id='$_GET[use]' AND (prototype=101775 OR prototype=101776 OR prototype=101777 OR prototype=101778);"));
 
 if ($ma1['id']) { 
 if ($ma1['ecost'] == 200) 

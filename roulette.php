@@ -3,7 +3,7 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$db = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));;
+	$db = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));;
 	
 
 
@@ -13,7 +13,7 @@
 	if ($db['battle'] != 0) { header('location: fbattle.php'); die(); }
 	if ($db['room'] !=3151 and $db['room'] !=315) { header("Location: main.php");  die(); }
 elseif($db['room'] == 315 and $db['room'] !=3151){
-mysql_query("UPDATE `users`,`online` SET `users`.`room` = '687',`online`.`room` = '3151' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+db_query("UPDATE `users`,`online` SET `users`.`room` = '687',`online`.`room` = '3151' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
 }
 
 
@@ -229,8 +229,8 @@ for ($j=0; $j<11; $j++)
   $roul_wins[$j*3+6][140+$j]=9;
 
 
-$casino_win = mysql_query("SELECT * FROM `roulette` WHERE `username` = '$uname'");
-$casino_win = mysql_fetch_array($casino_win);
+$casino_win = db_query("SELECT * FROM `roulette` WHERE `username` = '$uname'");
+$casino_win = mysqli_fetch_array($casino_win);
 if ($casino_win[price] > '500') {
 		?>
 		<body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5> 
@@ -262,11 +262,11 @@ $lefttime=$roundtime;
 
 $wasbets=0;
 
-mysql_query("LOCK TABLES roul_time write, roul_bets write, roul_wins write");
+db_query("LOCK TABLES roul_time write, roul_bets write, roul_wins write");
 
-$time=mysql_query("select * from `roul_time`");
+$time=db_query("select * from `roul_time`");
 
-if ($time) $time=mysql_fetch_array($time);
+if ($time) $time=mysqli_fetch_array($time);
 
 if ($time) $time=$time[0];
 
@@ -281,9 +281,9 @@ if ($time<=time()) // should roul
   $num=mt_rand(0,36);
 // process all bets
 
-  $bets=mysql_query("select * from `roul_bets`");
+  $bets=db_query("select * from `roul_bets`");
 
-  if (mysql_num_rows($bets)) // was bets
+  if (mysqli_num_rows($bets)) // was bets
 
   {
 
@@ -301,7 +301,7 @@ if ($time<=time()) // should roul
 
   }
 
-  while ($cbet = mysql_fetch_array($bets))
+  while ($cbet = mysqli_fetch_array($bets))
 
   {
 
@@ -311,24 +311,24 @@ if ($time<=time()) // should roul
 
       $wins[$cbet['username']]+=$cbet['bet']*$roul_wins[$num][$cbet['betto']];
       $tm=time()-3600*24*7;
-      mysql_query("delete from `roul_wins` where `wintime`<'$tm'");   
-      mysql_query("insert into `roul_wins` (`username`, `bet`, `betto`, `win`, `wintime`) values ('". $cbet['username'] . "', " . $cbet['bet']. ", " . $cbet['betto']. ", " . $cbet['bet']*$roul_wins[$num][$cbet['betto']]. ", ". time() .")");   
+      db_query("delete from `roul_wins` where `wintime`<'$tm'");
+      db_query("insert into `roul_wins` (`username`, `bet`, `betto`, `win`, `wintime`) values ('". $cbet['username'] . "', " . $cbet['bet']. ", " . $cbet['betto']. ", " . $cbet['bet']*$roul_wins[$num][$cbet['betto']]. ", ". time() .")");
 
     }
 
   }  
 
-  mysql_query("delete from `roul_bets`");   
+  db_query("delete from `roul_bets`");
 
-  mysql_query("delete from `roul_time`");   
+  db_query("delete from `roul_time`");
 
-  mysql_query("insert into `roul_time` (shouldstart) values ('". (time()+$roundtime) ."')");   
+  db_query("insert into `roul_time` (shouldstart) values ('". (time()+$roundtime) ."')");
 
 }
 
-$time=mysql_query("select * from `roul_time`");
+$time=db_query("select * from `roul_time`");
 
-if ($time) $time=mysql_fetch_array($time);
+if ($time) $time=mysqli_fetch_array($time);
 
 if ($time) $time=$time[0];
 
@@ -336,7 +336,7 @@ if (!$time) { $time=time(); }
 
 $lefttime=$time-time()+2;
 
-mysql_query("UNLOCK TABLES");
+db_query("UNLOCK TABLES");
 
 // update money
 
@@ -354,7 +354,7 @@ if (isset($wins))
 
     $winners.=$user;
 
-    mysql_query("UPDATE `users` SET `money` = money+'$winmoney' WHERE  `login` = '".$user."' ;");
+    db_query("UPDATE `users` SET `money` = money+'$winmoney' WHERE  `login` = '".$user."' ;");
 
 
  
@@ -363,15 +363,15 @@ if (isset($wins))
 
 
 
-    $casinostat=mysql_query("select count(*) from `roulette` where `username`='$user'");
-    if ($casinostat) $casinostat=mysql_fetch_array($casinostat);
+    $casinostat=db_query("select count(*) from `roulette` where `username`='$user'");
+    if ($casinostat) $casinostat=mysqli_fetch_array($casinostat);
     if ($casinostat) $casinostat=$casinostat[0];
     if (!$casinostat)
     {
-      mysql_query("insert into `roulette` (`username`, `price`) values ('$user', '0')");   
+      db_query("insert into `roulette` (`username`, `price`) values ('$user', '0')");
     }
 
-    mysql_query("UPDATE `roulette` SET `price` = price+'$winmoney' WHERE  `username` = '".$user."' ;");
+    db_query("UPDATE `roulette` SET `price` = price+'$winmoney' WHERE  `username` = '".$user."' ;");
 
    
   }
@@ -402,9 +402,9 @@ if ($wasbets)
 
 // refresh money
 
-$money=mysql_query("select `money` from `users` where `login`='$uname'");
+$money=db_query("select `money` from `users` where `login`='$uname'");
 
-$money=mysql_fetch_array($money);
+$money=mysqli_fetch_array($money);
 
 $money=$money['money'];
 
@@ -418,23 +418,23 @@ if ($bet && $roul_names[$betto]) {
     if ($bet>$maxbet) $outstr='Ставка слишком большая'; else
     if ($bet>$money) $outstr='У вас стольки нет'; else  {
 
-      mysql_query("UPDATE `users` SET `money` = money-'$bet' WHERE  `login` = '".$uname."' ;");
+      db_query("UPDATE `users` SET `money` = money-'$bet' WHERE  `login` = '".$uname."' ;");
 
 
 
 
 
-      $casinostat=mysql_query("select count(*) from `roulette` where `username`='$uname'");
-      if ($casinostat) $casinostat=mysql_fetch_array($casinostat);
+      $casinostat=db_query("select count(*) from `roulette` where `username`='$uname'");
+      if ($casinostat) $casinostat=mysqli_fetch_array($casinostat);
       if ($casinostat) $casinostat=$casinostat[0];
       if (!$casinostat) {
-        mysql_query("insert into `roulette` (`username`, `price`) values ('$uname', '0')");   
+        db_query("insert into `roulette` (`username`, `price`) values ('$uname', '0')");
       }
 
-      mysql_query("UPDATE `roulette` SET `price`=price-'$bet' WHERE  `username` = '".$uname."' ;");
+      db_query("UPDATE `roulette` SET `price`=price-'$bet' WHERE  `username` = '".$uname."' ;");
 
  
-      mysql_query("insert into `roul_bets` (`username`, `bet`, `betto`) values ('$uname', '$bet', '$betto')");
+      db_query("insert into `roul_bets` (`username`, `bet`, `betto`) values ('$uname', '$bet', '$betto')");
       $outstr='Ставка принята';
       writestring("Игрок <b>$uname</b> ставит на ". $roul_names[$betto]);
       $money-=$bet;
@@ -543,9 +543,9 @@ temptype=3;
 
 <?
 
-  $cwins=mysql_query("select * from `roul_wins` where `username`='$uname' order by wintime desc limit 5");
+  $cwins=db_query("select * from `roul_wins` where `username`='$uname' order by wintime desc limit 5");
 
-  if (mysql_num_rows($cwins)) 
+  if (mysqli_num_rows($cwins)) 
 
   {
 
@@ -559,7 +559,7 @@ temptype=3;
 
 <?
 
-    while ($cwin = mysql_fetch_array($cwins))
+    while ($cwin = mysqli_fetch_array($cwins))
 
     {
 
@@ -573,7 +573,7 @@ temptype=3;
 
 <?
 
-  }mysql_close();
+  }db_close();
 
 ?>
 

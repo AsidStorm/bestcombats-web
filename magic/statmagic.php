@@ -1,5 +1,5 @@
 <?php
-$us=mqfa("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".mysql_escape_string($_POST['target'])."'");
+$us=mqfa("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".db_escape_string($_POST['target'])."'");
 
 if ($row["name"]=="Холодный разум") {
   $row["gintel"]=10;
@@ -41,12 +41,12 @@ if (in_array($user["room"],$nodrink)) {
   $caster=$user["id"];
   if(!$uses_zel){
     mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`,`sila`,`lovk`,`inta`,`intel`,`gmana`, caster) values ('".$us['id']."','".$row['name']."',".(time()+$ins_time).",'187',".$row['gsila'].",".$row['glovk'].",".$row['ginta'].",".$row['gintel'].",".$row['gmana'].", $caster);");
-    if($row['gsila']>0){mysql_query("UPDATE `users` set `sila` =`sila`+ ".$row['gsila']." WHERE `id` = ".$us['id']."");}
-    if($row['glovk']>0){mysql_query("UPDATE `users` set `lovk` =`lovk`+ ".$row['glovk']." WHERE `id` = ".$us['id']."");}
-    if($row['ginta']>0){mysql_query("UPDATE `users` set `inta` =`inta`+ ".$row['ginta']." WHERE `id` = ".$us['id']."");}
-    if($row['gintel']>0){mysql_query("UPDATE `users` set `intel` =`intel`+ ".$row['gintel']." WHERE `id` = ".$us['id']."");}
+    if($row['gsila']>0){db_query("UPDATE `users` set `sila` =`sila`+ ".$row['gsila']." WHERE `id` = ".$us['id']."");}
+    if($row['glovk']>0){db_query("UPDATE `users` set `lovk` =`lovk`+ ".$row['glovk']." WHERE `id` = ".$us['id']."");}
+    if($row['ginta']>0){db_query("UPDATE `users` set `inta` =`inta`+ ".$row['ginta']." WHERE `id` = ".$us['id']."");}
+    if($row['gintel']>0){db_query("UPDATE `users` set `intel` =`intel`+ ".$row['gintel']." WHERE `id` = ".$us['id']."");}
     if($row['gmudra']>0){
-      mysql_query("UPDATE `users` set `mudra` =`mudra`+ ".$row['gmudra']." WHERE `id` = ".$us['id']."");
+      db_query("UPDATE `users` set `mudra` =`mudra`+ ".$row['gmudra']." WHERE `id` = ".$us['id']."");
       resetmax($user["id"]);
     }
     if($row['gmana']>0){

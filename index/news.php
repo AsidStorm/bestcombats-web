@@ -1,7 +1,7 @@
 <?
 include ("connect.php");
-$themes = mysql_query("SELECT * FROM `news` WHERE `parent` > '' AND `topic` > '' ORDER by `id` DESC LIMIT 10");
-while($data = mysql_fetch_array($themes)) {
+$themes = db_query("SELECT * FROM `news` WHERE `parent` > '' AND `topic` > '' ORDER by `id` DESC LIMIT 10");
+while($data = mysqli_fetch_array($themes)) {
 $data['text'] = preg_replace('#\$((.+?)\.(jpg|png|gif))\$#i', '<img src="http://img.bestcombats.net/upload/news/$1">', $data['text']);
 ?>							
 <table width="100%" cellpadding="0" cellspacing="0" class="news_tab">

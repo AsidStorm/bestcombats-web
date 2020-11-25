@@ -2,9 +2,9 @@
     session_start();
     if ($_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
-    $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     include "functions.php";
-    $al = mysql_fetch_assoc(mq("SELECT * FROM `aligns` WHERE `align` = '{$user['align']}' LIMIT 1;"));
+    $al = mysqli_fetch_assoc(mq("SELECT * FROM `aligns` WHERE `align` = '{$user['align']}' LIMIT 1;"));
     if ($user['align']<0.97 || $user['align']>10) {
       header("Location: main.php");
       die;
@@ -464,10 +464,10 @@ else { echo "NO";}
 <form method=post style="margin:5px;">Логин: <input type=text size=20 name="grn"> Текст сообщения: <input type=text size=80 name="gr"> <input type=submit value="отправить"></form>';
         }
   $r=mq("select users.login, users.room, effects.time from effects left join users on users.id=effects.owner where type=1022 and time>".time());
-  if (mysql_num_rows($r)>0 and $user['align']>1 && $user['align']<4) {
+  if (mysqli_num_rows($r)>0 and $user['align']>1 && $user['align']<4) {
     echo "<br><br>Невидимки:<table>
     <tr><td><b>Номер</b></td><td><b>Логин</b></td><td><b>Локация</b><td></td></tr>";
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       echo "<tr><td>".substr($rec["time"],strlen($rec["time"])-4)."</td><td>$rec[login]</td><td>".$rooms[$rec["room"]]."</td></tr>";
     }
     echo "</table>";
@@ -487,7 +487,7 @@ else { echo "NO";}
             <INPUT TYPE=hidden NAME=filter value="'.$_POST['filter'].'"> <INPUT TYPE=submit value="   »   "></form></TD>
             </TR></TABLE></form>';
             if ($_POST['filter']) {
-                $perevod = mysql_fetch_array(mq("SELECT login,id,align FROM `users` WHERE `login` = '{$_POST['filter']}' LIMIT 1;"));
+                $perevod = mysqli_fetch_array(mq("SELECT login,id,align FROM `users` WHERE `login` = '{$_POST['filter']}' LIMIT 1;"));
                 $per_ok=0;
                 if (($user['align'] > '1' && $user['align'] < '2')  || ($user['align'] > '3' && $user['align'] < '4')) {
                     $per_ok=1;
@@ -503,7 +503,7 @@ else { echo "NO";}
                       $ddate2=mktime(23, 59, 59, substr($_POST['logs'],3,2), substr($_POST['logs'],0,2), "20".substr($_POST['logs'],6,2));
                       $logs = mq("SELECT * FROM `delo` WHERE `pers` = '{$perevod['id']}' AND `date` > '$ddate1' AND `date` < '$ddate2' ORDER by `id` ASC;");
                     }
-                    while($row = @mysql_fetch_array($logs)) {
+                    while($row = @mysqli_fetch_array($logs)) {
                         $dat=date("d.m.y H:i",$row['date']);
                         echo "<span class=date>{$dat}</span> {$row['text']}<br>";
                     }
@@ -516,12 +516,12 @@ else { echo "NO";}
         if ($user['deal']==5){
             if ($_POST['putekr']) {
                 if (($_POST['ekr']) && ($_POST['bank']) && ($_POST['tonick'])) {
-                    $tonick = mysql_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$_POST['tonick']}' LIMIT 1;"));
-                    $bank = mysql_fetch_array(mq("SELECT owner,id FROM `bank` WHERE `id` = '{$_POST['bank']}' LIMIT 1;"));
+                    $tonick = mysqli_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$_POST['tonick']}' LIMIT 1;"));
+                    $bank = mysqli_fetch_array(mq("SELECT owner,id FROM `bank` WHERE `id` = '{$_POST['bank']}' LIMIT 1;"));
                     if  (ereg("auto-",$user['login']) || ereg("auto-",$user['login'])) {
                         $botfull=$user['login'];
                         list($bot, $botlogin) = explode("-", $user['login']);
-                        $botnick = mysql_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$botlogin}' LIMIT 1;"));
+                        $botnick = mysqli_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$botlogin}' LIMIT 1;"));
                         $user['login']=$botnick['login'];
                         $user['id']=$botnick['id'];
                     }
@@ -536,7 +536,7 @@ else { echo "NO";}
                                 mq("INSERT INTO `dilerdelo` (dilerid,dilername,bank,owner,ekr) values ('{$user['id']}','{$user['login']}','{$_POST['bank']}','{$_POST['tonick']}','{$_POST['ekr']}');");
                             }
                             mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$tonick['id']}','Получено ".$_POST['ekr']." екр на счет №".$_POST['bank']." от дилера ".$user['login']."',1,'".time()."');");
-                            $us = mysql_fetch_array(mq("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$tonick['id']}' LIMIT 1;"));
+                            $us = mysqli_fetch_array(mq("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$tonick['id']}' LIMIT 1;"));
                             if($us[0]){
                                 addchp ('<font color=red>Внимание!</font> На ваш счет №'.$_POST['bank'].' переведено '.$_POST['ekr'].' екр. от дилера '.$user['login'].'  ','{[]}'.$_POST['tonick'].'{[]}');
                             } else {
@@ -560,11 +560,11 @@ else { echo "NO";}
             if ($_POST['komotdel']) {
                 if ($_POST['komlog'] && $_POST['price']) {
                     $_POST['price'] = round($_POST['price'],2);
-                    $tonick = mysql_fetch_array(mq("SELECT login,id,align,klan FROM `users` WHERE `login` = '{$_POST['komlog']}' LIMIT 1;"));
+                    $tonick = mysqli_fetch_array(mq("SELECT login,id,align,klan FROM `users` WHERE `login` = '{$_POST['komlog']}' LIMIT 1;"));
                     if  (ereg("auto-",$user['login']) || ereg("auto-",$user['login'])) {
                         $botfull=$user['login'];
                         list($bot, $botlogin) = explode("-", $user['login']);
-                        $botnick = mysql_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$botlogin}' LIMIT 1;"));
+                        $botnick = mysqli_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$botlogin}' LIMIT 1;"));
                         $user['login']=$botnick['login'];
                         $user['id']=$botnick['id'];
                     }
@@ -587,11 +587,11 @@ else { echo "NO";}
             }
             if ($_POST['obraz']) {
                 if ($_POST['obrazlog']) {
-                    $tonick = mysql_fetch_array(mq("SELECT login,id,align,klan FROM `users` WHERE `login` = '{$_POST['obrazlog']}' LIMIT 1;"));
+                    $tonick = mysqli_fetch_array(mq("SELECT login,id,align,klan FROM `users` WHERE `login` = '{$_POST['obrazlog']}' LIMIT 1;"));
                     if  (ereg("auto-",$user['login']) || ereg("auto-",$user['login'])) {
                         $botfull=$user['login'];
                         list($bot, $botlogin) = explode("-", $user['login']);
-                        $botnick = mysql_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$botlogin}' LIMIT 1;"));
+                        $botnick = mysqli_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$botlogin}' LIMIT 1;"));
                         $user['login']=$botnick['login'];
                         $user['id']=$botnick['id'];
                     }
@@ -614,11 +614,11 @@ else { echo "NO";}
             }
             if ($_POST['openbank']) {
                 if ($_POST['charlog']) {
-                    $tonick = mysql_fetch_array(mq("SELECT login,id,money FROM `users` WHERE `login` = '{$_POST['charlog']}' LIMIT 1;"));
+                    $tonick = mysqli_fetch_array(mq("SELECT login,id,money FROM `users` WHERE `login` = '{$_POST['charlog']}' LIMIT 1;"));
                     if  (ereg("auto-",$user['login']) || ereg("auto-",$user['login'])) {
                         $botfull=$user['login'];
                         list($bot, $botlogin) = explode("-", $user['login']);
-                        $botnick = mysql_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$botlogin}' LIMIT 1;"));
+                        $botnick = mysqli_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$botlogin}' LIMIT 1;"));
                         $user['login']=$botnick['login'];
                         $user['id']=$botnick['id'];
                     }
@@ -639,11 +639,11 @@ else { echo "NO";}
 
             if ($_POST['givesklonka']) {
                 if ($_POST['sklonkalog'] && $_POST['sklonka']) {
-                    $tonick = mysql_fetch_array(mq("SELECT login,id,align,klan FROM `users` WHERE `login` = '{$_POST['sklonkalog']}' LIMIT 1;"));
+                    $tonick = mysqli_fetch_array(mq("SELECT login,id,align,klan FROM `users` WHERE `login` = '{$_POST['sklonkalog']}' LIMIT 1;"));
                     if  (ereg("auto-",$user['login']) || ereg("auto-",$user['login'])) {
                         $botfull=$user['login'];
                         list($bot, $botlogin) = explode("-", $user['login']);
-                        $botnick = mysql_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$botlogin}' LIMIT 1;"));
+                        $botnick = mysqli_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$botlogin}' LIMIT 1;"));
                         $user['login']=$botnick['login'];
                         $user['id']=$botnick['id'];
                     }
@@ -697,16 +697,16 @@ else { echo "NO";}
 
             if ($_POST['checkbank']) {
                 if ($_POST['charlogin']) {
-                    $tonick = mysql_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$_POST['charlogin']}' LIMIT 1;"));
+                    $tonick = mysqli_fetch_array(mq("SELECT login,id FROM `users` WHERE `login` = '{$_POST['charlogin']}' LIMIT 1;"));
                     $bankdb = mq("SELECT owner,id FROM `bank` WHERE `owner` = '{$tonick['id']}'");
                     print "Персонажу {$_POST['charlogin']} принадлежат счета: <br>";
-                    while ($bank=mysql_fetch_array($bankdb)) {
+                    while ($bank=mysqli_fetch_array($bankdb)) {
                         print "№ {$bank['id']} <br>";
                     }
                 }
                 else if  ($_POST['charbank']) {
-                    $bank = mysql_fetch_array(mq("SELECT owner,id FROM `bank` WHERE `id` = '{$_POST['charbank']} 'LIMIT 1;"));
-                    $tonick = mysql_fetch_array(mq("SELECT login,id FROM `users` WHERE `id` = '{$bank['owner']}' LIMIT 1;"));
+                    $bank = mysqli_fetch_array(mq("SELECT owner,id FROM `bank` WHERE `id` = '{$_POST['charbank']} 'LIMIT 1;"));
+                    $tonick = mysqli_fetch_array(mq("SELECT login,id FROM `users` WHERE `id` = '{$bank['owner']}' LIMIT 1;"));
                     print "Счет № {$_POST['charbank']} принадлежит персонажу {$tonick['login']} <br>";
                 }
             }
@@ -736,13 +736,13 @@ else { echo "NO";}
             </TR></TABLE></form>';
             }
             if ($_POST['dfilter']) {
-                $perevod1 = mysql_fetch_array(mq("SELECT `login`,`id`,`align` FROM `users` WHERE `login` = '{$_POST['dfilter']}' LIMIT 1;"));
+                $perevod1 = mysqli_fetch_array(mq("SELECT `login`,`id`,`align` FROM `users` WHERE `login` = '{$_POST['dfilter']}' LIMIT 1;"));
                 $aa=$perevod1['id'];
                 if (($user['align'] > '2' && $user['align'] < '3') || ($user['deal']==5)) {
                     $logsat=$_POST['dlogs'];
                     $ddate33="20".substr($_POST['dlogs'],6,2)."-".substr($_POST['dlogs'],3,2)."-".substr($_POST['dlogs'],0,2)."";
                     $dlogs = mq("SELECT * FROM `dilerdelo` WHERE `dilerid` = '{$perevod1['id']}' AND `date` like '$ddate33%' ORDER by `id` ASC;");
-                    while($row = @mysql_fetch_array($dlogs)) {
+                    while($row = @mysqli_fetch_array($dlogs)) {
                         switch($row['addition']) {
                             case "2":
                                 $sklo="нейтральная";
@@ -772,11 +772,11 @@ else { echo "NO";}
                     <table><tr><td>Логин</td><td><input type='text' name='ip' value='",$_POST['ip'],"'></td><td><input type=submit value='посмотреть IP'></td></tr>
                     <tr><td>IP</td><td><input type='text' name='ipfull' value='",$_POST['ipfull'],"'></td><td><input type=submit value='посмотреть ники'></td></tr></table>";
             if ($_POST['ip']) {
-                $dd = mysql_fetch_array(mq("SELECT `ip`, `login` FROM `users` WHERE `login` = '".$_POST['ip']."';"));
+                $dd = mysqli_fetch_array(mq("SELECT `ip`, `login` FROM `users` WHERE `login` = '".$_POST['ip']."';"));
                 echo "<font color=red>",$dd[1]," - ",$dd[0],"</font><BR>";
             }elseif($_POST['ipfull']) {
                 $data = mq("SELECT `ip`, `login` FROM `users` WHERE `ip` = '".$_POST['ipfull']."';");
-                while($dd=mysql_fetch_array($data)) {
+                while($dd=mysqli_fetch_array($data)) {
                     echo "<font color=red>",$dd[1]," - ",$dd[0],"</font><BR>";
                 }
             }
@@ -787,7 +787,7 @@ else { echo "NO";}
                 echo "<form method=post><fieldset><legend>Поменять статус</legend>
                     <table><tr><td>Логин</td><td><input type='text' name='login' value='",$_POST['login'],"'></td><td>Статус</td><td><input type='text' name='status' value='",$_POST['status'],"'></td><td><input type=submit value='изменить статус'></td></tr></table>";
                 if ($_POST['login'] && $_POST['status']) {
-                    $dd = mysql_fetch_array(mq("SELECT `ip`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+                    $dd = mysqli_fetch_array(mq("SELECT `ip`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
                     if($dd) {
                         mq("UPDATE `users` SET `status` = '".$_POST['status']."' WHERE `login` = '".$_POST['login']."';");
                         echo "<font color=red>Статус ",$dd[1]," изменен на ",$_POST['status'],"</font><BR>";
@@ -842,7 +842,7 @@ else { echo "NO";}
                             $rang = 'Кавалер Ордена';
                         break;
                     }
-                    $dd = mysql_fetch_array(mq("SELECT `id`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+                    $dd = mysqli_fetch_array(mq("SELECT `id`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
                     if ($user['sex'] == 1) {$action="присвоил";}
                         else {$action="присвоила";}
 
@@ -904,7 +904,7 @@ else { echo "NO";}
                             $rang = 'Ветеран Армады';
                         break;
                     }
-                    $dd = mysql_fetch_array(mq("SELECT `id`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+                    $dd = mysqli_fetch_array(mq("SELECT `id`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
                     if ($user['sex'] == 1) {$action="присвоил";}
                         else {$action="присвоила";}
                         if ($user['align']=='3.99') {
@@ -924,7 +924,7 @@ else { echo "NO";}
         }
 include "zaschita/razblock.php";
     $google = 1;
-    $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     if ($user['align']<2.4) die();
     if($_POST['add'] OR $_POST['add2']) {
         @setcookie("time",time());

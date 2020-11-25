@@ -16,10 +16,10 @@ if ($user["sex"]==1) {
     $need="нужна";
 }
 
-$isFullVial = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND name = 'Склянка с пробами'"), 0, 0);
+$isFullVial = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND name = 'Склянка с пробами'"), 0, 0);
 if ($isFullVial) {
-    mysql_query("DELETE FROM inventory WHERE owner = $user[id] AND name = 'Склянка с пробами'");
-    mysql_query("INSERT INTO zn_tower SET user_id = $user[id], reputation = 1");
+    db_query("DELETE FROM inventory WHERE owner = $user[id] AND name = 'Склянка с пробами'");
+    db_query("INSERT INTO zn_tower SET user_id = $user[id], reputation = 1");
     if ($step==1) {
         $speach.="Вы отдали \"Склянка с пробами\".<br /><br />Вы получили 0 награды за выполнение задания (фактически 1 ед. репутации).<br /><br />Теперь Вы можете пользоваться Храмом Знаний.";
         $answers=array(
@@ -101,13 +101,13 @@ if ($isFullVial) {
         die;
     }
     if ($step==5) {
-            $isDone = mysql_result(mysql_query("SELECT COUNT(*) FROM zn_tower WHERE user_id = $user[id] && reputation > 0"), 0, 0);
+            $isDone = db_result(db_query("SELECT COUNT(*) FROM zn_tower WHERE user_id = $user[id] && reputation > 0"), 0, 0);
             if ($isDone) { // задание уже выполнено
                 $speach.="Вы уже выполняли это задание.";
             } else {
-                $isEmptyVial = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND name = 'Пустая склянка'"), 0, 0);
+                $isEmptyVial = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND name = 'Пустая склянка'"), 0, 0);
                 if (!$isEmptyVial) { // получение склянки и задания
-                    mysql_query("
+                    db_query("
                         INSERT INTO inventory 
                         SET
                             name       = 'Пустая склянка',
@@ -122,7 +122,7 @@ if ($isFullVial) {
                             isrep      = 0,
                             prototype  = 55555
                     ");
-                    echo mysql_error();
+                    echo db_error();
                     $speach.="Вы получили Пустая склянка.<br>Вы получили новое задание.";
                 } else { // задание дано, но не сделано
                     $speach.="У Вас уже есть это Задание и Пустая склянка.";

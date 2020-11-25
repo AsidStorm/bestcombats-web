@@ -57,7 +57,7 @@ if($defend && $ebota==1 && $enemy && $this->user['hp']>0) {
     $this->add_log($this->get_comment()); // комментатор
     // проверяем кто куда попал
     // удар по мне
-    //$enem = mysql_fetch_array(mq("SELECT hp, maxhp, mana, level FROM `users` WHERE `id` = '".bottouser($enemy)."'"));
+    //$enem = mysqli_fetch_array(mq("SELECT hp, maxhp, mana, level FROM `users` WHERE `id` = '".bottouser($enemy)."'"));
     //$enem=$this->enemyhar;
     /*if(!function_exists("addlog2")) {
       include "functions/addlog2.php";

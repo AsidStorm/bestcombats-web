@@ -12,10 +12,10 @@ $caveitems[8]=array("smallitem1"=>46, "chance1"=>4, "smallitem2"=>43, "chance2"=
 
 if ($user['room'] == 74) {
 
-    $randCompl9 = mysql_result(mysql_query("SELECT * FROM `shop` WHERE nlevel = 9 AND setid > 0 AND count > 0 ORDER BY RAND() LIMIT 1"), 0, 0);
-    $randAllSh7 = mysql_result(mysql_query("SELECT * FROM `shop` WHERE nlevel = 7 AND count > 0 ORDER BY RAND() LIMIT 1"), 0, 0);
-    $randSmallI = mysql_result(mysql_query("SELECT id FROM smallitems WHERE type = 189 ORDER BY RAND() LIMIT 1"), 0, 0);
-    $randCharm0 = mysql_result(mysql_query("SELECT id FROM shop WHERE id = 2534 OR id = 2538 OR id = 2542 OR id = 2546 OR id = 2550 ORDER BY RAND() LIMIT 1"), 0, 0);
+    $randCompl9 = db_result(db_query("SELECT * FROM `shop` WHERE nlevel = 9 AND setid > 0 AND count > 0 ORDER BY RAND() LIMIT 1"), 0, 0);
+    $randAllSh7 = db_result(db_query("SELECT * FROM `shop` WHERE nlevel = 7 AND count > 0 ORDER BY RAND() LIMIT 1"), 0, 0);
+    $randSmallI = db_result(db_query("SELECT id FROM smallitems WHERE type = 189 ORDER BY RAND() LIMIT 1"), 0, 0);
+    $randCharm0 = db_result(db_query("SELECT id FROM shop WHERE id = 2534 OR id = 2538 OR id = 2542 OR id = 2546 OR id = 2550 ORDER BY RAND() LIMIT 1"), 0, 0);
 
     $caveitems[16] = array(array('id'=>979, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>10)); // Офицер глубин
     $caveitems[20] = array( // Берсеpк

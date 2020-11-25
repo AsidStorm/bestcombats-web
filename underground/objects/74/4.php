@@ -25,13 +25,13 @@
   
   // алтарь 20x2
   if ($tx*2==20 && $ty*2==2) {  
-    $isKey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Пирамидальный Ключ' AND owner = " . $user['id']), 0, 0);
+    $isKey = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Пирамидальный Ключ' AND owner = " . $user['id']), 0, 0);
     if (!$isKey) {
-        $item1 = mysql_result(mysql_query("SELECT id FROM inventory WHERE name = 'Осколок Пирамидального Ключа' AND owner = " . $user['id'] . " LIMIT 1"), 0, 0);
-        $item2 = mysql_result(mysql_query("SELECT id FROM inventory WHERE name = 'Обломок Пирамидального Ключа' AND owner = " . $user['id'] . " LIMIT 1"), 0, 0);
+        $item1 = db_result(db_query("SELECT id FROM inventory WHERE name = 'Осколок Пирамидального Ключа' AND owner = " . $user['id'] . " LIMIT 1"), 0, 0);
+        $item2 = db_result(db_query("SELECT id FROM inventory WHERE name = 'Обломок Пирамидального Ключа' AND owner = " . $user['id'] . " LIMIT 1"), 0, 0);
         if ($item1 && $item2) {
             $report = pickupitem(2532, 0, 0, 0, 1, 2);
-            mysql_query("DELETE FROM inventory WHERE owner = $user[id] AND (name = 'Осколок Пирамидального Ключа' OR name = 'Обломок Пирамидального Ключа')");
+            db_query("DELETE FROM inventory WHERE owner = $user[id] AND (name = 'Осколок Пирамидального Ключа' OR name = 'Обломок Пирамидального Ключа')");
         } else {
             $report = 'Здесь можно собрать <b>Пирамидальный Ключ</b>.<br /> Для сборки ключа необходимо иметь Осколок и Обломок Пирамидального Ключа';
         }
@@ -65,7 +65,7 @@
     if ($aBots) {
         $report = 'Все не так просто, cначала надо зачистить <b>Пыточную</b>';
     } else {
-        $isKey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Мерцающий ключ Nr.4' AND owner = " . $user['id']), 0, 0);
+        $isKey = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Мерцающий ключ Nr.4' AND owner = " . $user['id']), 0, 0);
         if (!$isKey) {
             $report=pickupitem(2533, 1, 0, 0, 3);
         } else {
@@ -95,7 +95,7 @@
 
     // дверь 10x2
     if ($tx*2==10 && $ty*2==2) {
-        $isKey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Мерцающий ключ Nr.4' AND owner = " . $user['id']), 0, 0);
+        $isKey = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Мерцающий ключ Nr.4' AND owner = " . $user['id']), 0, 0);
         if (!$isKey) {
             $report = '<div style="font-weight:normal">Для прохода необходим <b>Мерцающий ключ Nr.4</b></div>';
         } else {
@@ -166,7 +166,7 @@
                 if ($isInInv) {
                     $report = pickupitem($chID, 0, 0, 0, $podzem=1) . ' за';
                     foreach ($nItems as $in => $nItem) {
-                        mysql_query("DELETE FROM inventory WHERE name = '$nItem[name]' AND id = $nItem[id] AND owner = $user[id]");
+                        db_query("DELETE FROM inventory WHERE name = '$nItem[name]' AND id = $nItem[id] AND owner = $user[id]");
                         $report .= (($in > 0) ? ', ' : ' ') . $nItem['name'];
                     }
                     break;

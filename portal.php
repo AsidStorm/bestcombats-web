@@ -2,17 +2,17 @@
  	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
          include 'connect.php';
-        $user=mysql_fetch_array(mysql_query("SELECT * from users where id='".$_SESSION['uid']."'"));     	
+        $user=mysqli_fetch_array(db_query("SELECT * from users where id='".$_SESSION['uid']."'"));
         include 'functions.php';
 	if ($user['room'] != 53){ header("Location: main.php"); die(); }
         if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
   if (@$_GET["cap"]) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '20',`online`.`room` = '20' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '20',`online`.`room` = '20' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: city.php');
 
   }
    if (@$_GET["weed"]) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '20',`online`.`room` = '20' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '20',`online`.`room` = '20' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: city.php');
 
   }
@@ -20,14 +20,14 @@
             switch($_GET['get']){
                 case 'dungeon':
                     $err='';
-                    mysql_query("UPDATE `users` SET `money`=`money`-0, `incity`='dungeon' where `id`='".$_SESSION['uid']."'");
-                    mysql_query("UPDATE `online` SET `city`='dungeon' where `id`='".$_SESSION['uid']."'");
+                    db_query("UPDATE `users` SET `money`=`money`-0, `incity`='dungeon' where `id`='".$_SESSION['uid']."'");
+                    db_query("UPDATE `online` SET `city`='dungeon' where `id`='".$_SESSION['uid']."'");
                     die("<script>top.window.location='/battle.php';</script>");
                     break;
                     case 'virtcity':
                     $err='';
-                    mysql_query("UPDATE `users` SET `money`=`money`-0, `incity`='virtcity' where `id`='".$_SESSION['uid']."'");
-                    mysql_query("UPDATE `online` SET `city`='virtcity' where `id`='".$_SESSION['uid']."'");
+                    db_query("UPDATE `users` SET `money`=`money`-0, `incity`='virtcity' where `id`='".$_SESSION['uid']."'");
+                    db_query("UPDATE `online` SET `city`='virtcity' where `id`='".$_SESSION['uid']."'");
                     die("<script>top.window.location='/battle.php';</script>");
                     break;
 

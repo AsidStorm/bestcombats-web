@@ -11,10 +11,10 @@ if($mesto=="07"){$Loca=7;}
 if($mesto=="08"){$Loca=8;}
 if($mesto=="09"){$Loca=9;}
 
-$ferrr = mysql_query("SELECT n$Loca FROM podzem3 WHERE glava='$glava' and name='".$mir['name']."'");
+$ferrr = db_query("SELECT n$Loca FROM podzem3 WHERE glava='$glava' and name='".$mir['name']."'");
 
 
-if($retr = mysql_fetch_array($ferrr)){
+if($retr = mysqli_fetch_array($ferrr)){
 $stloc = $retr["n$Loca"];
 }
 
@@ -83,7 +83,7 @@ if($stloc=='510' and $mir['name']=='Канализация 1 этаж'){echo'<fo
 print'&nbsp;<a href="?sun=kluchiik"><img src="'.IMGBASE.'/img/podzem/kluchik.gif" width="60" border="0" height="60" alt="Ключиик"></a>';
 }
 if($Location == '29' and $mir['name']=='Канализация 1 этаж'){
-mysql_query("UPDATE `users`,`online` SET `users`.`room` = '404',`online`.`room` = '404' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+db_query("UPDATE `users`,`online` SET `users`.`room` = '404',`online`.`room` = '404' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
 print "<script>location.href='shop_luka.php'</script>";
 exit;
 }
@@ -155,9 +155,9 @@ if($stloc=='613' and $mir['name']=='Канализация 3 этаж'){echo'<fo
 print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="Нужный болт"></a>';
 }
 echo $mir['glava_id'];
-$drop = mysql_query("SELECT * FROM `podzem_drop` WHERE `location`='".$mesto."'  and `etaj`='".$mir['name']."'  and `glava_id`='".$mir['glav_id']."' ");
-while ($drop_w=mysql_fetch_array($drop)){
-	$shop_sel=mysql_fetch_array(mysql_query("SELECT * from `".$drop_w['from']."` where `id`='".$drop_w['item_id']."'   "));
+$drop = db_query("SELECT * FROM `podzem_drop` WHERE `location`='".$mesto."'  and `etaj`='".$mir['name']."'  and `glava_id`='".$mir['glav_id']."' ");
+while ($drop_w=mysqli_fetch_array($drop)){
+	$shop_sel=mysqli_fetch_array(db_query("SELECT * from `".$drop_w['from']."` where `id`='".$drop_w['item_id']."'   "));
 	
 	echo '&nbsp;<a href="?get_wear='.$drop_w[item_id].'&id='.$drop_w[id].'"><img src="'.IMGBASE.'/i/sh/'.$shop_sel['img'].'"  border="0"  alt="'.$shop_sel['name'].'"></a>';
 	

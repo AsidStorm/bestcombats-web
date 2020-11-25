@@ -3,9 +3,9 @@ if(in_array($user['room'], $canalrooms)){
 print"<font style='font-size:14px; color:#8f0000'><b>".$mir['name']."</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<a style=\"cursor:pointer;\" onclick=\"if (confirm('Вы уверены что хотите выйти?')) window.location='canalizaciya.php?act=cexit'\">&nbsp;<b style='font-size:14px; color:#000066;'>Выйти</b></a>";
 print'<div style="position:relative; id="ione"><div align="left"><img src="'.IMGBASE.'/labirint3/'.$gefd['style'].'/podzem.jpg" width=530 height=260 border=1 galleryimg="no" /></div>';
 echo"<div style='position:absolute; left:374px; top:123px;'><img src='".IMGBASE."/labirint3/".$gefd['style']."/yo.gif' border='0' width='150' height='130'></div>";
-$fer = mysql_query("select * from `labirint` where `glav_id`='".$mir['glav_id']."' and name='$mir[name]'");
+$fer = db_query("select * from `labirint` where `glav_id`='".$mir['glav_id']."' and name='$mir[name]'");
 $s=0;
-while($ler = mysql_fetch_array($fer)) {
+while($ler = mysqli_fetch_array($fer)) {
 $s++;
 $n_log = $ler["login"];
 $n_locat = $ler["location"];

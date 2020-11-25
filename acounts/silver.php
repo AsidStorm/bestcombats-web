@@ -2,8 +2,8 @@
 session_start();
 if ($_SESSION['uid'] == null) header("Location: index.php");
 include "../connect.php";
-$user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
-$al = mysql_fetch_array(mq("SELECT * FROM `aligns` WHERE `vip` = '1' LIMIT 1;"));
+$user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+$al = mysqli_fetch_array(mq("SELECT * FROM `aligns` WHERE `vip` = '1' LIMIT 1;"));
 include "../functions.php";
 if ($user['vip']!= 2) die;
 if ($user['battle'] != 0) { header('location: /fbattle.php');die();}
@@ -52,7 +52,7 @@ echo "<form method=post><fieldset><legend>Смена имени</legend>
 <tr><td>Новый логин</td><td><input type='text' name='new-login'> </td></tr>
 <tr><td><input type=submit value='Изменить'></td></tr></table></fieldset></form>";			
 if (isset($_POST['new-login'])) {
-$target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".mysql_real_escape_string($_POST['new-login'])."';"));
+$target_user_tel=mysqli_fetch_array(db_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".db_escape_string($_POST['new-login'])."';"));
 If (!empty($target_user_tel['id'])){
 echo"<font color=red>Логин &quot;".$_POST['new-login']."&quot; Занят!</font><br>";
 }elseif (!ereg("^[a-zA-Zа-яА-Я0-9][a-zA-Zа-яА-Я0-9_ -]+[a-zA-Zа-яА-Я0-9]$",$_POST['new-login'])){
@@ -62,7 +62,7 @@ echo"<font color=red>Логин может содержать от 4 до 20 с�
 }elseif (ereg("[a-zA-Z]",$_POST['login']) && ereg("[а-яА-Я]",$_POST['login'])){
 echo"<font color=red>Логин не может содержать одновременно буквы русского и латинского алфавитов!</font><br>";
 }else{
-mysql_query("UPDATE `users` SET `login` = '".mysql_real_escape_string($_POST['new-login'])."',`loginhistory`=concat(`loginhistory`,';".$user['login']."||".date('d-m-Y')."') WHERE `id` = '".$user['id']."';");
+db_query("UPDATE `users` SET `login` = '".db_escape_string($_POST['new-login'])."',`loginhistory`=concat(`loginhistory`,';".$user['login']."||".date('d-m-Y')."') WHERE `id` = '".$user['id']."';");
 echo"<font color=red>Вы изменили логин!</font><br>";
 }
 }

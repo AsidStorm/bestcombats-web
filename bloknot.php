@@ -4,9 +4,9 @@ if ($_SESSION['uid'] == null) {
 header("Location: index.php");
 exit;}
 include'connect.php';
-$user=mysql_fetch_array(mysql_query("SELECT * from users where id='".$_SESSION['uid']."'"));
+$user=mysqli_fetch_array(db_query("SELECT * from users where id='".$_SESSION['uid']."'"));
 if(isset($_POST['post_mess'])){
-mysql_query("UPDATE `users` set `bloknot`='".$_POST['text']."' WHERE `id`='".$_SESSION['uid']."'");
+db_query("UPDATE `users` set `bloknot`='".$_POST['text']."' WHERE `id`='".$_SESSION['uid']."'");
 die("<script>window.location='bloknot.php';</script>");
 }
 ?>

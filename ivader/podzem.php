@@ -3,9 +3,9 @@ include "../connect.php";
 
 $name_podzem='Бездна 3-Этаж'; 
 
-$podzem2=mysql_fetch_array(mysql_query("SELECT * from `podzem2` where `name`='".$name_podzem."' LIMIT 1;"));
-$podzem3=mysql_fetch_array(mysql_query("SELECT * from `podzem3` where `name`='".$name_podzem."' and `glava`='default' LIMIT 1;"));
-$podzem4=mysql_fetch_array(mysql_query("SELECT * from `podzem4` where `name`='".$name_podzem."' and `glava`='default' LIMIT 1;"));
+$podzem2=mysqli_fetch_array(db_query("SELECT * from `podzem2` where `name`='".$name_podzem."' LIMIT 1;"));
+$podzem3=mysqli_fetch_array(db_query("SELECT * from `podzem3` where `name`='".$name_podzem."' and `glava`='default' LIMIT 1;"));
+$podzem4=mysqli_fetch_array(db_query("SELECT * from `podzem4` where `name`='".$name_podzem."' and `glava`='default' LIMIT 1;"));
 $free1 = '';  $free2 = ''; $free3 = ''; $free4 = ''; $free5='';
 
 echo "<table border=1>";

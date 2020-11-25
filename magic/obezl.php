@@ -8,10 +8,10 @@ $coma[] = "Я и не вспомню как его зовут... ";
         if ($_SESSION['uid'] == null) header("Location: index.php");
 
         $magictime=time()+($_POST['timer']*60*1440);
-        $tar = mysql_fetch_array(mysql_query("SELECT `id`,`align` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+        $tar = mysqli_fetch_array(db_query("SELECT `id`,`align` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
         $target=$_POST['target'];
         if ($tar['id']) {
-            $effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE `owner` = '{$tar['id']}' and `type` = '5' LIMIT 1;"));
+            $effect = mysqli_fetch_array(db_query("SELECT `time` FROM `effects` WHERE `owner` = '{$tar['id']}' and `type` = '5' LIMIT 1;"));
             if ($effect['time']) {
                 echo "<font color=red><b>На персонаже \"$target\" уже есть заклятие обезличивания </b></font>";
             }
@@ -30,7 +30,7 @@ $coma[] = "Я и не вспомню как его зовут... ";
                     $ok=1;
                 }
                 if ($ok == 1) {
-                    if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Заклятие обезличивания','$magictime',5);")) {
+                    if (db_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Заклятие обезличивания','$magictime',5);")) {
                         $ldtarget=$target;
                         $magictime="один день";
                         switch($_POST['timer']) {
@@ -57,8 +57,8 @@ $coma[] = "Я и не вспомню как его зовут... ";
                         $messch="&quot;невидимка&quot; наложил заклятие обезличивания на персонажа &quot;$target&quot; сроком $magictime";
                         $mess="$angel &quot;{$user['login']}&quot; $action заклятие обезличивания на персонажа &quot;$target&quot; сроком $magictime";
                         }
-                        mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
-                        mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
+                        db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
+                        db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
                         addch("<img src=i/magic/obezl.gif> $messch");
                         addchp($coma[rand(0,count($coma)-1)],"Комментатор");
                         echo "<font color=red><b>Успешно наложено заклятие обезличивания на персонажа \"$target\"</b></font>";

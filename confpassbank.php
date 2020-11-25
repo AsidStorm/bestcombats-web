@@ -19,12 +19,12 @@
             $_GET['login']=strtolower($_GET['login']);
             if ($_GET['newpass']!='' && $_GET['login']!='' && $_GET['timev']!='' && $realtime<=$_GET['timev']) {
                 include ("connect.php");
-                $sql=mysql_query("select * from confirmpasswd where login='bbb".$_GET['login']."bbb' and passwd='".$_GET['newpass']."' and date='".$_GET['timev']."' and active=1") or die("Ошибка обработки запроса.");
-                if (mysql_num_rows($sql)==0 or mysql_num_rows($sql)=='') die("<center><h3>Ссылка устарела!</h3></center>");
-                $sql=mysql_fetch_array($sql,MYSQL_ASSOC) or die("Ошибка обработки запроса!!");
-                mysql_query("update bank set pass='".md5($_GET['newpass'])."' where id='".$_GET['login']."'") or die("Ошибка обработки запроса!");
+                $sql=db_query("select * from confirmpasswd where login='bbb".$_GET['login']."bbb' and passwd='".$_GET['newpass']."' and date='".$_GET['timev']."' and active=1") or die("Ошибка обработки запроса.");
+                if (mysqli_num_rows($sql)==0 or mysqli_num_rows($sql)=='') die("<center><h3>Ссылка устарела!</h3></center>");
+                $sql=mysqli_fetch_array($sql,MYSQLI_ASSOC) or die("Ошибка обработки запроса!!");
+                db_query("update bank set pass='".md5($_GET['newpass'])."' where id='".$_GET['login']."'") or die("Ошибка обработки запроса!");
                 echo "<center>Пароль изменен. Не забывайте пароль.</center>";
-                @mysql_query("update confirmpasswd set active=0 where login='bbb".$_GET['login']."bbb' and passwd='".$_GET['newpass']."' and date='".$_GET['timev']."' and active=1");
+                @db_query("update confirmpasswd set active=0 where login='bbb".$_GET['login']."bbb' and passwd='".$_GET['newpass']."' and date='".$_GET['timev']."' and active=1");
             }
             else echo "<center><h3>Ссылка устарела.</h3></center>";
         ?>

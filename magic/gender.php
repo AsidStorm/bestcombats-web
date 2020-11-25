@@ -5,7 +5,7 @@
 
         $magictime=time()+($_POST['timer']*60);
         $target=$_POST['target'];
-        $tar = mysql_fetch_array(mysql_query("SELECT `id`,`align`,`spellfreedom`, sex FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+        $tar = mysqli_fetch_array(db_query("SELECT `id`,`align`,`spellfreedom`, sex FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
         if ($tar['id']) {
                 $ok=0;
                 if ($user['align']=='2.5') {

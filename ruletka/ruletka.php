@@ -1,7 +1,7 @@
 <?php
 include_once('../connect.php');
 include_once('../functions.php');
-$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 if($user['align']=='2.5')
 {
 	die();
@@ -40,12 +40,12 @@ if($user['align']=='2.5')
 	
 
 	//Выделяем текущую игру, если её нет, то создаем новую
-	$gid = mysql_fetch_array(mysql_query('SELECT * FROM `ruletka` WHERE (`end` = 0 OR `id` = "'.((int)$_GET['id']).'") ORDER BY `id` DESC LIMIT 1'));
+	$gid = mysqli_fetch_array(db_query('SELECT * FROM `ruletka` WHERE (`end` = 0 OR `id` = "'.((int)$_GET['id']).'") ORDER BY `id` DESC LIMIT 1'));
 	if($gid['time_start']+16>time() || isset($_GET['bet']))
 	{
 		$mnr = true;
 	}
-	$gid3 = mysql_fetch_array(mysql_query('SELECT * FROM `ruletka` WHERE `end` >0 AND `id` = "'.((int)$_GET['id']).'" ORDER BY `id` DESC LIMIT 1'));
+	$gid3 = mysqli_fetch_array(db_query('SELECT * FROM `ruletka` WHERE `end` >0 AND `id` = "'.((int)$_GET['id']).'" ORDER BY `id` DESC LIMIT 1'));
 	if(isset($gid3['id']))
 	{
 		$gid = $gid3;
@@ -59,7 +59,7 @@ if($user['align']=='2.5')
 		if($time<1)
 		{
 			//крутим колесо и заканчиваем игру + выдаем выйгрыш
-			//mysql_query('UPDATE `ruletka` SET `end` = "'.time().'" WHERE `id` = "'.$gid['id'].'" LIMIT 1');
+			//db_query('UPDATE `ruletka` SET `end` = "'.time().'" WHERE `id` = "'.$gid['id'].'" LIMIT 1');
 			//выводим предыдущий выйгрыш
 			$win[0] = $gid['win'];
 			$win[1] = $gid['win_line'];
@@ -135,8 +135,8 @@ if($user['align']=='2.5')
 				if($good==1)
 				{
 					$u->info['money'] -= ((int)$_GET['coin']);
-					mysql_query('UPDATE `users` SET `money` = '.$u->info['money'].' WHERE `id` = "'.$u->info['id'].'" LIMIT 1');
-					mysql_query('INSERT INTO `ruletka_coin` (`uid`,`login`,`money`,`time`,`game_id`,`win2`) VALUES ("'.$u->info['id'].'","'.$u->info['login'].'","'.$_GET['coin'].'","'.time().'","'.$gid['id'].'","'.$bt.'")');
+					db_query('UPDATE `users` SET `money` = '.$u->info['money'].' WHERE `id` = "'.$u->info['id'].'" LIMIT 1');
+					db_query('INSERT INTO `ruletka_coin` (`uid`,`login`,`money`,`time`,`game_id`,`win2`) VALUES ("'.$u->info['id'].'","'.$u->info['login'].'","'.$_GET['coin'].'","'.time().'","'.$gid['id'].'","'.$bt.'")');
 				}
 			}
 		}		
@@ -157,10 +157,10 @@ if($user['align']=='2.5')
 			function testCoin($s,$stt)
 			{
 				global $u,$win;
-				$sp = mysql_query('SELECT * FROM `ruletka_coin` WHERE `game_id` = "'.$s.'" AND `money` > 0 AND `win2` = "'.$stt.'" AND `uid` != "'.$u->info['id'].'"');
+				$sp = db_query('SELECT * FROM `ruletka_coin` WHERE `game_id` = "'.$s.'" AND `money` > 0 AND `win2` = "'.$stt.'" AND `uid` != "'.$u->info['id'].'"');
 				$cr = 0; $am = 0;
 				$usr = ''; $lu = array();
-				while($pl = mysql_fetch_array($sp))
+				while($pl = mysqli_fetch_array($sp))
 				{
 					$cr = $pl['money'];
 					if(!isset($lu[$pl['uid']]) && count($lu)<4)
@@ -171,8 +171,8 @@ if($user['align']=='2.5')
 					$am++;
 				}
 				$us = 0; //Ставка игрока
-				$sp = mysql_query('SELECT * FROM `ruletka_coin` WHERE `game_id` = "'.$s.'" AND `money` > 0 AND `win2` = "'.$stt.'" AND `uid` = "'.$u->info['id'].'" LIMIT 100');
-				while($pl = mysql_fetch_array($sp))
+				$sp = db_query('SELECT * FROM `ruletka_coin` WHERE `game_id` = "'.$s.'" AND `money` > 0 AND `win2` = "'.$stt.'" AND `uid` = "'.$u->info['id'].'" LIMIT 100');
+				while($pl = mysqli_fetch_array($sp))
 				{
 					$cr = $pl['money'];
 					$us += $pl['money'];
@@ -212,8 +212,8 @@ if($user['align']=='2.5')
 	{
 		//создаем новую игру
 		$gid2 = array('id'=>0,'room'=>$u->info['room'],'time'=>time(),'time_start'=>time()+74,'win'=>rand(1,38),'win_line'=>'','end'=>0);
-		$ins = mysql_query('INSERT INTO `ruletka` (`room`,`time`,`time_start`,`win`,`win_line`) VALUES ("'.$gid2['room'].'","'.$gid2['time'].'","'.$gid2['time_start'].'","'.$gid2['win'].'","'.$gid2['win_line'].'")');
-		$gid2['id'] = mysql_insert_id();
+		$ins = db_query('INSERT INTO `ruletka` (`room`,`time`,`time_start`,`win`,`win_line`) VALUES ("'.$gid2['room'].'","'.$gid2['time'].'","'.$gid2['time_start'].'","'.$gid2['win'].'","'.$gid2['win_line'].'")');
+		$gid2['id'] = db_insert_id();
 		if($ins)
 		{
 			$gid = $gid2;
@@ -222,17 +222,17 @@ if($user['align']=='2.5')
 	}
 	
 		//обновляем выйгрыши
-		$sp = mysql_query('SELECT * FROM `ruletka` WHERE `end` = "0" AND `time_start` <= '.time().'');
-		while($pl = mysql_fetch_array($sp))
+		$sp = db_query('SELECT * FROM `ruletka` WHERE `end` = "0" AND `time_start` <= '.time().'');
+		while($pl = mysqli_fetch_array($sp))
 		{			
-			$end = mysql_query('UPDATE `ruletka` SET `end` = "'.time().'" WHERE `id` = "'.$pl['id'].'" LIMIT 1');			
+			$end = db_query('UPDATE `ruletka` SET `end` = "'.time().'" WHERE `id` = "'.$pl['id'].'" LIMIT 1');			
 			if($end)
 			{
 				//выдаем выйгрышь
-				$sp2 = mysql_query('SELECT * FROM `ruletka_coin` WHERE `end` = "0" AND `game_id` = "'.$pl['id'].'"');
-				while($pl2 = mysql_fetch_array($sp2))
+				$sp2 = db_query('SELECT * FROM `ruletka_coin` WHERE `end` = "0" AND `game_id` = "'.$pl['id'].'"');
+				while($pl2 = mysqli_fetch_array($sp2))
 				{
-					$upd = mysql_query('UPDATE `ruletka_coin` SET `end` = "'.time().'" WHERE `id` = "'.$pl2['id'].'" LIMIT 1');
+					$upd = db_query('UPDATE `ruletka_coin` SET `end` = "'.time().'" WHERE `id` = "'.$pl2['id'].'" LIMIT 1');
 					if($upd)
 					{
 						$wn = 0; $wn2 = 0;					
@@ -259,15 +259,15 @@ if($user['align']=='2.5')
 							}else{
 								$nmn = ((int)$pl2['money']*24);
 							}
-							mysql_query('UPDATE `users` SET `money` = `money` + "'.$nmn.'" WHERE `id` = "'.$pl2['uid'].'" LIMIT 1');
+							db_query('UPDATE `users` SET `money` = `money` + "'.$nmn.'" WHERE `id` = "'.$pl2['uid'].'" LIMIT 1');
 						}elseif($wn2>0)
 						{
 							//перечисляем деньги по определенной формуле
 							$nmn = ((int)$pl2['money']*2);
-							mysql_query('UPDATE `users` SET `money` = `money` + "'.$nmn.'" WHERE `id` = "'.$pl2['uid'].'" LIMIT 1');
+							db_query('UPDATE `users` SET `money` = `money` + "'.$nmn.'" WHERE `id` = "'.$pl2['uid'].'" LIMIT 1');
 						}else{
 							//проиграли
-							mysql_query('UPDATE `ruletka_coin` SET `end` = "1" WHERE `id` = "'.$pl['id'].'" LIMIT 1');
+							db_query('UPDATE `ruletka_coin` SET `end` = "1" WHERE `id` = "'.$pl['id'].'" LIMIT 1');
 						}
 					}
 				}
@@ -284,9 +284,9 @@ if($user['align']=='2.5')
 		{
 			//делаем ставки
 			$status = 1;
-			$sp = mysql_query('SELECT * FROM `ruletka_coin` WHERE `end` = "0" AND `uid` = "'.$u->info['id'].'" AND `game_id` = "'.$gid['id'].'"');
+			$sp = db_query('SELECT * FROM `ruletka_coin` WHERE `end` = "0" AND `uid` = "'.$u->info['id'].'" AND `game_id` = "'.$gid['id'].'"');
 			$win[3] = 0;
-			while($pl = mysql_fetch_array($sp))
+			while($pl = mysqli_fetch_array($sp))
 			{
 				$win[3] += $pl['money'];
 			}
@@ -294,9 +294,9 @@ if($user['align']=='2.5')
 			//играем
 			$status = 2;
 			//выводим выйгрыш + ставку
-			$sp = mysql_query('SELECT * FROM `ruletka_coin` WHERE `end` > "0" AND `uid` = "'.$u->info['id'].'" AND `game_id` = "'.$gid['id'].'"');
+			$sp = db_query('SELECT * FROM `ruletka_coin` WHERE `end` > "0" AND `uid` = "'.$u->info['id'].'" AND `game_id` = "'.$gid['id'].'"');
 			$win[2] = 0;
-			while($pl = mysql_fetch_array($sp))
+			while($pl = mysqli_fetch_array($sp))
 			{
 				$win[2] += $pl['money'];
 				$win[3] += $pl['money'];

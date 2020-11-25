@@ -2,9 +2,9 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	include "functions.php";
-	$d = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `setsale` = 0 ; "));
+	$d = mysqli_fetch_array(db_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `setsale` = 0 ; "));
 	if ($user['room'] != 668) { header("Location: main.php");  die(); }
 	if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 
@@ -12,14 +12,14 @@
 		if ($_GET['set']) { $set = $_GET['set']; }
 		if ($_POST['set']) { $set = $_POST['set']; }
 		if (!$_POST['count']) { $_POST['count'] =1; }
-		$dress = mysql_fetch_array(mysql_query("SELECT * FROM `shop` WHERE `id` = '{$set}' and shop='$user[room]' and buyformoney=1 LIMIT 1;"));
+		$dress = mysqli_fetch_array(db_query("SELECT * FROM `shop` WHERE `id` = '{$set}' and shop='$user[room]' and buyformoney=1 LIMIT 1;"));
 		if (($dress['massa']*$_POST['count']+$d[0]) > (get_meshok())) {
 			echo "<font color=red><b>Недостаточно места в рюкзаке.</b></font>";
 		}
 		elseif(($user['money']>= ($dress['cost']*$_POST['count'])) && ($dress['count'] >= $_POST['count'])) {
 
 			for($k=1;$k<=$_POST['count'];$k++) {
-				if(mysql_query("INSERT INTO `inventory`
+				if(db_query("INSERT INTO `inventory`
 				(`prototype`,`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,
 					`gsila`,`glovk`,`ginta`,`gintel`,`ghp`,`gmana`,`gnoj`,`gtopor`,`gdubina`,`gmech`,`gfire`,`gwater`,`gair`,`gearth`,`glight`,`ggray`,`gdark`,`needident`,`nsila`,`nlovk`,`ninta`,`nintel`,`nmudra`,`nvinos`,`nnoj`,`ntopor`,`ndubina`,`nmech`,`nfire`,`nwater`,`nair`,`nearth`,`nlight`,`ngray`,`ndark`,
 					`mfkrit`,`mfakrit`,`mfuvorot`,`mfauvorot`,`bron1`,`bron2`,`bron3`,`bron4`,`maxu`,`minu`,`magic`,`nlevel`,`nalign`,`dategoden`,`goden`,`otdel`,`gmp`,`gmeshok`,`destinyinv`,`gift`,`mfkritpow`,`mfantikritpow`,`mfparir`,`mfshieldblock`,`mfcontr`,`mfrub`,`mfkol`,`mfdrob`,`mfrej`,`mfdhit`,`mfdmag`,`mfhitp`,`mfmagp`,`opisan`,`second`,`vid`,`sitost`
@@ -36,27 +36,27 @@
 				}
 			}
 			if ($good) {
-				mysql_query("UPDATE `shop` SET `count`=`count`-{$_POST['count']} WHERE `id` = '{$set}' LIMIT 1;");
+				db_query("UPDATE `shop` SET `count`=`count`-{$_POST['count']} WHERE `id` = '{$set}' LIMIT 1;");
 				echo "<font color=red><b>Вы купили {$_POST['count']} шт. \"{$dress['name']}\".</b></font>";
-				mysql_query("UPDATE `users` set `money` = `money`- '".($_POST['count']*$dress['cost'])."' WHERE id = {$_SESSION['uid']} ;");
+				db_query("UPDATE `users` set `money` = `money`- '".($_POST['count']*$dress['cost'])."' WHERE id = {$_SESSION['uid']} ;");
 				$user['money'] -= $_POST['count']*$dress['cost'];
 				$limit=$_POST['count'];
-				$invdb = mysql_query("SELECT `id` FROM `inventory` WHERE `name` = '".$dress['name']."' ORDER by `id` DESC LIMIT ".$limit." ;" );
-				//$invdb = mysql_query("SELECT id FROM `inventory` WHERE `name` = '".{$dress['name']}."' ORDER by `id` DESC LIMIT $limit ;" );
+				$invdb = db_query("SELECT `id` FROM `inventory` WHERE `name` = '".$dress['name']."' ORDER by `id` DESC LIMIT ".$limit." ;" );
+				//$invdb = db_query("SELECT id FROM `inventory` WHERE `name` = '".{$dress['name']}."' ORDER by `id` DESC LIMIT $limit ;" );
 				if ($limit == 1) {
-					$dressinv = mysql_fetch_array($invdb);
+					$dressinv = mysqli_fetch_array($invdb);
 					$dressid = "cap".$dressinv['id'];
 					$dresscount=" ";
 				}
 				else {
 					$dressid="";
-					while ($dressinv = mysql_fetch_array($invdb))  {
+					while ($dressinv = mysqli_fetch_array($invdb))  {
 						$dressid .= "cap".$dressinv['id'].",";
 					}
 					$dresscount="(x".$_POST['count'].") ";
 				}
 				$allcost=$_POST['count']*$dress['cost'];
-				mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" купил товар: \"".$dress['name']."\" ".$dresscount."id:(".$dressid.") [0/".$dress['maxdur']."] за ".$allcost." кр. ',1,'".time()."');");
+				db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" купил товар: \"".$dress['name']."\" ".$dresscount."id:(".$dressid.") [0/".$dress['maxdur']."] за ".$allcost." кр. ',1,'".time()."');");
 			}
 		}
 		else {
@@ -135,8 +135,8 @@ switch ($_GET['otdel']) {
 	
 
 
-	$data = mysql_query("SELECT * FROM `shop` WHERE `count` > 0 AND `razdel` = '{$_GET['otdel']}' AND `zoo` = '1' ORDER by `nlevel` ASC");
-	while($row = mysql_fetch_array($data)) {
+	$data = db_query("SELECT * FROM `shop` WHERE `count` > 0 AND `razdel` = '{$_GET['otdel']}' AND `zoo` = '1' ORDER by `nlevel` ASC");
+	while($row = mysqli_fetch_array($data)) {
 		if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
 		echo "<TR bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
 		?>
@@ -148,7 +148,7 @@ switch ($_GET['otdel']) {
 		echo "</TD></TR>";
 	}
 
-	$user8 = mysql_fetch_array(mysql_query("SELECT money FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user8 = mysqli_fetch_array(db_query("SELECT money FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 ?>
 </TABLE>
 </TD></TR>

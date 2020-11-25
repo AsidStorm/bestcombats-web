@@ -1,11 +1,11 @@
 <?php
 include "functions/attack.php";
 mq("lock tables online write, users write, battle write, effects write, obshagaeffects write, bots write, zayavka write, inventory write");
-$us = mysql_fetch_array(mq("SELECT *,(select `id` from `online` WHERE `real_time` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+$us = mysqli_fetch_array(mq("SELECT *,(select `id` from `online` WHERE `real_time` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
 if ($us["battle"]) $us["online"]=1;
 if($user['room']==20 or $user['room']==21 or $user['room']==45){
 //нападение
-if ($us['battle']) $bd=mysql_fetch_array(mq("SELECT * FROM `battle` WHERE `id` = '{$us['battle']}' ;"));
+if ($us['battle']) $bd=mysqli_fetch_array(mq("SELECT * FROM `battle` WHERE `id` = '{$us['battle']}' ;"));
 else $bd=array();
 
 echo"<div align=right><font color=red><b>";
@@ -43,7 +43,7 @@ if ($tme["2"]>=8 && $tme["2"]<18) {$rand1=rand(5,7);} else {$rand1=7;} if ($cant
 echo "Чтите честь ваших сокланов.";
 } elseif ($us['align']>=2 && $us['align']<3 ) {
 	echo "Уважаемый ".$user['login'].", Ваша попытка напасть на высший совет записана в дело и будет рассматриваться как покушение...";
-	mysql_query("UPDATE `users` SET `hp`=1 WHERE `id`='".$user['id']."'");
+	db_query("UPDATE `users` SET `hp`=1 WHERE `id`='".$user['id']."'");
 		addch("<img src=i/magic/bexit.gif> <B>".$user['login']."</B>, попытался напасть на &quot;<strong>{$_POST['target']}</strong>&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src=i/priem/wis_air_shaft10.gif> <b>Гром и Молния</b> поразили наглеца <strong>".$user['login']."</strong> <Font Color=red><b> -".($user['hp']-1)."</b></font> [1/".$user['maxhp']."].<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Высший совет - неприкосновенен.</u>");
 
 } else {
@@ -66,7 +66,7 @@ echo "Чтите честь ваших сокланов.";
     $bet=1;
     //арх
     if($us['login']=="Общий враг" || $us["bot"]) {
-      $arha = mysql_fetch_array(mq ('SELECT * FROM `bots` WHERE `prototype` = '.$us['id'].' LIMIT 1;'));
+      $arha = mysqli_fetch_array(mq ('SELECT * FROM `bots` WHERE `prototype` = '.$us['id'].' LIMIT 1;'));
       if ($arha) {
         $us['battle'] = $arha['battle'];
         $us['id'] = $arha['id'];

@@ -2,15 +2,15 @@
 // nick
 function nick21 ($id) {
     if($id > _BOTSEPARATOR_) {
-        $bots = mysql_fetch_array(mysql_query ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
+        $bots = mysqli_fetch_array(db_query ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
         $id=$bots['prototype'];
-        $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
         $user['login'] = $bots['name'];
         $user['hp'] = $bots['hp'];
         $user['id'] = $bots['id'];
     } else {
-        $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
-        if (!$user) $user = mysql_fetch_array(mysql_query("SELECT * FROM `allusers` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        if (!$user) $user = mysqli_fetch_array(db_query("SELECT * FROM `allusers` WHERE `id` = '{$id}' LIMIT 1;"));
     }
 
     if($user[0]) {
@@ -27,8 +27,8 @@ ob_start("ob_gzhandler");
     session_start();
     if ($_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
-    $friend = mysql_fetch_array(mysql_query("SELECT * FROM `friends` WHERE `user` = '{$_SESSION['uid']}' LIMIT 1;"));
-    $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $friend = mysqli_fetch_array(db_query("SELECT * FROM `friends` WHERE `user` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
         if($user['level']<0){header("Location: index.php"); exit();}
     include "functions.php";
 
@@ -42,11 +42,11 @@ $_POST['friendadd']=htmlspecialchars($_POST['friendadd']);
 if(preg_match("/__/",$_POST['friendadd']) || preg_match("/--/",$_POST['friendadd'])){
 echo"<font color=red>Персонаж не найден.</font>";
 }else{
-    $igogo = mysql_fetch_array(mysql_query("SELECT id FROM `users` WHERE `login` = '{$_POST['friendadd']}' LIMIT 1;"));
-    if (!$igogo) $igogo = mysql_fetch_array(mysql_query("SELECT id FROM `allusers` WHERE `login` = '{$_POST['friendadd']}' LIMIT 1;"));
+    $igogo = mysqli_fetch_array(db_query("SELECT id FROM `users` WHERE `login` = '{$_POST['friendadd']}' LIMIT 1;"));
+    if (!$igogo) $igogo = mysqli_fetch_array(db_query("SELECT id FROM `allusers` WHERE `login` = '{$_POST['friendadd']}' LIMIT 1;"));
 }
 $_POST['comment']=htmlspecialchars($_POST['comment']);
-$igogo2 = mysql_fetch_array(mysql_query("SELECT enemy,friend,notinlist FROM `friends` WHERE `user` = '".$user['id']."' and (`friend`=".$igogo['id']." or `enemy`=".$igogo['id']." or `notinlist`=".$igogo['id'].") LIMIT 1;"));
+$igogo2 = mysqli_fetch_array(db_query("SELECT enemy,friend,notinlist FROM `friends` WHERE `user` = '".$user['id']."' and (`friend`=".$igogo['id']." or `enemy`=".$igogo['id']." or `notinlist`=".$igogo['id'].") LIMIT 1;"));
 if(!$igogo['id']){echo"<font color=red>Персонаж не найден.</font>";}
 elseif($igogo['id']==$user['id']){echo"<font color=red>Себя добавить нельзя.</font>";}
 elseif(preg_match("/__/",$_POST['comment']) || preg_match("/--/",$_POST['comment'])){echo"<font color=red>Введен неверный текст.</font>";}
@@ -57,7 +57,7 @@ else{
     if($_POST['group']==0){$notinlist=0; $friend=$igogo['id']; $enemy=0;}
     elseif($_POST['group']==1){$notinlist=0; $friend=0; $enemy=$igogo['id'];}
     else{$notinlist=$igogo['id']; $friend=0; $enemy=0;}
-    mysql_query("INSERT INTO `friends` (`user`, `friend`, `enemy`, `notinlist`, `comment`) VALUES(".$user['id'].", ".$friend.", ".$enemy.", ".$notinlist.", '".$_POST['comment']."');");
+    db_query("INSERT INTO `friends` (`user`, `friend`, `enemy`, `notinlist`, `comment`) VALUES(".$user['id'].", ".$friend.", ".$enemy.", ".$notinlist.", '".$_POST['comment']."');");
     echo"<font color=red>Персонаж <b>".$_POST['friendadd']."</b> добавлен.</font>";
   }
 }
@@ -68,16 +68,16 @@ $_POST['friendremove']=htmlspecialchars($_POST['friendremove']);
 if(preg_match("/__/",$_POST['friendremove']) || preg_match("/--/",$_POST['friendremove'])){
 echo"<font color=red>Персонаж не найден.</font>";
 }else{
-    $igogo = mysql_fetch_array(mysql_query("SELECT id FROM `users` WHERE `login` = '{$_POST['friendremove']}' LIMIT 1;"));
-    if (!$igogo) $igogo = mysql_fetch_array(mysql_query("SELECT id FROM `allusers` WHERE `login` = '{$_POST['friendremove']}' LIMIT 1;"));
+    $igogo = mysqli_fetch_array(db_query("SELECT id FROM `users` WHERE `login` = '{$_POST['friendremove']}' LIMIT 1;"));
+    if (!$igogo) $igogo = mysqli_fetch_array(db_query("SELECT id FROM `allusers` WHERE `login` = '{$_POST['friendremove']}' LIMIT 1;"));
 }
 if(!$igogo['id']){echo"<font color=red>Персонаж не найден.</font>";}
-else{$igogo2 = mysql_fetch_array(mysql_query("SELECT enemy,friend,notinlist FROM `friends` WHERE `user` = '".$user['id']."' and (`friend`=".$igogo['id']." or `enemy`=".$igogo['id']." or `notinlist`=".$igogo['id'].") LIMIT 1;"));
+else{$igogo2 = mysqli_fetch_array(db_query("SELECT enemy,friend,notinlist FROM `friends` WHERE `user` = '".$user['id']."' and (`friend`=".$igogo['id']." or `enemy`=".$igogo['id']." or `notinlist`=".$igogo['id'].") LIMIT 1;"));
 if(!$igogo2['enemy'] && !$igogo2['friend'] && !$igogo2['notinlist']){echo"<font color=red>Персонаж не найден в вашем списке.</font>";}else{
 if($igogo2['friend']>0){$per="`friend`='".$igogo2['friend']."'";}
 if($igogo2['enemy']>0){$per="`enemy`='".$igogo2['enemy']."'";}
 if($igogo2['notinlist']>0){$per="`notinlist`='".$igogo2['notinlist']."'";}
-if(mysql_query("DELETE FROM `friends` WHERE `user`='".$user['id']."' and ".$per.";")){echo"<font color=red>Данные контакта <b>".$_POST['friendremove']."</b> успешно удалены.</font>";}
+if(db_query("DELETE FROM `friends` WHERE `user`='".$user['id']."' and ".$per.";")){echo"<font color=red>Данные контакта <b>".$_POST['friendremove']."</b> успешно удалены.</font>";}
 }
 
 
@@ -95,8 +95,8 @@ $_POST['friendedit']=htmlspecialchars($_POST['friendedit']);
 if(preg_match("/__/",$_POST['friendedit']) || preg_match("/--/",$_POST['friendedit'])){
 echo"<font color=red>Персонаж не найден.</font>";
 }else{
-    $igogo = mysql_fetch_array(mysql_query("SELECT id FROM `users` WHERE `login` = '{$_POST['friendedit']}' LIMIT 1;"));
-    if (!$igogo) $igogo = mysql_fetch_array(mysql_query("SELECT id FROM `allusers` WHERE `login` = '{$_POST['friendedit']}' LIMIT 1;"));
+    $igogo = mysqli_fetch_array(db_query("SELECT id FROM `users` WHERE `login` = '{$_POST['friendedit']}' LIMIT 1;"));
+    if (!$igogo) $igogo = mysqli_fetch_array(db_query("SELECT id FROM `allusers` WHERE `login` = '{$_POST['friendedit']}' LIMIT 1;"));
 }
 $_POST['comment']=htmlspecialchars($_POST['comment']);
 if(!$igogo['id']){echo"<font color=red>Персонаж не найден.</font>";}
@@ -107,13 +107,13 @@ else{
 if($_POST['group']==0){$notinlist=0; $friend=$igogo['id']; $enemy=0;}
 elseif($_POST['group']==1){$notinlist=0; $friend=0; $enemy=$igogo['id'];}
 else{$notinlist=$igogo['id']; $friend=0; $enemy=0;}
-$igogo2 = mysql_fetch_array(mysql_query("SELECT enemy,friend,notinlist FROM `friends` WHERE `user` = '".$user['id']."' and (`friend`=".$igogo['id']." or `enemy`=".$igogo['id']." or `notinlist`=".$igogo['id'].") LIMIT 1;"));
+$igogo2 = mysqli_fetch_array(db_query("SELECT enemy,friend,notinlist FROM `friends` WHERE `user` = '".$user['id']."' and (`friend`=".$igogo['id']." or `enemy`=".$igogo['id']." or `notinlist`=".$igogo['id'].") LIMIT 1;"));
 if(!$igogo2['enemy'] && !$igogo2['friend'] && !$igogo2['notinlist']){echo"<font color=red>Персонаж не найден в вашем списке.</font>";}else{
 if($igogo2['friend']>0){$per="`friend`='".$igogo2['friend']."'";}
 if($igogo2['enemy']>0){$per="`enemy`='".$igogo2['enemy']."'";}
 if($igogo2['notinlist']>0){$per="`notinlist`='".$igogo2['notinlist']."'";}
 $comment = $_POST['comment'];
-mysql_query("UPDATE `friends` SET `friend` = ".$friend.",`enemy` = ".$enemy.",`notinlist` = ".$notinlist.",`comment` = '".$comment."'  WHERE `user`='".$user['id']."' and ".$per."");
+db_query("UPDATE `friends` SET `friend` = ".$friend.",`enemy` = ".$enemy.",`notinlist` = ".$notinlist.",`comment` = '".$comment."'  WHERE `user`='".$user['id']."' and ".$per."");
 echo"<font color=red>Данные контакта <b>".$_POST['friendedit']."</b> успешно изменены.</font>";
 }
 
@@ -265,10 +265,10 @@ return s;
 <TD colspan="4" align="center"><h4>Друзья</h4></TD>
 </TR>
 <?
-                    $data=mysql_query("SELECT `notinlist`,`comment` FROM `friends` WHERE `user` = '".$user['id']."' and `notinlist`>0;");
-                    while ($row = mysql_fetch_array($data)) {
-                    $us=mysql_fetch_array(mysql_query("SELECT `id`,`login`,`klan`,invis,`level`,`align`,`room`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `id` = '".$row['notinlist']."';"));
-                    if (!$us) $us=mysql_fetch_array(mysql_query("SELECT `id`,`login`,`klan`,`level`,`align`,`room`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = allusers.`id`) as `online` FROM `allusers` WHERE `id` = '".$row['notinlist']."';"));?>
+                    $data=db_query("SELECT `notinlist`,`comment` FROM `friends` WHERE `user` = '".$user['id']."' and `notinlist`>0;");
+                    while ($row = mysqli_fetch_array($data)) {
+                    $us=mysqli_fetch_array(db_query("SELECT `id`,`login`,`klan`,invis,`level`,`align`,`room`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `id` = '".$row['notinlist']."';"));
+                    if (!$us) $us=mysqli_fetch_array(db_query("SELECT `id`,`login`,`klan`,`level`,`align`,`room`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = allusers.`id`) as `online` FROM `allusers` WHERE `id` = '".$row['notinlist']."';"));?>
 
 
 <TR valign="top">
@@ -298,10 +298,10 @@ nick21($us['id']);
 </TR>
 <?
 }
-                    $data=mysql_query("SELECT `enemy`,`comment` FROM `friends` WHERE `user` = '".$user['id']."' and `enemy`>0;");
-                    while ($row = mysql_fetch_array($data)) {
-                    $us=mysql_fetch_array(mysql_query("SELECT `id`,`login`,`klan`,invis,`level`,`align`,`room`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `id` = '".$row['enemy']."';"));
-                    if (!$us) $us=mysql_fetch_array(mysql_query("SELECT `id`,`login`,`klan`,`level`,`align`,`room`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = allusers.`id`) as `online` FROM `allusers` WHERE `id` = '".$row['enemy']."';"));
+                    $data=db_query("SELECT `enemy`,`comment` FROM `friends` WHERE `user` = '".$user['id']."' and `enemy`>0;");
+                    while ($row = mysqli_fetch_array($data)) {
+                    $us=mysqli_fetch_array(db_query("SELECT `id`,`login`,`klan`,invis,`level`,`align`,`room`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `id` = '".$row['enemy']."';"));
+                    if (!$us) $us=mysqli_fetch_array(db_query("SELECT `id`,`login`,`klan`,`level`,`align`,`room`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = allusers.`id`) as `online` FROM `allusers` WHERE `id` = '".$row['enemy']."';"));
 
     $n++;
 if($n==1){
@@ -340,10 +340,10 @@ nick21($us['id']);
 <?
 }
 
-                    $data=mysql_query("SELECT `friend`,`comment` FROM `friends` WHERE `user` = '".$user['id']."' and `friend`>0;");
-                    while ($row = mysql_fetch_array($data)) {
-                    $us=mysql_fetch_array(mysql_query("SELECT `id`,`login`,`klan`,`level`, invis,`align`,`room`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `id` = '".$row['friend']."' ORDER BY online DESC, login ASC;"));
-                    if (!$us) $us=mysql_fetch_array(mysql_query("SELECT `id`,`login`,`klan`,`level`,`align`,`room`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = allusers.`id`) as `online` FROM `allusers` WHERE `id` = '".$row['friend']."' ORDER BY online DESC, login ASC;"));
+                    $data=db_query("SELECT `friend`,`comment` FROM `friends` WHERE `user` = '".$user['id']."' and `friend`>0;");
+                    while ($row = mysqli_fetch_array($data)) {
+                    $us=mysqli_fetch_array(db_query("SELECT `id`,`login`,`klan`,`level`, invis,`align`,`room`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `id` = '".$row['friend']."' ORDER BY online DESC, login ASC;"));
+                    if (!$us) $us=mysqli_fetch_array(db_query("SELECT `id`,`login`,`klan`,`level`,`align`,`room`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = allusers.`id`) as `online` FROM `allusers` WHERE `id` = '".$row['friend']."' ORDER BY online DESC, login ASC;"));
     $i++;
 if($i==1){
 ?>
@@ -408,8 +408,8 @@ if ($f>=$maxfriends) echo "<tr><td colspan=4><b><font color=red>Добавлен
 			<fieldset><legend><b>Орден Света</b> </legend>
 					<table>
 						<?
-							$data=mysql_query("SELECT `id`, `login`, `level`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `incity`='".$user['incity']."' and  (align>1 and align<2) order by align desc, login asc ;");	
-							while ($row = mysql_fetch_array($data)) {
+							$data=db_query("SELECT `id`, `login`, `level`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `incity`='".$user['incity']."' and  (align>1 and align<2) order by align desc, login asc ;");
+							while ($row = mysqli_fetch_array($data)) {
 								if ($row['online']>0 && $row['id']>0) {
 									echo '<tr><td><A HREF="javascript:top.AddToPrivate(\'',str_replace("</i></b>", "", str_replace("</a><b><i>", "", nick7($row['id']))),'\', top.CtrlPress)" target=refreshed><img src="http://img.silver-bk.com/i/lock.gif" width=20 height=15></A>';
 									nick2($row['id']);
@@ -428,8 +428,8 @@ if ($f>=$maxfriends) echo "<tr><td colspan=4><b><font color=red>Добавлен
 			<fieldset><legend><b>Армада Тьмы</b> </legend>
 					<table>
 						<?
-							$data=mysql_query("SELECT `id`, `login`, `level`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `incity`='".$user['incity']."' and  (align>3 and align<4) order by align desc, login asc ;");	
-							while ($row = mysql_fetch_array($data)) {
+							$data=db_query("SELECT `id`, `login`, `level`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `incity`='".$user['incity']."' and  (align>3 and align<4) order by align desc, login asc ;");
+							while ($row = mysqli_fetch_array($data)) {
 								if ($row['online']>0 && $row['id']>0) {
 									echo '<tr><td><A HREF="javascript:top.AddToPrivate(\'',str_replace("</i></b>", "", str_replace("</a><b><i>", "", nick7($row['id']))),'\', top.CtrlPress)" target=refreshed><img src="http://img.silver-bk.com/i/lock.gif" width=20 height=15></A>';
 									nick2($row['id']);
@@ -453,7 +453,7 @@ if ($f>=$maxfriends) echo "<tr><td colspan=4><b><font color=red>Добавлен
 <TD bgcolor=efeded nowrap style="text-align: center; "><table> 
 <?
 $data=mq("SELECT users.id, users.login, users.level, users.align FROM `users` left join online on users.id=online.id WHERE ((users.align=2.5) or (users.align=2.52)) and users.invis=0 and online.date>= ".(time()-60)." order by align desc, login asc;");
-while ($row = mysql_fetch_array($data)) {
+while ($row = mysqli_fetch_array($data)) {
 if ($row['id']>0) { echo '<tr><td><A HREF="javascript:top.AddToPrivate(\'',$row['login'],'\', top.CtrlPress)" target=refreshed><img src="'.IMGBASE.'/i/lock.gif" width=20 height=15></A>';
 nick21($row['id']);echo"";
 echo'</tr></td>'; } }
@@ -486,14 +486,14 @@ foreach($str as $val) {
 </FIELDSET></form>
 <?	
 if (isset($_POST['addig'])) {
-$target_user_tel=mysql_fetch_array(mysql_query("SELECT `id` FROM `users` WHERE `login` = '".$_POST['addig']."';"));
+$target_user_tel=mysqli_fetch_array(db_query("SELECT `id` FROM `users` WHERE `login` = '".$_POST['addig']."';"));
 $str = $user['ignore'];
 $pieces = explode("|", $str);
 if (in_array("".$target_user_tel['id']."", $pieces)) {
-mysql_query("UPDATE `users` SET `ignore` = replace(`ignore`, '|".$target_user_tel['id']."', '') WHERE `id` = '".$user['id']."';");
+db_query("UPDATE `users` SET `ignore` = replace(`ignore`, '|".$target_user_tel['id']."', '') WHERE `id` = '".$user['id']."';");
 echo"<font color=red>Вы убрали из черного списка персонажа ".$_POST['addig']." !</font><br>";
 }else{
-mysql_query("UPDATE `users` SET `ignore`=concat(`ignore`,'|".$target_user_tel['id']."') WHERE `id` = '".$user['id']."';");
+db_query("UPDATE `users` SET `ignore`=concat(`ignore`,'|".$target_user_tel['id']."') WHERE `id` = '".$user['id']."';");
 echo"<font color=red>Вы добавили в черный список персонажа ".$_POST['addig']." !</font><br>";
 }
 }

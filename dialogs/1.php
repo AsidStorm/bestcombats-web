@@ -17,7 +17,7 @@
   if ($step==14) {
     $speach="Наконец-то весь этот ужасный свинарник убран и уже скоро тут можно убдет начинать селится. Лучше всех с этой работой справились:<br><br>";
     $r=mq("select users.id from quests left join users on users.id=quests.user where quest=9 order by step desc limit 0, 3");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $speach.=nick3($rec["id"])."<br>";
     }
     $speach.="<br>Все остальные, кто принимал участие в боях со свиньями или уборке свинарника, так же будут награждены, но после полного окончания освоения новой территории.";
@@ -42,7 +42,7 @@
     $speach="Все свиньи повержены. Сейчас лучше немного отдохнуть, т. к. очень скоро понадобится ваша помощь для очистки помещения.
     Лучшие бойцы, которые будут награждены - это:<br><br>";
     $r=mq("select users.id from quests left join users on users.id=quests.user where quest=8 order by step desc limit 0, 3");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $speach.=nick3($rec["id"])."<br>";
     }
     $speach.="<br>Все остальные, кто принимал участие в боях со свиньями, так же будут награждены, но после полного окончания расчистки новой территории.";

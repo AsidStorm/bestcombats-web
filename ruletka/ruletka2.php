@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once('../connect.php');
-$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 if($user['align']=='2.5')
 {	
 ?>
@@ -95,8 +95,8 @@ if($user['align']=='2.5')
     <small>
     <p align="left">Банк казино: <b><?
     $mn = 0; $mz = 0;
-	$sp = mysql_query('SELECT * FROM `ruletka_coin` WHERE `money` > 0 AND `end` > 0');
-	while($pl = mysql_fetch_array($sp))
+	$sp = db_query('SELECT * FROM `ruletka_coin` WHERE `money` > 0 AND `end` > 0');
+	while($pl = mysqli_fetch_array($sp))
 	{
 		if($pl['end']==1)
 		{

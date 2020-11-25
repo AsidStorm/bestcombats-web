@@ -199,10 +199,10 @@
       $user["room"]=501;
     }
 
-    $ls = mysql_fetch_array(mq("select count(`id`), SUM(`bot`) from `users` WHERE `in_tower` = '$deztowtype';"));
-    $tur_data = mysql_fetch_array(mq("SELECT * FROM `deztow_turnir` WHERE `active` = TRUE"));
+    $ls = mysqli_fetch_array(mq("select count(`id`), SUM(`bot`) from `users` WHERE `in_tower` = '$deztowtype';"));
+    $tur_data = mysqli_fetch_array(mq("SELECT * FROM `deztow_turnir` WHERE `active` = TRUE"));
     if($_GET['give']) {
-        $obj = mysql_fetch_array(mq("SELECT * FROM `deztow_items` WHERE `id` = '".$_GET['give']."' AND `room` = '".$user['room']."' LIMIT 1;"));
+        $obj = mysqli_fetch_array(mq("SELECT * FROM `deztow_items` WHERE `id` = '".$_GET['give']."' AND `room` = '".$user['room']."' LIMIT 1;"));
         if($obj) {
             if($_SESSION['timei']-time()<=0) {
               if ($obj["iteam_id"]==1766) {
@@ -210,13 +210,13 @@
                 echo "<font color=red>Вы нашли 1 кр.</font>";
               } else {
                 $_SESSION['timei'] = time()+3;
-                $dress = mysql_fetch_array(mq("SELECT * FROM `shop` WHERE `id` = '".$obj['iteam_id']."' LIMIT 1;"));
+                $dress = mysqli_fetch_array(mq("SELECT * FROM `shop` WHERE `id` = '".$obj['iteam_id']."' LIMIT 1;"));
 
                 mq("INSERT INTO `inventory`
                 (`prototype`,`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`gsila`,`glovk`,`ginta`,`gintel`,`ghp`,`gmana`,`gnoj`,`gtopor`,`gdubina`,`gmech`,`gposoh`,`gluk`,`gfire`,`gwater`,`gair`,`gearth`,`glight`,`ggray`,`gdark`,`needident`,`nsila`,`nlovk`,`ninta`,`nintel`,`nmudra`,`nvinos`,`nnoj`,`ntopor`,`ndubina`,`nmech`,`nposoh`,`nluk`,`nfire`,`nwater`,`nair`,`nearth`,`nlight`,`ngray`,`ndark`,`mfkrit`,`mfakrit`,`mfuvorot`,`mfauvorot`,`bron1`,`bron2`,`bron3`,`bron4`,`maxu`,`minu`,`magic`,`nlevel`,`nalign`,`dategoden`,`goden`,`otdel`,`gmp`,`gmeshok`,`destinyinv`,`gift`,`mfkritpow`,`mfantikritpow`,`mfparir`,`mfshieldblock`,`mfcontr`,`mfrub`,`mfkol`,`mfdrob`,`mfrej`,`mfdhit`,`mfdmag`,`mfhitp`,`mfmagp`,`opisan`,`second`,`vid`,`sitost`,`dvur`,`chkol`,`chrub`,`chrej`,`chdrob`,`chmag`,`mfproboj`,`stats`,`mfdkol`,`mfdrub`,`mfdrej`,`mfddrob`,`bronmin1`,`bronmin2`,`bronmin3`,`bronmin4`,`blockzones`,`mffire, mfwater`,`mfair, mfearth`,`mflight`,`mfdark`,`minusmfdmag`,`minusmfdfire`,`minusmfdair`,`minusmfdwater`,`minusmfdearth`,`manausage`,`includemagic`,`includemagicdex`,`includemagicmax`,`includemagicname`,`includemagicuses`,`includemagiccost`,`includemagicusesperday`,`mfdair`,`mfdwater`,`mfdearth`,`mfdfire`,`mfddark`,`mfdlight`,`bs`)
                 VALUES('{$dress['id']}','{$_SESSION['uid']}','{$dress['name']}','{$dress['type']}','{$dress['massa']}','{$dress['cost']}','{$dress['img']}','{$dress['maxdur']}','{$dress['isrep']}','{$dress['gsila']}','{$dress['glovk']}','{$dress['ginta']}','{$dress['gintel']}','{$dress['ghp']}','{$dress['gmana']}','{$dress['gnoj']}','{$dress['gtopor']}','{$dress['gdubina']}','{$dress['gmech']}','{$dress['gposoh']}','{$dress['gluk']}','{$dress['gfire']}','{$dress['gwater']}','{$dress['gair']}','{$dress['gearth']}','{$dress['glight']}','{$dress['ggray']}','{$dress['gdark']}','{$dress['needident']}','{$dress['nsila']}','{$dress['nlovk']}','{$dress['ninta']}','{$dress['nintel']}','{$dress['nmudra']}','{$dress['nvinos']}','{$dress['nnoj']}','{$dress['ntopor']}','{$dress['ndubina']}','{$dress['nmech']}','{$dress['nposoh']}','{$dress['nluk']}','{$dress['nfire']}','{$dress['nwater']}','{$dress['nair']}','{$dress['nearth']}','{$dress['nlight']}','{$dress['ngray']}','{$dress['ndark']}','{$dress['mfkrit']}','{$dress['mfakrit']}','{$dress['mfuvorot']}','{$dress['mfauvorot']}','{$dress['bron1']}','{$dress['bron2']}','{$dress['bron3']}','{$dress['bron4']}','{$dress['maxu']}','{$dress['minu']}','{$dress['magic']}','{$dress['nlevel']}','{$dress['nalign']}','".(($dress['goden'])?($dress['goden']*24*60*60+time()):"")."','{$dress['goden']}','{$dress['razdel']}','{$dress['gmp']}','{$dress['gmeshok']}','{$dress['destiny']}','{$dress['gift']}','{$dress['mfkritpow']}','{$dress['mfantikritpow']}','{$dress['mfparir']}','{$dress['mfshieldblock']}','{$dress['mfcontr']}','{$dress['mfrub']}','{$dress['mfkol']}','{$dress['mfdrob']}','{$dress['mfrej']}','{$dress['mfdhit']}','{$dress['mfdmag']}','{$dress['mfhitp']}','{$dress['mfmagp']}','{$dress['opisan']}','{$dress['second']}','{$dress['vid']}','{$dress['sitost']}','{$dress['dvur']}','{$dress['chkol']}','{$dress['chrub']}','{$dress['chrej']}','{$dress['chdrob']}','{$dress['chmag']}','{$dress['mfproboj']}','{$dress['stats']}',
                 '{$dress['mfdkol']}','{$dress['mfdrub']}','{$dress['mfdrej']}','{$dress['mfddrob']}','{$dress['bronmin1']}','{$dress['bronmin2']}','{$dress['bronmin3']}','{$dress['bronmin4']}','{$dress['blockzones']}','$dress[mffire]','$dress[mfwater]','$dress[mfair]','$dress[mfearth]','$dress[mflight]','$dress[mfdark]','$dress[minusmfdmag]','$dress[minusmfdfire]','$dress[minusmfdair]','$dress[minusmfdwater]', '$dress[minusmfdearth]','$dress[manausage]','$dress[includemagic]','$dress[includemagicdex]','$dress[includemagicmax]', '$dress[includemagicname]','$dress[includemagicuses]','$dress[includemagiccost]','$dress[includemagicusesperday]','$dress[mfdair]','$dress[mfdwater]','$dress[mfdearth]','$dress[mfdfire]','$dress[mfddark]','$dress[mfdlight]','1') ;");
-                echo mysql_error();
+                echo db_error();
               }
               mq("DELETE FROM `deztow_items` WHERE `id` = '".$_GET['give']."' AND `room` = '".$user['room']."' LIMIT 1;");
             }
@@ -233,16 +233,16 @@
       if ($b) {
         mq("unlock tables"); header('Location: fbattle.php'); die();
       }
-            $jert = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `login` = '{$_POST['attack']}' LIMIT 1;"));
+            $jert = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `login` = '{$_POST['attack']}' LIMIT 1;"));
             if($jert['room'] == $user['room'] && $jert['id']!=$user['id'] && ($jert["hp"]>0 || $jert["battle"])) {
                 if($jert['id'] == 233) {
-                    $arha = mysql_fetch_array(mq ('SELECT * FROM `bots` WHERE `prototype` = '.$jert['id'].' LIMIT 1;'));
+                    $arha = mysqli_fetch_array(mq ('SELECT * FROM `bots` WHERE `prototype` = '.$jert['id'].' LIMIT 1;'));
                     $jert['battle'] = $arha['battle'];
                     $jert['id'] = $arha['id'];
                     $bot=1;
                 }
                 if($jert['battle'] > 0) {
-                    $bd = mysql_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$jert['battle'].' LIMIT 1;'));
+                    $bd = mysqli_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$jert['battle'].' LIMIT 1;'));
                     if ($bd["coment"]=="Кулачный поединок") undressall($user['id']);
                     $battle = unserialize($bd['teams']);
                     $ak = array_keys($battle[$jert['id']]);
@@ -274,7 +274,7 @@
                 {
                     if($bot) {
                         mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('Архивариус','233','','".$jert['hp']."');");
-                        $jert['id'] = mysql_insert_id();
+                        $jert['id'] = db_insert_id();
                     }
 
                     $teams = array();
@@ -291,7 +291,7 @@
                             NULL,'','".serialize($teams)."','".$sv[rand(0,3)]."','10','0','".$user['id']."','".$jert['id']."','".time()."','".time()."','1'
                         )");
 
-                    $id = mysql_insert_id();
+                    $id = db_insert_id();
 
                     if($bot) {
                         mq("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$jert['id']} LIMIT 1;");
@@ -314,14 +314,14 @@
     }
     $_GET['path'] = (int)$_GET['path'];
     if($rhar[$user['room']][$_GET['path']] > 0 && $_GET['path'] < 5 && $_GET['path'] > 0 && ($user["movetime"] <= time())) {
-        $rr = mysql_fetch_array(mq("SELECT * FROM `effects` WHERE `type` = 10 AND `owner` = {$user['id']};"));
+        $rr = mysqli_fetch_array(mq("SELECT * FROM `effects` WHERE `type` = 10 AND `owner` = {$user['id']};"));
         if(!$rr) {
         $list = mq("SELECT `id`,`room`,`login` FROM `users` WHERE `room` = '".$user['room']."' AND `in_tower`='$deztowtype';");
-        while($u = mysql_fetch_array($list)) {
+        while($u = mysqli_fetch_array($list)) {
             if($u['id']!=$user['id']) addchp ('<font color=red>Внимание!</font> <B>'.$user['login'].'</B> отправился в <B>'.$rooms[$rhar[$user['room']][$_GET['path']]].'</B>.   ','{[]}'.$u['login'].'{[]}');
         }
         $list = mq("SELECT `id`,`room`,`login` FROM `users` WHERE `room` = '".$rhar[$user['room']][$_GET['path']]."' AND `in_tower`='$deztowtype';");
-        while($u = mysql_fetch_array($list)) {
+        while($u = mysqli_fetch_array($list)) {
             addchp ('<font color=red>Внимание!</font> <B>'.$user['login'].'</B> вошел в комнату.   ','{[]}'.$u['login'].'{[]}');
         }
         mq("UPDATE `users`,`online` SET `users`.`room` = '".$rhar[$user['room']][$_GET['path']]."', users.movetime='".(time()+$rhar[$rhar[$user['room']][$_GET['path']]][0])."',`online`.`room` = '".$rhar[$user['room']][$_GET['path']]."' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
@@ -333,15 +333,15 @@
     }
 
     $list = mq("SELECT users.*, effects.id as travma FROM `users` left join effects on effects.owner=users.id and (effects.type=11 or effects.type=12 or effects.type=13 or effects.type=14) WHERE users.in_tower='$deztowtype' AND users.battle=0 and (users.hp<=0 or effects.id>0)");
-    while($u = mysql_fetch_array($list)) {
+    while($u = mysqli_fetch_array($list)) {
 
-    if ($u["hp"]>0) $ddtravma = mysql_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = ".$u['id']." and (`type`=11 or `type`=12 or `type`=13 or `type`=14) limit 1;"));
+    if ($u["hp"]>0) $ddtravma = mysqli_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = ".$u['id']." and (`type`=11 or `type`=12 or `type`=13 or `type`=14) limit 1;"));
     else $ddtravma=0;
 
     if($u['hp'] <= 0 || $ddtravma) {
         undressall($u['id']);
         $rep = mq("SELECT * FROM `inventory` WHERE `owner` = '".$u['id']."' and prototype <> 114 AND `bs` = 1;");
-        while($r = mysql_fetch_array($rep)) {
+        while($r = mysqli_fetch_array($rep)) {
             mq("INSERT `deztow_items` (`iteam_id`, `name`, `img`, `room`) values ('".$r['prototype']."', '".$r['name']."', '".$r['img']."', '".$u['room']."');");
         }
         mq("DELETE FROM `inventory` WHERE `owner` = '".$u['id']."' AND `bs` = 1;");
@@ -368,11 +368,11 @@
         //
         $dtt=mqfa1("select value from variables where var='deztowtype'");
 
-        $tur = mysql_fetch_array(mq("select * from `deztow_turnir` WHERE `active` = TRUE;"));
+        $tur = mysqli_fetch_array(mq("select * from `deztow_turnir` WHERE `active` = TRUE;"));
 
         undressall($user['id']);
         $rep = mq("SELECT * FROM `inventory` WHERE `owner` = '".$user['id']."' AND `bs` = 1;");
-        while($r = mysql_fetch_array($rep)) {
+        while($r = mysqli_fetch_array($rep)) {
             mq("INSERT `deztow_items` (`iteam_id`, `name`, `img`, `room`) values ('".$r['prototype']."', '".$r['name']."', '".$r['img']."', '".$user['room']."');");
         }
 
@@ -470,10 +470,10 @@ function closehint3(){
 <?
 
     $its = mq("SELECT * FROM `deztow_items` WHERE `room` = '".$user['room']."';");
-    if(mysql_num_rows($its)>0) {
+    if(mysqli_num_rows($its)>0) {
         echo '<H4>В комнате разбросаны вещи:</H4>';
     }
-    while($it = mysql_fetch_array($its)) {
+    while($it = mysqli_fetch_array($its)) {
         echo ' <A HREF="towerin.php?give=',$it['id'],'"><IMG SRC="i/sh/',$it['img'],'" ALT="Подобрать предмет \'',$it['name'],'\'"></A>';
     }
 

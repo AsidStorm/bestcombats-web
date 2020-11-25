@@ -5,7 +5,7 @@
 	include "functions.php";
 	if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
     $restr=mqfa1("select time from effects where owner='$user[id]' and type=".CLANRESTRICTION." order by id desc");
-	$vv=mysql_fetch_assoc(mysql_query("SELECT COUNT(`login`) AS `login` FROM `chist` WHERE `owner`='".$user['id']."'"));
+	$vv=mysqli_fetch_assoc(db_query("SELECT COUNT(`login`) AS `login` FROM `chist` WHERE `owner`='".$user['id']."'"));
 
 ?>
 <HTML><HEAD>
@@ -63,7 +63,7 @@ function closehint3(){
 <table width=100% cellspacing=0 cellpadding=5 border=0>
 <tr>
 <?
-$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".mysql_real_escape_string($_SESSION['uid'])."' LIMIT 1;"));
+$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".db_escape_string($_SESSION['uid'])."' LIMIT 1;"));
 
 
 ?>
@@ -132,8 +132,8 @@ $tsenavip = array(8=>300,9=>500,10=>700,11=>900,12=>1100,13=>1300,14=>1500,15=>1
 
 if(isset($_POST['gg'])){
  if($vv['login'] == 0 and $user['level']>='8' and $user['money']>=$tsena[$user['level']] and empty($user['klan'])){
-  mysql_query("INSERT INTO `chist` (owner,login)values('".$user['id']."','".$user['login']."')");
-  mysql_query("UPDATE `users` SET `money`=`money`-{$tsena[$user['level']]} WHERE `id`='".$user['id']."'");
+  db_query("INSERT INTO `chist` (owner,login)values('".$user['id']."','".$user['login']."')");
+  db_query("UPDATE `users` SET `money`=`money`-{$tsena[$user['level']]} WHERE `id`='".$user['id']."'");
   print "У вас снято {$tsena[$user['level']]} кр. Ваша заявка принята!";
  }else{
 	print"<font color=red>Вам нельзя подать заявку! Вы состоите в клане,Ваш уровень меньше 8 либо у вас недостаточно средств для оплаты данной услуги.</font>";
@@ -141,8 +141,8 @@ if(isset($_POST['gg'])){
 }
 if(isset($_POST['ggVIP'])){
 	if($vv['login'] == 0 and $user['level']>='8' and $user['money']>=$tsenavip[$user['level']] and empty($user['klan'])){
-	mysql_query("INSERT INTO `chist` (owner,login,status)values('".$user['id']."','".$user['login']."','VIP')");
-	mysql_query("UPDATE `users` SET `money`=`money`-{$tsena[$user['level']]} WHERE `id`='".$user['id']."'");
+	db_query("INSERT INTO `chist` (owner,login,status)values('".$user['id']."','".$user['login']."','VIP')");
+	db_query("UPDATE `users` SET `money`=`money`-{$tsena[$user['level']]} WHERE `id`='".$user['id']."'");
 	print"У вас снято {$tsenavip[$user['level']]} кр. Ваша заявка принята!";
 	}else{
 	print"<font color=red>Вам нельзя подать заявку! Вы состоите в клане,Ваш уровень меньше 8 либо у вас недостаточно средств для оплаты данной услуги.</font>";
@@ -160,15 +160,15 @@ if(isset($_POST['ggVIP'])){
 
 
 if(!empty($_GET['da'])){
-	$dd = mysql_fetch_array(mysql_query("SELECT * FROM `chist` WHERE `login`='".$_GET['login']."'"));
+	$dd = mysqli_fetch_array(db_query("SELECT * FROM `chist` WHERE `login`='".$_GET['login']."'"));
 	if($dd and $user['align']>=1 and $user['align']<=3){
-		mysql_query('DELETE FROM `chist` WHERE `owner`="'.$dd['owner'].'"');
+		db_query('DELETE FROM `chist` WHERE `owner`="'.$dd['owner'].'"');
 		$magictime=time()+259200;
-		mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$dd['owner']."','Паладинская проверка','".$magictime."','20');");
+		db_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$dd['owner']."','Паладинская проверка','".$magictime."','20');");
 		$messtel="Помечено, что персонаж чист перед законом";
 		$mess="".$user['login']." сделал пометку что ".$dd['login']." чист перед законом";
-		mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$dd['owner']."','$mess','".time()."');");
-		mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
+		db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$dd['owner']."','$mess','".time()."');");
+		db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 		tele_check($dd['login'],$messtel);					
 		echo "<font color=red><b>Успешно поставлена проверка персонажу '".$dd['login']."'</b></font>";
 		print "<script>location.href='chist.php'</script>";
@@ -177,9 +177,9 @@ if(!empty($_GET['da'])){
 }
 
 if(!empty($_GET['net'])){
-	$dd = mysql_fetch_array(mysql_query("SELECT * FROM `chist` WHERE `login`='".$_GET['login']."' "));
+	$dd = mysqli_fetch_array(db_query("SELECT * FROM `chist` WHERE `login`='".$_GET['login']."' "));
 	if($dd and $user['align']>=1 and $user['align']<=3){
-		mysql_query('DELETE FROM `chist` WHERE `owner`="'.$dd['owner'].'"');
+		db_query('DELETE FROM `chist` WHERE `owner`="'.$dd['owner'].'"');
 		$messnet="Вы не прошли проверку";
 		tele_check($dd['login'],$messnet);					
 		print"<font color=red><b>'".$dd['login']."'</b> не прошел чистку.</font>";
@@ -190,16 +190,16 @@ if(!empty($_GET['net'])){
 
 
 if(isset($_GET['open'])){
-	$dd = mysql_fetch_array(mysql_query("SELECT * FROM `chist` WHERE `login`='".$_GET['login']."' "));
+	$dd = mysqli_fetch_array(db_query("SELECT * FROM `chist` WHERE `login`='".$_GET['login']."' "));
 	if($dd and $user['align']>=1 and $user['align']<=3){
-		mysql_query("UPDATE `chist` SET `comment`='".mysql_real_escape_string($_GET['cmt'])."' WHERE `owner`='".$dd['owner']."' ");
+		db_query("UPDATE `chist` SET `comment`='".db_escape_string($_GET['cmt'])."' WHERE `owner`='".$dd['owner']."' ");
 		
 	}
 }
 
-$nn = mysql_query("SELECT * FROM `chist`");
+$nn = db_query("SELECT * FROM `chist`");
 print'<table  border="1" cellspacing="0" cellpadding="0" width=50%>';
-while($chi=mysql_fetch_array($nn)){
+while($chi=mysqli_fetch_array($nn)){
 	print'
 	  <tr>
 		<td align="center" width="50%">'.$chi['login'].'</td>

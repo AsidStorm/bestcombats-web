@@ -2,9 +2,9 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	include "functions.php";
-	$al = mysql_fetch_assoc(mysql_query("SELECT * FROM `aligns` WHERE `align` = '{$user['align']}' LIMIT 1;"));
+	$al = mysqli_fetch_assoc(db_query("SELECT * FROM `aligns` WHERE `align` = '{$user['align']}' LIMIT 1;"));
 	header("Cache-Control: no-cache");
 ?>
 <HTML><HEAD>
@@ -33,9 +33,9 @@ if ($user['align'] == '2.7'  || $user['align'] == '77'  || $user['align'] == '2.
 				echo "<form method=post><fieldset><legend>Начислить благородство</legend>
 					<table><tr><td>Логин</td><td><input type='text' name='login' value='",$_POST['login'],"'></td><td>Благородства</td><td><input type='text' name='honorpoints' value='",$_POST['honorpoints'],"'></td><td><input type=submit value='Начислить'></td></tr></table>";
 				if ($_POST['login'] && $_POST['honorpoints']) {
-					$dd = mysql_fetch_array(mysql_query("SELECT `ip`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+					$dd = mysqli_fetch_array(db_query("SELECT `ip`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 					if($dd) {
-						mysql_query("UPDATE `users` SET `honorpoints` = `honorpoints`+'".$_POST['honorpoints']."' WHERE `login` = '".$_POST['login']."';");
+						db_query("UPDATE `users` SET `honorpoints` = `honorpoints`+'".$_POST['honorpoints']."' WHERE `login` = '".$_POST['login']."';");
 						echo "<font color=red>Начислено ",$_POST['honorpoints']," благородства</font><BR>";
 					}
 				}

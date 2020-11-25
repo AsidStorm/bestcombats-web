@@ -58,7 +58,7 @@
       if ($rnd<=10) {
         $report=itemtofloor(2459, 0, 0, 1); // Бутылка  
       } elseif ($rnd<=20) {
-        $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 AND (id = 15 OR id = 16 OR id = 17 OR id = 19 OR id = 20 OR id = 21) ORDER BY RAND() ") or die(mysql_error()); 
+        $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 AND (id = 15 OR id = 16 OR id = 17 OR id = 19 OR id = 20 OR id = 21) ORDER BY RAND() ") or die(db_error());
         $report=itemtofloor($smallItem, 0, 0, 1, 'smallitems', 1);
       } elseif ($rnd<=25) {
         $report=itemtofloor(2593, 0, 0, 3); // лучистый рубин
@@ -79,7 +79,7 @@
   
   // Камень портала Шута 4x14
   if ($tx*2==4 && $ty*2==14) {
-    $isStone = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Шута' AND owner = " . $user['id']), 0, 0);
+    $isStone = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Шута' AND owner = " . $user['id']), 0, 0);
     if (!$isStone) {
       $report=pickupitem(2529, 0, 0, 0, 1, 2);
     } else {
@@ -97,7 +97,7 @@
         $report = pickupitem(mt_rand(2361,2364), 1, 0, 0, 3) . "<br />Это стоило Вам <b>" . $isStone['name'] . '</b>';
         takeusage($tx, $ty);
         useitem(2459);
-        mysql_query("UPDATE inventory SET koll = (koll - 1) WHERE owner = $user[id] AND id = $isStone[id]");
+        db_query("UPDATE inventory SET koll = (koll - 1) WHERE owner = $user[id] AND id = $isStone[id]");
       } else {
         $report="Для того, чтобы набрать эликсир, вам необходимы пустая бутылка и драгоценный камень.";
       }
@@ -152,8 +152,8 @@
     if ($curse) {
       $report .= " и избавились от всех проклятий Глубин.";
       foreach ($curse as $c) {
-        mysql_query('DELETE FROM effects WHERE id = ' . $c['id']);
-        mysql_query("
+        db_query('DELETE FROM effects WHERE id = ' . $c['id']);
+        db_query("
             UPDATE users 
             SET 
               sila  = (".((-1)*$c['sila'])." + sila), 

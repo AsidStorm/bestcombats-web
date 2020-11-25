@@ -15,7 +15,7 @@
       include "functions.php";
       $now=time();
 
-      $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".mysql_real_escape_string($_SESSION['uid'])."' LIMIT 1;"));
+      $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".db_escape_string($_SESSION['uid'])."' LIMIT 1;"));
       if ($user['room']>=2001 && $user['room']<=2100) {
         if ($user['battle'] != 0) {
           $_SESSION['boloto_kill_mob'] = 1;
@@ -27,17 +27,17 @@
         }
 
 
-        $VaultInfo = mysql_fetch_array(mysql_query("SELECT * FROM `vault` WHERE id='".mysql_real_escape_string($user['room'])."'"));
-        $group = mysql_fetch_array(mysql_query("SELECT * FROM `bol_group` WHERE id='".mysql_real_escape_string($user['boloto_groups'])."'"));
-        $bol_res = mysql_fetch_array(mysql_query("SELECT * FROM `vault_res` WHERE id='".mysql_real_escape_string($user['boloto_groups'])."'"));
-        $gayk = mysql_query("select `name` from `inventory` where `name`='Гайка сталкера' AND `owner`='".$user['id']."'");
-        $kol_gayk = mysql_num_rows($gayk);
+        $VaultInfo = mysqli_fetch_array(db_query("SELECT * FROM `vault` WHERE id='".db_escape_string($user['room'])."'"));
+        $group = mysqli_fetch_array(db_query("SELECT * FROM `bol_group` WHERE id='".db_escape_string($user['boloto_groups'])."'"));
+        $bol_res = mysqli_fetch_array(db_query("SELECT * FROM `vault_res` WHERE id='".db_escape_string($user['boloto_groups'])."'"));
+        $gayk = db_query("select `name` from `inventory` where `name`='Гайка сталкера' AND `owner`='".$user['id']."'");
+        $kol_gayk = mysqli_num_rows($gayk);
 
         if ($_GET['ext'] == 1) {
           if ($user['money'] >= 1) {
             echo"<b><font color=red>Вы уменьшили время пребывания в проходе на 10мин за 1 кр!<br></font></b>";
-            mysql_query("update `users` set `money`=`money`-'1' where `id`='".$user['id']."'");
-            mysql_query("update `bol_group` set `game_time`=`game_time`-'600' where `id`='".$user['boloto_groups']."'");
+            db_query("update `users` set `money`=`money`-'1' where `id`='".$user['id']."'");
+            db_query("update `bol_group` set `game_time`=`game_time`-'600' where `id`='".$user['boloto_groups']."'");
           } else {
             echo"<b><font color=red>Не достаточно кр!<br></font></b>"; 
           }
@@ -46,15 +46,15 @@
         /////////ЕСЛИ ВРЕМЯ ВЫШЛО!!
         if ($group['game_time'] <= $now) {
           if ($group['lider'] == $user['id']) {
-            mysql_query("delete from `inventory` where `name`='Код от тайника'  AND (`owner`='".mysql_real_escape_string($group['p1'])."' or `owner`='".mysql_real_escape_string($group['p2'])."' or `owner`='".mysql_real_escape_string($group['p3'])."' or `owner`='".mysql_real_escape_string($group['p4'])."')");
-            mysql_query("delete from `inventory` where `name`='Болотный ключ'   AND (`owner`='".mysql_real_escape_string($group['p1'])."' or `owner`='".mysql_real_escape_string($group['p2'])."' or `owner`='".mysql_real_escape_string($group['p3'])."' or `owner`='".mysql_real_escape_string($group['p4'])."')");
+            db_query("delete from `inventory` where `name`='Код от тайника'  AND (`owner`='".db_escape_string($group['p1'])."' or `owner`='".db_escape_string($group['p2'])."' or `owner`='".db_escape_string($group['p3'])."' or `owner`='".db_escape_string($group['p4'])."')");
+            db_query("delete from `inventory` where `name`='Болотный ключ'   AND (`owner`='".db_escape_string($group['p1'])."' or `owner`='".db_escape_string($group['p2'])."' or `owner`='".db_escape_string($group['p3'])."' or `owner`='".db_escape_string($group['p4'])."')");
           }
-          mysql_query("delete from `bol_group`  where `id`='".mysql_real_escape_string($group['id'])."'");
-          mysql_query("delete from `bol_chat`  where `group_id`='".mysql_real_escape_string($group['id'])."'");
-          mysql_query("delete from `vault_res`  where `id`='".mysql_real_escape_string($group['id'])."'");
-          //mysql_query("delete from `effects` where `type`='2' AND `owner`='".mysql_real_escape_string($group['p1'])."' or `owner`='".mysql_real_escape_string($group['p2'])."' or `owner`='".mysql_real_escape_string($group['p3'])."' or `owner`='".mysql_real_escape_string($group['p4'])."'");
-          mysql_query("update `users` set `anti_boloto`='".mysql_real_escape_string($now)."'+'18000', `room`='457', `boloto_groups`='0', `bol_uron`='0', `bol_zheton`='0', `bol_status`='0', `boloto_room`='0' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
-          mysql_query("UPDATE `online` SET `room`='457' WHERE `id`='".mysql_real_escape_string($user['id'])."'");
+          db_query("delete from `bol_group`  where `id`='".db_escape_string($group['id'])."'");
+          db_query("delete from `bol_chat`  where `group_id`='".db_escape_string($group['id'])."'");
+          db_query("delete from `vault_res`  where `id`='".db_escape_string($group['id'])."'");
+          //db_query("delete from `effects` where `type`='2' AND `owner`='".db_escape_string($group['p1'])."' or `owner`='".db_escape_string($group['p2'])."' or `owner`='".db_escape_string($group['p3'])."' or `owner`='".db_escape_string($group['p4'])."'");
+          db_query("update `users` set `anti_boloto`='".db_escape_string($now)."'+'18000', `room`='457', `boloto_groups`='0', `bol_uron`='0', `bol_zheton`='0', `bol_status`='0', `boloto_room`='0' where `id`='".db_escape_string($group['p1'])."' or `id`='".db_escape_string($group['p2'])."' or `id`='".db_escape_string($group['p3'])."' or `id`='".db_escape_string($group['p4'])."'");
+          db_query("UPDATE `online` SET `room`='457' WHERE `id`='".db_escape_string($user['id'])."'");
           echo"<script>location='trjasina_vxod.php'</script>";
         }
 
@@ -64,7 +64,7 @@
           $autor = $_POST['autor'];
           $group = $_POST['group'];
 
-          mysql_query("insert into `bol_chat` (`group_id`,`autor`,`text`) VALUES ('".mysql_real_escape_string($group)."','".mysql_real_escape_string($autor)."','".mysql_real_escape_string($text)."')");
+          db_query("insert into `bol_chat` (`group_id`,`autor`,`text`) VALUES ('".db_escape_string($group)."','".db_escape_string($autor)."','".db_escape_string($text)."')");
           echo"<script>location='trjasina.php'</script>";
         }
 
@@ -83,9 +83,9 @@
             $group1 = $_POST['group'];
             $exp = $group['level'] * 600;
             if($bol_res[$nomer] == 1){
-              mysql_query("update `users` set `exp`=`exp`+'".mysql_real_escape_string($exp)."',`doblest`=`doblest`+'10' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
-              mysql_query("update `vault_res` set `".mysql_real_escape_string($nomer)."`='0' where `id`='".mysql_real_escape_string($group1)."'");
-              mysql_query("delete from `inventory`  where `name`='Код от тайника' AND `type`='33' AND `owner`='".mysql_real_escape_string($user['id'])."' LIMIT 1");
+              db_query("update `users` set `exp`=`exp`+'".db_escape_string($exp)."',`doblest`=`doblest`+'10' where `id`='".db_escape_string($group['p1'])."' or `id`='".db_escape_string($group['p2'])."' or `id`='".db_escape_string($group['p3'])."' or `id`='".db_escape_string($group['p4'])."'");
+              db_query("update `vault_res` set `".db_escape_string($nomer)."`='0' where `id`='".db_escape_string($group1)."'");
+              db_query("delete from `inventory`  where `name`='Код от тайника' AND `type`='33' AND `owner`='".db_escape_string($user['id'])."' LIMIT 1");
               echo"Вы открыли тайник!";
               addchp ('<font color=blue>Внимание!!!</font> '.$user['login'].' открыл <b>тайник</b>! Все участники группы получили +<b>'.$exp.'</b> опыта; +<b>10</b> доблести!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
               addchp ('<font color=blue>Внимание!!!</font> '.$user['login'].' открыл <b>тайник</b>! Все участники группы получили +<b>'.$exp.'</b> опыта; +<b>10</b> доблести!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
@@ -134,7 +134,7 @@
 
               } elseif($shans == 4) {
                 $time = rand(60,300);
-                mysql_query("update `bol_group` set `game_time`=`game_time`+'".mysql_real_escape_string($time)."' where `id`='".mysql_real_escape_string($group1)."'");
+                db_query("update `bol_group` set `game_time`=`game_time`+'".db_escape_string($time)."' where `id`='".db_escape_string($group1)."'");
                 echo"Вы обнаружили в сундуке свиток времени, прочитав его вы продлили группе пребывание на болоте +".$time." секунд!";
                 addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Обнаружен свиток времени, прочитав его вы продлили группе пребывание на болоте +'.$time.' секунд!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
                 addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Обнаружен свиток времени, прочитав его вы продлили группе пребывание на болоте +'.$time.' секунд!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
@@ -142,7 +142,7 @@
                 addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Обнаружен свиток времени, прочитав его вы продлили группе пребывание на болоте +'.$time.' секунд!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
               } elseif($shans == 5) {
                 $kr = rand(1,20);
-                mysql_query("update `users` set `money`=`money`+'".mysql_real_escape_string($kr)."' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
+                db_query("update `users` set `money`=`money`+'".db_escape_string($kr)."' where `id`='".db_escape_string($group['p1'])."' or `id`='".db_escape_string($group['p2'])."' or `id`='".db_escape_string($group['p3'])."' or `id`='".db_escape_string($group['p4'])."'");
                 echo"В сундуке оказались деньги, все участники группы обагатились на +".$kr." КР!";
                 addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>В сундуке оказались деньги, все участники группы обагатились на +'.$kr.' кр!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
                 addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>В сундуке оказались деньги, все участники группы обагатились на +'.$kr.' кр!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
@@ -151,7 +151,7 @@
 
               } elseif($shans == 6) {
                 $exp = rand(1,3000);
-                mysql_query("update `users` set `exp`=`exp`+'".mysql_real_escape_string($exp)."' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
+                db_query("update `users` set `exp`=`exp`+'".db_escape_string($exp)."' where `id`='".db_escape_string($group['p1'])."' or `id`='".db_escape_string($group['p2'])."' or `id`='".db_escape_string($group['p3'])."' or `id`='".db_escape_string($group['p4'])."'");
                 echo"Тайные письмена... Вы рискнули прочесть их... Опыт всех участников группы увеличился на +".$exp."!";
                 addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук!! Обнаружено: <b>Тайные письмена... Вы рискнули прочесть их... Опыт всех участников группы увеличился на +'.$exp.'!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
                 addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Тайные письмена... Вы рискнули прочесть их... Опыт всех участников группы увеличился на +'.$exp.'!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
@@ -160,7 +160,7 @@
 
               } elseif($shans == 7) {
                 $patr = rand(1,2000);
-                mysql_query("update `users` set `doblest`=`doblest`+'".mysql_real_escape_string($patr)."' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
+                db_query("update `users` set `doblest`=`doblest`+'".db_escape_string($patr)."' where `id`='".db_escape_string($group['p1'])."' or `id`='".db_escape_string($group['p2'])."' or `id`='".db_escape_string($group['p3'])."' or `id`='".db_escape_string($group['p4'])."'");
                 echo"Вы обнаружили старую книгу. Перелестав страницы, Вы положили ее на место. Доблесть всех участников группы  +".$patr."!";
                 addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Вы обнаружили старую книгу. Перелестав страницы, Вы положили ее на место. Доблесть всех участников группы  +'.$patr.'!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
                 addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Вы обнаружили старую книгу. Перелестав страницы, Вы положили ее на место. Доблесть всех участников группы  +'.$patr.'!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
@@ -169,7 +169,7 @@
 
               } elseif($shans == 8) {
                 $ne4 = rand(1,10);
-                mysql_query("update `users` set `doblest`=`doblest`+'".mysql_real_escape_string($ne4)."' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
+                db_query("update `users` set `doblest`=`doblest`+'".db_escape_string($ne4)."' where `id`='".db_escape_string($group['p1'])."' or `id`='".db_escape_string($group['p2'])."' or `id`='".db_escape_string($group['p3'])."' or `id`='".db_escape_string($group['p4'])."'");
                 echo"Что??? Где? Черт возьми, что это было?? Доблесть +".$ne4."!";
                 addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Что??? Где? Черт возьми, что это было?? Доблесть +'.$ne4.'!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
                 addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Что??? Где? Черт возьми, что это было?? Доблесть +'.$ne4.'!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
@@ -180,8 +180,8 @@
                 $rand_gay = rand(30,40);
                 $kol = $rand_gay;
                 for($i=0; $i<$kol; $i++){
-                  $prizprohod = mysql_fetch_array(mysql_query("SELECT * FROM `shop` WHERE `id` = '856' LIMIT 1;"));
-                  mysql_query("INSERT INTO `inventory`
+                  $prizprohod = mysqli_fetch_array(db_query("SELECT * FROM `shop` WHERE `id` = '856' LIMIT 1;"));
+                  db_query("INSERT INTO `inventory`
                   (`prototype`,`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,
                   `gsila`,`glovk`,`ginta`,`gintel`,`ghp`,`gnoj`,`gtopor`,`gdubina`,`gmech`,`gfire`,`gwater`,`gair`,`gearth`,`glight`,`ggray`,`gdark`,`needident`,`nsila`,`nlovk`,`ninta`,`nintel`,`nmudra`,`nvinos`,`nnoj`,`ntopor`,`ndubina`,`nmech`,`nfire`,`nwater`,`nair`,`nearth`,`nlight`,`ngray`,`ndark`,
                   `mfkrit`,`mfakrit`,`mfuvorot`,`mfauvorot`,`bron1`,`bron2`,`bron3`,`bron4`,`maxu`,`minu`,`magic`,`nlevel`,`nalign`,`dategoden`,`goden`,`otdel`,`gmp`,`gmeshok`,`encicl`,`artefact`,`duration`
@@ -190,17 +190,17 @@
                   ('{$prizprohod['id']}','".$user['id']."','{$prizprohod['name']}','{$prizprohod['type']}',{$prizprohod['massa']},{$prizprohod['cost']},'{$prizprohod['img']}',{$prizprohod['maxdur']},{$prizprohod['isrep']},'{$prizprohod['gsila']}','{$prizprohod['glovk']}','{$prizprohod['ginta']}','{$prizprohod['gintel']}','{$prizprohod['ghp']}','{$prizprohod['gnoj']}','{$prizprohod['gtopor']}','{$prizprohod['gdubina']}','{$prizprohod['gmech']}','{$prizprohod['gfire']}','{$prizprohod['gwater']}','{$prizprohod['gair']}','{$prizprohod['gearth']}','{$prizprohod['glight']}','{$prizprohod['ggray']}','{$prizprohod['gdark']}','{$prizprohod['needident']}','{$prizprohod['nsila']}','{$prizprohod['nlovk']}','{$prizprohod['ninta']}','{$prizprohod['nintel']}','{$prizprohod['nmudra']}','{$prizprohod['nvinos']}','{$prizprohod['nnoj']}','{$prizprohod['ntopor']}','{$prizprohod['ndubina']}','{$prizprohod['nmech']}','{$prizprohod['nfire']}','{$prizprohod['nwater']}','{$prizprohod['nair']}','{$prizprohod['nearth']}','{$prizprohod['nlight']}','{$prizprohod['ngray']}','{$prizprohod['ndark']}',
                   '{$prizprohod['mfkrit']}','{$prizprohod['mfakrit']}','{$prizprohod['mfuvorot']}','{$prizprohod['mfauvorot']}','{$prizprohod['bron1']}','{$prizprohod['bron3']}','{$prizprohod['bron2']}','{$prizprohod['bron4']}','{$prizprohod['maxu']}','{$prizprohod['minu']}','{$prizprohod['magic']}','{$prizprohod['nlevel']}','{$prizprohod['nalign']}','".(($prizprohod['goden'])?($prizprohod['goden']*24*60*60+time()):"")."','{$prizprohod['goden']}','{$prizprohod['razdel']}','{$prizprohod['gmp']}','{$prizprohod['gmeshok']}','{$prizprohod['encicl']}','{$prizprohod['artefact']}','{$dur}'
                   ) ;");
-                  mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$user['id']."','\"".$user['login']."\" получил, открыв сундук в болоте: \"".$prizprohod['name']."\" ".$prizprohodcount."id:(".$prizprohodid.") [0/".$prizprohod['maxdur']."]',1,'".time()."');");
+                  db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$user['id']."','\"".$user['login']."\" получил, открыв сундук в болоте: \"".$prizprohod['name']."\" ".$prizprohodcount."id:(".$prizprohodid.") [0/".$prizprohod['maxdur']."]',1,'".time()."');");
 
                 }
               } elseif($shans == 9) {
                 $lose = rand(1,25);
                 $vsego = $user['lose'] - $lose;
                 if ($vsego <= 0){
-                  mysql_query("update `users` set `lose`='0' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
+                  db_query("update `users` set `lose`='0' where `id`='".db_escape_string($group['p1'])."' or `id`='".db_escape_string($group['p2'])."' or `id`='".db_escape_string($group['p3'])."' or `id`='".db_escape_string($group['p4'])."'");
                   echo"В сундуке вы обнаружили свиток очищения. У всех участников группы списано  -".$lose." поражений!";
                 } else {
-                  mysql_query("update `users` set `lose`=`lose`-'".mysql_real_escape_string($lose)."' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
+                  db_query("update `users` set `lose`=`lose`-'".db_escape_string($lose)."' where `id`='".db_escape_string($group['p1'])."' or `id`='".db_escape_string($group['p2'])."' or `id`='".db_escape_string($group['p3'])."' or `id`='".db_escape_string($group['p4'])."'");
                   echo"В сундуке вы обнаружили свиток очищения. У всех участников группы списано  -".$lose." поражений!";
                 }
                 addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Cвиток очищения. У всех участников группы списано  -'.$lose.' поражений!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
@@ -210,8 +210,8 @@
 
               }
 
-              mysql_query("update `vault_res` set `".mysql_real_escape_string($nomer)."`='0' where `id`='".mysql_real_escape_string($group1)."'");
-              mysql_query("delete from `inventory`  where `name`='Болотный ключ' AND `type`='33' AND `owner`='".mysql_real_escape_string($user['id'])."' LIMIT 1");
+              db_query("update `vault_res` set `".db_escape_string($nomer)."`='0' where `id`='".db_escape_string($group1)."'");
+              db_query("delete from `inventory`  where `name`='Болотный ключ' AND `type`='33' AND `owner`='".db_escape_string($user['id'])."' LIMIT 1");
             } else {
               echo"Этот сундук открыт!";
             }
@@ -226,8 +226,8 @@
         ///купить времени
         if ($_POST['buytime']){
           $group = $_POST['group'];
-          mysql_query("update `users` set `ekr`=`ekr`-'1' where `id`='".mysql_real_escape_string($user['id'])."'");
-          mysql_query("update `bol_group` set `game_time`=`game_time`+'180' where `id`='".mysql_real_escape_string($group)."'");
+          db_query("update `users` set `ekr`=`ekr`-'1' where `id`='".db_escape_string($user['id'])."'");
+          db_query("update `bol_group` set `game_time`=`game_time`+'180' where `id`='".db_escape_string($group)."'");
           echo"Вы купили +3 минуты времени для своей группы!";
           echo"<script>location='trjasina.php'</script>";
         }
@@ -235,9 +235,9 @@
         ///купить ключ
         if ($_POST['buykey']){
           $group = $_POST['group'];
-          mysql_query("update `users` set `bol_zheton`=`bol_zheton`-'10' where `id`='".mysql_real_escape_string($user['id'])."'");
-          mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`)
-          VALUES('".mysql_real_escape_string($user['id'])."','Болотный ключ','33','0','0','bol_key.gif','1') ;");
+          db_query("update `users` set `bol_zheton`=`bol_zheton`-'10' where `id`='".db_escape_string($user['id'])."'");
+          db_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`)
+          VALUES('".db_escape_string($user['id'])."','Болотный ключ','33','0','0','bol_key.gif','1') ;");
           echo"Вы обменяли жетоны на болотный ключ!";
           echo"<script>location='trjasina.php'</script>";
         }
@@ -246,9 +246,9 @@
         ///купить код
         if ($_POST['buykod']){
           $group = $_POST['group'];
-          mysql_query("delete from `inventory`  where `name`='Болотный ключ' AND `type`='33' AND `owner`='".mysql_real_escape_string($user['id'])."' LIMIT 5");
-          mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`)
-          VALUES('".mysql_real_escape_string($user['id'])."','Код от тайника','33','0','0','bol_kod.gif','1') ;");
+          db_query("delete from `inventory`  where `name`='Болотный ключ' AND `type`='33' AND `owner`='".db_escape_string($user['id'])."' LIMIT 5");
+          db_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`)
+          VALUES('".db_escape_string($user['id'])."','Код от тайника','33','0','0','bol_kod.gif','1') ;");
           echo"Вы обменяли ключи на код от тайника!";
           echo"<script>location='trjasina.php'</script>";
         }
@@ -269,38 +269,38 @@
               if ($user['hp'] <= 5) {
                 echo '<font color=red><b>Слишком мало ХП для нападения!</b></forn>';
               } else {
-                mysql_query("delete from `inventory` where `name`='Гайка Сталкера' AND `owner`='".$user['id']."' LIMIT 1");
-                $bot_stat = mysql_fetch_array(mysql_query("SELECT `id`,`maxhp`,`level`,`bot_type` FROM `users` WHERE `login` = '".mysql_real_escape_string($bot_login)."' LIMIT 1;"));
+                db_query("delete from `inventory` where `name`='Гайка Сталкера' AND `owner`='".$user['id']."' LIMIT 1");
+                $bot_stat = mysqli_fetch_array(db_query("SELECT `id`,`maxhp`,`level`,`bot_type` FROM `users` WHERE `login` = '".db_escape_string($bot_login)."' LIMIT 1;"));
 
-                mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".mysql_real_escape_string($bot_login)."','".mysql_real_escape_string($bot_stat['id'])."','','".mysql_real_escape_string($bot_stat['maxhp'])."');");
-                $bot = mysql_insert_id();
+                db_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".db_escape_string($bot_login)."','".db_escape_string($bot_stat['id'])."','','".db_escape_string($bot_stat['maxhp'])."');");
+                $bot = db_insert_id();
                 $teams = array();
 
                 $teams[$user['id']][$bot] = array(0,0,time());
                 $teams[$bot][$user['id']] = array(0,0,time());
 
-                mysql_query("INSERT INTO `battle`
+                db_query("INSERT INTO `battle`
                 (
                 `id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`,`protivnik`,`protivnik_type`
                 )
                 VALUES
                 (
-                NULL,'','".mysql_real_escape_string(serialize($teams))."','3','1','0','".mysql_real_escape_string($user['id'])."','".mysql_real_escape_string($bot)."','".time()."','".time()."','".mysql_real_escape_string($bot_login)."','".mysql_real_escape_string($bot_type)."'
+                NULL,'','".db_escape_string(serialize($teams))."','3','1','0','".db_escape_string($user['id'])."','".db_escape_string($bot)."','".time()."','".time()."','".db_escape_string($bot_login)."','".db_escape_string($bot_type)."'
                 )");
 
-                $id = mysql_insert_id();
+                $id = db_insert_id();
 
                 // апдейтим бота
-                mysql_query("UPDATE `bots` SET `battle` = '".mysql_real_escape_string($id)."' WHERE `id` = '".mysql_real_escape_string($bot)."' LIMIT 1;");
+                db_query("UPDATE `bots` SET `battle` = '".db_escape_string($id)."' WHERE `id` = '".db_escape_string($bot)."' LIMIT 1;");
 
                 // создаем лог
                 $rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($bot)."</b>";
 
-                //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
+                //db_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
                 addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
 
 
-                mysql_query("UPDATE users SET `bol_boss_type`='".$bot_type."', `battle` = '".mysql_real_escape_string($id)."',`zayavka`=0 WHERE `id`= '".mysql_real_escape_string($user['id'])."';");
+                db_query("UPDATE users SET `bol_boss_type`='".$bot_type."', `battle` = '".db_escape_string($id)."',`zayavka`=0 WHERE `id`= '".db_escape_string($user['id'])."';");
 
                 $_SESSION['boloto_kill_mob'] = 1;
 
@@ -353,42 +353,42 @@
               } else {
                 if ($boss != -1) { // выбран ли босс
                   // проверяем живой ли босс
-                  $_temp = mysql_fetch_array(mysql_query('SELECT  `vault_res`.`'. $boss .'` as boss  FROM  `vault_res` INNER JOIN  `users` ON  `users`.`boloto_groups` = `vault_res`.`id`  WHERE  `users`.`id` = '.mysql_real_escape_string($user['id']) .' LIMIT 1;'));
+                  $_temp = mysqli_fetch_array(db_query('SELECT  `vault_res`.`'. $boss .'` as boss  FROM  `vault_res` INNER JOIN  `users` ON  `users`.`boloto_groups` = `vault_res`.`id`  WHERE  `users`.`id` = '.db_escape_string($user['id']) .' LIMIT 1;'));
                   $is_live_boss = $_temp['boss'];
                   if ($is_live_boss == '1') {
 
-                    mysql_query("delete from `inventory` where `name`='Гайка Сталкера' AND `owner`='".$user['id']."' LIMIT 1");
-                    $bot_stat = mysql_fetch_array(mysql_query("SELECT `id`,`maxhp`,`level`,`bot_type` FROM `users` WHERE `login` = '".mysql_real_escape_string($bot_login)."' LIMIT 1;"));
+                    db_query("delete from `inventory` where `name`='Гайка Сталкера' AND `owner`='".$user['id']."' LIMIT 1");
+                    $bot_stat = mysqli_fetch_array(db_query("SELECT `id`,`maxhp`,`level`,`bot_type` FROM `users` WHERE `login` = '".db_escape_string($bot_login)."' LIMIT 1;"));
 
-                    mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".mysql_real_escape_string($bot_login)."','".mysql_real_escape_string($bot_stat['id'])."','','".mysql_real_escape_string($bot_stat['maxhp'])."');");
-                    $bot = mysql_insert_id();
+                    db_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".db_escape_string($bot_login)."','".db_escape_string($bot_stat['id'])."','','".db_escape_string($bot_stat['maxhp'])."');");
+                    $bot = db_insert_id();
                     $teams = array();
 
                     $teams[$user['id']][$bot] = array(0,0,time());
                     $teams[$bot][$user['id']] = array(0,0,time());
 
-                    mysql_query("INSERT INTO `battle`
+                    db_query("INSERT INTO `battle`
                     (
                     `id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`,`protivnik`,`protivnik_type`
                     )
                     VALUES
                     (
-                    NULL,'','".mysql_real_escape_string(serialize($teams))."','3','1','0','".mysql_real_escape_string($user['id'])."','".mysql_real_escape_string($bot)."','".time()."','".time()."','".mysql_real_escape_string($bot_login)."','".mysql_real_escape_string($bot_type)."'
+                    NULL,'','".db_escape_string(serialize($teams))."','3','1','0','".db_escape_string($user['id'])."','".db_escape_string($bot)."','".time()."','".time()."','".db_escape_string($bot_login)."','".db_escape_string($bot_type)."'
                     )");
 
-                    $id = mysql_insert_id();
+                    $id = db_insert_id();
 
                     // апдейтим бота
-                    mysql_query("UPDATE `bots` SET `battle` = '".mysql_real_escape_string($id)."' WHERE `id` = '".mysql_real_escape_string($bot)."' LIMIT 1;");
+                    db_query("UPDATE `bots` SET `battle` = '".db_escape_string($id)."' WHERE `id` = '".db_escape_string($bot)."' LIMIT 1;");
 
                     // создаем лог
                     $rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($bot)."</b>";
 
-                    //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
+                    //db_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
                     addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
 
 
-                    mysql_query("UPDATE users SET `bol_boss_type`='".$bot_type."', `battle` = '".mysql_real_escape_string($id)."',`zayavka`=0 WHERE `id`= '".mysql_real_escape_string($user['id'])."';");
+                    db_query("UPDATE users SET `bol_boss_type`='".$bot_type."', `battle` = '".db_escape_string($id)."',`zayavka`=0 WHERE `id`= '".db_escape_string($user['id'])."';");
 
                     die("<script type='text/javascript'>window.location.href='fbattle.php';</script>");
                   }
@@ -409,7 +409,7 @@
           if ($user['boloto_move'] == 1) {
             $msg = "Вы уже перемещаетесь!";
           } else {
-            $GoInfo = mysql_fetch_array(mysql_query("SELECT * FROM `vault` WHERE id='".mysql_real_escape_string($VaultInfo[$GoIn.'_id'])."'"));
+            $GoInfo = mysqli_fetch_array(db_query("SELECT * FROM `vault` WHERE id='".db_escape_string($VaultInfo[$GoIn.'_id'])."'"));
 
             if ($GoInfo['id']) {
               $_SESSION['boloto_kill_mob'] = 0;
@@ -418,8 +418,8 @@
               $user['boloto_room'] = $GoInfo['id'];
               $user['boloto_move'] = 1;
 
-              mysql_query("UPDATE `users` SET `boloto_room`='".mysql_real_escape_string($GoInfo['id'])."', `boloto_time`='".mysql_real_escape_string($user['boloto_time'])."', `boloto_move`='1' WHERE `id`='".mysql_real_escape_string($user['id'])."'");
-              mysql_query("UPDATE `online` SET room='".mysql_real_escape_string($GoInfo['id'])."' WHERE `id`='".mysql_real_escape_string($user['id'])."'");
+              db_query("UPDATE `users` SET `boloto_room`='".db_escape_string($GoInfo['id'])."', `boloto_time`='".db_escape_string($user['boloto_time'])."', `boloto_move`='1' WHERE `id`='".db_escape_string($user['id'])."'");
+              db_query("UPDATE `online` SET room='".db_escape_string($GoInfo['id'])."' WHERE `id`='".db_escape_string($user['id'])."'");
               $_ROOM['TO_CHANGE'] = $user['boloto_room'];
 
               $GoToText = "Переходим...";
@@ -431,7 +431,7 @@
 
           if ($user['boloto_time']-2 < $now) {
 
-            mysql_query("UPDATE `users` SET room=boloto_room, boloto_room=boloto_room, boloto_time=0, boloto_move=0 WHERE id='".mysql_real_escape_string($user['id'])."'");
+            db_query("UPDATE `users` SET room=boloto_room, boloto_room=boloto_room, boloto_time=0, boloto_move=0 WHERE id='".db_escape_string($user['id'])."'");
 
             $_ROOM['TO_CHANGE'] = $user['boloto_room'];
             //include("../config/rooms.php");
@@ -446,7 +446,7 @@
             //-->
             </SCRIPT>
             ";
-            mysql_query("UPDATE `online` SET room=boloto_room WHERE `id`='".mysql_real_escape_string($user['id'])."'");
+            db_query("UPDATE `online` SET room=boloto_room WHERE `id`='".db_escape_string($user['id'])."'");
             exit;
           }
         }
@@ -591,10 +591,10 @@
           <INPUT class=input TYPE=submit name=bal value=Обменять!>';
         }
         $mesto = 1;
-        $data = mysql_query("SELECT * FROM `bol_group` where `status`='1' AND `id`='".mysql_real_escape_string($user['boloto_groups'])."'  ORDER by `id` DESC; ");
-        while ($row = mysql_fetch_array($data)) {
-          $QUER=mysql_query("SELECT login,level,bol_status,bol_uron,bol_zheton,id FROM users WHERE boloto_groups='".mysql_real_escape_string($row[id])."' ORDER BY id ASC");
-          while ($DATAS=mysql_fetch_array($QUER)){
+        $data = db_query("SELECT * FROM `bol_group` where `status`='1' AND `id`='".db_escape_string($user['boloto_groups'])."'  ORDER by `id` DESC; ");
+        while ($row = mysqli_fetch_array($data)) {
+          $QUER=db_query("SELECT login,level,bol_status,bol_uron,bol_zheton,id FROM users WHERE boloto_groups='".db_escape_string($row[id])."' ORDER BY id ASC");
+          while ($DATAS=mysqli_fetch_array($QUER)){
             $zz = $mesto++;
             $p1=$DATAS["login"];
             $p_login=$DATAS["login"];
@@ -603,8 +603,8 @@
             $zeton=$DATAS["bol_zheton"];
             $id=$DATAS["id"];
 
-            $key=mysql_query("select `name` from `inventory` where `owner`='".mysql_real_escape_string($id)."' AND `type`='33' AND `name`='Болотный ключ'");
-            $key_kol = mysql_num_rows($key);
+            $key=db_query("select `name` from `inventory` where `owner`='".db_escape_string($id)."' AND `type`='33' AND `name`='Болотный ключ'");
+            $key_kol = mysqli_num_rows($key);
 
             if($p1!=""){
               echo"$zz. <b>$p1</b> [$p_lvl]<a href='inf.php?login=$p1' target='_blank'><img src='i/inf.gif' border=0></a> <small>У: <b>$uron</b> * Ж: <b>$zeton</b> * К: <b>$key_kol</b></small><br>";
@@ -615,8 +615,8 @@
         }
 
         echo"<center><small><b>ЧАТ:</b></small></center>";
-        $data = mysql_query("SELECT * FROM `bol_chat` where `group_id`='".$user[boloto_groups]."' ORDER by `id` DESC LIMIT 5");
-        while($row = mysql_fetch_array($data)) {
+        $data = db_query("SELECT * FROM `bol_chat` where `group_id`='".$user[boloto_groups]."' ORDER by `id` DESC LIMIT 5");
+        while($row = mysqli_fetch_array($data)) {
           echo"<small><b>$row[autor]</b>: <font color=black>$row[text]</font></small><br>";
         }
       ?>
@@ -688,12 +688,12 @@
 
         <b>Местность</b><HR color=silver>";
         //-------------ВЫБЕРАЕМ РЕСУРСЫ ГРУППЫ---------/
-        $bol_res=mysql_fetch_array(mysql_query("select * from `vault_res` where `id`='".mysql_real_escape_string($user['boloto_groups'])."'"));
-        $key=mysql_query("select `name` from `inventory` where `owner`='".mysql_real_escape_string($user['id'])."' AND `type`='33' AND `name`='Болотный ключ'");
-        $key_kol = mysql_num_rows($key);
+        $bol_res=mysqli_fetch_array(db_query("select * from `vault_res` where `id`='".db_escape_string($user['boloto_groups'])."'"));
+        $key=db_query("select `name` from `inventory` where `owner`='".db_escape_string($user['id'])."' AND `type`='33' AND `name`='Болотный ключ'");
+        $key_kol = mysqli_num_rows($key);
 
-        $kod=mysql_query("select `name` from `inventory` where `owner`='".mysql_real_escape_string($user['id'])."' AND `type`='33' AND `name`='Код от тайника'");
-        $kod_kol = mysql_num_rows($kod);
+        $kod=db_query("select `name` from `inventory` where `owner`='".db_escape_string($user['id'])."' AND `type`='33' AND `name`='Код от тайника'");
+        $kod_kol = mysqli_num_rows($kod);
         /*---- Module ----*/
         ////////////////
         if ($user['room'] == 2027){
@@ -754,9 +754,9 @@
                 $mob_type=2002;
               }
 
-              $bot_list = mysql_query("SELECT * FROM `users` WHERE `bot`='1' AND `id`='".mysql_real_escape_string($mob_id)."' AND `bot_type`='".mysql_real_escape_string($mob_type)."'");
+              $bot_list = db_query("SELECT * FROM `users` WHERE `bot`='1' AND `id`='".db_escape_string($mob_id)."' AND `bot_type`='".db_escape_string($mob_type)."'");
 
-              while ($bot_nick=mysql_fetch_assoc($bot_list)) {
+              while ($bot_nick=mysqli_fetch_assoc($bot_list)) {
                 $in_attack = 'onclick=\'if (confirm("Нападаем?")) window.location="trjasina.php?level=train&atakbot=1&bot_login='.$bot_nick['login'].'&bot_type='.$bot_nick['bot_type'].'"\' style=\'cursor: Hand; cursor: pointer;\' alt=\'Нападение\'';
                 echo '
 
@@ -789,9 +789,9 @@
 
             if($bol_res[$boss] == 1) {
 
-              $bot_list = mysql_query("SELECT * FROM `users` WHERE `bot`='1' AND `room`='".mysql_real_escape_string($user['room'])."' AND (`bot_type`='2003' OR `bot_type`='2004' OR `bot_type`='2005' OR `bot_type`='2006' OR `bot_type`='2007' OR `bot_type`='2008')");
+              $bot_list = db_query("SELECT * FROM `users` WHERE `bot`='1' AND `room`='".db_escape_string($user['room'])."' AND (`bot_type`='2003' OR `bot_type`='2004' OR `bot_type`='2005' OR `bot_type`='2006' OR `bot_type`='2007' OR `bot_type`='2008')");
 
-              while ($bot_nick=mysql_fetch_assoc($bot_list)) {
+              while ($bot_nick=mysqli_fetch_assoc($bot_list)) {
                 $in_attack = 'onclick=\'if (confirm("Нападаем?")) window.location="trjasina.php?level=train&atakbot1=1&bot_login='.$bot_nick['login'].'&bot_type='.$bot_nick['bot_type'].'"\' style=\'cursor: Hand; cursor: pointer;\' alt=\'Нападение\'';
                 echo '
 

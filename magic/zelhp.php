@@ -33,9 +33,9 @@ if ($user['battle'] > 0) {
 
     $user["hp"]=min($user["hp"]+$deltahp, $user["maxhp"]);
     $user["mana"]=min($user["mana"]+$deltamana, $user["maxmana"]);
-    //mysql_query("UPDATE `users` SET ".$plhp." WHERE `id` = ".$user['id']."");
-    //mysql_query("UPDATE `users` SET `mana` = `maxmana`, `fullmptime` = ".time()." WHERE  `mana` > `maxmana` AND `id` = '".$user['id']."' LIMIT 1;");
-    //mysql_query("UPDATE `users` SET `hp` = `hp`, `fullhptime` = ".time()." WHERE  `hp` > `maxhp` AND `id` = '".$user['id']."' LIMIT 1;");
+    //db_query("UPDATE `users` SET ".$plhp." WHERE `id` = ".$user['id']."");
+    //db_query("UPDATE `users` SET `mana` = `maxmana`, `fullmptime` = ".time()." WHERE  `mana` > `maxmana` AND `id` = '".$user['id']."' LIMIT 1;");
+    //db_query("UPDATE `users` SET `hp` = `hp`, `fullhptime` = ".time()." WHERE  `hp` > `maxhp` AND `id` = '".$user['id']."' LIMIT 1;");
 
     $bet=1;
   } elseif ($deltahp) echo "Вы и так здоровы.";

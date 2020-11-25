@@ -3,8 +3,8 @@
 	session_start();
 	if (!($_SESSION['uid'] > 0)) header("Location: index.php");
 	include "connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT `align`,`id`,`level`,`login`,`money`,`room`,`weap`,`battle`,`zayavka`,`pole_kopka_kol_now`,`pole_kopka_kol_bonus`,`pole_kopka_update`,`pole_kopka_min`,`pole_kopka_max`,`pole_kopka_kol_all`,`pole_kopka_present`,`pole_kopka_last_visit` FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
-    $pole_time=mysql_fetch_array(mysql_query("SELECT * FROM `variables` WHERE var='pole_random';"));
+	$user = mysqli_fetch_array(db_query("SELECT `align`,`id`,`level`,`login`,`money`,`room`,`weap`,`battle`,`zayavka`,`pole_kopka_kol_now`,`pole_kopka_kol_bonus`,`pole_kopka_update`,`pole_kopka_min`,`pole_kopka_max`,`pole_kopka_kol_all`,`pole_kopka_present`,`pole_kopka_last_visit` FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $pole_time=mysqli_fetch_array(db_query("SELECT * FROM `variables` WHERE var='pole_random';"));
 	$tp=time();
 	include "functions.php";
 	if ($user['room'] != 58) { header("Location: main.php");  die(); } 
@@ -24,7 +24,7 @@
             $_SESSION['pole_kopka_access'] = true;
         }
         // обновляем при каждой перезагрузке, чтобы были данные в случае, если закроет браузер
-        mysql_query("UPDATE users SET pole_kopka_last_visit = " . time() . " WHERE id = " . $user['id']);
+        db_query("UPDATE users SET pole_kopka_last_visit = " . time() . " WHERE id = " . $user['id']);
     }
     
     //if ($user['id'] == 7) {
@@ -33,16 +33,16 @@
             // за каждые 100 в рюкзак лопату новичка
             if ($user['pole_kopka_present'] != $user['pole_kopka_kol_bonus']) {
                 if (is_integer($user['pole_kopka_kol_bonus'] / 100)) {
-                    mysql_query("INSERT INTO `inventory` (`name`,`type`,`duration`,`maxdur`,`owner`,`img`,`present`,`isrep`) VALUES ('Копалка новичка','3','0','20','".$user['id']."','kopalka1.gif','Мусорщик','0')");
+                    db_query("INSERT INTO `inventory` (`name`,`type`,`duration`,`maxdur`,`owner`,`img`,`present`,`isrep`) VALUES ('Копалка новичка','3','0','20','".$user['id']."','kopalka1.gif','Мусорщик','0')");
                     addchp("<font color=\"Black\">private [" . $user['login'] . "]  Внимание! За 100 бонусных копок, Вы получили копалку. Осмотрите Ваш инвентарь.</font>", "Комментатор");
-                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" получил Копалку новичка за 100 бонусных копок',1,'".time()."');") or die(mysql_error());
+                    db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" получил Копалку новичка за 100 бонусных копок',1,'".time()."');") or die(db_error());
                 }
                 if (is_integer($user['pole_kopka_kol_bonus'] / 200)) {
-                    mysql_query("update `bank` set `ekr`=`ekr`+'2' where `owner`='" . $user['id'] . "' LIMIT 1;");
+                    db_query("update `bank` set `ekr`=`ekr`+'2' where `owner`='" . $user['id'] . "' LIMIT 1;");
                     addchp("<font color=\"Black\">private [" . $user['login'] . "]  Внимание! За 200 бонусных копок, Вы получили бонус в размере 2 екр, которые зачисленны на Ваш счет в банке.</font>", "Комментатор");
-                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" получил 2 екр за 200 бонусных копок',1,'".time()."');") or die(mysql_error());
+                    db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" получил 2 екр за 200 бонусных копок',1,'".time()."');") or die(db_error());
                 }
-                mysql_query('UPDATE users SET pole_kopka_present = ' . $user['pole_kopka_kol_bonus'] . ' WHERE id = ' . $user['id']) or die(mysql_error());
+                db_query('UPDATE users SET pole_kopka_present = ' . $user['pole_kopka_kol_bonus'] . ' WHERE id = ' . $user['id']) or die(db_error());
             } 
         }
     //}
@@ -90,7 +90,7 @@ echo "
 <?
 if($_POST['bonuskopka']){
  if($user['money'] >= 2){
-mysql_query("update `users` set `pole_kopka_kol_bonus`=`pole_kopka_kol_bonus`+'1',`pole_kopka_kol_now`=`pole_kopka_kol_now`+'1',`pole_kopka_kol_all`=`pole_kopka_kol_all`+'1',`money`=`money`-'2' where `id`='".$user['id']."'");
+db_query("update `users` set `pole_kopka_kol_bonus`=`pole_kopka_kol_bonus`+'1',`pole_kopka_kol_now`=`pole_kopka_kol_now`+'1',`pole_kopka_kol_all`=`pole_kopka_kol_all`+'1',`money`=`money`-'2' where `id`='".$user['id']."'");
 $user['pole_kopka_kol_now'] += 1;
 echo"Вы купили +1 доп. копку!";
 }else{echo"Не достаточно кр!";}
@@ -98,45 +98,45 @@ echo"Вы купили +1 доп. копку!";
 
 if($_POST['x3']){
  if($user['money'] >= 45){
-mysql_query("update `users` set `pole_kopka_update`='3',`pole_kopka_min`=`pole_kopka_min`*'3',`pole_kopka_max`=`pole_kopka_max`*'3',`money`=`money`-'45' where `id`='".$user['id']."'");
+db_query("update `users` set `pole_kopka_update`='3',`pole_kopka_min`=`pole_kopka_min`*'3',`pole_kopka_max`=`pole_kopka_max`*'3',`money`=`money`-'45' where `id`='".$user['id']."'");
 echo"Вы улучшили глубину х3!";
 }else{echo"Не достаточно кр!";}
 }
 
 if($_POST['x5']){
  if($user['money'] >= 110){
-mysql_query("update `users` set `pole_kopka_update`='5',`pole_kopka_min`=`pole_kopka_min`*'5',`pole_kopka_max`=`pole_kopka_max`*'5',`money`=`money`-'110' where `id`='".$user['id']."'");
+db_query("update `users` set `pole_kopka_update`='5',`pole_kopka_min`=`pole_kopka_min`*'5',`pole_kopka_max`=`pole_kopka_max`*'5',`money`=`money`-'110' where `id`='".$user['id']."'");
 echo"Вы улучшили глубину х5!";
 }else{echo"Не достаточно кр!";}
 }
 
 if($_POST['x2']){
  if($user['money'] >= 20){
-mysql_query("update `users` set `pole_kopka_update`='2',`pole_kopka_min`=`pole_kopka_min`*'2',`pole_kopka_max`=`pole_kopka_max`*'2',`money`=`money`-'20' where `id`='".$user['id']."'");
+db_query("update `users` set `pole_kopka_update`='2',`pole_kopka_min`=`pole_kopka_min`*'2',`pole_kopka_max`=`pole_kopka_max`*'2',`money`=`money`-'20' where `id`='".$user['id']."'");
 echo"Вы улучшили глубину х2!";
 }else{echo"Не достаточно кр!";}
 }
 
 if($_POST['buy1']){
     if($user['money'] >= 5){
-           $lopata = mysql_fetch_array(mysql_query("select `name` from `inventory` where `owner`='".$user['id']."' AND (`name`='Копалка новичка' OR `name`='Копалка мастера')"));
+           $lopata = mysqli_fetch_array(db_query("select `name` from `inventory` where `owner`='".$user['id']."' AND (`name`='Копалка новичка' OR `name`='Копалка мастера')"));
  if(!$lopata){
-mysql_query("INSERT INTO `inventory` (`name`,`type`,`duration`,`maxdur`,`owner`,`img`,`present`,`isrep`) VALUES ('Копалка новичка','3','0','20','".$user['id']."','kopalka1.gif','Мусорщик','0')");
-mysql_query("UPDATE `users` set `money`=`money`-'5',`pole_kopka_kol_now`='7',`pole_kopka_kol_all`='7',`pole_kopka_min`='5',`pole_kopka_max`='14',`pole_kopka_kol_bonus`='0',`pole_kopka_update`='0' where `id`='".$user['id']."'");
+db_query("INSERT INTO `inventory` (`name`,`type`,`duration`,`maxdur`,`owner`,`img`,`present`,`isrep`) VALUES ('Копалка новичка','3','0','20','".$user['id']."','kopalka1.gif','Мусорщик','0')");
+db_query("UPDATE `users` set `money`=`money`-'5',`pole_kopka_kol_now`='7',`pole_kopka_kol_all`='7',`pole_kopka_min`='5',`pole_kopka_max`='14',`pole_kopka_kol_bonus`='0',`pole_kopka_update`='0' where `id`='".$user['id']."'");
 echo"Вы купили копалку новичка!";
-mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" купил Копалку новичка за 5 кр',1,'".time()."');");
+db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" купил Копалку новичка за 5 кр',1,'".time()."');");
 }else{echo"У Вас уже есть копалка! Для начала необходимо выбросить старую!";}
 }else{echo"У вас не хватает кр!";}
 }
 
 if($_POST['buy2']){
     if($user['money'] >= 10){
-           $lopata = mysql_fetch_array(mysql_query("select `name` from `inventory` where `owner`='".$user['id']."' AND (`name`='Копалка новичка' OR `name`='Копалка мастера')"));
+           $lopata = mysqli_fetch_array(db_query("select `name` from `inventory` where `owner`='".$user['id']."' AND (`name`='Копалка новичка' OR `name`='Копалка мастера')"));
  if(!$lopata){
-mysql_query("INSERT INTO `inventory` (`name`,`type`,`duration`,`maxdur`,`owner`,`img`,`present`,`isrep`) VALUES ('Копалка мастера','3','0','40','".$user['id']."','kopalka2.gif','Мусорщик','0')");
-mysql_query("UPDATE `users` set `money`=`money`-'10',`pole_kopka_kol_now`='9',`pole_kopka_kol_all`='9',`pole_kopka_min`='8',`pole_kopka_max`='19',`pole_kopka_kol_bonus`='0',`pole_kopka_update`='0' where `id`='".$user['id']."'");
+db_query("INSERT INTO `inventory` (`name`,`type`,`duration`,`maxdur`,`owner`,`img`,`present`,`isrep`) VALUES ('Копалка мастера','3','0','40','".$user['id']."','kopalka2.gif','Мусорщик','0')");
+db_query("UPDATE `users` set `money`=`money`-'10',`pole_kopka_kol_now`='9',`pole_kopka_kol_all`='9',`pole_kopka_min`='8',`pole_kopka_max`='19',`pole_kopka_kol_bonus`='0',`pole_kopka_update`='0' where `id`='".$user['id']."'");
 echo"Вы купили копалку мастера!";
-mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" купил Копалку мастера за 10 кр',1,'".time()."');");
+db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" купил Копалку мастера за 10 кр',1,'".time()."');");
 }else{echo"У Вас уже есть копалка! Для начала необходимо выбросить старую!";}
 }else{echo"У вас не хватает кр!";}
 }
@@ -162,31 +162,31 @@ elseif($rand == 7 || $rand == 8 || $rand == 9){$h = 0;}
 $hh = $h * $hrand;
 $h = $h + $hh;
 
-mysql_query("UPDATE `pole` set `type`='".$rand."',`heals`='".$h."',`ekr`='".$rekrr."' where `id`='".$i."'");
+db_query("UPDATE `pole` set `type`='".$rand."',`heals`='".$h."',`ekr`='".$rekrr."' where `id`='".$i."'");
 }
 }
 
 
 if($_POST['view']){
-      $id = mysql_real_escape_string($_POST['id']) ;
-      $now_water = mysql_fetch_array(mysql_query("select `type` from `pole` where `id`='".$id."'"));
+      $id = db_escape_string($_POST['id']) ;
+      $now_water = mysqli_fetch_array(db_query("select `type` from `pole` where `id`='".$id."'"));
       if($now_water['type'] != 0){
       
-     $lopata = mysql_fetch_array(mysql_query("select `name` from `inventory` where `owner`='".$user['id']."' AND `dressed`='1' AND (`name`='Копалка новичка' OR `name`='Копалка мастера')"));
+     $lopata = mysqli_fetch_array(db_query("select `name` from `inventory` where `owner`='".$user['id']."' AND `dressed`='1' AND (`name`='Копалка новичка' OR `name`='Копалка мастера')"));
      if($lopata['name']){
-mysql_query("update `pole` set `type`='0' where `id`='".$id."'");
+db_query("update `pole` set `type`='0' where `id`='".$id."'");
 $randview = rand(1,5);
 $randkr = rand(1,150)/10;
 $randizn = rand(1,4);
 if($randview == 1 || $randview == 2 || $randview == 3){
-mysql_query("update `users` set `money`=`money`+'".$randkr."' where `id`='".$user['id']."'");
+db_query("update `users` set `money`=`money`+'".$randkr."' where `id`='".$user['id']."'");
 echo"Вы достали из воды ".$randkr." кр!";
-mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" достал из воды на Поле Кладоискателей ".$randkr." кр',1,'".time()."');");
+db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" достал из воды на Поле Кладоискателей ".$randkr." кр',1,'".time()."');");
 }
 else{
 $randizn = rand(1,4);
-$lopatas = mysql_fetch_array(mysql_query("SELECT `prototype`,`duration`,`id` FROM `inventory` WHERE `id`='".$user['weap']."' AND `owner` = '".$user['id']."' AND `dressed` = '1'"));
-mysql_query("UPDATE `inventory` set `duration`=`duration`+'".$randizn."' where `id`='".$lopatas['id']."'");
+$lopatas = mysqli_fetch_array(db_query("SELECT `prototype`,`duration`,`id` FROM `inventory` WHERE `id`='".$user['weap']."' AND `owner` = '".$user['id']."' AND `dressed` = '1'"));
+db_query("UPDATE `inventory` set `duration`=`duration`+'".$randizn."' where `id`='".$lopatas['id']."'");
 echo"Вы наткнулись на камень! Ваша копалка поломалась на ".$randizn." ед.";
 }
 }else{echo"Возьмите копалку в руки, либо купите ее!";}
@@ -194,19 +194,19 @@ echo"Вы наткнулись на камень! Ваша копалка пол
 }
 
 if($_POST['tik']){
-     $lopata = mysql_fetch_array(mysql_query("select `name` from `inventory` where `owner`='".$user['id']."' AND `dressed`='1' AND (`name`='Копалка новичка' OR `name`='Копалка мастера')"));
+     $lopata = mysqli_fetch_array(db_query("select `name` from `inventory` where `owner`='".$user['id']."' AND `dressed`='1' AND (`name`='Копалка новичка' OR `name`='Копалка мастера')"));
      if($lopata['name']){
 
          if($user['pole_kopka_kol_now'] > 0){
-    $id = mysql_real_escape_string($_POST['id']) ;
+    $id = db_escape_string($_POST['id']) ;
     $randhp = rand($user['pole_kopka_min'],$user['pole_kopka_max']);
      $shans = rand(1,3);
      $iznos = rand(1,5);
-    $pole = mysql_fetch_array(mysql_query("select * from `pole` where `id`='".$id."'"));
+    $pole = mysqli_fetch_array(db_query("select * from `pole` where `id`='".$id."'"));
 if($pole['type'] != 0){
 if($iznos == 1){
-$lopatas = mysql_fetch_array(mysql_query("SELECT `prototype`,`duration`,`id` FROM `inventory` WHERE `id`='".$user['weap']."' AND `owner` = '".$user['id']."' AND `dressed` = '1'"));
-mysql_query("UPDATE `inventory` set `duration`=`duration`+'1' where `id`='".$lopatas['id']."'");
+$lopatas = mysqli_fetch_array(db_query("SELECT `prototype`,`duration`,`id` FROM `inventory` WHERE `id`='".$user['weap']."' AND `owner` = '".$user['id']."' AND `dressed` = '1'"));
+db_query("UPDATE `inventory` set `duration`=`duration`+'1' where `id`='".$lopatas['id']."'");
 echo"Ваша копалка поломалась на 1 ед!<br>";
 }
 
@@ -215,18 +215,18 @@ if($shans == 1 || $shans == 2){$bon = $pole['ekr'];}
 else{$bon = 0;}
 $hp = $pole['heals'] - $randhp;
 if($hp > 0){
-mysql_query("update `pole` set `heals`=`heals`-'".$randhp."' where `id`='".$id."'");
-mysql_query("update `users` set `pole_kopka_kol_now`=`pole_kopka_kol_now`-'1' where `id`='".$user['id']."'");
+db_query("update `pole` set `heals`=`heals`-'".$randhp."' where `id`='".$id."'");
+db_query("update `users` set `pole_kopka_kol_now`=`pole_kopka_kol_now`-'1' where `id`='".$user['id']."'");
 $user['pole_kopka_kol_now'] -= 1;
 echo"Вы уменьшили глубину сектора на ".$randhp." единиц!";
 }
 else{
-mysql_query("update `pole` set `heals`='0',`type`='0' where `id`='".$id."'");
-mysql_query("update `users` set `pole_kopka_kol_now`=`pole_kopka_kol_now`-'1' where `id`='".$user['id']."'");
-mysql_query("update `bank` set `ekr`=`ekr`+'".$bon."' where `owner`='".$user['id']."' LIMIT 1;");
+db_query("update `pole` set `heals`='0',`type`='0' where `id`='".$id."'");
+db_query("update `users` set `pole_kopka_kol_now`=`pole_kopka_kol_now`-'1' where `id`='".$user['id']."'");
+db_query("update `bank` set `ekr`=`ekr`+'".$bon."' where `owner`='".$user['id']."' LIMIT 1;");
 $user['pole_kopka_kol_now'] -= 1;
 echo"Вы выкопали ".$bon." екр! Ищите в Банке, если у Вас есть счет. Если счета нету, срочно откройте его. :)";
-mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" выкопал на Поле Кладоискателей ".$bon." екр',1,'".time()."');");
+db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" выкопал на Поле Кладоискателей ".$bon." екр',1,'".time()."');");
 }
 }else{echo"Этот сектор уже был вскопан!";}
 }else{echo"У Вас больше не осталось свободных копок!";}
@@ -255,7 +255,7 @@ if($user['id'] == '50'){ if($tp<=$pole_time['value'])
 	</TABLE>
 <?echo"</font>";
 if ($_GET['razdel']==0) {
-         $lopata = mysql_fetch_array(mysql_query("select `name`,`img`,`duration`,`maxdur` from `inventory` where `owner`='".$user['id']."' AND `name`='Копалка новичка' OR `name`='Копалка мастера' AND `dressed`='1'"));
+         $lopata = mysqli_fetch_array(db_query("select `name`,`img`,`duration`,`maxdur` from `inventory` where `owner`='".$user['id']."' AND `name`='Копалка новичка' OR `name`='Копалка мастера' AND `dressed`='1'"));
 if($lopata){
     echo"<center><small>Кол-во копок: <b>".$user['pole_kopka_kol_now']."</b>";
     if($user['pole_kopka_kol_bonus'] > 0){echo" (<font color=green><b>".$user['pole_kopka_kol_bonus']."</b> бонусные</font>)";}
@@ -269,12 +269,12 @@ echo"<table width=100% align=center border=0>
           echo"<table width=1000 height=400 border=1 cellspacing=0 cellpadding=0 valign=top>";
           
 
-          $pole=mysql_query("SELECT * FROM `pole`");
-                $chislo = mysql_num_rows($pole);
+          $pole=db_query("SELECT * FROM `pole`");
+                $chislo = mysqli_num_rows($pole);
         if ($chislo > 0) {
 echo "<tr valign='top' height=75>";
-for($i=0; $i<mysql_num_rows($pole); $i++) {
-     $poles=mysql_fetch_array($pole);
+for($i=0; $i<mysqli_num_rows($pole); $i++) {
+     $poles=mysqli_fetch_array($pole);
     if($poles['type'] == 1){$col = "Teal";}
     elseif($poles['type'] == 2){$col = "gray";}
     elseif($poles['type'] == 3){$col = "silver";}
@@ -310,7 +310,7 @@ echo" <input type=submit class=input name=sufle value='Перемешать'>";
 }
 if ($_GET['razdel']==1) {
 echo"<FORM action=pklad.php method=POST><center>Внимание для копания вам необходима копалка!</center><br>";
-     $lopata = mysql_fetch_array(mysql_query("select `name`,`img`,`duration`,`maxdur` from `inventory` where `owner`='".$user['id']."' AND (`name`='Копалка новичка' OR `name`='Копалка мастера') AND `dressed`='1'"));
+     $lopata = mysqli_fetch_array(db_query("select `name`,`img`,`duration`,`maxdur` from `inventory` where `owner`='".$user['id']."' AND (`name`='Копалка новичка' OR `name`='Копалка мастера') AND `dressed`='1'"));
 echo"У Вас в руках:<br>";
 if($lopata){
 echo"<small>".$lopata['name']." [".$lopata['duration']."/".$lopata['maxdur']."]</small><br><img src=i/sh/".$lopata['img']."><hr>

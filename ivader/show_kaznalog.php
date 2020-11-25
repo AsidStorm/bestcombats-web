@@ -15,10 +15,10 @@
 <?
 
 		If (isset($_GET['klan']) and !empty($_GET['klan'])){
-			$klanlog = mysql_query("SELECT * FROM `kaznalog` WHERE `klan` = '".$_GET['klan']."' order by date DESC; ");
+			$klanlog = db_query("SELECT * FROM `kaznalog` WHERE `klan` = '".$_GET['klan']."' order by date DESC; ");
 		}elseif(isset($_GET['user']) and !empty($_GET['user'])){
-			$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '".$_GET['user']."' "));
-			$klanlog = mysql_query("SELECT * FROM `kaznalog` WHERE `user` = '".$user['id']."' order by date DESC; ");
+			$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `login` = '".$_GET['user']."' "));
+			$klanlog = db_query("SELECT * FROM `kaznalog` WHERE `user` = '".$user['id']."' order by date DESC; ");
 		}
 		
 		If (empty($_GET['klan']) and empty($_GET['user'])){
@@ -29,9 +29,9 @@
 			$i=0;
 			echo "<table border=1 cellpadding=3 cellspacing=3>";
 			echo "<tr><td>№</td><td>Клан</td><td>Логин</td><td>Действие</td><td>Сумма</td><td>Дата</td></tr>";
-			While ($work=mysql_fetch_array($klanlog)){
+			While ($work=mysqli_fetch_array($klanlog)){
 				$i++;
-				$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".$work['user']."' "));
+				$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".$work['user']."' "));
 				echo "<tr>";
 					echo "<td>".$i."</td>";
 					echo "<td>".$work['klan']."</td>";

@@ -27,9 +27,9 @@ if ($step == 1) {
 }
 
 if ($step == 2) {
-    $isNotice = mysql_result(mysql_query("SELECT id FROM inventory WHERE owner = $user[id] AND prototype = 2560 LIMIT 1"), 0, 0);
-    $isTrend  = mysql_result(mysql_query("SELECT name FROM inventory WHERE owner = $user[id] AND (prototype = 2561 OR prototype = 2562 OR prototype = 2563) LIMIT 1"), 0, 0);
-    $isToken  = mysql_result(mysql_query("SELECT name FROM inventory WHERE owner = $user[id] AND (prototype = 2564 OR prototype = 2565 OR prototype = 2563) LIMIT 1"), 0, 0);
+    $isNotice = db_result(db_query("SELECT id FROM inventory WHERE owner = $user[id] AND prototype = 2560 LIMIT 1"), 0, 0);
+    $isTrend  = db_result(db_query("SELECT name FROM inventory WHERE owner = $user[id] AND (prototype = 2561 OR prototype = 2562 OR prototype = 2563) LIMIT 1"), 0, 0);
+    $isToken  = db_result(db_query("SELECT name FROM inventory WHERE owner = $user[id] AND (prototype = 2564 OR prototype = 2565 OR prototype = 2563) LIMIT 1"), 0, 0);
     if (!$isNotice && !$isTrend) {
         $speach.="Для получения Направления надо взять Повестку у Военкома";
     } elseif ($isNotice && !$isTrend && !$isToken) {
@@ -43,7 +43,7 @@ if ($step == 2) {
             $tid   = 2563;
             $tname = 'Направление в зону боевых действий III';
         }
-        mysql_query("DELETE FROM inventory WHERE owner = $user[id] AND id = $isNotice");
+        db_query("DELETE FROM inventory WHERE owner = $user[id] AND id = $isNotice");
         takeshopitem($tid, "shop", "", "", 2, 0, $user['id']);
         $speach.="<span style=\"color: red\">Вы отдали \"Повестка\"<br />Вы получили \"$tname\"</span>"; 
     } elseif ($isToken) {

@@ -25,7 +25,7 @@
 
 <?
 If (isset($_GET['hit']) or isset($_GET['krit']) or isset($_GET['krit']) or isset($_GET['counter']) or isset($_GET['block']) or isset($_GET['parry']) or isset($_GET['hp2']) or isset($_GET['spirit'])){
-	mysql_query("UPDATE `users` set 
+	db_query("UPDATE `users` set 
 		`hit`=`hit`+'".$_GET['hit']."',
 		`krit`=`krit`+'".$_GET['krit']."',
 		`counter`=`counter`+'".$_GET['counter']."',

@@ -2,7 +2,7 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "../connect.php";	
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 if ($user['align']==2.5)  {
 
 
@@ -18,7 +18,7 @@ if(!$_GET['log']){ ?>
 <INPUT TYPE="submit" value=" Редактировать ">
 </form>
 <? }else{
-$users = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '".$_GET['log']."' LIMIT 1;"));
+$users = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `login` = '".$_GET['log']."' LIMIT 1;"));
 ?>
 <form method=post ENCTYPE="multipart/form-data">
 <b>Редактор персонажей</b>
@@ -63,7 +63,7 @@ $users = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '"
 
  if ($_POST['login']) {
  
-if (mysql_query("UPDATE `users` SET login='".$_POST['login']."',sila='".$_POST['sila']."',lovk='".$_POST['lovk']."',inta='".$_POST['inta']."',vinos='".$_POST['vinos']."',intel='".$_POST['intel']."',mudra='".$_POST['mudra']."',duh='".$_POST['duh']."',money='".$_POST['money']."',ekr='".$_POST['ekr']."',level='".$_POST['level']."',exp='".$_POST['exp']."',nextup='".$_POST['nextup']."',room='".$_POST['room']."',battle='".$_POST['battle']."',maxhp='".$_POST['maxhp']."',hp='".$_POST['hp']."' WHERE login='".$_POST['login']."'")) 	{	
+if (db_query("UPDATE `users` SET login='".$_POST['login']."',sila='".$_POST['sila']."',lovk='".$_POST['lovk']."',inta='".$_POST['inta']."',vinos='".$_POST['vinos']."',intel='".$_POST['intel']."',mudra='".$_POST['mudra']."',duh='".$_POST['duh']."',money='".$_POST['money']."',ekr='".$_POST['ekr']."',level='".$_POST['level']."',exp='".$_POST['exp']."',nextup='".$_POST['nextup']."',room='".$_POST['room']."',battle='".$_POST['battle']."',maxhp='".$_POST['maxhp']."',hp='".$_POST['hp']."' WHERE login='".$_POST['login']."'")) 	{
 	echo "OK";  
 }
 else 
@@ -75,7 +75,7 @@ else
  
   if ($_POST['soh']) {
  
-if (mysql_query("UPDATE `users` SET shadow='".$_FILES['img']['name']."' WHERE login='".$_POST['names']."'")) 	{	
+if (db_query("UPDATE `users` SET shadow='".$_FILES['img']['name']."' WHERE login='".$_POST['names']."'")) 	{
 	echo "Образ удачно установлен";  
     move_uploaded_file($_FILES['img']['tmp_name'], '/var/www/vhosts/default/htdocs/i/shadow/'.$_FILES['img']['name']."");
 }

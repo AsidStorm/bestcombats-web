@@ -2,7 +2,7 @@
 
 
 if ($user['room'] == 74) {
-    $fl = mysql_result(mysql_query("SELECT floor FROM caveparties WHERE user = " . $user['id']), 0, 0);
+    $fl = db_result(db_query("SELECT floor FROM caveparties WHERE user = " . $user['id']), 0, 0);
     if ($fl == 2) {
         $_level = 9;
     } else {
@@ -83,7 +83,7 @@ $warrior = array(
 );
   
 if (isset($_POST['buy'])) {
-    $tUser = mqfa("SELECT id, login FROM users WHERE login = '" . mysql_real_escape_string(trim($_POST['login'])) . "'");
+    $tUser = mqfa("SELECT id, login FROM users WHERE login = '" . db_escape_string(trim($_POST['login'])) . "'");
     if (!$tUser) {
         $_msg = 'Такой персонаж не существует';
     } elseif ($user['login'] == $tUser['login']) {
@@ -99,8 +99,8 @@ if (isset($_POST['buy'])) {
         }
         foreach ($arr as $k=>$v) {
             takeshopitem($_POST['item'], "shop", $user['login'], 0, 0, 0, $tUser['id'], 1, "Подарок на день Валентина от " . $user['login']);
-            mysql_query("UPDATE inventory SET koll = (koll - $v) WHERE owner = $user[id] AND dressed = 0 AND name = '$k'");
-            mysql_query("DELETE FROM inventory WHERE owner = $user[id] AND dressed = 0 AND name = '$k' AND koll = 0");
+            db_query("UPDATE inventory SET koll = (koll - $v) WHERE owner = $user[id] AND dressed = 0 AND name = '$k'");
+            db_query("DELETE FROM inventory WHERE owner = $user[id] AND dressed = 0 AND name = '$k' AND koll = 0");
             $_msg = 'Вы удачно сделали подарок персонажу ' . $tUser['login'];
         }
     }
@@ -133,7 +133,7 @@ function printItems($array) {
         foreach ($v as $kk=>$vv) {
             $price .= $kk . ' (' . $vv . ')<br />';
             if ($check) {
-                $check = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND dressed = 0 AND name = '$kk' AND koll >= $vv"), 0, 0);
+                $check = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND dressed = 0 AND name = '$kk' AND koll >= $vv"), 0, 0);
             }
         }
         if ($check) {
@@ -164,8 +164,8 @@ function printItems($array) {
                 </tr>
                 ' . $check . '
                 <tr>
-                    <td style="width: 80px;text-align:center;"><img src="/i/sh/' . mysql_result(mysql_query("SELECT img FROM shop WHERE id = $k"), 0, 0) . '"></td>
-                    <td>' . itemdata(mysql_fetch_assoc(mysql_query("SELECT * FROM shop WHERE id = $k"))) . '</td>
+                    <td style="width: 80px;text-align:center;"><img src="/i/sh/' . db_result(db_query("SELECT img FROM shop WHERE id = $k"), 0, 0) . '"></td>
+                    <td>' . itemdata(mysqli_fetch_assoc(db_query("SELECT * FROM shop WHERE id = $k"))) . '</td>
                 </tr>
             </table>
         ';

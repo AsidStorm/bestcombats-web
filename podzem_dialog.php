@@ -46,17 +46,17 @@ if($user['room']==403){
     <td align="left" style="padding-left:20px"><H3 align="center" style="color:#000099">Лука</H3>
 <i>
 <?
-$gag = mysql_query("SELECT * FROM qwest WHERE login='".$user['login']."'");
-while($qw = mysql_fetch_array($gag))
+$gag = db_query("SELECT * FROM qwest WHERE login='".$user['login']."'");
+while($qw = mysqli_fetch_array($gag))
 {
 $name_qwest = $qw["name_items"];
 if($name_qwest=="Ключииик"){$qwest="1"; $name_qw = "kluchiik";}
 }
-$sasd = mysql_query("SELECT * FROM `qwest` WHERE `login`='".$user['login']."' and `name_qwest`='$name_qw'");
-$qwus = mysql_fetch_array($sasd);
+$sasd = db_query("SELECT * FROM `qwest` WHERE `login`='".$user['login']."' and `name_qwest`='$name_qw'");
+$qwus = mysqli_fetch_array($sasd);
 $qwest_status = $qwus["status"];
-$qwes = mysql_query("SELECT * FROM `inventory` WHERE type='200' and name='Ключииик' and owner=".$user["id"]."");
-$qwesta = mysql_fetch_array($qwes);
+$qwes = db_query("SELECT * FROM `inventory` WHERE type='200' and name='Ключииик' and owner=".$user["id"]."");
+$qwesta = mysqli_fetch_array($qwes);
 if($qwesta){$ok_qwest = "1";}
 
 
@@ -71,10 +71,10 @@ if($ok_qwest=='1')
 {
 if($_GET['d']=='1.3'){
 $sql="INSERT INTO `inventory`(name,duration,maxdur,cost,nlevel,nsila,nlovk,ninta,nvinos,nintel,gsila,glovk,ginta,gintel,ghp,mfkrit,mfakrit,mfuvorot,mfauvorot,img,owner,bron1,bron2,bron3,bron4,type,massa,isrep,otdel,podzem) VALUES ('Гайка силы','0','30','90','4','15','8','10','10','','3','','','','60','50','30','','','g_sila.gif','".$user['id']."','5','5','5','5','2','2','1','41','1')";
-$res=mysql_query($sql);
-mysql_query("DELETE FROM `inventory` WHERE owner='".$user['id']."' and `type`='200' and `name`='Ключииик'");
-mysql_query("UPDATE `qwest` SET `status`='ok' WHERE `name_qwest`='kluchiik' and `login`='".$user['login']."'");
-if(!$res){echo mysql_error();}
+$res=db_query($sql);
+db_query("DELETE FROM `inventory` WHERE owner='".$user['id']."' and `type`='200' and `name`='Ключииик'");
+db_query("UPDATE `qwest` SET `status`='ok' WHERE `name_qwest`='kluchiik' and `login`='".$user['login']."'");
+if(!$res){echo db_error();}
 print"<font style='font-size:11px; color:red;'>Вы получили 'Гайку силы'.</font><br><br>
 Лука говорит спасибо...";}
 }
@@ -82,10 +82,10 @@ if($ok_qwest=='1')
 {
 if($_GET['d']=='1.4'){
 $sql="INSERT INTO `inventory`(name,duration,maxdur,cost,nlevel,nsila,nlovk,ninta,nvinos,nintel,gsila,glovk,ginta,gintel,ghp,mfkrit,mfakrit,mfuvorot,mfauvorot,img,owner,bron1,bron2,bron3,bron4,type,massa,isrep,otdel,podzem) VALUES ('Гайка силы','0','30','90','4','5','4','4','10','15','','','','3','80','','50','50','','g_mudr.gif','".$user['id']."','5','5','5','5','2','2','1','41','1')";
-$res=mysql_query($sql);
-mysql_query("DELETE FROM `inventory` WHERE owner='".$user['id']."' and `type`='200' and `name`='Ключииик'");
-mysql_query("UPDATE `qwest` SET `status`='ok' WHERE `name_qwest`='kluchiik' and `login`='".$user['login']."'");
-if(!$res){echo mysql_error();}
+$res=db_query($sql);
+db_query("DELETE FROM `inventory` WHERE owner='".$user['id']."' and `type`='200' and `name`='Ключииик'");
+db_query("UPDATE `qwest` SET `status`='ok' WHERE `name_qwest`='kluchiik' and `login`='".$user['login']."'");
+if(!$res){echo db_error();}
 print"<font style='font-size:11px; color:red;'>Вы получили 'Гайку мудрости'.</font><br><br>
 Лука говарит спасибо...";}
 }
@@ -108,50 +108,50 @@ if($_GET['d']=='2'){print"Цена-аа... У Луки много жетонов
 
 if($_GET['d']=='3'){
     include_once "questfuncs.php";
-    $sear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Гайка' and owner='".$user["id"]."'");
-        while($alls = mysql_fetch_array($sear))
+    $sear = db_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Гайка' and owner='".$user["id"]."'");
+        while($alls = mysqli_fetch_array($sear))
            {
                 $total_mass += $alls['koll'];
                 $alls_id = $alls['id'];
            }
-    $vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Вентиль' and owner='".$user["id"]."'");
-        while($vls = mysql_fetch_array($vear))
+    $vear = db_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Вентиль' and owner='".$user["id"]."'");
+        while($vls = mysqli_fetch_array($vear))
            {
                 $total_mass_v += $vls['koll'];
                 $vls_id = $vls['id'];
            }
-    $vearb = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Болт' and owner='".$user["id"]."'");
-        while($bls = mysql_fetch_array($vearb))
+    $vearb = db_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Болт' and owner='".$user["id"]."'");
+        while($bls = mysqli_fetch_array($vearb))
            {
                 $total_mass_b += $bls['koll'];
                 $bls_id = $bls['id'];
            }
-$vear_gr = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Чистая гайка' and owner='".$user["id"]."'");
-while($bls_gr = mysql_fetch_array($vear_gr))
+$vear_gr = db_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Чистая гайка' and owner='".$user["id"]."'");
+while($bls_gr = mysqli_fetch_array($vear_gr))
            {
                 $total_mass_gr += $bls_gr['koll'];
                 $gr_id = $bls_gr['id'];
            }
-$vear_grez = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Гайка с резьбой' and owner='".$user["id"]."'");
-while($bls_grez = mysql_fetch_array($vear_grez))
+$vear_grez = db_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Гайка с резьбой' and owner='".$user["id"]."'");
+while($bls_grez = mysqli_fetch_array($vear_grez))
            {
                 $total_mass_grez += $bls_grez['koll'];
                 $grez_id = $bls_grez['id'];
            }
-$vear_db = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Длинный болт' and owner='".$user["id"]."'");
-while($db_db = mysql_fetch_array($vear_db))
+$vear_db = db_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Длинный болт' and owner='".$user["id"]."'");
+while($db_db = mysqli_fetch_array($vear_db))
            {
                 $total_mass_db += $db_db['koll'];
                 $db_id = $db_db['id'];
            }
-$vear_dbn = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Нужный болт' and owner='".$user["id"]."'");
-while($db_dbn = mysql_fetch_array($vear_dbn))
+$vear_dbn = db_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Нужный болт' and owner='".$user["id"]."'");
+while($db_dbn = mysqli_fetch_array($vear_dbn))
            {
                 $total_mass_dbn += $db_dbn['koll'];
                 $dbn_id = $db_dbn['id'];
            }
-$vear_dbnv = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Рабочий вентиль' and owner='".$user["id"]."'");
-while($db_dbnv = mysql_fetch_array($vear_dbnv))
+$vear_dbnv = db_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Рабочий вентиль' and owner='".$user["id"]."'");
+while($db_dbnv = mysqli_fetch_array($vear_dbnv))
            {
                 $total_mass_dbnv += $db_dbnv['koll'];
                 $dbnv_id = $db_dbnv['id'];
@@ -396,7 +396,7 @@ if($qwest!='1'){
 if($_GET['d']=='6'){print"Да да! Мартын гаад... он украл у Луки важную вещь 'Ключииик'... убей Мартына... забери 'Ключииик'... принеси его к Луке... Лука вознаградит тебя...";}
 if($_GET['d']=='7'){
 if($qwest!='1'){
-$T1 = mysql_query("INSERT INTO qwest (user_id,login,name_qwest,name_items,id_items,dlja,zadanie,kw,status) VALUES('".$user['id']."','".$user['login']."','kluchiik','Ключииик','','Лука','Найти Ключииик','0','no')");
+$T1 = db_query("INSERT INTO qwest (user_id,login,name_qwest,name_items,id_items,dlja,zadanie,kw,status) VALUES('".$user['id']."','".$user['login']."','kluchiik','Ключииик','','Лука','Найти Ключииик','0','no')");
 print"<font style='font-size:11px; color:red;'>Вы приняли задание.(Найти 'Ключииик').</font><br><br>
 Хорошо... Лука будет ждать...";
 }else{print"<font style='font-size:11px; color:red;'>Вы уже приняли задание.(Найти 'Ключииик').</font><br><br>
@@ -468,7 +468,7 @@ print"</i><BR><BR>";
 
 <?
 $bot="Лука";
-$buser = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '$bot' LIMIT 1;"));
+$buser = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `login` = '$bot' LIMIT 1;"));
 ?>
     <table width="100" border="0" cellspacing="0" cellpadding="0">
   <tr>
@@ -483,7 +483,7 @@ $buser = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '$
 
 <TR><TD style="BACKGROUND-IMAGE:none">
 <?php if ($buser['helm'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['helm']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['helm']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -495,7 +495,7 @@ print "<img src=\"i/w9.gif\" width=60 height=60 onMouseMove=\"TipShow('<b>Пус
 
 <TR><TD style="BACKGROUND-IMAGE:none">
 <?php if ($buser['naruchi'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['naruchi']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['naruchi']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -506,7 +506,7 @@ print "<img src=\"i/w18.gif\" width=60 height=40 onMouseMove=\"TipShow('<b>Пу�
 
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['weap'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['weap']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['weap']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -517,7 +517,7 @@ print "<img src=\"i/w3.gif\" width=60 height=60 onMouseMove=\"TipShow('<b>Пус
 
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['bron'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['bron']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['bron']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -528,7 +528,7 @@ print "<img src=\"i/w4.gif\" width=60 height=80 onMouseMove=\"TipShow('<b>Пус
 
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['pojas'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['pojas']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['pojas']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -566,7 +566,7 @@ print"</SPAN>";
 <TD><TABLE border=0 cellSpacing=0 cellPadding=0 width="100%"><TBODY>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['sergi'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['sergi']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['sergi']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -576,7 +576,7 @@ print "<img src=\"i/w1.gif\" width=60 height=20 onMouseMove=\"TipShow('<b>Пус
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['kulon'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['kulon']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['kulon']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -589,7 +589,7 @@ print "<img src=\"i/w2.gif\" width=60 height=20 onMouseMove=\"TipShow('<b>Пус
 <TBODY> <TR>
 <TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['r1'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['r1']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['r1']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -599,7 +599,7 @@ print "<img src=\"i/w6.gif\" width=20 height=20 onMouseMove=\"TipShow('<b>Пус
 }?>
 <TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['r2'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['r2']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['r2']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -609,7 +609,7 @@ print "<img src=\"i/w6.gif\" width=20 height=20 onMouseMove=\"TipShow('<b>Пус
 }?>
 <TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['r3'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['r3']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['r3']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -620,7 +620,7 @@ print "<img src=\"i/w6.gif\" width=20 height=20 onMouseMove=\"TipShow('<b>Пус
 </TR></TBODY></TABLE></TD></TR>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['perchi'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['perchi']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['perchi']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -630,7 +630,7 @@ print "<img src=\"i/w11.gif\" width=60 height=40 onMouseMove=\"TipShow('<b>Пу�
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['shit'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['shit']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['shit']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -640,7 +640,7 @@ print "<img src=\"i/w10.gif\" width=60 height=60 onMouseMove=\"TipShow('<b>Пу�
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['leg'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['leg']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['leg']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -650,7 +650,7 @@ print "<img src=\"i/w19.gif\" width=60 height=80 onMouseMove=\"TipShow('<b>Пу�
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['boots'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['boots']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$buser['boots']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {

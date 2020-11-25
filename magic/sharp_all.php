@@ -3,12 +3,12 @@
   include "config/weptypes.php";
 
   if ($twohanded) {
-    $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE  `type` = '3' AND `dvur` = '1' AND `owner` = '{$_SESSION['uid']}' AND `name` = '{$_POST['target']}' AND `sharped` = 0 LIMIT 1;"));
-    //$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = 'Заточка на +$sharpamount: двуручное оружие' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE  `type` = '3' AND `dvur` = '1' AND `owner` = '{$_SESSION['uid']}' AND `name` = '{$_POST['target']}' AND `sharped` = 0 LIMIT 1;"));
+    //$svitok = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `name` = 'Заточка на +$sharpamount: двуручное оружие' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;"));
     $sharpamountd=$sharpamount*2;
   } else {
-    $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE  `type` = '3' AND (`dvur` = '0' or otdel=30 or otdel=52) AND `owner` = '{$_SESSION['uid']}' AND `name` = '{$_POST['target']}' AND `sharped` = 0 LIMIT 1;"));
-    //$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = 'Заточка на +$sharpamount: оружие' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE  `type` = '3' AND (`dvur` = '0' or otdel=30 or otdel=52) AND `owner` = '{$_SESSION['uid']}' AND `name` = '{$_POST['target']}' AND `sharped` = 0 LIMIT 1;"));
+    //$svitok = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `name` = 'Заточка на +$sharpamount: оружие' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;"));
     $sharpamountd=$sharpamount;
   }       // && $svitok
   if ($dress) {
@@ -17,7 +17,7 @@
     $weptype=$weptypes[$dress["otdel"]];
     if ($weptype) {
       if ($weptype=="posoh") {
-        if (mysql_query("UPDATE `inventory` SET `sharped` = 1, `name` = CONCAT(`name`,' +$sharpamount'), `mfmagp` = `mfmagp`+($sharpamount*2), nintel=nintel+$sharpamountr, nmudra=nmudra+$sharpamountr, `cost` = `cost`+(6*$sharpamount) WHERE `id` = {$dress['id']} LIMIT 1;")) {
+        if (db_query("UPDATE `inventory` SET `sharped` = 1, `name` = CONCAT(`name`,' +$sharpamount'), `mfmagp` = `mfmagp`+($sharpamount*2), nintel=nintel+$sharpamountr, nmudra=nmudra+$sharpamountr, `cost` = `cost`+(6*$sharpamount) WHERE `id` = {$dress['id']} LIMIT 1;")) {
           echo "<font color=red><b>Предмет \"{$_POST['target']}\" удачно заговорен +$sharpamount.</b></font> ";
           $bet=1;
         } else {

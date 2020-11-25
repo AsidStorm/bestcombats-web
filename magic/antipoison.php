@@ -8,7 +8,7 @@ if ($p) {
     } elseif ($user['battle'] > 0) {
       echo "Не в бою...";               
     } else {
-        mysql_query('DELETE FROM effects WHERE id = ' . $p['id']);
+        db_query('DELETE FROM effects WHERE id = ' . $p['id']);
         echo "Вы успешно вылечены от яда " . $p['name'];
         addchp ('<font color=red>Внимание!</font> Вы успешно вылечены от яда <b>' . $p['name'] . '</b>', '{[]}'.$user['login'].'{[]}');
         $bet=1;

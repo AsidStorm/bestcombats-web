@@ -1,7 +1,7 @@
 <?php
 include'connect.php';
-$data = mysql_query("SELECT * FROM `news` WHERE `parent` > '' AND `topic` > '' ORDER by `id` DESC LIMIT 5");
-while ($row = mysql_fetch_array($data)) {
+$data = db_query("SELECT * FROM `news` WHERE `parent` > '' AND `topic` > '' ORDER by `id` DESC LIMIT 5");
+while ($row = mysqli_fetch_array($data)) {
 }
 ?>
 <table width="100%" cellpadding="0" cellspacing="0" class="news_tab">

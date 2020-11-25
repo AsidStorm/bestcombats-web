@@ -6,16 +6,16 @@
 
     if ($_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
-    $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     include "functions.php";
-    $d = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0; "));
+    $d = mysqli_fetch_array(db_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0; "));
     if ($user['room'] != 23)  { header("Location: main.php"); die(); }
     if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 
     if($_POST['set'] && $_POST['count'] && ($user['money'] >= 50)) {
     
-        if (mysql_query("UPDATE `inventory` SET `text` = '{$_POST['count']}' WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `id` = '{$_POST['set']}' AND `setsale`=0 and (type=3 $gravcond) LIMIT 1;")) {
-            mysql_query("UPDATE `users` set `money` = `money`- '50' WHERE id = {$_SESSION['uid']}");
+        if (db_query("UPDATE `inventory` SET `text` = '{$_POST['count']}' WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `id` = '{$_POST['set']}' AND `setsale`=0 and (type=3 $gravcond) LIMIT 1;")) {
+            db_query("UPDATE `users` set `money` = `money`- '50' WHERE id = {$_SESSION['uid']}");
         }
     }
     if($_GET['rep'] && ($_GET['sid']==2)) {
@@ -26,21 +26,21 @@
         switch($_GET['sid']) {
             case 1:
                                                                                                                                   
-                $row = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE $repcond AND `id` = '{$_GET['rep']}' LIMIT 1;"));
+                $row = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE $repcond AND `id` = '{$_GET['rep']}' LIMIT 1;"));
                 if($row['duration'] >0) {
                     //$onecost=$row['cost']/($row['maxdur']*10);
                     //if($onecost < 0.1) {$onecost=0.1;}
                     $onecost=0.1;
                     if($onecost <= $user['money'])  {
-                        if(mysql_query("UPDATE `inventory` SET `duration` = `duration`-1 WHERE `id` = {$_GET['rep']}")) {
+                        if(db_query("UPDATE `inventory` SET `duration` = `duration`-1 WHERE `id` = {$_GET['rep']}")) {
                             $err = "<font color=red><b>Произведен ремонт предмета \"{$row['name']}\"  за  ".round($onecost,2)."  кр. </b></font>";
-                            mysql_query("UPDATE `users` set `money` = `money`- '".(round($onecost,2))."' WHERE id = {$_SESSION['uid']}");
+                            db_query("UPDATE `users` set `money` = `money`- '".(round($onecost,2))."' WHERE id = {$_SESSION['uid']}");
                             $newduration=$row['duration']-1;
-                            mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Отремонтирован предмет \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".round($onecost,2)." кр. ',1,'".time()."');");
+                            db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Отремонтирован предмет \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".round($onecost,2)." кр. ',1,'".time()."');");
                             $user['money']=$user['money'] - round($onecost,2);
                             if(rand(1,10)==1) {
                                 $err .= "<font color=red><b>К сожалению максимальная долговечность предмета из-за ремонта уменьшилась.</b></font>";
-                                mysql_query("UPDATE `inventory` SET `maxdur` = `maxdur`-1 WHERE `id` = {$_GET['rep']}");
+                                db_query("UPDATE `inventory` SET `maxdur` = `maxdur`-1 WHERE `id` = {$_GET['rep']}");
                             }
                         }
                     }
@@ -50,23 +50,23 @@
                 }
             break;
             case 10:
-                $row = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE $repcond AND `id` = '{$_GET['rep']}' LIMIT 1;"));
+                $row = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE $repcond AND `id` = '{$_GET['rep']}' LIMIT 1;"));
                 if($row['duration'] >= 10) {
                     //$onecost=$row['cost']/($row['maxdur']*10);
                     //if($onecost < 0.1) {$onecost=0.1;}
                     $onecost=0.1;
                     if(($onecost*10) <= $user['money'])  {
 
-                        if(mysql_query("UPDATE `inventory` SET `duration` = `duration`-10 WHERE `id` = {$_GET['rep']}"))
+                        if(db_query("UPDATE `inventory` SET `duration` = `duration`-10 WHERE `id` = {$_GET['rep']}"))
                         {
                             $err = "<font color=red><b>Произведен ремонт предмета \"{$row['name']}\"  за  ".(round($onecost,2)*10)."  кр. </b></font>";
-                            mysql_query("UPDATE `users` set `money` = `money`- '".(round($onecost,2)*10)."' WHERE id = {$_SESSION['uid']}");
+                            db_query("UPDATE `users` set `money` = `money`- '".(round($onecost,2)*10)."' WHERE id = {$_SESSION['uid']}");
                             $newduration=$row['duration']-10;
-                            mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Отремонтирован предмет \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".(round($onecost,2)*10)." кр. ',1,'".time()."');");
+                            db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Отремонтирован предмет \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".(round($onecost,2)*10)." кр. ',1,'".time()."');");
                             $user['money']=$user['money'] - (round($onecost,2)*10);
                             if(rand(1,7)==1) {
                                 $err .= "<font color=red><b>К сожалению максимальная долговечность предмета из-за ремонта уменьшилась.</b></font>";
-                                mysql_query("UPDATE `inventory` SET `maxdur` = `maxdur`-1 WHERE `id` = {$_GET['rep']}");
+                                db_query("UPDATE `inventory` SET `maxdur` = `maxdur`-1 WHERE `id` = {$_GET['rep']}");
                             }
                         }
                     } else {
@@ -75,22 +75,22 @@
                 }
             break;
             case 'full':
-                $row = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE $repcond and `id` = '{$_GET['rep']}' LIMIT 1;"));
+                $row = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE $repcond and `id` = '{$_GET['rep']}' LIMIT 1;"));
                 $full = $row['duration'];
                 if($row['duration'] >1) {
                     //$onecost=$row['cost']/($row['maxdur']*10);
                     //if($onecost < 0.1) {$onecost=0.1;}
                     $onecost=0.1;
                     if(round($onecost*$full) <= $user['money'])  {
-                        if(mysql_query("UPDATE `inventory` SET `duration` = '0' WHERE `id` = {$_GET['rep']}"))
+                        if(db_query("UPDATE `inventory` SET `duration` = '0' WHERE `id` = {$_GET['rep']}"))
                             {
                             $err = "<font color=red><b>Произведен ремонт предмета \"{$row['name']}\"  за  ".(round($onecost,2)*$full)."  кр. </b></font>";
-                            mysql_query("UPDATE `users` set `money` = `money`- '".(round($onecost,2)*$full)."' WHERE id = {$_SESSION['uid']}");
-                            mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Отремонтирован предмет \"".$row['name']."\" id:(cap".$row['id'].") [0/".$row['maxdur']."] у \"".$user['login']."\" за ".(round($onecost,2)*$full)." кр. ',1,'".time()."');");
+                            db_query("UPDATE `users` set `money` = `money`- '".(round($onecost,2)*$full)."' WHERE id = {$_SESSION['uid']}");
+                            db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Отремонтирован предмет \"".$row['name']."\" id:(cap".$row['id'].") [0/".$row['maxdur']."] у \"".$user['login']."\" за ".(round($onecost,2)*$full)." кр. ',1,'".time()."');");
                             $user['money']=$user['money'] - (round($onecost,2)*$full);
                             if(rand(1,5)==1) {
                                 $err .= "<font color=red><b>К сожалению максимальная долговечность предмета из-за ремонта уменьшилась.</b></font>";
-                                mysql_query("UPDATE `inventory` SET `maxdur` = `maxdur`-1 WHERE `id` = {$_GET['rep']}");
+                                db_query("UPDATE `inventory` SET `maxdur` = `maxdur`-1 WHERE `id` = {$_GET['rep']}");
                             }
                         }
                     }
@@ -188,8 +188,8 @@ function test() {
 <TABLE BORDER=0 WIDTH=100% CELLSPACING="1" CELLPADDING="2" BGCOLOR="#A5A5A5">
 <?php
 if ($_GET['razdel']==0) {
-    $data = mysql_query("SELECT * FROM `inventory` WHERE $repcond ORDER by `update` DESC; ");
-    while($row = mysql_fetch_array($data)) {
+    $data = db_query("SELECT * FROM `inventory` WHERE $repcond ORDER by `update` DESC; ");
+    while($row = mysqli_fetch_array($data)) {
         $row['count'] = 1;
         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
         echo "<TR bgcolor={$color}><TD align=center ><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
@@ -212,7 +212,7 @@ if ($_GET['razdel']==0) {
 
 if ($_GET['razdel']==1) {
     $data = mq("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND ((`type` = 3  AND `name` NOT LIKE '%Букет%') $gravcond) AND `setsale`=0 ORDER by `update` DESC; ");
-    while($row = mysql_fetch_array($data)) {
+    while($row = mysqli_fetch_array($data)) {
         $row['count'] = 1;
         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
         echo "<TR bgcolor={$color}><TD align=center ><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
@@ -231,28 +231,28 @@ if ($_GET['razdel']==1) {
 
 if ($_GET['razdel']==2) {
     if($_GET['it']) {
-        $row = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `includemagicmax` > 0 AND `id` = '{$_GET['it']}' LIMIT 1;"));
+        $row = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `includemagicmax` > 0 AND `id` = '{$_GET['it']}' LIMIT 1;"));
         if($user['money'] < $row['includemagiccost'] && $row['includemagicdex'] ==0) {
             $err= "<font color=red><b>У вас не хватает денег на перезарядку.</b></font>";
         }
         else {
             if($row['includemagicuses'] <=1) {
                 $err= "<font color=red><b>Мы сожалеем, свиток исчерпал все свои ресурсы, и мы уже не можем его перезарядить.</b></font>";
-                mysql_query("UPDATE `users` set `money` = `money`- '".($row['includemagiccost'])."' WHERE id = {$_SESSION['uid']}");
-                mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Перезаряжена магия \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".round($onecost,2)." кр. ',1,'".time()."');");
-                mysql_query("UPDATE `inventory` SET `includemagic` = '', `includemagicdex` = '', `includemagicmax` = '', `includemagicname` = '', `includemagicuses` = '', `includemagiccost` = '' WHERE `id` = '{$_GET['it']}' LIMIT 1;");
+                db_query("UPDATE `users` set `money` = `money`- '".($row['includemagiccost'])."' WHERE id = {$_SESSION['uid']}");
+                db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Перезаряжена магия \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".round($onecost,2)." кр. ',1,'".time()."');");
+                db_query("UPDATE `inventory` SET `includemagic` = '', `includemagicdex` = '', `includemagicmax` = '', `includemagicname` = '', `includemagicuses` = '', `includemagiccost` = '' WHERE `id` = '{$_GET['it']}' LIMIT 1;");
             } else {
                 $err= "<font color=red><b>Магия успешно перезаряжена.</b></font>";
-                mysql_query("UPDATE `users` set `money` = `money`- '".($row['includemagiccost'])."' WHERE id = {$_SESSION['uid']}");
-                mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Перезаряжена магия \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".round($onecost,2)." кр. ',1,'".time()."');");
-                mysql_query("UPDATE `inventory` SET `includemagicdex` = `includemagicmax`, `includemagicuses` = `includemagicuses`-1 WHERE `id` = '{$_GET['it']}' LIMIT 1;");
+                db_query("UPDATE `users` set `money` = `money`- '".($row['includemagiccost'])."' WHERE id = {$_SESSION['uid']}");
+                db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Перезаряжена магия \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".round($onecost,2)." кр. ',1,'".time()."');");
+                db_query("UPDATE `inventory` SET `includemagicdex` = `includemagicmax`, `includemagicuses` = `includemagicuses`-1 WHERE `id` = '{$_GET['it']}' LIMIT 1;");
             }
         }
     }
 
 
-    $data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `includemagicmax` > 0 AND `setsale`=0 ORDER by `update` DESC; ");
-    while($row = mysql_fetch_array($data)) {
+    $data = db_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `includemagicmax` > 0 AND `setsale`=0 ORDER by `update` DESC; ");
+    while($row = mysqli_fetch_array($data)) {
         $row['count'] = 1;
         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
         echo "<TR bgcolor={$color}><TD align=center ><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
@@ -279,7 +279,7 @@ if ($_GET['razdel']==2) {
 if ($_GET['razdel']==3) {
 
     if($_GET['mf']) {
-      $row = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `type` < 25 AND `type` != 0 AND `type` != 12 AND `honor` = 0 AND `artefact` = 0 AND `podzem` != 1 AND `owner` = '{$_SESSION['uid']}' AND `id` = '{$_GET['mf']}' AND `name` NOT LIKE '% (мф)%' AND `name` NOT LIKE '%Букет%'  AND `name` NOT LIKE '%Мешок%' AND `setsale`=0 LIMIT 1;"));
+      $row = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `type` < 25 AND `type` != 0 AND `type` != 12 AND `honor` = 0 AND `artefact` = 0 AND `podzem` != 1 AND `owner` = '{$_SESSION['uid']}' AND `id` = '{$_GET['mf']}' AND `name` NOT LIKE '% (мф)%' AND `name` NOT LIKE '%Букет%'  AND `name` NOT LIKE '%Мешок%' AND `setsale`=0 LIMIT 1;"));
       if ($row) {
         if (!$row["cost"]) $row['cost']=$row['ecost']*11;
         $row["cost"]*=0.3;
@@ -348,7 +348,7 @@ if ($_GET['razdel']==3) {
             }
 
 
-            if(mysql_query("UPDATE `inventory` SET
+            if(db_query("UPDATE `inventory` SET
                             `ghp` = `ghp`+'".(int)$hp."',
                             `bron1` = `bron1`+'".(int)$bron1."',
                             `bron2` = `bron2`+'".(int)$bron2."',
@@ -367,10 +367,10 @@ if ($_GET['razdel']==3) {
                             `nvinos` = `nvinos`+'".(int)$nvinos."',
                             ".(SELLCOEF==1?"":"`cost` = `cost` + '".round($row['cost']/10)."',")."
                             `name` = CONCAT(`name`, ' (мф)')
-            WHERE `id` = '{$_GET['mf']}' LIMIT 1;") or die(mysql_error())) {
+            WHERE `id` = '{$_GET['mf']}' LIMIT 1;") or die(db_error())) {
                 //echo $row['cost'];qqq
-                mysql_query("UPDATE `users` set `money` = `money`- '".($row['cost'])."' WHERE id = {$_SESSION['uid']}") or die(mysql_error());
-                mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Моцифицирована вещь \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".round($row["cost"],2)." кр. ',1,'".time()."');") or die(mysql_error());
+                db_query("UPDATE `users` set `money` = `money`- '".($row['cost'])."' WHERE id = {$_SESSION['uid']}") or die(db_error());
+                db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Моцифицирована вещь \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".round($row["cost"],2)." кр. ',1,'".time()."');") or die(db_error());
                 $err= "<font color=red><b>Вещь модифицирована.</b></font>";
             }
 
@@ -381,8 +381,8 @@ if ($_GET['razdel']==3) {
     }
 
 
-    $data = mysql_query("SELECT * FROM `inventory` WHERE `type` < 25 AND `type` != 12 AND `artefact` = 0  AND `honor` = 0  AND `podzem` != 1 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `name` NOT LIKE '% (мф)%' AND `name` NOT LIKE '%Букет%'  AND `name` NOT LIKE '%Мешок%' AND `name` NOT LIKE '%Копалка новичка%' AND `name` NOT LIKE '%Копалка мастера%' AND `setsale`=0 AND otdel != 50 ORDER by `update` DESC; ");
-    while($row = mysql_fetch_array($data)) {
+    $data = db_query("SELECT * FROM `inventory` WHERE `type` < 25 AND `type` != 12 AND `artefact` = 0  AND `honor` = 0  AND `podzem` != 1 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `name` NOT LIKE '% (мф)%' AND `name` NOT LIKE '%Букет%'  AND `name` NOT LIKE '%Мешок%' AND `name` NOT LIKE '%Копалка новичка%' AND `name` NOT LIKE '%Копалка мастера%' AND `setsale`=0 AND otdel != 50 ORDER by `update` DESC; ");
+    while($row = mysqli_fetch_array($data)) {
         $row['count'] = 1;
         if (!$row["cost"]) $row["cost"]=$row["ecost"]*11;
         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }

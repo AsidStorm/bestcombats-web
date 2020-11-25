@@ -668,7 +668,7 @@ if (@$strokes[$priem]->instantdamage) {
       $fbattle->checkbackeffects($user["id"], $stroketarget, min(ceil($damage), $fbattle->userdata[$stroketarget]["hp"]), 1);
       $damage=$fbattle->takehp($damage, $stroketarget, $en["hp"], 1, $user["id"]);
       $fbattle->adddamage($fbattle->user["id"], $damage, $stroketarget);
-      /*$battle_datamy = mysql_fetch_array(mq ('SELECT damage, exp FROM `battle` WHERE `id` = '.$user['battle'].' LIMIT 1;'));
+      /*$battle_datamy = mysqli_fetch_array(mq ('SELECT damage, exp FROM `battle` WHERE `id` = '.$user['battle'].' LIMIT 1;'));
       $damagemy = unserialize($battle_datamy['damage']);
       $damagemy[$_SESSION['uid']]=$damagemy[$_SESSION['uid']]+$damage;
 
@@ -724,7 +724,7 @@ if (@$strokes[$priem]->instantdamage) {
           if ($stroketarget==$_SESSION["uid"] && @$strokes[$priem]->selfmult) $heal=ceil($heal*$strokes[$priem]->selfmult);
         }
         /*if ($stroketarget > _BOTSEPARATOR_){
-          //$bots = mysql_fetch_array(mq ('SELECT `hp`, prototype FROM `bots` WHERE `id` = '.$stroketarget.' LIMIT 1;'));
+          //$bots = mysqli_fetch_array(mq ('SELECT `hp`, prototype FROM `bots` WHERE `id` = '.$stroketarget.' LIMIT 1;'));
           //$en['hp'] = $bots['hp'];
           //$en['maxhp'] = $fbattle->userdata[$stroketarget]["maxhp"];//mqfa1("select maxhp from users where id='$bots[prototype]'");
           $en=$fbattle->userdata[$stroketarget];
@@ -735,7 +735,7 @@ if (@$strokes[$priem]->instantdamage) {
           } else $heal1=$heal;
           //mq("update bots set `hp`= $newhp WHERE id='".$stroketarget."'");
         } else {
-          //$en = mysql_fetch_array(mq ('SELECT `hp`,`maxhp` FROM `users` WHERE `id` = '.$stroketarget.' LIMIT 1;'));
+          //$en = mysqli_fetch_array(mq ('SELECT `hp`,`maxhp` FROM `users` WHERE `id` = '.$stroketarget.' LIMIT 1;'));
           $en=$fbattle->userdata[$stroketarget];
           $newhp = $en['hp']+$heal;
           if($newhp>$en['maxhp']) {
@@ -952,11 +952,11 @@ if (@$strokes[$priem]->instantdamage) {
 
           if ($ff["value"]<$damage) {
             //if ($stroketarget > _BOTSEPARATOR_){
-              //$bots = mysql_fetch_array(mq ('SELECT `hp`, prototype FROM `bots` WHERE `id` = '.$_SESSION['enemy'].' LIMIT 1;'));
+              //$bots = mysqli_fetch_array(mq ('SELECT `hp`, prototype FROM `bots` WHERE `id` = '.$_SESSION['enemy'].' LIMIT 1;'));
               //$en['hp'] = $bots['hp'];
               //$en['maxhp'] = mqfa1("select maxhp from users where id='$bots[prototype]'");
             //} else {
-              //$en = mysql_fetch_array(mq ('SELECT `hp`,`maxhp` FROM `users` WHERE `id` = '.$_SESSION['enemy'].' LIMIT 1;'));
+              //$en = mysqli_fetch_array(mq ('SELECT `hp`,`maxhp` FROM `users` WHERE `id` = '.$_SESSION['enemy'].' LIMIT 1;'));
             //}
             $en["hp"]=$fbattle->userdata[$stroketarget]["hp"];
             $en["maxhp"]=$fbattle->userdata[$stroketarget]["maxhp"];
@@ -965,7 +965,7 @@ if (@$strokes[$priem]->instantdamage) {
           $fbattle->checkbackeffects($user["id"], $stroketarget, $damage, 1);
           $fbattle->adddamage($fbattle->user["id"], $damage, $stroketarget);
           
-          /*$battle_datamy = mysql_fetch_array(mq ('SELECT damage, exp FROM `battle` WHERE `id` = '.$user['battle'].' LIMIT 1;'));
+          /*$battle_datamy = mysqli_fetch_array(mq ('SELECT damage, exp FROM `battle` WHERE `id` = '.$user['battle'].' LIMIT 1;'));
           $damagemy = unserialize($battle_datamy['damage']);
           $damagemy[$_SESSION['uid']]=$damagemy[$_SESSION['uid']]+$damage;
 

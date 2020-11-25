@@ -49,7 +49,7 @@
   function movedtbots($fn) {
     global $wps, $data;
     $r=mq("select * from fieldparties where (user=11137 or user=11138 or user=11139) and battle=0");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $i=0;
       foreach ($wps as $k=>$v) {
         $i++;

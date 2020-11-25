@@ -51,8 +51,8 @@ function test() {
 <TABLE width=100%>
 <TR><TD valign=top width=100%><center><h3><?=$rooms[$user["room"]]?></h3></center>
 <?
-$select = mysql_query ("SELECT `time` FROM `visit_podzem` WHERE room='$podzemroom' and `login`='".$user['login']."' and `time`>'0'");
-if($el = mysql_fetch_array ($select)) {
+$select = db_query ("SELECT `time` FROM `visit_podzem` WHERE room='$podzemroom' and `login`='".$user['login']."' and `time`>'0'");
+if($el = mysqli_fetch_array ($select)) {
   $wait_sec=$el["time"];
   $new_t=time();
   $left_time=$wait_sec-$new_t;
@@ -80,20 +80,20 @@ if($el = mysql_fetch_array ($select)) {
       echo "Пожертвовав ".$podzemdata[$podzemroom]["passprice"]." кр. на благоустройство ".$podzemdata[$podzemroom]["name2"].", это можно сделать прямо сейчас. <a onclick=\"return confirm('Пожертвовать ".$podzemdata[$podzemroom]["passprice"]." кр. на благоустройство ".$podzemdata[$podzemroom]["name2"]."?');\" href=\"vxod.php?donate=1\">Пожертвовать</a>.";
     }
   } else {
-    mysql_query("DELETE FROM visit_podzem WHERE login='".$user['login']."' and room='$podzemroom'");
+    db_query("DELETE FROM visit_podzem WHERE login='".$user['login']."' and room='$podzemroom'");
     print "<script>location.href='main.php?act=none'</script>";
     exit;
   }
 } else {
   $login = $user['login'];
-  $ya=mysql_query("select login from vxodd where login='$login'");
+  $ya=db_query("select login from vxodd where login='$login'");
   $wawe = "0";
-  if($daw=mysql_fetch_array($ya)){$wawe="1";}
-  $naw=mysql_query("select login from vxod where login='$login'");
+  if($daw=mysqli_fetch_array($ya)){$wawe="1";}
+  $naw=db_query("select login from vxod where login='$login'");
   $nawe = "0";
-  if($ser=mysql_fetch_array($naw)){$nawe="1";}
-  $rt=mysql_query("select id,level from users where login='$login'");
-  $est=mysql_fetch_array($rt);
+  if($ser=mysqli_fetch_array($naw)){$nawe="1";}
+  $rt=db_query("select id,level from users where login='$login'");
+  $est=mysqli_fetch_array($rt);
   $user_id = $est["id"];
   $user_lvl = $est["level"];
   if($_GET['warning']==1){print"<font style='color:#CC0000'>&nbsp;Вы покинули группу</font>";}
@@ -115,8 +115,8 @@ function isonlinelogin($l) {
   $i=mqfa1("select distinct(users.id) from `online` left join users on users.id=online.id WHERE `date` >= ".(time()-60)." and users.login='$l'");
   return $i;
 }
-$Q=mysql_query("SELECT * FROM vxod where room='$user[room]'");
-while($DATA=mysql_fetch_array($Q)){/////////////1
+$Q=db_query("SELECT * FROM vxod where room='$user[room]'");
+while($DATA=mysqli_fetch_array($Q)){/////////////1
    $cr=$DATA["glav_id"];
    $z_login[$i]=$DATA["login"];
    $date[$i]=$DATA["date"];
@@ -125,9 +125,9 @@ while($DATA=mysql_fetch_array($Q)){/////////////1
 
    $mine_z[$i] = 0;
 
-   $Q2=mysql_query("SELECT glav_id FROM vxodd WHERE glav_id='$cr'");
+   $Q2=db_query("SELECT glav_id FROM vxodd WHERE glav_id='$cr'");
    $t1_all[$i]=0;
-   while($DATAS=mysql_fetch_array($Q2)){
+   while($DATAS=mysqli_fetch_array($Q2)){
    $t1_all[$i]++;
    }
    $creator[$i]=$DATA["glav_id"];
@@ -140,8 +140,8 @@ print "<FORM id='REQUEST'>
 <TR><TD>
 <font class=date>$date[$n]</font><font style='font-size:12px; color:#000000;'>";
 
-  $QUER=mysql_query("SELECT login,lvl,fee FROM vxodd WHERE glav_id='$creator[$n]' ORDER BY id ASC");
-  while($DATAS=mysql_fetch_array($QUER)){
+  $QUER=db_query("SELECT login,lvl,fee FROM vxodd WHERE glav_id='$creator[$n]' ORDER BY id ASC");
+  while($DATAS=mysqli_fetch_array($QUER)){
     if ($user['align'] == 2.5) {
       $ol=isonlinelogin($DATAS["login"]);
       if (!$ol) {
@@ -215,14 +215,14 @@ print"<INPUT style=\"font-size:12px;\" type='submit' name='del' value='Поки�
 ///////////////Подача заявки////////////////////
 if($_GET['open'])
 {
-$der=mysql_query("SELECT glav_id FROM vxodd WHERE login='".$user['login']."'");
-if($deras=mysql_fetch_array($der)){
+$der=db_query("SELECT glav_id FROM vxodd WHERE login='".$user['login']."'");
+if($deras=mysqli_fetch_array($der)){
 print "<script>location.href='?warning=4'</script>";
 exit;
 }
 $time=date("H:i");
-$SQL2 = mysql_query("INSERT INTO vxod(date,login,glav_id,comment,pass,room) VALUES('$time','$login','$user_id','".$_GET['cmt']."','".$_GET['pass']."','$user[room]')");
-$SQL2 = mysql_query("INSERT INTO vxodd(login,glav_id,lvl) VALUES('$login','$user_id','$user_lvl')");
+$SQL2 = db_query("INSERT INTO vxod(date,login,glav_id,comment,pass,room) VALUES('$time','$login','$user_id','".$_GET['cmt']."','".$_GET['pass']."','$user[room]')");
+$SQL2 = db_query("INSERT INTO vxodd(login,glav_id,lvl) VALUES('$login','$user_id','$user_lvl')");
 if($SQL2){
 print "<script>location.href='main.php?act=none'</script>";
 exit;}else{print"Ошибка!!! Сообщите администратору!";}
@@ -230,9 +230,9 @@ exit;}else{print"Ошибка!!! Сообщите администратору!"
 //////////////Удаление заявки//////////////////////
 if($_GET['del'])
 {
-$e = mysql_query("DELETE FROM vxod WHERE login='$login'");
-$es = mysql_query("DELETE FROM vxodd WHERE glav_id='$user_id'");
-$ed = mysql_query("DELETE FROM vxodd WHERE login='$login'");
+$e = db_query("DELETE FROM vxod WHERE login='$login'");
+$es = db_query("DELETE FROM vxodd WHERE glav_id='$user_id'");
+$ed = db_query("DELETE FROM vxodd WHERE login='$login'");
 if($e){
 print "<script>location.href='?warning=1'</script>";
 exit;
@@ -241,13 +241,13 @@ exit;
 /////////////Присоединится///////////////
 if($_GET['add'])
 {
-$der=mysql_query("SELECT glav_id,id FROM vxodd WHERE login='".$user['login']."'");
-if($deras=mysql_fetch_array($der)){
+$der=db_query("SELECT glav_id,id FROM vxodd WHERE login='".$user['login']."'");
+if($deras=mysqli_fetch_array($der)){
 print "<script>location.href='?warning=4'</script>";
 exit;
 }
-$den=mysql_query("SELECT id FROM vxodd WHERE glav_id='".$_GET['naw_id']."'");
-if(mysql_num_rows($den) >= (in_array($user["room"]+1, $caverooms)?5:4)){
+$den=db_query("SELECT id FROM vxodd WHERE glav_id='".$_GET['naw_id']."'");
+if(mysqli_num_rows($den) >= (in_array($user["room"]+1, $caverooms)?5:4)){
 print "<script>location.href='?warning=5'</script>";
 exit;
 }
@@ -266,9 +266,9 @@ exit;
       print "<script>location.href='?warning=".(5+$badfee)."'</script>";
       exit;
     } elseif ($p==$_GET["pass"]) {
-      $rt=mysql_query("select level from users where login='$login'");
-      $est=mysql_fetch_array($rt);
-      $s = mysql_query("INSERT INTO vxodd(login,glav_id,lvl,fee) VALUES('$login','".$_GET['naw_id']."','".$est["level"]."','$fee')");
+      $rt=db_query("select level from users where login='$login'");
+      $est=mysqli_fetch_array($rt);
+      $s = db_query("INSERT INTO vxodd(login,glav_id,lvl,fee) VALUES('$login','".$_GET['naw_id']."','".$est["level"]."','$fee')");
       if($s){
         print "<script>location.href='?act=none'</script>";
         exit;
@@ -290,12 +290,12 @@ if($_GET['start']){
     $nc=1; 
     $locs=array();
   } else $nc=0;
-  $zax=mysql_query("select login, fee from vxodd where glav_id='".$user['id']."'");
+  $zax=db_query("select login, fee from vxodd where glav_id='".$user['id']."'");
   $level=0;
-  while($nana=mysql_fetch_array($zax)) {
+  while($nana=mysqli_fetch_array($zax)) {
     $n_login = $nana["login"];
-    $rty=mysql_query("select id,level,login,sex,shadow, money, ekr from users where login='$n_login'");
-    $esth=mysql_fetch_array($rty);
+    $rty=db_query("select id,level,login,sex,shadow, money, ekr from users where login='$n_login'");
+    $esth=mysqli_fetch_array($rty);
     if ($nana["fee"]) {
       if ($nana["fee"]>$esth["money"]) continue;
       mq("update users set money=money+$nana[fee] where id='$user[id]'");
@@ -320,7 +320,7 @@ if($_GET['start']){
   }
   if ($nc) {
     $r=mq("select * from cavemaps where room='$user[room]'");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $map=unserialize($rec["map"]);
       foreach ($map as $k=>$v) {
         foreach ($v as $k2=>$v2) {
@@ -349,22 +349,22 @@ if($_GET['start']){
   } else {
     mq("update labirint set level='$level' where glav_id='$user[id]'");
     $r=mq("select name from podzem2 where room='$user[room]'");
-    while ($rec=mysql_fetch_assoc($r)) {
-      $ferrr = mysql_query("SELECT * FROM podzem3 WHERE glava='default' and name='$rec[name]'");
-      $retr = mysql_fetch_array($ferrr);
-      mysql_query('insert into podzem3(glava,name,n1,n2,n3,n4,n5,n6,n7,n8,n9,n11,n12,n13,n14,n15,n16,n17,n18,n19,n21,n22,n23,n24,n25,n26,n27,n28,n29,n31,n32,n33,n34,n35,n36,n37,n38,n39,n41,n42,n43,n44,n45,n46,n47,n48,n49,n51,n52,n53,n54,n55,n56,n57,n58,n59,n61,n62,n63,n64,n65,n66,n67,n68,n69,n71,n72,n73,n74,n75,n76,n77,n78,n79,n81,n82,n83,n84,n85,n86,n87,n88,n89,n91,n92,n93,n94,n95,n96,n97,n98,n99,sunduk1,sunduk2,sunduk3,sunduk4,sunduk5,sunduk6,sunduk7) values("'.$login.'","'.$rec["name"].'","'.$retr["n1"].'","'.$retr["n2"].'","'.$retr["n3"].'","'.$retr["n4"].'","'.$retr["n5"].'","'.$retr["n6"].'","'.$retr["n7"].'","'.$retr["n8"].'","'.$retr["n9"].'","'.$retr["n11"].'","'.$retr["n12"].'","'.$retr["n13"].'","'.$retr["n14"].'","'.$retr["n15"].'","'.$retr["n16"].'","'.$retr["n17"].'","'.$retr["n18"].'","'.$retr["n19"].'","'.$retr["n21"].'","'.$retr["n22"].'","'.$retr["n23"].'","'.$retr["n24"].'","'.$retr["n25"].'","'.$retr["n26"].'","'.$retr["n27"].'","'.$retr["n28"].'","'.$retr["n29"].'","'.$retr["n31"].'","'.$retr["n32"].'","'.$retr["n33"].'","'.$retr["n34"].'","'.$retr["n35"].'","'.$retr["n36"].'","'.$retr["n37"].'","'.$retr["n38"].'","'.$retr["n39"].'","'.$retr["n41"].'","'.$retr["n42"].'","'.$retr["n43"].'","'.$retr["n44"].'","'.$retr["n45"].'","'.$retr["n46"].'","'.$retr["n47"].'","'.$retr["n48"].'","'.$retr["n49"].'","'.$retr["n51"].'","'.$retr["n52"].'","'.$retr["n53"].'","'.$retr["n54"].'","'.$retr["n55"].'","'.$retr["n56"].'","'.$retr["n57"].'","'.$retr["n58"].'","'.$retr["n59"].'","'.$retr["n61"].'","'.$retr["n62"].'","'.$retr["n63"].'","'.$retr["n64"].'","'.$retr["n65"].'","'.$retr["n66"].'","'.$retr["n67"].'","'.$retr["n68"].'","'.$retr["n69"].'","'.$retr["n71"].'","'.$retr["n72"].'","'.$retr["n73"].'","'.$retr["n74"].'","'.$retr["n75"].'","'.$retr["n76"].'","'.$retr["n77"].'","'.$retr["n78"].'","'.$retr["n79"].'","'.$retr["n81"].'","'.$retr["n82"].'","'.$retr["n83"].'","'.$retr["n84"].'","'.$retr["n85"].'","'.$retr["n86"].'","'.$retr["n87"].'","'.$retr["n88"].'","'.$retr["n89"].'","'.$retr["n91"].'","'.$retr["n92"].'","'.$retr["n93"].'","'.$retr["n94"].'","'.$retr["n95"].'","'.$retr["n96"].'","'.$retr["n97"].'","'.$retr["n98"].'","'.$retr["n99"].'","'.$retr["sunduk1"].'","'.$retr["sunduk2"].'","'.$retr["sunduk3"].'","'.$retr["sunduk4"].'","'.$retr["sunduk5"].'","'.$retr["sunduk6"].'","'.$retr["sunduk7"].'")');
+    while ($rec=mysqli_fetch_assoc($r)) {
+      $ferrr = db_query("SELECT * FROM podzem3 WHERE glava='default' and name='$rec[name]'");
+      $retr = mysqli_fetch_array($ferrr);
+      db_query('insert into podzem3(glava,name,n1,n2,n3,n4,n5,n6,n7,n8,n9,n11,n12,n13,n14,n15,n16,n17,n18,n19,n21,n22,n23,n24,n25,n26,n27,n28,n29,n31,n32,n33,n34,n35,n36,n37,n38,n39,n41,n42,n43,n44,n45,n46,n47,n48,n49,n51,n52,n53,n54,n55,n56,n57,n58,n59,n61,n62,n63,n64,n65,n66,n67,n68,n69,n71,n72,n73,n74,n75,n76,n77,n78,n79,n81,n82,n83,n84,n85,n86,n87,n88,n89,n91,n92,n93,n94,n95,n96,n97,n98,n99,sunduk1,sunduk2,sunduk3,sunduk4,sunduk5,sunduk6,sunduk7) values("'.$login.'","'.$rec["name"].'","'.$retr["n1"].'","'.$retr["n2"].'","'.$retr["n3"].'","'.$retr["n4"].'","'.$retr["n5"].'","'.$retr["n6"].'","'.$retr["n7"].'","'.$retr["n8"].'","'.$retr["n9"].'","'.$retr["n11"].'","'.$retr["n12"].'","'.$retr["n13"].'","'.$retr["n14"].'","'.$retr["n15"].'","'.$retr["n16"].'","'.$retr["n17"].'","'.$retr["n18"].'","'.$retr["n19"].'","'.$retr["n21"].'","'.$retr["n22"].'","'.$retr["n23"].'","'.$retr["n24"].'","'.$retr["n25"].'","'.$retr["n26"].'","'.$retr["n27"].'","'.$retr["n28"].'","'.$retr["n29"].'","'.$retr["n31"].'","'.$retr["n32"].'","'.$retr["n33"].'","'.$retr["n34"].'","'.$retr["n35"].'","'.$retr["n36"].'","'.$retr["n37"].'","'.$retr["n38"].'","'.$retr["n39"].'","'.$retr["n41"].'","'.$retr["n42"].'","'.$retr["n43"].'","'.$retr["n44"].'","'.$retr["n45"].'","'.$retr["n46"].'","'.$retr["n47"].'","'.$retr["n48"].'","'.$retr["n49"].'","'.$retr["n51"].'","'.$retr["n52"].'","'.$retr["n53"].'","'.$retr["n54"].'","'.$retr["n55"].'","'.$retr["n56"].'","'.$retr["n57"].'","'.$retr["n58"].'","'.$retr["n59"].'","'.$retr["n61"].'","'.$retr["n62"].'","'.$retr["n63"].'","'.$retr["n64"].'","'.$retr["n65"].'","'.$retr["n66"].'","'.$retr["n67"].'","'.$retr["n68"].'","'.$retr["n69"].'","'.$retr["n71"].'","'.$retr["n72"].'","'.$retr["n73"].'","'.$retr["n74"].'","'.$retr["n75"].'","'.$retr["n76"].'","'.$retr["n77"].'","'.$retr["n78"].'","'.$retr["n79"].'","'.$retr["n81"].'","'.$retr["n82"].'","'.$retr["n83"].'","'.$retr["n84"].'","'.$retr["n85"].'","'.$retr["n86"].'","'.$retr["n87"].'","'.$retr["n88"].'","'.$retr["n89"].'","'.$retr["n91"].'","'.$retr["n92"].'","'.$retr["n93"].'","'.$retr["n94"].'","'.$retr["n95"].'","'.$retr["n96"].'","'.$retr["n97"].'","'.$retr["n98"].'","'.$retr["n99"].'","'.$retr["sunduk1"].'","'.$retr["sunduk2"].'","'.$retr["sunduk3"].'","'.$retr["sunduk4"].'","'.$retr["sunduk5"].'","'.$retr["sunduk6"].'","'.$retr["sunduk7"].'")');
 
-      $ferrr = mysql_query("SELECT * FROM podzem4 WHERE glava='default' and name='$rec[name]'");
-      $retr = mysql_fetch_array($ferrr);
-      mysql_query('insert into podzem4(glava,name,n1,n2,n3,n4,n5,n6,n7,n8,n9,n11,n12,n13,n14,n15,n16,n17,n18,n19,n21,n22,n23,n24,n25,n26,n27,n28,n29,n31,n32,n33,n34,n35,n36,n37,n38,n39,n41,n42,n43,n44,n45,n46,n47,n48,n49,n51,n52,n53,n54,n55,n56,n57,n58,n59,n61,n62,n63,n64,n65,n66,n67,n68,n69,n71,n72,n73,n74,n75,n76,n77,n78,n79,n81,n82,n83,n84,n85,n86,n87,n88,n89,n91,n92,n93,n94,n95,n96,n97,n98,n99,v1,v2,v3,v4,v5,v6,v7,v8,v9,v11,v12,v13,v14,v15,v16,v17,v18,v19,v21,v22,v23,v24,v25,v26,v27,v28,v29,v31,v32,v33,v34,v35,v36,v37,v38,v39,v41,v42,v43,v44,v45,v46,v47,v48,v49,v51,v52,v53,v54,v55,v56,v57,v58,v59,v61,v62,v63,v64,v65,v66,v67,v68,v69,v71,v72,v73,v74,v75,v76,v77,v78,v79,v81,v82,v83,v84,v85,v86,v87,v88,v89,v91,v92,v93,v94,v95,v96,v97,v98,v99) values("'.$login.'","'.$rec["name"].'","'.$retr["n1"].'","'.$retr["n2"].'","'.$retr["n3"].'","'.$retr["n4"].'","'.$retr["n5"].'","'.$retr["n6"].'","'.$retr["n7"].'","'.$retr["n8"].'","'.$retr["n9"].'","'.$retr["n11"].'","'.$retr["n12"].'","'.$retr["n13"].'","'.$retr["n14"].'","'.$retr["n15"].'","'.$retr["n16"].'","'.$retr["n17"].'","'.$retr["n18"].'","'.$retr["n19"].'","'.$retr["n21"].'","'.$retr["n22"].'","'.$retr["n23"].'","'.$retr["n24"].'","'.$retr["n25"].'","'.$retr["n26"].'","'.$retr["n27"].'","'.$retr["n28"].'","'.$retr["n29"].'","'.$retr["n31"].'","'.$retr["n32"].'","'.$retr["n33"].'","'.$retr["n34"].'","'.$retr["n35"].'","'.$retr["n36"].'","'.$retr["n37"].'","'.$retr["n38"].'","'.$retr["n39"].'","'.$retr["n41"].'","'.$retr["n42"].'","'.$retr["n43"].'","'.$retr["n44"].'","'.$retr["n45"].'","'.$retr["n46"].'","'.$retr["n47"].'","'.$retr["n48"].'","'.$retr["n49"].'","'.$retr["n51"].'","'.$retr["n52"].'","'.$retr["n53"].'","'.$retr["n54"].'","'.$retr["n55"].'","'.$retr["n56"].'","'.$retr["n57"].'","'.$retr["n58"].'","'.$retr["n59"].'","'.$retr["n61"].'","'.$retr["n62"].'","'.$retr["n63"].'","'.$retr["n64"].'","'.$retr["n65"].'","'.$retr["n66"].'","'.$retr["n67"].'","'.$retr["n68"].'","'.$retr["n69"].'","'.$retr["n71"].'","'.$retr["n72"].'","'.$retr["n73"].'","'.$retr["n74"].'","'.$retr["n75"].'","'.$retr["n76"].'","'.$retr["n77"].'","'.$retr["n78"].'","'.$retr["n79"].'","'.$retr["n81"].'","'.$retr["n82"].'","'.$retr["n83"].'","'.$retr["n84"].'","'.$retr["n85"].'","'.$retr["n86"].'","'.$retr["n87"].'","'.$retr["n88"].'","'.$retr["n89"].'","'.$retr["n91"].'","'.$retr["n92"].'","'.$retr["n93"].'","'.$retr["n94"].'","'.$retr["n95"].'","'.$retr["n96"].'","'.$retr["n97"].'","'.$retr["n98"].'","'.$retr["n99"].'","'.$retr["v1"].'","'.$retr["v2"].'","'.$retr["v3"].'","'.$retr["v4"].'","'.$retr["v5"].'","'.$retr["v6"].'","'.$retr["v7"].'","'.$retr["v8"].'","'.$retr["v9"].'","'.$retr["v11"].'","'.$retr["v12"].'","'.$retr["v13"].'","'.$retr["v14"].'","'.$retr["v15"].'","'.$retr["v16"].'","'.$retr["v17"].'","'.$retr["v18"].'","'.$retr["v19"].'","'.$retr["v21"].'","'.$retr["v22"].'","'.$retr["v23"].'","'.$retr["v24"].'","'.$retr["v25"].'","'.$retr["v26"].'","'.$retr["v27"].'","'.$retr["v28"].'","'.$retr["v29"].'","'.$retr["v31"].'","'.$retr["v32"].'","'.$retr["v33"].'","'.$retr["v34"].'","'.$retr["v35"].'","'.$retr["v36"].'","'.$retr["v37"].'","'.$retr["v38"].'","'.$retr["v39"].'","'.$retr["v41"].'","'.$retr["v42"].'","'.$retr["v43"].'","'.$retr["v44"].'","'.$retr["v45"].'","'.$retr["v46"].'","'.$retr["v47"].'","'.$retr["v48"].'","'.$retr["v49"].'","'.$retr["v51"].'","'.$retr["v52"].'","'.$retr["v53"].'","'.$retr["v54"].'","'.$retr["v55"].'","'.$retr["v56"].'","'.$retr["v57"].'","'.$retr["v58"].'","'.$retr["v59"].'","'.$retr["v61"].'","'.$retr["v62"].'","'.$retr["v63"].'","'.$retr["v64"].'","'.$retr["v65"].'","'.$retr["v66"].'","'.$retr["v67"].'","'.$retr["v68"].'","'.$retr["v69"].'","'.$retr["v71"].'","'.$retr["v72"].'","'.$retr["v73"].'","'.$retr["v74"].'","'.$retr["v75"].'","'.$retr["v76"].'","'.$retr["v77"].'","'.$retr["v78"].'","'.$retr["v79"].'","'.$retr["v81"].'","'.$retr["v82"].'","'.$retr["v83"].'","'.$retr["v84"].'","'.$retr["v85"].'","'.$retr["v86"].'","'.$retr["v87"].'","'.$retr["v88"].'","'.$retr["v89"].'","'.$retr["v91"].'","'.$retr["v92"].'","'.$retr["v93"].'","'.$retr["v94"].'","'.$retr["v95"].'","'.$retr["v96"].'","'.$retr["v97"].'","'.$retr["v98"].'","'.$retr["v99"].'")');
+      $ferrr = db_query("SELECT * FROM podzem4 WHERE glava='default' and name='$rec[name]'");
+      $retr = mysqli_fetch_array($ferrr);
+      db_query('insert into podzem4(glava,name,n1,n2,n3,n4,n5,n6,n7,n8,n9,n11,n12,n13,n14,n15,n16,n17,n18,n19,n21,n22,n23,n24,n25,n26,n27,n28,n29,n31,n32,n33,n34,n35,n36,n37,n38,n39,n41,n42,n43,n44,n45,n46,n47,n48,n49,n51,n52,n53,n54,n55,n56,n57,n58,n59,n61,n62,n63,n64,n65,n66,n67,n68,n69,n71,n72,n73,n74,n75,n76,n77,n78,n79,n81,n82,n83,n84,n85,n86,n87,n88,n89,n91,n92,n93,n94,n95,n96,n97,n98,n99,v1,v2,v3,v4,v5,v6,v7,v8,v9,v11,v12,v13,v14,v15,v16,v17,v18,v19,v21,v22,v23,v24,v25,v26,v27,v28,v29,v31,v32,v33,v34,v35,v36,v37,v38,v39,v41,v42,v43,v44,v45,v46,v47,v48,v49,v51,v52,v53,v54,v55,v56,v57,v58,v59,v61,v62,v63,v64,v65,v66,v67,v68,v69,v71,v72,v73,v74,v75,v76,v77,v78,v79,v81,v82,v83,v84,v85,v86,v87,v88,v89,v91,v92,v93,v94,v95,v96,v97,v98,v99) values("'.$login.'","'.$rec["name"].'","'.$retr["n1"].'","'.$retr["n2"].'","'.$retr["n3"].'","'.$retr["n4"].'","'.$retr["n5"].'","'.$retr["n6"].'","'.$retr["n7"].'","'.$retr["n8"].'","'.$retr["n9"].'","'.$retr["n11"].'","'.$retr["n12"].'","'.$retr["n13"].'","'.$retr["n14"].'","'.$retr["n15"].'","'.$retr["n16"].'","'.$retr["n17"].'","'.$retr["n18"].'","'.$retr["n19"].'","'.$retr["n21"].'","'.$retr["n22"].'","'.$retr["n23"].'","'.$retr["n24"].'","'.$retr["n25"].'","'.$retr["n26"].'","'.$retr["n27"].'","'.$retr["n28"].'","'.$retr["n29"].'","'.$retr["n31"].'","'.$retr["n32"].'","'.$retr["n33"].'","'.$retr["n34"].'","'.$retr["n35"].'","'.$retr["n36"].'","'.$retr["n37"].'","'.$retr["n38"].'","'.$retr["n39"].'","'.$retr["n41"].'","'.$retr["n42"].'","'.$retr["n43"].'","'.$retr["n44"].'","'.$retr["n45"].'","'.$retr["n46"].'","'.$retr["n47"].'","'.$retr["n48"].'","'.$retr["n49"].'","'.$retr["n51"].'","'.$retr["n52"].'","'.$retr["n53"].'","'.$retr["n54"].'","'.$retr["n55"].'","'.$retr["n56"].'","'.$retr["n57"].'","'.$retr["n58"].'","'.$retr["n59"].'","'.$retr["n61"].'","'.$retr["n62"].'","'.$retr["n63"].'","'.$retr["n64"].'","'.$retr["n65"].'","'.$retr["n66"].'","'.$retr["n67"].'","'.$retr["n68"].'","'.$retr["n69"].'","'.$retr["n71"].'","'.$retr["n72"].'","'.$retr["n73"].'","'.$retr["n74"].'","'.$retr["n75"].'","'.$retr["n76"].'","'.$retr["n77"].'","'.$retr["n78"].'","'.$retr["n79"].'","'.$retr["n81"].'","'.$retr["n82"].'","'.$retr["n83"].'","'.$retr["n84"].'","'.$retr["n85"].'","'.$retr["n86"].'","'.$retr["n87"].'","'.$retr["n88"].'","'.$retr["n89"].'","'.$retr["n91"].'","'.$retr["n92"].'","'.$retr["n93"].'","'.$retr["n94"].'","'.$retr["n95"].'","'.$retr["n96"].'","'.$retr["n97"].'","'.$retr["n98"].'","'.$retr["n99"].'","'.$retr["v1"].'","'.$retr["v2"].'","'.$retr["v3"].'","'.$retr["v4"].'","'.$retr["v5"].'","'.$retr["v6"].'","'.$retr["v7"].'","'.$retr["v8"].'","'.$retr["v9"].'","'.$retr["v11"].'","'.$retr["v12"].'","'.$retr["v13"].'","'.$retr["v14"].'","'.$retr["v15"].'","'.$retr["v16"].'","'.$retr["v17"].'","'.$retr["v18"].'","'.$retr["v19"].'","'.$retr["v21"].'","'.$retr["v22"].'","'.$retr["v23"].'","'.$retr["v24"].'","'.$retr["v25"].'","'.$retr["v26"].'","'.$retr["v27"].'","'.$retr["v28"].'","'.$retr["v29"].'","'.$retr["v31"].'","'.$retr["v32"].'","'.$retr["v33"].'","'.$retr["v34"].'","'.$retr["v35"].'","'.$retr["v36"].'","'.$retr["v37"].'","'.$retr["v38"].'","'.$retr["v39"].'","'.$retr["v41"].'","'.$retr["v42"].'","'.$retr["v43"].'","'.$retr["v44"].'","'.$retr["v45"].'","'.$retr["v46"].'","'.$retr["v47"].'","'.$retr["v48"].'","'.$retr["v49"].'","'.$retr["v51"].'","'.$retr["v52"].'","'.$retr["v53"].'","'.$retr["v54"].'","'.$retr["v55"].'","'.$retr["v56"].'","'.$retr["v57"].'","'.$retr["v58"].'","'.$retr["v59"].'","'.$retr["v61"].'","'.$retr["v62"].'","'.$retr["v63"].'","'.$retr["v64"].'","'.$retr["v65"].'","'.$retr["v66"].'","'.$retr["v67"].'","'.$retr["v68"].'","'.$retr["v69"].'","'.$retr["v71"].'","'.$retr["v72"].'","'.$retr["v73"].'","'.$retr["v74"].'","'.$retr["v75"].'","'.$retr["v76"].'","'.$retr["v77"].'","'.$retr["v78"].'","'.$retr["v79"].'","'.$retr["v81"].'","'.$retr["v82"].'","'.$retr["v83"].'","'.$retr["v84"].'","'.$retr["v85"].'","'.$retr["v86"].'","'.$retr["v87"].'","'.$retr["v88"].'","'.$retr["v89"].'","'.$retr["v91"].'","'.$retr["v92"].'","'.$retr["v93"].'","'.$retr["v94"].'","'.$retr["v95"].'","'.$retr["v96"].'","'.$retr["v97"].'","'.$retr["v98"].'","'.$retr["v99"].'")');
     }
   }
 ?>
 <script>top.frames['online'].location='ch.php?online='+Math.round(Math.random()*100000);</script>
 <?
-mysql_query("DELETE FROM vxod WHERE login='$login'");
-mysql_query("DELETE FROM vxodd WHERE glav_id=".$user['id']."");
-mysql_query("DELETE FROM vxodd WHERE login='$login'");
+db_query("DELETE FROM vxod WHERE login='$login'");
+db_query("DELETE FROM vxodd WHERE glav_id=".$user['id']."");
+db_query("DELETE FROM vxodd WHERE login='$login'");
 print "<script>location.href='".($nc?"cave":"canalizaciya").".php'</script>";
 exit;
 }
@@ -417,7 +417,7 @@ exit;
       Вы можете обменять у алхимика камни затаённого солнца на любую эссенцию.<br>
       Обменять на: <select name=\"changeto\">";
       $r=mq("select id, name from smallitems where name like '%Эссенция%' order by name");
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         echo "<option value=\"$rec[id]\">$rec[name]</option>";
       }
       echo "</select>

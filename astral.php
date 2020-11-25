@@ -34,7 +34,7 @@ $shans = rand(1,100);
 
 if($user['battle']!=0 and $shans<'50' and $user['udar']>=1){
 
-$effs = mysql_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND `type` = '400' AND `isp`='0'"));
+$effs = mysqli_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND `type` = '400' AND `isp`='0'"));
 
 if($effs){
 ///////////
@@ -58,9 +58,9 @@ $effs['stihiya']=='zemlya' and ($nom == 2 or $nom == 6 or $nom == 10)){
 mq("UPDATE `effects` SET `isp` = '1' WHERE `id`='".$effs['id']."' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;");
 
 mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$bosa."','".$bid."','".$user['battle']."','900');");
-		$bot = mysql_insert_id();
+		$bot = db_insert_id();
 		
-		$bd = mysql_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$user['battle'].' LIMIT 1;'));
+		$bd = mysqli_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$user['battle'].' LIMIT 1;'));
 		$battle = unserialize($bd['teams']);
 		$battle[$bot] = $battle[$user['id']];
 		foreach($battle[$bot] as $k => $v) {
@@ -79,9 +79,9 @@ else{
 ///////////
 mq("UPDATE `effects` SET `isp` = '1' WHERE `id`='".$effs['id']."' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;");
 mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$bosa."','".$bid."','".$user['battle']."','900');");
-		$bot = mysql_insert_id();
+		$bot = db_insert_id();
 		
-		$bd = mysql_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$user['battle'].' LIMIT 1;'));
+		$bd = mysqli_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$user['battle'].' LIMIT 1;'));
 		$battle = unserialize($bd['teams']);
 		$battle[$bot] = $battle[$_POST['enemy']];
 		foreach($battle[$bot] as $k => $v) {

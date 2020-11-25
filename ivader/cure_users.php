@@ -1,17 +1,17 @@
 <?php
 include "../connect.php";
 
-$ban_users=mysql_query("SELECT * from users where block=1 order by id ASC;");
+$ban_users=db_query("SELECT * from users where block=1 order by id ASC;");
 
 echo "<table border=1>
 		<tr><td>№</td> <td>ID</td> <td>Ligin</td> <td>inventory</td>  <td>delo</td> <td>effects</td> </tr>
 ";
 $i=0; $inventory_all=0; $delo_all=0; $effects_all=0;
 
-while ($ban_users_w=mysql_fetch_array($ban_users)){
-	$inventory=mysql_num_rows(mysql_query("SELECT * from inventory where owner=".$ban_users_w['id']."  "));
-	$delo=mysql_num_rows(mysql_query("SELECT * from delo where pers=".$ban_users_w['id']."  "));
-	$effects=mysql_num_rows(mysql_query("SELECT * from effects where owner=".$ban_users_w['id']."  "));
+while ($ban_users_w=mysqli_fetch_array($ban_users)){
+	$inventory=mysqli_num_rows(db_query("SELECT * from inventory where owner=".$ban_users_w['id']."  "));
+	$delo=mysqli_num_rows(db_query("SELECT * from delo where pers=".$ban_users_w['id']."  "));
+	$effects=mysqli_num_rows(db_query("SELECT * from effects where owner=".$ban_users_w['id']."  "));
 	
 	
 	
@@ -19,12 +19,12 @@ while ($ban_users_w=mysql_fetch_array($ban_users)){
 	echo "<tr><td>".$i."</td> <td>".$ban_users_w['id']."</td> <td>".$ban_users_w['login']." [".$ban_users_w['level']."] <a href='/inf.php?".$ban_users_w['id']."' target='_blank'><img src='/i/inf.gif'></a> </td> <td>".$inventory."</td> <td>".$delo."</td> <td>".$effects."</td> </tr>";
 	
 	
-	mysql_query("DELETE from `users` where `id`=".$ban_users_w['id']."  LIMIT 1;");
-	mysql_query("DELETE from `online` where `id`=".$ban_users_w['id']."  LIMIT 1;");
-	mysql_query("DELETE from `inventory` where `owner`=".$ban_users_w['id']." ");
-	mysql_query("DELETE from `delo` where `pers`=".$ban_users_w['id']." ");
-	mysql_query("DELETE from `iplog` where `owner`=".$ban_users_w['id']." ");
-	mysql_query("DELETE from `effects` where `owner`=".$ban_users_w['id']." ");
+	db_query("DELETE from `users` where `id`=".$ban_users_w['id']."  LIMIT 1;");
+	db_query("DELETE from `online` where `id`=".$ban_users_w['id']."  LIMIT 1;");
+	db_query("DELETE from `inventory` where `owner`=".$ban_users_w['id']." ");
+	db_query("DELETE from `delo` where `pers`=".$ban_users_w['id']." ");
+	db_query("DELETE from `iplog` where `owner`=".$ban_users_w['id']." ");
+	db_query("DELETE from `effects` where `owner`=".$ban_users_w['id']." ");
 	
 	
 }

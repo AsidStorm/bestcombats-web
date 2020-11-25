@@ -2,14 +2,14 @@
 	//session_start();
 	//if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";	
-	//$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	//$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	include "functions.php";	
-	$tr = mysql_fetch_array(mysql_query("SELECT * FROM `deztow_turnir` WHERE `id` = '".$_GET['id']."'"));
+	$tr = mysqli_fetch_array(db_query("SELECT * FROM `deztow_turnir` WHERE `id` = '".$_GET['id']."'"));
 
-			$ls = mysql_fetch_array(mysql_query("select count(`id`) from `users` WHERE `id` = '".$_GET['id']."';"));
-			$lss = mysql_query("select `id` from `users` WHERE `in_tower` = 1;");
+			$ls = mysqli_fetch_array(db_query("select count(`id`) from `users` WHERE `id` = '".$_GET['id']."';"));
+			$lss = db_query("select `id` from `users` WHERE `in_tower` = 1;");
 			$i=0;
-			while($in = mysql_fetch_array($lss)) {
+			while($in = mysqli_fetch_array($lss)) {
 				$i++;
 				if($i>1) { $lors .= ", "; }
 				$lors .= nick3($in[0]);

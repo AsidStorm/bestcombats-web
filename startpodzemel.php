@@ -3,8 +3,8 @@ define("BOTSWITH1HP", 0);
 function startpod($who,$bot,$nomer,$user){
   global $mir;
   $quest=0;
-  $query=mysql_query("SELECT id FROM users WHERE login='$who'");
-  $db=mysql_fetch_array($query);
+  $query=db_query("SELECT id FROM users WHERE login='$who'");
+  $db=mysqli_fetch_array($query);
   $name2="";
   $name3="";
   if($bot=='c1'){$name = "Снегурочка"; $d1 = "Снегурочка";}
@@ -117,43 +117,43 @@ else if($bot=='28.28.28'){$name = "Страж"; $name2 = "Страж"; $name3 = 
   else if($bot=='18.18.18'){$name = "Хозяин"; $name2 = "Хозяин"; $name3 = "Хозяин"; $d1 = "Хозяин(1)"; $d2 = "Хозяин(2)"; $d3 = "Хозяин(3)";}
           $mine_id=$db["id"];
 
-          $ass = mysql_query("SELECT glav_id,glava FROM labirint WHERE user_id='$mine_id'");
-          $lab = mysql_fetch_array($ass);
+          $ass = db_query("SELECT glav_id,glava FROM labirint WHERE user_id='$mine_id'");
+          $lab = mysqli_fetch_array($ass);
           $glav_id = $lab["glav_id"];
           $glava = $lab["glava"];
-  mysql_query("UPDATE labirint SET boi='$nomer',di='0' WHERE user_id='$mine_id'");
-  $T1 = mysql_query("INSERT INTO canal_bot (glava,boi,bot,nomer) VALUES('$glava','$nomer','$bot','$nomer')");
+  db_query("UPDATE labirint SET boi='$nomer',di='0' WHERE user_id='$mine_id'");
+  $T1 = db_query("INSERT INTO canal_bot (glava,boi,bot,nomer) VALUES('$glava','$nomer','$bot','$nomer')");
 
 
 
   //////////////////////////////////////////////////////
-  $sex = mysql_query("SELECT maxhp,id FROM users WHERE login='$name'");
-  $dded=mysql_fetch_array($sex);
+  $sex = db_query("SELECT maxhp,id FROM users WHERE login='$name'");
+  $dded=mysqli_fetch_array($sex);
   if (BOTSWITH1HP) $dded["maxhp"]=1;
-  mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$d1."','".$dded["id"]."','','".$dded["maxhp"]."');");
-  $bot = mysql_insert_id();
+  db_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$d1."','".$dded["id"]."','','".$dded["maxhp"]."');");
+  $bot = db_insert_id();
   $teams = array();
 
   $teams[$user['id']][$bot] = array(0,0,time());
   $teams[$bot][$user['id']] = array(0,0,time());
 
-  mysql_query("INSERT INTO `battle`(`id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`, quest, date)VALUES(NULL,'','".serialize($teams)."','10','1','0','".$user['id']."','".$bot."','".time()."','".time()."', '$quest', '".date("Y-m-d H:i")."')");
-  $id = mysql_insert_id();
+  db_query("INSERT INTO `battle`(`id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`, quest, date)VALUES(NULL,'','".serialize($teams)."','10','1','0','".$user['id']."','".$bot."','".time()."','".time()."', '$quest', '".date("Y-m-d H:i")."')");
+  $id = db_insert_id();
                       // апдейтим бота
-  mysql_query("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$bot} LIMIT 1;");
+  db_query("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$bot} LIMIT 1;");
                       // создаем лог
   $rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($bot)."</b>";
   addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
-  mysql_query("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']};");
+  db_query("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']};");
 
   if($name2!=''){
-  $sex2 = mysql_query("SELECT maxhp,id FROM users WHERE login='$name2'");
-  $dded2=mysql_fetch_array($sex2);
+  $sex2 = db_query("SELECT maxhp,id FROM users WHERE login='$name2'");
+  $dded2=mysqli_fetch_array($sex2);
   if (BOTSWITH1HP) $dded2["maxhp"]=1;
-  mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$d2."','".$dded2["id"]."','{$id}','".$dded2["maxhp"]."');");
-  $bot2 = mysql_insert_id();
+  db_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$d2."','".$dded2["id"]."','{$id}','".$dded2["maxhp"]."');");
+  $bot2 = db_insert_id();
 
-  $bd2 = mysql_fetch_array(mysql_query ("SELECT * FROM `battle` WHERE `id` = '{$id}' LIMIT 1;"));
+  $bd2 = mysqli_fetch_array(db_query ("SELECT * FROM `battle` WHERE `id` = '{$id}' LIMIT 1;"));
   $battle2 = unserialize($bd2['teams']);
   $battle2[$bot2] = $battle2[$bot];
   foreach($battle2[$bot2] as $k2 => $v2) {
@@ -163,18 +163,18 @@ else if($bot=='28.28.28'){$name = "Страж"; $name2 = "Страж"; $name3 = 
   // проставляем кто-где
   if (in_array ($user['id'],$t12)) {$ttt2 = 2;} else {    $ttt2 = 1;}
 
-  $sdds2 = mysql_query("UPDATE `battle` SET `teams` = '".serialize($battle2)."', `t".$ttt2."`=CONCAT(`t".$ttt2."`,';".$bot2."')  WHERE `id` = '{$id}'");
-  mysql_query("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = '{$id}' LIMIT 1;");
+  $sdds2 = db_query("UPDATE `battle` SET `teams` = '".serialize($battle2)."', `t".$ttt2."`=CONCAT(`t".$ttt2."`,';".$bot2."')  WHERE `id` = '{$id}'");
+  db_query("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = '{$id}' LIMIT 1;");
   }
 
   if($name3!=''){
-  $sex3 = mysql_query("SELECT maxhp,id FROM users WHERE login='$name3'");
-  $dded3=mysql_fetch_array($sex3);
+  $sex3 = db_query("SELECT maxhp,id FROM users WHERE login='$name3'");
+  $dded3=mysqli_fetch_array($sex3);
   if (BOTSWITH1HP) $dded3["maxhp"]=1;
-  mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$d3."','".$dded3["id"]."','{$id}','".$dded3["maxhp"]."');");
-  $bot3 = mysql_insert_id();
+  db_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$d3."','".$dded3["id"]."','{$id}','".$dded3["maxhp"]."');");
+  $bot3 = db_insert_id();
 
-  $bd3 = mysql_fetch_array(mysql_query ("SELECT * FROM `battle` WHERE `id` = '{$id}' LIMIT 1;"));
+  $bd3 = mysqli_fetch_array(db_query ("SELECT * FROM `battle` WHERE `id` = '{$id}' LIMIT 1;"));
   $battle3 = unserialize($bd3['teams']);
   $battle3[$bot3] = $battle3[$bot];
   foreach($battle3[$bot3] as $k3 => $v3) {
@@ -184,9 +184,9 @@ else if($bot=='28.28.28'){$name = "Страж"; $name2 = "Страж"; $name3 = 
   // проставляем кто-где
   if (in_array ($user['id'],$t13)) {$ttt3 = 2;} else {    $ttt3 = 1;}
 
-  $sdds3 = mysql_query("UPDATE `battle` SET `teams` = '".serialize($battle3)."', `t".$ttt3."`=CONCAT(`t".$ttt3."`,';".$bot3."')  WHERE `id` = '{$id}'");
+  $sdds3 = db_query("UPDATE `battle` SET `teams` = '".serialize($battle3)."', `t".$ttt3."`=CONCAT(`t".$ttt3."`,';".$bot3."')  WHERE `id` = '{$id}'");
 
-  mysql_query("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = '{$id}' LIMIT 1;");
+  db_query("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = '{$id}' LIMIT 1;");
   }
 
   //////////////////////////////////////////////////////

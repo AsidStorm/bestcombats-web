@@ -6,7 +6,7 @@
   include "cavefunctions.php";
   if ($user['align'] == 2.5) {
     if (isset($_GET['goto'])) {
-      mysql_query("UPDATE `caveparties` SET  `x` =  '$_GET[x]', `y` =  '$_GET[y]', `floor` =  '$_GET[floor]' WHERE `caveparties`.`user` = $user[id] LIMIT 1;");
+      db_query("UPDATE `caveparties` SET  `x` =  '$_GET[x]', `y` =  '$_GET[y]', `floor` =  '$_GET[floor]' WHERE `caveparties`.`user` = $user[id] LIMIT 1;");
       header('Location: cave.php');
       exit;
     }
@@ -217,7 +217,7 @@
   }
   $party=array();
   $r=mq("select user, x, y, dir, login, shadow, floor, loses from caveparties where leader='$user[caveleader]' order by id");
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     if ($rec["user"]==$user["id"]) {
       $x=$rec["x"];
       $y=$rec["y"];
@@ -281,8 +281,8 @@
         mq("delete from caveparties where user='$v[user]'");
         mq("update users set room=room-1, caveleader=0 where id='$v[user]'");
         $r=mq("select id, dressed from inventory where owner='$v[user]' and dressed=1 and foronetrip=1");
-        if (mysql_num_rows($r)>0) $usr=mqfa("select ".implode(",", $userslots)." from users where id='$v[user]'");
-        while ($rec=mysql_fetch_assoc($r)) {
+        if (mysqli_num_rows($r)>0) $usr=mqfa("select ".implode(",", $userslots)." from users where id='$v[user]'");
+        while ($rec=mysqli_fetch_assoc($r)) {
           $slot=getslot($rec["id"], $usr);
           if ($slot) dropitemid(0, $v["user"], $slot);
         }
@@ -495,7 +495,7 @@
   }
   if ($obj==15) {
       if (mqfa1("select id from inventory where owner='$user[id]' and name='Пустая склянка'")) {
-      mysql_query("UPDATE inventory SET name = 'Склянка с пробами', podzem = 1, img = 'full_rune_vial.gif' WHERE owner = $user[id] AND name = 'Пустая склянка'");
+      db_query("UPDATE inventory SET name = 'Склянка с пробами', podzem = 1, img = 'full_rune_vial.gif' WHERE owner = $user[id] AND name = 'Пустая склянка'");
           $report="<div style=\"font-weight:normal\">Вы получили &quot;Склянка с пробами&quot;<br><img src='http://bestcombats.net/i/sh/full_rune_vial.gif'></div>";
       } else {
         $report="У вас нет пустой склянки";
@@ -507,7 +507,7 @@
   $cavedata=getcavedata($user["caveleader"], $floor);
   if (time()-$cavedata["wander"]>21) $wander=1;
   $wanderers=array();
-  while ($rec=mysql_fetch_assoc($r)) {  
+  while ($rec=mysqli_fetch_assoc($r)) {
     if ($rec["type"]==1 && $wander && $rec["battle"]==0) { 
       $wanderers[]=$rec;
       continue;
@@ -707,7 +707,7 @@ $_SESSION["movetime"]=time()+4;
     if ($dir==2) {$by=$y*2; $bx=($x+1)*2;}
     if ($dir==3) {$by=($y+1)*2; $bx=$x*2;}
     $r=mq("select bot, cnt, battle from cavebots where leader='$user[caveleader]' and x=$bx and y=$by and floor='$floor'");
-    $rec=mysql_fetch_assoc($r);
+    $rec=mysqli_fetch_assoc($r);
     if ($rec) {
       include_once("questfuncs.php");
       $btl=$rec["battle"];
@@ -721,7 +721,7 @@ $_SESSION["movetime"]=time()+4;
           $otherbots[]=array("id"=>$bots[$rec["bot"]], "name"=>$botnames[$rec["bot"]]);
           $rec["cnt"]--;
         }
-        while ($rec=mysql_fetch_assoc($r)) {
+        while ($rec=mysqli_fetch_assoc($r)) {
           while ($rec["cnt"]>0) {
             $otherbots[]=array("id"=>$bots[$rec["bot"]], "name"=>$botnames[$rec["bot"]]);
             $rec["cnt"]--;
@@ -774,7 +774,7 @@ $_SESSION["movetime"]=time()+4;
       mq("unlock tables");
     }
     $r=mq("select id, dressed from inventory where owner='$user[id]' and dressed=1 and foronetrip=1");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $slot=getslot($rec["id"]);
       if ($slot) dropitemid(0, $user["id"], $slot);
     }
@@ -1046,7 +1046,7 @@ function speakattackmenu(e){
           if ($bc==2) $bn=2;
           else $bn=1;
         } else $bn=2;
-            $aMap = unserialize(mysql_result(mysql_query("SELECT map FROM caves WHERE leader='$user[caveleader]' AND floor='$floor'"), 0, 0));
+            $aMap = unserialize(db_result(db_query("SELECT map FROM caves WHERE leader='$user[caveleader]' AND floor='$floor'"), 0, 0));
             if (!$GLOBALS['dir']) {
                 $xx = ($GLOBALS['x'] * 2) - ($y*2);
                 $yy = ($GLOBALS['y'] * 2) - ($x - 3);
@@ -1573,8 +1573,8 @@ if (isset($_GET['msg'])) {
 <center>
 <?
   $r=mq("select * from caveitems where leader='$user[caveleader]' and x='".($x*2)."' and y='".($y*2)."' and floor='$floor'");
-  if (mysql_num_rows($r)>0) echo "<font color=red>В комнате разбросаны вещи:</font><div style=\"font-size:3px\">&nbsp;</div>";
-  while ($rec=mysql_fetch_assoc($r)) {
+  if (mysqli_num_rows($r)>0) echo "<font color=red>В комнате разбросаны вещи:</font><div style=\"font-size:3px\">&nbsp;</div>";
+  while ($rec=mysqli_fetch_assoc($r)) {
     echo "<a title=\"Поднять $rec[name]\" href=\"cave.php?takeitem=$rec[id]\"><img src=\"".IMGBASE."/i/sh/$rec[img]\"></a> ";
   }
 ?></center><br>
@@ -1582,8 +1582,8 @@ if (isset($_GET['msg'])) {
   if ($loses>=3) echo "<center><b><font color=red>Вас убили 3 раза, и вы покидете подземелье</font></b><br><br>
   <a href=\"cave.php?exit=1\">Вернуться</a></center><br>";
   if ($loses) echo "<div style=\"padding-left:20px\"><b>Количество смертей: $loses</b></div>";
-$rt=mysql_query("select * from `podzem_zad_login` where owner='".$user['id']."'");
-if($est=mysql_fetch_array($rt)){
+$rt=db_query("select * from `podzem_zad_login` where owner='".$user['id']."'");
+if($est=mysqli_fetch_array($rt)){
 	if($user['align']==2.5){
 	echo "Задание:  ",$est['cratco'] ,'  ',setPodzZad($est['ubil'],$est['ubit']);
 	}
@@ -1593,7 +1593,7 @@ if($est=mysql_fetch_array($rt)){
     <td width=540>
 <div style="text-align:right;padding-right:30px">
 <font style='font-size:14px; color:#8f0000'><b><?
-  $dMap   = unserialize(mysql_result(mysql_query("SELECT map FROM cavemaps WHERE floor = $floor AND room = " . ($user['room'] - 1)), 0, 0));
+  $dMap   = unserialize(db_result(db_query("SELECT map FROM cavemaps WHERE floor = $floor AND room = " . ($user['room'] - 1)), 0, 0));
   $cPlace = $dMap[$y*2][$x*2];
   $tmp=explode("/", $cPlace);
   if (@$roomnames[$tmp[1]]) echo $roomnames[$tmp[1]];

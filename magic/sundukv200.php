@@ -2,7 +2,7 @@
 //podarokNY.php	
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 if((int)date("n")!=0){
-	$data=mysql_fetch_array(mysql_query("SELECT * FROM `users` where id='".$_SESSION['uid']."'"));
+	$data=mysqli_fetch_array(db_query("SELECT * FROM `users` where id='".$_SESSION['uid']."'"));
 
 	$rrr=mt_rand(1,3);
 	($rrr==1)?$rstat="gsila":"gsila";

@@ -1,7 +1,7 @@
 <?
 	session_start();
 	include "../../connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".$_COOKIE['uid']."' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".$_COOKIE['uid']."' LIMIT 1;"));
 	include "../../functions.php";
 	$Get_Page="all_boevaia_sisatema";
 

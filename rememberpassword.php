@@ -36,15 +36,15 @@ IF (@$_POST['loginid']!='') {
 	
 	//$_POST['loginid']=iconv('utf-8', 'cp1251', $_POST['loginid']);
 	$_POST['loginid']=strtolower($_POST['loginid']);
-	$_POST['loginid']=mysql_escape_string($_POST['loginid']);
-	$sql=mysql_query("select * from users where LOWER(login)='".mysql_real_escape_string($_POST['loginid'])."'");
-	$sql=mysql_fetch_array($sql, MYSQL_ASSOC);
+	$_POST['loginid']=db_escape_string($_POST['loginid']);
+	$sql=db_query("select * from users where LOWER(login)='".db_escape_string($_POST['loginid'])."'");
+	$sql=mysqli_fetch_array($sql, MYSQLI_ASSOC);
 	$newpass=md5(md5(math.rand(-2000000,2000000).$sql['login']));
 	$newpass=substr($newpass,0,10);
 	$lasttime=mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
 	$ipclient=$_SERVER['REMOTE_ADDR'];
 	
-	if ($sql['login']!='' && mysql_query("insert into confirmpasswd(login,passwd,date,ip,active) values('".$sql['login']."','".$newpass."','".$lasttime."','".$ipclient."',1)")){
+	if ($sql['login']!='' && db_query("insert into confirmpasswd(login,passwd,date,ip,active) values('".$sql['login']."','".$newpass."','".$lasttime."','".$ipclient."',1)")){
 		$headers  = "Mime-Version: 1.1 \r\n";
 		$headers .= "Date: ".date("r")." \r\n";
 		$headers .= "Content-type: text/html; charset=CP1251 \r\n";

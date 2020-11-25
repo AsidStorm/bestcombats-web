@@ -6,7 +6,7 @@ if ($user['battle'] > 0) {
 
 if ($_SESSION['uid'] == null) header("Location: index.php");
 
-$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$_GET['use']}' AND `owner` = '{$user['id']}' LIMIT 1;"));
+$svitok = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$_GET['use']}' AND `owner` = '{$user['id']}' LIMIT 1;"));
 $svDest = substr($svitok['name'], -2, 2);
 $iType=array(
     "хи"=>1,
@@ -32,7 +32,7 @@ $iType=array(
         }
     }
 //} else {
-    //$dress  = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$user['id']}' AND `name` = '{$_POST['target']}' AND ecost = 0 AND magic < 1 AND type = " . $iType[$svDest] . " LIMIT 1;"));
+    //$dress  = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `owner` = '{$user['id']}' AND `name` = '{$_POST['target']}' AND ecost = 0 AND magic < 1 AND type = " . $iType[$svDest] . " LIMIT 1;"));
 //}
 
 if ($dress && $svitok) {
@@ -68,7 +68,7 @@ if ($dress && $svitok) {
                 `opisan` = 'Предмет усилен <b>{$svitok['name']}</b>'
             WHERE `id` = {$dress['id']} LIMIT 1;
         ";
-        if (mysql_query($query)) {
+        if (db_query($query)) {
                 echo "<font color=red><b>Предмет \"{$_POST['target']}\" удачно усилен.<b></font> ";
                 $bet=1;
                             /*,

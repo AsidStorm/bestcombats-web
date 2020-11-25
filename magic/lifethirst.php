@@ -1,5 +1,5 @@
 <?php
-$target=mqfa("SELECT users.id, users.level, users.room, users.login, users.vinos, users.mudra,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".mysql_escape_string($_POST['target'])."'");
+$target=mqfa("SELECT users.id, users.level, users.room, users.login, users.vinos, users.mudra,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".db_escape_string($_POST['target'])."'");
 $plus=0;
 $minus=0;
 $castto=time()+7200;
@@ -11,7 +11,7 @@ if ($user["intel"]>=100) {
 
 if ($row["name"]=="Жажда жизни +6") {$target=$user;$hfv=6;$mana=0;}
 $r=mq("SELECT id, name, hpforvinos, time FROM `effects` WHERE `owner` = ".$target['id']." and hpforvinos<>0");
-while ($rec=mysql_fetch_assoc($r)) {
+while ($rec=mysqli_fetch_assoc($r)) {
   if ($rec["hpforvinos"]<0) $minus=$rec;
   else $plus=$rec;
 }

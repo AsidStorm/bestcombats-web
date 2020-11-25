@@ -41,11 +41,11 @@ img.pnged {
 <?
 $nu=1;
  
-                    $data=mysql_query("SELECT * FROM `clans` WHERE name not like 'adminion' and name not like 'radminion' ORDER by `clanexp` DESC");
+                    $data=db_query("SELECT * FROM `clans` WHERE name not like 'adminion' and name not like 'radminion' ORDER by `clanexp` DESC");
  
-                    while ($row = mysql_fetch_array($data)) {
+                    while ($row = mysqli_fetch_array($data)) {
                         $total = 0;
-                        $total1 = mysql_num_rows(mysql_query("SELECT * FROM `users` WHERE `klan` = '{$row['short']}'"));
+                        $total1 = mysqli_num_rows(db_query("SELECT * FROM `users` WHERE `klan` = '{$row['short']}'"));
                         if ($row['guard']==1) {
                         echo "<tr><td width=12  align=center><b>".$nu++.".</b></td><td width=12  align=center><img src='http://img.bestcombats.net/clans/guard.gif' alt='Гвардейский клан'>";
                         }else{

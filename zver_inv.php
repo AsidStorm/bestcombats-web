@@ -42,13 +42,13 @@ function closehint3(){
 </HEAD>
 <body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 bgcolor=e2e0e0>
 <?
-$zver=mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$user['zver_id']}' LIMIT 1;"));
+$zver=mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$user['zver_id']}' LIMIT 1;"));
 if($_GET['stat'] and $zver['stats']>0){
 if($_GET['stat']=='sila'){$stav = "sila=sila+1";}
 if($_GET['stat']=='lovk'){$stav = "lovk=lovk+1";}
 if($_GET['stat']=='inta'){$stav = "inta=inta+1";}
 if($_GET['stat']=='vinos'){$stav = "vinos=vinos+1,maxhp=maxhp+6,hp=hp+6";}
-mysql_query("UPDATE `users` SET $stav,stats=stats-1 WHERE `id` = '".$user['zver_id']."' and `stats`>0");
+db_query("UPDATE `users` SET $stav,stats=stats-1 WHERE `id` = '".$user['zver_id']."' and `stats`>0");
 print "<script>location.href='zver_inv.php'</script>";
 exit;
 }
@@ -62,7 +62,7 @@ if($zver['vid']==6){$rus_n = 'Сила Стихий';}   //Светляк
 //////////////прогнать зверя/////////////////
 if($_GET['vignat']){
 if($user['zver_id']!=0){
-//mysql_query("UPDATE `users` SET user_id='',zver_id='',$vig-".$zver['level']." WHERE `id` = '".$user['id']."'");
+//db_query("UPDATE `users` SET user_id='',zver_id='',$vig-".$zver['level']." WHERE `id` = '".$user['id']."'");
 adddelo($user["id"], "$user[login] выгнал своего зверя ".mqfa1("select login from users where id='$user[zver_id]'"), 0);
 mq("UPDATE `users` SET user_id='',zver_id='' WHERE `id` = '".$user['id']."'");
 mq("DELETE FROM `users` WHERE id='".$zver['id']."'");
@@ -72,78 +72,78 @@ exit;
 }
 /////////////////////exp//////////////////////////////
 if($zver['exp']>='110' and $zver['level']=='0'){
-mysql_query("UPDATE `users` SET `level`=`level`+1,`nextup`='410',`stats`=`stats`+10 WHERE `id` = '".$user['zver_id']."'");
+db_query("UPDATE `users` SET `level`=`level`+1,`nextup`='410',`stats`=`stats`+10 WHERE `id` = '".$user['zver_id']."'");
 include_once("config/animals.php");
 setanimal($user['zver_id'],1);
-//mysql_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
+//db_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
 print "<script>location.href='zver_inv.php'</script>"; exit();
 }
 if($zver['exp']>='410' and $zver['level']=='1'){
-mysql_query("UPDATE `users` SET `level`=`level`+1,`nextup`='1300',`stats`=`stats`+11 WHERE `id` = '".$user['zver_id']."'");
-//mysql_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
+db_query("UPDATE `users` SET `level`=`level`+1,`nextup`='1300',`stats`=`stats`+11 WHERE `id` = '".$user['zver_id']."'");
+//db_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
 include_once("config/animals.php");
 setanimal($user['zver_id'],2);
 print "<script>location.href='zver_inv.php'</script>"; exit();
 }
 if($zver['exp']>='1300' and $zver['level']=='2'){
-mysql_query("UPDATE `users` SET `level`=`level`+1,`nextup`='2500',`stats`=`stats`+12 WHERE `id` = '".$user['zver_id']."'");
-//mysql_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
+db_query("UPDATE `users` SET `level`=`level`+1,`nextup`='2500',`stats`=`stats`+12 WHERE `id` = '".$user['zver_id']."'");
+//db_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
 include_once("config/animals.php");
 setanimal($user['zver_id'],3);
 print "<script>location.href='zver_inv.php'</script>"; exit();
 }
 if($zver['exp']>='2500' and $zver['level']=='3'){
-mysql_query("UPDATE `users` SET `level`=`level`+1,`nextup`='5000',`stats`=`stats`+13 WHERE `id` = '".$user['zver_id']."'");
-//mysql_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
+db_query("UPDATE `users` SET `level`=`level`+1,`nextup`='5000',`stats`=`stats`+13 WHERE `id` = '".$user['zver_id']."'");
+//db_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
 include_once("config/animals.php");
 setanimal($user['zver_id'],4);
 print "<script>location.href='zver_inv.php'</script>"; exit();
 }
 if($zver['exp']>='5000' and $zver['level']=='4'){
-mysql_query("UPDATE `users` SET `level`=`level`+1,`nextup`='12500',`stats`=`stats`+14 WHERE `id` = '".$user['zver_id']."'");
-//mysql_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
+db_query("UPDATE `users` SET `level`=`level`+1,`nextup`='12500',`stats`=`stats`+14 WHERE `id` = '".$user['zver_id']."'");
+//db_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
 include_once("config/animals.php");
 setanimal($user['zver_id'],5);
 print "<script>location.href='zver_inv.php'</script>"; exit();
 }
 if($zver['exp']>='12500' and $zver['level']=='5'){
-mysql_query("UPDATE `users` SET `level`=`level`+1,`nextup`='30000',`stats`=`stats`+15 WHERE `id` = '".$user['zver_id']."'");
-//mysql_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
+db_query("UPDATE `users` SET `level`=`level`+1,`nextup`='30000',`stats`=`stats`+15 WHERE `id` = '".$user['zver_id']."'");
+//db_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
 include_once("config/animals.php");
 setanimal($user['zver_id'],6);
 print "<script>location.href='zver_inv.php'</script>"; exit();
 }
 if($zver['exp']>='30000' and $zver['level']=='6'){
-mysql_query("UPDATE `users` SET `level`=`level`+1,`nextup`='300000',`stats`=`stats`+15 WHERE `id` = '".$user['zver_id']."'");
-//mysql_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
+db_query("UPDATE `users` SET `level`=`level`+1,`nextup`='300000',`stats`=`stats`+15 WHERE `id` = '".$user['zver_id']."'");
+//db_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
 include_once("config/animals.php");
 setanimal($user['zver_id'],7);
 print "<script>location.href='zver_inv.php'</script>"; exit();
 }
 if($zver['exp']>='300000' and $zver['level']=='7'){
-mysql_query("UPDATE `users` SET `level`=`level`+1,`nextup`='3000000',`stats`=`stats`+15 WHERE `id` = '".$user['zver_id']."'");
-//mysql_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
+db_query("UPDATE `users` SET `level`=`level`+1,`nextup`='3000000',`stats`=`stats`+15 WHERE `id` = '".$user['zver_id']."'");
+//db_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
 include_once("config/animals.php");
 setanimal($user['zver_id'],8);
 print "<script>location.href='zver_inv.php'</script>"; exit();
 }
 if($zver['exp']>='3000000' and $zver['level']=='8'){
-mysql_query("UPDATE `users` SET `level`=`level`+1,`nextup`='10000000',`stats`=`stats`+15 WHERE `id` = '".$user['zver_id']."'");
-//mysql_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
+db_query("UPDATE `users` SET `level`=`level`+1,`nextup`='10000000',`stats`=`stats`+15 WHERE `id` = '".$user['zver_id']."'");
+//db_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
 include_once("config/animals.php");
 setanimal($user['zver_id'],9);
 print "<script>location.href='zver_inv.php'</script>"; exit();
 }
 if($zver['exp']>='10000000' and $zver['level']=='9'){
-mysql_query("UPDATE `users` SET `level`=`level`+1,`nextup`='520000000',`stats`=`stats`+15 WHERE `id` = '".$user['zver_id']."'");
-//mysql_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
+db_query("UPDATE `users` SET `level`=`level`+1,`nextup`='520000000',`stats`=`stats`+15 WHERE `id` = '".$user['zver_id']."'");
+//db_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
 include_once("config/animals.php");
 setanimal($user['zver_id'],10);
 print "<script>location.href='zver_inv.php'</script>"; exit();
 }
 if($zver['exp']>='52000000' and $zver['level']=='10'){
-mysql_query("UPDATE `users` SET `level`=`level`+1,`nextup`='100000000',`stats`=`stats`+15 WHERE `id` = '".$user['zver_id']."'");
-//mysql_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
+db_query("UPDATE `users` SET `level`=`level`+1,`nextup`='100000000',`stats`=`stats`+15 WHERE `id` = '".$user['zver_id']."'");
+//db_query("UPDATE `users` SET $navik WHERE `id` = '".$user['id']."'");
 include_once("config/animals.php");
 setanimal($user['zver_id'],11);
 print "<script>location.href='zver_inv.php'</script>"; exit();
@@ -239,13 +239,13 @@ print"<table width=500 border='0' cellspacing='0' cellpadding='0' align='center'
 <table width=590 height=90>
 <tr>
 </table>";
-$items=mysql_query("SELECT * FROM inventory WHERE type='eda' and maxdur<100000 and owner='".$user['id']."'");
-$itemsd=mysql_query("SELECT * FROM inventory WHERE type='eda' and maxdur<100000 and owner='".$user['id']."'");
+$items=db_query("SELECT * FROM inventory WHERE type='eda' and maxdur<100000 and owner='".$user['id']."'");
+$itemsd=db_query("SELECT * FROM inventory WHERE type='eda' and maxdur<100000 and owner='".$user['id']."'");
 $pic_1 = "#C7C7C7";
 $pic_2 = "#D5D5D5";
 $pic_type = true;
 
-while($item = mysql_fetch_array($items)){
+while($item = mysqli_fetch_array($items)){
 
     if($pic_type){$_pic1 = $pic_1;$pic_type = !$pic_type;}else{$_pic1 = $pic_2;$pic_type = !$pic_type;}
 print"
@@ -281,7 +281,7 @@ echo "<B>Параметры:</B><BR>&bull; Сытость: +20<BR>
 //////////////////////скармлеваем///////////////////////////////////////
 if($_GET['go']=='go'){
 /////////////////////проверка существует ли еда для зверя////////////////////////
-$items=mysql_fetch_array(mysql_query("SELECT * FROM inventory WHERE id='".$_GET['id']."' and type='eda' and owner='".$user['id']."'"));
+$items=mysqli_fetch_array(db_query("SELECT * FROM inventory WHERE id='".$_GET['id']."' and type='eda' and owner='".$user['id']."'"));
 if($items){
 ////////////////////так она есть терь проверяем будет ли есть ее наш зверь!!!////////////////////////
 if($zver['vid']==$items['vid'] || $zver['vid']==floor($items['vid']/10) || $zver['vid']==$items['vid']%10 || ($zver["vid"]==4 && $items["vid"]!=1 && $items["vid"]!=6)){
@@ -295,8 +295,8 @@ if($zver['vid']==$items['vid'] || $zver['vid']==floor($items['vid']/10) || $zver
     } else $sitost=20;
     if ($items["id"]<1955892) $sitost=20;
     if ($zver["vid"]==4 && $items["vid"]!=4) $sitost=$sitost/2;
-    mysql_query("UPDATE users SET sitost=sitost+".$sitost." WHERE id='".$user['zver_id']."'");
-    mysql_query("DELETE FROM inventory WHERE id='".$_GET['id']."' and type='eda' and owner='".$user['id']."'");
+    db_query("UPDATE users SET sitost=sitost+".$sitost." WHERE id='".$user['zver_id']."'");
+    db_query("DELETE FROM inventory WHERE id='".$_GET['id']."' and type='eda' and owner='".$user['id']."'");
     header("location: ?warning=2&n=".urlencode($items['name']));
     exit;
   } elseif ($items["nlevel"]>$zver['level']) {
@@ -315,16 +315,16 @@ exit;}
 //////////////////////////удаляем///////////////////////////////////////
 if($_GET['del']=='del'){
 /////////////////////проверка существует ли еда для зверя////////////////////////
-$items=mysql_fetch_array(mysql_query("SELECT name FROM inventory WHERE id='".$_GET['id']."' and type='eda' and owner='".$user['id']."'"));
+$items=mysqli_fetch_array(db_query("SELECT name FROM inventory WHERE id='".$_GET['id']."' and type='eda' and owner='".$user['id']."'"));
 if($items){
 ////////////////////так она есть////////////////////////
-mysql_query("DELETE FROM inventory WHERE id='".$_GET['id']."' and type='eda' and owner='".$user['id']."'");
+db_query("DELETE FROM inventory WHERE id='".$_GET['id']."' and type='eda' and owner='".$user['id']."'");
 header("location: zver_inv.php?warning=1&n=".$items['name']."");
 exit;
            }else{exit;}
              }
 ////////////////////////////////////////////////////////////////////////
-if(!$itemd = mysql_fetch_array($itemsd)){
+if(!$itemd = mysqli_fetch_array($itemsd)){
 print"<DIV align=right><!--Рюкзак-->
 <TABLE WIDTH=100% CELLSPACING=1 CELLPADDING=2 BGCOLOR=A5A5A5>
 <TR><TD bgcolor=e2e0e0 align=center>У вас нет подходящей еды в рюкзаке</TD></TR>

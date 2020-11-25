@@ -15,9 +15,9 @@
 
 <?
 		If (isset($_GET['id']) and !empty($_GET['id'])){
-			$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".$_GET['id']."' LIMIT 1;"));
+			$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".$_GET['id']."' LIMIT 1;"));
 		}elseif(isset($_GET['login']) and !empty($_GET['login'])){
-			$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '".$_GET['login']."' LIMIT 1;"));
+			$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `login` = '".$_GET['login']."' LIMIT 1;"));
 		}
 		
 		If (empty($_GET['id']) and empty($_GET['login'])){
@@ -65,14 +65,14 @@
 
 		
 		$mf = array ();
-		$user_dress = mysql_fetch_array( mysql_query('SELECT sum(minu),sum(maxu),sum(mfkrit),sum(mfakrit),sum(mfuvorot),sum(mfauvorot),sum(bron1),sum(bron2),sum(bron3),sum(bron4),sum(mfkritpow),sum(mfantikritpow),sum(mfparir),sum(mfshieldblock),sum(mfcontr),sum(mfrub),sum(mfkol),sum(mfdrob),sum(mfrej),sum(mfdhit),sum(mfdmag),sum(mfhitp),sum(mfmagp),sum(mffire),sum(mfwater),sum(mfair),sum(mfearth),sum(mflight),sum(mfgray),sum(mfdark),sum(mfpodav),sum(uron_col),sum(uron_rub),sum(uron_drob),sum(uron_rej),sum(mykol),sum(myrub),sum(mydrob),sum(myrej) FROM `inventory` WHERE `dressed`=1 AND `owner` = \''.$user['id'].'\' LIMIT 1;'));
-		$mf_dress   = mysql_fetch_array( mysql_query('SELECT sum(mfdhit),sum(mfdmag),sum(mfhitp),sum(mfmagp),sum(mffire),sum(mfwater),sum(mfair),sum(mfearth),sum(mflight),sum(mfgray),sum(mfdark),sum(mfpodav) FROM `inventory` WHERE `dressed`=1 AND `owner` = \''.$user['id'].'\' LIMIT 1;'));
-		$mf_effects = mysql_fetch_array( mysql_query('SELECT sum(mfdmag),sum(mffire),sum(mfair),sum(mfwater),sum(mfearth),sum(mykol),sum(myrub),sum(mydrob),sum(myrej),sum(mfdhit),sum(mfmagp),sum(mfhitp) FROM `effects` WHERE `owner` = \''.$user['id'].'\' LIMIT 1;'));
-		$user_u1    = mysql_fetch_array( mysql_query('SELECT minu,maxu,breakdownarmor,uron_col,uron_rub,uron_drob,uron_rej FROM `inventory` WHERE `id` = \''.$user['weap'].'\' LIMIT 1;'));
-		$user_u2    = mysql_fetch_array( mysql_query('SELECT minu,maxu,breakdownarmor,uron_col,uron_rub,uron_drob,uron_rej,type FROM `inventory` WHERE `id` = \''.$user['shit'].'\' AND `second`=1 LIMIT 1;'));
-		$user_sleep = mysql_fetch_array( mysql_query('SELECT sleep FROM `obshaga` WHERE `pers` = \''.$user['id'].'\'  LIMIT 1;'));
-		$ghp_weapon = mysql_fetch_array( mysql_query('SELECT sum(ghp),sum(gmana) FROM `inventory` WHERE `dressed`=1 AND `owner` = \''.$user['id'].'\' LIMIT 1;'));
-		$ghp_effect = mysql_fetch_array( mysql_query('SELECT sum(hp) FROM `effects` WHERE `owner` = \''.$user['id'].'\' LIMIT 1;'));
+		$user_dress = mysqli_fetch_array( db_query('SELECT sum(minu),sum(maxu),sum(mfkrit),sum(mfakrit),sum(mfuvorot),sum(mfauvorot),sum(bron1),sum(bron2),sum(bron3),sum(bron4),sum(mfkritpow),sum(mfantikritpow),sum(mfparir),sum(mfshieldblock),sum(mfcontr),sum(mfrub),sum(mfkol),sum(mfdrob),sum(mfrej),sum(mfdhit),sum(mfdmag),sum(mfhitp),sum(mfmagp),sum(mffire),sum(mfwater),sum(mfair),sum(mfearth),sum(mflight),sum(mfgray),sum(mfdark),sum(mfpodav),sum(uron_col),sum(uron_rub),sum(uron_drob),sum(uron_rej),sum(mykol),sum(myrub),sum(mydrob),sum(myrej) FROM `inventory` WHERE `dressed`=1 AND `owner` = \''.$user['id'].'\' LIMIT 1;'));
+		$mf_dress   = mysqli_fetch_array( db_query('SELECT sum(mfdhit),sum(mfdmag),sum(mfhitp),sum(mfmagp),sum(mffire),sum(mfwater),sum(mfair),sum(mfearth),sum(mflight),sum(mfgray),sum(mfdark),sum(mfpodav) FROM `inventory` WHERE `dressed`=1 AND `owner` = \''.$user['id'].'\' LIMIT 1;'));
+		$mf_effects = mysqli_fetch_array( db_query('SELECT sum(mfdmag),sum(mffire),sum(mfair),sum(mfwater),sum(mfearth),sum(mykol),sum(myrub),sum(mydrob),sum(myrej),sum(mfdhit),sum(mfmagp),sum(mfhitp) FROM `effects` WHERE `owner` = \''.$user['id'].'\' LIMIT 1;'));
+		$user_u1    = mysqli_fetch_array( db_query('SELECT minu,maxu,breakdownarmor,uron_col,uron_rub,uron_drob,uron_rej FROM `inventory` WHERE `id` = \''.$user['weap'].'\' LIMIT 1;'));
+		$user_u2    = mysqli_fetch_array( db_query('SELECT minu,maxu,breakdownarmor,uron_col,uron_rub,uron_drob,uron_rej,type FROM `inventory` WHERE `id` = \''.$user['shit'].'\' AND `second`=1 LIMIT 1;'));
+		$user_sleep = mysqli_fetch_array( db_query('SELECT sleep FROM `obshaga` WHERE `pers` = \''.$user['id'].'\'  LIMIT 1;'));
+		$ghp_weapon = mysqli_fetch_array( db_query('SELECT sum(ghp),sum(gmana) FROM `inventory` WHERE `dressed`=1 AND `owner` = \''.$user['id'].'\' LIMIT 1;'));
+		$ghp_effect = mysqli_fetch_array( db_query('SELECT sum(hp) FROM `effects` WHERE `owner` = \''.$user['id'].'\' LIMIT 1;'));
 
 		
 		$user_dress[0]=floor($user_dress[0]-$user_u1[0]);
@@ -220,10 +220,10 @@
 Умения стихией тьмы :  <? echo"{$user['mdark']} <br>";?>
 ========================================================================<br/>
 <?
-$pers_effect = mysql_query('SELECT name,time FROM `effects` WHERE `owner` = \''.$user['id'].'\' ');
+$pers_effect = db_query('SELECT name,time FROM `effects` WHERE `owner` = \''.$user['id'].'\' ');
 $i=0;
 echo "<table border=1 cellpadding=3 cellspacing=3>";
-while ($work_eff=mysql_fetch_array($pers_effect)){
+while ($work_eff=mysqli_fetch_array($pers_effect)){
 	$i++;
 	echo "<tr><td>".$i."</td><td>".$work_eff['name']."</td><td>".(floor(($work_eff['time']-time())/60))." минут</td></tr>";
 }

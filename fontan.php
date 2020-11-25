@@ -6,13 +6,13 @@ if ($_SESSION['uid'] == null) header("Location: index.php");
 include "connect.php";
 include "funtions.php";
 
-$user = mysql_fetch_array(mysql_query("SELECT * from user where id='".$_SESSION['uid']."'"));
-$is_eff  = mysql_result(mysql_query("SELECT count(id) FROM effects where type='9991' and owner='".$_SESSION['uid']."'"), 0, 0);
-$is_eff2 = mysql_result(mysql_query("SELECT time FROM effects where type='9991' and owner='".$_SESSION['uid']."'"), 0, 0);
+$user = mysqli_fetch_array(db_query("SELECT * from user where id='".$_SESSION['uid']."'"));
+$is_eff  = db_result(db_query("SELECT count(id) FROM effects where type='9991' and owner='".$_SESSION['uid']."'"), 0, 0);
+$is_eff2 = db_result(db_query("SELECT time FROM effects where type='9991' and owner='".$_SESSION['uid']."'"), 0, 0);
 if ($_GET['get']=='10' && $user['room']='11111' && !$is_eff) {
-        mysql_query("UPDATE `users` SET `sila`=`sila`+'2', `intel`=`intel`+'2', `money`=`money`+'5' where `id`='".$_SESSION['uid']."'") or die(mysql_error());
-        mysql_query("insert into effects (`owner`,`type`,`time`,`name`) values (".$_SESSION['uid'].",9991,".(time()+86400).",'Задержка на поклонение')") or die(mysql_error());
-        mysql_query("insert into effects (`owner`,`type`,`time`,`name`,`sila`,`intel`) values (".$_SESSION['uid'].",9990,".(time()+7200).",'Благословение Ангела',2,2)") or die(mysql_error());
+        db_query("UPDATE `users` SET `sila`=`sila`+'2', `intel`=`intel`+'2', `money`=`money`+'5' where `id`='".$_SESSION['uid']."'") or die(db_error());
+        db_query("insert into effects (`owner`,`type`,`time`,`name`) values (".$_SESSION['uid'].",9991,".(time()+86400).",'Задержка на поклонение')") or die(db_error());
+        db_query("insert into effects (`owner`,`type`,`time`,`name`,`sila`,`intel`) values (".$_SESSION['uid'].",9990,".(time()+7200).",'Благословение Ангела',2,2)") or die(db_error());
         $err = "Вы получили благословение Ангела. Вам начислено 5 кр и бонус к статам";
         //addch("<img src=i/magic/blago_admin.gif>Ангел &quot;Мироздатель&quot; наложил заклятие \"Благословение Ангела\" на &quot;{$user['login']}&quot;, сроком 2 часа.");
 } elseif ($_GET['get']=='10' && $user['room']='11111' && $is_eff) {

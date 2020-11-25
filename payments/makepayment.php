@@ -49,7 +49,7 @@ td {padding-top:2px}
 <input type="hidden" name="spShopId" value="7183">
 <input type="hidden" name="spShopPaymentId" value="<?
   mq("insert into payments (user, dat, purpose, ip) values ('$user[id]', now(), 'Покупка платных услуг персонажу $user[login]', '$_SERVER[REMOTE_ADDR]')");
-  echo mysql_insert_id();
+  echo db_insert_id();
 ?>">
 Сумма (USD): <input type="text" name="spAmount" value="1" style="width:30px">
 <input type="hidden" name="spCurrency" value="usd">

@@ -6,14 +6,14 @@ function smallshowpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
     global $mysql, $rooms;
 
     if($id > _BOTSEPARATOR_) {
-      $bots = mysql_fetch_array(mysql_query ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
+      $bots = mysqli_fetch_array(db_query ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
       $id=$bots['prototype'];
-      $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+      $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
       $user['login'] = $bots['name'];
       $user['hp'] = $bots['hp'];
       $user['id'] = $bots['id'];
     } else {
-      $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+      $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
     }
     echo "<CENTER>";
    ?>
@@ -31,7 +31,7 @@ function smallshowpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
 <TR><TD style="BACKGROUND-IMAGE:none">
 <?php
 if ($user['helm'] > 0) {
-$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['helm']}' LIMIT 1;"));
+$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['helm']}' LIMIT 1;"));
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
@@ -45,7 +45,7 @@ echo '<img src="'.IMGBASE.'/i/w9.gif" width=60 height=60 alt="Пустой сл�
 <TR><TD style="BACKGROUND-IMAGE:none">
 <?php
         if ($user['naruchi'] > 0) {
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['naruchi']}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['naruchi']}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -62,7 +62,7 @@ echo '<img src="'.IMGBASE.'/i/w9.gif" width=60 height=60 alt="Пустой сл�
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php
         if ($user['weap'] > 0) {
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['weap']}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['weap']}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -85,7 +85,7 @@ echo '<img src="'.IMGBASE.'/i/w9.gif" width=60 height=60 alt="Пустой сл�
           } elseif ($user['rybax']) {
             $d=$user['rybax'];
           }
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$d}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$d}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -101,7 +101,7 @@ echo '<img src="'.IMGBASE.'/i/w9.gif" width=60 height=60 alt="Пустой сл�
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php
         if ($user['belt'] > 0) {
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['belt']}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['belt']}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -135,7 +135,7 @@ echo setMP2($user['mana'],$user['maxmana'],$battle);
 print"</div></td>
 </tr>";}
 
-$zver=mysql_fetch_array(mysql_query("SELECT shadow,login,level, vid FROM `users` WHERE `id` = '".$user['zver_id']."' LIMIT 1;"));
+$zver=mysqli_fetch_array(db_query("SELECT shadow,login,level, vid FROM `users` WHERE `id` = '".$user['zver_id']."' LIMIT 1;"));
 ?>
 
 </table>
@@ -189,9 +189,9 @@ if($zver){
 <? }?>
 <IMG border=0 src="<?=IMGBASE?>/i/shadow/<?=$user['sex']?>/<?print"".$user['shadow']."";?>" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow("<?=$strtxt?>");'>
 <?
-$ch_eff1 = mysql_query ('SELECT * FROM `effects` WHERE `owner` = '.$_SESSION['uid'].' and (`type`=188 or `type`=201 or `type`=202 or `type`=1022)');
+$ch_eff1 = db_query ('SELECT * FROM `effects` WHERE `owner` = '.$_SESSION['uid'].' and (`type`=188 or `type`=201 or `type`=202 or `type`=1022)');
 $i=0;
-while($ch_eff = mysql_fetch_array($ch_eff1)){
+while($ch_eff = mysqli_fetch_array($ch_eff1)){
 $i++;
                 switch ($i) {
                     case '1':$left=0;$top=0;break;
@@ -207,13 +207,13 @@ $i++;
                     case '11':$left=40;$top=75;break;
                     case '12':$left=80;$top=75;break;
                 }
-$inf_el = mysql_fetch_array(mysql_query ('SELECT img FROM `shop` WHERE `name` = \''.$ch_eff['name'].'\';'));
+$inf_el = mysqli_fetch_array(db_query ('SELECT img FROM `shop` WHERE `name` = \''.$ch_eff['name'].'\';'));
 if($ch_eff['type']==395){$inf_el['img']='defender.gif'; $opp='награда'; $chas=60; $chastxt="час.";}elseif($ch_eff['type']==201){$inf_el['img']='spell_protect10.gif'; $opp='заклятие'; $chas=1; $chastxt="мин.";}elseif($ch_eff['type']==202){$inf_el['img']='spell_powerup10.gif'; $opp='заклятие'; $chas=1; $chastxt="мин.";}elseif($ch_eff['type']==1022){$inf_el['img']='hidden.gif'; $opp='заклятие'; $chas=1; $chastxt="мин.";}else{$opp='эликсир'; $chas=1; $chastxt="мин.";}
  ?> <div style="position:absolute; left:<?=$left?>px; top:<?=$top?>px; width:120px; height:220px; z-index:2"><IMG width=40 height=25 src='<?=IMGBASE?>/i/misc/icon_<?=$inf_el['img']?>' onmouseout='ghideshow();' onmouseover='gfastshow("<B><? echo $ch_eff['name'];?></B> (<?=$opp?>)<BR> еще <? echo ceil(($ch_eff['time']-time())/60/$chas);?> <?=$chastxt?>")';> </div>
 <?}
-$ch_priem1 = mysql_query ('SELECT pr_name FROM `person_on` WHERE `id_person` = '.$_SESSION['uid'].' and `pr_active`=2');
+$ch_priem1 = db_query ('SELECT pr_name FROM `person_on` WHERE `id_person` = '.$_SESSION['uid'].' and `pr_active`=2');
 
-while($ch_priem = mysql_fetch_array($ch_priem1)){
+while($ch_priem = mysqli_fetch_array($ch_priem1)){
 $i++;
                 switch ($i) {
                     case '1':$left=0;$top=0;break;
@@ -229,7 +229,7 @@ $i++;
                     case '11':$left=40;$top=75;break;
                     case '12':$left=80;$top=75;break;
                 }
-$inf_priem = mysql_fetch_array(mysql_query ('SELECT name,opisan FROM `priem` WHERE `priem` = \''.$ch_priem['pr_name'].'\';'));
+$inf_priem = mysqli_fetch_array(db_query ('SELECT name,opisan FROM `priem` WHERE `priem` = \''.$ch_priem['pr_name'].'\';'));
 
  ?>
 <div style="position:absolute; left:<?=$left?>px; top:<?=$top?>px; width:120px; height:220px; z-index:2">       <IMG width=40 height=25 src='<?=IMGBASE?>/i/priem/<?=$ch_priem['pr_name']?>.gif' onmouseout='hideshow();' onmouseover='fastshow("<B><? echo $inf_priem['name'];?></B> (прием)<BR><BR> <? echo $inf_priem['opisan'];?>")';> </div>
@@ -338,7 +338,7 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
         }else{?>
 <?php
         if ($user['sergi'] > 0) {
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['sergi']}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['sergi']}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -353,7 +353,7 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php
         if ($user['kulon'] > 0) {
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['kulon']}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['kulon']}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -370,7 +370,7 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
 <TBODY> <TR>
 <TD style="BACKGROUND-IMAGE: none"><?php
         if ($user['r1'] > 0) {
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['r1']}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['r1']}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -384,7 +384,7 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
     ?></td>
 <TD style="BACKGROUND-IMAGE: none"><?php
         if ($user['r2'] > 0) {
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['r2']}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['r2']}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -398,7 +398,7 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
     ?></td>
 <TD style="BACKGROUND-IMAGE: none"><?php
         if ($user['r3'] > 0) {
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['r3']}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['r3']}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -414,7 +414,7 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php
         if ($user['perchi'] > 0) {
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['perchi']}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['perchi']}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -429,7 +429,7 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php
         if ($user['shit'] > 0) {
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['shit']}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['shit']}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -444,7 +444,7 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php
         if ($user['leg'] > 0) {
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['leg']}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['leg']}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -459,7 +459,7 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php
         if ($user['boots'] > 0) {
-            $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$user['boots']}' LIMIT 1;"));
+            $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$user['boots']}' LIMIT 1;"));
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
@@ -497,9 +497,9 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
 <?
 
 
-        $data = mysql_fetch_array(mysql_query("select * from `online` WHERE `date` >= ".(time()-60)." AND `id` = ".$user['id'].";"));
-/*      $dd = mysql_query("SELECT * FROM `effects` WHERE `owner` = ".$user['id'].";");
-        $ddtravma = mysql_fetch_array(mysql_query("SELECT * FROM `effects` WHERE `owner` = ".$user['id']." and (`type`=11 or `type`=12 or `type`=13 or `type`=14) order by `type` desc limit 1;"));
+        $data = mysqli_fetch_array(db_query("select * from `online` WHERE `date` >= ".(time()-60)." AND `id` = ".$user['id'].";"));
+/*      $dd = db_query("SELECT * FROM `effects` WHERE `owner` = ".$user['id'].";");
+        $ddtravma = mysqli_fetch_array(db_query("SELECT * FROM `effects` WHERE `owner` = ".$user['id']." and (`type`=11 or `type`=12 or `type`=13 or `type`=14) order by `type` desc limit 1;"));
         if ($ddtravma['type'] == 14) {$trt="неизлечимая";}
         elseif ($ddtravma['type'] == 13) {$trt="тяжелая";}
         elseif ($ddtravma['type'] == 12) {$trt="средняя";}
@@ -521,14 +521,14 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
         <TR>
           <TD colSpan=2>
           <SMALL><?php
-$online = mysql_fetch_array(mysql_query('SELECT u.* ,o.date,u.* ,o.real_time FROM `users` as u, `online` as o WHERE u.`id` = o.`id` AND u.`id` = \''.$user['id'].'\' LIMIT 1;'));
+$online = mysqli_fetch_array(db_query('SELECT u.* ,o.date,u.* ,o.real_time FROM `users` as u, `online` as o WHERE u.`id` = o.`id` AND u.`id` = \''.$user['id'].'\' LIMIT 1;'));
             if ($data['id'] != null or ($user['id'] == 99 && vrag=="on")) {
                 if($data['room'] > 500 && $data['room'] < 561) {
                     $rrm = 'Башня смерти, участвует в турнире';
                 }
                 elseif($user['id'] == 99) {
                     $rrm = "Центральная площадь";
-                $vrag_b = mysql_fetch_array(mysql_query("SELECT `battle` FROM `bots` WHERE  `prototype` = 99 LIMIT 1 ;"));
+                $vrag_b = mysqli_fetch_array(db_query("SELECT `battle` FROM `bots` WHERE  `prototype` = 99 LIMIT 1 ;"));
                                 $user['battle']=$vrag_b['battle'];
                 }
                 else {
@@ -665,7 +665,7 @@ echo"<center>(".$year.$month.$week.$days.$hour.$minute." назад)</center>";
 /*          if ($trt) {
                 echo "<TR><TD><IMG height=25 src=\"i/travma.gif\" width=40></TD><TD><SMALL>У персонажа $trt травма.</SMALL></TD></TR>";
             }
-            while($row = mysql_fetch_array($dd)) {
+            while($row = mysqli_fetch_array($dd)) {
                 if ($row['time'] < time()) {
                     $row['time'] = time();
                 }
@@ -707,32 +707,32 @@ echo"<center>(".$year.$month.$week.$days.$hour.$minute." назад)</center>";
   nick99 ($_SESSION['uid']);
 
 
-  $der=mysql_query("SELECT glav_id FROM vxodd WHERE login='".$user['login']."'");
-  if($deras=mysql_fetch_array($der) && ($_GET['cp'] || $_GET['strah'] || $_GET["got"])){
+  $der=db_query("SELECT glav_id FROM vxodd WHERE login='".$user['login']."'");
+  if($deras=mysqli_fetch_array($der) && ($_GET['cp'] || $_GET['strah'] || $_GET["got"])){
     header('location: vxod.php?warning=3');
     die();
   }
 
   if ($_GET['strah'] && ($user['room']==42 or $user['room']==34 or $user['room']==31 or $user['room']==28 or $user['room']==37 or $user['room']==402 or $user['room']==20)) {
-    mysql_query("UPDATE `users`,`online` SET `users`.`room` = '21',`online`.`room` = '21' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}';");
+    db_query("UPDATE `users`,`online` SET `users`.`room` = '21',`online`.`room` = '21' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}';");
     $user['room']=21;
   }
   if ($_GET['cp'] && ($user['room']==227 or $user['room']==95 or $user['room']==24 or $user['room']==25 or $user['room']==27 or $user['room']==35 or $user['room']==29 or $user['room']==2002 or $user['room']==21 or $user['room']==668)) {
-    mysql_query("UPDATE `users`,`online` SET `users`.`room` = '20',`online`.`room` = '20' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}';");
+    db_query("UPDATE `users`,`online` SET `users`.`room` = '20',`online`.`room` = '20' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}';");
     $user['room']=20;
   }
 
 // при выходе из Алтаря предметов запоминаем время выхода, в след. раз только через час
 if (isset($_GET['level9000']) && $user['room'] == '9001') {
-    $znlv = mysql_result(mysql_query("SELECT last_visit FROM zn_tower WHERE user_id = " . $_SESSION['uid']), 0, 0);
+    $znlv = db_result(db_query("SELECT last_visit FROM zn_tower WHERE user_id = " . $_SESSION['uid']), 0, 0);
     if ((time()-$znlv) > 3600*6) {
-        mysql_query("UPDATE zn_tower SET last_visit = " . time() . " WHERE user_id = " . $user['id']);
+        db_query("UPDATE zn_tower SET last_visit = " . time() . " WHERE user_id = " . $user['id']);
     }
 }
 
 /*  if ($_GET['bps']!=1 && $_GET['bps']) {
 
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '26',`online`.`room` = '26' WHERE `online`.`id` = `users`.`id`;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '26',`online`.`room` = '26' WHERE `online`.`id` = `users`.`id`;");
 $user['room']=26;
     }
 */
@@ -814,7 +814,7 @@ $user['room']=26;
         // BK
         if ($_GET['got'] && $_GET['level1']) {
             //if ($user['level'] > 0) { $room = 8; } else { $room = 1; }
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '3',`online`.`room` = '3' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '3',`online`.`room` = '3' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
                         $_SESSION['movetime']=0;
             header('location: main.php?got=1&room3=1');
             die();
@@ -833,24 +833,24 @@ $user['room']=26;
 	}elseif ($user['vip'] < 1) {
 		echo"<script>alert('Вход в vip магазин только с VIP значком!')</script>";
 }else
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '227',`online`.`room` = '227' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '227',`online`.`room` = '227' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: shopvip.php');
         }
         // repait
         if ($_GET['got'] && $_GET['level4']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '23',`online`.`room` = '23' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '23',`online`.`room` = '23' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: repair.php');
         }
         if ($_GET['got'] && $_GET['level247']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '2002',`online`.`room` = '2002' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '2002',`online`.`room` = '2002' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: hellround.php');
         }
         if ($_GET['got'] && $_GET['level11']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '668',`online`.`room` = '668' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '668',`online`.`room` = '668' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: zoo.php');
         }
         if ($_GET['level9']) {
-          mysql_query("UPDATE `users`,`online` SET `users`.`room` = '24',`online`.`room` = '24' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+          db_query("UPDATE `users`,`online` SET `users`.`room` = '24',`online`.`room` = '24' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
           header('location: elka.php');
         }
         if ($_GET['got'] && $_GET['level3']) {
@@ -861,7 +861,7 @@ $user['room']=26;
                 print "<script>alert('Вход в комиссионный магазин только с первого уровня!')</script>";
             }
             else {
-                mysql_query("UPDATE `users`,`online` SET `users`.`room` = '25',`online`.`room` = '25' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+                db_query("UPDATE `users`,`online` SET `users`.`room` = '25',`online`.`room` = '25' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
                 header('location: comission.php');
             }
         }
@@ -870,7 +870,7 @@ $user['room']=26;
                 print "<script>alert('Вход на почту только с первого уровня!')</script>";
             }
             else {
-                mysql_query("UPDATE `users`,`online` SET `users`.`room` = '27',`online`.`room` = '27' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+                db_query("UPDATE `users`,`online` SET `users`.`room` = '27',`online`.`room` = '27' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
                 header('location: post.php');
             }
         }
@@ -881,11 +881,11 @@ $user['room']=26;
             header('location: bar.php');
         }
         if ($_GET['got'] && $_GET['level10']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '35',`online`.`room` = '35' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '35',`online`.`room` = '35' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: berezka.php');
         }
         if ($_GET['got'] && $_GET['level12']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '29',`online`.`room` = '29' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '29',`online`.`room` = '29' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: bank.php');
         }
 
@@ -901,27 +901,27 @@ $user['room']=26;
                 print "<script>alert('Вход в водосток только с 4 лвл! Либо вы выросли для посещения данного места.')</script>";
             }
             else {
-                mysql_query("UPDATE `users`,`online` SET `users`.`room` = '402',`online`.`room` = '402' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+                db_query("UPDATE `users`,`online` SET `users`.`room` = '402',`online`.`room` = '402' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
                 header('location: post.php');
             }
         }
         if ($_GET['got'] && $_GET['level6']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '34',`online`.`room` = '34' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '34',`online`.`room` = '34' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: fshop.php');
         }
         if ($_GET['got'] && $_GET['level2']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '28',`online`.`room` = '28' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '28',`online`.`room` = '28' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: klanedit.php');
         }
 if ($_GET['got'] && $_GET['level7']) {if ($user['align'] == 4) { print "<script>alert('Хаосникам вход в БС запрещен!')</script>";} else {
-mysql_query("UPDATE `users`,`online` SET `users`.`room` = '31',`online`.`room` = '31' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+db_query("UPDATE `users`,`online` SET `users`.`room` = '31',`online`.`room` = '31' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
 header('location: tower.php'); } }
         if ($_GET['got'] && $_GET['level1']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '37',`online`.`room` = '37' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '37',`online`.`room` = '37' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: shop.php');
         }
         if ($_GET['got'] && $_GET['level11']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '42',`online`.`room` = '42' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '42',`online`.`room` = '42' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: auction.php');
         }
 } elseif ($user["room"]!=45 && $user["room"]!=49 && $user["room"]!=54 && $user["room"]!=70 && $user["room"]!=456 && $user["room"]!=9000) echo "<script>document.location.replace('main.php".($warning?"?warning=$warning":"")."');</script>";
@@ -933,15 +933,15 @@ header('location: tower.php'); } }
             header('location: city.php?cp=1');
         }
         if ($_GET['got'] && $_GET['level1']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '37',`online`.`room` = '37' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '37',`online`.`room` = '37' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: gotzamok.php');
         }
         if ($_GET['got'] && $_GET['level5']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '401',`online`.`room` = '401' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '401',`online`.`room` = '401' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: hell.php');
         }
         if ($_GET['got'] && $_GET['level11']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '42',`online`.`room` = '42' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '42',`online`.`room` = '42' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: auction.php');
         }
 
@@ -953,11 +953,11 @@ header('location: tower.php'); } }
 
 
     /*if ($_GET['level7'] OR $_GET['strah']) {
-        mysql_query("UPDATE `users`,`online` SET `users`.`room` = '21',`online`.`room` = '21' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+        db_query("UPDATE `users`,`online` SET `users`.`room` = '21',`online`.`room` = '21' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
         $user['room'] = 21;
     }
     if ($_GET['level8'] && $_GET['strah']) {
-        mysql_query("UPDATE `users`,`online` SET `users`.`room` = '20',`online`.`room` = '20' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+        db_query("UPDATE `users`,`online` SET `users`.`room` = '20',`online`.`room` = '20' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
         $user['room'] = 20;
     }*/
 ?>
@@ -1338,16 +1338,16 @@ if ($user['room']==20) {
 	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer; width: 550px; text-align: right;\" id=\"ione\"><img src=\"".IMGBASE."/i/city/",$fon,".gif\" alt=\"\" border=\"0\"/>";
 
     buildset(9000,"cap_new_159_1",30,150,"Хранитель Знаний", "dialog.php?char=20136");
-    $isEnter = mysql_result(mysql_query("SELECT COUNT(*) FROM zn_tower WHERE user_id = $user[id] && reputation > 0"), 0, 0);
+    $isEnter = db_result(db_query("SELECT COUNT(*) FROM zn_tower WHERE user_id = $user[id] && reputation > 0"), 0, 0);
     buildset(9001,"54_book2",190,250,"Алтарь Предметов", "", ($isEnter?"":"Сперва Вам следует обратиться к Хранителю Знаний"));
     buildset(9002,"54_book2",190,350,"Алтарь Рун");
     buildset(21,"cap_new_159_1_gate",173,500,"Площадь Нейтралитета");
 }
 
-        $online = mysql_query("select real_time from `online`  WHERE `real_time` >= ".(time()-60).";");
-        $onlineS   = mysql_num_rows(mysql_query("select real_time from `online`  WHERE `city`='suburb' AND `real_time` >= ".(time()-60).";"));
-        $onlineSVC = mysql_num_rows(mysql_query("select real_time from `online`  WHERE `city`='virtcity' AND `real_time` >= ".(time()-60).";"));
-        $onlinea = mysql_query("select real_time from `online`  WHERE `real_time` >= ".(time()-60)." and `city`='angelscity';");
+        $online = db_query("select real_time from `online`  WHERE `real_time` >= ".(time()-60).";");
+        $onlineS   = mysqli_num_rows(db_query("select real_time from `online`  WHERE `city`='suburb' AND `real_time` >= ".(time()-60).";"));
+        $onlineSVC = mysqli_num_rows(db_query("select real_time from `online`  WHERE `city`='virtcity' AND `real_time` >= ".(time()-60).";"));
+        $onlinea = db_query("select real_time from `online`  WHERE `real_time` >= ".(time()-60)." and `city`='angelscity';");
 ?>
 <div style="position:absolute; right:0px; top:0px; width:1px; height:1px; z-index:101; overflow:visible;">
 <TABLE height=15 border="0" cellspacing="0" cellpadding="0">
@@ -1517,11 +1517,11 @@ document.getElementById('buttons_on_image').style.display = 'none';
     <BR><br>
 
      <?php
-        $onlineS   = mysql_num_rows(mysql_query("select real_time from `online`  WHERE `city`='suburb' AND `real_time` >= ".(time()-60).";"));
-        $onlineSVC = mysql_num_rows(mysql_query("select real_time from `online`  WHERE `city`='virtcity' AND `real_time` >= ".(time()-60).";"));
-        $onlinea = mysql_query("select real_time from `online`  WHERE `real_time` >= ".(time()-60)." and `city`='angelscity';");
+        $onlineS   = mysqli_num_rows(db_query("select real_time from `online`  WHERE `city`='suburb' AND `real_time` >= ".(time()-60).";"));
+        $onlineSVC = mysqli_num_rows(db_query("select real_time from `online`  WHERE `city`='virtcity' AND `real_time` >= ".(time()-60).";"));
+        $onlinea = db_query("select real_time from `online`  WHERE `real_time` >= ".(time()-60)." and `city`='angelscity';");
         ?>
-        <u>Сейчас в клубе</u>: <?=mysql_num_rows($online)?> чел.<BR>
+        <u>Сейчас в клубе</u>: <?=mysqli_num_rows($online)?> чел.<BR>
         <img src=http://bestcombats.net/i/misc/forum/fo1.gif title=capitalcity><b>Devils city</b>: <?=$onlineSVC?> чел.</span><br>
         <img src=http://darkcombats.com/i/sh/fo2.gif title=angelscity><b>Angels city</b>: <?=$onlineS?> чел.</span><br>
          <br>
@@ -1545,7 +1545,7 @@ function takeshopitem1($item) {
   $r=mq("show fields from items");
   $rec1=mqfa("select * from shop where id='$item'");
   $sql="";
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     if ($present) {
       if ($rec["Field"]=="maxdur") $rec1[$rec["Field"]]=1;
       if ($rec["Field"]=="cost") $rec1[$rec["Field"]]=2;
@@ -1555,7 +1555,7 @@ function takeshopitem1($item) {
     $sql.=", `$rec[Field]`='".$rec1[$rec["Field"]]."' ";
   }
   mq("insert into inventory set owner='$_SESSION[uid]', prototype='$item' ".($goden?", dategoden='".($goden*60*60*24+time())."'":"")." $sql");
-  echo mysql_error();
+  echo db_error();
   return array("img"=>$rec1["img"], "name"=>$rec1["name"]);
 }
     }

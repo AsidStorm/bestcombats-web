@@ -26,7 +26,7 @@ $coma[] = "Хвала Мироздателю!";
 		if ($_SESSION['uid'] == null) header("Location: index.php");
 
 		$magictime=time()+($_POST['timer']*60*1440);
-		$tar = mysql_fetch_array(mysql_query("SELECT `id`,`align`,`klan`,`spellfreedom` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;")); 
+		$tar = mysqli_fetch_array(db_query("SELECT `id`,`align`,`klan`,`spellfreedom` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
 		$target=$_POST['target'];
 				if ($effect['time']) {
 				$time_still=$effect['time'] - time();
@@ -51,7 +51,7 @@ $coma[] = "Хвала Мироздателю!";
                                                                                 }
                                         if ($user['align']=='5') $ok=1;
 					if ($ok == 1) {
-						if (mysql_query("UPDATE `effects` SET `time`='$magictime' WHERE `id` = '{$tar['id']}' LIMIT 1;")) {
+						if (db_query("UPDATE `effects` SET `time`='$magictime' WHERE `id` = '{$tar['id']}' LIMIT 1;")) {
 							$ldtarget=$target;
 							$ldblock=1;
 						
@@ -84,8 +84,8 @@ $coma[] = "Хвала Мироздателю!";
 							$mess="Проделние хаоса. $angel &quot;{$user['login']}&quot; $action в хаос &quot;$target&quot; сроком $magictime";
 							$messch="Продление хаоса. &quot;невидимка&quot; отправил в хаос &quot;$target&quot; сроком $magictime";
                         	}
-							mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
-							mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
+							db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
+							db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 							addch("<img src=i/magic/haos.gif> $messch");
 							addchp($coma[rand(0,count($coma)-1)],"Комментатор");
 							echo "<font color=red><b>Успешно наложено заклятие хаоса на персонажа \"$target\"</b></font>";	
@@ -126,7 +126,7 @@ $coma[] = "Хвала Мироздателю!";
                                                                                 }
                                 if ($user["align"]==5) $ok=1;
 				if ($ok == 1) {
-					if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Заклятие хаоса','$magictime',4);")) {
+					if (db_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Заклятие хаоса','$magictime',4);")) {
 					mq("UPDATE `users` SET  `align`='4', klan='', status='' WHERE `id` = {$tar['id']}");
 					mq("UPDATE `allusers` SET  `align`='4', klan='', status='' WHERE `id` = {$tar['id']}");
 					mq("UPDATE `userdata` SET  `align`='4' WHERE `id` = {$tar['id']}");
@@ -162,8 +162,8 @@ $coma[] = "Хвала Мироздателю!";
 						$mess="$angel &quot;{$user['login']}&quot; $action в хаос персонажа &quot;$target&quot; сроком $magictime";
 						$messch="&quot;невидимка&quot; отправил в хаос персонажа &quot;$target&quot; сроком $magictime";
                         }
-						mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
-						mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
+						db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
+						db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 						addch("<img src=i/magic/haos.gif> $messch");
 						addchp($coma[rand(0,count($coma)-1)],"Комментатор");
 						echo "<font color=red><b>Успешно наложено заклятие хаоса на персонажа \"$target\"</b></font>";			

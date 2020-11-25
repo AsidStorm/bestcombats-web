@@ -21,7 +21,7 @@
     } elseif(($jert['room'] == $user['room'] || $jert["room"]==$extraroom) && $jert['id']!=$user['id']) {
       if($jert['battle'] > 0) {
         $joinedbattle=$jert['battle'];
-        if (!$bd) $bd = mysql_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$jert['battle'].' LIMIT 1;'));
+        if (!$bd) $bd = mysqli_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$jert['battle'].' LIMIT 1;'));
         //if ($bd["coment"]=="Кулачный поединок") undressall($user['id']);
         $battle = unserialize($bd['teams']);
         if ($help) {
@@ -76,7 +76,7 @@
 
         if($bot) {
           mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('$jert[login]','$jert[id]','0','$jert[maxhp]');");
-          $jert['id'] = mysql_insert_id();
+          $jert['id'] = db_insert_id();
         }
 
         $teams = array();
@@ -86,7 +86,7 @@
         //$tou = array_rand($sv,1);
         mq("INSERT INTO `battle` (`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`,`blood`, date)
             VALUES ('$comment','".serialize($teams)."','$timeout','$type','0','".$user['id']."','".$jert['id']."','".time()."','".time()."','$blood', '".date("Y-m-d H:i")."')");
-        $id = mysql_insert_id();
+        $id = db_insert_id();
         $startedbattle=$id;
 
         mq("update bots set battle='$id' where id='$jert[id]'");

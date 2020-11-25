@@ -1,8 +1,8 @@
 <?php
-$us = mysql_fetch_array(mysql_query("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));		
-$travma = mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$us['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14') LIMIT 1 ;");
-$travma2 = mysql_query("SELECT id FROM `effects` WHERE `owner` = '".$us['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14');");				
-$owntravma2=mysql_fetch_array($travma);
+$us = mysqli_fetch_array(db_query("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+$travma = db_query("SELECT * FROM `effects` WHERE `owner` = '".$us['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14') LIMIT 1 ;");
+$travma2 = db_query("SELECT id FROM `effects` WHERE `owner` = '".$us['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14');");
+$owntravma2=mysqli_fetch_array($travma);
 
 if ($user['battle'] > 0) {
 	echo "Не в бою...";}
@@ -28,7 +28,7 @@ else{
 			}else
 				addch("<img src=i/magic/cure3.gif> $angel &quot;{$user['login']}&quot; ".$action." от травм &quot;{$_POST['target']}&quot;");
 
-				while ($owntravma = mysql_fetch_array($travma2)) {
+				while ($owntravma = mysqli_fetch_array($travma2)) {
 					deltravma($owntravma['id']);
 
 				}

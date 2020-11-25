@@ -121,11 +121,11 @@ echo"Статус сервера <font color=green><b>Online</b></font><br>";
 }else{
 echo"Статус сервера <font color=red><b>Offline</b></font><br>";
 }
-$num = mysql_num_rows(mysql_query("SELECT `id` FROM `users` WHERE bot not like '1'"));
+$num = mysqli_num_rows(db_query("SELECT `id` FROM `users` WHERE bot not like '1'"));
 echo"Игроков:<b> ".$num." </b>чел.<br>";
-$numb = mysql_num_rows(mysql_query("SELECT `id` FROM `users` WHERE battle>0"));
+$numb = mysqli_num_rows(db_query("SELECT `id` FROM `users` WHERE battle>0"));
 echo"В поединке:<b> ".$numb." </b>чел.<br>";
-$online = mysql_num_rows(mysql_query("select * from `online`  WHERE `real_time` >= ".(time()-60).";"));
+$online = mysqli_num_rows(db_query("select * from `online`  WHERE `real_time` >= ".(time()-60).";"));
 echo"Онлайн:<b> ".$online." </b>чел.<br>";
 ?>
 </td></tr>

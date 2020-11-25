@@ -3,7 +3,7 @@
     include "incl/strokedata.php";
     if (@$_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
-    //$user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    //$user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 
     include "functions.php";
     getfeatures($user);
@@ -61,7 +61,7 @@ function addstroke($id_priem) {
   $doit=true;
   $res=mq("SELECT slot,id_thing FROM puton WHERE slot>=201 AND slot<=220 AND id_person='".$_SESSION['uid']."' order by slot");
   $j=200;
-  while ($s=mysql_fetch_array($res)) {
+  while ($s=mysqli_fetch_array($res)) {
     $j++;
     if ($s['id_thing']==$id_priem) {$doit=false;break;}
     if (!$x && $s['slot']!=$j) $x=$j; elseif (!$x && $j==210+$user["slots"]) $x=1000;
@@ -80,7 +80,7 @@ if ($_GET['clear_abil']) {
   if ($_GET['clear_abil']=='all') {
     mq("delete from puton where slot>=201 and slot<=220 and id_person='".$_SESSION['uid']."'");
   } else {
-    $res=mysql_fetch_array(mq("SELECT id_priem FROM priem WHERE priem='".$_GET['clear_abil']."';"));
+    $res=mysqli_fetch_array(mq("SELECT id_priem FROM priem WHERE priem='".$_GET['clear_abil']."';"));
     mq("DELETE FROM puton WHERE id_person='".$_SESSION['uid']."' AND id_thing='".$res['id_priem']."';");
   }
   $all=$_GET['all'];
@@ -106,7 +106,7 @@ if (@$_GET["saveset"]) {
   $showcat=@$_GET['show_cat'];
   $data=array();
   $r=mq("SELECT slot,id_thing FROM puton WHERE slot>=201 AND slot<=220 AND id_person='".$_SESSION['uid']."' order by slot");
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     $data[]=$rec["id_thing"];
   }
   $_GET["saveset"]=str_replace("\\","",$_GET["saveset"]);
@@ -551,7 +551,7 @@ if (@$_GET['edit']) {
     if (!$user["in_tower"]) mq("UPDATE `userdata` SET `mdark` = `mdark`+{$_GET['m_magic7']}, `master`=`master`-{$_GET['m_magic7']} WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;");
     err("<font color=red>Увеличение умения <B> \"Мастерство владения магией Тьмы\" </B>произведено удачно</font><br>");
   }
-  $user1 = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+  $user1 = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
   foreach ($user1 as $k=>$v) $user[$k]=$v;
 }
 
@@ -619,7 +619,7 @@ function setlevel(nm)
 <TABLE width=100%>
     <TD>
 <?  //$data=mq("SELECT `id`, `login`,`level`,`align` FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;");
-                    //while ($row = mysql_fetch_array($data)) {
+                    //while ($row = mysqli_fetch_array($data)) {
   echo fullnick($user);
   //nick2($user['id']);
 //}?>
@@ -1148,7 +1148,7 @@ function show_div(o) {
 
 $res=mq("select slot,id_thing from puton where id_person='".$_SESSION['uid']."' and slot>=201 and slot<=220;");
 //  $res=db_use('query',"select slot,id_thing from puton where id_person='".$this->id_person."' and slot>=201 and slot<=210;");
- while ($s=mysql_fetch_array($res)) {
+ while ($s=mysqli_fetch_array($res)) {
 
    $puton[$s['slot']]=$s['slot']; // =new prieminfo($s['id_thing'],0);
    $puton2[$s['slot']]=$s['id_thing'];
@@ -1205,8 +1205,8 @@ for ($i=216;$i<=220;$i++) {
 function print_priems($res,$myinfo) {
 global $all;
 $x=0;
-while ($i<mysql_num_rows($res)) {
-    $i++;$j++;$s=mysql_fetch_array($res);
+while ($i<mysqli_num_rows($res)) {
+    $i++;$j++;$s=mysqli_fetch_array($res);
     #if ($j>9) {$j=1;echo "</TR><TR>";}
     $priem1=new prieminfo($s['id_priem'],0);
     $check1=$priem1->check_hars(0);
@@ -1279,8 +1279,8 @@ echo"</FIELDSET></NOBR></SMALL>
 <p style=\"MARGIN-LEFT: 10px;\" align=\"left\"><small>";
 $res=mq("select * from complect where user='".$_SESSION['uid']."' and type=2 order by name");
 unset ($i);
-while ($i<mysql_num_rows($res)) {
-  $i++;$s=mysql_fetch_array($res);
+while ($i<mysqli_num_rows($res)) {
+  $i++;$s=mysqli_fetch_array($res);
   $s['name']=str_replace("'","",$s["name"]);
   echo "<img src=\"/i/clear.gif\" width=\"13\" height=\"13\" alt=\"Удалить набор\"
   onclick=\"if (confirm('Удалить набор ".$s['name']."?')) {location='umenie.php?delset=".$s['id']."&all".(0+$_GET['all']).($showcat?'&show_cat='.$showcat:'')."&".rand(0,50000000)."'}\" style=\"cursor:pointer\">
@@ -1307,7 +1307,7 @@ echo "</small></p>
 
 <?
  $rsb = mq("SELECT * FROM `effects` WHERE `owner` = ".$user['id']." and (`type`=188 or `type`=11 or `type`=12 or `type`=13 or `type`=14  or `type`=22  or `type`=202 or `type`=201 or `type`=400 or `type`=1022 or type=9 or type=9999 or type=9994 or type=9990 or type=9992 or type=9993) order by `type` desc;");
- while ($row =mysql_fetch_array($rsb)) {
+ while ($row =mysqli_fetch_array($rsb)) {
    if ($row["type"]==9 || $row["type"]==9999 || $row["type"]==9994 || $row["type"]==9990 || $row["type"]==9992 || $row["type"]==9993) {
      echo "<br><SMALL> <b>$row[name]</b>. Ещё <i>".secs2hrs($row["time"]-time())."</i></SMALL>";   
    }
@@ -1659,7 +1659,7 @@ $stats=mqfa("select exp, win, lose, nich from userstats where id='$user[id]'");
 <div class=dtz ID=dL6>
 <div style="padding:20px">
 <?php 
-$znTowerLevel = mysql_result(mysql_query("SELECT reputation FROM zn_tower WHERE user_id = " . $_SESSION['uid']), 0, 0);
+$znTowerLevel = db_result(db_query("SELECT reputation FROM zn_tower WHERE user_id = " . $_SESSION['uid']), 0, 0);
 $znRep = '';
 $znRepNext = 100;
 if ($znTowerLevel) {
@@ -1698,7 +1698,7 @@ echo '&bull; <strong>Храм Знаний</strong> - ' . $znRep . $znTowerLevel
 <div style="padding-left:20px">
 <?
   $r=mq("SELECT room, `time` FROM `visit_podzem` WHERE `login`='".$user['login']."' and `time`>'".time()."'");
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     echo "До посещения локации \"".$rooms[$rec["room"]]."\" ".secs2hrs($rec["time"]-time())."<br>";
   }
   $rec=mqfa("select * from qtimes where user='$user[id]'");
@@ -1773,7 +1773,7 @@ echo '&bull; <strong>Храм Знаний</strong> - ' . $znRep . $znTowerLevel
     $i++;
   }
   $r=mq("select stroke from userstrokes where user='$user[id]'");
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     $k=remnumbers($strokes["ids"][$rec["stroke"]]);
     if ($k=="wis_air_charge_shock" || $k=="wis_air_charge_gain" || $k=="wis_air_charge_dmg") continue;
     $books[$k]=1;

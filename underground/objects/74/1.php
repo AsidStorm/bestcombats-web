@@ -138,7 +138,7 @@
       } elseif ($rnd<=45) {
         $report=itemtofloor(2459, 0, 0, 1); // Бутылка
       } elseif ($rnd<=60) {
-        $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 ORDER BY RAND() ") or die(mysql_error()); 
+        $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 ORDER BY RAND() ") or die(db_error());
         $report=itemtofloor($smallItem, 0, 0, 1, 'smallitems', 1);
       } elseif ($rnd<=75) {
         $report = '<div style="font-weight:normal">Пусто.</div>';
@@ -174,7 +174,7 @@
           $rf = mt_rand(1956, 1959);
           $report=itemtofloor($rf, 0, 0, 1); // Хлеб с мясом
         } else {
-          $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 ORDER BY RAND() ") or die(mysql_error()); 
+          $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 ORDER BY RAND() ") or die(db_error());
           $report=itemtofloor($smallItem, 0, 0, 1, 'smallitems', 1);
         }
         takeusage($tx, $ty);
@@ -202,7 +202,7 @@
         } elseif ($rnd<=50) {
           $report=itemtofloor(5, 0, 0, 1); // чек на предъявителя
         } else {
-          $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 ORDER BY RAND() ") or die(mysql_error()); 
+          $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 ORDER BY RAND() ") or die(db_error());
           $report=itemtofloor($smallItem, 0, 0, 1, 'smallitems', 1);
         }
         takeusage($tx, $ty);
@@ -358,7 +358,7 @@
       if ($rnd<=10) {
         $report=itemtofloor(2459, 0, 0, 1); // Бутылка  
       } elseif ($rnd<=20) {
-        $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 AND (id = 15 OR id = 16 OR id = 17 OR id = 19 OR id = 20 OR id = 21) ORDER BY RAND() ") or die(mysql_error()); 
+        $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 AND (id = 15 OR id = 16 OR id = 17 OR id = 19 OR id = 20 OR id = 21) ORDER BY RAND() ") or die(db_error());
         $report=itemtofloor($smallItem, 0, 0, 1, 'smallitems', 1);
       } elseif ($rnd<=25) {
         $report=itemtofloor(2593, 0, 0, 3); // лучистый рубин

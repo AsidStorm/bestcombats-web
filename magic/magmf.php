@@ -5,7 +5,7 @@
       $target=array("id"=>$i, "online"=>1, "battle"=>$user["battle"], "online"=>1);
     }
   } else {
-    $target=mqfa("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".mysql_escape_string($_POST['target'])."'");
+    $target=mqfa("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".db_escape_string($_POST['target'])."'");
     $ins_time = floor($magic['time']*60);
   }
   global $nodrink;
@@ -56,7 +56,7 @@
     if(!$uses_zel && !$user["battle"]){
       if ($mf=="mfdmag" || $mf=="mfdhit") mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`, caster, $mf) values ('".$target['id']."','".$row['name']."',".(time()+$ins_time).",187, '$caster', '$mfval')");
       else mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`, mf, mfval, caster) values ('".$target['id']."','".$row['name']."',".(time()+$ins_time).",187, '$mf', '$mfval', '$caster')");
-      $effid=mysql_insert_id();
+      $effid=db_insert_id();
     } elseif($uses_zel) {
       mq("UPDATE `effects` set `time` = '".(time()+$ins_time)."', mfval='$mfval', caster='$caster' WHERE `id` = $uses_zel[id]");
     }

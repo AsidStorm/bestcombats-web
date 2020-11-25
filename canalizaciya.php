@@ -1,20 +1,20 @@
 <?php
   function delpodzitems($u) {
     $r=mq("select id, dressed from inventory where owner='$_SESSION[uid]' and foronetrip=1");
-    while ($rec=mysql_fetch_assoc($r)) if ($rec["dressed"]) dropitem(11);
+    while ($rec=mysqli_fetch_assoc($r)) if ($rec["dressed"]) dropitem(11);
     mq("delete from inventory where foronetrip=1 and owner='$_SESSION[uid]'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Эликсир Жизни' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №1' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №2' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №3' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №4' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №5' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №6' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №7' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №8' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №9' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №10' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE owner='$u' and type='188' and podzem='1'");
+    db_query("DELETE FROM `inventory` WHERE name='Эликсир Жизни' and owner='$u' and podzem='1'");
+    db_query("DELETE FROM `inventory` WHERE name='Ключик №1' and owner='$u' and podzem='1'");
+    db_query("DELETE FROM `inventory` WHERE name='Ключик №2' and owner='$u' and podzem='1'");
+    db_query("DELETE FROM `inventory` WHERE name='Ключик №3' and owner='$u' and podzem='1'");
+    db_query("DELETE FROM `inventory` WHERE name='Ключик №4' and owner='$u' and podzem='1'");
+    db_query("DELETE FROM `inventory` WHERE name='Ключик №5' and owner='$u' and podzem='1'");
+    db_query("DELETE FROM `inventory` WHERE name='Ключик №6' and owner='$u' and podzem='1'");
+    db_query("DELETE FROM `inventory` WHERE name='Ключик №7' and owner='$u' and podzem='1'");
+    db_query("DELETE FROM `inventory` WHERE name='Ключик №8' and owner='$u' and podzem='1'");
+    db_query("DELETE FROM `inventory` WHERE name='Ключик №9' and owner='$u' and podzem='1'");
+    db_query("DELETE FROM `inventory` WHERE name='Ключик №10' and owner='$u' and podzem='1'");
+    db_query("DELETE FROM `inventory` WHERE owner='$u' and type='188' and podzem='1'");
   }
   function botname($bot) {
     global $mir;
@@ -61,31 +61,31 @@ if(in_array($user['room'], $canalrooms)){
   if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 
   if($_GET['act']=="cexit") {
-    $das=mysql_query("select glava,glav_id from `labirint` where user_id='".$user['id']."'");
-    $rf=mysql_fetch_array($das);
+    $das=db_query("select glava,glav_id from `labirint` where user_id='".$user['id']."'");
+    $rf=mysqli_fetch_array($das);
     $glav_id=$rf["glav_id"];
     $glava=$rf["glava"];
     if($glava==$user['login']){//1
-      $des=mysql_query("select login,user_id from `labirint` where `glav_id`='$glav_id' and `login`!='$glava'");
+      $des=db_query("select login,user_id from `labirint` where `glav_id`='$glav_id' and `login`!='$glava'");
       $r=0;
-      while($raf=mysql_fetch_array($des)){//2
+      while($raf=mysqli_fetch_array($des)){//2
         $r++;
         $log = $raf["login"];
         $id_us = $raf["user_id"];
       }//2
       if($r>=1){
-        mysql_query("UPDATE labirint SET glav_id='$id_us',glava='$log' WHERE glav_id='".$user['id']."'");
-        mysql_query("UPDATE podzem3 SET glava='$log' WHERE glava='".$user['login']."'");
-        mysql_query("UPDATE podzem4 SET glava='$log' WHERE glava='".$user['login']."'");
+        db_query("UPDATE labirint SET glav_id='$id_us',glava='$log' WHERE glav_id='".$user['id']."'");
+        db_query("UPDATE podzem3 SET glava='$log' WHERE glava='".$user['login']."'");
+        db_query("UPDATE podzem4 SET glava='$log' WHERE glava='".$user['login']."'");
       }else{
-        mysql_query("DELETE FROM labirint WHERE glav_id='".$user['id']."'");
-        mysql_query("DELETE FROM podzem3 WHERE glava='".$user['login']."'");
-        mysql_query("DELETE FROM podzem4 WHERE glava='".$user['login']."'");
+        db_query("DELETE FROM labirint WHERE glav_id='".$user['id']."'");
+        db_query("DELETE FROM podzem3 WHERE glava='".$user['login']."'");
+        db_query("DELETE FROM podzem4 WHERE glava='".$user['login']."'");
       }
     }//1
     delpodzitems($user["id"]);
-    $e = mysql_query("DELETE FROM labirint WHERE user_id='".$user['id']."'");
-    mysql_query("UPDATE `users`,`online` SET `users`.`room` = '".($user["room"]-1)."',`online`.`room` = '".($user["room"]-1)."' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '".$user['id']."' ;");
+    $e = db_query("DELETE FROM labirint WHERE user_id='".$user['id']."'");
+    db_query("UPDATE `users`,`online` SET `users`.`room` = '".($user["room"]-1)."',`online`.`room` = '".($user["room"]-1)."' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '".$user['id']."' ;");
     print "<script>location.href='vxod.php'</script>"; exit();
   }
 ?>
@@ -130,8 +130,8 @@ function test() {
 }
 </SCRIPT>
 <?
-  $ros=mysql_query("SELECT * FROM `labirint` WHERE `user_id`='{$_SESSION['uid']}'");
-  $mir=mysql_fetch_array($ros);
+  $ros=db_query("SELECT * FROM `labirint` WHERE `user_id`='{$_SESSION['uid']}'");
+  $mir=mysqli_fetch_array($ros);
   $mesto = $mir['location'];
   $vektor = $mir['vector'];
   $glava = $mir['glava'];
@@ -141,13 +141,13 @@ function test() {
   //vignat
   if($_GET['kill']){
     if($user['login']==$glava){
-      $rost=mysql_fetch_array(mysql_query("SELECT `user_id` FROM `labirint` WHERE `glava`='$glava' and `login`='".$_GET['kill']."'"));
-      $varsa = mysql_fetch_array(mysql_query("SELECT id FROM `users` WHERE `login` = '".$_GET['kill']."' LIMIT 1;"));
+      $rost=mysqli_fetch_array(db_query("SELECT `user_id` FROM `labirint` WHERE `glava`='$glava' and `login`='".$_GET['kill']."'"));
+      $varsa = mysqli_fetch_array(db_query("SELECT id FROM `users` WHERE `login` = '".$_GET['kill']."' LIMIT 1;"));
       if($varsa and $rost){
         if($_GET['kill']!=$glava){
-          mysql_query("DELETE FROM labirint WHERE login='".$_GET['kill']."'");
+          db_query("DELETE FROM labirint WHERE login='".$_GET['kill']."'");
           delpodzitems($varsa['id']);
-          //mysql_query("DELETE FROM `inventory` WHERE name='Бутерброд' and owner='".$varsa['id']."' and podzem='1'");
+          //db_query("DELETE FROM `inventory` WHERE name='Бутерброд' and owner='".$varsa['id']."' and podzem='1'");
           print "<script>location.href='canalizaciya.php'</script>"; exit();
         } else {
           print"<font style='font-size:12px; color:#cc0000'>Себя нельзя выгнать.</font>";
@@ -159,13 +159,13 @@ function test() {
     //smena lider
     if($_GET['change']){
       if($user['login']==$glava){
-        $rost=mysql_fetch_array(mysql_query("SELECT `user_id` FROM `labirint` WHERE `glava`='$glava' and `login`='".$_GET['change']."'"));
-        $varsa = mysql_fetch_array(mysql_query("SELECT id FROM `users` WHERE `login` = '".$_GET['change']."' LIMIT 1;"));
+        $rost=mysqli_fetch_array(db_query("SELECT `user_id` FROM `labirint` WHERE `glava`='$glava' and `login`='".$_GET['change']."'"));
+        $varsa = mysqli_fetch_array(db_query("SELECT id FROM `users` WHERE `login` = '".$_GET['change']."' LIMIT 1;"));
         if($varsa and $rost){
           if($_GET['change']!=$glava){
-            mysql_query("UPDATE labirint SET glav_id='".$varsa['id']."',glava='".$_GET['change']."' WHERE glava='".$user['login']."'");
-            mysql_query("UPDATE podzem3 SET glava='".$_GET['change']."' WHERE glava='".$user['login']."'");
-            mysql_query("UPDATE podzem4 SET glava='".$_GET['change']."' WHERE glava='".$user['login']."'");
+            db_query("UPDATE labirint SET glav_id='".$varsa['id']."',glava='".$_GET['change']."' WHERE glava='".$user['login']."'");
+            db_query("UPDATE podzem3 SET glava='".$_GET['change']."' WHERE glava='".$user['login']."'");
+            db_query("UPDATE podzem4 SET glava='".$_GET['change']."' WHERE glava='".$user['login']."'");
             print "<script>location.href='canalizaciya.php'</script>"; exit();
           } else {
             print"<font style='font-size:12px; color:#cc0000'>Вы и так Лидер.</font>";
@@ -190,8 +190,8 @@ function test() {
       $d2 = $_GET['n']-10;
       $d3 = $_GET['n']+1;
       $d4 = $_GET['n']-1;
-      $red = mysql_query("SELECT n".$_GET['n']." FROM podzem3 WHERE glava='".$mir['glava']."' and name='".$mir['name']."'");
-      if($gef = mysql_fetch_array($red)){
+      $red = db_query("SELECT n".$_GET['n']." FROM podzem3 WHERE glava='".$mir['glava']."' and name='".$mir['name']."'");
+      if($gef = mysqli_fetch_array($red)){
         $dop = $gef["n".$_GET['n'].""];
       }
       if($mesto == $d or $mesto == $d1 or $mesto == $d2 or $mesto == $d3 or $mesto == $d4){
@@ -203,9 +203,9 @@ function test() {
 
     if($_GET['act']=='el') {
       if($mir['el']!='1' and $mesto==$mir['el']){
-        mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`present`,`magic`,`otdel`,`isrep`,`podzem`,`prototype`)
+        db_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`present`,`magic`,`otdel`,`isrep`,`podzem`,`prototype`)
                         VALUES('".$user['id']."','Эликсир Жизни','188','1','0','pot_cureHP100_20.gif','10','Лука','189','188','0','1', 1538) ;");
-        mysql_query("UPDATE `labirint` SET el='1' WHERE `glava`='".$glava."' and `login`='".$user['login']."'");
+        db_query("UPDATE `labirint` SET el='1' WHERE `glava`='".$glava."' and `login`='".$user['login']."'");
         print"&nbsp;<font style='font-size:12px; color:red;'>Вы получили 'Эликсир Жизни'</font><br>";
       } else {
         if($mir['el']=='1'){
@@ -242,27 +242,27 @@ if (@$_GET["take"]) {
   }
 }
 if($_GET['sun']=='gaika'){
-$ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
-$retr = mysql_fetch_array($ferrr);
+$ferrr = db_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
+$retr = mysqli_fetch_array($ferrr);
 $stloc = $retr["n$mesto"];
 if ($stloc=='511') {
   include_once "questfuncs.php";
-  mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");
+  db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");
   $res=takesmallitem(12,0,"Нашёл в пещере");
   $mis=$res["name"];
   include "podzem_brat.php";
   print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '$mis'</font>";
 }
 if($stloc=='503' or $stloc=='502' or $stloc=='501'){
-if($stloc=='503'){mysql_query("UPDATE `podzem3` SET n$mesto='502' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='502'){mysql_query("UPDATE `podzem3` SET n$mesto='501' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='501'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
-if($g = mysql_fetch_array($f)){
+if($stloc=='503'){db_query("UPDATE `podzem3` SET n$mesto='502' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='502'){db_query("UPDATE `podzem3` SET n$mesto='501' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='501'){db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
+$f = db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+if($g = mysqli_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+db_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
 }
 $mis = "Гайка";
 include "podzem_brat.php";
@@ -272,13 +272,13 @@ print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '�
 /////////////////////////////////////
 
 If (isset($_GET['get_wear']) and isset($_GET['id'])){
- $get_wear=mysql_fetch_array(mysql_query("SELECT * from `podzem_drop` where `id`='".$_GET['id']."' and `item_id`='".$_GET['get_wear']."'  "));
+ $get_wear=mysqli_fetch_array(db_query("SELECT * from `podzem_drop` where `id`='".$_GET['id']."' and `item_id`='".$_GET['get_wear']."'  "));
  If (!empty($get_wear) and $get_wear['glava_id']==$mir['glav_id'] and $get_wear['location']==$mir['location']){
-  mysql_query("DELETE from `podzem_drop` where `id`='".$_GET['id']."'  ");
+  db_query("DELETE from `podzem_drop` where `id`='".$_GET['id']."'  ");
   
-  $dress=mysql_fetch_array(mysql_query("SELECT * from `".$get_wear['from']."` where `id`='".$_GET['get_wear']."' "));
+  $dress=mysqli_fetch_array(db_query("SELECT * from `".$get_wear['from']."` where `id`='".$_GET['get_wear']."' "));
   
-	               mysql_query("INSERT INTO `inventory`
+	               db_query("INSERT INTO `inventory`
                 (`prototype`,`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,
                     `gsila`,`glovk`,`ginta`,`gintel`,`ghp`,`gmana`,`gnoj`,`gtopor`,`gdubina`,`gmech`,`gposoh`,`gluk`,`gfire`,`gwater`,`gair`,`gearth`,`glight`,`ggray`,`gdark`,`needident`,`nsila`,`nlovk`,`ninta`,`nintel`,`nmudra`,`nvinos`,`nnoj`,`ntopor`,`ndubina`,`nmech`,`nposoh`,`nluk`,`nfire`,`nwater`,`nair`,`nearth`,`nlight`,`ngray`,`ndark`,
                     `mfkrit`,`mfakrit`,`mfuvorot`,`mfauvorot`,`bron1`,`bron2`,`bron3`,`bron4`,`maxu`,`minu`,`magic`,`nlevel`,`nalign`,`dategoden`,`goden`,`otdel`,`gmp`,`gmeshok`,`destinyinv`,`gift`,`mfkritpow`,`mfantikritpow`,`mfparir`,`mfshieldblock`,`mfcontr`,`mfrub`,`mfkol`,`mfdrob`,`mfrej`,`mfdhit`,`mfdmag`,`mfhitp`,`mfmagp`,`opisan`,`second`,`vid`,`sitost`,`dvur`,`chkol`,`chrub`,`chrej`,`chdrob`,`chmag`,`mfproboj`,`stats`,
@@ -304,19 +304,19 @@ If (isset($_GET['get_wear']) and isset($_GET['id'])){
 
 ///////////////Сбор вентилей/////////////
 if($_GET['sun']=='ventil'){
-$ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
-$retr = mysql_fetch_array($ferrr);
+$ferrr = db_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
+$retr = mysqli_fetch_array($ferrr);
 $stloc = $retr["n$mesto"];
 if($stloc=='504' or $stloc=='505' or $stloc=='506'){
-if($stloc=='506'){mysql_query("UPDATE `podzem3` SET n$mesto='505' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='505'){mysql_query("UPDATE `podzem3` SET n$mesto='504' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='504'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Вентиль' and koll<'30'");
-if($g = mysql_fetch_array($f)){
+if($stloc=='506'){db_query("UPDATE `podzem3` SET n$mesto='505' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='505'){db_query("UPDATE `podzem3` SET n$mesto='504' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='504'){db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
+$f = db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Вентиль' and koll<'30'");
+if($g = mysqli_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.2 WHERE owner='".$user['id']."' and `type`='200' and `name`='Вентиль' and koll<'30'");
+db_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.2 WHERE owner='".$user['id']."' and `type`='200' and `name`='Вентиль' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Вентиль','1','v.gif','".$user['id']."','200','0.2','0','1','1')");
+$fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Вентиль','1','v.gif','".$user['id']."','200','0.2','0','1','1')");
 }
 $mis = "Вентиль";
 include "podzem_brat.php";
@@ -326,19 +326,19 @@ print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '�
 /////////////////////////////////////
 ///////////////Сбор Болтов/////////////
 if($_GET['sun']=='bolt'){
-$ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
-$retr = mysql_fetch_array($ferrr);
+$ferrr = db_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
+$retr = mysqli_fetch_array($ferrr);
 $stloc = $retr["n$mesto"];
 if($stloc=='507' or $stloc=='508' or $stloc=='509'){
-if($stloc=='509'){mysql_query("UPDATE `podzem3` SET n$mesto='508' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='508'){mysql_query("UPDATE `podzem3` SET n$mesto='507' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='507'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Болт' and koll<'30'");
-if($g = mysql_fetch_array($f)){
+if($stloc=='509'){db_query("UPDATE `podzem3` SET n$mesto='508' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='508'){db_query("UPDATE `podzem3` SET n$mesto='507' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='507'){db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
+$f = db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Болт' and koll<'30'");
+if($g = mysqli_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Болт' and koll<'30'");
+db_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Болт' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Болт','1','bolt.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Болт','1','bolt.gif','".$user['id']."','200','0.1','0','1','1')");
 }
 $mis = "Болт";
 include "podzem_brat.php";
@@ -348,12 +348,12 @@ print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '�
 /////////////////////////////////////
 ///////////////Сбор ключиик/////////////
 if($_GET['sun']=='kluchiik'){
-$ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
-$retr = mysql_fetch_array($ferrr);
+$ferrr = db_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
+$retr = mysqli_fetch_array($ferrr);
 $stloc = $retr["n$mesto"];
 if($stloc=='510'){
-if($stloc=='510'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Ключиик','1','kluchik.gif','".$user['id']."','200','0.5','0','1','1')");
+if($stloc=='510'){db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
+$fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Ключиик','1','kluchik.gif','".$user['id']."','200','0.5','0','1','1')");
 $mis = "Ключиик";
 include "podzem_brat.php";
 print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Ключиик'</font>";
@@ -362,8 +362,8 @@ print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '�
 /////////////////////////////////////
 ///////////////Сбор сундуков/////////////
 if($_GET['act']=='sunduk'){
-$ferrr = mysql_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
-$retr = mysql_fetch_array($ferrr);
+$ferrr = db_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
+$retr = mysqli_fetch_array($ferrr);
 $stloc = $retr["n".$_GET['n'].""];
 if($stloc=='13.1'){
 $d = $_GET['n']+10;
@@ -371,13 +371,13 @@ $d2 = $_GET['n']-10;
 $d3 = $_GET['n']+1;
 $d4 = $_GET['n']-1;
 if($mesto==$d or $mesto==$d2 or $mesto==$d3 or $mesto==$d4){
-if($stloc=='13.1'){mysql_query("UPDATE `podzem4` SET n".$_GET['n']."='13.0' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
-if($g = mysql_fetch_array($f)){
+if($stloc=='13.1'){db_query("UPDATE `podzem4` SET n".$_GET['n']."='13.0' WHERE glava='$glava' and name='".$mir['name']."'");}
+$f = db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+if($g = mysqli_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+db_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
 }
 $mis = "Гайка";
 include "podzem_brat.php";
@@ -388,8 +388,8 @@ print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '�
 /////////////////////////////////////
 ///////////////Сбор сундуков (БОЛТ)/////////////
 if($_GET['act']=='sunduk2'){
-  $ferrr = mysql_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
-  $retr = mysql_fetch_array($ferrr);
+  $ferrr = db_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
+  $retr = mysqli_fetch_array($ferrr);
   $stloc = $retr["n".$_GET['n'].""];
   if($stloc=='14.1'){
     $d = $_GET['n']+10;
@@ -397,13 +397,13 @@ if($_GET['act']=='sunduk2'){
     $d3 = $_GET['n']+1;
     $d4 = $_GET['n']-1;
     if($mesto==$d or $mesto==$d2 or $mesto==$d3 or $mesto==$d4){
-      if($stloc=='14.1'){mysql_query("UPDATE `podzem4` SET n".$_GET['n']."='14.0' WHERE glava='$glava' and name='".$mir['name']."'");}
-      $f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Болт' and koll<'30'");
-      if($g = mysql_fetch_array($f)){
+      if($stloc=='14.1'){db_query("UPDATE `podzem4` SET n".$_GET['n']."='14.0' WHERE glava='$glava' and name='".$mir['name']."'");}
+      $f = db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Болт' and koll<'30'");
+      if($g = mysqli_fetch_array($f)){
         $koll = $g["koll"];
-        mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Болт' and koll<'30'");
+        db_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Болт' and koll<'30'");
       } else {
-        $fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Болт','1','bolt.gif','".$user['id']."','200','0.1','0','1','1')");
+        $fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Болт','1','bolt.gif','".$user['id']."','200','0.1','0','1','1')");
       }
       $mis = "Болт";
       include "podzem_brat.php";
@@ -492,14 +492,14 @@ if($_GET['act']=='sunduk2'){
 /////////////////////////////////////
 ///////////////Сбор ключей/////////////
 if($_GET['act']=='key'){
-$ferrr = mysql_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
-$retr = mysql_fetch_array($ferrr);
+$ferrr = db_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
+$retr = mysqli_fetch_array($ferrr);
 $stloc = $retr["n".$_GET['n'].""];
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Ключик №".$_GET['b']."'");
-$g = mysql_fetch_array($f);
+$f = db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Ключик №".$_GET['b']."'");
+$g = mysqli_fetch_array($f);
 if(($stloc=='key1' or $stloc=='key2' or $stloc=='key3' or $stloc=='key4' or $stloc=='key5' or $stloc=='key6' or $stloc=='key7' or $stloc=='key8' or $stloc=='key9' or $stloc=='key10') and !$g){
 if($mesto==$_GET['n']){
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Ключик №".$_GET['b']."','1','$stloc.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Ключик №".$_GET['b']."','1','$stloc.gif','".$user['id']."','200','0.1','0','1','1')");
 print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Ключик №".$_GET['b']."'</font>";
 }
 }else{if($g){print"&nbsp;<font style='font-size:12px; color:cc0000;'>У вас уже есть Ключик №".$_GET['b']."!</font>";}}
@@ -508,26 +508,26 @@ print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '�
 /////////////////////////////////////
 ///////////////Сбор гаек из стоков/////////////
 if($_GET['act']=='stok') {
-    $ferrr = mysql_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
-    $retr = mysql_fetch_array($ferrr);
+    $ferrr = db_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
+    $retr = mysqli_fetch_array($ferrr);
     $stloc = $retr["n".$_GET['n'].""];
     $shans = rand(0,100);
     if ($mesto != 13) { // если с пустой склянкой за пробами
         if ($shans<51) {
-            mysql_query("UPDATE `podzem4` SET n".$_GET['n']."='11.0' WHERE glava='$glava' and name='".$mir['name']."'");
+            db_query("UPDATE `podzem4` SET n".$_GET['n']."='11.0' WHERE glava='$glava' and name='".$mir['name']."'");
             $stloc='11.0';
         }
     }
     if($stloc=='11.1') {
         if ($mesto==$_GET['n']) {
             if ($stloc=='11.1') {
-                mysql_query("UPDATE `podzem4` SET n".$_GET['n']."='11.0' WHERE glava='$glava' and name='".$mir['name']."'");
+                db_query("UPDATE `podzem4` SET n".$_GET['n']."='11.0' WHERE glava='$glava' and name='".$mir['name']."'");
             }
             $rnd=rand(0,10);
             if ($mesto == 13 && $mir['name'] == 'Канализация 1 этаж') { // получение пробы в склянку для Храма Знаний
-                $isVial = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND name = 'Пустая склянка'"), 0, 0);
+                $isVial = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND name = 'Пустая склянка'"), 0, 0);
                 if ($isVial) {
-                    mysql_query("UPDATE inventory SET name = 'Склянка с пробами', podzem = 1, img = 'full_rune_vial.gif' WHERE owner = $user[id] AND name = 'Пустая склянка'");
+                    db_query("UPDATE inventory SET name = 'Склянка с пробами', podzem = 1, img = 'full_rune_vial.gif' WHERE owner = $user[id] AND name = 'Пустая склянка'");
                     print"&nbsp;<font style='font-size:12px; color:cc0000;'>Склянка от Хранителя Знаний наполнилась мутной жидкостью.</font>";
                 } else {
                     print"&nbsp;<font style='font-size:12px; color:cc0000;'>Попахивает..</font>";
@@ -539,12 +539,12 @@ if($_GET['act']=='stok') {
                 include "podzem_brat.php";
                 print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '$item[name]'</font>";
             } else {
-                $f=mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
-                if ($g = mysql_fetch_array($f)) {
+                $f=db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+                if ($g = mysqli_fetch_array($f)) {
                     $koll = $g["koll"];
-                    mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+                    db_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
                 } else {
-                    $fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
+                    $fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
                 }
                 $mis = "Гайка";
                 include "podzem_brat.php";
@@ -559,12 +559,12 @@ if($_GET['act']=='stok') {
 }
 ///////////////Сбор гаек из стоков/////////////
 if($_GET['act']=='stok2'){
-$ferrr = mysql_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
-$retr = mysql_fetch_array($ferrr);
+$ferrr = db_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
+$retr = mysqli_fetch_array($ferrr);
 $stloc = $retr["n".$_GET['n'].""];
 $shans = rand(0,100);
 if($shans<51){
-mysql_query("UPDATE `podzem4` SET n".$_GET['n']."='12.0' WHERE glava='$glava' and name='".$mir['name']."'");
+db_query("UPDATE `podzem4` SET n".$_GET['n']."='12.0' WHERE glava='$glava' and name='".$mir['name']."'");
 $stloc='12.0';
 }
 if($stloc=='12.1'){
@@ -573,13 +573,13 @@ $d2 = $_GET['n']-10;
 $d3 = $_GET['n']+1;
 $d4 = $_GET['n']-1;
 if($mesto==$d or $mesto==$d2 or $mesto==$d3 or $mesto==$d4){
-if($stloc=='12.1'){mysql_query("UPDATE `podzem4` SET n".$_GET['n']."='12.0' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f=mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
-if($g = mysql_fetch_array($f)){
+if($stloc=='12.1'){db_query("UPDATE `podzem4` SET n".$_GET['n']."='12.0' WHERE glava='$glava' and name='".$mir['name']."'");}
+$f=db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+if($g = mysqli_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+db_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
 }
 $mis = "Гайка";
 include "podzem_brat.php";
@@ -590,22 +590,22 @@ print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '�
 /////////////////////////////////////
 ///////////////Сбор гаек/////////////
 if($_GET['sun']=='se_gaika_c'){
-$ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
-$retr = mysql_fetch_array($ferrr);
+$ferrr = db_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
+$retr = mysqli_fetch_array($ferrr);
 $stloc = $retr["n$mesto"];
 if($stloc=='603' or $stloc=='602' or $stloc=='601' or $stloc=='607' or $stloc=='608' or $stloc=='609'){
-if($stloc=='609'){mysql_query("UPDATE `podzem3` SET n$mesto='608' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='608'){mysql_query("UPDATE `podzem3` SET n$mesto='607' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='607'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='603'){mysql_query("UPDATE `podzem3` SET n$mesto='602' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='602'){mysql_query("UPDATE `podzem3` SET n$mesto='601' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='601'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Чистая гайка' and koll<'30'");
-if($g = mysql_fetch_array($f)){
+if($stloc=='609'){db_query("UPDATE `podzem3` SET n$mesto='608' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='608'){db_query("UPDATE `podzem3` SET n$mesto='607' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='607'){db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='603'){db_query("UPDATE `podzem3` SET n$mesto='602' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='602'){db_query("UPDATE `podzem3` SET n$mesto='601' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='601'){db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
+$f = db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Чистая гайка' and koll<'30'");
+if($g = mysqli_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Чистая гайка' and koll<'30'");
+db_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Чистая гайка' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Чистая гайка','1','g_c.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Чистая гайка','1','g_c.gif','".$user['id']."','200','0.1','0','1','1')");
 }
 $mis = "Чистая гайка";
 include "podzem_brat.php";
@@ -615,22 +615,22 @@ print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '�
 /////////////////////////////////////
 ///////////////Сбор болтов/////////////
 if($_GET['sun']=='se_gaika_bd'){
-$ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
-$retr = mysql_fetch_array($ferrr);
+$ferrr = db_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
+$retr = mysqli_fetch_array($ferrr);
 $stloc = $retr["n$mesto"];
 if($stloc=='609' or $stloc=='608' or $stloc=='607' || $stloc=='606' or $stloc=='605' or $stloc=='604'){
-if($stloc=='609'){mysql_query("UPDATE `podzem3` SET n$mesto='608' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='608'){mysql_query("UPDATE `podzem3` SET n$mesto='607' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='607'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='606'){mysql_query("UPDATE `podzem3` SET n$mesto='605' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='605'){mysql_query("UPDATE `podzem3` SET n$mesto='604' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='604'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Длинный болт' and koll<'30'");
-if($g = mysql_fetch_array($f)){
+if($stloc=='609'){db_query("UPDATE `podzem3` SET n$mesto='608' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='608'){db_query("UPDATE `podzem3` SET n$mesto='607' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='607'){db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='606'){db_query("UPDATE `podzem3` SET n$mesto='605' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='605'){db_query("UPDATE `podzem3` SET n$mesto='604' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='604'){db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
+$f = db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Длинный болт' and koll<'30'");
+if($g = mysqli_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Длинный болт' and koll<'30'");
+db_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Длинный болт' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Длинный болт','1','bolt_d.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Длинный болт','1','bolt_d.gif','".$user['id']."','200','0.1','0','1','1')");
 }
 $mis = "Длинный болт";
 include "podzem_brat.php";
@@ -640,19 +640,19 @@ print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '�
 /////////////////////////////////////
 ///////////////Сбор болтов/////////////
 if($_GET['sun']=='se_gaika_nb'){
-$ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
-$retr = mysql_fetch_array($ferrr);
+$ferrr = db_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
+$retr = mysqli_fetch_array($ferrr);
 $stloc = $retr["n$mesto"];
 if($stloc=='612' or $stloc=='611' or $stloc=='610' or $stloc=='613'){
-if($stloc=='612'){mysql_query("UPDATE `podzem3` SET n$mesto='611' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='611'){mysql_query("UPDATE `podzem3` SET n$mesto='610' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='610' || $stloc=='613'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Нужный болт' and koll<'30'");
-if($g = mysql_fetch_array($f)){
+if($stloc=='612'){db_query("UPDATE `podzem3` SET n$mesto='611' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='611'){db_query("UPDATE `podzem3` SET n$mesto='610' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='610' || $stloc=='613'){db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
+$f = db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Нужный болт' and koll<'30'");
+if($g = mysqli_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Нужный болт' and koll<'30'");
+db_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Нужный болт' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Нужный болт','1','nb.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Нужный болт','1','nb.gif','".$user['id']."','200','0.1','0','1','1')");
 }
 $mis = "Нужный болт";
 include "podzem_brat.php";
@@ -662,21 +662,21 @@ print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '�
 /////////////////////////////////////
 ///////////////Сбор болтов/////////////
 if($_GET['sun']=='se_gaika_rez'){
-$ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
-$retr = mysql_fetch_array($ferrr);
+$ferrr = db_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
+$retr = mysqli_fetch_array($ferrr);
 $stloc = $retr["n$mesto"];
 if($stloc=='606' or $stloc=='605' or $stloc=='604' or $stloc=='612' or $stloc=='611' or $stloc=='610'){
-if($stloc=='606'){mysql_query("UPDATE `podzem3` SET n$mesto='605' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='605'){mysql_query("UPDATE `podzem3` SET n$mesto='604' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='612'){mysql_query("UPDATE `podzem3` SET n$mesto='611' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='611'){mysql_query("UPDATE `podzem3` SET n$mesto='610' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='604' || $stloc=='610'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка с резьбой' and koll<'30'");
-if($g = mysql_fetch_array($f)){
+if($stloc=='606'){db_query("UPDATE `podzem3` SET n$mesto='605' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='605'){db_query("UPDATE `podzem3` SET n$mesto='604' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='612'){db_query("UPDATE `podzem3` SET n$mesto='611' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='611'){db_query("UPDATE `podzem3` SET n$mesto='610' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='604' || $stloc=='610'){db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
+$f = db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка с резьбой' and koll<'30'");
+if($g = mysqli_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка с резьбой' and koll<'30'");
+db_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка с резьбой' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка с резьбой','1','g_r.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка с резьбой','1','g_r.gif','".$user['id']."','200','0.1','0','1','1')");
 }
 $mis = "Гайка с резьбой";
 include "podzem_brat.php";
@@ -686,22 +686,22 @@ print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '�
 /////////////////////////////////////
 ///////////////Сбор винтелей/////////////
 if($_GET['sun']=='se_gaika_rv'){
-$ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
-$retr = mysql_fetch_array($ferrr);
+$ferrr = db_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
+$retr = mysqli_fetch_array($ferrr);
 $stloc = $retr["n$mesto"];
 if($stloc=='612' or $stloc=='611' or $stloc=='610' || $stloc=='613' or $stloc=='614' or $stloc=='615'){
-if($stloc=='612'){mysql_query("UPDATE `podzem3` SET n$mesto='611' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='611'){mysql_query("UPDATE `podzem3` SET n$mesto='610' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='610'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='615'){mysql_query("UPDATE `podzem3` SET n$mesto='614' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='614'){mysql_query("UPDATE `podzem3` SET n$mesto='613' WHERE glava='$glava' and name='".$mir['name']."'");}
-if($stloc=='613'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Рабочий вентиль' and koll<'30'");
-if($g = mysql_fetch_array($f)){
+if($stloc=='612'){db_query("UPDATE `podzem3` SET n$mesto='611' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='611'){db_query("UPDATE `podzem3` SET n$mesto='610' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='610'){db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='615'){db_query("UPDATE `podzem3` SET n$mesto='614' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='614'){db_query("UPDATE `podzem3` SET n$mesto='613' WHERE glava='$glava' and name='".$mir['name']."'");}
+if($stloc=='613'){db_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
+$f = db_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Рабочий вентиль' and koll<'30'");
+if($g = mysqli_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Рабочий вентиль' and koll<'30'");
+db_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Рабочий вентиль' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Рабочий вентиль','1','rv.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = db_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Рабочий вентиль','1','rv.gif','".$user['id']."','200','0.1','0','1','1')");
 }
 $mis = "Рабочий вентиль";
 include "podzem_brat.php";
@@ -722,18 +722,18 @@ if($mesto == '9'){$mesto = '09';}
 
 // переходы
     if(isset($_GET['left'])){
-      mysql_query("UPDATE `labirint` SET `vector` = '".$_GET['left']."' WHERE `user_id` = '{$_SESSION['uid']}' ;");
+      db_query("UPDATE `labirint` SET `vector` = '".$_GET['left']."' WHERE `user_id` = '{$_SESSION['uid']}' ;");
       //header('Location:canalizaciya.php');
       die("<script>location.href='canalizaciya.php?".time()."';</script>");
     }
     if(isset($_GET['right'])){
-      mysql_query("UPDATE `labirint` SET `vector` = '".$_GET['right']."' WHERE `user_id` = '{$_SESSION['uid']}' ;");
+      db_query("UPDATE `labirint` SET `vector` = '".$_GET['right']."' WHERE `user_id` = '{$_SESSION['uid']}' ;");
       //header('Location:canalizaciya.php');
       die("<script>location.href='canalizaciya.php?&".time()."';</script>");
     }
     if($rhar[$mesto][$_GET['path']]!=''){
-      $fer = mysql_query("SELECT n".$rhar[$mesto][$_GET['path']]." FROM podzem3 WHERE glava='".$mir['glava']."' and name='".$mir['name']."'");
-      if($ret = mysql_fetch_array($fer)){
+      $fer = db_query("SELECT n".$rhar[$mesto][$_GET['path']]." FROM podzem3 WHERE glava='".$mir['glava']."' and name='".$mir['name']."'");
+      if($ret = mysqli_fetch_array($fer)){
         $stoi = $ret["n".$rhar[$mesto][$_GET['path']].""];
       }
     }
@@ -743,10 +743,10 @@ if($rhar[$mesto][$_GET['path']] > 0 and $_GET['path'] < 4 and $_GET['path'] >= 0
   if($_GET['path']==1) $loc2=$mesto+1;
   if($_GET['path']==2) $loc2=$mesto-10;
   if($_GET['path']==3) $loc2=$mesto-1;
-  $fers = mysql_query("SELECT n$loc2,v$loc2 FROM podzem4 WHERE glava='$glava' and name='".$mir['name']."'");
-  $rets = mysql_fetch_array($fers);
-  $ins = mysql_query("SELECT id FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Ключик №".$rets["n$loc2"]."'");
-  $setr = mysql_fetch_array($ins);
+  $fers = db_query("SELECT n$loc2,v$loc2 FROM podzem4 WHERE glava='$glava' and name='".$mir['name']."'");
+  $rets = mysqli_fetch_array($fers);
+  $ins = db_query("SELECT id FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Ключик №".$rets["n$loc2"]."'");
+  $setr = mysqli_fetch_array($ins);
   $tmp = mqfa1("SELECT id FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type` = 14 OR `type` = 13)");
   if ($tmp) {
     print"&nbsp;<font style='font-size:12px; color:cc0000;'>У вас тяжёлая травма, вы не можете передвигаться.</font>";
@@ -758,7 +758,7 @@ if($rhar[$mesto][$_GET['path']] > 0 and $_GET['path'] < 4 and $_GET['path'] >= 0
     if($_GET['path']==1) {$nav='l=l+12';}
     if($_GET['path']==2) {$nav='t=t+12';}
     if($_GET['path']==3) {$nav='l=l-12';}
-    mysql_query("UPDATE `labirint` SET `location` = '".$rhar[$mesto][$_GET['path']]."',`visit_time`='$vrem',$nav WHERE `user_id` = '{$_SESSION['uid']}' ;");
+    db_query("UPDATE `labirint` SET `location` = '".$rhar[$mesto][$_GET['path']]."',`visit_time`='$vrem',$nav WHERE `user_id` = '{$_SESSION['uid']}' ;");
     if($user['id']==7 || $user['id']==2372 || $user['id']==50){
       $_SESSION['time'] = time()+0;
       if ($user['id']==2372) $_SESSION['time'] = time()+3;
@@ -777,8 +777,8 @@ if($rhar[$mesto][$_GET['path']] > 0 and $_GET['path'] < 4 and $_GET['path'] >= 0
   }
 }
 
-  $fd = mysql_query("SELECT * FROM podzem4 WHERE glava='$mir[glava]' and name='".$mir['name']."'");
-  $repa = mysql_fetch_array($fd);
+  $fd = db_query("SELECT * FROM podzem4 WHERE glava='$mir[glava]' and name='".$mir['name']."'");
+  $repa = mysqli_fetch_array($fd);
   if ($_GET["moved"] && strpos($repa["n$mesto"],"s")===0) {
     $surface=str_replace("s","",$repa["n$mesto"]);
     if ($surface==1) {
@@ -808,9 +808,9 @@ if($rhar[$mesto][$_GET['path']] > 0 and $_GET['path'] < 4 and $_GET['path'] >= 0
     <td valign="top" align="left"><br><br>
 <center><table width="440" border="0" cellspacing="1" cellpadding="0" bgcolor="#000000">
 <?
-$rog=mysql_query("SELECT login,name,glava FROM `labirint` WHERE `glava`='$glava'");
-while($more=mysql_fetch_array($rog)){
-$big = mysql_fetch_array(mysql_query("SELECT hp,maxhp,id,level FROM `users` WHERE `login` = '".$more['login']."'"));
+$rog=db_query("SELECT login,name,glava FROM `labirint` WHERE `glava`='$glava'");
+while($more=mysqli_fetch_array($rog)){
+$big = mysqli_fetch_array(db_query("SELECT hp,maxhp,id,level FROM `users` WHERE `login` = '".$more['login']."'"));
 ?>
   <tr>
 <td background="img/bg_scroll_05.gif" align="center">
@@ -836,14 +836,14 @@ print"<br>";
 if($mir['dead']>'0'){print"<br><font style='font-size:15px; color:#600'> <b>&nbsp;&nbsp;Кол-во проигрышей:</font></b> <b style='font-size:14px; color:#000'>".$mir['dead']."</b><br><br>";}
 include "podzem_res.php";
 if ($user["room"]==52)
-$mis = mysql_fetch_array(mysql_query("SELECT * FROM `podzem_zad_login` WHERE `owner`='".$user['id']."'"));
+$mis = mysqli_fetch_array(db_query("SELECT * FROM `podzem_zad_login` WHERE `owner`='".$user['id']."'"));
 if($mis){
 print"<br><br>&nbsp;Задание:";
 list($q,$n,$q)=botname($mis["bot"]);
 echo " $n ".$mis['ubil']."/".$mis['ubit']."";
 }
 elseif ($user["room"]==403)
-$misk = mysql_fetch_array(mysql_query("SELECT * FROM `podzem_k_zad_login` WHERE `owner`='".$user['id']."'"));
+$misk = mysqli_fetch_array(db_query("SELECT * FROM `podzem_k_zad_login` WHERE `owner`='".$user['id']."'"));
 if($misk){
 print"<br><br>&nbsp;Задание:";
 list($q,$n,$q)=botname($misk["bot"]);
@@ -854,8 +854,8 @@ echo " $n ".$misk['ubil']."/".$misk['ubit']."";
     </td>
     <td align="right" width="400">
 <?
-$redd = mysql_query("SELECT `style` FROM `podzem2` WHERE `name`='".$mir['name']."'");
-$gefd = mysql_fetch_array($redd);
+$redd = db_query("SELECT `style` FROM `podzem2` WHERE `name`='".$mir['name']."'");
+$gefd = mysqli_fetch_array($redd);
 include"navig.php";
 
 echo build_move_image($mesto, $vektor, $gefd['style'], $glava, $mir['name']);

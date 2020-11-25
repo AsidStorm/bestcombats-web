@@ -6,19 +6,19 @@
   $logins="";
   $log="";
   $cnt=0;
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     $cnt++;
     $sex=$rec["sex"];
     $power+=$rec["power"];
     $power+=$rec["sila"]*$rec["hp"];
     $cond.=" or id=$rec[id] ";
     if ($logins) {
-      if ($cnt==mysql_num_rows($r)) $logins.=" </b>и<b> ";
+      if ($cnt==mysqli_num_rows($r)) $logins.=" </b>и<b> ";
       else $logins.="</b>,<b> ";
     }
     $logins.=" $rec[login]";
     if ($log) {
-      if ($cnt==mysql_num_rows($r)) $log.=" и ";
+      if ($cnt==mysqli_num_rows($r)) $log.=" и ";
       else $log.=", ";
     }
     $log.=fullnick($rec);

@@ -54,18 +54,18 @@
 
 include "connect.php";
 
-$online = mysql_query("select * from `online`  WHERE `real_time` >= ".(time()-60).";");
+$online = db_query("select * from `online`  WHERE `real_time` >= ".(time()-60).";");
 ?>
 
 
-<br>(сейчас в клубе <?=mysql_num_rows($online)?> чел.)<br><br>
-<?$num = mysql_num_rows(mysql_query("SELECT `id` FROM `users` WHERE bot not like '1'"));echo"Зарегистрированных:<font color=black><b> ".$num." </font></b>чел.<br>";?></td><?$bl = mysql_num_rows(mysql_query("SELECT `block` FROM `users` WHERE `block` =1"));echo"Заблокировнных:<font color=red><b> ".$bl." </b></font>чел.<br>";?><?$haos = mysql_num_rows(mysql_query("SELECT `align` FROM `users` WHERE `align` =4"));echo"В Хаосе:<font color=red><b> ".$haos." </b></font>чел.<br><br>";
+<br>(сейчас в клубе <?=mysqli_num_rows($online)?> чел.)<br><br>
+<?$num = mysqli_num_rows(db_query("SELECT `id` FROM `users` WHERE bot not like '1'"));echo"Зарегистрированных:<font color=black><b> ".$num." </font></b>чел.<br>";?></td><?$bl = mysqli_num_rows(db_query("SELECT `block` FROM `users` WHERE `block` =1"));echo"Заблокировнных:<font color=red><b> ".$bl." </b></font>чел.<br>";?><?$haos = mysqli_num_rows(db_query("SELECT `align` FROM `users` WHERE `align` =4"));echo"В Хаосе:<font color=red><b> ".$haos." </b></font>чел.<br><br>";
 
 
 if (!$_POST['dlogs']) {$_POST['dlogs']=date("d.m.y");}
 
 $ddate33="20".substr($_POST['dlogs'],6,2)."-".substr($_POST['dlogs'],3,2)."-".substr($_POST['dlogs'],0,2)."";			
-$res = mysql_fetch_array(mysql_query("select count(`id`) from `users` where `borntime` LIKE '".$ddate33." %';"));
+$res = mysqli_fetch_array(db_query("select count(`id`) from `users` where `borntime` LIKE '".$ddate33." %';"));
 echo "За Сегодня ".$res[0]." </b>чел.";
 ?>
 </BODY>

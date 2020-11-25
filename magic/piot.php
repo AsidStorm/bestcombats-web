@@ -12,8 +12,8 @@ $coma[] = "С тем, кому нечего скрывать, пить не ин
 
 		if ($_SESSION['uid'] == null) header("Location: index.php");
 
-		$tar = mysql_fetch_array(mysql_query("SELECT `id`,`bar`,`room` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;")); 
-		mysql_query("select * from `online`  WHERE `id` = '{$tar['id']}';");
+		$tar = mysqli_fetch_array(db_query("SELECT `id`,`bar`,`room` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+		db_query("select * from `online`  WHERE `id` = '{$tar['id']}';");
 
 		$target=$_POST['target'];
 		if ($tar['id']) {
@@ -38,8 +38,8 @@ $coma[] = "С тем, кому нечего скрывать, пить не ин
 					$ok=1;
 				}
 				if ($ok == 1) {
-					if (mysql_query("UPDATE `users` SET `bar`='1',`room`='667' WHERE `id` = {$tar['id']} LIMIT 1;")) {
-						mysql_query("UPDATE `online` SET  `room`='667' WHERE `id` = {$tar['id']} LIMIT 1;");
+					if (db_query("UPDATE `users` SET `bar`='1',`room`='667' WHERE `id` = {$tar['id']} LIMIT 1;")) {
+						db_query("UPDATE `online` SET  `room`='667' WHERE `id` = {$tar['id']} LIMIT 1;");
 
 						$ldtarget=$target;
 						$ldblock=1;

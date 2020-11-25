@@ -4,7 +4,7 @@
     include_once "incl/strokedata.php";
     if ($color=="B1") $color2="B2";
     else $color2="B1";
-    if ($idpers<_BOTSEPARATOR_) $hmm = mysql_fetch_array(mysql_query("SELECT id,sex FROM `users` WHERE `id` = '{$idpers}' LIMIT 1;"));
+    if ($idpers<_BOTSEPARATOR_) $hmm = mysqli_fetch_array(db_query("SELECT id,sex FROM `users` WHERE `id` = '{$idpers}' LIMIT 1;"));
     else {
       $hmm["id"]=$idpers;
       $hmm["sex"] = mqfa1("SELECT sex FROM `users` WHERE `id` = '".bottouser($idpers)."'");
@@ -12,17 +12,17 @@
     if(!function_exists("nick666")) {
       function nick666 ($id,$st) {
         if($id > _BOTSEPARATOR_) {
-          $bots = mysql_fetch_array(mysql_query ('SELECT name,hp,id,prototype FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
+          $bots = mysqli_fetch_array(db_query ('SELECT name,hp,id,prototype FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
           $id=$bots['prototype'];
-          $user = mysql_fetch_array(mysql_query("SELECT login,hp,id FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+          $user = mysqli_fetch_array(db_query("SELECT login,hp,id FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
           $user['login'] = $bots['name'];
           $user['hp'] = $bots['hp'];
           $user['id'] = $bots['id'];
         } else {
-          $user = mysql_fetch_array(mysql_query("SELECT login FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+          $user = mysqli_fetch_array(db_query("SELECT login FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
         }
         if($user[0]) {
-          $effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
+          $effect = mysqli_fetch_array(db_query("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
           if($effect) {
             $user['login'] = '</a><b><i>невидимка</i></b>';
             $user['align'] = '0';

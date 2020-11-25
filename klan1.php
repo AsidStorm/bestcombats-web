@@ -14,7 +14,7 @@
     if (!$user["klan"]) {header("location: main.php");die;}
     if ($user['battle'] != 0) { header('location: fbattle.php');die();}
 
-    $klan = mysql_fetch_array(mq("SELECT * FROM `clans` WHERE `short` = '{$user['klan']}' LIMIT 1;"));
+    $klan = mysqli_fetch_array(mq("SELECT * FROM `clans` WHERE `short` = '{$user['klan']}' LIMIT 1;"));
     $klan["members"]=unserialize($klan["members"]);
     foreach ($klan["members"] as $k=>$v) {
       $klan["members"][$k]["klan"]=$klan["short"];
@@ -86,7 +86,7 @@
     if ($klan && $klan['clanexp'] >= $klan['needexp']) {
       mq("UPDATE `clans` SET `needexp` = ".$klanexptable[$klan['needexp']][1].",`clanlevel` = `clanlevel`+".$klanexptable[$klan['needexp']][0]."
       WHERE `id` = '$klan[id]'");
-      $klan = mysql_fetch_array(mq("SELECT * FROM `clans` WHERE `short` = '{$user['klan']}' LIMIT 1;"));
+      $klan = mysqli_fetch_array(mq("SELECT * FROM `clans` WHERE `short` = '{$user['klan']}' LIMIT 1;"));
       $klan["members"]=unserialize($klan["members"]);
       foreach ($klan["members"] as $k=>$v) {
         $klan["members"][$k]["klan"]=$klan["short"];
@@ -142,7 +142,7 @@ $numb=0;
 
 }
                 $data = mq("SELECT * FROM `delo` WHERE `text` like '%хранилище клана ".$user['klan']."%' or `text` like '%хранилища клана ".$user['klan']."%' ORDER BY date DESC LIMIT $numb, 15;");
-                while($it = mysql_fetch_array($data)) {
+                while($it = mysqli_fetch_array($data)) {
 $i++;
 if($i==1){echo"<tr><td class=solid>&nbsp;</td><td align=left class=solid><b>&nbsp;&nbsp;Когда</b></td><td align=left class=solid><b>&nbsp;&nbsp;&nbsp;&nbsp;Кто</b></td><td align=right class=solid><b>Предмет</b></td></tr>";}
 if(strpos($it['text'],"хранилище клана")){$pp="<img src=\"".IMGBASE."/i/kazna_put.gif\" alt=\"положил\">";}else{$pp="<img src=\"".IMGBASE."/i/kazna_get.gif\" alt=\"забрал\">";}
@@ -160,7 +160,7 @@ echo"<tr><td class=dash align=center width=10>".$pp."</td><td class=dash align=l
 echo "Страницы: ";
 $data2 = mq("SELECT id FROM `delo` WHERE `text` like '%хранилище клана ".$user['klan']."%' or `text` like '%хранилища клана ".$user['klan']."%'");
 
-    $all = mysql_num_rows($data2)-1;
+    $all = mysqli_num_rows($data2)-1;
     $pgs = $all/15;
     for ($i=0;$i<=$pgs;++$i) {
         if ($_GET['page']==$i) {
@@ -212,7 +212,7 @@ $numb=0;
 
 }
                 $data = mq("SELECT * FROM `kaznalog` WHERE `klan`= '".$user['klan']."' ORDER BY id DESC LIMIT $numb, 15;");
-                while($it = mysql_fetch_array($data)) {
+                while($it = mysqli_fetch_array($data)) {
 $i++;
 if($i==1){echo"<tr><td class=solid>&nbsp;</td><td align=left class=solid><b>&nbsp;&nbsp;Когда</b></td><td align=left class=solid><b>&nbsp;&nbsp;&nbsp;&nbsp;Кто</b></td><td align=right class=solid><b>Сколько</b></td></tr>";}
 if($it['action']==0){$pp="<img src=\"".IMGBASE."/i/kazna_get.gif\" alt=\"забрал\">";}else{$pp="<img src=\"".IMGBASE."/i/kazna_put.gif\" alt=\"положил\">";}
@@ -226,7 +226,7 @@ echo"<tr><td class=dash align=center width=10>".$pp."</td><td class=dash align=l
 echo "Страницы: ";
 $data2 = mq("SELECT * FROM `kaznalog` WHERE `klan`= '{$user['klan']}';");
 
-    $all = mysql_num_rows($data2)-1;
+    $all = mysqli_num_rows($data2)-1;
     $pgs = $all/15;
     for ($i=0;$i<=$pgs;++$i) {
         if ($_GET['page']==$i) {
@@ -558,7 +558,7 @@ echo'Тип управления кланом: <B>Диктатура</B><BR>';
 echo'Тип управления кланом: <B>Демократия</B><BR>';
 }
         if($_POST['kik'] && $_POST['leave']) {
-            $sok = mysql_fetch_array(mq('SELECT * FROM `users` WHERE  `klan` = \''.$klan['short'].'\' AND `id` = \''.$_SESSION['uid'].'\' LIMIT 1;'));
+            $sok = mysqli_fetch_array(mq('SELECT * FROM `users` WHERE  `klan` = \''.$klan['short'].'\' AND `id` = \''.$_SESSION['uid'].'\' LIMIT 1;'));
             if ($sok) {
                 mq("update clans set cnt=cnt-1 where id='$klan[id]'");
                 setrestriction($sok["id"]);
@@ -767,7 +767,7 @@ if ($_REQUEST['putmoney']>=1 && $_REQUEST['addmoney']==1 && $polno[$user['id']][
     mq("INSERT INTO `kaznalog` (`klan`, `user`, `sum`, `action`, `date`)VALUES ('".$user['klan']."', '".$_SESSION['uid']."', '".strval($_REQUEST[putmoney])."', '1', '".date('d.m.y H:i')."');");
 
                 echo"<script>setTZ('TZ11', 1)</script><font color=red>Удачно пополнена казна клана на ".$_REQUEST['putmoney']." кр.</font><br>";
-                                $klan = mysql_fetch_array(mq("SELECT * FROM `clans` WHERE `short` = '{$user['klan']}' LIMIT 1;"));
+                                $klan = mysqli_fetch_array(mq("SELECT * FROM `clans` WHERE `short` = '{$user['klan']}' LIMIT 1;"));
   } else {echo"<script>setTZ('TZ11', 1)</script><font color=red>Произошла ошибка!</font><br>";}
 
 
@@ -793,7 +793,7 @@ if ($_REQUEST['money']>=1 && $_REQUEST['getmoney']==1 && $polno[$user['id']][7]=
 mq("UPDATE `users` set money=money+".strval($_REQUEST[money])." where id='".$user['id']."'");
     mq("INSERT INTO `kaznalog` (`klan`, `user`, `sum`, `action`, `date`)VALUES ('".$user['klan']."', '".$_SESSION['uid']."', '".strval($_REQUEST[money])."', '0', '".date('d.m.y H:i')."');");
                 echo"<script>setTZ('TZ11', 1)</script><font color=red>Удачно взято ".$_REQUEST['money']." кр. из казны клана.</font><br>";
-                                $klan = mysql_fetch_array(mq("SELECT * FROM `clans` WHERE `short` = '{$user['klan']}' LIMIT 1;"));}
+                                $klan = mysqli_fetch_array(mq("SELECT * FROM `clans` WHERE `short` = '{$user['klan']}' LIMIT 1;"));}
  else{echo"<script>setTZ('TZ11', 1)</script><font color=red>Произошла ошибка!</font><br>";}
 
 
@@ -842,7 +842,7 @@ wnd.style.top = document.body.scrollTop+50;
 if ($klan["glava"]==$user["id"]) echo '<input type=button value="Список операций" onClick="window.open(\'klan1.php?trunklog=1\', \'kaznalog\', \'height=400,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes,resizable=no\')">';
 if($polno[$user['id']][3]==1 || $_SESSION["uid"]==7){
                 if($_GET['back'] && $polno[$user['id']][4]==1) {
-                    $it = mysql_fetch_array(mq("SELECT * FROM `clanstorage` WHERE `id` = ".$_GET['back']." and klan='$user[klan]' and taken=0"));
+                    $it = mysqli_fetch_array(mq("SELECT * FROM `clanstorage` WHERE `id` = ".$_GET['back']." and klan='$user[klan]' and taken=0"));
                     if ($it) {
                       if($polno[$user['id']][4]==1 OR $user['id']==$glava[0]) {
                         $i=mqfa1("select id from inventory where id='$it[id_it]'");
@@ -857,10 +857,10 @@ if($polno[$user['id']][3]==1 || $_SESSION["uid"]==7){
                 }
                 // положить шмотку
                 if($_GET['add'] && $polno[$user['id']][4]==1) {
-                    $it = mysql_fetch_assoc(mq("SELECT * FROM `inventory` WHERE `dressed`=0 AND setsale=0 AND owner=$user[id] $itemcond AND `id` = ".$_GET['add'].";"));
+                    $it = mysqli_fetch_assoc(mq("SELECT * FROM `inventory` WHERE `dressed`=0 AND setsale=0 AND owner=$user[id] $itemcond AND `id` = ".$_GET['add'].";"));
                     $price=itemprice($it);
                     if($it['owner'] ==$user['id']) {
-                      $skoka = mysql_num_rows(mq("SELECT id FROM `clanstorage` WHERE `klan` = '{$user['klan']}' and taken=0;"));
+                      $skoka = mysqli_num_rows(mq("SELECT id FROM `clanstorage` WHERE `klan` = '{$user['klan']}' and taken=0;"));
                       if($klan['clanlevel']<4 && $skoka>=50){err("Количество вещей превышает лимит Вашего клана.");}
                       elseif($klan['clanlevel']<7 && $klan['clanlevel']>3 && $skoka>=100){err("Количество вещей превышает лимит Вашего клана.");}
                       elseif($klan['clanlevel']>=7 && $skoka>=200){err("Количество вещей превышает лимит Вашего клана.");
@@ -889,7 +889,7 @@ if($polno[$user['id']][3]==1 || $_SESSION["uid"]==7){
 <? 
 //$data = mq("SELECT clanstorage.id as clanid, clanstorage.owner as clanowner, inventory.* FROM clanstorage left join inventory on inventory.id=clanstorage.id_it WHERE clanstorage.`klan` = '{$user['klan']}' ;");
 $data=mq("SELECT id as clanid, owner as clanowner, item FROM clanstorage WHERE `klan` = '{$user['klan']}' and taken=0 order by id desc");
-$tekush = mysql_num_rows($data);
+$tekush = mysqli_num_rows($data);
  if($klan['clanlevel']<4){$vsego=50;}
  elseif($klan['clanlevel']<7 && $klan['clanlevel']>3){$vsego=100;}
  else{$vsego=200;}
@@ -906,9 +906,9 @@ $tekush = mysql_num_rows($data);
 
 
                 echo '<TABLE BORDER=0 WIDTH=100% CELLSPACING="1" CELLPADDING="2" BGCOLOR="#A5A5A5">';
-                while($row = mysql_fetch_array($data)) {
+                while($row = mysqli_fetch_array($data)) {
                   $item=unserialize($row["item"]);
-                    //$row = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$it['id_it']}' LIMIT 1;"));
+                    //$row = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$it['id_it']}' LIMIT 1;"));
                      $item['count'] = 1;
                         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
                     echo "<TR bgcolor={$color}><TD align=center width=20%><IMG SRC=\"".IMGBASE."/i/sh/{$item['img']}\" BORDER=0>
@@ -931,7 +931,7 @@ $tekush = mysql_num_rows($data);
                 echo "</TABLE></TD><TD valign=top><!--Рюкзак-->
                     <TABLE WIDTH=100% CELLSPACING=1 CELLPADDING=2 BGCOLOR=A5A5A5>"; }
                     $data = mq("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0  AND `setsale`=0 ".$itemcond." ORDER by `update` DESC; ");
-                    while($row = mysql_fetch_array($data)) {
+                    while($row = mysqli_fetch_array($data)) {
                         $row['count'] = 1;
                         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
                         echo "<TR bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"".IMGBASE."/i/sh/{$row['img']}\" BORDER=0>";
@@ -1113,7 +1113,7 @@ wnd.style.top = document.body.scrollTop+50;
     echo '<TABLE BORDER=0 WIDTH=100% CELLSPACING="1" CELLPADDING="2" BGCOLOR="#c5c5c5">
     <tr>';
     $i=0;
-    while($rec1=mysql_fetch_array($r)) {
+    while($rec1=mysqli_fetch_array($r)) {
       $i++;
       $rec=unserialize($rec1["item"]);
       $rec['count'] = 1;
@@ -1268,7 +1268,7 @@ $numb=0;
 if($_SESSION['uid']==-7){
 
                 $datas = mq("SELECT short FROM `clans`;");
-                while($its = mysql_fetch_array($datas)) {
+                while($its = mysqli_fetch_array($datas)) {
 echo"<A HREF=\"/klan1.php?klanm=".$its['short']."\"><img src=\"http://img.bestcombats.net/klan/".$its['short'].".gif\" title=".$its['short']." width=24 height=15></A> ";
 
 if($_GET['klanm']){
@@ -1283,7 +1283,7 @@ $klanm=$user['klan'];
                 $data = mq("SELECT * FROM `clanevents` WHERE `klan`= '".$klanm."' ORDER BY date DESC LIMIT $numb, 10");
 
 
-                while($it = mysql_fetch_array($data)) {
+                while($it = mysqli_fetch_array($data)) {
                 echo '<table width=100% border=1 cellpadding=0 cellspacing=0 class=event style=\'margin: 0 0 20 0;\'>';
 
 echo"<tr valign=middle>
@@ -1320,7 +1320,7 @@ echo "Страницы: ";
 $data2 = mq("SELECT * FROM `clanevents` WHERE `klan`= '{$klanm}';");
 
 if($_GET['klanm']){$koko="&klanm=".$klanm;}
-    $all = mysql_num_rows($data2)-1;
+    $all = mysqli_num_rows($data2)-1;
     $pgs = $all/10;
     for ($i=0;$i<=$pgs;++$i) {
         if ($_GET['page']==$i) {
@@ -2011,8 +2011,8 @@ echo"<TR >";}
 <table cellpadding=0 cellspacing=0 border=0 id="users_table">
 </table><table width=100% border=0>
 <?
-  $data=mysql_query("SELECT `id`, `login`, `status`, `level`, `room`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `klan` = '".$klan['short']."' order by online DESC, login asc ;");
-					while ($row = mysql_fetch_array($data)) {
+  $data=db_query("SELECT `id`, `login`, `status`, `level`, `room`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `klan` = '".$klan['short']."' order by online DESC, login asc ;");
+					while ($row = mysqli_fetch_array($data)) {
 						if ($row['online']>0) {
 							echo '<tr><td width=20><A HREF="javascript:top.AddToPrivate(\'',nick7($row['id']),'\', top.CtrlPress)" target=refreshed><img src="http://bkwar.ru/i/lock.gif" width=20 height=15></A></td>';
                            echo"<td nowrap=nowrap>";nick2($row['id']); echo"</td>";
@@ -2036,9 +2036,9 @@ echo"<TR >";}
 ?></table>
 </TD></TR><TR><TD>
 <?
-$R_ONLINE = mysql_query("SELECT `klan` FROM users WHERE `klan` = '{$user['klan']}';");
+$R_ONLINE = db_query("SELECT `klan` FROM users WHERE `klan` = '{$user['klan']}';");
 $total = 0;
-        while(mysql_fetch_array($R_ONLINE)){
+        while(mysqli_fetch_array($R_ONLINE)){
         $total++;
         }
 ?>

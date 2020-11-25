@@ -40,7 +40,7 @@ $title_room = array("Общ. Этаж 1", "Общ. Этаж 2", "Общ. Эта�
 session_start();
 if ($_SESSION['uid'] == null) header("Location: index.php");
 include "connect.php";
-//$user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+//$user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 include "functions.php";
 if ($user["room"]!=101 && $user["room"]!=102 && $user["room"]!=103 && $user["room"]!=104 && $user["room"]!=105) {
   header("location: main.php");
@@ -50,7 +50,7 @@ if ($user['prison']) {
   header("location: jail.php");
   die;
 }
-$obshaga = mysql_fetch_array(mq("SELECT * FROM `obshaga` WHERE `pers` = '{$_SESSION['uid']}' LIMIT 1;"));
+$obshaga = mysqli_fetch_array(mq("SELECT * FROM `obshaga` WHERE `pers` = '{$_SESSION['uid']}' LIMIT 1;"));
 $coust_day=0;
 if($obshaga['etaz']==1) $coust_day=$coust_day_1;
 if($obshaga['etaz']==2) $coust_day=$coust_day_2;
@@ -83,7 +83,7 @@ if ($_GET['etaz'] == "1" && $obshaga['arenda']=="")
 //Получение аренды
 if($user['vip']=="3")
 {
-    $result = mysql_fetch_array(mq("SELECT * FROM `obshaga` WHERE `pers` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $result = mysqli_fetch_array(mq("SELECT * FROM `obshaga` WHERE `pers` = '{$_SESSION['uid']}' LIMIT 1;"));
     if($result == false) //Добавляем нового клиента общаги
         mq("INSERT INTO `obshaga` (`id`, `pers`, `arenda`, `etaz`) VALUES (NULL, '".$_SESSION['uid']."' , '4', '4');");
 }
@@ -125,7 +125,7 @@ if ($obshaga && @$_GET["arenda"]) {
 if($_GET['arenda'] == "1" && $user["money"]>=1 ) {
    mq("UPDATE `users` set money=money-'1' where id='".$_SESSION['uid']."'");
    $user["money"]-=1;
-   $result = mysql_fetch_array(mq("SELECT * FROM `obshaga` WHERE `pers` = '{$_SESSION['uid']}' LIMIT 1;"));
+   $result = mysqli_fetch_array(mq("SELECT * FROM `obshaga` WHERE `pers` = '{$_SESSION['uid']}' LIMIT 1;"));
    if($result == false) {//Добавляем нового клиента общаги
      mq("INSERT INTO `obshaga` (`id`, `pers`, `arenda`, `etaz`, `date_begin`, `date_end`, `balanse`, `timebalanse`) VALUES (NULL, '".$_SESSION['uid']."', '1', '1', '".$arenda_begin."', '".$arenda_end."', '0', ".$arenda_begin.");");
    } elseif ($obshaga["balanse"]>=0) {
@@ -138,7 +138,7 @@ $mess = "<font color=red><b>".$title[0]."</b></font>";
 if($_GET['arenda'] == "3" && $user["money"]>=3) {
     mq("UPDATE `users` set money=money-'3' where id='".$_SESSION['uid']."'");
     $user["money"]-=3;
-    $result = mysql_fetch_array(mq("SELECT * FROM `obshaga` WHERE `pers` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $result = mysqli_fetch_array(mq("SELECT * FROM `obshaga` WHERE `pers` = '{$_SESSION['uid']}' LIMIT 1;"));
     if($result == false) {//Добавляем нового клиента общаги
       mq("INSERT INTO `obshaga` (`id`, `pers`, `arenda`, `etaz`, `date_begin`, `date_end`, `balanse`, timebalanse) VALUES (NULL, '".$_SESSION['uid']."', '3', '2', '".$arenda_begin."', '".$arenda_end."', '0', ".$arenda_begin.");");
     } elseif ($obshaga["balanse"]>=0) {
@@ -151,7 +151,7 @@ $mess = "<font color=red><b>".$title[1]."</b></font>";
 if($_GET['arenda'] == "10" && $user["money"]>=10) {
   $user["money"]-=10;
     mq("UPDATE `users` set money=money-'10' where id='".$_SESSION['uid']."'");
-    $result = mysql_fetch_array(mq("SELECT * FROM `obshaga` WHERE `pers` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $result = mysqli_fetch_array(mq("SELECT * FROM `obshaga` WHERE `pers` = '{$_SESSION['uid']}' LIMIT 1;"));
     if($result == false) {//Добавляем нового клиента общаги
       mq("INSERT INTO `obshaga` (`id`, `pers`, `arenda`, `etaz`, `date_begin`, `date_end`, `balanse`, timebalanse) VALUES (NULL, '".$_SESSION['uid']."', '10', '3', '".$arenda_begin."', '".$arenda_end."', '0', ".$arenda_begin.");");
    } elseif ($obshaga["balanse"]>=0) {
@@ -203,7 +203,7 @@ if($_GET['closearenda']==1 && !$obshaga["sleep"]) {
   if ($obshaga['balanse']>=0) mq("DELETE FROM obshaga WHERE pers='".$_SESSION['uid']."'");
   else mq("update obshaga set etaz=0 where pers='".$_SESSION['uid']."'");
   $data = mq("SELECT * FROM `obshagastorage` WHERE `pers` = ".$_SESSION['uid'].";");
-  while($it = mysql_fetch_array($data)) {
+  while($it = mysqli_fetch_array($data)) {
     itemback($it['id_it']);
     mq("update `inventory` SET `owner` = ".$user['id']." WHERE `id` = ".$it['id_it'].";");
   }
@@ -248,7 +248,7 @@ if($_GET['etaz']=="4" && $user["room"]!=$etaz_4) {
 if($_GET['to_sleep']==1 && $obshaga['balanse']>=0 && $obshaga["etaz"]) {
   $r=mq("SELECT * FROM `effects` WHERE owner = '{$_SESSION['uid']}' and type<>2 and type<>186 and type<>9990 and type<>9992 and type<>9993 and type<>".CAVEEFFECT." and type<>".NYBLESSING." and (sila>0 or lovk>0 or inta>0 or vinos>0 or intel>0 or mudra>0 or mfdmag>0 or mfdfire>0 or mfdwater>0 or mfdair>0 or mfdearth>0 or mfdhit>0 or mfdkol>0 or mfdrub>0 or mfdrej>0 or mfddrob>0 or mfval<>'' or type=201 or type=202 or ghp>0 or type=54 or type=28 or type=29 or hpforvinos<>0 or gmana>0 or type=".ADDICTIONEFFECT." or type=".HPADDICTIONEFFECT." or type=".MANAADDICTIONEFFECT.")");
   $cond="";
-  while ($it=mysql_fetch_assoc($r)) {
+  while ($it=mysqli_fetch_assoc($r)) {
     $left_time = $it['time'] - time();
     mq("INSERT INTO obshagaeffects (`id`, `type`, `name`, `time`, `sila`, `lovk`, `inta`, `vinos`, `intel`, `mudra`, mf, mfval, mfdmag, mfdhit, `owner`, `lastup`, `stihiya`, ghp, gmana, hpforvinos,  mfdkol, mfdrub, mfdrej, mfddrob, mfdfire, mfdwater, mfdair, mfdearth) VALUES ('','".$it['type']."','".$it['name']."', '".$left_time."','".$it['sila']."','".$it['lovk']."','".$it['inta']."','".$it['vinos']."','".$it['intel']."','".$it['mudra']."','".$it['mf']."','".$it['mfval']."','".$it['mfdmag']."','".$it['mfdhit']."','".$it['owner']."','".$it['lastup']."','".$it['stihiya']."','$it[ghp]','$it[gmana]', '$it[hpforvinos]',  '$it[mfdkol]', '$it[mfdrub]', '$it[mfdrej]', '$it[mfddrob]', '$it[mfdfire]', '$it[mfdwater]', '$it[mfdair]', '$it[mfdearth]');");
     $cond.="or id='$it[id]'";
@@ -327,7 +327,7 @@ if (@$_GET["takeanimal"]) {
 //Обработчик сундука
 //Забираем шмотку
 if($_GET['back']) {
-    $it = mysql_fetch_array(mq("SELECT * FROM `obshagastorage` WHERE `id` = ".$_GET['back']." and pers='$user[id]';"));
+    $it = mysqli_fetch_array(mq("SELECT * FROM `obshagastorage` WHERE `id` = ".$_GET['back']." and pers='$user[id]';"));
     if ($it) {
       $rec=itemback($it["id_it"]);
       checkitemchange(unserialize($it["item"]));
@@ -367,10 +367,10 @@ if($diff>86400)
 mq("UPDATE `obshaga` set balanse=round(balanse-(".$coust_day."*$diff/86400),2), timebalanse = ".$cur_time_balanse." where pers='".$_SESSION['uid']."'");
 
 //Обновляем данные после обработок
-//$user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
-$obshaga = mysql_fetch_array(mq("SELECT * FROM `obshaga` WHERE `pers` = '{$_SESSION['uid']}' LIMIT 1;"));
-$skoka = mysql_num_rows(mq("SELECT id FROM `obshagastorage` WHERE `pers` = '{$_SESSION['uid']}' and gift=0 ;"));
-$skoka_p = mysql_num_rows(mq("SELECT id FROM `obshagastorage` WHERE `pers` = '{$_SESSION['uid']}' and gift=1 ;"));
+//$user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+$obshaga = mysqli_fetch_array(mq("SELECT * FROM `obshaga` WHERE `pers` = '{$_SESSION['uid']}' LIMIT 1;"));
+$skoka = mysqli_num_rows(mq("SELECT id FROM `obshagastorage` WHERE `pers` = '{$_SESSION['uid']}' and gift=0 ;"));
+$skoka_p = mysqli_num_rows(mq("SELECT id FROM `obshagastorage` WHERE `pers` = '{$_SESSION['uid']}' and gift=1 ;"));
 
 //Еррор, если не свой этаж
 if(($user['room']=="101" && $obshaga['etaz']=="2") || ($user['room']=="101" && $obshaga['etaz']=="3"))
@@ -967,7 +967,7 @@ if($_GET['room']=="2" && $user['room']=="101" && $obshaga['etaz'] == "1" ||  $_G
 //Отображение сундука
 
 $data = mq("SELECT * FROM `obshagastorage` WHERE `pers` = '{$_SESSION['uid']}' AND gift=0 order by id desc");
-while($it = mysql_fetch_array($data)) {
+while($it = mysqli_fetch_array($data)) {
     $row=unserialize($it["item"]);
     $row['count'] = 1;
     if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
@@ -983,7 +983,7 @@ while($it = mysql_fetch_array($data)) {
 <?
 //Отображение инвентаря
 $data = mq("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0  AND `onlyone` = 0 and gift=0 and `setsale`=0 and (dategoden=0 || name LIKE '%снежок%') and name<>'' order by `update` desc");
-while($row = mysql_fetch_array($data)) {
+while($row = mysqli_fetch_array($data)) {
     $row['count'] = 1;
     if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
     echo "<TR bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
@@ -1008,7 +1008,7 @@ if($_GET['room']=="6" && $user['room']=="101" && $obshaga['etaz'] == "1" ||  $_G
 <?
 //Отображение под стеклом
 $data = mq("SELECT * FROM `obshagastorage` WHERE `pers` = '{$_SESSION['uid']}' and gift = 1 order by id desc");
-while($it = mysql_fetch_array($data)) {
+while($it = mysqli_fetch_array($data)) {
   $row=unserialize($it["item"]);
     $row['count'] = 1;
     if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
@@ -1024,7 +1024,7 @@ while($it = mysql_fetch_array($data)) {
 <?
 //Отображение инвентаря
 $data = mq("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND gift=1 AND `onlyone` = 0 and (dategoden=0 or dategoden>".time().") AND present != \"\" order by `update` desc;");
-while($row = mysql_fetch_array($data)) {
+while($row = mysqli_fetch_array($data)) {
     $row['count'] = 1;
     if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
     echo "<TR bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
@@ -1051,7 +1051,7 @@ if($_GET['room']=="8" && $user['room']=="102" && $obshaga['etaz'] == "2" || $_GE
 //Отображение под стеклом
 $r = mq("SELECT obshagaanimals.id, users.login, users.sex, users.shadow FROM `obshagaanimals` left join users on obshagaanimals.animal=users.id WHERE `pers` = '{$_SESSION['uid']}'");
 $i=0;
-while($rec = mysql_fetch_assoc($r)) {
+while($rec = mysqli_fetch_assoc($r)) {
 if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
   echo "<TR bgcolor={$color}><TD align=center width=20%><b>$rec[login]</b><br><br>";
   echo "<A HREF=\"?takeanimal=".$rec['id']."&room=8\">Забрать</A><br></td><td>";

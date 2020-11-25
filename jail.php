@@ -3,7 +3,7 @@ ob_start("ob_gzhandler");
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	include "functions.php";
 	if ($user['room'] != 666) { header("Location: main.php");  die(); }
 	if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
@@ -39,15 +39,15 @@ if ($user['prison']==0) {
 print "<center>Тюряга - место покоя тех, кто был глуп и наивен.</center>
 <center><IMG src=\"http://img.bestcombats.net/prison/prison.gif\"></center>";
 
-$R_ONLINE = mysql_query("SELECT prison FROM users WHERE prison ='1'");
+$R_ONLINE = db_query("SELECT prison FROM users WHERE prison ='1'");
 $xaos = 0;
-        while(mysql_fetch_array($R_ONLINE)){
+        while(mysqli_fetch_array($R_ONLINE)){
         $xaos++;
         }
 print "<br><center>Всего в тюрьме: <b>$xaos</b> чел.</center><BR>";
 
 if ($user['prison']==1) {
-	$effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE `owner` = '{$user['id']}' and `type` = '21' LIMIT 1;"));
+	$effect = mysqli_fetch_array(db_query("SELECT `time` FROM `effects` WHERE `owner` = '{$user['id']}' and `type` = '21' LIMIT 1;"));
 	if ($effect['time']) {
 		$eff=$effect['time'];
 		$tt=time();

@@ -2,8 +2,8 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "../connect.php";
-	mysql_fetch_array(mysql_query("SELECT * FROM `shop` WHERE `count` >= '0' LIMIT 1;"));
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	mysqli_fetch_array(db_query("SELECT * FROM `shop` WHERE `count` >= '0' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	if ($user['login']=="antyshok" or $user['login']=="Jackpot") {
 
 ?>
@@ -40,7 +40,7 @@
 <?
 
  if ($_POST['name']) {
-	if (mysql_query("UPDATE shop SET mfkritpow = '".$_POST['mfkritpow']."',mfantikritpow = '".$_POST['mfantikritpow']."',mfparir = '".$_POST['mfparir']."',mfshieldblock = '".$_POST['mfshieldblock']."',mfcontr = '".$_POST['mfcontr']."',mfrub = '".$_POST['mfrub']."',mfkol = '".$_POST['mfkol']."',mfdrob = '".$_POST['mfdrob']."',mfrej = '".$_POST['mfrej']."',mfdhit = '".$_POST['mfdhit']."',mfdmag = '".$_POST['mfdmag']."' WHERE name = '".$_POST['name']."';")) 	{
+	if (db_query("UPDATE shop SET mfkritpow = '".$_POST['mfkritpow']."',mfantikritpow = '".$_POST['mfantikritpow']."',mfparir = '".$_POST['mfparir']."',mfshieldblock = '".$_POST['mfshieldblock']."',mfcontr = '".$_POST['mfcontr']."',mfrub = '".$_POST['mfrub']."',mfkol = '".$_POST['mfkol']."',mfdrob = '".$_POST['mfdrob']."',mfrej = '".$_POST['mfrej']."',mfdhit = '".$_POST['mfdhit']."',mfdmag = '".$_POST['mfdmag']."' WHERE name = '".$_POST['name']."';")) 	{
 	echo "OK";
 	}
 else { echo "NO";}

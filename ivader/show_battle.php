@@ -12,17 +12,17 @@ include "../connect.php";
 </form>
 
 <?
-$battle=mysql_fetch_array(mysql_query("SELECT * from `battle` where `id`='".$_GET['id']."' "));
+$battle=mysqli_fetch_array(db_query("SELECT * from `battle` where `id`='".$_GET['id']."' "));
 
 If (!empty($battle)){
 	$t1=explode(';',$battle['t1']);
 	echo "Первая команда:<br/>";
 	for ($i=0;$i<count($t1);$i++){
 		If ($t2[$i]>=10000000){
-			$bot=mysql_fetch_array(mysql_query("SELECT * from `bots` where `id`='".$t1[$i]."'  "));
-			$user=mysql_fetch_array(mysql_query("SELECT `login` from `users` where `id`='".$bot['prototype']."' "));
+			$bot=mysqli_fetch_array(db_query("SELECT * from `bots` where `id`='".$t1[$i]."'  "));
+			$user=mysqli_fetch_array(db_query("SELECT `login` from `users` where `id`='".$bot['prototype']."' "));
 		}else{
-			$user=mysql_fetch_array(mysql_query("SELECT `login` from `users` where `id`='".$t1[$i]."' "));
+			$user=mysqli_fetch_array(db_query("SELECT `login` from `users` where `id`='".$t1[$i]."' "));
 		}
 		echo '&bull; '.(!empty($user['login'])?$user['login'].' - '.$t1[$i]:'<i>персонаж не найден</i>').'<br/>';
 	}
@@ -32,10 +32,10 @@ If (!empty($battle)){
 	echo "<br/>Вторая команда:<br/>";
 	for ($i=0;$i<count($t2);$i++){
 		If ($t2[$i]>=10000000){
-			$bot=mysql_fetch_array(mysql_query("SELECT * from `bots` where `id`='".$t2[$i]."'  "));
-			$user=mysql_fetch_array(mysql_query("SELECT `login` from `users` where `id`='".$bot['prototype']."' "));
+			$bot=mysqli_fetch_array(db_query("SELECT * from `bots` where `id`='".$t2[$i]."'  "));
+			$user=mysqli_fetch_array(db_query("SELECT `login` from `users` where `id`='".$bot['prototype']."' "));
 		}else{
-			$user=mysql_fetch_array(mysql_query("SELECT `login` from `users` where `id`='".$t2[$i]."' "));
+			$user=mysqli_fetch_array(db_query("SELECT `login` from `users` where `id`='".$t2[$i]."' "));
 		}
 		echo '&bull; '.(!empty($user['login'])?$user['login'].' - '.$t2[$i]:'<i>персонаж не найден</i>').'<br/>';
 	}

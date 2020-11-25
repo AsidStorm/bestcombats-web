@@ -38,7 +38,7 @@ if ($tx*2==2 && $ty*2==10) {
     if ($aBots) {
         $report = 'Сначала надо зачистить <b>Логово</b>';
     } else {
-        $isKey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Мерцающий ключ №1' AND owner = " . $user['id']), 0, 0);
+        $isKey = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Мерцающий ключ №1' AND owner = " . $user['id']), 0, 0);
         if (!$isKey) {
             $report=pickupitem(2533, 1, 0, 0, 3);
         } else {

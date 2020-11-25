@@ -2,8 +2,8 @@
 session_start();
 if ($_SESSION['uid'] == null) header("Location: index.php");
 include "../connect.php";
-$user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
-$al = mysql_fetch_array(mq("SELECT * FROM `aligns` WHERE `deal` = '".$user['deal']."' LIMIT 1;"));
+$user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+$al = mysqli_fetch_array(mq("SELECT * FROM `aligns` WHERE `deal` = '".$user['deal']."' LIMIT 1;"));
 include "../functions.php";
 if ($user['deal']== 0) die;
 if ($user['battle'] != 0) { header('location: /fbattle.php');die();}
@@ -149,7 +149,7 @@ echo "</td></tr></table>";
 if($user['deal']> 0){
 ############# Проверка и открытие данных счета  #################
 if (isset($_SESSION['bankid'])){
-$bank_alhimik = mysql_fetch_array(mysql_query("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid']." LIMIT 1;"));	
+$bank_alhimik = mysqli_fetch_array(db_query("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid']." LIMIT 1;"));
 }
 
 ############## Экоанизация формы ################################
@@ -174,12 +174,12 @@ echo "<br><form method=post action=\"dealer.php\"><b>Проверить логи
 if ($_POST['putekr'] and isset($_SESSION['bankid'])){
 if (isset($_POST['ekr']) and isset($_POST['bank']) and isset($_POST['tonick'])) {
 If ($_POST['ekr']<=$bank_alhimik['ekr'] and $_POST['ekr']>0){
-$tonick = mysql_fetch_array(mysql_query("SELECT login,id, align FROM `users` WHERE `login` = '".mysql_real_escape_string($_POST['tonick'])."' LIMIT 1;"));
-$bank = mysql_fetch_array(mysql_query("SELECT owner,id FROM `bank` WHERE `id` = '".mysql_real_escape_string($_POST['bank'])."' LIMIT 1;"));
+$tonick = mysqli_fetch_array(db_query("SELECT login,id, align FROM `users` WHERE `login` = '".db_escape_string($_POST['tonick'])."' LIMIT 1;"));
+$bank = mysqli_fetch_array(db_query("SELECT owner,id FROM `bank` WHERE `id` = '".db_escape_string($_POST['bank'])."' LIMIT 1;"));
 if  (ereg("auto-",$user['login']) || ereg("auto-",$user['login'])) {
 $botfull=$user['login'];
 list($bot, $botlogin) = explode("-", $user['login']);
-$botnick = mysql_fetch_array(mysql_query("SELECT login,id FROM `users` WHERE `login` = '".mysql_real_escape_string($botlogin)."' LIMIT 1;"));
+$botnick = mysqli_fetch_array(db_query("SELECT login,id FROM `users` WHERE `login` = '".db_escape_string($botlogin)."' LIMIT 1;"));
 $user['login']=$botnick['login'];
 $user['id']=$botnick['id'];
 }
@@ -187,24 +187,24 @@ $user['id']=$botnick['id'];
 if ($bank['owner'] && $tonick['id'] && $bank['owner'] == $tonick['id']) {
 If ($user['deal']> 0 or (($user['align']==5.99 or $user['align']==5.5) and (($tonick['align']>1 and $tonick['align']<2) or ($tonick['align']>3 and $tonick['align']<4) or ($tonick['align']>5 and $tonick['align']<6)))){
 $_POST['ekr'] = round($_POST['ekr'],2);
-if (mysql_query("UPDATE `bank` set `ekr` = ekr+'".mysql_real_escape_string($_POST['ekr'])."' WHERE `id` = '".mysql_real_escape_string($_POST['bank'])."' LIMIT 1;")) {
+if (db_query("UPDATE `bank` set `ekr` = ekr+'".db_escape_string($_POST['ekr'])."' WHERE `id` = '".db_escape_string($_POST['bank'])."' LIMIT 1;")) {
 if ($bot && $botlogin) {
-mysql_query("INSERT INTO `dilerdelo` (dilerid,dilername,bank,owner,ekr) values ('".mysql_real_escape_string($_SESSION['uid'])."','".$botfull."','".mysql_real_escape_string($_POST['bank'])."','".mysql_real_escape_string($_POST['tonick'])."','".mysql_real_escape_string($_POST['ekr'])."');");
-mysql_query("INSERT INTO `dilerdelo` (dilerid,dilername,bank,owner,ekr) values ('".mysql_real_escape_string($user['id'])."','".$botfull."','".mysql_real_escape_string($_POST['bank'])."','".mysql_real_escape_string($_POST['tonick'])."','".mysql_real_escape_string($_POST['ekr'])."');");
+db_query("INSERT INTO `dilerdelo` (dilerid,dilername,bank,owner,ekr) values ('".db_escape_string($_SESSION['uid'])."','".$botfull."','".db_escape_string($_POST['bank'])."','".db_escape_string($_POST['tonick'])."','".db_escape_string($_POST['ekr'])."');");
+db_query("INSERT INTO `dilerdelo` (dilerid,dilername,bank,owner,ekr) values ('".db_escape_string($user['id'])."','".$botfull."','".db_escape_string($_POST['bank'])."','".db_escape_string($_POST['tonick'])."','".db_escape_string($_POST['ekr'])."');");
 }else{
-mysql_query("INSERT INTO `dilerdelo` (dilerid,dilername,bank,owner,ekr) values ('".mysql_real_escape_string($user['id'])."','".mysql_real_escape_string($user['login'])."','".mysql_real_escape_string($_POST['bank'])."','".mysql_real_escape_string($_POST['tonick'])."','".mysql_real_escape_string($_POST['ekr'])."');");
+db_query("INSERT INTO `dilerdelo` (dilerid,dilername,bank,owner,ekr) values ('".db_escape_string($user['id'])."','".db_escape_string($user['login'])."','".db_escape_string($_POST['bank'])."','".db_escape_string($_POST['tonick'])."','".db_escape_string($_POST['ekr'])."');");
 }
 
-mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($tonick['id'])."','Получено ".mysql_real_escape_string($_POST['ekr'])." екр на счет №".mysql_real_escape_string($_POST['bank'])." от дилера ".$user['login']."',1,'".time()."');");
-$us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '".$tonick['id']."' LIMIT 1;"));
+db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($tonick['id'])."','Получено ".db_escape_string($_POST['ekr'])." екр на счет №".db_escape_string($_POST['bank'])." от дилера ".$user['login']."',1,'".time()."');");
+$us = mysqli_fetch_array(db_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '".$tonick['id']."' LIMIT 1;"));
 
 if($us[0]){
 addchp ('<font color=red>Внимание!</font> На ваш счет №'.$_POST['bank'].' переведено '.$_POST['ekr'].' екр. от дилера '.$user['login'].'  ','{[]}'.$_POST['tonick'].'{[]}');
 }else{
-mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$tonick['id']."','','".'<font color=red>Внимание!</font> На ваш счет №'.mysql_real_escape_string($_POST['bank']).' переведено '.mysql_real_escape_string($_POST['ekr']).' екр. от дилера '.mysql_real_escape_string($user['login']).'  '."');");
+db_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$tonick['id']."','','".'<font color=red>Внимание!</font> На ваш счет №'.db_escape_string($_POST['bank']).' переведено '.db_escape_string($_POST['ekr']).' екр. от дилера '.db_escape_string($user['login']).'  '."');");
 }
 
-mysql_query("UPDATE `bank` set `ekr` = ekr-'".mysql_real_escape_string($_POST['ekr'])."' WHERE `id` = '".mysql_real_escape_string($_SESSION['bankid'])."' LIMIT 1;");
+db_query("UPDATE `bank` set `ekr` = ekr-'".db_escape_string($_POST['ekr'])."' WHERE `id` = '".db_escape_string($_SESSION['bankid'])."' LIMIT 1;");
 
 print "<b><font color=red>Успешно зачислено {$_POST['ekr']} екр. на счет {$_POST['bank']} персонажа {$_POST['tonick']}!</font></b>";
 
@@ -219,16 +219,16 @@ print "<b><font color=red>Произошла ошибка!</font></b>";
 
 if ($_POST['checkbank']) {
 if ($_POST['charlogin']) {
-$tonick = mysql_fetch_array(mysql_query("SELECT login,id FROM `users` WHERE `login` = '".mysql_real_escape_string($_POST['charlogin'])."' LIMIT 1;"));
-$bankdb = mysql_query("SELECT owner,id FROM `bank` WHERE `owner` = '".mysql_real_escape_string($tonick['id'])."'");
+$tonick = mysqli_fetch_array(db_query("SELECT login,id FROM `users` WHERE `login` = '".db_escape_string($_POST['charlogin'])."' LIMIT 1;"));
+$bankdb = db_query("SELECT owner,id FROM `bank` WHERE `owner` = '".db_escape_string($tonick['id'])."'");
 print "Персонажу {$_POST['charlogin']} принадлежат счета: <br>";
-while ($bank=mysql_fetch_array($bankdb)) {
+while ($bank=mysqli_fetch_array($bankdb)) {
 print "№ {$bank['id']} <br>";
 }
 }
 else if  ($_POST['charbank']) {
-$bank = mysql_fetch_array(mysql_query("SELECT owner,id FROM `bank` WHERE `id` = '".mysql_real_escape_string($_POST['charbank'])." 'LIMIT 1;"));
-$tonick = mysql_fetch_array(mysql_query("SELECT login,id FROM `users` WHERE `id` = '".mysql_real_escape_string($bank['owner'])."' LIMIT 1;"));
+$bank = mysqli_fetch_array(db_query("SELECT owner,id FROM `bank` WHERE `id` = '".db_escape_string($_POST['charbank'])." 'LIMIT 1;"));
+$tonick = mysqli_fetch_array(db_query("SELECT login,id FROM `users` WHERE `id` = '".db_escape_string($bank['owner'])."' LIMIT 1;"));
 print "Счет № {$_POST['charbank']} принадлежит персонажу {$tonick['login']} <br>";
 }		
 }
@@ -244,7 +244,7 @@ echo "</select></td></tr>
 <tr><td><input type=submit value='Присвоить'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['silver'])) {
-$target_user_tel=mysql_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$target_user_tel=mysqli_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($_POST['silver']==604800){
 //Срок для личного дела
 $skolko = 'Неделю';
@@ -286,7 +286,7 @@ echo "</select></td></tr>
 <tr><td><input type=submit value='Присвоить'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['Gold'])) {
-$target_user_tel=mysql_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$target_user_tel=mysqli_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($_POST['Gold']==604800){
 //Срок для личного дела
 $skolko = 'Неделю';
@@ -328,7 +328,7 @@ echo "</select></td></tr>
 <tr><td><input type=submit value='Присвоить'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['Platinum'])) {
-$target_user_tel=mysql_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$target_user_tel=mysqli_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($_POST['Platinum']==604800){
 //Срок для личного дела
 $skolko = 'Неделю';

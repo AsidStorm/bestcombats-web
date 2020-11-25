@@ -172,7 +172,7 @@
   mq("update inventory set owner=0, duration=0 where id>2200000 and id<2201000");
   mq("update fielditems set x=0, y=0 where id<1000");
   $r=mq("select id from fielditems where id<800 order by rand()");
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     $v=$freecells[$i];
     mq("update fielditems set x='".($v[0]*2)."', y='".($v[1]*2)."' where id=$rec[id]");
     $i2++;
@@ -221,7 +221,7 @@
   shuffle($objcells);
   $i=0;
   $r=mq("select id from fielditems where id>800 and id<900 order by rand()");
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     $v=$objcells[$i];
     mq("update fielditems set x='".($v[0]*2)."', y='".($v[1]*2)."' where id=$rec[id]");
     $i++;

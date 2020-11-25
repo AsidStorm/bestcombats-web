@@ -8,7 +8,7 @@
     if ($location["dir"]==3) {$y=($location["y"]+1)*2;$x=$location["x"]*2;}
     $floor=$location["floor"];
     $r=mq("select bot, x, y from cavebots where battle='".$this->battle_data["id"]."'");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $bot=$rec["bot"];
       if (@$caveitems[$bot]) {
         if ($user['room'] == 74 || $user['room'] == 78 || $user['room'] == 403 || $user['room'] == 83) {
@@ -21,7 +21,7 @@
               } else {
                 $podz = 1;    
               }
-              mysql_query("insert into caveitems set podzem = $podz, leader = '$user[caveleader]', x = '$rec[x]', y = '$rec[y]', floor = '$floor', name = '$it[name]', img = '$it[img]', item = '$item[id]'" .  ($item['foronetrip'] ? ", foronetrip = 1" : "") .  ($item['from'] == 'smallitems' ? ", small = 1" : ""));
+              db_query("insert into caveitems set podzem = $podz, leader = '$user[caveleader]', x = '$rec[x]', y = '$rec[y]', floor = '$floor', name = '$it[name]', img = '$it[img]', item = '$item[id]'" .  ($item['foronetrip'] ? ", foronetrip = 1" : "") .  ($item['from'] == 'smallitems' ? ", small = 1" : ""));
               cavesys("У ".$cavebots[$bot]." был предмет <b>$it[name]</b> и кто угодно может подобрать его.");
               $this->add_log('<span class=date>'.date("H:i")."</span> У ".$cavebots[$bot]." был предмет <b>$it[name]</b>.<BR>");
             }

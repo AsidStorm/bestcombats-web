@@ -34,7 +34,7 @@
         if ($user["room"]==704) $attackroom=717;
         if ($user["room"]==706) $attackroom=711;
         $defenders=mq("select id, login, level, klan from users where klan='$castleowner' and room='$attackroom'");
-        $onwall=mysql_num_rows($defenders);
+        $onwall=mysqli_num_rows($defenders);
         if (!$onwall) {
           if ($user["room"]==700) $routes[$user["room"]][1]=714;
           if ($user["room"]==702) $routes[$user["room"]][2]=710;
@@ -57,12 +57,12 @@
             $siege=getvar("siege");
             if ($siege<10) {
               $list = mq("SELECT `id`,`room`,`login` FROM `users` WHERE `room` = '".$user['room']."'");
-              while($u = mysql_fetch_array($list)) {
+              while($u = mysqli_fetch_array($list)) {
                 if($u['id']!=$user['id']) addchp ('<font color=red>Внимание!</font> <B>'.$user['login'].'</B> отправился в <B>'.$rooms[$gotoroom].'</B>.   ','{[]}'.$u['login'].'{[]}');
               }
               // пришел в комнату
               $list = mq("SELECT `id`,`room`,`login` FROM `users` WHERE `room` = '$gotoroom'");
-              while($u = mysql_fetch_array($list)) {
+              while($u = mysqli_fetch_array($list)) {
                 addchp ('<font color=red>Внимание!</font> <B>'.$user['login'].'</B> вошел в комнату.   ','{[]}'.$u['login'].'{[]}');
               }
             }
@@ -77,12 +77,12 @@
             }
             // ушел из комнаты
             /*$list = mq("SELECT `id`,`room`,`login` FROM `users` WHERE `room` = '".$user['room']."'");
-            while($u = mysql_fetch_array($list)) {
+            while($u = mysqli_fetch_array($list)) {
                 if($u['id']!=$user['id']) addchp ('<font color=red>Внимание!</font> <B>'.$user['login'].'</B> отправился в <B>'.$rooms[$rhar[$user['room']][$_GET['path']]].'</B>.   ','{[]}'.$u['login'].'{[]}');
             }
             // пришел в комнату
             $list = mq("SELECT `id`,`room`,`login` FROM `users` WHERE `room` = '".$rhar[$user['room']][$_GET['path']]."' AND `in_tower`=1;");
-            while($u = mysql_fetch_array($list)) {
+            while($u = mysqli_fetch_array($list)) {
                 addchp ('<font color=red>Внимание!</font> <B>'.$user['login'].'</B> вошел в комнату.   ','{[]}'.$u['login'].'{[]}');
             }*/
           }
@@ -262,7 +262,7 @@ if (@$error) echo "<b><font color=red>$error</font></b>";
 if ($castleowner) {
   if ($onwall) {
     echo "<b><center>Защитники стены:</center</b></center>";
-    while ($rec=mysql_fetch_assoc($defenders)) {
+    while ($rec=mysqli_fetch_assoc($defenders)) {
       echo defender($rec);
     }
   } else {
@@ -277,10 +277,10 @@ if ($castleowner) {
   }
 }
     /*$its = mq("SELECT * FROM `deztow_items` WHERE `room` = '".$user['room']."';");
-    if(mysql_num_rows($its)>0) {
+    if(mysqli_num_rows($its)>0) {
         echo '<H4>В комнате разбросаны вещи:</H4>';
     }
-    while($it = mysql_fetch_array($its)) {
+    while($it = mysqli_fetch_array($its)) {
         echo ' <A HREF="towerin.php?give=',$it['id'],'"><IMG SRC="i/sh/',$it['img'],'" ALT="Подобрать предмет \'',$it['name'],'\'"></A>';
     }*/
 
@@ -421,7 +421,7 @@ function stop_fireworks (id) {
                       if ($user["money"]>=3) {
                         $user["hp"]=$user["maxhp"];
                         $r=mq("select id from effects where owner='$user[id]' and (type=11 or type=12 or type=13 or type=14)");
-                        while ($rec=mysql_fetch_assoc($r)) {
+                        while ($rec=mysqli_fetch_assoc($r)) {
                           deltravma($rec["id"]);
                         }
                         mq("delete from effects where owner='$user[id]' and type=".TRAVMARESISTANCE);

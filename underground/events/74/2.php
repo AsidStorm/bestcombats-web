@@ -10,7 +10,7 @@
   
   // трещина 18x2
   if ($tx*2==18 && $ty*2==2) {
-    $isBot = mysql_result(mysql_query("SELECT bot FROM cavebots WHERE leader='$user[caveleader]' AND floor = 2 AND x = 18 AND y = 14"), 0, 0);
+    $isBot = db_result(db_query("SELECT bot FROM cavebots WHERE leader='$user[caveleader]' AND floor = 2 AND x = 18 AND y = 14"), 0, 0);
     if (!$isBot) {
         gotoxy(2, 2, 3, "Вы провалились на третий этаж");
     } else {

@@ -9,7 +9,7 @@
 	include "./functions.php";
 	include "./time_functions.php";
 	
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".$_SESSION['uid']."' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".$_SESSION['uid']."' LIMIT 1;"));
 	
 	if($user['room'] != 42){ 
 		header("Location: main.php"); 
@@ -21,12 +21,12 @@
 	}
 	
 	if(isset($_GET['sale'],$_GET['kredit'],$_GET['n']) and $_GET['sale']!=""){
-		$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".(int)$_GET['n']."' and owner='".$_SESSION['uid']."' LIMIT 1;"));
-		echo mysql_error();
+		$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".(int)$_GET['n']."' and owner='".$_SESSION['uid']."' LIMIT 1;"));
+		echo db_error();
 		if($dress){
 			if($_GET['kredit']>=0.01){
-				if(mysql_query("insert into `auction` (id,time,price,pers_id,stype,xdd,bids) values ('".$dress['id']."', '".(time()+86400)."', '".(float)$_GET['kredit']."', '".$_SESSION['uid']."', '', '', '')")){
-					if(mysql_query("update `inventory` set `auction`=3, `owner`=owner+200000000 WHERE `id`='".(int)$_GET['n']."'")){
+				if(db_query("insert into `auction` (id,time,price,pers_id,stype,xdd,bids) values ('".$dress['id']."', '".(time()+86400)."', '".(float)$_GET['kredit']."', '".$_SESSION['uid']."', '', '', '')")){
+					if(db_query("update `inventory` set `auction`=3, `owner`=owner+200000000 WHERE `id`='".(int)$_GET['n']."'")){
 						$err= "<font color=red><b>Вы выставили ".$dress['name']." на аукцион за ".(float)$_GET['kredit']." кр.</b></font>";
 					}
 				}
@@ -41,14 +41,14 @@
 	
 	if(isset($_GET['cssale'],$_GET['kredit'],$_GET['n']) and $_GET['cssale']!=""){
 		if($user['money']>=$_GET['kredit']){
-			$dress = mysql_fetch_array(mysql_query("SELECT * FROM `auction` WHERE `id` = '".(int)$_GET['n']."' LIMIT 1;"));
+			$dress = mysqli_fetch_array(db_query("SELECT * FROM `auction` WHERE `id` = '".(int)$_GET['n']."' LIMIT 1;"));
 			
 			if ($dress['pers_id']!=$_SESSION['uid']){
 				if($dress['price'] < $_GET['kredit']){
 					$bids = (($dress['bids']=="")?($_SESSION['uid']):($dress['bids'].",".$_SESSION['uid']));
 					$sales = (($dress['sales']=="")?((float)$_GET['kredit']):($dress['sales'].",".(float)$_GET['kredit']));
-					if(mysql_query("update `users` set `money`=money-".(float)$_GET['kredit']." WHERE `id`='".$_SESSION['uid']."'")){
-						if(mysql_query("update `auction` set `price`='".(float)$_GET['kredit']."', `bids`='".$bids."', `sales`='".$sales."' WHERE `id`='".(int)$_GET['n']."'")){
+					if(db_query("update `users` set `money`=money-".(float)$_GET['kredit']." WHERE `id`='".$_SESSION['uid']."'")){
+						if(db_query("update `auction` set `price`='".(float)$_GET['kredit']."', `bids`='".$bids."', `sales`='".$sales."' WHERE `id`='".(int)$_GET['n']."'")){
 							$err= "<font color=red><b>Вы поставили ставку на ".$dress['name']." в количестве ".(float)$_GET['kredit']." кр.</b></font>";
 						}
 					}
@@ -283,12 +283,12 @@ progress_update();
 			<td width="110" align="center">Время</td>
 		</tr>	
 		<?
-		$q = mysql_query("select i.*, a.id as auc_id, a.time as auc_time, a.price as auc_price, a.pers_id as auc_pers_id, a.stype as auc_bider, a.stype as auc_bider_id, a.bids as auc_bids, a.sales as auc_sales, u.login as auc_owner from users u, inventory i, auction a where i.id=a.id and u.id=a.pers_id");
-		while($item = mysql_fetch_assoc($q)){
+		$q = db_query("select i.*, a.id as auc_id, a.time as auc_time, a.price as auc_price, a.pers_id as auc_pers_id, a.stype as auc_bider, a.stype as auc_bider_id, a.bids as auc_bids, a.sales as auc_sales, u.login as auc_owner from users u, inventory i, auction a where i.id=a.id and u.id=a.pers_id");
+		while($item = mysqli_fetch_assoc($q)){
 		if($item['auc_time']<time()){
 			if($item['auc_bids']==""){
-				mysql_query("delete from auction where id='".$item['auc_id']."'");
-				mysql_query("update inventory set auction=0, owner='".$item['auc_pers_id']."' where id='".$item['auc_id']."'");
+				db_query("delete from auction where id='".$item['auc_id']."'");
+				db_query("update inventory set auction=0, owner='".$item['auc_pers_id']."' where id='".$item['auc_id']."'");
 				continue;
 			}else{
 				$bids = explode(",", $item['auc_bids']); 
@@ -297,16 +297,16 @@ progress_update();
 				$bid_sales = array_reverse($bid_sales);
 				foreach($bids as $k=>$bid_id){
 					if($k==0){
-						mysql_query("update inventory set auction=0, owner='".$bid_id."' where id='".$item['auc_id']."'");
+						db_query("update inventory set auction=0, owner='".$bid_id."' where id='".$item['auc_id']."'");
 					}else{
-						mysql_query("update users set money=money+".$bid_sales[$k]." where id='".$bid_id."'");
+						db_query("update users set money=money+".$bid_sales[$k]." where id='".$bid_id."'");
 					}
 				}
 			}
 		}
 		
 		$magic = magicinf ($item['magic']);
-		$incmagic = mysql_fetch_array(mysql_query('SELECT * FROM `magic` WHERE `id` = "'.$item['includemagic'].'" LIMIT 1;'));
+		$incmagic = mysqli_fetch_array(db_query('SELECT * FROM `magic` WHERE `id` = "'.$item['includemagic'].'" LIMIT 1;'));
 		$incmagic['name'] = $item['includemagicname'];
 		$incmagic['cur'] = $item['includemagicdex'];
 		$incmagic['max'] = $item['includemagicmax'];
@@ -422,7 +422,7 @@ progress_update();
 						$bids = array_reverse($bids);
 						$bidders = array();
 						foreach($bids as $k=>$bidder_id){
-							$login = mysql_fetch_assoc(mysql_query("select login from users where id='".$bidder_id."' LIMIT 1"));
+							$login = mysqli_fetch_assoc(db_query("select login from users where id='".$bidder_id."' LIMIT 1"));
 							$bidders[] = ($k==0)?"<b>".$login['login']."</b>":$login['login'];
 							$your_bid = ($bidder_id==$_SESSION['uid'])?'(ваша ставка)<br>':'';
 						}
@@ -445,12 +445,12 @@ progress_update();
 			<td width="110" align="center">Время</td>
 		</tr>	
 		<?
-		$q = mysql_query("select i.*, a.id as auc_id, a.time as auc_time, a.price as auc_price, a.pers_id as auc_pers_id, a.stype as auc_bider, a.stype as auc_bider_id, a.bids as auc_bids, a.sales as auc_sales, u.login as auc_owner from users u, inventory i, auction a where i.id=a.id and u.id=a.pers_id and a.bids!=''");
-		while($item = mysql_fetch_assoc($q)){
+		$q = db_query("select i.*, a.id as auc_id, a.time as auc_time, a.price as auc_price, a.pers_id as auc_pers_id, a.stype as auc_bider, a.stype as auc_bider_id, a.bids as auc_bids, a.sales as auc_sales, u.login as auc_owner from users u, inventory i, auction a where i.id=a.id and u.id=a.pers_id and a.bids!=''");
+		while($item = mysqli_fetch_assoc($q)){
 		if($item['auc_time']<time()){
 			if($item['auc_bids']==""){
-				mysql_query("delete from auction where id='".$item['auc_id']."'");
-				mysql_query("update inventory set auction=0, owner='".$item['auc_pers_id']."' where id='".$item['auc_id']."'");
+				db_query("delete from auction where id='".$item['auc_id']."'");
+				db_query("update inventory set auction=0, owner='".$item['auc_pers_id']."' where id='".$item['auc_id']."'");
 				continue;
 			}else{
 				$bids = explode(",", $item['auc_bids']); 
@@ -459,9 +459,9 @@ progress_update();
 				$bid_sales = array_reverse($bid_sales);
 				foreach($bids as $k=>$bid_id){
 					if($k==0){
-						mysql_query("update inventory set auction=0, owner='".$bid_id."' where id='".$item['auc_id']."'");
+						db_query("update inventory set auction=0, owner='".$bid_id."' where id='".$item['auc_id']."'");
 					}else{
-						mysql_query("update users set money=money+".$bid_sales[$k]." where id='".$bid_id."'");
+						db_query("update users set money=money+".$bid_sales[$k]." where id='".$bid_id."'");
 					}
 				}
 			}
@@ -476,7 +476,7 @@ progress_update();
 		}
 		
 		$magic = magicinf ($item['magic']);
-		$incmagic = mysql_fetch_array(mysql_query('SELECT * FROM `magic` WHERE `id` = "'.$item['includemagic'].'" LIMIT 1;'));
+		$incmagic = mysqli_fetch_array(db_query('SELECT * FROM `magic` WHERE `id` = "'.$item['includemagic'].'" LIMIT 1;'));
 		$incmagic['name'] = $item['includemagicname'];
 		$incmagic['cur'] = $item['includemagicdex'];
 		$incmagic['max'] = $item['includemagicmax'];
@@ -592,7 +592,7 @@ progress_update();
 						$bids = array_reverse($bids);
 						$bidders = array();
 						foreach($bids as $k=>$bidder_id){
-							$login = mysql_fetch_assoc(mysql_query("select login from users where id='".$bidder_id."' LIMIT 1"));
+							$login = mysqli_fetch_assoc(db_query("select login from users where id='".$bidder_id."' LIMIT 1"));
 							$bidders[] = ($k==0)?"<b>".$login['login']."</b>":$login['login'];
 							$your_bid = ($bidder_id==$_SESSION['uid'])?'(ваша ставка)<br>':'';
 						}
@@ -615,13 +615,13 @@ progress_update();
 			<td width="110" align="center">Время</td>
 		</tr>	
 		<?
-		$q = mysql_query("select i.*, a.id as auc_id, a.time as auc_time, a.price as auc_price, a.pers_id as auc_pers_id, a.stype as auc_bider, a.stype as auc_bider_id, a.bids as auc_bids, a.sales as auc_sales, u.login as auc_owner from users u, inventory i, auction a where i.id=a.id and u.id=a.pers_id and a.pers_id='".$_SESSION['uid']."'");
-		echo mysql_error();
-		while($item = mysql_fetch_assoc($q)){
+		$q = db_query("select i.*, a.id as auc_id, a.time as auc_time, a.price as auc_price, a.pers_id as auc_pers_id, a.stype as auc_bider, a.stype as auc_bider_id, a.bids as auc_bids, a.sales as auc_sales, u.login as auc_owner from users u, inventory i, auction a where i.id=a.id and u.id=a.pers_id and a.pers_id='".$_SESSION['uid']."'");
+		echo db_error();
+		while($item = mysqli_fetch_assoc($q)){
 		if($item['auc_time']<time()){
 			if($item['auc_bids']==""){
-				mysql_query("delete from auction where id='".$item['auc_id']."'");
-				mysql_query("update inventory set auction=0, owner='".$item['auc_pers_id']."' where id='".$item['auc_id']."'");
+				db_query("delete from auction where id='".$item['auc_id']."'");
+				db_query("update inventory set auction=0, owner='".$item['auc_pers_id']."' where id='".$item['auc_id']."'");
 				continue;
 			}else{
 				$bids = explode(",", $item['auc_bids']); 
@@ -630,17 +630,17 @@ progress_update();
 				$bid_sales = array_reverse($bid_sales);
 				foreach($bids as $k=>$bid_id){
 					if($k==0){
-						mysql_query("update inventory set auction=0, owner='".$bid_id."' where id='".$item['auc_id']."'");
+						db_query("update inventory set auction=0, owner='".$bid_id."' where id='".$item['auc_id']."'");
 					}else{
-						mysql_query("update users set money=money+".$bid_sales[$k]." where id='".$bid_id."'");
+						db_query("update users set money=money+".$bid_sales[$k]." where id='".$bid_id."'");
 					}
 				}
 			}
 		}
 		
 		$magic = magicinf ($item['magic']);
-		$incmagic = mysql_fetch_array(mysql_query('SELECT * FROM `magic` WHERE `id` = "'.$item['includemagic'].'" LIMIT 1;'));
-		echo mysql_error();
+		$incmagic = mysqli_fetch_array(db_query('SELECT * FROM `magic` WHERE `id` = "'.$item['includemagic'].'" LIMIT 1;'));
+		echo db_error();
 		$incmagic['name'] = $item['includemagicname'];
 		$incmagic['cur'] = $item['includemagicdex'];
 		$incmagic['max'] = $item['includemagicmax'];
@@ -756,7 +756,7 @@ progress_update();
 						$bids = array_reverse($bids);
 						$bidders = array();
 						foreach($bids as $k=>$bidder_id){
-							$login = mysql_fetch_assoc(mysql_query("select login from users where id='".$bidder_id."' LIMIT 1"));
+							$login = mysqli_fetch_assoc(db_query("select login from users where id='".$bidder_id."' LIMIT 1"));
 							$bidders[] = ($k==0)?"<b>".$login['login']."</b>":$login['login'];
 							$your_bid = ($bidder_id==$_SESSION['uid'])?'(ваша ставка)<br>':'';
 						}
@@ -772,9 +772,9 @@ progress_update();
 		</table>
 <?}elseif(isset($_GET['razdel']) and $_GET['razdel']==3){?>
 	<table cellspacing="1" cellpadding="4" border="0" bgcolor="#a5a5a5" width="600px">
-	<?$data = mysql_query("SELECT * FROM `inventory` WHERE `type` < 25   AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `type` = 200 AND `name` NOT LIKE '% (мф)%'  AND `name` NOT LIKE '%Букет%'  AND `name` NOT LIKE '%Мешок%' ORDER by `update` DESC; ");
-	while($row = mysql_fetch_array($data)) {
-			echo mysql_error();
+	<?$data = db_query("SELECT * FROM `inventory` WHERE `type` < 25   AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `type` = 200 AND `name` NOT LIKE '% (мф)%'  AND `name` NOT LIKE '%Букет%'  AND `name` NOT LIKE '%Мешок%' ORDER by `update` DESC; ");
+	while($row = mysqli_fetch_array($data)) {
+			echo db_error();
 
 		$row['count'] = 1;
 		if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }

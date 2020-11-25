@@ -43,7 +43,7 @@
 
 if (!empty($_SESSION['ekr_online']) && ($_SESSION['ekr_online']+(60*2) < time())) {
 
-mysql_query("UPDATE `users` SET `ekr_online`=ekr_online+0.01, `ekr`=ekr+0.01 WHERE `id`='".$_SESSION['uid']."'");
+db_query("UPDATE `users` SET `ekr_online`=ekr_online+0.01, `ekr`=ekr+0.01 WHERE `id`='".$_SESSION['uid']."'");
 
 addchp ('<font color=red><b>Внимание!</b></font> Вы получили: <IMG width=14 height=14 SRC="/i/money.png" ALT=\"Еврокредиты\" > <b>0.01 екр.</b> за онлайн.   ','{[]}'.nick7 ($user['id']).'{[]}');
 $_SESSION['ekr_online'] = time();
@@ -239,7 +239,7 @@ $_SESSION['ekr_online'] = time();
     $r=mq('SELECT * FROM `effects` WHERE `owner` = '.$user["id"].' and (type=31 or type=32 or `type`=188 or `type`=187 or `type`=186 or `type`=185 or `type`=201 or `type`=202 or `type`=1022 or mfval<>\'\') and time>'.time());
     $effs=array();
     $effects=array();
-    while($rec=mysql_fetch_array($r)){
+    while($rec=mysqli_fetch_array($r)){
       if ($rec["type"]==201) $zo=1;
       if ($rec["type"]==202) $sokr=1;
       if ($rec["mfdmag"]) $user_dress["mfdmag"]+=$rec["mfdmag"];
@@ -305,7 +305,7 @@ $_SESSION['ekr_online'] = time();
 
   nick99 ($_SESSION['uid']);
   if ($user['klan']) {
-    $shadow = mysql_fetch_array(mq("SELECT * FROM `clans` WHERE `short` = '{$user['klan']}' LIMIT 1;"));
+    $shadow = mysqli_fetch_array(mq("SELECT * FROM `clans` WHERE `short` = '{$user['klan']}' LIMIT 1;"));
   }
   if (@$_GET['got']) {
     $mt=canmove(5);
@@ -641,7 +641,7 @@ $user['pass2']=md5(array2HStr(md5m($pass2)));
 <legend><b>Сменить пароль</b></legend>
 <?php
     if ($_POST['oldpass'] && $_POST['npass'] && $_POST['npass2']) {
-        $ops = mysql_fetch_array(mq("SELECT `pass` FROM `users` WHERE `id` = '{$_SESSION['uid']}'"));
+        $ops = mysqli_fetch_array(mq("SELECT `pass` FROM `users` WHERE `id` = '{$_SESSION['uid']}'"));
         if ($ops[0] == md5($_POST['oldpass'])) {
             if($_POST['npass'] == $_POST['npass2']) {
                 if(mq("UPDATE `users` SET `pass` = '".md5($_POST['npass'])."' WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"))
@@ -735,7 +735,7 @@ if(!empty($user['pass2'])){echo"<BR><B>Второй пароль установ�
         echo "Выписка о переводах на персонажа \"{$user['login']}\" за ".$_POST['date'].":<BR>";
         $data = mq("SELECT * FROM `delo` WHERE `pers` = '{$_SESSION['uid']}' AND `type` = 1 AND `date` > '".mktime(0,0,0,substr($_POST['date'],3,2),substr($_POST['date'],0,2),substr($_POST['date'],6,2))."' AND `date` < '".mktime(23,59,59,substr($_POST['date'],3,2),substr($_POST['date'],0,2),substr($_POST['date'],6,2))."' ;");
 
-        while ($row = mysql_fetch_array($data)) {
+        while ($row = mysqli_fetch_array($data)) {
             $row['text'] = preg_replace("/id:\((.*)\)/U", "",$row['text']);
             $rr .= date("H:i:s",$row['date']).": {$row['text']}\n";
             echo date("H:i:s",$row['date']).": {$row['text']}<BR>";
@@ -757,8 +757,8 @@ die();
 }
 #### Снятие невидимости ###
 if (isset($_POST['delinvis'])){
-mysql_query("UPDATE `users` SET `invis` = '0' WHERE `id` = '{$user['id']}';");
-mysql_query("UPDATE `effects` SET `time` = '1' WHERE `owner` = '{$user['id']}' and `type` = '1022' LIMIT 1 ;");
+db_query("UPDATE `users` SET `invis` = '0' WHERE `id` = '{$user['id']}';");
+db_query("UPDATE `effects` SET `time` = '1' WHERE `owner` = '{$user['id']}' and `type` = '1022' LIMIT 1 ;");
 echo"<font color=red>Вы избавились от эффекта невидимости</font>";
 }
 ############
@@ -767,12 +767,12 @@ echo"<font color=red>Вы избавились от эффекта невиди�
 //      $online = mq("select * from `online`  WHERE `date` >= ".(time()-60).";");
         $online = mq("select * from `online`  WHERE `real_time` >= ".(time()-60).";");
 
-        while($v = mysql_fetch_array($online))
+        while($v = mysqli_fetch_array($online))
         {
             $or[$v['room']]++;
         }
 
-        $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+        $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
         //echo $user['room'] ;
         ?>
 <HTML><HEAD>
@@ -797,7 +797,7 @@ top.changeroom=<?=$user['room']?>;
 <tr><td align=center><?nick2($user['id']);?></td><td align=right><INPUT TYPE="submit" class="knopka" name="setch" value="Обновить"> <INPUT TYPE=button name=combats value="Поединки" onClick="location.href='zayavka.php';" style="font-weight:bold;">
 </TABLE>
 <TABLE border=0 cellpadding="0" cellspacing="0"  width=100% style="padding:5px;">
-<TR><TD  align=center><h3>Карта миров</h3></TD><TD align="right" width=26%>Сейчас в клубе <?=mysql_num_rows($online)+6?>. </td></TR>
+<TR><TD  align=center><h3>Карта миров</h3></TD><TD align="right" width=26%>Сейчас в клубе <?=mysqli_num_rows($online)+6?>. </td></TR>
 <TR><TD align="right"><INPUT TYPE="button" value="Выйти на Центральную площадь" onClick="location.href='main.php?goto=plo';" align="right"> </td><TD align="right"><INPUT TYPE="button" value="Выйти на Страшилкину улицу" onClick="location.href='main.php?goto=strah';" align="right"></td></TR>
 </table><input type="hidden" name="got" value="1">
 <TABLE border=0 cellpadding="0" cellspacing="2"  width=100%>
@@ -865,13 +865,13 @@ top.changeroom=<?=$user['room']?>;
     }
     if (@$_GET['dress']) {
       //if ($user['id'] == 7) {
-        $isInjury = mysql_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type` = 14 OR `type` = 13 OR `type` = 12) ORDER BY type DESC;"));
+        $isInjury = mysqli_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type` = 14 OR `type` = 13 OR `type` = 12) ORDER BY type DESC;"));
         if ($isInjury) {
-            $isSpike = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND id = $_GET[dress] AND (prototype = 1905 OR prototype = 1906)"), 0, 0);
+            $isSpike = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND id = $_GET[dress] AND (prototype = 1905 OR prototype = 1906)"), 0, 0);
         }
         if (!$isInjury || $isSpike) {
-            $ch_dvur = mysql_fetch_array(mq("SELECT id FROM `inventory` WHERE `owner` = '{$user['id']}' AND `type` = '3' AND `dressed` = '1' AND `dvur`='1' LIMIT 1;"));
-            $ch_puha = mysql_fetch_array(mq("SELECT type,second,dvur FROM `inventory` WHERE `id` = '{$_GET['dress']}' LIMIT 1;"));
+            $ch_dvur = mysqli_fetch_array(mq("SELECT id FROM `inventory` WHERE `owner` = '{$user['id']}' AND `type` = '3' AND `dressed` = '1' AND `dvur`='1' LIMIT 1;"));
+            $ch_puha = mysqli_fetch_array(mq("SELECT type,second,dvur FROM `inventory` WHERE `id` = '{$_GET['dress']}' LIMIT 1;"));
             if($ch_puha['type']==3 && $ch_puha['dvur']==1){
                 dropitem(10);
             }
@@ -890,8 +890,8 @@ top.changeroom=<?=$user['room']?>;
             }
         }
       //} else {
-      //    $ch_dvur = mysql_fetch_array(mq("SELECT id FROM `inventory` WHERE `owner` = '{$user['id']}' AND `type` = '3' AND `dressed` = '1' AND `dvur`='1' LIMIT 1;"));
-      //    $ch_puha = mysql_fetch_array(mq("SELECT type,second,dvur FROM `inventory` WHERE `id` = '{$_GET['dress']}' LIMIT 1;"));
+      //    $ch_dvur = mysqli_fetch_array(mq("SELECT id FROM `inventory` WHERE `owner` = '{$user['id']}' AND `type` = '3' AND `dressed` = '1' AND `dvur`='1' LIMIT 1;"));
+      //    $ch_puha = mysqli_fetch_array(mq("SELECT type,second,dvur FROM `inventory` WHERE `id` = '{$_GET['dress']}' LIMIT 1;"));
       //    if($ch_puha['type']==3 && $ch_puha['dvur']==1){
       //      dropitem(10);
       //    }
@@ -919,7 +919,7 @@ top.changeroom=<?=$user['room']?>;
       }
     }
     if (@$_GET['destruct']) {
-        $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `owner` = '{$user['id']}' AND `id` = '{$_GET['destruct']}' LIMIT 1;"));
+        $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `owner` = '{$user['id']}' AND `id` = '{$_GET['destruct']}' LIMIT 1;"));
         destructitem($_GET['destruct']);
         if (!$dress["bs"]) mq("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" выбросил предмет \"".$dress['name']."\" id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] ',1,'".time()."');");
         echo "<div align=right><font color=red><b>Предмет \"".$dress['name']."\" выброшен.</b></font></div>";
@@ -944,7 +944,7 @@ top.changeroom=<?=$user['room']?>;
     }
     
     if (@$_GET['complect'] && $user["in_tower"]<10) {
-        $isInjury = mysql_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type` = 14 OR `type` = 13 OR `type` = 12) ORDER BY type DESC;"));
+        $isInjury = mysqli_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type` = 14 OR `type` = 13 OR `type` = 12) ORDER BY type DESC;"));
         if (!$isInjury) {
             $hp = $user['hp'];
             undressall($user['id']);
@@ -985,7 +985,7 @@ top.changeroom=<?=$user['room']?>;
         }
         else{
             $errkom='';
-            $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+            $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
             //Сохраняем комплект
             $dir=MEMCACHE_PATH."/komplekt/".$user['id'];
             if (!file_exists($dir)) mkdir($dir);
@@ -996,7 +996,7 @@ top.changeroom=<?=$user['room']?>;
             " or id=".$user['m5']." or id=".$user['m6']." or id=".$user['m7']." or id=".$user['m8']." or id=".$user['m9']." or id=".$user['m10'].
             " or id=".$user['boots']." or id=".$user['belt']." or id=".$user['naruchi']." or id=".$user['leg']." or id=".$user['m11']." or id=".$user['m12']." or id=".$user['p1']." or id=".$user['p2']);
             $slots=array('sergi', 'kulon', 'perchi', 'weap', 'bron', 'rybax', 'plaw', 'r1', 'r2', 'r3', 'helm', 'shit', 'm1', 'm2', 'm3', 'm4', 'm5', 'm6', 'm7', 'm8', 'm9', 'm10', 'm11', 'm12', 'boots', 'belt', 'naruchi', 'leg', 'p1', 'p2');
-            while ($res=mysql_fetch_row($odetShmot)){
+            while ($res=mysqli_fetch_row($odetShmot)){
               $slot="";
               foreach ($slots as $k=>$v) if ($user[$v]==$res[1]) {
                 $slot=$v;
@@ -1007,11 +1007,11 @@ top.changeroom=<?=$user['room']?>;
             fclose($f);
         }
     }
-    //$user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    //$user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 
     /*if ($user['maxhp'] != $user['vinos']*6) {
 
-        $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+        $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     } */
 
 
@@ -1141,7 +1141,7 @@ function HideOpisShmot(){
 <?  timepassed();
   if (@$_GET["raisestat"]=="sila" || @$_GET["raisestat"]=="lovk" || @$_GET["raisestat"]=="inta" || @$_GET["raisestat"]=="intel") {
     $item=(int)$_GET["item"];
-    $shmotko = mysql_fetch_array(mysql_query("SELECT `stats` FROM `inventory` WHERE `id`='$item' LIMIT 1;"));
+    $shmotko = mysqli_fetch_array(db_query("SELECT `stats` FROM `inventory` WHERE `id`='$item' LIMIT 1;"));
     If($_GET['colls']>$shmotko['stats']){
     echo"<b><font color=red>Недостаточно свободных статов</font></b>";
     }else{
@@ -1173,7 +1173,7 @@ function HideOpisShmot(){
   getadditdata($user);
   include_once("incl/strokedata.php");
   $r=mq("select slot,id_thing from puton where id_person='$user[id]' and slot>=201 and slot<=220;");
-  while ($rec=mysql_fetch_array($r)) {
+  while ($rec=mysqli_fetch_array($r)) {
     $puton[$rec['slot']]=$rec['slot']; // =new prieminfo($s['id_thing'],0);
     $puton2[$rec['slot']]=$rec['id_thing'];
   }
@@ -1210,7 +1210,7 @@ function HideOpisShmot(){
                         }
                     }
                 $dd = mq("SELECT * FROM `komplekt` WHERE `owner` = ".$user['id'].";");
-                while($comp = mysql_fetch_array($dd)) {
+                while($comp = mysqli_fetch_array($dd)) {
                     echo "<a onclick=\"if (!confirm('Вы уверены, что хотите удалить комплект?')) { return false; }\" href='main.php?edit=1&delcomplect=".$comp['id']."'>
                     <img src='".IMGBASE."/i/close2.gif'></a>
                     <a href='main.php?edit=1&complect=".$comp['id']."'>Надеть \"".$comp['name']."\"</a><BR>";
@@ -1263,8 +1263,8 @@ if($_SESSION['stat']==1){
 <?if($user['stats']>0){?><small><A HREF="umenie.php">+ Способности</A></small><?}if($user['master']>0){?><small>&nbsp;&bull;&nbsp;<A HREF="umenie.php">Обучение</A></small><?}?>
 <?}
 
-  /*$zo=mysql_fetch_row(mq("SELECT id FROM effects WHERE type=201 AND owner=".(int)$user['id']." LIMIT 1;"));
-  $sokr=mysql_fetch_row(mq("SELECT id FROM effects WHERE type=202 AND owner=".(int)$user['id']." LIMIT 1;"));
+  /*$zo=mysqli_fetch_row(mq("SELECT id FROM effects WHERE type=201 AND owner=".(int)$user['id']." LIMIT 1;"));
+  $sokr=mysqli_fetch_row(mq("SELECT id FROM effects WHERE type=202 AND owner=".(int)$user['id']." LIMIT 1;"));
   $bmfud= $sokr[0]>0 ? 2:0;//владение оружием !
   $bmfbron= $zo[0]>0 ? 4:0;//броня
   $bmfuv=0; $bmfauv=0; $bmfakrit=0; $bmfkrit=0; //модификаторы
@@ -1280,7 +1280,7 @@ if($_SESSION['stat']==1){
   if ($user['vinos']>=25) $bmfbron+=2;
   if ($user['vinos']>=50) $bmfbron+=4;
   $mf = array ();
-  $user_dress = mysql_fetch_array( mq('SELECT sum(minu),sum(maxu),sum(mfkrit),sum(mfakrit),sum(mfuvorot),sum(mfauvorot),sum(bron1),sum(bron2),sum(bron3),sum(bron4),sum(mfkritpow),sum(mfantikritpow),sum(mfparir),sum(mfshieldblock),sum(mfcontr),sum(mfrub),sum(mfkol),sum(mfdrob),sum(mfrej),sum(mfdhit),sum(mfdmag),sum(mfhitp),sum(mfmagp),sum(mfproboj) as mfproboj FROM `inventory` WHERE `dressed`=1 AND `owner` = \''.$user['id'].'\' LIMIT 1;'));
+  $user_dress = mysqli_fetch_array( mq('SELECT sum(minu),sum(maxu),sum(mfkrit),sum(mfakrit),sum(mfuvorot),sum(mfauvorot),sum(bron1),sum(bron2),sum(bron3),sum(bron4),sum(mfkritpow),sum(mfantikritpow),sum(mfparir),sum(mfshieldblock),sum(mfcontr),sum(mfrub),sum(mfkol),sum(mfdrob),sum(mfrej),sum(mfdhit),sum(mfdmag),sum(mfhitp),sum(mfmagp),sum(mfproboj) as mfproboj FROM `inventory` WHERE `dressed`=1 AND `owner` = \''.$user['id'].'\' LIMIT 1;'));
   $user_dress[6]+=$bmfbron;
   $user_dress[7]+=$bmfbron;
   $user_dress[8]+=$bmfbron;
@@ -1484,7 +1484,7 @@ if (@$_GET["strokeset"]) {
     $doit=true;
     $res=mq("SELECT slot,id_thing FROM puton WHERE slot>=201 AND slot<=220 AND id_person='".$_SESSION['uid']."' order by slot");
     $j=200;
-    while ($s=mysql_fetch_array($res)) {
+    while ($s=mysqli_fetch_array($res)) {
       $j++;
       if ($s['id_thing']==$id_priem) {$doit=false;break;}
       if (!$x && $s['slot']!=$j) $x=$j; elseif (!$x && $j==210+$user["slots"]) $x=1000;
@@ -1508,7 +1508,7 @@ if (@$_GET["strokeset"]) {
 
 if($_SESSION['strokes']==1){
   $r=mq("select * from complect where user='".$_SESSION['uid']."' and type=2 order by name");
-  while ($s=mysql_fetch_array($r)) {
+  while ($s=mysqli_fetch_array($r)) {
     $s['name']=str_replace("'","",$s["name"]);
     echo "<a onclick=\"if (!confirm('Вы уверены, что хотите удалить $s[name]?')) { return false; }\" href='main.php?edit=1&delstrokeset=$s[id]'>
     <img src='".IMGBASE."/i/close2.gif'></a> <a href='main.php?edit=1&strokeset=$s[id]'>$s[name]</a><BR>";
@@ -1612,7 +1612,7 @@ if($_SESSION['strokes']==1){
               $data[] = $ui;
             }
           }
-          if (mysql_num_rows(mysql_query("SELECT * FROM `inventory` WHERE `name` = '$distName[name]' AND duration = 0 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND (`type` = 25 OR `type` = 12) AND `setsale`=0 ".(incommontower($user)?" and bs='$user[in_tower]'":"")." $oby"))) {
+          if (mysqli_num_rows(db_query("SELECT * FROM `inventory` WHERE `name` = '$distName[name]' AND duration = 0 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND (`type` = 25 OR `type` = 12) AND `setsale`=0 ".(incommontower($user)?" and bs='$user[in_tower]'":"")." $oby"))) {
             $data[] = mqfa("SELECT *, COUNT(*) as items_count FROM `inventory` WHERE `name` = '$distName[name]' AND duration = 0 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND (`type` = 25 OR `type` = 12) AND `setsale`=0 ".(incommontower($user)?" and bs='$user[in_tower]'":"")." $oby");
           }
         }
@@ -1632,7 +1632,7 @@ if($_SESSION['strokes']==1){
               $data[] = $ui;
             }
           }
-          if (mysql_num_rows(mysql_query("SELECT * FROM `inventory` WHERE `name` = '$distName[name]' AND duration = 0 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `type` = 49 AND `setsale`=0 ".(incommontower($user)?" and bs='$user[in_tower]'":"")." $oby"))) {
+          if (mysqli_num_rows(db_query("SELECT * FROM `inventory` WHERE `name` = '$distName[name]' AND duration = 0 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `type` = 49 AND `setsale`=0 ".(incommontower($user)?" and bs='$user[in_tower]'":"")." $oby"))) {
             $data[] = mqfa("SELECT *, COUNT(*) as items_count FROM `inventory` WHERE `name` = '$distName[name]' AND duration = 0 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `type` = 49 AND `setsale`=0 ".(incommontower($user)?" and bs='$user[in_tower]'":"")." $oby");
           }
         }
@@ -1649,7 +1649,7 @@ if($_SESSION['strokes']==1){
                 $data[] = $ui;
               }
             }
-            if (mysql_num_rows(mysql_query("SELECT * FROM `inventory` WHERE `name` = '$distName[name]' AND name NOT LIKE '%Самодельный эликсир%' AND duration = 0 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND (`type` = 188 or `type` = 187) AND `setsale`=0 ".(incommontower($user)?" and bs='$user[in_tower]'":"")." $oby"))) {
+            if (mysqli_num_rows(db_query("SELECT * FROM `inventory` WHERE `name` = '$distName[name]' AND name NOT LIKE '%Самодельный эликсир%' AND duration = 0 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND (`type` = 188 or `type` = 187) AND `setsale`=0 ".(incommontower($user)?" and bs='$user[in_tower]'":"")." $oby"))) {
               $data[] = mqfa("SELECT *, COUNT(*) as items_count FROM `inventory` WHERE `name` = '$distName[name]' AND duration = 0 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND (`type` = 188 or `type` = 187) AND `setsale`=0 ".(incommontower($user)?" and bs='$user[in_tower]'":"")." $oby");
             }
         }
@@ -2531,7 +2531,7 @@ if($user['room'] != 666) echo bottombuttons();
     <I>Администрация.</I></small>
     <BR>
 
-         Сейчас в клубе <?=mysql_num_rows($online)?>.<BR><br>
+         Сейчас в клубе <?=mysqli_num_rows($online)?>.<BR><br>
     </TD>
     </FORM>
 </TR>

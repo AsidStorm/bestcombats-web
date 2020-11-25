@@ -47,9 +47,9 @@ showURL: false
 <TABLE border="0" cellpadding="0" cellspacing="12" >
 <?
 If($user['sex']==1){
-	$shadow=mysql_query("SELECT * FROM `shadows_m` where `nlogin`='' and nclan=''  order by nlevel,nsila,nlovk,ninta,nvinos,nintel,nmudra,noj,mec,topor,dubina,posoh,mfire,mwater,mair,mearth,mlight,mgray,mdark;");
+	$shadow=db_query("SELECT * FROM `shadows_m` where `nlogin`='' and nclan=''  order by nlevel,nsila,nlovk,ninta,nvinos,nintel,nmudra,noj,mec,topor,dubina,posoh,mfire,mwater,mair,mearth,mlight,mgray,mdark;");
 	$i=9;
-	while($work=mysql_fetch_array($shadow)){
+	while($work=mysqli_fetch_array($shadow)){
 		if ($i==9){
 			echo "<TR>";
 		}
@@ -223,12 +223,12 @@ If($user['sex']==1){
 		}
 	}
 	
-	$shadow_spec=mysql_query("SELECT * FROM `shadows_m` where `nlogin`='".$user['login']."' or (`nclan`='".$user['klan']."' and '".$user['klan']."'<>'')  order by nlevel,nsila,nlovk,ninta,nvinos,nintel,nmudra,noj,mec,topor,dubina,posoh,mfire,mwater,mair,mearth,mlight,mgray,mdark;");
-	If (mysql_num_rows($shadow_spec)>0){
+	$shadow_spec=db_query("SELECT * FROM `shadows_m` where `nlogin`='".$user['login']."' or (`nclan`='".$user['klan']."' and '".$user['klan']."'<>'')  order by nlevel,nsila,nlovk,ninta,nvinos,nintel,nmudra,noj,mec,topor,dubina,posoh,mfire,mwater,mair,mearth,mlight,mgray,mdark;");
+	If (mysqli_num_rows($shadow_spec)>0){
 		$i=9;
 		echo "</table><br/><center><h3>Специальные образы</h3></center><br/>
 			  <TABLE border='0' cellpadding='0' cellspacing='12' ><tr>";
-		while ($shadow_spec_w=mysql_fetch_array($shadow_spec)){
+		while ($shadow_spec_w=mysqli_fetch_array($shadow_spec)){
 			if ($i==9){echo "<TR>";}
 			echo "<td><a href=\"?edit=1&obraz=".$shadow_spec_w['img']."\"><img src=\"http://img.bestcombats.net/shadow/1/".$shadow_spec_w['img']."\" alt=\"Выбрать этот образ\"></a></td>";
 			$i=$i-1;
@@ -237,9 +237,9 @@ If($user['sex']==1){
 		echo "</tr></table>";
 	}
 }else{
-	$shadow=mysql_query("SELECT * FROM `shadows_w` order by nlevel,nsila,nlovk,ninta,nvinos,nintel,nmudra,noj,mec,topor,dubina,posoh,mfire,mwater,mair,mearth,mlight,mgray,mdark;");
+	$shadow=db_query("SELECT * FROM `shadows_w` order by nlevel,nsila,nlovk,ninta,nvinos,nintel,nmudra,noj,mec,topor,dubina,posoh,mfire,mwater,mair,mearth,mlight,mgray,mdark;");
 	$i=9;
-	while($work=mysql_fetch_array($shadow)){
+	while($work=mysqli_fetch_array($shadow)){
 		if ($i==9){
 			echo "<TR>";
 		}
@@ -412,12 +412,12 @@ If($user['sex']==1){
 		}
 	}
 	
-	$shadow_spec=mysql_query("SELECT * FROM `shadows_w` where `nlogin`='".$user['login']."' or (`nclan`='".$user['klan']."' and '".$user['klan']."'<>'')  order by nlevel,nsila,nlovk,ninta,nvinos,nintel,nmudra,noj,mec,topor,dubina,posoh,mfire,mwater,mair,mearth,mlight,mgray,mdark;");
-	If (mysql_num_rows($shadow_spec)>0){
+	$shadow_spec=db_query("SELECT * FROM `shadows_w` where `nlogin`='".$user['login']."' or (`nclan`='".$user['klan']."' and '".$user['klan']."'<>'')  order by nlevel,nsila,nlovk,ninta,nvinos,nintel,nmudra,noj,mec,topor,dubina,posoh,mfire,mwater,mair,mearth,mlight,mgray,mdark;");
+	If (mysqli_num_rows($shadow_spec)>0){
 		$i=9;
 		echo "</table><br/><center><h3>Срециальные образы</h3></center><br/>
 			  <TABLE border='0' cellpadding='0' cellspacing='12' ><tr>";
-		while ($shadow_spec_w=mysql_fetch_array($shadow_spec)){
+		while ($shadow_spec_w=mysqli_fetch_array($shadow_spec)){
 			if ($i==9){echo "<TR>";}
 			echo "<td><a href=\"?edit=1&obraz=".$shadow_spec_w['img']."\"><img src=\"http://img.bestcombats.net/shadow/0/".$shadow_spec_w['img']."\" alt=\"Выбрать этот образ\"></a></td>";
 			$i=$i-1;

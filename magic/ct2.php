@@ -1,9 +1,9 @@
 <?php
 
-$us = mysql_fetch_array(mysql_query("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));		
-$owntravmadb = mysql_query("SELECT * FROM `effects` WHERE `owner` = ".$us['id']." AND (`type`=12 OR `type`=11) ;");	
-$ownt = mysql_fetch_array(mysql_query("SELECT * FROM `effects` WHERE `owner` = ".$us['id']." AND (`type`=12 OR `type`=11) LIMIT 1;"));				
-$magic = mysql_fetch_array(mysql_query("SELECT `chanse` FROM `magic` WHERE `id` = '20' ;"));	
+$us = mysqli_fetch_array(db_query("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+$owntravmadb = db_query("SELECT * FROM `effects` WHERE `owner` = ".$us['id']." AND (`type`=12 OR `type`=11) ;");
+$ownt = mysqli_fetch_array(db_query("SELECT * FROM `effects` WHERE `owner` = ".$us['id']." AND (`type`=12 OR `type`=11) LIMIT 1;"));
+$magic = mysqli_fetch_array(db_query("SELECT `chanse` FROM `magic` WHERE `id` = '20' ;"));
 
 if ($user['intel'] >= 6) {
 		$int=$magic['chanse'] + ($user['intel'] - 6)*3;
@@ -34,7 +34,7 @@ if ($user['battle'] > 0) {
 			}
 			$travm="легких";
 			$bet=1;
-			while ($owntravma = mysql_fetch_array($owntravmadb)) {
+			while ($owntravma = mysqli_fetch_array($owntravmadb)) {
 				if ($owntravma['type'] == 12) {$travm="средних";}
 				deltravma($owntravma['id']);
 			}

@@ -3,7 +3,7 @@
 	//if ($_SESSION['uid'] == null) header("Location: index.php");
 	$google = 1;
 	include "../connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".$_COOKIE['uid']."' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".$_COOKIE['uid']."' LIMIT 1;"));
 	include "../functions.php";
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -414,9 +414,9 @@
 					
                  </table>
 				 <?
-				 $online = mysql_query("select * from `online`  WHERE `real_time` >= ".(time()-60).";");
+				 $online = db_query("select * from `online`  WHERE `real_time` >= ".(time()-60).";");
 				 ?>
-				 <b>Всего в городах:</b> <?=mysql_num_rows($online)?> чел.
+				 <b>Всего в городах:</b> <?=mysqli_num_rows($online)?> чел.
                  </tr>
                   </tbody>
                    </table>

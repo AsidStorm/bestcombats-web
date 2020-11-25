@@ -2,19 +2,19 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	include "functions.php";
 	if ($user['room'] != 34) header("Location: main.php");
-	$d = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `setsale` = 0 ; "));
+	$d = mysqli_fetch_array(db_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `setsale` = 0 ; "));
 	if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 	$_GET['otdel'] = 1;
 
 	if(!$_SESSION['flowers']) { $_SESSION['flowers'] = array(); }
 
 	if ($_GET['add']) {
-		$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$_GET['add']}' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;"));
+		$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$_GET['add']}' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;"));
 		//destructitem($dress['id']);
-		//mysql_query("UPDATE `users` set `money` = `money`+ '".(round(($dress['cost']/2)-$dress['duration']*($dress['cost']/($dress['maxdur']*10)),2))."' WHERE id = {$_SESSION['uid']}");
+		//db_query("UPDATE `users` set `money` = `money`+ '".(round(($dress['cost']/2)-$dress['duration']*($dress['cost']/($dress['maxdur']*10)),2))."' WHERE id = {$_SESSION['uid']}");
 		//echo "<font color=red><b>Вы продали \"{$dress['name']}\".</b></font>";
 		if($dress) {
 			$_SESSION['flowers'][$dress['id']] = array($dress['img'],$dress['id'],$dress['name']);
@@ -30,14 +30,14 @@
 		if ($_GET['set']) { $set = $_GET['set']; }
 		if ($_POST['set']) { $set = $_POST['set']; }
 		if ($_POST['count'] < 1) { $_POST['count'] =1; }
-		$dress = mysql_fetch_array(mysql_query("SELECT * FROM `fshop` WHERE `id` = '{$set}' LIMIT 1;"));
+		$dress = mysqli_fetch_array(db_query("SELECT * FROM `fshop` WHERE `id` = '{$set}' LIMIT 1;"));
 		if (($dress['massa']*$_POST['count']+$d[0]) > (get_meshok())) {
 			echo "<font color=red><b>Недостаточно места в рюкзаке.</b></font>";
 		}
 		elseif(($user['money']>= ($dress['cost']*$_POST['count'])) && ($dress['count'] >= $_POST['count'])) {
 
 			for($k=1;$k<=$_POST['count'];$k++) {
-				if(mysql_query("INSERT INTO `inventory`
+				if(db_query("INSERT INTO `inventory`
 				(`prototype`,`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,
 					`gsila`,`glovk`,`ginta`,`gintel`,`ghp`,`gnoj`,`gtopor`,`gdubina`,`gmech`,`gfire`,`gwater`,`gair`,`gearth`,`glight`,`ggray`,`gdark`,`needident`,`nsila`,`nlovk`,`ninta`,`nintel`,`nmudra`,`nvinos`,`nnoj`,`ntopor`,`ndubina`,`nmech`,`nfire`,`nwater`,`nair`,`nearth`,`nlight`,`ngray`,`ndark`,
 					`mfkrit`,`mfakrit`,`mfuvorot`,`mfauvorot`,`bron1`,`bron2`,`bron3`,`bron4`,`maxu`,`minu`,`magic`,`nlevel`,`nalign`,`dategoden`,`goden`
@@ -54,17 +54,17 @@
 				}
 			}
 			if ($good) {
-				mysql_query("UPDATE `fshop` SET `count`=`count`-{$_POST['count']} WHERE `id` = '{$set}' LIMIT 1;");
+				db_query("UPDATE `fshop` SET `count`=`count`-{$_POST['count']} WHERE `id` = '{$set}' LIMIT 1;");
 				$limit=$_POST['count'];
-				$invdb = mysql_query("SELECT `id` FROM `inventory` WHERE `name` = '".$dress['name']."' ORDER by `id` DESC LIMIT ".$limit." ;" );
+				$invdb = db_query("SELECT `id` FROM `inventory` WHERE `name` = '".$dress['name']."' ORDER by `id` DESC LIMIT ".$limit." ;" );
 				if ($limit == 1) {
-					$dressinv = mysql_fetch_array($invdb);
+					$dressinv = mysqli_fetch_array($invdb);
 					$dressid = "cap".$dressinv['id'];
 					$dresscount=" ";
 				}
 				else {
 					$dressid="";
-					while ($dressinv = mysql_fetch_array($invdb))  {
+					while ($dressinv = mysqli_fetch_array($invdb))  {
 						$dressid .= "cap".$dressinv['id'].",";
 					}
 					$dresscount="(x".$_POST['count'].") ";
@@ -72,8 +72,8 @@
 				$allcost=$_POST['count']*$dress['cost'];
 
 				echo "<font color=red><b>Вы купили {$_POST['count']} шт. \"{$dress['name']}\".</b></font>";
-				mysql_query("UPDATE `users` set `money` = `money`- '".($_POST['count']*$dress['cost'])."' WHERE id = {$_SESSION['uid']}");
-				mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" купил товар: \"".$dress['name']."\" ".$dresscount."id:(".$dressid.") [0/".$dress['maxdur']."] за ".$allcost." кр. ',1,'".time()."');");
+				db_query("UPDATE `users` set `money` = `money`- '".($_POST['count']*$dress['cost'])."' WHERE id = {$_SESSION['uid']}");
+				db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" купил товар: \"".$dress['name']."\" ".$dresscount."id:(".$dressid.") [0/".$dress['maxdur']."] за ".$allcost." кр. ',1,'".time()."');");
 			}
 		}
 		else {
@@ -913,7 +913,7 @@ function closehint3()
 			//if(count($errs) > 0) { $zbor = false; }
 			if ($zbor) {
 				$dress = $resultbuk[$k];
-				if(mysql_query("INSERT INTO `inventory`
+				if(db_query("INSERT INTO `inventory`
 				(`prototype`,`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,
 					`mfkrit`,`mfakrit`,`mfuvorot`,`mfauvorot`,`maxu`,`minu`,`dategoden`,`goden`
 				)
@@ -923,7 +923,7 @@ function closehint3()
 				'{$dress['maxu']}','{$dress['minu']}','".(($dress['goden'])?($dress['goden']*24*60*60+time()):"")."','{$dress['goden']}'
 				) ;"))
 				{
-					$buket_id=mysql_insert_id();
+					$buket_id=db_insert_id();
 					$good = 1;
 				}
 				else {
@@ -934,9 +934,9 @@ function closehint3()
 					echo '<B><font color=red>Удачно составлен букет <img src="i/sh/',$dress['img'],'"><BR>(находится у вас в рюкзаке)</font>';
 					foreach ($_SESSION['flowers'] as $k=>$v) {
 						$dressid .= "cap".$k.",";
-						mysql_query("DELETE FROM `inventory` WHERE `id` = '".$k."'  LIMIT 1;");
+						db_query("DELETE FROM `inventory` WHERE `id` = '".$k."'  LIMIT 1;");
 					}
-					mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" получила предмет: \"".$dress['name']."\" ".$dresscount."id:(cap".$buket_id.") [0/".$dress['maxdur']."] за id:(".$dressid.") ',1,'".time()."');");
+					db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" получила предмет: \"".$dress['name']."\" ".$dresscount."id:(cap".$buket_id.") [0/".$dress['maxdur']."] за id:(".$dressid.") ',1,'".time()."');");
 				}
 				else {
 					echo '<B><font color=red>Произошла ошибка!</font>';
@@ -946,9 +946,9 @@ function closehint3()
 		if (!$good) {
                   echo "<b><font color=\"red\">Не удалось составить букет.</font>";
 			/*foreach ($_SESSION['flowers'] as $k=>$v) {
-				$fname=mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".$k."' LIMIT 1;"));
-				mysql_query("DELETE FROM `inventory` WHERE `id` = '".$k."'  LIMIT 1;");
-				mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Утерян предмет \"".$fname['name']."\" id:(cap".$k.") [".$fname['duration']."/".$fname['maxdur']."] у \"".$user['login']."\"  ',1,'".time()."');");
+				$fname=mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".$k."' LIMIT 1;"));
+				db_query("DELETE FROM `inventory` WHERE `id` = '".$k."'  LIMIT 1;");
+				db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Утерян предмет \"".$fname['name']."\" id:(cap".$k.") [".$fname['duration']."/".$fname['maxdur']."] у \"".$user['login']."\"  ',1,'".time()."');");
 			}*/
 		}
 		$_SESSION['flowers'] = array();
@@ -1019,7 +1019,7 @@ if ($_REQUEST['compare'] && !$_REQUEST['common'] && !$_REQUEST['present']) {
 	</table>
 	<TABLE BORDER=0 WIDTH=100% CELLSPACING="1" CELLPADDING="2" BGCOLOR="#A5A5A5">
 	<?
-	$data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND (
+	$data = db_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND (
 		`name` LIKE 'Трава%' OR
 		`name` LIKE 'Тюльпан%' OR
 		`name` LIKE 'Нарцисс%' OR
@@ -1032,7 +1032,7 @@ if ($_REQUEST['compare'] && !$_REQUEST['common'] && !$_REQUEST['present']) {
 		`name` LIKE 'Рихардия' or
 		`name` LIKE 'Лилия'
 	) AND `setsale`=0 ORDER by `update` DESC; ");
-	while($row = mysql_fetch_array($data)) {
+	while($row = mysqli_fetch_array($data)) {
 		if(!in_array($row['id'],array_keys($_SESSION['flowers']))) {
 			$row['count'] = 1;
 			if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
@@ -1073,29 +1073,29 @@ if ($_REQUEST['compare'] && !$_REQUEST['common'] && !$_REQUEST['present']) {
 			if((int)$_POST['from']==1) { $from = 'Аноним'; }
 			elseif((int)$_POST['from']==2 && $user['klan']) { $from = ' клан '.$user['klan']; }
 			else {$from = $user['login'];}
-			if ($to) if(mysql_query("UPDATE `inventory` SET `owner` = '".$to['id']."', `present` = '".$from."', `letter` = '".$_POST['podarok2']."' WHERE  `present` = '' AND `id` = '".$_POST['flower']."' AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `name` LIKE 'Букет%' AND `setsale`=0")) {
-				$buket = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$_POST['flower']}' AND `name` LIKE 'Букет%' LIMIT 1; "));
+			if ($to) if(db_query("UPDATE `inventory` SET `owner` = '".$to['id']."', `present` = '".$from."', `letter` = '".$_POST['podarok2']."' WHERE  `present` = '' AND `id` = '".$_POST['flower']."' AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `name` LIKE 'Букет%' AND `setsale`=0")) {
+				$buket = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '{$_POST['flower']}' AND `name` LIKE 'Букет%' LIMIT 1; "));
 				$buket_name=$buket['name'];
-				mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Подарен букет цветов \"".$buket['name']."\" id:(cap".$_POST['flower'].") [".$buket['duration']."/".$buket['maxdur']."] от \"".$from."\" к \"".$to['login']."\"','1','".time()."');");
-				mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$to['id']}','Подарен букет цветов \"".$buket['name']."\" id:(cap".$buket['id'].") [".$buket['duration']."/".$buket['maxdur']."] от \"".$from."\" к \"".$to['login']."\"','1','".time()."');");
+				db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Подарен букет цветов \"".$buket['name']."\" id:(cap".$_POST['flower'].") [".$buket['duration']."/".$buket['maxdur']."] от \"".$from."\" к \"".$to['login']."\"','1','".time()."');");
+				db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$to['id']}','Подарен букет цветов \"".$buket['name']."\" id:(cap".$buket['id'].") [".$buket['duration']."/".$buket['maxdur']."] от \"".$from."\" к \"".$to['login']."\"','1','".time()."');");
 				if(($_POST['from']==1) || ($_POST['from']==2)) {
 					$action="подарил";
-					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$to['id']}','Подарен букет цветов \"".$buket['name']."\" id:(cap".$buket['id'].") [".$buket['duration']."/".$buket['maxdur']."] от \"".$user['login']."\" к \"".$to['login']."\"','5','".time()."');");
+					db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$to['id']}','Подарен букет цветов \"".$buket['name']."\" id:(cap".$buket['id'].") [".$buket['duration']."/".$buket['maxdur']."] от \"".$user['login']."\" к \"".$to['login']."\"','5','".time()."');");
 				}
 				else {
 					if ($user['sex'] == 0) {$action="подарила";}
 					else {$action="подарил";}
 				}
-				$us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$to['id']}' LIMIT 1;"));
+				$us = mysqli_fetch_array(db_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$to['id']}' LIMIT 1;"));
 				if($us[0]){
 					addchp ('<font color=red>Внимание!</font> <span oncontextmenu=OpenMenu()>'.$from.'</span> '.$action.' вам <B>'.$buket_name.'</B>.   ','{[]}'.$_POST['to_login'].'{[]}');
 				} else {
 					// если в офе
-					mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$to['id']."','','".'<font color=red>Внимание!</font> <span oncontextmenu=OpenMenu()>'.$from.'</span> '.$action.' вам <B>'.$buket_name.'</B>.   '."');");
+					db_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$to['id']."','','".'<font color=red>Внимание!</font> <span oncontextmenu=OpenMenu()>'.$from.'</span> '.$action.' вам <B>'.$buket_name.'</B>.   '."');");
 				}
 				echo "<b><font color=red>Букет удачно доставлен к \"",$_POST['to_login'],"\"</font></b>";
 			}
-			echo mysql_error();
+			echo db_error();
 		}
 	}
 
@@ -1125,8 +1125,8 @@ Login <INPUT TYPE=text NAME=to_login value="">
 
 //print_r($_POST);
 
-	$data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `name` LIKE 'Букет%' AND `setsale`=0 AND `present` = '' ORDER by `update` DESC; ");
-	while($row = mysql_fetch_array($data)) {
+	$data = db_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `name` LIKE 'Букет%' AND `setsale`=0 AND `present` = '' ORDER by `update` DESC; ");
+	while($row = mysqli_fetch_array($data)) {
 		if(!in_array($row['id'],array_keys($_SESSION['flowers']))) {
 			$row['count'] = 1;
 			if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
@@ -1147,8 +1147,8 @@ Login <INPUT TYPE=text NAME=to_login value="">
 	}
 	else
 	{
-	$data = mysql_query("SELECT * FROM `fshop` WHERE `count` > 0 AND `razdel` = '{$_GET['otdel']}' ORDER by `cost` ASC");
-	while($row = mysql_fetch_array($data)) {
+	$data = db_query("SELECT * FROM `fshop` WHERE `count` > 0 AND `razdel` = '{$_GET['otdel']}' ORDER by `cost` ASC");
+	while($row = mysqli_fetch_array($data)) {
 		if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
 		echo "<TR bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
 		?>

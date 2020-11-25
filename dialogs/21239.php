@@ -27,8 +27,8 @@ if ($step == 1) {
 }
 
 if ($step == 2) {
-    $isNotice = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND prototype = 2560"), 0, 0);
-    $isTrend  = mysql_result(mysql_query("SELECT name FROM inventory WHERE owner = $user[id] AND (prototype = 2561 OR prototype = 2562 OR prototype = 2563) LIMIT 1"), 0, 0);
+    $isNotice = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND prototype = 2560"), 0, 0);
+    $isTrend  = db_result(db_query("SELECT name FROM inventory WHERE owner = $user[id] AND (prototype = 2561 OR prototype = 2562 OR prototype = 2563) LIMIT 1"), 0, 0);
     if (!$isNotice && !$isTrend) {
         takeshopitem(2560, "shop", "", "", 2, 0, $user['id']);
         $speach.="<span style=\"color: red\">Вы получили Повестка</span><br /><br />Чудненько! (потирает руки) Вот тебе повестка на фронт, отдашь ее сержанту и получишь от него дальнейшие инструкции.";

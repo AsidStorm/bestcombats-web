@@ -2,7 +2,7 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "../connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".mysql_real_escape_string($_SESSION['uid'])."' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".db_escape_string($_SESSION['uid'])."' LIMIT 1;"));
 	include "../functions.php";
 	if ($user['radiodj']!=1) header("Location: /index.php");
 	

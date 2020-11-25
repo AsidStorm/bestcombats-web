@@ -17,7 +17,7 @@
       if ($rnd<=10) {
         $report=itemtofloor(2459, 0, 0, 1); // Бутылка  
       } elseif ($rnd<=20) {
-        $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 AND (id = 15 OR id = 16 OR id = 17 OR id = 19 OR id = 20 OR id = 21) ORDER BY RAND() ") or die(mysql_error()); 
+        $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 AND (id = 15 OR id = 16 OR id = 17 OR id = 19 OR id = 20 OR id = 21) ORDER BY RAND() ") or die(db_error());
         $report=itemtofloor($smallItem, 0, 0, 1, 'smallitems', 1);
       } elseif ($rnd<=25) {
         $report=itemtofloor(2593, 0, 0, 3); // лучистый рубин
@@ -78,9 +78,9 @@
   
   // Сундук 42x2
   if ($tx*2==42 && $ty*2==2) {
-    $isKey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Пирамидальный Ключ' AND owner = " . $user['id']), 0, 0);
+    $isKey = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Пирамидальный Ключ' AND owner = " . $user['id']), 0, 0);
     if (!$isKey) {
-      $isItem = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Осколок Пирамидального Ключа' AND owner = " . $user['id']), 0, 0);
+      $isItem = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Осколок Пирамидального Ключа' AND owner = " . $user['id']), 0, 0);
       if (!$isItem) {
         $report=pickupitem(2531, 0, 0, 0, 1, 2);
       } else {
@@ -102,7 +102,7 @@
       } elseif ($rnd<=45) {
         $report=itemtofloor(2459, 0, 0, 1); // Бутылка
       } elseif ($rnd<=60) {
-        $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 ORDER BY RAND() ") or die(mysql_error()); 
+        $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 ORDER BY RAND() ") or die(db_error());
         $report=itemtofloor($smallItem, 0, 0, 1, 'smallitems', 1);
       } elseif ($rnd<=75) {
         $report = '<div style="font-weight:normal">Пусто.</div>';
@@ -119,9 +119,9 @@
   
   // Сундук 20x12
   if ($tx*2==20 && $ty*2==12) {
-    $isKey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Пирамидальный Ключ' AND owner = " . $user['id']), 0, 0);
+    $isKey = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Пирамидальный Ключ' AND owner = " . $user['id']), 0, 0);
     if (!$isKey) {
-      $isItem = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Обломок Пирамидального Ключа' AND owner = " . $user['id']), 0, 0);
+      $isItem = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Обломок Пирамидального Ключа' AND owner = " . $user['id']), 0, 0);
       if (!$isItem) {
         $report=pickupitem(2530, 0, 0, 0, 1, 2);
       } else {
@@ -169,8 +169,8 @@
     if ($curse) {
       $report .= " и избавились от всех проклятий Глубин.";
       foreach ($curse as $c) {
-        mysql_query('DELETE FROM effects WHERE id = ' . $c['id']);
-        mysql_query("
+        db_query('DELETE FROM effects WHERE id = ' . $c['id']);
+        db_query("
             UPDATE users 
             SET 
               sila  = (".((-1)*$c['sila'])." + sila), 
@@ -223,7 +223,7 @@
   
   // Камень портала Чернокнижника 42x4
   if ($tx*2==42 && $ty*2==4) {
-    $isStone = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Чернокнижника' AND owner = " . $user['id']), 0, 0);
+    $isStone = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Чернокнижника' AND owner = " . $user['id']), 0, 0);
     if (!$isStone) {
       $report=pickupitem(2528, 0, 0, 0, 1, 2);
     } else {
@@ -233,7 +233,7 @@
   
   // Камень портала Епископа 20x4
   if ($tx*2==20 && $ty*2==4) {
-    $isStone = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Епископа' AND owner = " . $user['id']), 0, 0);
+    $isStone = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Епископа' AND owner = " . $user['id']), 0, 0);
     if (!$isStone) {
       $report=pickupitem(2526, 0, 0, 0, 1, 2);
     } else {

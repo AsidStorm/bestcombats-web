@@ -2,7 +2,7 @@
     session_start();
     if ($_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
-    $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     include "functions.php";
     if ($user['room'] != 28) header("Location: main.php");
 ?>
@@ -80,9 +80,9 @@ if ($user['klan'] && $user['align']!=2.5 && $user['align']!=2.9 && $user['align'
 		
     <?
         if($user['align'] == '2.9'  || $user['align'] == '2.5' || $user['align'] == '2.51') {
-            $data = mysql_query("SELECT * FROM `reg_klan`;");
+            $data = db_query("SELECT * FROM `reg_klan`;");
             echo "<table>";
-            while($clan=mysql_fetch_array($data)) {
+            while($clan=mysqli_fetch_array($data)) {
                 echo "<form action=\"\" method=\"POST\">
                 <TR><TD>",$clan['date'],"</TD><TD>",$clan['name'],"</TD><TD>",$clan['abr'],"</TD>
                 <TD>",nick2($clan['owner']),"</TD><TD><img src='http://img.bestcombats.net/klan/",$clan['sznak'],".gif'></TD>
@@ -107,14 +107,14 @@ while ($i<=13) {
   $vozm[$_POST['owner']][$i]=1;
   $i++;
 }
-mysql_query("INSERT `clans` (`short`,`name`,`glava`,`align`,`deviz`,`homepage`,`clandem`,`sex_control`,`clanbig`, vozm)
+db_query("INSERT `clans` (`short`,`name`,`glava`,`align`,`deviz`,`homepage`,`clandem`,`sex_control`,`clanbig`, vozm)
 values ('".$_POST['abr']."','".$_POST['name']."','".$_POST['owner']."','".$_POST['align']."','".$_POST['deviz']."','".$_POST['http']."','".$_POST['clandem']."','".$_POST['sex_control']."','".$_POST['bznak']."', '".serialize($vozm)."') ;");
 
-mysql_query("UPDATE `users` set `align`='".$_POST['align']."',klan='".$_POST['abr']."' where id='".$_POST['owner']."'");
-mysql_query("UPDATE `userdata` set `align`='".$_POST['align']."' where id='".$_POST['owner']."'");
-mysql_query("UPDATE `allusers` set `align`='".$_POST['align']."',klan='".$_POST['abr']."' where id='".$_POST['owner']."'");
-mysql_query("UPDATE `alluserdata` set `align`='".$_POST['align']."' where id='".$_POST['owner']."'");
-mysql_query("DELETE FROM reg_klan WHERE owner='".$_POST['owner']."'");
+db_query("UPDATE `users` set `align`='".$_POST['align']."',klan='".$_POST['abr']."' where id='".$_POST['owner']."'");
+db_query("UPDATE `userdata` set `align`='".$_POST['align']."' where id='".$_POST['owner']."'");
+db_query("UPDATE `allusers` set `align`='".$_POST['align']."',klan='".$_POST['abr']."' where id='".$_POST['owner']."'");
+db_query("UPDATE `alluserdata` set `align`='".$_POST['align']."' where id='".$_POST['owner']."'");
+db_query("DELETE FROM reg_klan WHERE owner='".$_POST['owner']."'");
 if ($_POST['align']==0)  {
 $sklonka="Серый";
 }
@@ -142,7 +142,7 @@ mq("update clans set vozm='".serialize($vozm)."' where id='$rec[id]'");
 print "<script>location.href='main.php'</script>";
             }
             if($_POST['del']){
-            mysql_query("DELETE FROM reg_klan WHERE owner='".$_POST['owner']."'");
+            db_query("DELETE FROM reg_klan WHERE owner='".$_POST['owner']."'");
             print "<script>location.href='main.php'</script>";
             }
             echo "</table>";
@@ -170,7 +170,7 @@ print "<script>location.href='main.php'</script>";
                 $imageinfo1 = @getimagesize($_FILES['small']['tmp_name']);
                 $imageinfo2 = @getimagesize($_FILES['big']['tmp_name']);
 
-                $eff = mysql_fetch_array(mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND `type` = 20;"));
+                $eff = mysqli_fetch_array(db_query("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND `type` = 20;"));
                 if (!$eff) {
                     $error .= 'У Вас нет проверки. <BR>';
                 }
@@ -188,11 +188,11 @@ print "<script>location.href='main.php'</script>";
                     $error .= 'Файл большого значка слишком большой. <BR>';
                 }
                 if(!$error) {
-                    mysql_query("INSERT `reg_klan` (`name`,`owner`,`abr`,`http`,`sznak`,`bznak`,`align`,`clandem`,`sex_control`,`deviz`)
+                    db_query("INSERT `reg_klan` (`name`,`owner`,`abr`,`http`,`sznak`,`bznak`,`align`,`clandem`,`sex_control`,`deviz`)
                     values ('".$_POST['klanname']."','".$user['id']."','".$_POST['klanabbr']."','".$_POST['http']."','".$_POST['klanabbr']."','".$_POST['klanabbr']."_big','".$_POST['klanalign']."','".$_POST['clandem']."','".$_POST['sex_control']."','".$_POST['deviz']."') ;");
                     move_uploaded_file($_FILES['small']['tmp_name'], '/var/www/bestcombats/data/www/img.bestcombats.net/klan/'.$_POST['klanabbr'].".gif");
                     move_uploaded_file($_FILES['big']['tmp_name'], '/var/www/bestcombats/data/www/img.bestcombats.net/klan/'.$_POST['klanabbr']."_big.gif");
-                    mysql_query("UPDATE `users` set money=money-".$mon[$_POST['klanalign']]." where id='".$user['id']."'");
+                    db_query("UPDATE `users` set money=money-".$mon[$_POST['klanalign']]." where id='".$user['id']."'");
                     $hasclan=1;
                 }
                 else

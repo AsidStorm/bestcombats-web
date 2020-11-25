@@ -2,8 +2,8 @@
 // magic идентификацыя
 if ($_SESSION['uid'] == null) header("Location: index.php");
 	
-		$us = mysql_fetch_array(mysql_query("SELECT *, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
-		$magic = mysql_fetch_array(mysql_query("SELECT `chanse` FROM `magic` WHERE `id` = '9' ;"));	
+		$us = mysqli_fetch_array(db_query("SELECT *, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+		$magic = mysqli_fetch_array(db_query("SELECT `chanse` FROM `magic` WHERE `id` = '9' ;"));
 		if ($user['intel'] >= 1) {
 			$int=$magic['chanse'] + ($user['intel'] - 1)*3;
 			if ($int>98){$int=99;}
@@ -11,10 +11,10 @@ if ($_SESSION['uid'] == null) header("Location: index.php");
 		else {$int=0;}
 
 		if(!$us) {
-			$bots = mysql_fetch_array(mysql_query ('SELECT * FROM `bots` WHERE `name` = \''.$_POST['target'].'\' LIMIT 1;'));
+			$bots = mysqli_fetch_array(db_query ('SELECT * FROM `bots` WHERE `name` = \''.$_POST['target'].'\' LIMIT 1;'));
 			/*if($bots) {
 				$id=$bots['prototype'];
-				$us = mysql_fetch_array(mysql_query("SELECT *, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+				$us = mysqli_fetch_array(db_query("SELECT *, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
 				$us['login'] = $bots['name'];
 				$us['hp'] = $bots['hp'];
 				$us['id'] = $bots['id'];
@@ -42,16 +42,16 @@ if ($_SESSION['uid'] == null) header("Location: index.php");
 					$hp = $us['hp']+15;
 				}
 				if ($user['battle'] > 0) {
-					//mysql_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' использовал заклятие восстановления энергии '.(($us['id']!=$user['id'])?"на ".nick5($us['id'],$fbattle->my_class):"").' и восстановил уровень жизни <B>+60</B> ['.($hp).'/'.$us['maxhp'].']<BR>\') WHERE `id` = '.$us['battle'].'');
+					//db_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' использовал заклятие восстановления энергии '.(($us['id']!=$user['id'])?"на ".nick5($us['id'],$fbattle->my_class):"").' и восстановил уровень жизни <B>+60</B> ['.($hp).'/'.$us['maxhp'].']<BR>\') WHERE `id` = '.$us['battle'].'');
 					$fbattle->add_log('<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' использовал'.$action.' заклятие восстановления энергии '.(($us['id']!=$user['id'])?"на ".nick5($us['id'],$fbattle->my_class):"").' и восстановил'.$action.' уровень жизни <B>+15</B> ['.($hp).'/'.$us['maxhp'].']<BR>');
 					//$fbattle->add_log('');
 					
-						mysql_query("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = ".$user['battle']." LIMIT 1;");							
+						db_query("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = ".$user['battle']." LIMIT 1;");
 					
 					$fbattle->write_log ();
 				}
 				
-				mysql_query("UPDATE `users` SET `hp` = ".$hp." WHERE `id` = ".$us['id'].";");
+				db_query("UPDATE `users` SET `hp` = ".$hp." WHERE `id` = ".$us['id'].";");
                                 global $updatebattleunit;
                                 $updatebattleunit=$us['id'];
 				echo "Вы восстановили 15 НР персонажу ".$us['login']."!";

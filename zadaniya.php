@@ -35,21 +35,21 @@ if($_GET['getquest']){
     $random = rand(1,10);
     $ests=mqfa("select * from `podzem_zad` order by rand()");
     if($ests){
-      mysql_query('insert into `podzem_zad_login` (owner,ubit,ed,text,bot)values("'.$user['id'].'","'.$ests['ubit'].'","'.$ests['ed'].'","'.$ests["zadanie"].'","'.$ests["bot"].'")');
+      db_query('insert into `podzem_zad_login` (owner,ubit,ed,text,bot)values("'.$user['id'].'","'.$ests['ubit'].'","'.$ests['ed'].'","'.$ests["zadanie"].'","'.$ests["bot"].'")');
       $zadantime=time()+86400;
-      mysql_query("UPDATE `users` SET `zadantime` = '$zadantime' WHERE `id` = '{$user['id']}'");
+      db_query("UPDATE `users` SET `zadantime` = '$zadantime' WHERE `id` = '{$user['id']}'");
       print"<b style='color:red'>Вы получили задание.</b><br><br>";
       makequest(3);
     }
   } else echo "<b>Сейчас для вас нет заданий. Приходите через ".secs2hrs($questtime)."</b>";
 }
 if($_GET['del']){
-mysql_query("DELETE FROM `podzem_zad_login` WHERE id='".mysql_real_escape_string($_GET['del'])."' AND owner='".mysql_real_escape_string($user['id'])."'");
+db_query("DELETE FROM `podzem_zad_login` WHERE id='".db_escape_string($_GET['del'])."' AND owner='".db_escape_string($user['id'])."'");
 print"<b style='color:red'>Вы удалили свое задание.</b>";
 }
-if($_GET['warning']==1){print"<br><b style='color:red'>Вы сдали задание и получили ".mysql_real_escape_string($_GET['ed'])." очков благородства.</b>";}
-$rt=mysql_query("select * from `podzem_zad_login` where owner='".$user['id']."'");
-if(!$est=mysql_fetch_array($rt)){
+if($_GET['warning']==1){print"<br><b style='color:red'>Вы сдали задание и получили ".db_escape_string($_GET['ed'])." очков благородства.</b>";}
+$rt=db_query("select * from `podzem_zad_login` where owner='".$user['id']."'");
+if(!$est=mysqli_fetch_array($rt)){
 ?>
 <FORM action='zadaniya.php?zadanie=1' method=GET name=F1>
 <INPUT type=hidden name=ql value=1>
@@ -68,8 +68,8 @@ print"<BR><INPUT type=submit name='getquest' value='Получить задан�
 <?
 if($est['ubil']>=$est['ubit']){print'<input name="ok" type="submit" value="Выполнил">';}
 if($_POST['ok'] and $est['ubil']>=$est['ubit']){
-mysql_query("DELETE FROM `podzem_zad_login` WHERE id='".$est['id']."' AND owner='".$user['id']."'");
-mysql_query("UPDATE `users` SET honorpoints=honorpoints+".$est['ed']." WHERE id='".$user['id']."'");
+db_query("DELETE FROM `podzem_zad_login` WHERE id='".$est['id']."' AND owner='".$user['id']."'");
+db_query("UPDATE `users` SET honorpoints=honorpoints+".$est['ed']." WHERE id='".$user['id']."'");
 print "<script>location.href='?warning=1&ed=".$est['ed']."'</script>";
 exit;}
 ?>
@@ -80,19 +80,19 @@ exit;}
 ?>
  <?
 if($_GET['buy']=='stats' and $user['ed']>='3000'){
-mysql_query("UPDATE `users` SET `stats`=`stats`+3,`ed`=`ed`-3000 WHERE `id`='".mysql_real_escape_string($_SESSION['uid'])."'");
+db_query("UPDATE `users` SET `stats`=`stats`+3,`ed`=`ed`-3000 WHERE `id`='".db_escape_string($_SESSION['uid'])."'");
 print"<b style='color=red'>Вы приобрели +3 стата.</b>";
 }
 if($_GET['buy']=='master' and $user['ed']>='5000'){
-mysql_query("UPDATE `users` SET `master`=`master`+3,`ed`=`ed`-5000 WHERE `id`='".mysql_real_escape_string($_SESSION['uid'])."'");
+db_query("UPDATE `users` SET `master`=`master`+3,`ed`=`ed`-5000 WHERE `id`='".db_escape_string($_SESSION['uid'])."'");
 print"<b style='color=red'>Вы приобрели +3 Умения.</b>";
 }
 if($_GET['buy']=='kr' and $user['ed']>='100'){
-mysql_query("UPDATE `users` SET `money`=`money`+10,`ed`=`ed`-100 WHERE `id`='".mysql_real_escape_string($_SESSION['uid'])."'");
+db_query("UPDATE `users` SET `money`=`money`+10,`ed`=`ed`-100 WHERE `id`='".db_escape_string($_SESSION['uid'])."'");
 print"<b style='color=red'>Вы приобрели +10 кр.</b>";
 }
 if($_GET['buy']=='exp' and $user['ed']>='3000'){
-mysql_query("UPDATE `users` SET `exp`=`exp`+3000,`ed`=`ed`-3000 WHERE `id`='".mysql_real_escape_string($_SESSION['uid'])."'");
+db_query("UPDATE `users` SET `exp`=`exp`+3000,`ed`=`ed`-3000 WHERE `id`='".db_escape_string($_SESSION['uid'])."'");
 print"<b style='color=red'>Вы приобрели +3000 опыта.</b>";
 }
  ?>

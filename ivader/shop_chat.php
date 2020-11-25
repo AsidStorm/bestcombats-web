@@ -1,12 +1,12 @@
 <?php
 	session_start();
 	include '../connect.php';
-	$user = mysql_fetch_array(mysql_query('SELECT u.block,u.id,u.color,u.invis,u.align,u.klan,u.chattime,u.sid,u.login,u.level,u.room,o.date FROM `users` as u, `online` as o WHERE u.`id` = o.`id` AND u.`id` = \''.$_SESSION['uid'].'\' LIMIT 1;'));
+	$user = mysqli_fetch_array(db_query('SELECT u.block,u.id,u.color,u.invis,u.align,u.klan,u.chattime,u.sid,u.login,u.level,u.room,o.date FROM `users` as u, `online` as o WHERE u.`id` = o.`id` AND u.`id` = \''.$_SESSION['uid'].'\' LIMIT 1;'));
 	include '../functions.php';
     nick99 ($user['id']);
 	if($_GET['online'] != null) {
 			if ($_GET['room'] && (int)$_GET['room'] < 900) { $user['room'] = (int)$_GET['room']; }
-	$data = mysql_query('select align,u.id,klan,level,login,battle,o.date,invis, (SELECT `id` FROM `effects` WHERE `type` = 2 AND `owner` = u.id LIMIT 1) as slp, (SELECT `id` FROM `effects` WHERE (`type` = 11 OR `type` = 12 OR `type` = 13 OR `type` = 14) AND `owner` = u.id LIMIT 1) as trv,deal,action FROM `online` as o, `users` as u WHERE o.`id` = u.`id` AND (o.`date` >= '.(time()-90).' OR u.`in_tower` = 1) AND o.`room` = '.$user['room'].' AND o.`city` = \'test\' ORDER by `u`.`login`;');
+	$data = db_query('select align,u.id,klan,level,login,battle,o.date,invis, (SELECT `id` FROM `effects` WHERE `type` = 2 AND `owner` = u.id LIMIT 1) as slp, (SELECT `id` FROM `effects` WHERE (`type` = 11 OR `type` = 12 OR `type` = 13 OR `type` = 14) AND `owner` = u.id LIMIT 1) as trv,deal,action FROM `online` as o, `users` as u WHERE o.`id` = u.`id` AND (o.`date` >= '.(time()-90).' OR u.`in_tower` = 1) AND o.`room` = '.$user['room'].' AND o.`city` = \'test\' ORDER by `u`.`login`;');
 
 ?>
 	<HTML><HEAD>
@@ -80,7 +80,7 @@ document.getElementById("mmoves").style.visibility = 'hidden';
 	top.rld();
 	setTimeout('onl.submit()', 15000);
 </SCRIPT>
-<title><?=$rooms[$user['room']]?> (<?=mysql_num_rows($data)?>)</title>
+<title><?=$rooms[$user['room']]?> (<?=mysqli_num_rows($data)?>)</title>
 </HEAD>
 <body mardginwidth=0 leftmardgin=0 leftmargin=0 marginwidth=0 bgcolor=#faf2f2 onscroll="top.myscroll()" onLoad="document.body.scrollTop=top.OnlineOldPosition">
 <center>
@@ -88,17 +88,17 @@ document.getElementById("mmoves").style.visibility = 'hidden';
 <INPUT TYPE=submit value="Обновить">
 
 </center>
-<font style="COLOR:#8f0000;FONT-SIZE:10pt"><B><?=$rooms[$user['room']]?> (<?=mysql_num_rows($data)?>)</B></font>
+<font style="COLOR:#8f0000;FONT-SIZE:10pt"><B><?=$rooms[$user['room']]?> (<?=mysqli_num_rows($data)?>)</B></font>
 <table border=0><tr><td nowrap><fant color="fffff">
 <!--<script>-->
 <?php
 if($user['room']==5 && vrag=="on"){
-			$vrag = mysql_fetch_array(mysql_query('select align,u.id,klan,level,login,o.date, (SELECT `id` FROM `effects` WHERE `type` = 2 AND `owner` = u.id LIMIT 1) as slp, (SELECT `id` FROM `effects` WHERE (`type` = 11 OR `type` = 12 OR `type` = 13 OR `type` = 14) AND `owner` = u.id LIMIT 1) as trv,deal FROM `online` as o, `users` as u WHERE u.`id`=61 ;'));
-				$vrag_b = mysql_fetch_array(mysql_query("SELECT `battle` FROM `bots` WHERE  `prototype` = 61 LIMIT 1 ;"));
+			$vrag = mysqli_fetch_array(db_query('select align,u.id,klan,level,login,o.date, (SELECT `id` FROM `effects` WHERE `type` = 2 AND `owner` = u.id LIMIT 1) as slp, (SELECT `id` FROM `effects` WHERE (`type` = 11 OR `type` = 12 OR `type` = 13 OR `type` = 14) AND `owner` = u.id LIMIT 1) as trv,deal FROM `online` as o, `users` as u WHERE u.`id`=61 ;'));
+				$vrag_b = mysqli_fetch_array(db_query("SELECT `battle` FROM `bots` WHERE  `prototype` = 61 LIMIT 1 ;"));
 
 		echo 'w(\'',$vrag['login'],'\',',$vrag['id'],',\'',$vrag['align'],'\',\'',$vrag['klan'],'\',\'',$vrag['level'],'\',\'',$vrag['slp'],'\',\'',$vrag['trv'],'\',\'',(int)$row['deal'],'\',\'',$vrag_b['battle'],'\');';
 }
-		while($row=mysql_fetch_array($data))
+		while($row=mysqli_fetch_array($data))
 		{
 		if($row['action']){
 		$rrr=$row['action'];
@@ -192,7 +192,7 @@ if($user['room']==5 && vrag=="on"){
 			}
 			elseif ( $math[1] >=  $user['chattime']) {
 /*				if (strpos($math[3],"private [pal-" ) !== FALSE) {
-					$chans = mysql_fetch_array(mysql_query("SELECT `name` FROM `chanels` WHERE `klan`='pal' AND `user` = '".$user['id']."';"));
+					$chans = mysqli_fetch_array(db_query("SELECT `name` FROM `chanels` WHERE `klan`='pal' AND `user` = '".$user['id']."';"));
 					$chans = explode(",",$chans['name']) ;
 					$pos = strpos($math[3],"[pal-" )+5;
 					if(in_array(substr($math[3],$pos,1),$chans)) {
@@ -205,7 +205,7 @@ if($user['room']==5 && vrag=="on"){
 				}
 			else*/if ( $math[1] >=  $user['chattime']) {
 /*				if (strpos($math[3],"private [tar-" ) !== FALSE) {
-					$chans = mysql_fetch_array(mysql_query("SELECT `name` FROM `chanels` WHERE `klan`='tar' AND `user` = '".$user['id']."';"));
+					$chans = mysqli_fetch_array(db_query("SELECT `name` FROM `chanels` WHERE `klan`='tar' AND `user` = '".$user['id']."';"));
 					$chans = explode(",",$chans['name']) ;
 					$pos = strpos($math[3],"[tar-" )+5;
 					if(in_array(substr($math[3],$pos,1),$chans)) {
@@ -217,7 +217,7 @@ if($user['room']==5 && vrag=="on"){
 					}
 				}
 				elseif (strpos($math[3],"private [klan-{$user['klan']}-" ) !== FALSE) {
-					$chans = mysql_fetch_array(mysql_query("SELECT `name` FROM `chanels` WHERE `klan`='".$user['klan']."' AND `user` = '".$user['id']."';"));
+					$chans = mysqli_fetch_array(db_query("SELECT `name` FROM `chanels` WHERE `klan`='".$user['klan']."' AND `user` = '".$user['id']."';"));
 					$chans = explode(",",$chans['name']) ;
 					$pos = strpos($math[3],"[klan-{$user['klan']}-" )+strlen($user['klan'])+7;
 					if(in_array(substr($math[3],$pos,1),$chans)) {
@@ -300,11 +300,11 @@ if($user['room']==5 && vrag=="on"){
 		}
 }
 		if ($ks > 0) {
-			mysql_query("UPDATE `users` SET `chattime` = '".($lastpost+3)."' WHERE `id` = {$user['id']};");
+			db_query("UPDATE `users` SET `chattime` = '".($lastpost+3)."' WHERE `id` = {$user['id']};");
 		}
 		echo "</script><script> top.srld();</script>";
 			if ((int)$user['id']!=229 && (int)$user['id']!=4717 && (int)$user['id']!=122 && (int)$user['id']!=112 && (int)$user['id']!=1981 && (int)$user['id']!=86)
-			mysql_query("UPDATE `online` SET `date` = ".time()." WHERE `id` = {$user['id']};");
+			db_query("UPDATE `online` SET `date` = ".time()." WHERE `id` = {$user['id']};");
 			die();
 	}
 	else
@@ -314,7 +314,7 @@ if($user['room']==5 && vrag=="on"){
 			preg_match_all("/\[(.*)\]/U", $_GET['text'], $matches);
 			//echo "<script>alert('". $matches[1]."')</script>";
 			for ($ii=0;$ii<count($matches[1]);$ii++){
-				$dde = mysql_fetch_array(mysql_query("SELECT `id` FROM `users` WHERE (`klan` = 'adminion' OR `deal` = 1 OR (`align`>1 AND `align`<2) OR (`align`>3 AND `align`<4)) AND `login` = '".trim($matches[1][$ii])."' LIMIT 1 ;"));
+				$dde = mysqli_fetch_array(db_query("SELECT `id` FROM `users` WHERE (`klan` = 'adminion' OR `deal` = 1 OR (`align`>1 AND `align`<2) OR (`align`>3 AND `align`<4)) AND `login` = '".trim($matches[1][$ii])."' LIMIT 1 ;"));
 				if (!$dde['id']) {
 					exit;
 				}
@@ -343,7 +343,7 @@ if($user['room']==5 && vrag=="on"){
 
 /*				$_GET['text'] = ereg_replace('private \[klan-([1-9])\]','private [klan-'.$user['klan'].'-\\1]',$_GET['text']);
 
-				$chans = mysql_fetch_array(mysql_query("SELECT `name` FROM `chanels` WHERE `klan`='".$user['klan']."' AND `user` = '".$user['id']."';"));
+				$chans = mysqli_fetch_array(db_query("SELECT `name` FROM `chanels` WHERE `klan`='".$user['klan']."' AND `user` = '".$user['id']."';"));
 				$chans = explode(",",$chans['name']) ;
 				$pos = strpos($_GET['text'],"[klan-{$user['klan']}-" )+strlen($user['klan'])+7;
                 if(!in_array(substr($_GET['text'],$pos,1),$chans)) {
@@ -356,7 +356,7 @@ if($user['room']==5 && vrag=="on"){
 				$_GET['text'] = str_replace('private [pal]','',$_GET['text']);
 //				$_GET['text'] = ereg_replace("private \[pal-[1-9]\]",'',$_GET['text']);
 			}/* else {
-				$chans = mysql_fetch_array(mysql_query("SELECT `name` FROM `chanels` WHERE `klan`='pal' AND `user` = '".$user['id']."';"));
+				$chans = mysqli_fetch_array(db_query("SELECT `name` FROM `chanels` WHERE `klan`='pal' AND `user` = '".$user['id']."';"));
 				$chans = explode(",",$chans['name']) ;
 				$pos = strpos($_GET['text'],"[pal-" )+5;
                 if(!in_array(substr($_GET['text'],$pos,1),$chans)) {
@@ -367,7 +367,7 @@ if($user['room']==5 && vrag=="on"){
 				$_GET['text'] = str_replace('private [tar]','',$_GET['text']);
 //				$_GET['text'] = ereg_replace("private \[tar-[1-9]\]",'',$_GET['text']);
 			}/* else {
-				$chans = mysql_fetch_array(mysql_query("SELECT `name` FROM `chanels` WHERE `klan`='tar' AND `user` = '".$user['id']."';"));
+				$chans = mysqli_fetch_array(db_query("SELECT `name` FROM `chanels` WHERE `klan`='tar' AND `user` = '".$user['id']."';"));
 				$chans = explode(",",$chans['name']) ;
 				$pos = strpos($_GET['text'],"[tar-" )+5;
                 if(!in_array(substr($_GET['text'],$pos,1),$chans)) {

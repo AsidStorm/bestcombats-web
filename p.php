@@ -41,10 +41,10 @@
 //  $up=exec("uptime");
 //  echo "<br>".substr($up,0,strpos($up,','));
     include "connect.php";
-$online = mysql_query("select * from `online`  WHERE `real_time` >= ".(time()-60).";");
+$online = db_query("select * from `online`  WHERE `real_time` >= ".(time()-60).";");
 $vsego_u = mqfa1("select count(id) from `users`");
 ?>
-<br><font color=#DEB887>(Нас уже <?=$vsego_u?> и из них в игре только <?=mysql_num_rows($online)?>.)</font>
+<br><font color=#DEB887>(Нас уже <?=$vsego_u?> и из них в игре только <?=mysqli_num_rows($online)?>.)</font>
 
 </BODY>
 </HTML>

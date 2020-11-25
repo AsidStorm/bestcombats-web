@@ -42,7 +42,7 @@
   }
   if (SNOWBALLSDROP && $lomka && !$user["in_tower"]) {
     $r=mq("select id, owner from inventory where prototype='2345' and dressed=0 and dategoden>".time()." and present='' and (owner=".implode($lomka, " or owner=").")");    
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       mq("update inventory set owner='".$winners[mt_rand(0, count($winners)-1)]."', present='".$this->userdata[$rec["owner"]]["login"]."' where id='$rec[id]'");
     }
   }

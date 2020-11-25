@@ -2,7 +2,7 @@
 //If ($_SERVER['REMOTE_ADDR']!='176.37.62.46'){die();}
 include "../connect.php";
 
-$user_stek = mysql_query("SELECT * FROM `users` WHERE `bot` ='0' and `id`>=11000 and `align`<>2.5 and user_id=0 and login<>'Лич' and login<>'Дед Мороз'  and login<>'Технический' and vid=0 and block=0 and battle=0 ");
+$user_stek = db_query("SELECT * FROM `users` WHERE `bot` ='0' and `id`>=11000 and `align`<>2.5 and user_id=0 and login<>'Лич' and login<>'Дед Мороз'  and login<>'Технический' and vid=0 and block=0 and battle=0 ");
 	$expstats = array(
 						/*   nextup,summstats*/
 						"20" => 3,
@@ -128,12 +128,12 @@ $user_stek = mysql_query("SELECT * FROM `users` WHERE `bot` ='0' and `id`>=11000
 				);
 
 echo "<table border=1 cellpadding=3 cellspacing=3>";
-while ($user=mysql_fetch_array($user_stek)){
+while ($user=mysqli_fetch_array($user_stek)){
 	$summstat= $user['sila']+$user['lovk']+$user['inta']+$user['vinos']+$user['intel']+$user['mudra']+$user['spirit'];
-	$sum_wear   = mysql_fetch_array(mysql_query("select SUM(gsila),SUM(glovk),SUM(ginta),SUM(gintel) FROM inventory WHERE owner = ".$user['id']." AND dressed=1"));
-	$sum_effect = mysql_fetch_array(mysql_query("select SUM(sila),SUM(lovk),SUM(inta),SUM(intel) FROM effects WHERE owner = ".$user['id']." "));
+	$sum_wear   = mysqli_fetch_array(db_query("select SUM(gsila),SUM(glovk),SUM(ginta),SUM(gintel) FROM inventory WHERE owner = ".$user['id']." AND dressed=1"));
+	$sum_effect = mysqli_fetch_array(db_query("select SUM(sila),SUM(lovk),SUM(inta),SUM(intel) FROM effects WHERE owner = ".$user['id']." "));
 	
-	$travma = mysql_num_rows(mysql_query("SELECT id FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type` = 11 OR `type` = 12 OR `type` = 14 OR `type` = 13);"));
+	$travma = mysqli_num_rows(db_query("SELECT id FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type` = 11 OR `type` = 12 OR `type` = 14 OR `type` = 13);"));
 	
 	If ($user['login']=='Copone' or $summstat+$user['stats']<>$user['ptp_stat']+$user['level']+12+$expstats[$user['nextup']]+$sum_wear[0]+$sum_wear[1]+$sum_wear[2]+$sum_wear[3]+$sum_effect[0]+$sum_effect[1]+$sum_effect[2]+$sum_effect[3] and empty($travma)){
 		echo  "<tr>

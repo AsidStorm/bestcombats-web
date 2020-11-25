@@ -3,7 +3,7 @@ ob_start("ob_gzhandler");
     session_start();
     if ($_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
-    $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     include "functions.php";
     if ($user['room'] != 29) header("Location: main.php");
     if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
@@ -11,7 +11,7 @@ ob_start("ob_gzhandler");
             function inschet($userid){
                 $banks = mq("SELECT * FROM `bank` WHERE (`owner` = ".$userid." or `owner2` = ".$userid.");");
                 echo "<select style='width:90px' name=id>";
-                while ($rah = mysql_fetch_array($banks)) {
+                while ($rah = mysqli_fetch_array($banks)) {
                     echo "<option>",$rah['id'],"</option>";
                 }
                 echo "</select>";
@@ -65,8 +65,8 @@ ob_start("ob_gzhandler");
     if($_POST['enter'] && $_POST['pass']) {
 
                     $data = mq("SELECT * FROM `bank` WHERE (`owner` = '".$user['id']."' or `owner2` = '".$user['id']."') AND `id`= '".$_POST['id']."' AND `pass` = '".md5($_POST['pass'])."';");
-                    echo mysql_error();
-                    $data = mysql_fetch_array($data);
+                    echo db_error();
+                    $data = mysqli_fetch_array($data);
                     if($data) {
                         $_SESSION['bankid'] = $_POST['id'];
                     }
@@ -84,8 +84,8 @@ ob_start("ob_gzhandler");
         if ($_POST['rpass'] == $_POST['rpass2']) {
             if ($user['money'] >= 3) {
                 if(mq("INSERT INTO `bank` (`pass`,`owner`) values ('".md5($_POST['rpass2'])."','".$user['id']."');")) {
-                    $sh_num=mysql_insert_id();
-                    err('Ваш номер счета: '.mysql_insert_id().', запишите.');
+                    $sh_num=db_insert_id();
+                    err('Ваш номер счета: '.db_insert_id().', запишите.');
                     mq("UPDATE users SET money = money-3 WHERE id = ".$user['id']." LIMIT 1;");
                     mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" открыл счет №".$sh_num." в банке. ',1,'".time()."');");
                     mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" заплатил за открытие счета в банке 3 кр. ',1,'".time()."');");
@@ -103,7 +103,7 @@ ob_start("ob_gzhandler");
 //высылаем пароль на мыло
     if ($_POST['resendmail']){
 
-    $bank2 = mysql_fetch_array(mq("SELECT mail FROM `bank` WHERE `owner` = ".$user['id'].";"));
+    $bank2 = mysqli_fetch_array(mq("SELECT mail FROM `bank` WHERE `owner` = ".$user['id'].";"));
 
         if ($bank2['mail']==0) {
         err('У вас запрещена высылка пароля на email');
@@ -185,7 +185,7 @@ ob_start("ob_gzhandler");
 </OL>
 <?
   $r=mq("select id, name from inventory where type=199 and owner='$user[id]'");
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     $rec["name"]=str_replace("Квитанция", "квитанцию", $rec["name"]);
     echo "<a href=\"/bank.php?givecheque=$rec[id]\">Сдать $rec[name]</a><br>";
   }
@@ -219,7 +219,7 @@ else
 <br><br>
 </FORM>
             <?}}else{
-    $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+    $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
 //кладем кредиты на счет
     if($_POST['in'] && $_POST['ik']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write");
@@ -265,19 +265,19 @@ else
         }
         $_POST['ekrin']=0;
         mq("unlock tables");
-        $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+        $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
     }
 //Снимаем еврокредиты со счета
     if($_POST['ekrout'] && $_POST['ekrok']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write");
-        $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+        $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
         $_POST['ekrok'] = round($_POST['ekrok'],2);
         if (is_numeric($_POST['ekrok']) && ($_POST['ekrok']>0) && ($_POST['ekrok'] <= $bank['ekr'])) {
             $user['ekr'] += $_POST['ekrok'];
             if (mq("UPDATE `users` SET `ekr` = `ekr` + '".$_POST['ekrok']."' WHERE `id`= ".$user['id']." LIMIT 1;")) {
                 $mywarn="Еврокредиты удачно сняты со счета";
                 mq("UPDATE `bank` SET `ekr` = `ekr` - '".$_POST['ekrok']."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;");
-                $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+                $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
                 mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" снял со своего счета №".$_SESSION['bankid']." ".$_POST['ekrok']." екр. $user[money]/$user[ekr]',1,'".time()."');");
                 mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Вы сняли со счета <b>{$_POST['ekrok']} екр.</b>, комиссия <b>0 кр.</b> <i>(Итого: {$bank['cr']} кр., {$bank['ekr']} екр.)</i>','{$_SESSION['bankid']}');");
 
@@ -290,19 +290,19 @@ else
         }
         $_POST['ekrout']=0;
         mq("unlock tables");
-        $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+        $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
     }
 //Снимаем кредиты со счета
     if($_POST['out'] && $_POST['ok']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write"); 
-        $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+        $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
         $_POST['ok'] = round($_POST['ok'],2);
         if (is_numeric($_POST['ok']) && ($_POST['ok']>0) && ($_POST['ok'] <= $bank['cr'])) {
             $user['money'] += $_POST['ok'];
             if (mq("UPDATE `users` SET `money` = `money` + '".$_POST['ok']."' WHERE `id`= ".$user['id']." LIMIT 1;")) {
                 $mywarn="Деньги удачно сняты со счета";
                 mq("UPDATE `bank` SET `cr` = `cr` - '".$_POST['ok']."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;");
-                $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+                $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
                 mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" снял со своего счета №".$_SESSION['bankid']." ".$_POST['ok']." кр.',1,'".time()."');");
                 mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Вы сняли со счета <b>{$_POST['ok']} кр.</b>, комиссия <b>0 кр.</b> <i>(Итого: {$bank['cr']} кр., {$bank['ekr']} екр.)</i>','{$_SESSION['bankid']}');");
 
@@ -319,7 +319,7 @@ else
 //обмен еврокредитов
     if($_POST['change'] && $_POST['ok1']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write"); 
-        $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+        $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
         $_POST['ok1'] = round($_POST['ok1'],2);
         if (is_numeric($_POST['ok1']) && ($_POST['ok1']>0) && ($_POST['ok1'] <= $bank['ekr'])) {
             $bank['cr'] += $_POST['ok1'] * 80;
@@ -328,7 +328,7 @@ else
             if (mq("UPDATE `bank` SET `cr` = `cr` + '$add_money' WHERE `id`= ".$bank['id']." LIMIT 1;")) {
                 $mywarn="Обмен произведен успешно";
                 mq("UPDATE `bank` SET `ekr` = `ekr` - '".$_POST['ok1']."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;");
-                $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+                $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
                 mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" обменял ".$_POST['ok1']." екр. на ".$add_money." кр. на счету №".$_SESSION['bankid']." в банке. ',1,'".time()."');");
             }
             else {
@@ -343,7 +343,7 @@ else
     //обмен еврокредитов
     if($_POST['change'] && $_POST['ok1']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write"); 
-        $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+        $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
         $_POST['ok1'] = round($_POST['ok1'],2);
         if (is_numeric($_POST['ok1']) && ($_POST['ok1']>0) && ($_POST['ok1'] <= $bank['ekr'])) {
             $bank['cr'] += $_POST['ok1'] * 80;
@@ -352,7 +352,7 @@ else
             if (mq("UPDATE `bank` SET `cr` = `cr` + '$add_money' WHERE `id`= ".$bank['id']." LIMIT 1;")) {
                 $mywarn="Обмен произведен успешно";
                 mq("UPDATE `bank` SET `ekr` = `ekr` - '".$_POST['ok1']."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;");
-                $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+                $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
                 mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" обменял ".$_POST['ok1']." екр. на ".$add_money." кр. на счету №".$_SESSION['bankid']." в банке. ',1,'".time()."');");
             }
             else {
@@ -367,7 +367,7 @@ else
     //обмен кредитов
     if($_POST['change'] && $_POST['krekr']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write"); 
-        $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+        $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
         $_POST['krekr'] = round($_POST['krekr'],2);
         if (is_numeric($_POST['krekr']) && ($_POST['krekr']>0) && ($_POST['krekr'] <= $bank['cr'])) {
             $bank['ekr'] += $_POST['krekr'] / 1000;
@@ -376,7 +376,7 @@ else
             if (mq("UPDATE `bank` SET `ekr` = `ekr` + '$add_money' WHERE `id`= ".$bank['id']." LIMIT 1;")) {
                 $mywarn="Обмен произведен успешно";
                 mq("UPDATE `bank` SET `cr` = `cr` - '".$_POST['krekr']."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;");
-                $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+                $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
                 mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" обменял ".$_POST['krekr']." кр. на ".$add_money." екр. на счету №".$_SESSION['bankid']." в банке. ',1,'".time()."');");
             }
             else {
@@ -426,11 +426,11 @@ else
         err('Сохранено.');
         }
         }
-    $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+    $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
 //переводим кредиды на другой счет
     if($_POST['wu'] && $_POST['sum'] && $_POST['number'] && $user["level"]>=4) {
       mq("lock tables users write, bank write, delo write, bankhistory write, userdata write"); 
-      $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+      $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
       $_POST["number"]=(int)$_POST["number"];
         $al=mqfa("select align, level, users.id from bank left join users on users.id=bank.owner where bank.id='$_POST[number]'");
         if ($user['align'] == 4 || $al["align"]==4) {
@@ -440,8 +440,8 @@ else
         } elseif (!cangive($_POST['sum'])) {
           $mywarn="Сумма передачи превышает допустимый лимит.";
         } else {
-            $bank2 = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_POST['number'].";"));
-            $to = mysql_fetch_array(mq("SELECT login FROM `users` WHERE `id` = ".$bank2['owner'].";"));
+            $bank2 = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_POST['number'].";"));
+            $to = mysqli_fetch_array(mq("SELECT login FROM `users` WHERE `id` = ".$bank2['owner'].";"));
             if($bank2[0]){
                 $_POST['sum'] = round($_POST['sum'],2);
                 if (is_numeric($_POST['sum']) && ($_POST['sum']>0)) {
@@ -452,12 +452,12 @@ else
                         if (mq("UPDATE `bank` SET `cr` = `cr` - '".$new_sum."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;")) {
                           updbalance($user["id"], $al["id"], $_POST['sum']);
                           mq("UPDATE `bank` SET `cr` = `cr` + '".$_POST['sum']."' WHERE `id`= ".$_POST['number']." LIMIT 1;");
-                          $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
+                          $bank = mysqli_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
                           mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" перевел со своего банковского счета №".$_SESSION['bankid']." на счет №".$_POST['number']." к персонажу ".$to['login']." ".$_POST['sum']." кр. Дополнительно снято ".$nalog." кр. за услуги банка ',1,'".time()."');");
                           mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$bank2['owner']}','Персонаж \"".$user['login']."\" перевел со своего банковского счета №".$_SESSION['bankid']." на счет №".$_POST['number']." к персонажу ".$to['login']." ".$_POST['sum']." кр. Дополнительно снято ".$nalog." кр. за услуги банка ',1,'".time()."');");
 
-                          $otkogo = mysql_fetch_array(mq("SELECT `login` FROM `users` WHERE `id` = '{$bank['owner']}';"));
-                          $komy = mysql_fetch_array(mq("SELECT `login` FROM `users` WHERE `id` = '{$bank2['owner']}';"));
+                          $otkogo = mysqli_fetch_array(mq("SELECT `login` FROM `users` WHERE `id` = '{$bank['owner']}';"));
+                          $komy = mysqli_fetch_array(mq("SELECT `login` FROM `users` WHERE `id` = '{$bank2['owner']}';"));
                           $bablo = $_POST['sum']+$bank2['cr'];
                           mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Вы перевели <b>{$_POST['sum']} кр.</b> на счет {$_POST['number']} персонажа \"{$komy['login']}\", комиссия <b>$nalog кр.</b> <i>(Итого: {$bank['cr']} кр., {$bank['ekr']} екр.)</i>','{$_SESSION['bankid']}');");
                           mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Вам переведено <b>{$_POST['sum']} кр.</b> со счета {$_SESSION['bankid']} персонажа \"{$otkogo['login']}\" <i>(Итого: {$bablo} кр., {$bank2['ekr']} екр.)</i>','{$_POST['number']}');");
@@ -489,7 +489,7 @@ else
 ?>
 <?
   $r=mq("select id, name from inventory where type=199 and owner='$user[id]'");
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     $rec["name"]=str_replace("Квитанция", "квитанцию", $rec["name"]);
     echo "<a href=\"/bank.php?givecheque=$rec[id]\">Сдать $rec[name]</a><br>";
   }
@@ -578,7 +578,7 @@ else { ?>Сумма <INPUT TYPE=text NAME=sum size=6 maxlength=11> кр.<BR>
 <TABLE cellpadding="2" cellspacing="0" border="0">
 <?
 $history = mq("SELECT `date`,`text` FROM `bankhistory` WHERE `bankid` = '{$_SESSION['bankid']}' ORDER BY date DESC LIMIT 10;");
-while ($hist = mysql_fetch_array($history)) {
+while ($hist = mysqli_fetch_array($history)) {
 echo "<TR><TD><font class=date>$hist[date]</font> $hist[text]</TD></TR>";
 }
 ?>

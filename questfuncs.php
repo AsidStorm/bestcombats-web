@@ -2,11 +2,11 @@
   function canmakequest($q) {
     global $questtime;
     $r=mq("select q$q as q from qtimes where user='$_SESSION[uid]'");
-    if (mysql_num_rows($r)==0) {
+    if (mysqli_num_rows($r)==0) {
       mq("insert into qtimes (user) values ('$_SESSION[uid]')");
       return true;
     }
-    $rec=mysql_fetch_assoc($r);
+    $rec=mysqli_fetch_assoc($r);
     $questtime=$rec["q"]-time();
     return $rec["q"]<time();
   }
@@ -25,7 +25,7 @@
     $rec1=mqfa("select * from items where id='$item'");
     $rec1["podzem"]=$podzem;
     $sql="";
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       if ($present) {
         if ($rec["Field"]=="maxdur") $rec1[$rec["Field"]]=1;
         if ($rec["Field"]=="cost") $rec1[$rec["Field"]]=2;
@@ -42,7 +42,7 @@
     $r=mq("show fields from $tbl");
     $rec1=mqfa("select * from $tbl where id='$item'");
     $sql="";
-    while ($rec=mysql_fetch_assoc($r)) {                                                                                                                                                                                                                                                                  
+    while ($rec=mysqli_fetch_assoc($r)) {
       if ($rec["Field"]=="id" || $rec["Field"]=="shshop" || $rec["Field"]=="count" || $rec["Field"]=="zeton" || $rec["Field"]=="destiny" || $rec["Field"]=="zoo" || $rec["Field"]=="honorcount" || $rec["Field"]=="resname" || $rec["Field"]=="rescnt" || $rec["Field"]=="shop" || $rec["Field"]=="buyformoney" || $rec["Field"]=="dategoden" || $rec["Field"]=="koll") continue;
       if ($rec["Field"]=="goden") $goden=$rec1[$rec["Field"]];
       if (isset($extra[$rec["Field"]])) {
@@ -54,13 +54,13 @@
     }
     foreach ($extra as $k=>$v) $sql.=", $k='$v'";
     mq("insert into inventory set prototype='$item', owner='".($u?"$u":"$_SESSION[uid]")."' ".($goden?", dategoden='".($goden*60*60*24+time())."'":"")." $sql");
-    return array("img"=>$rec1["img"], "name"=>$rec1["name"], "id"=>mysql_insert_id());
+    return array("img"=>$rec1["img"], "name"=>$rec1["name"], "id"=>db_insert_id());
   }
 
   function takesmallitem($item, $user=0, $reason="", $qty=1, $bs=0, $goden=0) {
     if (!$user) $user=$_SESSION["uid"];
     $rec=mqfa("select * from smallitems where id='$item'");
-    $f = mysql_query("SELECT `koll`, id FROM `inventory` WHERE `owner`='$user' and `type`='$rec[type]' and `name`='$rec[name]' and setsale=0 and (dategoden=0 or dategoden>".time().")");
+    $f = db_query("SELECT `koll`, id FROM `inventory` WHERE `owner`='$user' and `type`='$rec[type]' and `name`='$rec[name]' and setsale=0 and (dategoden=0 or dategoden>".time().")");
 
     if ($goden>0) {
       $goden=", dategoden='".($goden*60*60*24+time())."', goden=$goden";
@@ -68,7 +68,7 @@
       $goden=", dategoden='".(abs($goden)*60*60+time())."', goden=$goden";
     } else $goden="";
 
-    if($g = mysql_fetch_array($f)){
+    if($g = mysqli_fetch_array($f)){
       $koll = $g["koll"];
       mq("UPDATE `inventory` SET koll=koll+$qty, massa=massa+($rec[massa]*$qty) WHERE id='$g[id]'");
     } else {
@@ -112,7 +112,7 @@
         }
         addch ("<b>".nick7($user1['id'])."</b> вмешался в <a href=logs.php?log=".$id." target=_blank>поединок >></a>.  ",$user1['room']);
 
-        //mysql_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user1['id'],"B".$ttt).' вмешался в поединок!<BR>\') WHERE `id` = '.$battle.'');
+        //db_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user1['id'],"B".$ttt).' вмешался в поединок!<BR>\') WHERE `id` = '.$battle.'');
         //if ($user1['id']=='111' OR $user1['id']=='4717') {
         //addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> Внезапно небо потемнело, засверкали молнии, в их сполохах стали видны приближающиеся тени с горяими глазами. Бойцы, забыв про свои обиды, в страхе прижались друг к другу...<BR>');
         //}
@@ -121,8 +121,8 @@
         }else
         addlog($battleid,'<span class=date>'.date("H:i").'</span> '.nick5($user1['id'],"B".$ttt).' вмешался в поединок!<BR>');
 
-        mysql_query('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t'.$ttt.'`=CONCAT(`t'.$ttt.'`,\';'.$user1['id'].'\')  WHERE `id` = '.$battleid.' ;');
-        mysql_query("UPDATE users SET `battle` =".$battleid.",`zayavka`=0 WHERE `id`= ".$user1['id']);
+        db_query('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t'.$ttt.'`=CONCAT(`t'.$ttt.'`,\';'.$user1['id'].'\')  WHERE `id` = '.$battleid.' ;');
+        db_query("UPDATE users SET `battle` =".$battleid.",`zayavka`=0 WHERE `id`= ".$user1['id']);
 
         if (!$noredir) header("Location:fbattle.php");
         //die("<script>location.href='fbattle.php';</script>");
@@ -134,7 +134,7 @@
         $botnames=array();
         $botnames[$name]=1;
         $hps[$b]=$bot["maxhp"];
-        $botid1 = mysql_insert_id();
+        $botid1 = db_insert_id();
         $cond=" id='$botid1' ";
 
         $teams = array();
@@ -157,7 +157,7 @@
             else $hps[$v["id"]]=mqfa1("select maxhp from users where id='$v[id]'");
           }
           mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('$botname','$v[id]','','".$hps[$v["id"]]."')");
-          $botid = mysql_insert_id();
+          $botid = db_insert_id();
           $cond.=" or id='$botid' ";
           $teams[$user1['id']][$botid] = array(0,0,time());
           $teams[$botid][$user1['id']] = array(0,0,time());
@@ -166,7 +166,7 @@
         }
         $sv = array(3,4,5);
         //$tou = array_rand($sv,1);
-        mysql_query("INSERT INTO `battle`
+        db_query("INSERT INTO `battle`
             (
                 `id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`,`blood`, quest, closed, date
             )
@@ -175,7 +175,7 @@
                 NULL,'','".serialize($teams)."','".$time."','$type','0','".$user1['id']."','".$t2."','".time()."','".time()."','$blood', '$quest', '$closed', '".date("Y-m-d H:i")."'
             )");
 
-        $battleid = mysql_insert_id();
+        $battleid = db_insert_id();
 
         // апдейтим врага
         mq("UPDATE `bots` SET `battle` = {$battleid} WHERE $cond");
@@ -187,7 +187,7 @@
         } else $rr = "<b>".nick3($user1['id'])."</b> и <b>".nick3($botid1)."</b>";
         addch ("<a href=logs.php?log=".$battleid." target=_blank>Бой</a> между <B><b>".nick7($user1['id'])."</b> и <b>".nick7($botid1)."</b> начался.   ",$user1['room']);
 
-        //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
+        //db_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
         //if ($user1['id']=='111' OR $user1['id']=='4717') {
         //addlog($id,"<span class=date>".date("Y.m.d H.i")."</span> Внезапно небо потемнело, засверкали молнии, в их сполохах стали видны приближающиеся тени с горяими глазами. Бойцы, забыв про свои обиды, в страхе прижались друг к другу...<BR>");
         //}

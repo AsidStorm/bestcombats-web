@@ -4,8 +4,8 @@ session_start();
 if ($_SESSION['uid'] == null) header("Location: index.php");
 include "connect.php";
 include "functions.php";
-$znTowerLevel = mysql_result(mysql_query("SELECT reputation FROM zn_tower WHERE user_id = " . $_SESSION['uid']), 0, 0);
-$user=mysql_fetch_array(mysql_query("SELECT * from users where id='".$_SESSION['uid']."'"));
+$znTowerLevel = db_result(db_query("SELECT reputation FROM zn_tower WHERE user_id = " . $_SESSION['uid']), 0, 0);
+$user=mysqli_fetch_array(db_query("SELECT * from users where id='".$_SESSION['uid']."'"));
 if($user['room'] != '9001'){
     header('location: city.php');
 }
@@ -21,7 +21,7 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
         $levelCond = "AND `nlevel`<='9' ";
         $uniruna = "15";
     }
-    $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0  AND `nlevel`>=4 $levelCond AND gift = 0 AND destinyinv = 0 AND (type = 11 OR type = 1 OR type = 2 OR type = 9 OR type = 4 OR type = 8 OR type = 22 OR type = 23 OR type = 24 OR type = 5) AND id='".(int)$_GET['sed']."'"));
+    $dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0  AND `nlevel`>=4 $levelCond AND gift = 0 AND destinyinv = 0 AND (type = 11 OR type = 1 OR type = 2 OR type = 9 OR type = 4 OR type = 8 OR type = 22 OR type = 23 OR type = 24 OR type = 5) AND id='".(int)$_GET['sed']."'"));
     if (mt_rand(1,5)<=2) {
         if ($dress['id']>0) {
             $rlevel=array(4,7,9);
@@ -65,7 +65,7 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
             $stroka2="'{$pp[1]}'";
             $rimg="rune_{$rnn}_{$ra}_{$rt}.gif";
             if($rune_level==99){$rimg="rune_super_1.gif";$rune_name=$rune_align[$ra].$rune_lvl[$rune_level].$rune_type[$rt];$rune_level=9;}
-            if (mysql_query("
+            if (db_query("
                 INSERT INTO `inventory` 
                 (
                     `owner`,
@@ -98,7 +98,7 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
                 );
             ")) {
                 destructitem($dress['id']);
-                mysql_query("UPDATE zn_tower SET reputation = reputation + 1 WHERE user_id = " . $_SESSION['uid']);
+                db_query("UPDATE zn_tower SET reputation = reputation + 1 WHERE user_id = " . $_SESSION['uid']);
                 echo "<font color=red><b>Предмет удачно растворен. <br>Получена {$rune_name} за {$dress['name']}</b></font>";
             }
         }
@@ -155,7 +155,7 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
             </TD>
         </TR>
         <?php
-            $last_visit = mysql_result(mysql_query("SELECT last_visit FROM zn_tower WHERE user_id = " . $_SESSION['uid']), 0, 0);
+            $last_visit = db_result(db_query("SELECT last_visit FROM zn_tower WHERE user_id = " . $_SESSION['uid']), 0, 0);
             $tflv = time() - $last_visit;
             if ($tflv < 3600*2) {
         ?>
@@ -183,8 +183,8 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
                 <TABLE BORDER=0 WIDTH=75% CELLSPACING="1" CELLPADDING="2" BGCOLOR="#A5A5A5">
                     <?php
                         $ci=0;
-                        $data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0  AND `nlevel`>=4 $levelCond AND gift = 0 AND destinyinv = 0 AND (type = 11 OR type = 1 OR type = 2 OR type = 9 OR type = 4 OR type = 8 OR type = 22 OR type = 23 OR type = 24 OR type = 5) ORDER by `update` DESC; ");
-                        while ($row = mysql_fetch_array($data)) {
+                        $data = db_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0  AND `nlevel`>=4 $levelCond AND gift = 0 AND destinyinv = 0 AND (type = 11 OR type = 1 OR type = 2 OR type = 9 OR type = 4 OR type = 8 OR type = 22 OR type = 23 OR type = 24 OR type = 5) ORDER by `update` DESC; ");
+                        while ($row = mysqli_fetch_array($data)) {
                             $ci++;
                             $row['count'] = 1;
                             if ($i==0) { 

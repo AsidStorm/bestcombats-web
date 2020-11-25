@@ -69,21 +69,21 @@ $now = time();
 
 if ($user['level'] >=7 ) {
     //Ring 1
-    $boots = mysql_fetch_array(mysql_query("SELECT `prototype` FROM `inventory` WHERE `id`='".mysql_real_escape_string($user['boots'])."' AND `owner` = '".mysql_real_escape_string($user['id'])."' AND `dressed` > '0' AND `isrep` = '1'  AND `setsale`='0'"));
+    $boots = mysqli_fetch_array(db_query("SELECT `prototype` FROM `inventory` WHERE `id`='".db_escape_string($user['boots'])."' AND `owner` = '".db_escape_string($user['id'])."' AND `dressed` > '0' AND `isrep` = '1'  AND `setsale`='0'"));
 //  if($boots['prototype'] == 1109) {
 
-    $owntravma = mysql_fetch_array(mysql_query("SELECT `type`,`id`,`sila`,`lovk`,`inta` FROM `effects` WHERE `owner` = '".mysql_real_escape_string($user['id'])."' AND (type=12 OR type=13 OR type=11 OR type=21 OR type=22 OR type=23);"));
+    $owntravma = mysqli_fetch_array(db_query("SELECT `type`,`id`,`sila`,`lovk`,`inta` FROM `effects` WHERE `owner` = '".db_escape_string($user['id'])."' AND (type=12 OR type=13 OR type=11 OR type=21 OR type=22 OR type=23);"));
     if (!$owntravma) {
         if ($user['anti_boloto'] <= $now) {
             //afk
             if ($_POST['afk']) {
-                mysql_query("update `users` set `bol_status`='0' where `id`='".mysql_real_escape_string($user['id'])."'");
+                db_query("update `users` set `bol_status`='0' where `id`='".db_escape_string($user['id'])."'");
                 echo"Ваш статус в группе: Отошел!<br>";
                 echo"<script>location='trjasina_vxod.php'</script>";
             }
             //ready
             if ($_POST['ready']) {
-                mysql_query("update `users` set `bol_status`='1' where `id`='".mysql_real_escape_string($user['id'])."'");
+                db_query("update `users` set `bol_status`='1' where `id`='".db_escape_string($user['id'])."'");
                 echo"Ваш статус в группе: Я ГОТОВ!<br>";
                 echo"<script>location='trjasina_vxod.php'</script>";
             }
@@ -91,17 +91,17 @@ if ($user['level'] >=7 ) {
             if ($_POST['add']) {
                 $id =  $_POST['naw_id'];
                 $kto =  $_POST['add_id'];
-                $kto_nik = mysql_fetch_array(mysql_query("SELECT `login` FROM `users` WHERE `id` = '".mysql_real_escape_string($kto)."'"));
+                $kto_nik = mysqli_fetch_array(db_query("SELECT `login` FROM `users` WHERE `id` = '".db_escape_string($kto)."'"));
                 if ($_POST['pass'] == $_POST['naw_pass']) {
-                    $per_gro = mysql_fetch_array(mysql_query("SELECT * FROM `bol_group` WHERE `id` = '".mysql_real_escape_string($id)."'"));
+                    $per_gro = mysqli_fetch_array(db_query("SELECT * FROM `bol_group` WHERE `id` = '".db_escape_string($id)."'"));
                     if (!$per_gro['p1']){ $p = 'p1';  $pn = 'p1_nik';}
                     elseif (!$per_gro['p2']){ $p = 'p2' ;   $pn = 'p2_nik';}
                     elseif (!$per_gro['p3']){ $p = 'p3';  $pn = 'p3_nik';}
                     elseif (!$per_gro['p4']){ $p = 'p4' ; $pn = 'p4_nik';}
                     else{ $slot = 1;}
-                    mysql_query("UPDATE `bol_group` set `sostav`=`sostav`+'1',`".mysql_real_escape_string($p)."`='".mysql_real_escape_string($kto)."', `".mysql_real_escape_string($pn)."`='".mysql_real_escape_string($kto_nik['login'])."' WHERE id = '".mysql_real_escape_string($id)."'");
-                    mysql_query("UPDATE `users` set `boloto_groups`='".mysql_real_escape_string($id)."' WHERE `id` = '".mysql_real_escape_string($kto)."'");
-                    mysql_query("insert into `vault_user_navig` (`group_id`,`login`,`l`,`t`,`loc`) VALUES ('".mysql_real_escape_string($id)."','".$user['login']."','100','100','2001') ");
+                    db_query("UPDATE `bol_group` set `sostav`=`sostav`+'1',`".db_escape_string($p)."`='".db_escape_string($kto)."', `".db_escape_string($pn)."`='".db_escape_string($kto_nik['login'])."' WHERE id = '".db_escape_string($id)."'");
+                    db_query("UPDATE `users` set `boloto_groups`='".db_escape_string($id)."' WHERE `id` = '".db_escape_string($kto)."'");
+                    db_query("insert into `vault_user_navig` (`group_id`,`login`,`l`,`t`,`loc`) VALUES ('".db_escape_string($id)."','".$user['login']."','100','100','2001') ");
                     echo"Вы удачно вступили в группу!";
                     echo"<script>location='trjasina_vxod.php'</script>";
                 } else {
@@ -112,15 +112,15 @@ if ($user['level'] >=7 ) {
             if ($_POST['exit']) {
                 $id = $_POST['id'] ;
                 $kto = $_POST['kto'] ;
-                $per_gro = mysql_fetch_array(mysql_query("SELECT * FROM `bol_group` WHERE `id` = '".mysql_real_escape_string($id)."'"));
+                $per_gro = mysqli_fetch_array(db_query("SELECT * FROM `bol_group` WHERE `id` = '".db_escape_string($id)."'"));
                 if ($per_gro['p1'] == $user['id']) { $p = 'p1';  $pn = 'p1_nik';}
                 elseif ($per_gro['p2'] == $user['id']){ $p = 'p2' ;   $pn = 'p2_nik';}
                 elseif ($per_gro['p3'] == $user['id']){ $p = 'p3';  $pn = 'p3_nik';}
                 elseif ($per_gro['p4'] == $user['id']) { $p = 'p4' ; $pn = 'p4_nik';}
                 else $slot = 1;
-                mysql_query("UPDATE `bol_group` set `sostav`=`sostav`-'1',`".mysql_real_escape_string($p)."`='0', `".mysql_real_escape_string($pn)."`='' WHERE id = '".mysql_real_escape_string($id)."'");
-                mysql_query("UPDATE `users` set `boloto_groups`='0',`bol_status`='0' WHERE `id` = '".mysql_real_escape_string($kto)."'");
-                mysql_query("delete from `vault_user_navig` where `group_id`='".$id."' and `login`='".$user['login']."'");
+                db_query("UPDATE `bol_group` set `sostav`=`sostav`-'1',`".db_escape_string($p)."`='0', `".db_escape_string($pn)."`='' WHERE id = '".db_escape_string($id)."'");
+                db_query("UPDATE `users` set `boloto_groups`='0',`bol_status`='0' WHERE `id` = '".db_escape_string($kto)."'");
+                db_query("delete from `vault_user_navig` where `group_id`='".$id."' and `login`='".$user['login']."'");
                 echo "Вы вышли с группы!<BR>";
                 echo "<script>location='trjasina_vxod.php'</script>";
             }
@@ -128,10 +128,10 @@ if ($user['level'] >=7 ) {
             if ($_POST['closed']) {
                 $id = $_POST['id'] ;
                 $kto = $_POST['kto'] ;
-                $per_gro = mysql_fetch_array(mysql_query("SELECT * FROM `bol_group` WHERE `id` = '".mysql_real_escape_string($id)."'"));
-                mysql_query("UPDATE `users` set `boloto_groups`=0, `bol_status`=0 WHERE `id` = '".mysql_real_escape_string($per_gro['p1'])."' or `id` = '".mysql_real_escape_string($per_gro['p2'])."' or `id` = '".mysql_real_escape_string($per_gro['p3'])."' or `id` = '".mysql_real_escape_string($per_gro['p4'])."'");
-                mysql_query("delete from `bol_group` where `id`='".mysql_real_escape_string($id)."'");
-                mysql_query("delete from `vault_user_navig` where `group_id`='".$id."'");
+                $per_gro = mysqli_fetch_array(db_query("SELECT * FROM `bol_group` WHERE `id` = '".db_escape_string($id)."'"));
+                db_query("UPDATE `users` set `boloto_groups`=0, `bol_status`=0 WHERE `id` = '".db_escape_string($per_gro['p1'])."' or `id` = '".db_escape_string($per_gro['p2'])."' or `id` = '".db_escape_string($per_gro['p3'])."' or `id` = '".db_escape_string($per_gro['p4'])."'");
+                db_query("delete from `bol_group` where `id`='".db_escape_string($id)."'");
+                db_query("delete from `vault_user_navig` where `group_id`='".$id."'");
                 echo"Вы расформировали группу!<BR>";
                 echo"<script>location='trjasina_vxod.php'</script>";
             }
@@ -139,12 +139,12 @@ if ($user['level'] >=7 ) {
             if ($_POST['start']) {
                 $id = $_POST['id'] ;
                 $kto = $_POST['kto'] ;
-                $group = mysql_fetch_array(mysql_query("SELECT * FROM `bol_group` WHERE `id` = '".mysql_real_escape_string($user['boloto_groups'])."'"));
-                $per_gro = mysql_fetch_array(mysql_query("SELECT * FROM `bol_group` WHERE `id` = '".mysql_real_escape_string($id)."'"));
+                $group = mysqli_fetch_array(db_query("SELECT * FROM `bol_group` WHERE `id` = '".db_escape_string($user['boloto_groups'])."'"));
+                $per_gro = mysqli_fetch_array(db_query("SELECT * FROM `bol_group` WHERE `id` = '".db_escape_string($id)."'"));
                 $mol4 = $time + 5000;
                 if ($group['p1'] != 0) {
-                    //mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".mysql_real_escape_string($group['p1'])."','Заклинание молчания',".(time()+5000).",'2');");
-                    if (mysql_fetch_array(mysql_query("SELECT `bol_status` FROM `users` WHERE `id` = '".mysql_real_escape_string($group['p1'])."' AND `bol_status`='1'"))){
+                    //db_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".db_escape_string($group['p1'])."','Заклинание молчания',".(time()+5000).",'2');");
+                    if (mysqli_fetch_array(db_query("SELECT `bol_status` FROM `users` WHERE `id` = '".db_escape_string($group['p1'])."' AND `bol_status`='1'"))){
                         $i1=1;
                     } else {
                         $i1=0;
@@ -153,8 +153,8 @@ if ($user['level'] >=7 ) {
                   $i1=1;
                 }
                 if ($group['p2'] != 0) {
-                    //mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".mysql_real_escape_string($group['p2'])."','Заклинание молчания',".(time()+5000).",'2');");
-                    if (mysql_fetch_array(mysql_query("SELECT `bol_status` FROM `users` WHERE `id` = '".mysql_real_escape_string($group['p2'])."' AND `bol_status`='1'"))) {
+                    //db_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".db_escape_string($group['p2'])."','Заклинание молчания',".(time()+5000).",'2');");
+                    if (mysqli_fetch_array(db_query("SELECT `bol_status` FROM `users` WHERE `id` = '".db_escape_string($group['p2'])."' AND `bol_status`='1'"))) {
                         $i2=1;
                     } else {
                         $i2=0;
@@ -163,8 +163,8 @@ if ($user['level'] >=7 ) {
                     $i2=1;
                 }
                 if ($group['p3'] != 0) {
-                    //mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".mysql_real_escape_string($group['p3'])."','Заклинание молчания',".(time()+5000).",'2');");
-                    if (mysql_fetch_array(mysql_query("SELECT `bol_status` FROM `users` WHERE `id` = '".mysql_real_escape_string($group['p3'])."' AND `bol_status`='1'"))) {
+                    //db_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".db_escape_string($group['p3'])."','Заклинание молчания',".(time()+5000).",'2');");
+                    if (mysqli_fetch_array(db_query("SELECT `bol_status` FROM `users` WHERE `id` = '".db_escape_string($group['p3'])."' AND `bol_status`='1'"))) {
                         $i3=1;
                     } else {
                         $i3=0;
@@ -173,8 +173,8 @@ if ($user['level'] >=7 ) {
                     $i3=1;
                 }
                 if ($group['p4'] != 0) {
-                    //mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".mysql_real_escape_string($group['p4'])."','Заклинание молчания',".(time()+5000).",'2');");
-                    if (mysql_fetch_array(mysql_query("SELECT `bol_status` FROM `users` WHERE `id` = '".mysql_real_escape_string($group['p4'])."' AND `bol_status`='1'"))) {
+                    //db_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".db_escape_string($group['p4'])."','Заклинание молчания',".(time()+5000).",'2');");
+                    if (mysqli_fetch_array(db_query("SELECT `bol_status` FROM `users` WHERE `id` = '".db_escape_string($group['p4'])."' AND `bol_status`='1'"))) {
                         $i4=1;
                     } else {
                         $i4=0;
@@ -183,9 +183,9 @@ if ($user['level'] >=7 ) {
                     $i4=1;
                 }
                 if ($i1 == 1 && $i2 == 1 && $i3 == 1 && $i4 == 1) {
-                    mysql_query("UPDATE `users` set `room`='2001', `bol_poxod`=`bol_poxod`+'1' WHERE `id` = '".mysql_real_escape_string($per_gro['p1'])."' or `id` = '".mysql_real_escape_string($per_gro['p2'])."' or `id` = '".mysql_real_escape_string($per_gro['p3'])."' or `id` = '".mysql_real_escape_string($per_gro['p4'])."'");
-                    mysql_query("UPDATE `bol_group` set `status`='1',`game_time`='".(time()+4800)."' where `id` = '".mysql_real_escape_string($id)."'");
-                    mysql_query("insert into `vault_res` (`id`) VALUES ('".mysql_real_escape_string($user['boloto_groups'])."')");
+                    db_query("UPDATE `users` set `room`='2001', `bol_poxod`=`bol_poxod`+'1' WHERE `id` = '".db_escape_string($per_gro['p1'])."' or `id` = '".db_escape_string($per_gro['p2'])."' or `id` = '".db_escape_string($per_gro['p3'])."' or `id` = '".db_escape_string($per_gro['p4'])."'");
+                    db_query("UPDATE `bol_group` set `status`='1',`game_time`='".(time()+4800)."' where `id` = '".db_escape_string($id)."'");
+                    db_query("insert into `vault_res` (`id`) VALUES ('".db_escape_string($user['boloto_groups'])."')");
                     echo"Проход открылся - можете идти!";
                     die("<script>location='trjasina.php'</script>");
                 } else {
@@ -199,11 +199,11 @@ if ($user['level'] >=7 ) {
                     $lider = $_POST['lider'];
                     $pass = $_POST['pass'];
                     $comm = $_POST['komm'];
-                    $name = mysql_fetch_array(mysql_query("SELECT `login` FROM `users` WHERE `id` = '".mysql_real_escape_string($lider)."' LIMIT 1;"));
-                    mysql_query("INSERT INTO `bol_group` (`pass`,`lider`,`p1`,`comment`,`lider_nik`,`p1_nik`,`level`) VALUES ('".mysql_real_escape_string($pass)."','".mysql_real_escape_string($lider)."','".mysql_real_escape_string($lider)."','".mysql_real_escape_string($comm)."','".mysql_real_escape_string($name['login'])."','".mysql_real_escape_string($name['login'])."','".mysql_real_escape_string($user['level'])."')");
-                    $id_group = mysql_result(mysql_query("SELECT MAX(id) FROM `bol_group` WHERE `lider` = '".mysql_real_escape_string($user['id'])."'"),0);
-                    mysql_query("UPDATE `users` SET `boloto_groups`='".mysql_real_escape_string($id_group)."',`money`=`money`-'40',`bol_status`='1' WHERE `id`='".mysql_real_escape_string($user['id'])."'");
-                    mysql_query("insert into `vault_user_navig` (`group_id`,`login`,`l`,`t`,`loc`) VALUES ('".mysql_real_escape_string($id_group)."','".$user['login']."','100','100','2001') ");
+                    $name = mysqli_fetch_array(db_query("SELECT `login` FROM `users` WHERE `id` = '".db_escape_string($lider)."' LIMIT 1;"));
+                    db_query("INSERT INTO `bol_group` (`pass`,`lider`,`p1`,`comment`,`lider_nik`,`p1_nik`,`level`) VALUES ('".db_escape_string($pass)."','".db_escape_string($lider)."','".db_escape_string($lider)."','".db_escape_string($comm)."','".db_escape_string($name['login'])."','".db_escape_string($name['login'])."','".db_escape_string($user['level'])."')");
+                    $id_group = db_result(db_query("SELECT MAX(id) FROM `bol_group` WHERE `lider` = '".db_escape_string($user['id'])."'"),0);
+                    db_query("UPDATE `users` SET `boloto_groups`='".db_escape_string($id_group)."',`money`=`money`-'40',`bol_status`='1' WHERE `id`='".db_escape_string($user['id'])."'");
+                    db_query("insert into `vault_user_navig` (`group_id`,`login`,`l`,`t`,`loc`) VALUES ('".db_escape_string($id_group)."','".$user['login']."','100','100','2001') ");
                     echo"Вы успешно создали группу!<br>";
                     echo"<script>location='trjasina_vxod.php'</script>";
                 } else {
@@ -211,13 +211,13 @@ if ($user['level'] >=7 ) {
                 }
             }
             echo"<br>Доступные для вступления группы:<br>";
-            $data = mysql_query("SELECT * FROM `bol_group` where `status`='0' AND `level`='".$user['level']."'");
-            $chislo = mysql_num_rows($data);
+            $data = db_query("SELECT * FROM `bol_group` where `status`='0' AND `level`='".$user['level']."'");
+            $chislo = mysqli_num_rows($data);
             if ($chislo > 0) {
-                while($row = mysql_fetch_array($data)) {
+                while($row = mysqli_fetch_array($data)) {
                     echo"№<b>".$row['id']."</b> ";
-                    $QUER=mysql_query("SELECT `login`,`level`,`bol_status` FROM `users` WHERE `boloto_groups`='".mysql_real_escape_string($row['id'])."' ORDER BY `id` ASC");
-                    while($DATAS=mysql_fetch_array($QUER)) {
+                    $QUER=db_query("SELECT `login`,`level`,`bol_status` FROM `users` WHERE `boloto_groups`='".db_escape_string($row['id'])."' ORDER BY `id` ASC");
+                    while($DATAS=mysqli_fetch_array($QUER)) {
                         $bf = $row['id'];
                         $p1=$DATAS["login"];
                         $p_login=$DATAS["login"];
@@ -260,7 +260,7 @@ if ($user['level'] >=7 ) {
             } else {
                 echo"<HR>Вы уже состоите в группе №<b>".$user['boloto_groups']."</b> !<HR>";
                 echo"<form action='trjasina_vxod.php' method=post>";
-                $vibor = mysql_fetch_array(mysql_query("SELECT `lider` FROM `bol_group` WHERE `id` = '".mysql_real_escape_string($user['boloto_groups'])."'"));
+                $vibor = mysqli_fetch_array(db_query("SELECT `lider` FROM `bol_group` WHERE `id` = '".db_escape_string($user['boloto_groups'])."'"));
             if ($user['id'] == $vibor['lider']) {
                 echo"<input type=hidden name=id value=".$user['boloto_groups']."><input type=hidden name=kto value=".$user['id']."><input class=input type=submit name=closed value='Расформировать группу!'>";
                 echo"<input class=input type=submit name=start value='ПОЕХАЛИ!'>";

@@ -25,7 +25,7 @@ function getuserdata($id=0) {
   if (!@$_SESSION["allchecked"]) {
     $_SESSION["allchecked"]=1;
     $r=mq("SELECT id FROM `users` WHERE `id` = '{$id}'");
-    if (mysql_num_rows($r)==0) {
+    if (mysqli_num_rows($r)==0) {
       mq("replace into users (select * from users where id='{$id}')");
     }
   }
@@ -148,67 +148,67 @@ include'include/exptable.php';
       `spirit` = `spirit`+".$exptable[$user['nextup']][6]." WHERE `id` = '$user[id]'");
       if($exptable[$user['nextup']][4]==1 && $user['level']=='7')
                  {           
-                  mysql_query("UPDATE `users` SET `ekr`=`ekr`+10 WHERE `id`='$user[refer]'");
+                  db_query("UPDATE `users` SET `ekr`=`ekr`+10 WHERE `id`='$user[refer]'");
 
-mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','Получено 10 екр за реферала ',1,'".time()."');");
+db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','Получено 10 екр за реферала ',1,'".time()."');");
 
-	$us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$user['refer']}' LIMIT 1;"));
+	$us = mysqli_fetch_array(db_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$user['refer']}' LIMIT 1;"));
          if($us[0]){
 	addchp ('<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 10 eкр.</font>   ','{[]}'.nick7 ($user['refer']).'{[]}');
 	} else {
-	   	  mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$user['refer']."','','".'<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 10 eкр.</font> '."')");
+	   	  db_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$user['refer']."','','".'<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 10 eкр.</font> '."')");
 	}
 }
 if($exptable[$user['nextup']][4]==1 && $user['level']=='8')
                  {           
-                  mysql_query("UPDATE `users` SET `ekr`=`ekr`+15 WHERE `id`='$user[refer]'");
+                  db_query("UPDATE `users` SET `ekr`=`ekr`+15 WHERE `id`='$user[refer]'");
 
-mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','Получено 15 екр за реферала ',1,'".time()."');");
+db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','Получено 15 екр за реферала ',1,'".time()."');");
 
-	$us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$user['refer']}' LIMIT 1;"));
+	$us = mysqli_fetch_array(db_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$user['refer']}' LIMIT 1;"));
          if($us[0]){
 	addchp ('<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 15 eкр.</font>   ','{[]}'.nick7 ($user['refer']).'{[]}');
 	} else {
-	   	  mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$user['refer']."','','".'<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 15 eкр.</font> '."')");
+	   	  db_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$user['refer']."','','".'<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 15 eкр.</font> '."')");
 	}
 }
 if($exptable[$user['nextup']][4]==1 && $user['level']=='9')
                  {           
-                  mysql_query("UPDATE `users` SET `ekr`=`ekr`+20 WHERE `id`='$user[refer]'");
+                  db_query("UPDATE `users` SET `ekr`=`ekr`+20 WHERE `id`='$user[refer]'");
 
-mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','Получено 20 екр за реферала ',1,'".time()."');");
+db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','Получено 20 екр за реферала ',1,'".time()."');");
 
-	$us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$user['refer']}' LIMIT 1;"));
+	$us = mysqli_fetch_array(db_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$user['refer']}' LIMIT 1;"));
          if($us[0]){
 	addchp ('<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 20 eкр.</font>   ','{[]}'.nick7 ($user['refer']).'{[]}');
 	} else {
-	   	  mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$user['refer']."','','".'<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 20 eкр.</font> '."')");
+	   	  db_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$user['refer']."','','".'<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 20 eкр.</font> '."')");
 	}
 }
 if($exptable[$user['nextup']][4]==1 && $user['level']=='10')
                  {           
-                  mysql_query("UPDATE `users` SET `ekr`=`ekr`+25 WHERE `id`='$user[refer]'");
+                  db_query("UPDATE `users` SET `ekr`=`ekr`+25 WHERE `id`='$user[refer]'");
 
-mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','Получено 25 екр за реферала ',1,'".time()."');");
+db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','Получено 25 екр за реферала ',1,'".time()."');");
 
-	$us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$user['refer']}' LIMIT 1;"));
+	$us = mysqli_fetch_array(db_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$user['refer']}' LIMIT 1;"));
          if($us[0]){
 	addchp ('<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 25 eкр.</font>   ','{[]}'.nick7 ($user['refer']).'{[]}');
 	} else {
-	   	  mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$user['refer']."','','".'<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 25 eкр.</font> '."')");
+	   	  db_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$user['refer']."','','".'<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 25 eкр.</font> '."')");
 	}
       }
 	  if($exptable[$user['nextup']][4]==1 && $user['level']=='11')
                  {           
-                  mysql_query("UPDATE `users` SET `ekr`=`ekr`+50 WHERE `id`='$user[refer]'");
+                  db_query("UPDATE `users` SET `ekr`=`ekr`+50 WHERE `id`='$user[refer]'");
 
-mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','Получено 50 екр за реферала ',1,'".time()."');");
+db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','Получено 50 екр за реферала ',1,'".time()."');");
 
-	$us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$user['refer']}' LIMIT 1;"));
+	$us = mysqli_fetch_array(db_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$user['refer']}' LIMIT 1;"));
          if($us[0]){
 	addchp ('<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 50 eкр.</font>   ','{[]}'.nick7 ($user['refer']).'{[]}');
 	} else {
-	   	  mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$user['refer']."','','".'<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 50 eкр.</font> '."')");
+	   	  db_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$user['refer']."','','".'<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$user['login'].'</B> перешел на '.($user['level']+1).' уровень. Вам перечислено 50 eкр.</font> '."')");
 	}
       }
     }
@@ -276,7 +276,7 @@ function adddressstats(&$d1, $d2) {
 }
 function nick_trade ($user) {
 	$id = $user['id'];
-	$effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
+	$effect = mysqli_fetch_array(db_query("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
     if($effect) {
         $user['level'] = '??';
         $user['login'] = '</a><b><i>невидимка</i></b>';
@@ -301,7 +301,7 @@ function nick_p ($user) {
 // nick
 function nick ($user) {
   $id = $user['id'];
-  $effect = mysql_fetch_array(mq("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
+  $effect = mysqli_fetch_array(mq("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
   if($effect) {
     $user['level'] = '??';
     $user['login'] = '</a><b><i>невидимка</i></b>';
@@ -325,7 +325,7 @@ function incastle($r) { return ($r>=700 && $r<800); }
 function nick99 ($id) {
   global $user;
   if ($id==$user["id"]) $user1=$user;
-  else $user1 = mysql_fetch_array(mq("SELECT fullhptime,fullmptime,hp,mana,id,battle,level,maxhp,maxmana,mudra,in_tower FROM `users` WHERE `id` = '".$id."' LIMIT 1;"));
+  else $user1 = mysqli_fetch_array(mq("SELECT fullhptime,fullmptime,hp,mana,id,battle,level,maxhp,maxmana,mudra,in_tower FROM `users` WHERE `id` = '".$id."' LIMIT 1;"));
   $id = $user1['id'];
   if (!isset($user1["data"])) $user1["data"]=getudata($id);
   if(!$user1['battle']){
@@ -334,12 +334,12 @@ function nick99 ($id) {
     $owntravmadb=mq("SELECT type, id, sila, lovk, inta, intel, mudra, ghp, gmana, owner, name, isp, mfdhit, mfdmag, mfdkol, mfdrej, mfdrub, mfddrob, mfdfire, mfdair, mfdwater, mfdearth, time FROM effects WHERE (`time` <= ".time()."  or (`time` <= ".time()."+600 and isp=0) ) AND `owner` = ".$id.";");
     $he=0;
     $canremove=1;
-    if (mysql_num_rows($owntravmadb)>0) {
+    if (mysqli_num_rows($owntravmadb)>0) {
       $i=mqfa1("select id from fieldmembers where user='$id'");
       if ($i) $canremove=0;
     } 
     if ($canremove) {
-      while ($owntravma = mysql_fetch_array($owntravmadb)) {
+      while ($owntravma = mysqli_fetch_array($owntravmadb)) {
         if (!$owntravma["isp"] && $owntravma["time"]>time()) {
           $mins=ceil(($owntravma["time"]-time())/60);
           if ($mins>0) addchp ('<font color=red>Внимание!</font> Через '.$mins.' мин. закончится действие эффекта <b>'.$owntravma["name"].'</b>', '{[]}'.nick7($id).'{[]}');
@@ -532,20 +532,20 @@ $br="Internet Explorer";
 // nick
 function nick2 ($id, $showinvis=1) {
     if($id > _BOTSEPARATOR_) {
-        $bots = mysql_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
+        $bots = mysqli_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
         $id=$bots['prototype'];
-        $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
         $user['login'] = $bots['name'];
         $user['hp'] = $bots['hp'];
         $user['id'] = $bots['id'];
     } else {
-        $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
-        if (!$user) $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        if (!$user) $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
     }
 
     if($user[0]) {
       if ($showinvis) {
-        $effect = mysql_fetch_array(mq("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
+        $effect = mysqli_fetch_array(mq("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
         if($effect) {
           $user['level'] = '??';
           $user['login'] = '</a><b><i>невидимка</i></b>';
@@ -590,19 +590,19 @@ function fullnick($user1, $showinvis=0, $class=0) {
 // nick
 function nick4 ($id,$st) {
     if($id > _BOTSEPARATOR_) {
-        $bots = mysql_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
+        $bots = mysqli_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
         $id=$bots['prototype'];
-        $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
         $user['login'] = $bots['name'];
         $user['hp'] = $bots['hp'];
         $user['id'] = $bots['id'];
     } else {
-        $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
-        if (!$user) $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        if (!$user) $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
     }
 
     if($user[0]) {
-    $effect = mysql_fetch_array(mq("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
+    $effect = mysqli_fetch_array(mq("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
     if($effect) {
         $user['level'] = '??';
         $user['login'] = '</a><b><i>невидимка</i></b>';
@@ -621,11 +621,11 @@ function nick4 ($id,$st) {
 // nick
 function nick7 ($id) {
   if($id > _BOTSEPARATOR_) {
-    $bots = mysql_fetch_array(mq ('SELECT name FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
+    $bots = mysqli_fetch_array(mq ('SELECT name FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
     $user['login'] = $bots['name'];
   } else {
-    $user = mysql_fetch_array(mq("SELECT login FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
-    if (!$user) $user = mysql_fetch_array(mq("SELECT login FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+    $user = mysqli_fetch_array(mq("SELECT login FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+    if (!$user) $user = mysqli_fetch_array(mq("SELECT login FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
   }
   if($user) {
     if($user["invis"]) $user['login'] = '</a><b><i>невидимка</i></b>';
@@ -636,19 +636,19 @@ function nick7 ($id) {
 // nick
 function nick5 ($id,$st) {
     if($id > _BOTSEPARATOR_) {
-        $bots = mysql_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
+        $bots = mysqli_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
         $id=$bots['prototype'];
-        $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
         $user['login'] = $bots['name'];
         $user['hp'] = $bots['hp'];
         $user['id'] = $bots['id'];
     } else {
-        $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
-        if (!$user) $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        if (!$user) $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
     }
 
     if($user[0]) {
-    $effect = mysql_fetch_array(mq("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
+    $effect = mysqli_fetch_array(mq("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
     if($effect) {
         $user['level'] = '??';
         $user['login'] = '</a><b><i>невидимка</i></b>';
@@ -667,20 +667,20 @@ function nick5 ($id,$st) {
 // nick
 function nick6 ($id) {
     if($id > _BOTSEPARATOR_) {
-        $bots = mysql_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
+        $bots = mysqli_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
         $id=$bots['prototype'];
-        $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
         $user['login'] = $bots['name'];
         $user['hp'] = $bots['hp'];
         $user['id'] = $bots['id'];
     } else {
-        $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
-        if (!$user) $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        if (!$user) $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
     }
 
 
     if($user[0]) {
-    $effect = mysql_fetch_array(mq("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
+    $effect = mysqli_fetch_array(mq("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
     if($effect) {
         $user['level'] = '??';
         $user['login'] = '</a><b><i>невидимка</i></b>';
@@ -705,15 +705,15 @@ function nick3 ($id) {
     $user1=$user;
   } else {
     if($id > _BOTSEPARATOR_) {
-        $bots = mysql_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
+        $bots = mysqli_fetch_array(mq ('SELECT * FROM `bots` WHERE `id` = '.$id.' LIMIT 1;'));
         $id=$bots['prototype'];
-        $user1 = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user1 = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
         $user1['login'] = $bots['name'];
         $user1['hp'] = $bots['hp'];
         $user1['id'] = $bots['id'];
     } else {
-        $user1 = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
-        if (!$user1) $user1 = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        $user1 = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        if (!$user1) $user1 = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
     }
   }
 
@@ -846,7 +846,7 @@ function getscroll($slot, $to="") {
   }
   if ($user[$slot] > 0) {
     $row['id'] = $user[$slot];
-    $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user[$slot]}' LIMIT 1;"));
+    $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user[$slot]}' LIMIT 1;"));
     if ($dress['magic']) {
       $magic = magicinf ($dress['magic']);
       $ret.="<a  onclick=\"";
@@ -1059,7 +1059,7 @@ function getDateInterval($pointDate) {
 function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
   global $mysql, $rooms, $user, $personline;
   if ($user["id"]==$id) $user1=$user;
-  else $user1 = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+  else $user1 = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
   include "config/questbots.php";
   if (@$questbots[$id]) {
     $user1["hp"]=questbothp();
@@ -1154,7 +1154,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
       }
     } else {
       if ($user1['helm'] > 0) {
-        $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['helm']}' LIMIT 1;"));
+        $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['helm']}' LIMIT 1;"));
         if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
           $ret.=gethrefmagic($dress);
         } else {
@@ -1165,7 +1165,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
       }
       $ret.="</TD></TR><TR><TD style=\"BACKGROUND-IMAGE:none\">";
       if ($user1['naruchi'] > 0) {
-        $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['naruchi']}' LIMIT 1;"));
+        $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['naruchi']}' LIMIT 1;"));
         if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
           $ret.=gethrefmagic($dress);
         } else {
@@ -1176,7 +1176,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
       }
       $ret.="</TD></TR><TR><TD style=\"BACKGROUND-IMAGE: none\">";
       if ($user1['weap'] > 0) {
-        $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['weap']}' LIMIT 1;"));
+        $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['weap']}' LIMIT 1;"));
         if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
           $ret.=gethrefmagic($dress);
         } else {
@@ -1205,7 +1205,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
             $title.="\n--------------------\n$dress[name]\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни ".plusorminus($dress['ghp']):"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа одежде вышито '{$dress['text']}'":"");
           }
         } elseif ($user1['rybax']) $d=$user1['rybax'];
-        $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '$d' LIMIT 1;"));
+        $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '$d' LIMIT 1;"));
         if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
           $ret.=gethrefmagic($dress);
         } else {
@@ -1216,7 +1216,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
       }
       $ret.="</TD></TR><TR><TD style=\"BACKGROUND-IMAGE: none\">";
       if ($user1['belt'] > 0) {
-        $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['belt']}' LIMIT 1;"));
+        $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['belt']}' LIMIT 1;"));
         if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
           $ret.=gethrefmagic($dress);
         } else {
@@ -1234,7 +1234,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
     if($battle!='0' or $user1['id']==99){ 
       $ret.="<tr><td nowrap style=\"font-size:9px\"><div style=\"position: relative\">";
       if($user1['id']==99) {
-        $vrag_b = mysql_fetch_array(mq("SELECT `hp` FROM `bots` WHERE  `prototype` = 99 LIMIT 1 ;"));
+        $vrag_b = mysqli_fetch_array(mq("SELECT `hp` FROM `bots` WHERE  `prototype` = 99 LIMIT 1 ;"));
         if($vrag_b){$user1['hp']=$vrag_b['hp'];}
 
       }
@@ -1260,7 +1260,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
         $ret.="</div></td></tr>";
       }
     }
-    $zver=mysql_fetch_array(mq("SELECT shadow,login,level,vid FROM `users` WHERE `id` = '".$user1['zver_id']."' LIMIT 1;"));
+    $zver=mysqli_fetch_array(mq("SELECT shadow,login,level,vid FROM `users` WHERE `id` = '".$user1['zver_id']."' LIMIT 1;"));
     $ret.="</table></TD></TR><TR><TD height=220 vAlign=top width=120 align=left>
     <DIV style=\"Z-INDEX: 1; POSITION: relative; WIDTH: 120px; HEIGHT: 220px\" bgcolor=\"black\">";
     
@@ -1386,7 +1386,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
         }
       } else {
         if ($user1['sergi'] > 0) {
-          $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['sergi']}' LIMIT 1;"));
+          $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['sergi']}' LIMIT 1;"));
           if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
             $ret.=gethrefmagic($dress);
           } else {
@@ -1398,7 +1398,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
         $ret.="</TD></TR>
         <TR><TD style=\"BACKGROUND-IMAGE: none\">";
         if ($user1['kulon'] > 0) {
-          $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['kulon']}' LIMIT 1;"));
+          $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['kulon']}' LIMIT 1;"));
           if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
             $ret.=gethrefmagic($dress);
           } else {
@@ -1411,7 +1411,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
         <TBODY> <TR>
         <TD style=\"BACKGROUND-IMAGE: none\">";
         if ($user1['r1'] > 0) {
-          $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['r1']}' LIMIT 1;"));
+          $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['r1']}' LIMIT 1;"));
           if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
             $ret.=gethrefmagic($dress);
           } else {
@@ -1423,7 +1423,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
         $ret.="</td>
         <TD style=\"BACKGROUND-IMAGE: none\">";
         if ($user1['r2'] > 0) {
-          $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['r2']}' LIMIT 1;"));
+          $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['r2']}' LIMIT 1;"));
           if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
             $ret.=gethrefmagic($dress);
           } else {
@@ -1435,7 +1435,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
         $ret.="</td>
         <TD style=\"BACKGROUND-IMAGE: none\">";
         if ($user1['r3'] > 0) {
-          $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['r3']}' LIMIT 1;"));
+          $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['r3']}' LIMIT 1;"));
           if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
             $ret.=gethrefmagic($dress);
           } else {
@@ -1448,7 +1448,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
         </TR></TBODY></TABLE></TD></TR>
         <TR><TD style=\"BACKGROUND-IMAGE: none\">";
         if ($user1['perchi'] > 0) {
-          $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['perchi']}' LIMIT 1;"));
+          $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['perchi']}' LIMIT 1;"));
           if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
             $ret.=gethrefmagic($dress);
           } else {
@@ -1460,7 +1460,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
         $ret.="</TD></TR>
         <TR><TD style=\"BACKGROUND-IMAGE: none\">";
         if ($user1['shit'] > 0) {
-          $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['shit']}' LIMIT 1;"));
+          $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['shit']}' LIMIT 1;"));
           if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
             $ret.=gethrefmagic($dress);
           } else {
@@ -1472,7 +1472,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
         $ret.="</TD></TR>
         <TR><TD style=\"BACKGROUND-IMAGE: none\">";
         if ($user1['leg'] > 0) {
-          $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['leg']}' LIMIT 1;"));
+          $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['leg']}' LIMIT 1;"));
           if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
             $ret.=gethrefmagic($dress);
           } else {
@@ -1484,7 +1484,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
         $ret.="</TD></TR>
         <TR><TD style=\"BACKGROUND-IMAGE: none\">";
         if ($user1['boots'] > 0) {
-          $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['boots']}' LIMIT 1;"));
+          $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user1['boots']}' LIMIT 1;"));
           if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
             $ret.=gethrefmagic($dress);
           } else {
@@ -1508,7 +1508,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
     $ret.="</TD></TR>
     <TR><TD></TD>";
     if ($invis) $data["id"]=null;
-    else $data = mysql_fetch_array(mq("select * from `online` WHERE `date` >= ".(time()-60)." AND `id` = ".$user1['id'].";"));
+    else $data = mysqli_fetch_array(mq("select * from `online` WHERE `date` >= ".(time()-60)." AND `id` = ".$user1['id'].";"));
     $ret.="</A>
     </TABLE>
     </CENTER><CENTER>
@@ -1519,7 +1519,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
         $ret.='<TR><TD align=middle colSpan=2><B>'.$cit[$user['incity']].'</B></TD></TR>
         <TR><TD colSpan=2>
         <SMALL>';
-        $online = mysql_fetch_array(mq('SELECT u.* ,o.date,u.* ,o.real_time FROM `users` as u, `online` as o WHERE u.`id` = o.`id` AND u.`id` = \''.$user1['id'].'\' LIMIT 1;'));
+        $online = mysqli_fetch_array(mq('SELECT u.* ,o.date,u.* ,o.real_time FROM `users` as u, `online` as o WHERE u.`id` = o.`id` AND u.`id` = \''.$user1['id'].'\' LIMIT 1;'));
         if ($invis) $invis = mqfa1("select `time` from effects where owner='$user1[id]' and type='1022'");
         if ($invis>time()) {
           $data['id']=null;
@@ -1536,7 +1536,7 @@ function showpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
             $rrm = 'Башня смерти, участвует в турнире';
           } elseif($user1['id'] == 99) {
             $rrm = "Центральная площадь";
-            $vrag_b = mysql_fetch_array(mq("SELECT `battle` FROM `bots` WHERE  `prototype` = 99 LIMIT 1 ;"));
+            $vrag_b = mysqli_fetch_array(mq("SELECT `battle` FROM `bots` WHERE  `prototype` = 99 LIMIT 1 ;"));
             $user1['battle']=$vrag_b['battle'];
           } else {
             $rrm = $rooms[$user1['room']];
@@ -1563,14 +1563,14 @@ if ($user1['id'] == 50) {$ret.="<center>Персонаж не в клубе";} e
       <table><tr><td><BR>";
       if ($pas) {
         $user11 = mq("SELECT gsila,glovk,ginta,gintel FROM `inventory` WHERE (dressed = 1 AND owner = {$user1['id']}) or ".dresscond($user1));
-        while($user12 = mysql_fetch_array($user11)){
+        while($user12 = mysqli_fetch_array($user11)){
           $sil=$sil+$user12['gsila'];
           $lov=$lov+$user12['glovk'];
           $int=$int+$user12['ginta'];
           $intel=$intel+$user12['gintel'];                                                                      
         }
         $user22 = mq("SELECT sila,lovk,inta,intel,mudra,type FROM `effects` WHERE (type = 188 or type=187 or type=".ADDICTIONEFFECT." or type=11 or type=12 or type=13 or type=14) AND owner = {$user1['id']}");
-        while ($user33 = mysql_fetch_array($user22)) {
+        while ($user33 = mysqli_fetch_array($user22)) {
           if ($user33["type"]==11 || $user33["type"]==12 || $user33["type"]==13 || $user33["type"]==14) {
             $user33["sila"]=-$user33["sila"];
             $user33["lovk"]=-$user33["lovk"];
@@ -1586,7 +1586,7 @@ if ($user1['id'] == 50) {$ret.="<center>Персонаж не в клубе";} e
         }
 
         $user22 = mq("SELECT sila,lovk,inta,intel,mudra,type FROM `obshagaeffects` WHERE (type = 188 or type = 187 or type=".ADDICTIONEFFECT." or type=11 or type=12 or type=13 or type=14) AND owner = {$user1['id']}");
-        while ($user33 = mysql_fetch_array($user22)) {
+        while ($user33 = mysqli_fetch_array($user22)) {
           if ($user33["type"]==11 || $user33["type"]==12 || $user33["type"]==13 || $user33["type"]==14) {
             $user33["sila"]=-$user33["sila"];
             $user33["lovk"]=-$user33["lovk"];
@@ -1758,7 +1758,7 @@ echo "</small><br>";
           $ret.="$user1[palcom]</font>";
         }
         
-        $effect = mysql_fetch_array(mq("SELECT `time`,`type` FROM `effects` WHERE `owner` = '{$user1['id']}' and (`type` = '4' or `type` = '21') LIMIT 1;"));
+        $effect = mysqli_fetch_array(mq("SELECT `time`,`type` FROM `effects` WHERE `owner` = '{$user1['id']}' and (`type` = '4' or `type` = '21') LIMIT 1;"));
         if ($effect['time']) {
           $eff=$effect['time'];
           $tt=time();
@@ -1952,7 +1952,7 @@ function itemneeds($id) {
     $str = '';
     $item = mqfa("SELECT * FROM shop_rel WHERE id = $id");
     if ($item) {
-      $name = mysql_result(mysql_query('SELECT name FROM shop WHERE id = ' . $item['rid']), 0, 0);
+      $name = db_result(db_query('SELECT name FROM shop WHERE id = ' . $item['rid']), 0, 0);
       if ($name) {
         $str .= '<br>Требуется предмет:';
         $str .= ' ' . $name . ' (x' . $item['count'] . ')';
@@ -2178,7 +2178,7 @@ function showeffects($userid) {
   $r=mq('SELECT * FROM `effects` WHERE `owner` ='.$userid.' and (type=11 or type=12 or type=13 or type=14 or type=22 or type=26 or type=31 or type=32 or type=33 or type=34 or type=35 or type=38 or type=49 or type=185 or type=186 or `type`=187 or `type`=188 or `type`=395 or `type`=396 or `type`=201 or `type`=202 or `type`=1022 or `type`=54 or type=28 or type=29 or type=30 or type=40 or type=9999 or type=9994 or type=9990 or type=9991 or type=9992 or type=9993 or type='.CAVEEFFECT.' or type='.NYBLESSING.' or type='.MAKESNOWBALL.')');
   $i=0;
   $ret="";
-  while($rec=mysql_fetch_array($r)) {
+  while($rec=mysqli_fetch_array($r)) {
     $i++;
     list($left, $top)=effectpos($i);
     $effect=effectdata($rec);
@@ -2193,10 +2193,10 @@ function showeffects($userid) {
 function showpersinv($id) {
     global $mysql, $user;
     if ($id==$user["id"]) $user1=$user;
-    else $user1=mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+    else $user1=mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
     $r=mq("select * from inventory where id='$user1[helm]' or id='$user1[naruchi]' or id='$user1[weap]' or id='$user1[plaw]' or id='$user1[bron]' or id='$user1[rybax]' or id='$user1[belt]' or id='$user1[sergi]' or id='$user1[kulon]' or id='$user1[r1]' or id='$user1[r2]' or id='$user1[r3]' or id='$user1[perchi]' or id='$user1[shit]' or id='$user1[leg]' or id='$user1[boots]' or id='$user1[m1]' or id='$user1[m2]' or id='$user1[m3]' or id='$user1[m4]' or id='$user1[m5]' or id='$user1[m6]' or id='$user1[m7]' or id='$user1[m8]' or id='$user1[m9]' or id='$user1[m10]' or id='$user1[m11]' or id='$user1[m12]' or id='$user1[p1]' or id='$user1[p2]' or id='$user1[venok]'");
     $dressed=array();
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $dressed[$rec["id"]]=$rec;
     }
 
@@ -2340,7 +2340,7 @@ echo "</div></td>
 <TR><TD height=220 vAlign=top width=120 align=left>
 <DIV style="Z-INDEX: 1; POSITION: relative; WIDTH: 120px; HEIGHT: 220px; position:relative;" bgcolor="black">
 <?
-$zver=mysql_fetch_array(mq("SELECT shadow,login,level,vid FROM `users` WHERE `id` = '".$user1['zver_id']."' LIMIT 1;"));
+$zver=mysqli_fetch_array(mq("SELECT shadow,login,level,vid FROM `users` WHERE `id` = '".$user1['zver_id']."' LIMIT 1;"));
 if($zver && $zver["vid"]){
 ?>
 <div style="position:absolute; left:80px; top:145px; width:40px; height:73px; z-index:2">
@@ -2742,7 +2742,7 @@ function resetsets($user1=0, $noreport=0) {
   if ($user1["setitem"]) $setitem=mqfa("select dressed, gsila, glovk, ginta, gintel, ghp, gmana, gnoj, gtopor, gdubina, gmech, gposoh, gluk, gfire, gwater, gair, gearth, glight, gdark, ggray from inventory where id='$user1[setitem]'");
   if (!$user1["setitem"] || !@$setitem) {
     mq("insert into inventory (owner, duration, maxdur, destinyinv) values ('$user1[id]', 0, 100000, 3)");
-    $user1["setitem"]=mysql_insert_id();
+    $user1["setitem"]=db_insert_id();
     mq("update users set setitem='$user1[setitem]' where id='$user1[id]'");
   } else {
     if ($setitem["dressed"]) {
@@ -2767,7 +2767,7 @@ function resetsets($user1=0, $noreport=0) {
   $r=mq("select count(id)+sum(dvur) as cid, setid from inventory where ".dresscond($user1)." group by setid");
   $set=array("duration"=>0, "maxdur"=>100000, "minu"=>0, "maxu"=>0, "gsila"=>0, "glovk"=>0, "ginta"=>0, "gintel"=>0, "ghp"=>0, "gmana"=>0, "mfkrit"=>0, "mfakrit"=>0, "mfuvorot"=>0, "mfauvorot"=>0, "mfrej"=>0, "mfdrob"=>0, "mfkol"=>0, "mfrub"=>0, "mfdhit"=>0, "mfdkol"=>0, "mfdrub"=>0, "mfdrej"=>0, "mfddrob"=>0, "mfdmag"=>0, "mfdfire"=>0, "mfdwater"=>0, "mfdair"=>0, "mfdearth"=>0, "mfdlight"=>0, "mfddark"=>0, "minusmfdmag"=>0, "minusmfdfire"=>0, "minusmfdair"=>0, "minusmfdwater"=>0, "minusmfdearth"=>0, "mfantikritpow"=>0, "mfkritpow"=>0, "mfcontr"=>0, "mfshieldblock"=>0, "mfparir"=>0, "mfhitp"=>0, "mfmagp"=>0, "mffire"=>0, "mfair"=>0, "mfwater"=>0, "mfearth"=>0, "mflight"=>0, "mfdark"=>0, "manausage"=>0, "gnoj"=>0, "gtopor"=>0, "gdubina"=>0, "gmech"=>0, "gposoh"=>0, "gluk"=>0, "bron1"=>0, "bronmin1"=>0, "bron2"=>0, "bronmin2"=>0, "bron3"=>0, "bronmin3"=>0, "bron4"=>0, "bronmin4"=>0, "gfire"=>0, "gwater"=>0, "gair"=>0, "gearth"=>0, "glight"=>0, "ggray"=>0, "gdark"=>0, "gmp"=>0, "gmeshok"=>0, "mfproboj"=>0, "blockzones"=>0);
   $sets="";
-  while ($rec1=mysql_fetch_assoc($r)) {
+  while ($rec1=mysqli_fetch_assoc($r)) {
     $rec=mqfa("select * from setstats where itemsfrom<=$rec1[cid] and itemsto>=$rec1[cid] and setid='$rec1[setid]'");
     if ($rec) {
       if ($sets) $sets.=", ";
@@ -2840,7 +2840,7 @@ function derj($id) {
             duration < maxdur and
             u.id = {$user['id']};"))
             {
-                $dd = mysql_fetch_array($dd);
+                $dd = mysqli_fetch_array($dd);
                 if($dd[0] > 0) {
                     return true;
                 } else {
@@ -2888,7 +2888,7 @@ function fallitems() {
   $user[mdark] < ndark or
   duration >= maxdur
   )");
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     dropitem(0,getslot($rec["id"]));
   }
 }
@@ -2902,7 +2902,7 @@ function ref_drop ($id) {
   }
   $r=mq("select * from inventory where $cond");
   $inventory=array();
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     $inventory[]=$rec;
   }
   $rs=0;
@@ -2964,7 +2964,7 @@ function slotbytype($t, $user) {
 // одеть предмет
 function dressitem ($id) {
     global $mysql, $user;
-    $item = mysql_fetch_array(mq("SELECT * FROM `inventory` as i WHERE  `duration` < `maxdur` AND `id` = '{$id}' AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0; "));
+    $item = mysqli_fetch_array(mq("SELECT * FROM `inventory` as i WHERE  `duration` < `maxdur` AND `id` = '{$id}' AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0; "));
     if (!canhold($user, $item)) return false;
     switch($item['type']) {
         case 1: $slot1 = 'sergi'; break;
@@ -3064,7 +3064,7 @@ function dressitem ($id) {
 }
 
 function dresstoweritem ($user, $id, $slot) {
-  $item = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$id}'"));
+  $item = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$id}'"));
   mq("update users set $slot='$id', sila=sila+'$item[gsila]', lovk=lovk+'$item[glovk]', 
   inta=inta+'$item[ginta]', intel=intel+'$item[gintel]', maxhp=maxhp+$item[ghp],
   maxmana=maxmana+'$item[gmana]' where id='$user'");
@@ -3074,8 +3074,8 @@ function dresstoweritem ($user, $id, $slot) {
 // одеть предмет
 function dressitemkomplekt ($id,$idd,$slot1) {
     global $mysql, $user;
-    $item = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE owner=".$_SESSION['uid']." AND dressed = 0 and duration < maxdur and id='".$idd."' limit 1"));
-    if ($item['id']=='') $item = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE owner=".$_SESSION['uid']." AND dressed = 0 and duration < maxdur and name='".$id."' order by duration desc limit 1"));
+    $item = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE owner=".$_SESSION['uid']." AND dressed = 0 and duration < maxdur and id='".$idd."' limit 1"));
+    if ($item['id']=='') $item = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE owner=".$_SESSION['uid']." AND dressed = 0 and duration < maxdur and name='".$id."' order by duration desc limit 1"));
     if (!$item) return;
     if (!$slot1) {
       switch($item['type']) {
@@ -3172,7 +3172,7 @@ function dressitemkomplekt ($id,$idd,$slot1) {
 // убить предмет
 function destructitem($id, $used=0) {
     global $user, $mysql;
-    $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `id` = '{$id}' LIMIT 1;"));
+    $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `id` = '{$id}' LIMIT 1;"));
     switch($dress['type']) {
       case 1: $slot1 = 'sergi'; break;
       case 2: $slot1 = 'kulon'; break;
@@ -3252,10 +3252,10 @@ function usemagic($id,$target) {
       }
     }
 
-    $row = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `id` = '{$id}' LIMIT 1;"));
+    $row = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `id` = '{$id}' LIMIT 1;"));
     if (incommontower($user) && $row["bs"]!=$user["in_tower"]) return false;
     if ((canhold($user, $row) && $user["mana"]>=$row["gmp"]) || $row['magic'] == 48 || $row['magic'] == 50 || $row['magic'] == 42 || $row['magic'] == 139 || $row['magic'] == 203) {
-        $magic = mysql_fetch_array(mq("SELECT * FROM `magic` WHERE `id` = '{$row['magic']}' LIMIT 1;"));
+        $magic = mysqli_fetch_array(mq("SELECT * FROM `magic` WHERE `id` = '{$row['magic']}' LIMIT 1;"));
         if ($target) $ti=mqfa1("select id from users where login='$target'"); else $ti=0;
         if (!$user["battle"]) $i=mqfa1("select id from fieldmembers where user='$user[id]' or user='$ti'");
         else $i=0;
@@ -3273,7 +3273,7 @@ function usemagic($id,$target) {
             echo "<div align=right><font color=red><b>Этот предмет сегодня больше нельзя использовать!</b></font></div>";
             return false;
           } else {
-            $incmagic = mysql_fetch_array(mq('SELECT * FROM `magic` WHERE `id` = \''.$row['includemagic'].'\' LIMIT 1;'));
+            $incmagic = mysqli_fetch_array(mq('SELECT * FROM `magic` WHERE `id` = \''.$row['includemagic'].'\' LIMIT 1;'));
             $incmagic['name'] = $row['includemagicname'];
             $incmagic['cur'] = $row['includemagicdex'];
             $incmagic['max'] = $row['includemagicmax'];
@@ -3369,14 +3369,14 @@ function err($t) {
 }
 // ставим травму
 function settravma($id,$type,$time=86400,$kill=false,$force=0) {
-  $user = mysql_fetch_array(mq("SELECT align, level, features FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+  $user = mysqli_fetch_array(mq("SELECT align, level, features FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
   if((($user['align'] == 2 && mt_rand(1,100) > 20) && !$kill) OR ($user['level'] == 0)) {
       return false;
   } else {
     $travmalist = array ("разбитый нос","сотрясение первой степени","потрепанные уши","прикушенный язык","перелом переносицы","растяжение ноги","растяжение руки","подбитый глаз","синяк под глазом","кровоточащее рассечение","отбитая <пятая точка>","заклинившая челюсть","выбитый зуб <мудрости>","косоглазие");
     $travmalist2 = array ("отбитые почки","вывих <вырезано цензурой>","сотрясение второй степени","оторванное ухо","вывих руки","оторванные уши","поврежденный позвоночник","отбитые почки","поврежденный копчик","разрыв сухожилия","перелом ребра","перелом двух ребер","вывих ноги","сломанная челюсть");
     $travmalist3 = array ("пробитый череп","разрыв селезенки","смещение позвонков","открытый перелом руки","открытый перелом <вырезано цензурой>","излом носоглотки","непонятные, но множественные травмы","сильное внутреннее кровотечение","раздробленная коленная чашечка","перелом шеи","смещение позвонков","открытый перелом ключицы","перелом позвоночника","вывих позвоночника","сотрясение третьей степени");
-    $owntravma = mysql_fetch_array(mq("SELECT `type`,`id`,`sila`,`lovk`,`inta` FROM `effects` WHERE `owner` = ".$id." AND (`type`=11 OR `type`=12 OR `type`=13) ORDER by `type` DESC LIMIT 1 ;"));
+    $owntravma = mysqli_fetch_array(mq("SELECT `type`,`id`,`sila`,`lovk`,`inta` FROM `effects` WHERE `owner` = ".$id." AND (`type`=11 OR `type`=12 OR `type`=13) ORDER by `type` DESC LIMIT 1 ;"));
     if($type != 0 && $type != 100) $owntravma['type']= $type;
     elseif ($type != 0 && $type == 100 && $owntravma['type']==0) {
       $type=mt_rand(1,100);
@@ -3507,7 +3507,7 @@ function settravma($id,$type,$time=86400,$kill=false,$force=0) {
 // удаляем травму
 function deltravma($id) {
     $owntravmadb = mq("SELECT `type`,`id`,`sila`,`lovk`,`inta`,`owner` FROM `effects` WHERE `id` = ".$id." AND (type=11 OR type=12 OR type=13 OR type=14);");
-    while ($owntravma = mysql_fetch_array($owntravmadb)) {
+    while ($owntravma = mysqli_fetch_array($owntravmadb)) {
         mq("DELETE FROM `effects` WHERE `id` = '".$owntravma['id']."' LIMIT 1;");
         mq("UPDATE `users` SET `sila`=`sila`+'".$owntravma['sila']."', `lovk`=`lovk`+'".$owntravma['lovk']."', `inta`=`inta`+'".$owntravma['inta']."' WHERE `id` = '".$owntravma['owner']."' LIMIT 1;");
     }
@@ -3518,9 +3518,9 @@ function showtrawma() {
 // telegrafick
 function telegraph($to,$text, $output=1) {
     global $user;
-    $ur = mysql_fetch_array(mq("select `id` from `users` WHERE `login` = '{$to}' LIMIT 1;"));
+    $ur = mysqli_fetch_array(mq("select `id` from `users` WHERE `login` = '{$to}' LIMIT 1;"));
     if (!$ur) $ur=mqfa("select `id` from `users` WHERE `login` = '{$to}'");
-    $us = mysql_fetch_array(mq("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$ur['id']}' LIMIT 1;"));
+    $us = mysqli_fetch_array(mq("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$ur['id']}' LIMIT 1;"));
     if(!$ur) {
       if ($output) echo "<font color=red><b>Персонаж не найден.</b></font>";
     }
@@ -3536,8 +3536,8 @@ function telegraph($to,$text, $output=1) {
 // telegrafick
 function tele_check($to,$text) {
     global $user;
-    $ur = mysql_fetch_array(mq("select `id` from `users` WHERE `login` = '{$to}' LIMIT 1;"));
-    $us = mysql_fetch_array(mq("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$ur['id']}' LIMIT 1;"));
+    $ur = mysqli_fetch_array(mq("select `id` from `users` WHERE `login` = '{$to}' LIMIT 1;"));
+    $us = mysqli_fetch_array(mq("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$ur['id']}' LIMIT 1;"));
     if(!$ur) {
         echo "<font color=red><b>Персонаж не найден.</b></font>";
     }
@@ -3551,12 +3551,12 @@ function tele_check($to,$text) {
 
 function get_meshok(){
   global $user;
-  $d=mysql_fetch_array(mq("SELECT sum(`gmeshok`) FROM `inventory` WHERE `owner` = '{$user['id']}' AND `setsale` = 0 AND `gmeshok`>0 ; "));
+  $d=mysqli_fetch_array(mq("SELECT sum(`gmeshok`) FROM `inventory` WHERE `owner` = '{$user['id']}' AND `setsale` = 0 AND `gmeshok`>0 ; "));
   return (40*$user["level"]+$user['vinos']+$d[0]);
 }
 function get_meshok_to($to){
-  $d = mysql_fetch_array(mq("SELECT sum(`gmeshok`) FROM `inventory` WHERE `owner` = '{$to}' AND  `setsale` = 0 AND `gmeshok`>0 ; "));
-  $s = mysql_fetch_array(mq("SELECT level, vinos FROM `users` WHERE `id` = '{$to}' LIMIT 1 ; "));
+  $d = mysqli_fetch_array(mq("SELECT sum(`gmeshok`) FROM `inventory` WHERE `owner` = '{$to}' AND  `setsale` = 0 AND `gmeshok`>0 ; "));
+  $s = mysqli_fetch_array(mq("SELECT level, vinos FROM `users` WHERE `id` = '{$to}' LIMIT 1 ; "));
   return (40*$s["level"]+$s['vinos']+$d[0]);
   return ($s['sila']*4+$d[0]);
 }
@@ -3601,7 +3601,7 @@ function addlog($id,$log) {
 
 function dressitem2 ($id) {
     global $mysql, $user;
-    $item = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE  `duration` < `maxdur` AND `id` = '{$id}' AND `dressed` = 0; "));
+    $item = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE  `duration` < `maxdur` AND `id` = '{$id}' AND `dressed` = 0; "));
     switch($item['type']) {
         case 1: $slot1 = 'sergi'; break;
         case 2: $slot1 = 'kulon'; break;
@@ -3726,12 +3726,12 @@ function takeshopitem($item, $table="shop", $present="", $onlyonetrip="", $desti
   if (!$uid) $uid=$user["id"];
   $r=mq("show fields from $table");
   $r2=mq("show fields from inventory");
-  while ($rec=mysql_fetch_assoc($r2)) $flds[$rec["Field"]]=1;
+  while ($rec=mysqli_fetch_assoc($r2)) $flds[$rec["Field"]]=1;
   $rec1=mqfa("select * from $table where id='$item'");
   if ($rec1["koll"]) {
     mq("insert into droplog set user=$uid, item='$rec1[name]', reason='$reason', dat=now()");
     mq("update inventory set koll=koll+$koll, massa=massa+".($rec1["massa"]*$koll)." where owner='$uid' and prototype='$item' limit 1");
-    if (mysql_affected_rows()>0) return array("img"=>$rec1["img"], "name"=>$rec1["name"]);
+    if (db_affected_rows()>0) return array("img"=>$rec1["img"], "name"=>$rec1["name"]);
     $rec1["koll"]=$koll;
     $rec1["massa"]*=$koll;
   }
@@ -3747,7 +3747,7 @@ function takeshopitem($item, $table="shop", $present="", $onlyonetrip="", $desti
   }
   if ($fields) foreach ($fields as $k=>$v) $rec1[$k]=$v;
   $sql="";
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     if (!@$flds[$rec["Field"]]) continue;
     if ($present) {
     if ($present!="Сундук") { if ($rec["Field"]=="maxdur") $rec1[$rec["Field"]]=1; }
@@ -3765,14 +3765,14 @@ function takeshopitem($item, $table="shop", $present="", $onlyonetrip="", $desti
   // временные шмотки из потерянного входа
   $acond = ($item >= 2554 && $item <= 2559) ? ', dategoden = ' . (7200 + time()) : '' ;
   mq("insert into inventory set ".($present?"present='$present',":"").(@$rec1["podzem"]?"podzem='$rec1[podzem]',":"")." owner='$uid', prototype='$item' ".($onlyonetrip?", foronetrip=1":"").($goden?", dategoden='".($goden*60*60*24+time())."'":"").", destinyinv='$destiny' $sql" . $acond);
-  return array("img"=>$rec1["img"], "name"=>$rec1["name"], "id"=>mysql_insert_id());
+  return array("img"=>$rec1["img"], "name"=>$rec1["name"], "id"=>db_insert_id());
 }
 
 function takelukaitem($item) {
   $r=mq("show fields from shop_luka");
   $rec1=mqfa("select * from shop_luka where id='$item'");
   $sql="";
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     if ($rec["Field"]=="id" || $rec["Field"]=="shshop" || $rec["Field"]=="count" || $rec["Field"]=="zeton" || $rec["Field"]=="goldzeton" || $rec["Field"]=="silverzeton" || $rec["Field"]=="destiny") continue;
     if ($rec["Field"]=="razdel") {
       $sql.=", `otdel`='".$rec1[$rec["Field"]]."' ";
@@ -3782,14 +3782,14 @@ function takelukaitem($item) {
     }
   }
   mq("insert into inventory set podzem=1, owner='$_SESSION[uid]', prototype='$item' ".($goden?", dategoden='".($goden*60*60*24+time())."'":"")." $sql");
-  if (!mysql_error()) return true;
+  if (!db_error()) return true;
   else return false;
 }
 
 
 function checkuserbylogin($l) {
   $r=mq("select id from users where login='$l' limit 1");
-  if (mysql_num_rows($r)==0) {
+  if (mysqli_num_rows($r)==0) {
     $id=mqfa1("select * from users where login='$l'");
     restoreuser($id);
   }
@@ -3797,7 +3797,7 @@ function checkuserbylogin($l) {
 
 function checkuserbyid($id) {
   $r=mq("select id from users where id='$id' limit 1");
-  if (mysql_num_rows($r)==0) {
+  if (mysqli_num_rows($r)==0) {
     restoreuser($id);
   }
 }
@@ -3816,7 +3816,7 @@ function restoreuser($id) {
   if (!mqfa1("select COUNT(*) from users where id='$id'")) {
     mq("insert into users (select * from users where id='$id')");
   }
-  $z=mysql_result(mysql_query("select zver_id from users where id='$id'"), 0, 0);
+  $z=db_result(db_query("select zver_id from users where id='$id'"), 0, 0);
   if ($z) mq("insert into users (select * from users where id='$z')");
   mq("insert into online (select * from online where id='$id')");
   mq("insert into inventory (select * from inventory where owner='$id')");
@@ -3836,102 +3836,102 @@ function clearuser($id) {
   if (!$i) return "User not found!";
   $e="";
   mq("delete from effects where owner='$id'");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("insert into effects (select * from effects where owner='$id')");
-  $e.=mysql_error();
+  $e.=db_error();
 
   mq("delete from obshagaeffects where owner='$id'");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("insert into obshagaeffects (select * from obshagaeffects where owner='$id')");
-  $e.=mysql_error();
+  $e.=db_error();
 
   mq("delete from obshagastorage where pers='$id'");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("insert into obshagastorage (select * from obshagastorage where pers='$id')");
-  $e.=mysql_error();
+  $e.=db_error();
 
   $r=mq("select id from inventory where id in (select id_it as id from obshagastorage where pers='$id')");
-  $e.=mysql_error();
+  $e.=db_error();
   $oscond="0 ";
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     $oscond.=" or id='$rec[id]' ";
   }
 
   mq("delete from inventory where $oscond");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("insert into inventory (select * from inventory where $oscond)");
-  $e.=mysql_error();
+  $e.=db_error();
 
 
-  $e.=mysql_error();
+  $e.=db_error();
   mq("delete from users where id='$id'");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("insert into users (select * from users where id='$id')");
   echo "insert into users (select * from users where id='$id')<br>";
   $z=mqfa1("select zver_id from users where id='$id'");
-  $e.=mysql_error();
+  $e.=db_error();
   if ($z) {
     mq("delete from users where id='$z'");
-    $e.=mysql_error();
+    $e.=db_error();
     mq("insert into users (select * from users where id='$z')");
     echo "insert into users (select * from users where id='$z')<br>";
-    $e.=mysql_error();
+    $e.=db_error();
   }
   mq("delete from userdata where id='$id'");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("insert into userdata (select * from userdata where id='$id')");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("delete from online where id='$id'");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("insert into online (select * from online where id='$id')");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("delete from inventory where owner='$id'");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("delete from inventory where id in (select id from inventory where owner='$id')");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("insert into inventory (select * from inventory where owner='$id')");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("delete from puton where id_person='$id'");
-  $e.=mysql_error();
+  $e.=db_error();
   mq("insert into puton (select * from puton where id_person='$id');");
-  $e.=mysql_error();
+  $e.=db_error();
   list($po, $noinfo)=infpersout($udata);
   if (!$e) {
     $tme=getmicrotime();
     mq("lock tables users write, infcache write, online write, inventory write, puton write, userstats write, userdata write, effects write, obshagaeffects write, obshagastorage write");
     $o=mqfa1("select id from online WHERE date>=".(time()-60)." AND id=$id");
-    echo mysql_error();
+    echo db_error();
     if (!$o) {
       $dat=mqfa1("SELECT date from online where id='$id'");
       $i=mqfa1("select id from infcache where id='$id'");
       if ($i) mq("update infcache set date='$dat', persout='".addslashesa($po)."', noinfo='$noinfo' where id='$id'");
       else mq("insert into infcache set date='$dat', persout='".addslashesa($po)."', noinfo='$noinfo', id='$id'");
-      echo mysql_error();
+      echo db_error();
       if ($z) mq("delete from users where id='$z'");
-      echo mysql_error();
+      echo db_error();
       mq("delete from online where id='$id'");
-      echo mysql_error();
+      echo db_error();
       mq("delete from users where id='$id'");
-      echo mysql_error();
+      echo db_error();
       mq("delete from inventory where owner='$id'");
-      echo mysql_error();
+      echo db_error();
       mq("delete from puton where id_person='$id'");
-      echo mysql_error();
+      echo db_error();
       mq("delete from userstats where id='$id'");
-      echo mysql_error();
+      echo db_error();
       mq("delete from userdata where id='$id'");
-      echo mysql_error();
+      echo db_error();
       mq("delete from effects where owner='$id'");
-      echo mysql_error();
+      echo db_error();
       mq("delete from obshagaeffects where owner='$id'");
-      echo mysql_error();
+      echo db_error();
       mq("delete from inventory where $oscond");
-      echo mysql_error();
+      echo db_error();
       mq("delete from obshagastorage where pers='$id'");
-      echo mysql_error();
+      echo db_error();
     }
     mq("unlock tables");
-    echo mysql_error();
+    echo db_error();
     $clearreport="Cleared in: ".(getmicrotime()-$tme)." ms";
   }
   return $e;
@@ -4307,7 +4307,7 @@ function takesmallitems($item, $qty, $user) {
     mq("delete from inventory where owner='$user' and name='$item' and setsale=0");
   } else {
     $r=mq("select id, koll, massa from inventory where owner='$user' and name='$item' and setsale=0");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       if ($rec["koll"]<=$qty) {
         mq("delete from inventory where id='$rec[id]'");
       } else {
@@ -4587,7 +4587,7 @@ function canmove($spd=10) {
     echo "<div align=right><font color=red><b>Не так быстро...</b></font></div>";
     return false;
   }
-  $d = mysql_fetch_array(mq("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$user['id']}' AND `dressed` = 0 AND `setsale` = 0 ; "));
+  $d = mysqli_fetch_array(mq("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$user['id']}' AND `dressed` = 0 AND `setsale` = 0 ; "));
   if($d[0] > get_meshok()) {
     $warning="У вас переполнен рюкзак, вы не можете передвигаться...";
     echo "<font color=red><b>У вас переполнен рюкзак, вы не можете передвигатся...</b></font><br>";
@@ -4595,9 +4595,9 @@ function canmove($spd=10) {
     return false;
   }
   
-  $eff = mysql_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type` = 14 OR `type` = 13 OR `type` = 12) ORDER BY type DESC;"));
+  $eff = mysqli_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type` = 14 OR `type` = 13 OR `type` = 12) ORDER BY type DESC;"));
   if($eff) {
-    $spikeCount = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE (id='$user[weap]' OR id='$user[shit]') AND (prototype = 1905 OR prototype = 1906)"), 0, 0);
+    $spikeCount = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE (id='$user[weap]' OR id='$user[shit]') AND (prototype = 1905 OR prototype = 1906)"), 0, 0);
     if (!$spikeCount) {
         $warning="У вас ".($eff['type']==12?'средняя':'тяжелая')." травма, вы не можете передвигаться...";
         echo "<font color=red><b>У вас ".($eff['type']==12?'средняя':'тяжелая')." травма, вы не можете передвигаться...</b></font><br>";
@@ -4620,7 +4620,7 @@ function canmove($spd=10) {
         }
     }
   }
-  $chain = mysql_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type` = 10);"));
+  $chain = mysqli_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type` = 10);"));
   if($chain) {
     $warning="На Вас наложены путы, вы не можете передвигатся...";
     echo "<font color=red><b>$warning</b></font><br>";
@@ -4672,7 +4672,7 @@ function updeffects($u=0) {
   $data["effects"]=array();
   $r=mq("select * from effects where owner='$u'");
   $i=0;
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     if ($rec["type"]==28 || $rec["type"]==29) {
       getadditdata($user1);
       if ($rec["type"]==28) $at="hp";
@@ -4822,7 +4822,7 @@ function createbot($bot, $battle, $login="") {
   if ($battle) {
     $r=mq("select name from bots where battle='$battle' and name like '$rec[login]%'");
     $bots=array();
-    while ($rec1=mysql_fetch_assoc($r)) $bots[$rec1["name"]]=1;
+    while ($rec1=mysqli_fetch_assoc($r)) $bots[$rec1["name"]]=1;
     if (!$bots[$rec["login"]]) {
       $botname=$rec["login"];
     } else {
@@ -4837,7 +4837,7 @@ function createbot($bot, $battle, $login="") {
     }
   } else $botname=$rec["login"];
   mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('$botname','$bot','$battle','$rec[maxhp]');");
-  return array("id"=>mysql_insert_id(), "login"=>$botname);
+  return array("id"=>db_insert_id(), "login"=>$botname);
 }
 
 function moveline($links, $tme="qqq") {
@@ -5095,7 +5095,7 @@ function basestats($user) {
 
   $hfv=6;
   $r=mq("select sila, lovk, inta, vinos, hpforvinos, intel, mudra, type, ghp from effects where owner='$user'");
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     if ($rec["type"]==11 || $rec["type"]==12 || $rec["type"]==13 || $rec["type"]==14) {
       $rec1["sila"]-=$rec["sila"];
       $rec1["lovk"]-=$rec["lovk"];
@@ -5163,7 +5163,7 @@ function outoffield($i, $room=0) {
       $xy=mqfa("select x, y from fieldparties where user='$i' order by id desc");
       $cond="";
       $r=mq("select id, name from inventory where owner=$i and bs=$room-1");
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         if ($cond) $cond.=" or ";
         $cond.=" item='$rec[id]' ";
       }
@@ -5518,12 +5518,12 @@ function effectdata($effect) {
     if (@$effectimgs[$effect["name"]]) $img=$effectimgs[$effect["name"]];
   }
   if (!@$img) {
-    $inf_el = mysql_fetch_array(mq ('SELECT img FROM `shop` WHERE `name` = \''.$effect['name'].'\';'));
+    $inf_el = mysqli_fetch_array(mq ('SELECT img FROM `shop` WHERE `name` = \''.$effect['name'].'\';'));
     if (!$inf_el) {
-      $inf_el = mysql_fetch_array(mq ('SELECT img FROM `berezka` WHERE `name` = \''.$effect['name'].'\''));
+      $inf_el = mysqli_fetch_array(mq ('SELECT img FROM `berezka` WHERE `name` = \''.$effect['name'].'\''));
     }
     if (!$inf_el) {
-      $inf_el = mysql_fetch_array(mq ('SELECT img FROM `items` WHERE `name` = \''.$effect['name'].'\';'));
+      $inf_el = mysqli_fetch_array(mq ('SELECT img FROM `items` WHERE `name` = \''.$effect['name'].'\';'));
     }
     mq("insert into effectimgs set effect='$effect[name]', img='$inf_el[img]' on duplicate key update img=img");
     $img=$inf_el["img"];
@@ -5575,8 +5575,8 @@ function effectdata($effect) {
 
 function setDisease($id, $return = 1) {
   global $user;
-  $d = mqfa("SELECT * FROM diseases WHERE id = " . $id) or die(mysql_error());
-  mysql_query("
+  $d = mqfa("SELECT * FROM diseases WHERE id = " . $id) or die(db_error());
+  db_query("
     UPDATE users 
     SET 
       sila  = ($d[sila] + sila), 
@@ -5584,8 +5584,8 @@ function setDisease($id, $return = 1) {
       inta  = ($d[inta] + inta), 
       vinos = ($d[vinos] + vinos)
     WHERE id = $user[id]
-  ") or die(mysql_error());
-  mysql_query("
+  ") or die(db_error());
+  db_query("
     INSERT INTO effects 
     SET
       type  = $d[type],
@@ -5596,7 +5596,7 @@ function setDisease($id, $return = 1) {
       inta  = $d[inta], 
       vinos = $d[vinos],
       owner = $user[id]
-  ") or die(mysql_error());
+  ") or die(db_error());
   $msg = 'Вы заразились ' . (($d['type'] == 9999) ? 'болезнью' : 'ядом' ) . ' <b>' . $d['name'] . '</b>';
   addchp ('<font color=red>Внимание!</font> ' . $msg, '{[]}'.$user['login'].'{[]}');
   if ($return) {
@@ -5647,7 +5647,7 @@ function mainpersout($user) {
   $cond=dresscond($user);
   if ($cond) {
     $r=mq("select id, img, includemagicdex, includemagic, includemagicmax, name, duration, maxdur, ghp, gmana, minu, maxu, text from inventory where $cond");
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $dressed[$rec["id"]]=$rec;
     }
   }
@@ -5747,7 +5747,7 @@ function mainpersout($user) {
   <!--hp--></div></td></tr>';
   $ret0.=$tmp;$ret1.=$tmp;
   if($user['id']==99){
-    $vrag_b = mysql_fetch_array(mq("SELECT `hp` FROM `bots` WHERE  `prototype` = 99 LIMIT 1 ;"));
+    $vrag_b = mysqli_fetch_array(mq("SELECT `hp` FROM `bots` WHERE  `prototype` = 99 LIMIT 1 ;"));
     if($vrag_b){$user['hp']=$vrag_b['hp'];}
   }
 
@@ -5755,7 +5755,7 @@ function mainpersout($user) {
     $ret0.='<tr><td nowrap height=10 style="font-size:9px;line-height:9px;height:9px"><div style="position: relative;height:10px;overflow:hidden"><!--mana--></div></td></tr>';
     $ret1.='<tr><td nowrap height=10 style="font-size:9px;line-height:9px;height:9px"><div style="position: relative;height:10px;overflow:hidden"><!--mana--></div></td></tr>';
   }
-  $zver=mysql_fetch_array(mq("SELECT shadow,login,level,vid FROM `users` WHERE `id` = '".$user['zver_id']."' LIMIT 1;"));
+  $zver=mysqli_fetch_array(mq("SELECT shadow,login,level,vid FROM `users` WHERE `id` = '".$user['zver_id']."' LIMIT 1;"));
 
   $ret0.= '</table></TD></TR><TR><TD height=220 vAlign=top width=120 align=left><DIV style="Z-INDEX: 1; POSITION: relative; WIDTH: 120px; HEIGHT: 220px;background-color:#000000">';
   $ret1.= '</table></TD></TR><TR><TD height=220 vAlign=top width=120 align=left><DIV style="Z-INDEX: 1; POSITION: relative; WIDTH: 120px; HEIGHT: 220px;background-color:#000000">';
@@ -5852,7 +5852,7 @@ function mainpersout($user) {
   } 
 
   if ($user['sergi'] > 0) {
-    $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user['sergi']}' LIMIT 1;"));
+    $dress = mysqli_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user['sergi']}' LIMIT 1;"));
     $tmp0='<img src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=20 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни ".plusorminus($dress['ghp']):"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа серьгах выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни ".plusorminus($dress['ghp']):"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа серьгах выгравировано '{$dress['text']}'":"").'" >';
     if ($dress['includemagicdex']) {
       $tmp1=showhrefmagicb($dress);

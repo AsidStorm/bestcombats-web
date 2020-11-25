@@ -2,7 +2,7 @@
   session_start();
   if ($_SESSION['uid'] == null) header("Location: index.php");
   include "connect.php";
-  $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+  $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
   include "functions.php";
   if ($user["room"]!=24 && $user["room"]!=46) {
     header("location: main.php");
@@ -11,7 +11,7 @@
   if (@$_GET["goto"]) {
     if ($_GET["goto"]==20) {
       $r=mq("select id, dressed from inventory where owner='$user[id]' and prototype=1 and name like 'Маска%'");
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         if ($rec["dressed"]) dropitem(8);
         mq("delete from inventory where id='$rec[id]'");
       }
@@ -61,15 +61,15 @@ hr { height: 1px; }
     if ($_POST['comment']) {
       if (time()-$_SESSION["lastelka"]<60) echo '<font color=red>Писать на ёлке можно не чаще чем раз в минуту.</font>';
       else {
-        mysql_query('INSERT INTO `elka` (`who`,`date`,`text`) values (\''.nick3 ($user['id']).'\',\''.date("d.m.Y H:i").'\',\''.strip_tags($_POST['comment']).'\');');
+        db_query('INSERT INTO `elka` (`who`,`date`,`text`) values (\''.nick3 ($user['id']).'\',\''.date("d.m.Y H:i").'\',\''.strip_tags($_POST['comment']).'\');');
         $_SESSION["lastelka"]=time();
       }
     }
     if (@$_GET["delmsg"] && $user["align"]=="2.5") {
       mq("delete from elka where id='$_GET[delmsg]'");
     }
-    $data = mysql_query("SELECT * FROM `elka` ORDER by `id` DESC LIMIT ".($_GET['page']*20).",20;");
-    $data1 = mysql_query("SELECT id FROM `elka`");
+    $data = db_query("SELECT * FROM `elka` ORDER by `id` DESC LIMIT ".($_GET['page']*20).",20;");
+    $data1 = db_query("SELECT id FROM `elka`");
     echo "<table width=\"100%\"><tr><td style=\"padding-right:20px\">";
     if (@$_GET["puton"]) {
       $_GET["puton"]=(int)$_GET["puton"];
@@ -181,12 +181,12 @@ hr { height: 1px; }
       } else echo "<b><font color=red>До Нового Года подарков не положено.</font></b><br><br>";
     }
     echo "<u>Посетители оставили надписи на стволе елки:</u>";
-    $pgs = ceil(mysql_num_rows($data1)/20);
+    $pgs = ceil(mysqli_num_rows($data1)/20);
     for ($i=0;$i<$pgs;++$i) {
         echo ' <a href="?page=',$i,'">',($i+1),'</a> ';
     }
     echo "<BR>";
-    while($row = mysql_fetch_array($data)) {
+    while($row = mysqli_fetch_array($data)) {
       //echo '<span class=date>',$row['date'],'</span> ',
       if ($user["align"]=="2.5") echo "<a onclick=\"return confirm('Are you sure?')\" href=\"elka.php?delmsg=$row[id]\"><img src=\"i/clear.gif\" border=\"0\"></a>";
       echo $row['who'],' - ',$row['text'],'<BR>';
@@ -240,7 +240,7 @@ hr { height: 1px; }
   $r=mq("select sum(step), users.login, users.klan, users.level, quests.user from quests left join users on quests.user=users.id where quest='2' group by quests.user order by 1 desc limit 0, 10");
   echo "<table>";
   $i=0;
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     $i++;
     if (!$rec["login"]) {
       $ur=mqfa("select login, klan, level from allusers where id='$rec[user]'");
@@ -319,7 +319,7 @@ hr { height: 1px; }
   if ($user["room"]==24) {
     $r=mq("select * from inventory where owner='$user[id]' and prototype>=2348 and prototype<=2352");
     $i=0;
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $i++;
       echo itemrow($rec, "elka.php?puton=$rec[id]", "украсить", $i);
     }

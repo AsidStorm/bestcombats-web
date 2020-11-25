@@ -26,7 +26,7 @@ if ($tx*2==4 && $ty*2==12) {
 
 // купель
 if ($tx*2==8 && $ty*2==12) {
-    $aBots = mysql_result(mysql_query("SELECT COUNT(*) FROM cavebots WHERE leader='$user[caveleader]' AND ((x = 6 AND y = 12) OR (x = 8 AND y = 10) OR (x = 12 AND y = 12)) AND floor='1'"), 0, 0);
+    $aBots = db_result(db_query("SELECT COUNT(*) FROM cavebots WHERE leader='$user[caveleader]' AND ((x = 6 AND y = 12) OR (x = 8 AND y = 10) OR (x = 12 AND y = 12)) AND floor='1'"), 0, 0);
     if ($aBots) {
         $report = 'Группа монстров уничтожена не полностью';
     } else {

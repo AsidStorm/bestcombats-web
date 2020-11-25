@@ -36,8 +36,8 @@ if ($user['battle'] > 0) {
 } else {
 		if ($_SESSION['uid'] == null) header("Location: index.php");
 		$target=$_POST['target'];
-		$us = mysql_fetch_array(mysql_query("SELECT *, (SELECT `id` FROM `inventory` WHERE `owner` = `users`.`id` AND `name` LIKE '%Чеснок%' LIMIT 1) AS `che`, (SELECT `id` FROM `inventory` WHERE `owner` = `users`.`id` AND `name` LIKE '%Осиновый кол%' LIMIT 1) AS `kol`,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
-		$effs = mysql_query("SELECT * FROM `effects` WHERE `owner` = '{$us['id']}' and (`type`=12 or `type`=13 or `type`=14) limit 1;");
+		$us = mysqli_fetch_array(db_query("SELECT *, (SELECT `id` FROM `inventory` WHERE `owner` = `users`.`id` AND `name` LIKE '%Чеснок%' LIMIT 1) AS `che`, (SELECT `id` FROM `inventory` WHERE `owner` = `users`.`id` AND `name` LIKE '%Осиновый кол%' LIMIT 1) AS `kol`,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+		$effs = db_query("SELECT * FROM `effects` WHERE `owner` = '{$us['id']}' and (`type`=12 or `type`=13 or `type`=14) limit 1;");
 		//echo
 		if ($us['battle']) { echo "Персонаж находится в поединке!"; }
 		elseif ($us['battle']) { echo "Персонаж ожидает поединка!"; }
@@ -60,16 +60,16 @@ if ($user['battle'] > 0) {
 			if ($us['sex'] == 1) {$otvet="он дал"; $who="его";}
 			else {$otvet="она дала"; $who="её";}
 			if (($us['che']==0) && ($us['kol']==0)) {
-				mysql_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$us['id']."';");
-				mysql_query("UPDATE `users` SET `hp` = `hp`+'".((($user['maxhp']-$user['hp'])<= $us['hp'])?($user['maxhp']-$user['hp']):$us['hp'])."' WHERE `id` = '".$user['id']."';");
+				db_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$us['id']."';");
+				db_query("UPDATE `users` SET `hp` = `hp`+'".((($user['maxhp']-$user['hp'])<= $us['hp'])?($user['maxhp']-$user['hp']):$us['hp'])."' WHERE `id` = '".$user['id']."';");
 				addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} на &quot;{$target}&quot; и {$pil} всю {$who} энергию.");
 				addchp($coma[rand(0,count($coma)-1)],"Комментатор");
 				echo "Все прошло удачно!";
 				makequest(5);
 			}
 			elseif (($us['kol']!=0 && rand(1,100) < 30) || ($us['id'] == 83 && rand(1,100) < 20)) {
-				mysql_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$us['id']."';");
-				mysql_query("UPDATE `users` SET `hp` = `hp`+'".((($user['maxhp']-$user['hp'])<= $us['hp'])?($user['maxhp']-$user['hp']):$us['hp'])."' WHERE `id` = '".$user['id']."';");
+				db_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$us['id']."';");
+				db_query("UPDATE `users` SET `hp` = `hp`+'".((($user['maxhp']-$user['hp'])<= $us['hp'])?($user['maxhp']-$user['hp']):$us['hp'])."' WHERE `id` = '".$user['id']."';");
 				addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} на &quot;{$target}&quot; и {$pil} всю {$who} энергию.");
 				addchp($coma[rand(0,count($coma)-1)],"Комментатор");
 				echo "Все прошло удачно!";
@@ -79,26 +79,26 @@ if ($user['battle'] > 0) {
 				echo "Полный провал!..";
 				if ($effs['type'] || in_array($user["room"], $canalrooms)) {
 					echo "Полный провал!..";
-					mysql_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$user['id']."';");
-					mysql_query("UPDATE `inventory` SET `duration` = `duration`+1 WHERE `id` = '".$us['kol']."' LIMIT 1;");
+					db_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$user['id']."';");
+					db_query("UPDATE `inventory` SET `duration` = `duration`+1 WHERE `id` = '".$us['kol']."' LIMIT 1;");
 					addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} на &quot;{$target}&quot;, но {$otvet} достойный отпор вампиру.");
 				}
 				else {
-					mysql_query("UPDATE `users` SET `hp` = '".(round(($user['hp']/2),0))."' WHERE `id` = '".$user['id']."';");
-					mysql_query("UPDATE `inventory` SET `duration` = `duration`+1 WHERE `id` = '".$us['kol']."' LIMIT 1;");
+					db_query("UPDATE `users` SET `hp` = '".(round(($user['hp']/2),0))."' WHERE `id` = '".$user['id']."';");
+					db_query("UPDATE `inventory` SET `duration` = `duration`+1 WHERE `id` = '".$us['kol']."' LIMIT 1;");
 					addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} на &quot;{$target}&quot;, но {$otvet} достойный отпор вампиру.");
 					$jert = $us;
 					if($jert['zayavka']) {
-						$fict1 = mysql_fetch_array(mysql_query("SELECT * FROM `zayavka` WHERE `team1` LIKE '{$jert['id']};%' OR `team1` LIKE '%;{$jert['id']};%' LIMIT 1;"));
-						$fict2 = mysql_fetch_array(mysql_query("SELECT * FROM `zayavka` WHERE `team2` LIKE '{$jert['id']};%' OR `team2` LIKE '%;{$jert['id']};%' LIMIT 1;"));
+						$fict1 = mysqli_fetch_array(db_query("SELECT * FROM `zayavka` WHERE `team1` LIKE '{$jert['id']};%' OR `team1` LIKE '%;{$jert['id']};%' LIMIT 1;"));
+						$fict2 = mysqli_fetch_array(db_query("SELECT * FROM `zayavka` WHERE `team2` LIKE '{$jert['id']};%' OR `team2` LIKE '%;{$jert['id']};%' LIMIT 1;"));
 						if($fict1) { $team=1; }
 						elseif($fict2) { $team=2; }
 
-						mysql_query("UPDATE `users` SET `zayavka` = '' WHERE `id` = {$jert['id']} LIMIT 1;");
-						$z = mysql_fetch_array(mysql_query("SELECT `team{$team}` FROM `zayavka` WHERE `id`=".$jert['zayavka'].";"));
+						db_query("UPDATE `users` SET `zayavka` = '' WHERE `id` = {$jert['id']} LIMIT 1;");
+						$z = mysqli_fetch_array(db_query("SELECT `team{$team}` FROM `zayavka` WHERE `id`=".$jert['zayavka'].";"));
 
 						$teams = str_replace($jert['id'].";","",implode(";",$z[0]));
-						mysql_query("UPDATE  `zayavka` SET team{$team} = '{$teams}' WHERE	id = {$jert['zayavka']};");
+						db_query("UPDATE  `zayavka` SET team{$team} = '{$teams}' WHERE	id = {$jert['zayavka']};");
 					}
 
 					$teams = array();
@@ -106,7 +106,7 @@ if ($user['battle'] > 0) {
 					$teams[$us['id']][$user['id']] = array(0,0,time());
 					$sv = array(3,5,7,10);
 					//$tou = array_rand($sv,1);
-					mysql_query("INSERT INTO `battle`
+					db_query("INSERT INTO `battle`
 						(
 							`id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`,`blood`
 						)
@@ -115,31 +115,31 @@ if ($user['battle'] > 0) {
 							NULL,'','".serialize($teams)."','".$sv[rand(0,3)]."','6','0','".$user['id']."','".$us['id']."','".time()."','".time()."','1'
 						)");
 
-					$id = mysql_insert_id();
+					$id = db_insert_id();
 
 					// апдейтим врага
 					if($bot) {
-						mysql_query("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$us['id']} LIMIT 1;");
+						db_query("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$us['id']} LIMIT 1;");
 					} else {
-						mysql_query("UPDATE `users` SET `battle` = {$id} WHERE `id` = {$us['id']} LIMIT 1;");
+						db_query("UPDATE `users` SET `battle` = {$id} WHERE `id` = {$us['id']} LIMIT 1;");
 					}
 
 					// создаем лог
 					$rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($us['id'])."</b>";
 					addch ("<a href=logs.php?log=".$id." target=_blank>Бой</a> между <B><b>".nick7($user['id'])."</b> и <b>".nick7($us['id'])."</b> начался.   ",$user['room']);
 
-					//mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
+					//db_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
 					addlog($id,'Часы показывали <span class=date>'.date("Y.m.d H.i").'</span>, когда '.$rr.' бросили вызов друг другу. <BR>');
 
 
-					mysql_query("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']} OR `id` = {$us['id']}");
+					db_query("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']} OR `id` = {$us['id']}");
 					header("Location:fbattle.php");
 					die("<script>location.href='fbattle.php';</script>");
 				}
 			}
 			elseif ($us['che']!=0 && rand(1,100) < 30) {
-				mysql_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$us['id']."';");
-				mysql_query("UPDATE `users` SET `hp` = `hp`+'".((($user['maxhp']-$user['hp'])<= $us['hp'])?($user['maxhp']-$user['hp']):$us['hp'])."' WHERE `id` = '".$user['id']."';");
+				db_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$us['id']."';");
+				db_query("UPDATE `users` SET `hp` = `hp`+'".((($user['maxhp']-$user['hp'])<= $us['hp'])?($user['maxhp']-$user['hp']):$us['hp'])."' WHERE `id` = '".$user['id']."';");
 				addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} на &quot;{$target}&quot; и {$pil} всю {$who} энергию.");
 				addchp($coma[rand(0,count($coma)-1)],"Комментатор");
 				echo "Все прошло удачно!";
@@ -147,8 +147,8 @@ if ($user['battle'] > 0) {
 			}
 			else {
 				echo "Полный провал!..";
-				mysql_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$user['id']."';");
-				mysql_query("UPDATE `inventory` SET `duration` = `duration`+1 WHERE `id` = '".$us['che']."' LIMIT 1;");
+				db_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$user['id']."';");
+				db_query("UPDATE `inventory` SET `duration` = `duration`+1 WHERE `id` = '".$us['che']."' LIMIT 1;");
 				addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} на &quot;{$target}&quot;, но {$otvet} достойный отпор вампиру.");
 			}
 

@@ -4,9 +4,9 @@
 	include"functions/adminka_functions.php";
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".mysql_real_escape_string($_SESSION['uid'])."' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".db_escape_string($_SESSION['uid'])."' LIMIT 1;"));
 	include "functions.php";
-    $al = mysql_fetch_assoc(mysql_query("SELECT * FROM `aligns` WHERE `align` = '".mysql_real_escape_string($user['align'])."' LIMIT 1;"));
+    $al = mysqli_fetch_assoc(db_query("SELECT * FROM `aligns` WHERE `align` = '".db_escape_string($user['align'])."' LIMIT 1;"));
 	$auth_pass = "63a9f0ea7bb98050796b649e85481845";
 	header("Cache-Control: no-cache");
 	if ($user['align']<2 || $user['align']>3) header("Location: index.php");
@@ -499,12 +499,12 @@ function my_strtolower($string)
 }
 
 if (isset($_POST['spam_text']) && $_POST['spam_text'] != '') {
-    mysql_query('INSERT INTO `spam_text` (`text`) VALUES ("' . mysql_real_escape_string(my_strtolower($_POST['spam_text'])) . '")');
+    db_query('INSERT INTO `spam_text` (`text`) VALUES ("' . db_escape_string(my_strtolower($_POST['spam_text'])) . '")');
     $user->error = '<b style="color:red">Готово</b>';
 
 }
 if (isset($_GET['del_t']) && is_numeric($_GET['del_t'])) {
-    mysql_query('DELETE FROM `spam_text` WHERE `id`="' . $_GET['del_t'] . '"');
+    db_query('DELETE FROM `spam_text` WHERE `id`="' . $_GET['del_t'] . '"');
     header("Location: a.php#tab2");
     echo  '<b style="color:red">Готово</b>';
 }
@@ -513,8 +513,8 @@ echo '<form method="post" action="">
 	Плохое слово <input type="text" name="spam_text" maxlength="20" />&nbsp;<input type="submit" value="Добавить плохое слово" name="turn_submit" /><br />
 	<br clear="all" />
 	<b>Фильтр:</b><br />';
-$bads = mysql_query('SELECT * FROM `spam_text` ORDER by `id` DESC');
-while ($badswords = mysql_fetch_array($bads)) {
+$bads = db_query('SELECT * FROM `spam_text` ORDER by `id` DESC');
+while ($badswords = mysqli_fetch_array($bads)) {
     echo $badswords['text'] . "<a href='?pal&p=13&del_t=" . $badswords['id'] . "'>X</a>, ";
 }
 ?>
@@ -528,10 +528,10 @@ echo"<form method=post><fieldset style='border:2px dashed #656565;'><legend styl
 <tr><td><input type=submit value='Расформировать'></td></tr>
 </table></fieldset></form>";
 if (isset($_POST['del_clan'])) {
-mysql_query("UPDATE `users` SET `align` = '0',`status`='',`klan`='' WHERE `klan` = '".$_POST['del_clan']."';");
-mysql_query("DELETE from `clans` WHERE `name` = '".$_POST['del_clan']."';");
-mysql_query("DELETE from `clanstorage` WHERE `klan` = '".$_POST['del_clan']."';");
-mysql_query("DELETE from `clanevents` WHERE `klan` = '".$_POST['del_clan']."';");
+db_query("UPDATE `users` SET `align` = '0',`status`='',`klan`='' WHERE `klan` = '".$_POST['del_clan']."';");
+db_query("DELETE from `clans` WHERE `name` = '".$_POST['del_clan']."';");
+db_query("DELETE from `clanstorage` WHERE `klan` = '".$_POST['del_clan']."';");
+db_query("DELETE from `clanevents` WHERE `klan` = '".$_POST['del_clan']."';");
 echo"<font color=red>Клан ".$_POST['del_clan']." расформирован!</font><br>";
 }
 ?>
@@ -546,7 +546,7 @@ echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend sty
 </table></fieldset></form>";					
 
 if (isset($_POST['clear_historylog'])) {
-mysql_query("UPDATE `users` SET `loginhistory`='' WHERE `login` = '".$_POST['clear_historylog']."';");
+db_query("UPDATE `users` SET `loginhistory`='' WHERE `login` = '".$_POST['clear_historylog']."';");
 echo"<font color=red>История имен персонажа ".$_POST['clear_historylog']." очишена!</font><br>";
 }	
 ##### Очистка черного списка #####	
@@ -556,7 +556,7 @@ echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend sty
 </table></fieldset></form>";					
 
 if (isset($_POST['clear_cs'])) {
-mysql_query("UPDATE `users` SET `ignore`='' WHERE `login` = '".$_POST['clear_cs']."';");
+db_query("UPDATE `users` SET `ignore`='' WHERE `login` = '".$_POST['clear_cs']."';");
 echo"<font color=red>Черный список персонажа ".$_POST['clear_cs']." очишен!</font><br>";
 }
 ##### Смена ника #####	
@@ -566,9 +566,9 @@ echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend sty
 <tr><td><input type=submit value='Изменить'></td></tr></table></fieldset></form>";
 
 if (isset($_POST['login']) && isset($_POST['new-login'])) {
-$target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$target_user_tel=mysqli_fetch_array(db_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 If (!empty($target_user_tel['id'])){
-mysql_query("UPDATE `users` SET `login` = '".$_POST['new-login']."',`loginhistory`=concat(`loginhistory`,';".$_POST['login']."||".date('d-m-Y')."') WHERE `id` = '".$target_user_tel['id']."';");
+db_query("UPDATE `users` SET `login` = '".$_POST['new-login']."',`loginhistory`=concat(`loginhistory`,';".$_POST['login']."||".date('d-m-Y')."') WHERE `id` = '".$target_user_tel['id']."';");
 echo"<font color=red>Вы изменили персонажу ".$_POST['login']." имя!</font><br>";	
 }else{
 echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
@@ -586,9 +586,9 @@ echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend sty
 </table></fieldset></form>";					
 
 if (isset($_POST['login']) && isset($_POST['change_sex'])) {
-$target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$target_user_tel=mysqli_fetch_array(db_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 If (!empty($target_user_tel['id'])){
-mysql_query("UPDATE `users` SET `sex` = '".(int)$_POST['change_sex']."',`shadow`='0.gif' WHERE `id` = '".$target_user_tel['id']."';");
+db_query("UPDATE `users` SET `sex` = '".(int)$_POST['change_sex']."',`shadow`='0.gif' WHERE `id` = '".$target_user_tel['id']."';");
 echo"<font color=red>Вы изменили персонажу ".$_POST['login']." пол!</font><br>";	
 }else{
 echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
@@ -601,9 +601,9 @@ echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend sty
 <tr><td><input type=submit value='Изменить'></td></tr></table></fieldset></form>";
 
 if (isset($_POST['login']) && isset($_POST['new-email'])) {
-$target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$target_user_tel=mysqli_fetch_array(db_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 If (!empty($target_user_tel['id'])){
-mysql_query("UPDATE `users` SET `email` = '".$_POST['new-email']."' WHERE `id` = '".$target_user_tel['id']."';");
+db_query("UPDATE `users` SET `email` = '".$_POST['new-email']."' WHERE `id` = '".$target_user_tel['id']."';");
 echo"<font color=red>Вы изменили персонажу ".$_POST['login']." емайл!</font><br>";	
 }else{
 echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
@@ -616,9 +616,9 @@ echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend sty
 <tr><td><input type=submit value='Изменить'></td></tr></table></fieldset></form>";
 
 if (isset($_POST['login']) && isset($_POST['new-date'])) {
-$target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$target_user_tel=mysqli_fetch_array(db_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 If (!empty($target_user_tel['id'])){
-mysql_query("UPDATE `users` SET `borndate` = '".$_POST['new-date']."' WHERE `id` = '".$target_user_tel['id']."';");
+db_query("UPDATE `users` SET `borndate` = '".$_POST['new-date']."' WHERE `id` = '".$target_user_tel['id']."';");
 echo"<font color=red>Вы изменили персонажу ".$_POST['login']." дату рождения!</font><br>";	
 }else{
 echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
@@ -631,38 +631,38 @@ echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend sty
 </table></fieldset></form>";
 
 if (isset($_POST['logindelete'])) {
-$user_del=mysql_fetch_array(mysql_query('SELECT * FROM `users` WHERE `login` = "'.$_POST['logindelete'].'" Limit 1 '));
-mysql_query('DELETE FROM `bank` WHERE owner='.$user_del['id'].' ');  
-mysql_query('DELETE FROM `complect` WHERE user='.$user_del['id'].' ');  
-mysql_query('DELETE FROM `delo` WHERE pers='.$user_del['id'].' ');  
-mysql_query('DELETE FROM `dilerdelo` WHERE `owner`= "'.$_POST['logindelete'].'" ');      
-mysql_query('DELETE FROM `droplog` WHERE user='.$user_del['id'].' ');   
-mysql_query('DELETE FROM `effects` WHERE owner='.$user_del['id'].' ');   
-mysql_query('DELETE FROM `favorites` WHERE user='.$user_del['id'].' ');   
-mysql_query('DELETE FROM `inventory` WHERE owner='.$user_del['id'].' ');   
-mysql_query('DELETE FROM `obshaga` WHERE pers='.$user_del['id'].' ');   
-mysql_query('DELETE FROM `obshagaanimals` WHERE pers='.$user_del['id'].' ');   
-mysql_query('DELETE FROM `obshagaeffects` WHERE owner='.$user_del['id'].' ');   
-mysql_query('DELETE FROM `obshagastorage` WHERE pers='.$user_del['id'].' ');   
-mysql_query('DELETE FROM `podzem3` WHERE `glava`="'.$_POST['logindelete'].'" ');
-mysql_query('DELETE FROM `podzem4` WHERE `glava`="'.$_POST['logindelete'].'" ');
-mysql_query('DELETE FROM `podzem5` WHERE `glava`="'.$_POST['logindelete'].'" ');
-mysql_query('DELETE FROM `podzem_zad_login` WHERE `glava`="'.$_POST['logindelete'].'" ');
-mysql_query('DELETE FROM `qtimes` WHERE user='.$user_del['id'].' ');
-mysql_query('DELETE FROM `quests` WHERE user='.$user_del['id'].' ');
-mysql_query('DELETE FROM `qwest` WHERE `login`="'.$_POST['logindelete'].'" ');
-mysql_query('DELETE FROM `userdata` WHERE id='.$user_del['id'].' ');
-mysql_query('DELETE FROM `userstrokes` WHERE user='.$user_del['id'].' ');
-mysql_query('DELETE FROM `visit_podzem` WHERE `login`="'.$_POST['logindelete'].'" ');
-mysql_query('DELETE FROM `zn_tower` WHERE user_id='.$user_del['id'].' ');
-mysql_query('DELETE FROM `friends` WHERE user='.$user_del['id'].' ');
-mysql_query('DELETE FROM `friends` WHERE friend='.$user_del['id'].' ');
-mysql_query('DELETE FROM `delo_multi` WHERE idperslater='.$user_del['id'].' ');
-mysql_query('DELETE FROM `delo_multi` WHERE idpersnow='.$user_del['id'].' ');
-mysql_query('DELETE FROM `vxod` WHERE login='.$_POST['logindelete'].' ');
-mysql_query('DELETE FROM `vxodd` WHERE login='.$_POST['logindelete'].' ');
-mysql_query('DELETE FROM `users` WHERE id='.$user_del['id'].' ');
-mysql_query('DELETE FROM `users` WHERE user_id='.$user_del['id'].' ');
+$user_del=mysqli_fetch_array(db_query('SELECT * FROM `users` WHERE `login` = "'.$_POST['logindelete'].'" Limit 1 '));
+db_query('DELETE FROM `bank` WHERE owner='.$user_del['id'].' ');
+db_query('DELETE FROM `complect` WHERE user='.$user_del['id'].' ');
+db_query('DELETE FROM `delo` WHERE pers='.$user_del['id'].' ');
+db_query('DELETE FROM `dilerdelo` WHERE `owner`= "'.$_POST['logindelete'].'" ');
+db_query('DELETE FROM `droplog` WHERE user='.$user_del['id'].' ');
+db_query('DELETE FROM `effects` WHERE owner='.$user_del['id'].' ');
+db_query('DELETE FROM `favorites` WHERE user='.$user_del['id'].' ');
+db_query('DELETE FROM `inventory` WHERE owner='.$user_del['id'].' ');
+db_query('DELETE FROM `obshaga` WHERE pers='.$user_del['id'].' ');
+db_query('DELETE FROM `obshagaanimals` WHERE pers='.$user_del['id'].' ');
+db_query('DELETE FROM `obshagaeffects` WHERE owner='.$user_del['id'].' ');
+db_query('DELETE FROM `obshagastorage` WHERE pers='.$user_del['id'].' ');
+db_query('DELETE FROM `podzem3` WHERE `glava`="'.$_POST['logindelete'].'" ');
+db_query('DELETE FROM `podzem4` WHERE `glava`="'.$_POST['logindelete'].'" ');
+db_query('DELETE FROM `podzem5` WHERE `glava`="'.$_POST['logindelete'].'" ');
+db_query('DELETE FROM `podzem_zad_login` WHERE `glava`="'.$_POST['logindelete'].'" ');
+db_query('DELETE FROM `qtimes` WHERE user='.$user_del['id'].' ');
+db_query('DELETE FROM `quests` WHERE user='.$user_del['id'].' ');
+db_query('DELETE FROM `qwest` WHERE `login`="'.$_POST['logindelete'].'" ');
+db_query('DELETE FROM `userdata` WHERE id='.$user_del['id'].' ');
+db_query('DELETE FROM `userstrokes` WHERE user='.$user_del['id'].' ');
+db_query('DELETE FROM `visit_podzem` WHERE `login`="'.$_POST['logindelete'].'" ');
+db_query('DELETE FROM `zn_tower` WHERE user_id='.$user_del['id'].' ');
+db_query('DELETE FROM `friends` WHERE user='.$user_del['id'].' ');
+db_query('DELETE FROM `friends` WHERE friend='.$user_del['id'].' ');
+db_query('DELETE FROM `delo_multi` WHERE idperslater='.$user_del['id'].' ');
+db_query('DELETE FROM `delo_multi` WHERE idpersnow='.$user_del['id'].' ');
+db_query('DELETE FROM `vxod` WHERE login='.$_POST['logindelete'].' ');
+db_query('DELETE FROM `vxodd` WHERE login='.$_POST['logindelete'].' ');
+db_query('DELETE FROM `users` WHERE id='.$user_del['id'].' ');
+db_query('DELETE FROM `users` WHERE user_id='.$user_del['id'].' ');
 echo '<font color="red">Вы удалили перса с ником "'.$_POST['logindelete'].'" !</font>';
 }
 
@@ -692,10 +692,10 @@ exec("cd /var/www/bestcombats/data/www/bestcombats.net/bus; ls | xargs rm -rf");
 exec("touch /var/www/bestcombats/data/www/bestcombats.net/bus/index.php");
 exec("cd /var/www/bestcombats/data/www/bestcombats.net/backup/logs; ls | xargs rm -rf");
 exec("touch /var/www/bestcombats/data/www/bestcombats.net/backup/logs/index.php");
-mysql_query("UPDATE `users` SET `battle` = '0';");
-mysql_query("TRUNCATE TABLE  `battle`;");
-mysql_query("TRUNCATE TABLE  `logs`;");
-mysql_query("TRUNCATE TABLE  `battleunits`;");
+db_query("UPDATE `users` SET `battle` = '0';");
+db_query("TRUNCATE TABLE  `battle`;");
+db_query("TRUNCATE TABLE  `logs`;");
+db_query("TRUNCATE TABLE  `battleunits`;");
 echo"<font color=red>Успешно</font>";
 }
 ?>
@@ -710,7 +710,7 @@ echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend sty
 </table></fieldset></form>";					
 
 if (isset($_POST['end_battle1'])) {
-mysql_query("UPDATE `battle` SET `win`=0 WHERE `id` = '".$_POST['end_battle1']."';");
+db_query("UPDATE `battle` SET `win`=0 WHERE `id` = '".$_POST['end_battle1']."';");
 echo"<font color=red>Вы закрыли бой ".$_POST['end_battle1']." из базы!</font><br>";
 }
 ?>
@@ -730,12 +730,12 @@ echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend sty
 </table></fieldset></form>";					
 
 if (isset($_POST['name_of_item']) && isset($_POST['new_pri']) && isset($_POST['magazin'])) {
-$target_user_tel=mysql_fetch_array(mysql_query("SELECT `id` FROM `".$_POST['magazin']."` WHERE `name` = '".$_POST['name_of_item']."';"));
+$target_user_tel=mysqli_fetch_array(db_query("SELECT `id` FROM `".$_POST['magazin']."` WHERE `name` = '".$_POST['name_of_item']."';"));
 If (!empty($target_user_tel['id'])){
 If ($_POST['magazin']=='shop'){
-mysql_query("UPDATE `shop` SET `cost` = '".$_POST['new_pri']."' WHERE `id` = '".$target_user_tel['id']."' LIMIT 1;");
+db_query("UPDATE `shop` SET `cost` = '".$_POST['new_pri']."' WHERE `id` = '".$target_user_tel['id']."' LIMIT 1;");
 }elseif($_POST['magazin']=='berezka'){
-mysql_query("UPDATE `berezka` SET `ecost` = '".$_POST['new_pri']."' WHERE `id` = '".$target_user_tel['id']."' LIMIT 1;");
+db_query("UPDATE `berezka` SET `ecost` = '".$_POST['new_pri']."' WHERE `id` = '".$target_user_tel['id']."' LIMIT 1;");
 }
 echo"<font color=red>Вы изменили цену ".$_POST['name_of_item']."!</font><br>";	
 }else{
@@ -762,9 +762,9 @@ echo "</select></td></tr>
 <tr><td><input type=submit value='Назначить'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['alhimic'])) {
-$target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$target_user_tel=mysqli_fetch_array(db_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 If (!empty($target_user_tel['id'])){
-mysql_query("UPDATE `users` SET `deal` = '".(int)$_POST['alhimic']."' WHERE `id` = '".$target_user_tel['id']."';");
+db_query("UPDATE `users` SET `deal` = '".(int)$_POST['alhimic']."' WHERE `id` = '".$target_user_tel['id']."';");
 echo"<font color=red>Вы присвоили персонажу ".$_POST['login']." звание алхимика ".$_POST['alhimic']." степени!</font><br>";	
 }else{
 echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
@@ -781,7 +781,7 @@ echo "</select></td></tr>
 <tr><td><input type=submit value='Присвоить'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['silver'])) {
-$target_user_tel=mysql_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$target_user_tel=mysqli_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($_POST['silver']==604800){
 //Срок для личного дела
 $skolko = 'Неделю';
@@ -823,7 +823,7 @@ echo "</select></td></tr>
 <tr><td><input type=submit value='Присвоить'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['Gold'])) {
-$target_user_tel=mysql_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$target_user_tel=mysqli_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($_POST['Gold']==604800){
 //Срок для личного дела
 $skolko = 'Неделю';
@@ -865,7 +865,7 @@ echo "</select></td></tr>
 <tr><td><input type=submit value='Присвоить'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['Platinum'])) {
-$target_user_tel=mysql_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$target_user_tel=mysqli_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($_POST['Platinum']==604800){
 //Срок для личного дела
 $skolko = 'Неделю';
@@ -910,13 +910,13 @@ echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend sty
 echo "</fieldset></form>";
 
 if (isset($_POST['login']) and isset($_POST['djname'])) {	
-$user_id=mysql_result(mysql_query("SELECT `id` FROM `users` WHERE `login` ='".$_POST['login']."' LIMIT 1;"),0);	
+$user_id=db_result(db_query("SELECT `id` FROM `users` WHERE `login` ='".$_POST['login']."' LIMIT 1;"),0);
 if(!empty($user_id)){
 If ($_POST['djname']==0){
-mysql_query("UPDATE `users` SET `radiodj` = '0' WHERE `login` = '".$_POST['login']."';");
+db_query("UPDATE `users` SET `radiodj` = '0' WHERE `login` = '".$_POST['login']."';");
 echo"<font color=red>Вы убрали статус dj у ".$_POST['login']."!</font><br>";
 }else{
-mysql_query("UPDATE `users` SET `radiodj` = '1' WHERE `login` = '".$_POST['login']."';");
+db_query("UPDATE `users` SET `radiodj` = '1' WHERE `login` = '".$_POST['login']."';");
 echo"<font color=red>Вы присвоили статус Dj  ".$_POST['login']."!</font><br>";
 }
 }
@@ -974,7 +974,7 @@ case 1.99:
 $rang = 'Верховный Паладин';
 break;
 }
-$dd = mysql_fetch_array(mysql_query("SELECT `id`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$dd = mysqli_fetch_array(db_query("SELECT `id`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($user['sex'] == 1) {$action="присвоил";}
 else {$action="присвоила";}
 if ($user['align'] > '2' && $user['align'] < '3')  {
@@ -984,11 +984,11 @@ elseif ($user['align'] > '1' && $user['align'] < '2') {
 $angel="Паладин";
 }
 if($dd) {
-mysql_query("UPDATE `users` SET `align` = '".$_POST['krest']."',`status` = '$rang' WHERE `login` = '".$_POST['login']."';");
+db_query("UPDATE `users` SET `align` = '".$_POST['krest']."',`status` = '$rang' WHERE `login` = '".$_POST['login']."';");
 $target=$_POST['login'];
 $mess="$angel &quot;{$user['login']}&quot; $action &quot;$target&quot; звание $rang";
-mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$dd['id']."','$mess','".time()."');");
-mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
+db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$dd['id']."','$mess','".time()."');");
+db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 }
 }
 echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Принять в Армаду / поменять должность</legend>
@@ -1038,7 +1038,7 @@ case 3.99:
 $rang = 'Патриарх';
 break;
 }
-$dd = mysql_fetch_array(mysql_query("SELECT `id`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$dd = mysqli_fetch_array(db_query("SELECT `id`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($user['sex'] == 1) {$action="присвоил";}
 else {$action="присвоила";}
 if ($user['align'] > '2' && $user['align'] < '3')  {
@@ -1048,11 +1048,11 @@ elseif ($user['align'] > '1' && $user['align'] < '2') {
 $angel="Паладин";
 }
 if($dd) {
-mysql_query("UPDATE `users` SET `align` = '".$_POST['tarmanka']."',`status` = '$rang' WHERE `login` = '".$_POST['login']."';");
+db_query("UPDATE `users` SET `align` = '".$_POST['tarmanka']."',`status` = '$rang' WHERE `login` = '".$_POST['login']."';");
 $target=$_POST['login'];
 $mess="$angel &quot;{$user['login']}&quot; $action &quot;$target&quot; звание $rang";
-mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$dd['id']."','$mess','".time()."');");
-mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
+db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$dd['id']."','$mess','".time()."');");
+db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 }
 }
 
@@ -1078,26 +1078,26 @@ echo "<form  method='post' ENCTYPE='multipart/form-data'><fieldset style='border
 
 if (isset($_POST['shadow_name']) and isset($_POST['shadow_type']) and isset($_POST['shadow_sex']) and isset($_FILES['shadow_file'])) {
 If ($_POST['shadow_type']=='users'){
-$target_user=mysql_fetch_array(mysql_query("SELECT `id`,`login`,`sex` FROM `users` WHERE `login` = '".$_POST['shadow_name']."';"));
+$target_user=mysqli_fetch_array(db_query("SELECT `id`,`login`,`sex` FROM `users` WHERE `login` = '".$_POST['shadow_name']."';"));
 If (!empty($target_user['id'])){
 if (!file_exists('/var/www/game/data/www/img.old-bk.ru/i/shadow/'.$target_user['sex'].'/'.$_FILES['shadow_file']['name'])) {
 $image_info = GetImageSize($_FILES['shadow_file']['tmp_name']);
 If ($image_info[0]==120 and $image_info[1]==220){
 move_uploaded_file($_FILES['shadow_file']['tmp_name'], '/var/www/game/data/www/img.old-bk.ru/i/shadow/'.$target_user['sex'].'/'.$_FILES['shadow_file']['name']);
-mysql_query("INSERT `shadows_".$_POST['shadow_sex']."` (`img`,`nlogin`)VALUES('".($_FILES['shadow_file']['name'])."','".$_POST['shadow_name']."')  ");
+db_query("INSERT `shadows_".$_POST['shadow_sex']."` (`img`,`nlogin`)VALUES('".($_FILES['shadow_file']['name'])."','".$_POST['shadow_name']."')  ");
 echo"<font color=red>Вы добавили персонажу ".$_POST['shadow_name']." образ!</font><br>";
 }else{echo "<font color=red>Картинка не стандартного размера! 120x220 (стандарт)</font><br>";}
 }else{echo "<font color=red>Картинка уже существует.</font><br>";}
 }else{echo"<font color=red>Не был найден персонаж ".$_POST['shadow_name']."!</font><br>";}						
 }elseif($_POST['shadow_type']=='clans'){
-$target_clan=mysql_fetch_array(mysql_query("SELECT `id` FROM `clans` WHERE `name` = '".$_POST['shadow_name']."';"));	
+$target_clan=mysqli_fetch_array(db_query("SELECT `id` FROM `clans` WHERE `name` = '".$_POST['shadow_name']."';"));
 If (!empty($target_clan['id'])){
 If ($_POST['shadow_sex']=='m'){$sex=1;}else{$sex=0;}
 if (!file_exists('/var/www/game/data/www/img.old-bk.ru/i/shadow/'.$sex.'/'.$_FILES['shadow_file']['name'])) {
 $image_info = GetImageSize($_FILES['shadow_file']['tmp_name']);
 If ($image_info[0]==120 and $image_info[1]==220){	
 move_uploaded_file($_FILES['shadow_file']['tmp_name'], '/var/www/game/data/www/img.old-bk.ru/i/shadow/'.$sex.'/'.$_FILES['shadow_file']['name']);
-mysql_query("INSERT `shadows_".$_POST['shadow_sex']."` (`img`,`nclan`)VALUES('".($_FILES['shadow_file']['name'])."','".$_POST['shadow_name']."')  ");
+db_query("INSERT `shadows_".$_POST['shadow_sex']."` (`img`,`nclan`)VALUES('".($_FILES['shadow_file']['name'])."','".$_POST['shadow_name']."')  ");
 echo "<br/><font color=red>Вы добавили клану ".$_POST['shadow_name']." образ!</font><br>";								
 }else{echo "<font color=red>Картинка не стандартного размера! 120x220 (стандарт)</font><br>";}
 }else{echo "<font color=red>Картинка уже существует.</font><br>";}
@@ -1123,14 +1123,14 @@ echo "</select></td></tr>
 echo "</fieldset></form>";
 
 if (isset($_POST['login']) && isset($_POST['teleportcity'])) {
-$target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
+$target_user_tel=mysqli_fetch_array(db_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 If (!empty($target_user_tel['id'])){
-mysql_query("UPDATE `users` SET `incity` = '".$_POST['teleportcity']."',`room`=20 WHERE `id` = '".$target_user_tel['id']."';");
+db_query("UPDATE `users` SET `incity` = '".$_POST['teleportcity']."',`room`=20 WHERE `id` = '".$target_user_tel['id']."';");
 
 If ($_POST['teleportcity']=='dungeon'){
-mysql_query("UPDATE `online` SET `city` = 'abandonedplain',`room`=20 WHERE `id` = '".$target_user_tel['id']."';");
+db_query("UPDATE `online` SET `city` = 'abandonedplain',`room`=20 WHERE `id` = '".$target_user_tel['id']."';");
 }else{
-mysql_query("UPDATE `online` SET `city` = '".$_POST['teleportcity']."',`room`=20 WHERE `id` = '".$target_user_tel['id']."';");
+db_query("UPDATE `online` SET `city` = '".$_POST['teleportcity']."',`room`=20 WHERE `id` = '".$target_user_tel['id']."';");
 }
 
 echo"<font color=red>Вы телепортировали персонажа ".$_POST['login']."!</font><br>";	
@@ -1145,8 +1145,8 @@ echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend sty
 </table></fieldset></form>";					
 
 if (isset($_POST['clear_ip'])) {
-mysql_query("DELETE from `iplog` WHERE `ip` = '".$_POST['clear_ip']."';");
-mysql_query("UPDATE `users` SET `ip` = '' WHERE `ip` = '".$_POST['clear_ip']."' ");
+db_query("DELETE from `iplog` WHERE `ip` = '".$_POST['clear_ip']."';");
+db_query("UPDATE `users` SET `ip` = '' WHERE `ip` = '".$_POST['clear_ip']."' ");
 echo"<font color=red>Вы удалили IP ".$_POST['clear_ip']." из базы!</font><br>";
 }	
 
@@ -1180,10 +1180,10 @@ echo"<font color=red>Отправлено системное сообщение 
 <div id="tab12" class="tabset_content">
 <h2 class="tabset_label">Невидимки</h2>
  <?$r=mq("select users.login, users.room, effects.time from effects left join users on users.id=effects.owner where type=1022 and time>".time());
-  if (mysql_num_rows($r)>0) {
+  if (mysqli_num_rows($r)>0) {
     echo "<br><br>Невидимки:<table>
     <tr><td><b>Номер</b></td><td><b>Логин</b></td><td><b>Локация</b><td></td></tr>";
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       echo "<tr><td>".substr($rec["time"],strlen($rec["time"])-4)."</td><td>$rec[login]</td><td>".$rooms[$rec["room"]]."</td></tr>";
     }
     echo "</table>";

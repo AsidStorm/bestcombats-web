@@ -188,12 +188,12 @@
 
   $party=array();
   $r=mq("select user, x, y, dir, team, login, shadow, battle from fieldparties where field='$user[caveleader]' order by id");
-  if (mysql_num_rows($r)==0) {
+  if (mysqli_num_rows($r)==0) {
     gotoroom($user["room"]-1);
   }
 
   $aliveusers=0;
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     if ($rec["user"]==$user["id"]) {
       $x=$rec["x"];
       $y=$rec["y"];
@@ -296,7 +296,7 @@
               statsback($v["user"]);
             }
             $r=mq("select distinct battle from users where ".str_replace("user", "id", $cond)." and battle>0");
-            while ($rec=mysql_fetch_assoc($r)) {
+            while ($rec=mysqli_fetch_assoc($r)) {
               drawbattle($rec["battle"]);
             }
             $team1="";
@@ -961,8 +961,8 @@ echo "</td>
   echo "</center>";
   echo "<div style=\"padding-left:20px\">";
   $r=mq("select * from fielditems where field='$user[caveleader]' and x='".($x*2)."' and y='".($y*2)."'");
-  if (mysql_num_rows($r)>0) echo "<h3 style=\"text-align:left\">В комнате разбросаны вещи:</h3><div style=\"font-size:3px\">&nbsp;</div>";
-  while ($rec=mysql_fetch_assoc($r)) {
+  if (mysqli_num_rows($r)>0) echo "<h3 style=\"text-align:left\">В комнате разбросаны вещи:</h3><div style=\"font-size:3px\">&nbsp;</div>";
+  while ($rec=mysqli_fetch_assoc($r)) {
     echo "<a onclick=\"return checktimeleft();\" title=\"Поднять $rec[name]\" href=\"field.php?takeitem=$rec[id]\"><img src=\"".IMGBASE."/i/sh/$rec[img]\"></a> ";
   }
   echo "</div>";

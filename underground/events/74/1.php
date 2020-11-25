@@ -47,9 +47,9 @@
   
   // портал 6x30
   if ($tx*2==6 && $ty*2==30) {
-    $isStone = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Чернокнижника' AND owner = " . $user['id']), 0, 0);
+    $isStone = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Чернокнижника' AND owner = " . $user['id']), 0, 0);
     if ($isStone) {
-      mysql_query("DELETE FROM inventory WHERE name = 'Камень Портала Чернокнижника' AND owner = " . $user['id']);
+      db_query("DELETE FROM inventory WHERE name = 'Камень Портала Чернокнижника' AND owner = " . $user['id']);
       gotoxy(2, 40, 3, "Вы удачно телепортированны на 3-тий этаж, это стоило Вам Камня Портала Чернокнижника");
     } else {
       $report = '<div style="font-weight:normal">У Вас нет <b>Каменя Портала Чернокнижника</b>. Имея при себе его, можно попасть сразу на 3-тий этаж.</div>';
@@ -58,9 +58,9 @@
   
   // портал 8x32
   if ($tx*2==8 && $ty*2==32) {
-    $isStone = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Епископа' AND owner = " . $user['id']), 0, 0);
+    $isStone = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Епископа' AND owner = " . $user['id']), 0, 0);
     if ($isStone) {
-      mysql_query("DELETE FROM inventory WHERE name = 'Камень Портала Епископа' AND owner = " . $user['id']);
+      db_query("DELETE FROM inventory WHERE name = 'Камень Портала Епископа' AND owner = " . $user['id']);
       gotoxy(2, 2, 3, "Вы удачно телепортированны на 3-тий этаж, это стоило Вам Камня Портала Епископа");
     } else {
       $report = '<div style="font-weight:normal">У Вас нет <b>Каменя Портала Епископа</b>. Имея при себе его, можно попасть сразу на 3-тий этаж.</div>';
@@ -69,9 +69,9 @@
   
   // портал 4x32
   if ($tx*2==4 && $ty*2==32) {
-    $isStone = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Шута' AND owner = " . $user['id']), 0, 0);
+    $isStone = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Шута' AND owner = " . $user['id']), 0, 0);
     if ($isStone) {
-      mysql_query("DELETE FROM inventory WHERE name = 'Камень Портала Шута' AND owner = " . $user['id']);
+      db_query("DELETE FROM inventory WHERE name = 'Камень Портала Шута' AND owner = " . $user['id']);
       gotoxy(22, 16, 4, "Вы удачно телепортированны на 4-тый этаж, это стоило Вам Камня Портала Шута");
     } else {
       $report = '<div style="font-weight:normal">У Вас нет <b>Каменя Портала Шута</b>. Имея при себе его, можно попасть сразу на 3-тий этаж.</div>';

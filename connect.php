@@ -30,13 +30,13 @@ require_once("include/config.inc");
 require_once("include/database.inc");
 
     foreach ($_POST as $k=>$v) {
-        $_POST[$k] = htmlspecialchars(mysql_real_escape_string($v));
+        $_POST[$k] = htmlspecialchars(db_escape_string($v));
     }
     foreach ($_GET as $k=>$v) {
-        $_GET[$k] = htmlspecialchars(mysql_real_escape_string($v));
+        $_GET[$k] = htmlspecialchars(db_escape_string($v));
     }
     foreach ($_REQUEST as $k=>$v) {
-        $_REQUEST[$k] = htmlspecialchars(mysql_real_escape_string($v));
+        $_REQUEST[$k] = htmlspecialchars(db_escape_string($v));
     }
 
 if(!function_exists('remquotes')){

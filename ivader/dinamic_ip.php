@@ -17,9 +17,9 @@
 
 <?
 		If (isset($_GET['id']) and !empty($_GET['id'])){
-			$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".$_GET['id']."' LIMIT 1;"));
+			$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".$_GET['id']."' LIMIT 1;"));
 		}elseif(isset($_GET['login']) and !empty($_GET['login'])){
-			$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '".$_GET['login']."' LIMIT 1;"));
+			$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `login` = '".$_GET['login']."' LIMIT 1;"));
 		}
 		
 		If (empty($_GET['id']) and empty($_GET['login'])){
@@ -30,11 +30,11 @@
 			$ip=explode('.',$user['ip']);
 
 			
-			$ip_users= mysql_query("SELECT * from `users` where `ip` like '".$ip[0].".".$ip[1]."%' and `id`<>'".$user['ip']."' ");
+			$ip_users= db_query("SELECT * from `users` where `ip` like '".$ip[0].".".$ip[1]."%' and `id`<>'".$user['ip']."' ");
 			
 			
 			
-			While ($users_mult=mysql_fetch_array($ip_users)){
+			While ($users_mult=mysqli_fetch_array($ip_users)){
 				echo  $users_mult['login'].' '.$users_mult['ip'].'<br>';
 			}
 			

@@ -22,7 +22,7 @@ die;
   <td><b>Магические</b></td>
   </tr>
   ";
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     echo "<form action=\"setdamage.php#s$rec[id]\" method=post>
     <input type=hidden name=item value=$rec[id]>
     <input type=hidden name=tbl value=shop>
@@ -47,7 +47,7 @@ die;
   <td><b>Магические</b></td>
   </tr>
   ";
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     echo "<form action=\"setdamage.php#b$rec[id]\" method=post>
     <input type=hidden name=item value=$rec[id]>
     <input type=hidden name=tbl value=berezka>

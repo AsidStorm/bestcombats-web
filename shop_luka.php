@@ -2,16 +2,16 @@
     session_start();
     if ($_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
-    $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     include "functions.php";
 if ($_GET['naz']) {
-            mysql_query("UPDATE `users`,`online` SET `users`.`room` = '403',`online`.`room` = '403' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
-mysql_query("UPDATE `labirint` SET `location` = '28',`l`='478',`t`='214' WHERE `user_id` = '{$_SESSION['uid']}'");
+            db_query("UPDATE `users`,`online` SET `users`.`room` = '403',`online`.`room` = '403' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+db_query("UPDATE `labirint` SET `location` = '28',`l`='478',`t`='214' WHERE `user_id` = '{$_SESSION['uid']}'");
 print "<script>location.href='canalizaciya.php'</script>";
 exit;
             }
 
-    $d = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `setsale` = 0 ; "));
+    $d = mysqli_fetch_array(db_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `setsale` = 0 ; "));
     if ($user['room'] != 404) { header("Location: main.php");  die(); }
     if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 
@@ -26,14 +26,14 @@ exit;
         if ($zrec["silverzeton"]) {$zetonname="Серебряный Жетон";$zetonfield="silverzeton";}
         if ($zrec["goldzeton"]) {$zetonname="Золотой Жетон";$zetonfield="goldzeton";}
         if (!$_POST['count']) { $_POST['count'] =1; }
-$vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='$zetonname' and owner='".$user["id"]."'");
- while($vls = mysql_fetch_array($vear))
+$vear = db_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='$zetonname' and owner='".$user["id"]."'");
+ while($vls = mysqli_fetch_array($vear))
 {
       $zetons += $vls['koll'];
       $vls_id = $vls['id'];
 }
 
-        $dress = mysql_fetch_array(mysql_query("SELECT * FROM `shop_luka` WHERE `id` = '{$set}' LIMIT 1;"));
+        $dress = mysqli_fetch_array(db_query("SELECT * FROM `shop_luka` WHERE `id` = '{$set}' LIMIT 1;"));
         if (($dress['massa']*$_POST['count']+$d[0]) > (get_meshok())) {
             echo "<font color=red><b>Недостаточно места в рюкзаке.</b></font>";
         }
@@ -41,7 +41,7 @@ $vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `nam
 
             for($k=1;$k<=$_POST['count'];$k++) {
                 if(takelukaitem($set)
-                /*mysql_query("INSERT INTO `inventory`
+                /*db_query("INSERT INTO `inventory`
                 (`prototype`,`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,
                     `gsila`,`glovk`,`ginta`,`gintel`,`ghp`,`gnoj`,`gtopor`,`gdubina`,`gmech`,`gfire`,`gwater`,`gair`,`gearth`,`glight`,`ggray`,`gdark`,`needident`,`nsila`,`nlovk`,`ninta`,`nintel`,`nmudra`,`nvinos`,`nnoj`,`ntopor`,`ndubina`,`nmech`,`nfire`,`nwater`,`nair`,`nearth`,`nlight`,`ngray`,`ndark`,
                     `mfkrit`,`mfakrit`,`mfuvorot`,`mfauvorot`,`bron1`,`bron2`,`bron3`,`bron4`,`maxu`,`minu`,`magic`,`nlevel`,`nalign`,`dategoden`,`goden`,`otdel`,`gmp`,`gmeshok`,`podzem`,`dvur`,`second`, gmana
@@ -59,34 +59,34 @@ $vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `nam
                 }
             }
             if ($good) {
-                mysql_query("UPDATE `shop_luka` SET `count`=`count`-{$_POST['count']} WHERE `id` = '{$set}' LIMIT 1;");
+                db_query("UPDATE `shop_luka` SET `count`=`count`-{$_POST['count']} WHERE `id` = '{$set}' LIMIT 1;");
                 echo "<font color=red><b>Вы купили {$_POST['count']} шт. \"{$dress['name']}\".</b></font>";
             $vsego = $zetons-($_POST['count']*$dress[$zetonfield]);
 if($vsego<='0'){
-mysql_query("DELETE FROM `inventory` WHERE `type`='200' and `name`='$zetonname' and owner='".$user["id"]."'");
+db_query("DELETE FROM `inventory` WHERE `type`='200' and `name`='$zetonname' and owner='".$user["id"]."'");
 }else{
   takesmallitems($zetonname, $_POST['count']*$dress[$zetonfield], $user["id"]);
-  //mysql_query("UPDATE `inventory` set `koll` = '$vsego' WHERE `type`='200' and `name`='$zetonname' and owner='".$user["id"]."'");
+  //db_query("UPDATE `inventory` set `koll` = '$vsego' WHERE `type`='200' and `name`='$zetonname' and owner='".$user["id"]."'");
 }
 
 
                 $zetons -= $_POST['count']*$dress[$zetonfield];
                 $limit=$_POST['count'];
-                $invdb = mysql_query("SELECT `id` FROM `inventory` WHERE `name` = '".$dress['name']."' ORDER by `id` DESC LIMIT ".$limit." ;" );
-                //$invdb = mysql_query("SELECT id FROM `inventory` WHERE `name` = '".{$dress['name']}."' ORDER by `id` DESC LIMIT $limit ;" );
+                $invdb = db_query("SELECT `id` FROM `inventory` WHERE `name` = '".$dress['name']."' ORDER by `id` DESC LIMIT ".$limit." ;" );
+                //$invdb = db_query("SELECT id FROM `inventory` WHERE `name` = '".{$dress['name']}."' ORDER by `id` DESC LIMIT $limit ;" );
                 if ($limit == 1) {
-                    $dressinv = mysql_fetch_array($invdb);
+                    $dressinv = mysqli_fetch_array($invdb);
                     $dressid = "cap".$dressinv['id'];
                     $dresscount=" ";
                 } else {
                     $dressid="";
-                    while ($dressinv = mysql_fetch_array($invdb))  {
+                    while ($dressinv = mysqli_fetch_array($invdb))  {
                         $dressid .= "cap".$dressinv['id'].",";
                     }
                     $dresscount="(x".$_POST['count'].") ";
                 }
                 $allcost=$_POST['count']*$dress[$zetonfield];
-                mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" купил товар: \"".$dress['name']."\" ".$dresscount."id:(".$dressid.") [0/".$dress['maxdur']."] за ".$allcost." $zetonname. ',1,'".time()."');");
+                db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" купил товар: \"".$dress['name']."\" ".$dresscount."id:(".$dressid.") [0/".$dress['maxdur']."] за ".$allcost." $zetonname. ',1,'".time()."');");
             }
         }
         else {
@@ -244,8 +244,8 @@ switch ($_GET['otdel']) {
 <TR><TD><!--Рюкзак-->
 <TABLE BORDER=1 WIDTH=100% CELLSPACING="0" CELLPADDING="0" BGCOLOR="#A5A5A5">
 <?
-    $data = mysql_query("SELECT * FROM `shop_luka` WHERE `count` > 0 AND `razdel` = '{$_GET['otdel']}' AND (`zeton` != '0' or `silverzeton` != '0' or `goldzeton` != '0')");
-    while($row = mysql_fetch_array($data)) {
+    $data = db_query("SELECT * FROM `shop_luka` WHERE `count` > 0 AND `razdel` = '{$_GET['otdel']}' AND (`zeton` != '0' or `silverzeton` != '0' or `goldzeton` != '0')");
+    while($row = mysqli_fetch_array($data)) {
         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
         echo "<TR bordercolor='#000000' bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"".IMGBASE."/i/sh/{$row['img']}\" BORDER=0>";
         ?>
@@ -266,8 +266,8 @@ switch ($_GET['otdel']) {
     <TD valign=top width=280>
 
     <CENTER><B>Масса всех ваших вещей: <?php
-$vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Житон' and owner='".$user["id"]."'");
- while($vls = mysql_fetch_array($vear))
+$vear = db_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Житон' and owner='".$user["id"]."'");
+ while($vls = mysqli_fetch_array($vear))
 {
       $zetons += $vls['koll'];
       $vls_id = $vls['id'];

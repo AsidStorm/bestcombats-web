@@ -10,7 +10,7 @@ if ((($tx*2==6 && $ty*2==6) || ($tx*2==8 && $ty*2==6) || ($tx*2==4 && $ty*2==8) 
 
 // телепорт в 1-ую зону
 if ($tx*2==12 && $ty*2==12 && (int)$floor == 1) {  
-    $isTrend  = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND prototype = 2561"), 0, 0);
+    $isTrend  = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND prototype = 2561"), 0, 0);
     if ($isTrend || $user['id'] == 7) {
         gotoxy(4, 10, 2, "Вы благополучно телепортированны в зону боевых действий I");
     } else {
@@ -20,7 +20,7 @@ if ($tx*2==12 && $ty*2==12 && (int)$floor == 1) {
 
 // телепорт в 2-ую зону
 if ($tx*2==16 && $ty*2==8 && (int)$floor == 1) {  
-    $isTrend  = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND prototype = 2562"), 0, 0);
+    $isTrend  = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND prototype = 2562"), 0, 0);
     if ($isTrend || $user['id'] == 7) {
         $aMap = unserialize(mqfa1("select map from caves where leader='$user[caveleader]' and floor='3'"));
         $ps = array();
@@ -41,7 +41,7 @@ if ($tx*2==16 && $ty*2==8 && (int)$floor == 1) {
 
 // телепорт в 3-ую зону
 if ($tx*2==12 && $ty*2==4 && (int)$floor == 1) {  
-    $isTrend  = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND prototype = 2563"), 0, 0);
+    $isTrend  = db_result(db_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND prototype = 2563"), 0, 0);
     if ($isTrend || $user['id'] == 7) {
         gotoxy(6, 14, 4, "Вы благополучно телепортированны в зону боевых действий III");
     } else {

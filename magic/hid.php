@@ -6,13 +6,13 @@
 
 
         $magictime=time()+(60*120);
-        $tar = mysql_fetch_array(mysql_query("SELECT `id`,`align` FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+        $tar = mysqli_fetch_array(db_query("SELECT `id`,`align` FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
         $target=$_POST['target'];
         if ($tar['id']) {
-            mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Заклятие невидимости','{$magictime}',1022);");
-			mysql_query("UPDATE `users` SET `invis` = '1' WHERE `id` = '{$tar['id']}';");
+            db_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Заклятие невидимости','{$magictime}',1022);");
+			db_query("UPDATE `users` SET `invis` = '1' WHERE `id` = '{$tar['id']}';");
             
-            echo mysql_error();
+            echo db_error();
         
 }
         else {

@@ -3,7 +3,7 @@ ob_start("ob_gzhandler");
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";	
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	include "functions.php";
 ?>
 <HTML><HEAD>
@@ -67,8 +67,8 @@ function closehint3(){
 			<tr>
 			<td>
 				<?
-					$data=mysql_query("SELECT `id`, `login`, `status`, `level`, `room`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `align` > 3 and `align` < 4 order by  align desc, login asc ;");	
-					while ($row = mysql_fetch_array($data)) {
+					$data=db_query("SELECT `id`, `login`, `status`, `level`, `room`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `align` > 3 and `align` < 4 order by  align desc, login asc ;");	
+					while ($row = mysqli_fetch_array($data)) {
 						if ($row['online']>0) {
 							echo '<A HREF="javascript:top.AddToPrivate(\'',$row['login'],'\', top.CtrlPress)" target=refreshed><img src="i/lock.gif" width=20 height=15></A>';
 							nick2($row['id']);
@@ -81,8 +81,8 @@ function closehint3(){
 							echo ' - ',$row['status'],' - <i>',$rrm,'</i><BR>';
 						}
 					}
-					$data=mysql_query("SELECT `id`, `login`, `status`, `level`, `room`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `align` > 3 and `align` < 4 order by  align desc, login asc ;");	
-					while ($row = mysql_fetch_array($data)) {
+					$data=db_query("SELECT `id`, `login`, `status`, `level`, `room`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `align` > 3 and `align` < 4 order by  align desc, login asc ;");	
+					while ($row = mysqli_fetch_array($data)) {
 						if ($row['online']<1) {
 							echo '<img src="i/lock1.gif" width=20 height=15>';
 							nick2($row['id']);

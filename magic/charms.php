@@ -487,14 +487,14 @@ if ($user['battle'] > 0) {
 
 
     // выбираем свиток
-    $charm = mysql_fetch_assoc(mysql_query("SELECT id, name FROM `inventory` WHERE `id` = '{$_GET['use']}' AND `owner` = '$user[id]' LIMIT 1;"));
+    $charm = mysqli_fetch_assoc(db_query("SELECT id, name FROM `inventory` WHERE `id` = '{$_GET['use']}' AND `owner` = '$user[id]' LIMIT 1;"));
     // выбираем предмет
-    $item  = mysql_fetch_array(mysql_query("
+    $item  = mysqli_fetch_array(db_query("
             SELECT id, name, type, destinyinv, opisan, artefact, dvur
             FROM `inventory` 
             WHERE 
                 owner    = '{$user['id']}' AND 
-                name     = '" . mysql_real_escape_string($_POST['target']) . "' AND
+                name     = '" . db_escape_string($_POST['target']) . "' AND
                 dressed  = 0 AND
                 artefact = 0 AND
                 (type = 3 OR type = 9 OR type = 4 OR type = 10 OR type = 5 OR type = 2 OR type = 1 OR type = 8 OR type = 11 OR type = 22 OR type = 23)
@@ -516,18 +516,18 @@ if ($user['battle'] > 0) {
         $rnd = mt_rand(0, count($charms[$charm['name']][$item['type']]) - 1);
         $set = $charms[$charm['name']][$item['type']][$rnd];
         // удаляем предыдущий эффект, если был
-        $oldChEff = mysql_fetch_assoc(mysql_query("SELECT * FROM charmed_items WHERE id = $item[id]"));
+        $oldChEff = mysqli_fetch_assoc(db_query("SELECT * FROM charmed_items WHERE id = $item[id]"));
         if ($oldChEff) {
-            mysql_query("UPDATE inventory SET $oldChEff[variable]  = ($oldChEff[variable] - $oldChEff[value]) WHERE id = $item[id] AND owner = $user[id]");
+            db_query("UPDATE inventory SET $oldChEff[variable]  = ($oldChEff[variable] - $oldChEff[value]) WHERE id = $item[id] AND owner = $user[id]");
         }
         // запоминаем новый эффект зачарования
-        mysql_query("REPLACE INTO charmed_items SET id = $item[id], variable = '$set[var]', value = '$set[value]'");
+        db_query("REPLACE INTO charmed_items SET id = $item[id], variable = '$set[var]', value = '$set[value]'");
         // вносим изменения в предмет
-        mysql_query("
+        db_query("
             UPDATE inventory 
             SET 
                 $set[var]  = ($set[var] + $set[value]), 
-                opisan     = '" . mysql_real_escape_string("<b>Усиление:</b> $charm[name] (" . $charmsEff[$set['var']] . " +$set[value])") . "',
+                opisan     = '" . db_escape_string("<b>Усиление:</b> $charm[name] (" . $charmsEff[$set['var']] . " +$set[value])") . "',
                 destinyinv = " . (($item['destinyinv'] == 2) ? 2 : 1) . " 
             WHERE id = $item[id] AND owner = $user[id]
         ");

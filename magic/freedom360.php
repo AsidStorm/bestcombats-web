@@ -17,11 +17,11 @@
 		echo"Хаосник не может прочесть данный свиток";
 		}
 		else{
-		$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+		$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 		$magictime=time()+(360*60*1440);		
-		if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','Магия свободы','$magictime',22);")) {
-		mysql_query("DELETE FROM`effects` WHERE `owner` = '{$user['id']}' and `type` = '10' LIMIT 1 ;");
-		mysql_query("UPDATE `users` SET  `spellfreedom`='1' WHERE `id` = {$user['id']} LIMIT 1;");						
+		if (db_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','Магия свободы','$magictime',22);")) {
+		db_query("DELETE FROM`effects` WHERE `owner` = '{$user['id']}' and `type` = '10' LIMIT 1 ;");
+		db_query("UPDATE `users` SET  `spellfreedom`='1' WHERE `id` = {$user['id']} LIMIT 1;");
 		$ldtarget=$user['login'];
 		$ldblock=1;
 		if ($user['sex'] == 1) {$action="применил";}
@@ -30,7 +30,7 @@
 		else {$pol="стала свободной";}
 		$mess="Персонаж &quot;{$user['login']}&quot; $action магию истинного хаоса и $pol.";
 		$messch="Персонаж &quot;{$user['login']}&quot; $action магию истинного хаоса и $pol.";						
-		mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$user['id']."','$mess','".time()."');");
+		db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$user['id']."','$mess','".time()."');");
 		addch("<img src=i/magic/freedom360.gif> $messch");
 		echo "<font color=red><b>Персонаж \"{$user['login']}\" свободен</b></font>";			
 		}

@@ -5,7 +5,7 @@ if ($_SESSION['uid'] == null) header("Location: index.php");
 if ($user['battle'] == 0) {
 	echo "Это боевая магия...";
 } else {
-	$magic = mysql_fetch_array(mysql_query("SELECT `chanse` FROM `magic` WHERE `id` = '17' ;"));
+	$magic = mysqli_fetch_array(db_query("SELECT `chanse` FROM `magic` WHERE `id` = '17' ;"));
 	
 	if ($user['intel'] >= 3) {
 		$int=$magic['chanse'] + ($user['intel'] - 3)*3;
@@ -14,14 +14,14 @@ if ($user['battle'] == 0) {
 	else {$int=0;}
 
 	if (rand(1,100) < $int) {
-		//$nb = mysql_fetch_array(mysql_query("SELECT count(`id`) FROM `bots` WHERE `name` LIKE '".$user['login']." (клон%';"));
-		//mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$user['login']." (клон ".($nb[0]+1).")','".$user['id']."','".$user['battle']."','".$user['hp']."');");
-		//$bot = mysql_insert_id();
-		$bot =  mysql_fetch_array(mysql_query("SELECT * FROM `bots` WHERE `name` = '".$_POST['target']."';"));
+		//$nb = mysqli_fetch_array(db_query("SELECT count(`id`) FROM `bots` WHERE `name` LIKE '".$user['login']." (клон%';"));
+		//db_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$user['login']." (клон ".($nb[0]+1).")','".$user['id']."','".$user['battle']."','".$user['hp']."');");
+		//$bot = db_insert_id();
+		$bot =  mysqli_fetch_array(db_query("SELECT * FROM `bots` WHERE `name` = '".$_POST['target']."';"));
 		if($bot && strpos($_POST['target'],"клон" )) {
 			$bot = $bot[0];
 		
-			$bd = mysql_fetch_array(mysql_query ('SELECT * FROM `battle` WHERE `id` = '.$user['battle'].' LIMIT 1;'));
+			$bd = mysqli_fetch_array(db_query ('SELECT * FROM `battle` WHERE `id` = '.$user['battle'].' LIMIT 1;'));
 			$battle = unserialize($bd['teams']);			
 			$battle[$bot] = $battle[$user['id']];
 			foreach($battle as $k => $v) {
@@ -55,11 +55,11 @@ if ($user['battle'] == 0) {
 			$t1 = implode(";",$t1);
 			$t2 = implode(";",$t2);
 			
-			//mysql_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' переманил клона '.nick5($bot,"B").' на свою сторону<BR>\') WHERE `id` = '.$user['battle'].';');
+			//db_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' переманил клона '.nick5($bot,"B").' на свою сторону<BR>\') WHERE `id` = '.$user['battle'].';');
 			addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' переманил клона '.nick5($bot,"B").' на свою сторону<BR>');
-			mysql_query('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t1` = \''.$t1.'\', `t2` = \''.$t2.'\'  WHERE `id` = '.$user['battle'].' ;');
+			db_query('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t1` = \''.$t1.'\', `t2` = \''.$t2.'\'  WHERE `id` = '.$user['battle'].' ;');
 			
-			mysql_query("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = ".$user['battle']." LIMIT 1;");							
+			db_query("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = ".$user['battle']." LIMIT 1;");
 					
 			$bet=1;
 			echo "Вы переманили клона";

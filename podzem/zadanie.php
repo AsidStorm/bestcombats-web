@@ -2,7 +2,7 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "../connect.php";	
-	$user = mysql_fetch_array(mysql_query("SELECT login FROM `users` WHERE `id` = '".$_SESSION['uid']."' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT login FROM `users` WHERE `id` = '".$_SESSION['uid']."' LIMIT 1;"));
 	if ($user['login']=="actro") {
 
 ?>
@@ -26,7 +26,7 @@
 <?
 
  if ($_POST['ok']) {
-	if (mysql_query("insert into podzem_zad (zadanie,lvl,ed,ubit) values ('".mysql_real_escape_string($_POST['zadanie'])."','".mysql_real_escape_string($_POST['lvl'])."','".mysql_real_escape_string(_POST['ed'])."','".mysql_real_escape_string($_POST['ubit'])."');")) 	{	echo "OK";	}
+	if (db_query("insert into podzem_zad (zadanie,lvl,ed,ubit) values ('".db_escape_string($_POST['zadanie'])."','".db_escape_string($_POST['lvl'])."','".db_escape_string(_POST['ed'])."','".db_escape_string($_POST['ubit'])."');")) 	{	echo "OK";	}
 else { echo "NO";}
  
  }

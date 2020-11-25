@@ -12,12 +12,12 @@ function my_strtolower($string)
 }
 
 if (isset($_POST['spam_text']) && $_POST['spam_text'] != '') {
-    mysql_query('INSERT INTO `spam_text` (`text`) VALUES ("' . mysql_real_escape_string(my_strtolower($_POST['spam_text'])) . '")');
+    db_query('INSERT INTO `spam_text` (`text`) VALUES ("' . db_escape_string(my_strtolower($_POST['spam_text'])) . '")');
     $user->error = '<b style="color:red">Готово</b>';
 
 }
 if (isset($_GET['del_t']) && is_numeric($_GET['del_t'])) {
-    mysql_query('DELETE FROM `spam_text` WHERE `id`="' . $_GET['del_t'] . '"');
+    db_query('DELETE FROM `spam_text` WHERE `id`="' . $_GET['del_t'] . '"');
     echo  '<b style="color:red">Готово</b>';
 }
 /*---------*/
@@ -27,8 +27,8 @@ echo '<form method="post" action="">
 	Плохое слово <input type="text" name="spam_text" maxlength="20" />&nbsp;<input type="submit" value="Добавить плохое слово" name="turn_submit" /><br />
 	<br clear="all" />
 	<b>Фильтр:</b><br />';
-$bads = mysql_query('SELECT * FROM `spam_text` ORDER by `id` DESC');
-while ($badswords = mysql_fetch_array($bads)) {
+$bads = db_query('SELECT * FROM `spam_text` ORDER by `id` DESC');
+while ($badswords = mysqli_fetch_array($bads)) {
     echo $badswords['text'] . "<a href='?pal&p=13&del_t=" . $badswords['id'] . "'>X</a>, ";
 }
 echo '

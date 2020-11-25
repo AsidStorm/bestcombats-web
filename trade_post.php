@@ -2,7 +2,7 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	include "functions.php";
 	if ($user['room'] != 21) {header("Location: main.php");}
     if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
@@ -14,15 +14,15 @@
 		$_GET['page']=1;
 	}
 	
-	$obiav = mysql_query("SELECT * FROM `trade_post_abb` where razdel='".$_GET['otdel']."'  LIMIT ".(($_GET['page']-1)*10).",".((($_GET['page']-1)*10)+10)." ");
-	$count_posts=ceil(mysql_numrows(mysql_query("SELECT * FROM `trade_post_abb` where razdel='".$_GET['otdel']."' "))/10);
+	$obiav = db_query("SELECT * FROM `trade_post_abb` where razdel='".$_GET['otdel']."'  LIMIT ".(($_GET['page']-1)*10).",".((($_GET['page']-1)*10)+10)." ");
+	$count_posts=ceil(mysqli_num_rows(db_query("SELECT * FROM `trade_post_abb` where razdel='".$_GET['otdel']."' "))/10);
 	
 	if(!empty($_POST['act']) and $_POST['act']=='add_com' and !empty($_POST['text']) and !empty($_POST['razdel'])){
 			echo "Ваше обьявление добавлено!";
 			$_POST['text']=eregi_replace('u(.)*n(.)*i(.)*o(.)*n','',$_POST['text']);
 			$_POST['text']=eregi_replace('s(.)*e(.)*l(.)*e(.)*c(.)*t','',$_POST['text']);		
 			$_POST['text']=eregi_replace('d(.)*e(.)*l(.)*e(.)*t(.)*e','',$_POST['text']);
-			mysql_query("INSERT INTO `trade_post_abb` (`owner`, `text`, `razdel`) VALUES ('".$_SESSION['uid']."', '".$_POST['text']."', '".$_POST['razdel']."');");		
+			db_query("INSERT INTO `trade_post_abb` (`owner`, `text`, `razdel`) VALUES ('".$_SESSION['uid']."', '".$_POST['text']."', '".$_POST['razdel']."');");
 	}
 
 ?>
@@ -206,8 +206,8 @@
 		</tr>
 		<?
 		If ($_GET['otdel']<>'3'){
-			while ($work=mysql_fetch_array($obiav)){
-			$user_ob=mysql_fetch_array(mysql_query("SELECT login,id,level,align FROM `users` WHERE `id` = '".$work['owner']."' LIMIT 1;"));
+			while ($work=mysqli_fetch_array($obiav)){
+			$user_ob=mysqli_fetch_array(db_query("SELECT login,id,level,align FROM `users` WHERE `id` = '".$work['owner']."' LIMIT 1;"));
 		?>
 			<TR>
 				<td style="background-color:#B5B5B5" >

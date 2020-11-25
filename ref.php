@@ -2,7 +2,7 @@
     session_start();
     if ($_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
-    $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     include "functions.php";
     header("Cache-Control: no-cache");
 ?>
@@ -41,9 +41,9 @@
 <TD bgcolor=efeded nowrap>
 <?
 
-$data = mysql_query("SELECT `id`, `login`, `status`, `level`, `room`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM users WHERE refer='$user[id]' ORDER BY level DESC");
+$data = db_query("SELECT `id`, `login`, `status`, `level`, `room`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM users WHERE refer='$user[id]' ORDER BY level DESC");
 $i=0;
-while($row = mysql_fetch_array($data)){
+while($row = mysqli_fetch_array($data)){
 $i++;
 if($i==1){echo"<center>Список игроков которых Вы привели:</center><br>";}
 

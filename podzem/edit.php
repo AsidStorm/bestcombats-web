@@ -2,7 +2,7 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "../connect.php";	
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	if ($user['login']=="Реализатор") {
 
 ?>
@@ -12,8 +12,8 @@
   <tr>
     <td width="300" align="left" valign="top">
 <?
-$nec = mysql_query("SELECT * FROM podzem2");
-while($sc = mysql_fetch_array($nec)){
+$nec = db_query("SELECT * FROM podzem2");
+while($sc = mysqli_fetch_array($nec)){
 print"<a href='edit_podzem.php?name=".$sc['name']."'>".$sc['name']."</a><br />";
 
 }
@@ -30,7 +30,7 @@ if($_GET['new']){
 print "<script>location.href='main.php?act=none'</script>";
 exit;}
 if($_GET['news']){
-$SQL2 = mysql_query("INSERT INTO podzem2(name) VALUES('".$_GET['name']."')");
+$SQL2 = db_query("INSERT INTO podzem2(name) VALUES('".$_GET['name']."')");
 print "<script>location.href='edit.php'</script>";
 exit;}
 

@@ -1,6 +1,6 @@
 <?php
 
-$us = mysql_fetch_array(mysql_query("SELECT honorpoints FROM `users` WHERE `id` = 4475817 LIMIT 1;"));		
+$us = mysqli_fetch_array(db_query("SELECT honorpoints FROM `users` WHERE `id` = 4475817 LIMIT 1;"));
 	
 
 if ($us['honorpoints'] == 0) {
@@ -15,7 +15,7 @@ if ($us['honorpoints'] == 0) {
 			elseif ($user['align'] > '1' && $user['align'] < '2') {
 				$angel="Персонаж";
 			}
-                                mysql_query("UPDATE `users` SET `honorpoints`=0 WHERE `id`='4475817'");
+                                db_query("UPDATE `users` SET `honorpoints`=0 WHERE `id`='4475817'");
 				echo "Вы отозвали Зомби Шейна!";
 				addch("<img src=i/magic/1x1.gif> ".$angel." &quot;{$user['login']}&quot; ".$action." Зомби Шейна.");
 				

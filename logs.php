@@ -36,9 +36,9 @@ include "connect.php";
 include "functions.php";
 //checklog($_REQUEST['log']);
 if ($_GET['stat']!='1') {
-  $data = mysql_fetch_array(mysql_query ("SELECT * FROM `battle` WHERE `id` = ".intval($_REQUEST['log']).""));
+  $data = mysqli_fetch_array(db_query ("SELECT * FROM `battle` WHERE `id` = ".intval($_REQUEST['log']).""));
   $udata=unserialize($data["userdata"]);
-  //$log = mysql_fetch_array(mysql_query("SELECT `log` FROM `logs` WHERE `id` = '".$_REQUEST['log']."';"));
+  //$log = mysqli_fetch_array(db_query("SELECT `log` FROM `logs` WHERE `id` = '".$_REQUEST['log']."';"));
   //echo "<form method=get><input type=hidden name='log' value='".(int)$_GET['log']."'><input type=hidden name='stat' value='1'><input type=submit value='Статистика'></form>";
   $log = file("backup/logs//battle".$_REQUEST['log'].".txt");
   if ($data['type'] == 10) {

@@ -8,7 +8,7 @@
     $trv="";
     if ($_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
-    $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     if (!$user['login']) header("Location: index.php");
 //  if ($user['level']<4) { header("Location: main.php");  die(); }
 //  if ($user['room'] != 43) { header("Location: main.php");  die(); }
@@ -78,8 +78,8 @@
         echo "<b><font color=red>У Вас недостаточно денег.</font></b>";
       } else {
         $r=mq("select * from effects where owner='$_SESSION[uid]' AND (type=188 or type=187) and (sila>0 or lovk>0 or inta>0 or mudra>0 or vinos>0 or intel>0)");
-        if (mysql_num_rows($r)>0) {
-          while ($rec=mysql_fetch_assoc($r)) {
+        if (mysqli_num_rows($r)>0) {
+          while ($rec=mysqli_fetch_assoc($r)) {
             mq("delete from effects WHERE `id`='$rec[id]'");
             mq("update users set sila=sila-$rec[sila], lovk=lovk-$rec[lovk], inta=inta-$rec[inta], vinos=vinos-$rec[vinos], intel=intel-$rec[intel], mudra=mudra-$rec[mudra] where id='$_SESSION[uid]'");
           }
@@ -88,7 +88,7 @@
         }
       }
     }
-    $d = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$user['id']}' AND `dressed` = 0 AND `setsale` = 0 ; "));
+    $d = mysqli_fetch_array(db_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$user['id']}' AND `dressed` = 0 AND `setsale` = 0 ; "));
     if($d[0] > get_meshok()) {
         echo "<font color=red><b>У вас переполнен рюкзак, вы не можете передвигаться...</b></font><br>";
     }
@@ -106,7 +106,7 @@
     //Знахарь может снять действие за 5 кр. <a href=\"znahar.php?clearels=1\">Снять действие эликсира/заклятия</a>."; die();}
 
 if ($_POST['undr']=='1') undressall((int)$_SESSION['uid']);
-$s=mysql_fetch_row(mysql_query("SELECT count(id) FROM inventory WHERE dressed!=0 and type>0 AND owner=".(int)$_SESSION['uid']));
+$s=mysqli_fetch_row(db_query("SELECT count(id) FROM inventory WHERE dressed!=0 and type>0 AND owner=".(int)$_SESSION['uid']));
 //if ((int)$s[0]>0) { echo "<form method=post>Перед входом в комнату знахарь требует полного очищения! <input type=hidden value=1 name='undr'><input type=submit value='Раздеться'></form>"; die();}
 
 if (@(int)$_POST['move_ab']>0) {
@@ -164,7 +164,7 @@ if (@(int)$_POST['move_ab']>0) {
             mq("UPDATE `userdata` SET `master`=$levelstats[master]+$user[extramaster],noj=0,mec=0,topor=0,dubina=0,posoh=0, luk=0, mfire=0, mwater=0, mair=0, mearth=0, mlight=0, mgray=0, mdark=0 WHERE `id`='$user[id]'");
             fixstats($user["id"]);
             if (!ALLFREE) $user["money"]-=32;
-            mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" перераспределил умения, заплатив 32 кр. в Комнате Знахаря ($user[money]/$user[ekr]). ',1,'".time()."');");
+            db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" перераспределил умения, заплатив 32 кр. в Комнате Знахаря ($user[money]/$user[ekr]). ',1,'".time()."');");
             echo "<font color=red>Все прошло удачно. Вы можете перераспределить умения.</font>";
             $trv=settravma((int)$_SESSION['uid'],20,rand(300,600),1,1);
           } else echo "<font color=red>Произошла ошибка!</font>";
@@ -187,7 +187,7 @@ if (@(int)$_POST['move_ab']>0) {
         else {
           if (mq("UPDATE `users` SET ".(ALLFREE?"":"money=money-25,")." `features` = 0 WHERE `id`='$user[id]'")) {
             if (!ALLFREE) $user["money"]-=25;
-            mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" перераспределил особенности, заплатив 25 кр. в Комнате Знахаря ($user[money]/$user[ekr]). ',1,'".time()."');");
+            db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" перераспределил особенности, заплатив 25 кр. в Комнате Знахаря ($user[money]/$user[ekr]). ',1,'".time()."');");
             echo "<font color=red>Все прошло удачно. Вы можете перераспределить умения.</font>";
             $trv=settravma((int)$_SESSION['uid'],20,rand(300,600),1,1);
           } else echo "<font color=red>Произошла ошибка!</font>";
@@ -197,7 +197,7 @@ if (@(int)$_POST['move_ab']>0) {
       include "config/expstats.php";
 
       if (!file_exists(MEMCACHE_PATH.'/par'.$_SESSION['uid']) || ALLFREE) {
-        //mysql_query("delete from effects where (sila<>0 or lovk<>0 or inta<>0 or vinos<>0 or intel<>0) and owner='".$_SESSION['uid']."'");
+        //db_query("delete from effects where (sila<>0 or lovk<>0 or inta<>0 or vinos<>0 or intel<>0) and owner='".$_SESSION['uid']."'");
         $levelstats=statsat($user['nextup']);
         //mq("delete from effects where (sila<>0 or lovk<>0 or inta<>0 or vinos<>0 or intel<>0) and owner='$user[id]'");
         //mq("delete from obshagaeffects where (sila<>0 or lovk<>0 or inta<>0 or vinos<>0 or intel<>0) and owner='$user[id]'");
@@ -215,7 +215,7 @@ if (@(int)$_POST['move_ab']>0) {
       } else {
         if ($user['money']<50) echo "<font color=red><b>Недостаточно кредитов для совершения операции!</b></font>";
         else {
-          //mysql_query("delete from effects where (sila<>0 or lovk<>0 or inta<>0 or vinos<>0 or intel<>0) and owner='".$_SESSION['uid']."'");
+          //db_query("delete from effects where (sila<>0 or lovk<>0 or inta<>0 or vinos<>0 or intel<>0) and owner='".$_SESSION['uid']."'");
           $levelstats=statsat($user['nextup']);
           if (!ALLFREE) {
             mq("update users set money=money-50 where id='$user[id]'");
@@ -257,10 +257,10 @@ if ($trv!="") echo "<br>Вы чувствуете слабость.. ".$trv."";
 <legend style='font-weight:bold; color:#8F0000;'>Пристрастия</legend>
 <?
   $r=mq("select * from effects where owner='$user[id]' and (type='".ADDICTIONEFFECT."' or type='".HPADDICTIONEFFECT."' or type='".MANAADDICTIONEFFECT."')");
-  if (mysql_num_rows($r)>0) {
+  if (mysqli_num_rows($r)>0) {
     echo "У Вас есть возможность вылечиться от пагубных пристрастий:<br><br>";
     echo "<table>";
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       $at=addicttype($rec);
       echo "<tr><td><img src=\"".IMGBASE."/i/misc/icon_$at.gif\"></td><td><a href=\"znahar.php?healaddict=$rec[id]\">вылечить</a> ".(ALLFREE?"(бесплатно)":"(цена лечения: 25 кр., время действия ещё ".secs2hrs($rec["time"]-time()).")")."</td></tr>";
     }
@@ -275,10 +275,10 @@ if ($trv!="") echo "<br>Вы чувствуете слабость.. ".$trv."";
 <legend style='font-weight:bold; color:#8F0000;'>Эликсиры, магия и другие эффекты</legend>
 <?
   $r=mq("select * from effects where owner='$user[id]' and (type=49 or type=187 or type=188 or type=189) and time>1");
-  if (mysql_num_rows($r)>0) {
+  if (mysqli_num_rows($r)>0) {
     echo "У Вас есть возможность вылечиться от пагубных пристрастий:<br><br>";
     echo "<table>";
-    while ($rec=mysql_fetch_assoc($r)) {
+    while ($rec=mysqli_fetch_assoc($r)) {
       echo "<tr><td><a onclick=\"return confirm('Вы уверены, что хотите снять действие эффекта '+String.fromCharCode(34)+'$rec[name]'+String.fromCharCode(34)+'?');\" href=\"znahar.php?remeffect=$rec[id]\">$rec[name]</a> ".(ALLFREE?"(бесплатно)":"(цена 5 кр., время действия ещё ".secs2hrs($rec["time"]-time()).")")."</td></tr>";
     }
     echo "</table>";

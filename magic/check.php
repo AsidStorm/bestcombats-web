@@ -4,7 +4,7 @@
 
         if ($_SESSION['uid'] == null) header("Location: index.php");
         $target=$_POST['target'];
-        $tar = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+        $tar = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
         $magictime=time()+259200;
         if ($tar['id']) {
           $restr=mqfa1("select time from effects where owner='$tar[id]' and type=".CLANRESTRICTION." order by id desc");
@@ -19,11 +19,11 @@
                     $ok=1;
                 }
                 if ($ok == 1) {
-                    if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Паладинская проверка','".$magictime."','20');")) {
+                    if (db_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Паладинская проверка','".$magictime."','20');")) {
                         $messtel="Помечено, что персонаж чист перед законом";
                         $mess="".$user['login']." сделал пометку что ".$_POST['target']." чист перед законом";
-                        mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
-                        mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
+                        db_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
+                        db_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 
                         tele_check($target,$messtel);
 

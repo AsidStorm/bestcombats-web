@@ -2,7 +2,7 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "../connect.php";	
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	if ($user['align']==2.5 OR $user['login']==volter)  {
 if ($user['room'] != 35) {$magaz='shop_old';}else{$magaz='berezka';}
 ?>
@@ -12,7 +12,7 @@ if ($user['room'] != 35) {$magaz='shop_old';}else{$magaz='berezka';}
 </form>
 <?
 if($_GET['next']){
-$sp = mysql_fetch_array(mysql_query("SELECT * FROM `$magaz` WHERE `name` = '".$_GET['name']."' LIMIT 1;"));
+$sp = mysqli_fetch_array(db_query("SELECT * FROM `$magaz` WHERE `name` = '".$_GET['name']."' LIMIT 1;"));
 if($sp){
 if($_GET['es']!=1){
 ?>
@@ -216,7 +216,7 @@ if($_GET['es']!=1){
 }
 if ($_POST['name'] and $_POST['sav']) {
 
-mysql_query("UPDATE `$magaz` SET name='".$_POST['name']."',duration='".$_POST['duration']."',maxdur='".$_POST['maxdur']."',cost='".$_POST['cost']."',ecost='".$_POST['ecost']."',nlevel='".$_POST['nlevel']."',nsila='".$_POST['nsila']."',nlovk='".$_POST['nlovk']."',ninta='".$_POST['ninta']."',nvinos='".$_POST['nvinos']."',nintel='".$_POST['nintel']."',nmudra='".$_POST['nmudra']."',nnoj='".$_POST['nnoj']."',ntopor='".$_POST['ntopor']."',ndubina='".$_POST['ndubina']."',nmech='".$_POST['nmech']."',nalign='".$_POST['nalign']."',minu='".$_POST['minu']."',maxu='".$_POST['maxu']."',gsila='".$_POST['gsila']."',glovk='".$_POST['glovk']."',ginta='".$_POST['ginta']."',gintel='".$_POST['gintel']."',ghp='".$_POST['ghp']."',mfkrit='".$_POST['mfkrit']."',mfakrit='".$_POST['mfakrit']."',mfuvorot='".$_POST['mfuvorot']."',mfauvorot='".$_POST['mfauvorot']."',gnoj='".$_POST['gnoj']."',gtopor='".$_POST['gtopor']."',gdubina='".$_POST['gdubina']."',gmech='".$_POST['gmech']."',img='".$_POST['img']."',count='".$_POST['count']."',bron1='".$_POST['bron1']."',bron2='".$_POST['bron2']."',bron3='".$_POST['bron3']."',bron4='".$_POST['bron4']."',bron5='".$_POST['bron5']."',magic='".$_POST['magic']."',type='".$_POST['type']."',massa='".$_POST['massa']."',needident='".$_POST['needident']."',nfire='".$_POST['nfire']."',nwater='".$_POST['nwater']."',nair='".$_POST['nair']."',nearth='".$_POST['nearth']."',nlight='".$_POST['nlight']."',ngray='".$_POST['ngray']."',ndark='".$_POST['ndark']."',gfire='".$_POST['gfire']."',gwater='".$_POST['gwater']."',gair='".$_POST['gair']."',gearth='".$_POST['gearth']."',glight='".$_POST['glight']."',ggray='".$_POST['ggray']."',gdark='".$_POST['gdark']."',letter='".$_POST['letter']."',isrep='".$_POST['isrep']."',razdel='".$_POST['razdel']."',mfkritpow='".$_POST['mfkritpow']."',mfcontr='".$_POST['mfcontr']."',second='".$_POST['second']."',godenm='".$_POST['godenm']."',mfdhit='".$_POST['mfdhit']."',mfshieldblock='".$_POST['mfshieldblock']."',k_kach='".$_POST['k_kach']."',r_kach='".$_POST['r_kach']."',d_kach='".$_POST['d_kach']."',z_kach='".$_POST['z_kach']."',mfdmag='".$_POST['mfdmag']."',mfparir='".$_POST['mfparir']."',mfmagp='".$_POST['mfmagp']."',mfkol='".$_POST['mfkol']."',mfrub='".$_POST['mfrub']."',mfdrob='".$_POST['mfdrob']."',mfrej='".$_POST['mfrej']."',gmana='".$_POST['gmana']."' WHERE `name` = '".$_POST['names']."'");
+db_query("UPDATE `$magaz` SET name='".$_POST['name']."',duration='".$_POST['duration']."',maxdur='".$_POST['maxdur']."',cost='".$_POST['cost']."',ecost='".$_POST['ecost']."',nlevel='".$_POST['nlevel']."',nsila='".$_POST['nsila']."',nlovk='".$_POST['nlovk']."',ninta='".$_POST['ninta']."',nvinos='".$_POST['nvinos']."',nintel='".$_POST['nintel']."',nmudra='".$_POST['nmudra']."',nnoj='".$_POST['nnoj']."',ntopor='".$_POST['ntopor']."',ndubina='".$_POST['ndubina']."',nmech='".$_POST['nmech']."',nalign='".$_POST['nalign']."',minu='".$_POST['minu']."',maxu='".$_POST['maxu']."',gsila='".$_POST['gsila']."',glovk='".$_POST['glovk']."',ginta='".$_POST['ginta']."',gintel='".$_POST['gintel']."',ghp='".$_POST['ghp']."',mfkrit='".$_POST['mfkrit']."',mfakrit='".$_POST['mfakrit']."',mfuvorot='".$_POST['mfuvorot']."',mfauvorot='".$_POST['mfauvorot']."',gnoj='".$_POST['gnoj']."',gtopor='".$_POST['gtopor']."',gdubina='".$_POST['gdubina']."',gmech='".$_POST['gmech']."',img='".$_POST['img']."',count='".$_POST['count']."',bron1='".$_POST['bron1']."',bron2='".$_POST['bron2']."',bron3='".$_POST['bron3']."',bron4='".$_POST['bron4']."',bron5='".$_POST['bron5']."',magic='".$_POST['magic']."',type='".$_POST['type']."',massa='".$_POST['massa']."',needident='".$_POST['needident']."',nfire='".$_POST['nfire']."',nwater='".$_POST['nwater']."',nair='".$_POST['nair']."',nearth='".$_POST['nearth']."',nlight='".$_POST['nlight']."',ngray='".$_POST['ngray']."',ndark='".$_POST['ndark']."',gfire='".$_POST['gfire']."',gwater='".$_POST['gwater']."',gair='".$_POST['gair']."',gearth='".$_POST['gearth']."',glight='".$_POST['glight']."',ggray='".$_POST['ggray']."',gdark='".$_POST['gdark']."',letter='".$_POST['letter']."',isrep='".$_POST['isrep']."',razdel='".$_POST['razdel']."',mfkritpow='".$_POST['mfkritpow']."',mfcontr='".$_POST['mfcontr']."',second='".$_POST['second']."',godenm='".$_POST['godenm']."',mfdhit='".$_POST['mfdhit']."',mfshieldblock='".$_POST['mfshieldblock']."',k_kach='".$_POST['k_kach']."',r_kach='".$_POST['r_kach']."',d_kach='".$_POST['d_kach']."',z_kach='".$_POST['z_kach']."',mfdmag='".$_POST['mfdmag']."',mfparir='".$_POST['mfparir']."',mfmagp='".$_POST['mfmagp']."',mfkol='".$_POST['mfkol']."',mfrub='".$_POST['mfrub']."',mfdrob='".$_POST['mfdrob']."',mfrej='".$_POST['mfrej']."',gmana='".$_POST['gmana']."' WHERE `name` = '".$_POST['names']."'");
 	
 
 
@@ -225,7 +225,7 @@ exit();
  
  }
 if($_POST['dels']){
-mysql_query("DELETE FROM $magaz WHERE `name` = '".$_POST['names']."'");
+db_query("DELETE FROM $magaz WHERE `name` = '".$_POST['names']."'");
 echo "Удалена вещь '".$_POST['name']."'.";
 exit();
 }

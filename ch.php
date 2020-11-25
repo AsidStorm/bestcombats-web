@@ -13,7 +13,7 @@
     if ($_GET['room'] && (int)$_GET['room'] < 900) {
       $user['room'] = (int)$_GET['room'];
     }
-    $data = mysql_query('select align,u.id,sex,klan,level,login,battle,o.date,invis, (SELECT `id` FROM `effects` WHERE `type` = 2 AND `owner` = u.id LIMIT 1) as slp, (SELECT `id` FROM `effects` WHERE (`type` = 11 OR `type` = 12 OR `type` = 13 OR `type` = 14) AND `owner` = u.id LIMIT 1) as trv,deal FROM `online` as o, `users` as u WHERE o.`id` = u.`id` AND (o.`date` >= '.(time()-90).' OR u.`in_tower`>0) AND u.`room` = '.$user['room'].' AND u.incity = "'.$user['incity'].'" ORDER by `u`.`login`;');
+    $data = db_query('select align,u.id,sex,klan,level,login,battle,o.date,invis, (SELECT `id` FROM `effects` WHERE `type` = 2 AND `owner` = u.id LIMIT 1) as slp, (SELECT `id` FROM `effects` WHERE (`type` = 11 OR `type` = 12 OR `type` = 13 OR `type` = 14) AND `owner` = u.id LIMIT 1) as trv,deal FROM `online` as o, `users` as u WHERE o.`id` = u.`id` AND (o.`date` >= '.(time()-90).' OR u.`in_tower`>0) AND u.`room` = '.$user['room'].' AND u.incity = "'.$user['incity'].'" ORDER by `u`.`login`;');
 ?>
 <HTML><HEAD><link rel=stylesheet type="text/css" href="i/main.css">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
@@ -48,7 +48,7 @@
     }
     top.rld();
 </SCRIPT>
-<title><?=$rooms[$user['room']],' (',mysql_num_rows($data)?>)</title>
+<title><?=$rooms[$user['room']],' (',mysqli_num_rows($data)?>)</title>
 </HEAD>
 <body mardginwidth=0 leftmardgin=0 leftmargin=0 marginwidth=0 bgcolor=#faf2f2 onscroll="top.myscroll()" onload="document.body.scrollTop=top.OnlineOldPosition">
 <center>
@@ -62,7 +62,7 @@ if($user['room']==1){$plroom=0;}
 if($user['room']==403){$plroom=0;}
  ?>
 </center>
-<font style="COLOR:#8f0000;FONT-SIZE:10pt"><B><?=$rooms[$user['room']],' (',mysql_num_rows($data)+$plroom?>)</B></font>
+<font style="COLOR:#8f0000;FONT-SIZE:10pt"><B><?=$rooms[$user['room']],' (',mysqli_num_rows($data)+$plroom?>)</B></font>
 <table border=0><tr><td nowrap><fant color="fffff">
 <script>
 <?php
@@ -75,8 +75,8 @@ if($user['room']==403){$plroom=0;}
   }
   
   if($user['room']==20){
-    $vrag_b = mysql_fetch_array(mysql_query("SELECT `battle` FROM `bots` WHERE  `prototype` = 99 LIMIT 1 ;"));
-    $seyn = mysql_fetch_array(mysql_query("SELECT `battle` FROM `bots` WHERE  `prototype` = 4475817 LIMIT 1 ;"));
+    $vrag_b = mysqli_fetch_array(db_query("SELECT `battle` FROM `bots` WHERE  `prototype` = 99 LIMIT 1 ;"));
+    $seyn = mysqli_fetch_array(db_query("SELECT `battle` FROM `bots` WHERE  `prototype` = 4475817 LIMIT 1 ;"));
     if(vrag=="on"){
     echo 'w(\'Общий Враг\', 99,\'4\',\'\',\'15\',\'\',\'\',\'0\',\''.$vrag_b["battle"].'\',\'Общий враг\',1);';
     }
@@ -85,7 +85,7 @@ if($user['room']==403){$plroom=0;}
 	}
   }
 
-  while($row=mysql_fetch_array($data)) {
+  while($row=mysqli_fetch_array($data)) {
     if ($row['invis']>0 && $row['id']==$_SESSION['uid'])  { $row['login2'] = $row['login']."</a> (невидимка)"; }
     $i=0;
     if($row['invis']==0 or $row['id']==$_SESSION['uid']){
@@ -260,14 +260,14 @@ if (strpos($math[3],"private [pal]" ) !== FALSE) {
         }
         echo "</script><script> top.srld();</script>";
             if ((int)$user['id']!=1)
-            mysql_query("UPDATE `online` SET `date` = ".time()." WHERE `id` = {$user['id']};");
+            db_query("UPDATE `online` SET `date` = ".time()." WHERE `id` = {$user['id']};");
             die();
     } else {
 
         if (strpos($_GET['text'],"private" ) !== FALSE && $user['level'] == 0) {
             preg_match_all("/\[(.*)\]/U", $_GET['text'], $matches);
             for ($ii=0;$ii<count($matches[1]);$ii++){
-                $dde = mysql_fetch_array(mysql_query("SELECT `id` FROM `users` WHERE (`klan` = 'adminion' OR `deal` = 1 OR (`align`>1 AND `align`<2) OR (`align`>3 AND `align`<4)) AND `login` = '".trim($matches[1][$ii])."' LIMIT 1 ;"));
+                $dde = mysqli_fetch_array(db_query("SELECT `id` FROM `users` WHERE (`klan` = 'adminion' OR `deal` = 1 OR (`align`>1 AND `align`<2) OR (`align`>3 AND `align`<4)) AND `login` = '".trim($matches[1][$ii])."' LIMIT 1 ;"));
                 if (!$dde['id']) {
                     exit;
                 }
@@ -275,7 +275,7 @@ if (strpos($math[3],"private [pal]" ) !== FALSE) {
         }
         if (@trim($_GET['text']) != null) {
           $_GET["text"]=str_replace("\\","",$_GET["text"]);
-          $rr = mysql_fetch_array(mysql_query("SELECT `id`  FROM `effects` WHERE `type` = 2 AND `owner` = {$user['id']};"));
+          $rr = mysqli_fetch_array(db_query("SELECT `id`  FROM `effects` WHERE `type` = 2 AND `owner` = {$user['id']};"));
 
 
         if ($rr[0] == null) {
@@ -372,13 +372,13 @@ if($user['level']<=1){
                 $itemID = (int)($item_id[0]);
                 if ($itemID > 0)
                 {
-                    $item = mysql_fetch_assoc(mysql_query("SELECT * FROM inventory WHERE owner = '".$user['id']."' AND id = '".$itemID."' LIMIT 1 "));
+                    $item = mysqli_fetch_assoc(db_query("SELECT * FROM inventory WHERE owner = '".$user['id']."' AND id = '".$itemID."' LIMIT 1 "));
                     if ($item['id'] > 0)
                     {
                         $hash = md5($itemID);
                         $url = 'item.php?id='.$hash;
                         $textIns = '<img src=i/sh/'.$item['img'].' height=25 align=middle> <a href=# onclick="showItem(\\\\\''.$url.'\\\\\');">'.$item['name'].'</a> ';
-                        mysql_query("INSERT INTO show_item SET user_id = ".$user['id'].", item_hash = '".$hash."', item_id = ".$itemID." ");
+                        db_query("INSERT INTO show_item SET user_id = ".$user['id'].", item_hash = '".$hash."', item_id = ".$itemID." ");
                         $_GET['text'] = str_replace('[item:'.$itemID.']', $textIns, $_GET['text']);
                     }
                 }
@@ -391,13 +391,13 @@ if (substr_count($_GET['text'], '[item:') > 0)
                 if ($itemID > 0)
                 {
                    
-                    $item = mysql_fetch_assoc(mysql_query("SELECT * FROM shop WHERE id = '".$itemID."' LIMIT 1 ")); 
+                    $item = mysqli_fetch_assoc(db_query("SELECT * FROM shop WHERE id = '".$itemID."' LIMIT 1 "));
                     {
                         $hash = md5($itemID);
                         $url = 'library.php?id='.$item;
                     if ($item['id'] > 0)
                         $textIns = '<img src=i/sh/'.$item['img'].' height=25 align=middle> <a href=# onclick="showItem(\\\\\''.$url.'\\\\\');">'.$item['name'].'</a> ';
-                        mysql_query("INSERT INTO show_item SET user_id = ".$user['id'].", item_hash = '".$hash."', item_id = ".$itemID." ");
+                        db_query("INSERT INTO show_item SET user_id = ".$user['id'].", item_hash = '".$hash."', item_id = ".$itemID." ");
                         $_GET['text'] = str_replace('[item:'.$itemID.']', $textIns, $_GET['text']);
                     }
                 }
@@ -410,13 +410,13 @@ if (substr_count($_GET['text'], '[item:') > 0)
                 if ($itemID > 0)
                 {
                    
-                    $item = mysql_fetch_assoc(mysql_query("SELECT * FROM berezka WHERE id = '".$itemID."' LIMIT 1 ")); 
+                    $item = mysqli_fetch_assoc(db_query("SELECT * FROM berezka WHERE id = '".$itemID."' LIMIT 1 "));
                     {
                         $hash = md5($itemID);
                         $url = 'library.php?id='.$item;
                     if ($item['id'] > 0)
                         $textIns = '<img src=i/sh/'.$item['img'].' height=25 align=middle> <a href=# onclick="showItem(\\\\\''.$url.'\\\\\');">'.$item['name'].'</a> ';
-                        mysql_query("INSERT INTO show_item SET user_id = ".$user['id'].", item_hash = '".$hash."', item_id = ".$itemID." ");
+                        db_query("INSERT INTO show_item SET user_id = ".$user['id'].", item_hash = '".$hash."', item_id = ".$itemID." ");
                         $_GET['text'] = str_replace('[item:'.$itemID.']', $textIns, $_GET['text']);
                     }
                 }
@@ -424,7 +424,7 @@ if (substr_count($_GET['text'], '[item:') > 0)
 ###Черный список#####
 preg_match_all("/\[(.*)\]/U", $_GET['text'], $matches);
 for ($ii=0;$ii<count($matches[1]);$ii++){
-$ignor = mysql_fetch_array(mysql_query("SELECT `ignore` FROM `users` WHERE `login` = '".trim($matches[1][$ii])."' LIMIT 1 ")); 
+$ignor = mysqli_fetch_array(db_query("SELECT `ignore` FROM `users` WHERE `login` = '".trim($matches[1][$ii])."' LIMIT 1 "));
 $str = $ignor['ignore'];
 $pieces = explode("|", $str);
 if (in_array("".$user['id']."", $pieces)) {

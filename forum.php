@@ -1,7 +1,7 @@
 <?
     session_start();
     include_once "connect.php";
-    $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     include "functions.php";
   function pre($s, $leavebrs=1) {  
     $s=str_replace("&amp;amp;quot;","&quot;",$s);
@@ -131,9 +131,9 @@ function test() {
 	<?php
 
                 if ($_POST['selectt']!='' && $_POST['numt']!='' && $user['align']=="2.5"){
-                    $AlignTop=mysql_fetch_array(mysql_query("select min_align,max_align from forum where id=".$_POST['selectt']));
+                    $AlignTop=mysqli_fetch_array(db_query("select min_align,max_align from forum where id=".$_POST['selectt']));
                     echo "---------------------".$AlignTop['min_align']."------------".$AlignTop['max_align']."---------------------";
-                    mysql_query("update forum set parent=".(int)$_POST['selectt'].", min_align='".$AlignTop['min_align']."' , max_align='".$AlignTop['max_align']."' where id=".(int)$_POST['numt']);
+                    db_query("update forum set parent=".(int)$_POST['selectt'].", min_align='".$AlignTop['min_align']."' , max_align='".$AlignTop['max_align']."' where id=".(int)$_POST['numt']);
                 }
                 if(($_GET['conf'] == null) && ($_GET['topic'] == null)) { $_GET['conf'] = 1; }
 
@@ -141,8 +141,8 @@ function test() {
                 $Movemess=($user['align']>2 && $user['align']<3 && $user['align'] > '3.05' && $user['align'] < '4') ? 1:0;
                 $replasepost='';
                 if($_GET['conf'] || $_GET['konftop'] || $Movemess==1) {
-                    $data = mysql_query("SELECT * FROM `forum` WHERE `type` = 1 ORDER by `id` ASC;");
-                    while($row = mysql_fetch_array($data))
+                    $data = db_query("SELECT * FROM `forum` WHERE `type` = 1 ORDER by `id` ASC;");
+                    while($row = mysqli_fetch_array($data))
                     {
                         if (($row['min_align'] == 0 && $row['max_align'] == 0) || ($user['align']>=$row['min_align'] && $user['align']<=$row['max_align']) || ($row['min_align']==5 && $row['max_align']==5 && $user['deal']==1) || ($row['min_align']==175 && $row['max_align']==777 && ($user['align']=="1.2" or $user['align']=="1.99" or $user['align']="3.99")) || ($user['align']>2 && $user['align']<3)) {
 
@@ -198,7 +198,7 @@ function test() {
             $text1 = ereg_replace("&lt;br&gt;","<br>",$text1);
             $text1 = ereg_replace("&lt;BR&gt;","<BR>",$text1);
             $text1 = ereg_replace("[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]","<a href=\"\\0\" target=_blank>\\0</a>", $text1);
-            $minmax = mysql_fetch_array(mysql_query("SELECT `min_align`,`max_align` FROM `forum` WHERE `id` = '{$_GET['conf']}'"));
+            $minmax = mysqli_fetch_array(db_query("SELECT `min_align`,`max_align` FROM `forum` WHERE `id` = '{$_GET['conf']}'"));
             $min_align=$minmax['min_align'];
             $max_align=$minmax['max_align'];
             if ($_POST['title'] == "" or $_POST['title'] == " " or $_POST['text'] == "" or $_POST['text']== " ") {
@@ -209,10 +209,10 @@ function test() {
             }
             elseif (($minmax['min_align'] == 0 && $minmax['max_align'] == 0) || ($user['align']>=$minmax['min_align'] && $user['align']<=$minmax['max_align']) || ($minmax['min_align']==5 && $minmax['max_align']==5 && $user['deal']==1) || ($minmax['min_align']==172 && $minmax['max_align']==777 && ($user['align']=="1.2" or $user['align']=="1.99" or $user['align']="3.99")) || ($user['align']>2 && $user['align']<3)) {
                 if ($user['invis']=='1' && $user["align"]!=2.5) {
-                mysql_query("INSERT INTO `forum` (`type`,`topic`,`text`,`parent`,`author`,`date`,`min_align`,`max_align`,`icon`)
+                db_query("INSERT INTO `forum` (`type`,`topic`,`text`,`parent`,`author`,`date`,`min_align`,`max_align`,`icon`)
                 VALUES (2,'{$text2}','".strip_tags(nl2br($text1),"<b><i><u><code><BR>")."','{$_GET['conf']}','<b>невидимка</b>','".date("d.m.y H:i:s")."','$min_align','$max_align','{$icon}') ;");
                 }else
-                mysql_query("INSERT INTO `forum` (`type`,`topic`,`text`,`parent`,`author`,`date`,`min_align`,`max_align`,`icon`)
+                db_query("INSERT INTO `forum` (`type`,`topic`,`text`,`parent`,`author`,`date`,`min_align`,`max_align`,`icon`)
                 VALUES (2,'{$text2}','".strip_tags(nl2br($text1),"<b><i><u><code><BR>")."','{$_GET['conf']}','".nick3($_SESSION['uid'])."','".date("d.m.y H:i:s")."','$min_align','$max_align','{$icon}') ;");
                 echo "<script>document.location.replace('forum.php?$_SERVER[QUERY_STRING]')</script>";
                 die;
@@ -245,7 +245,7 @@ function test() {
             $text1 = ereg_replace("&lt;br&gt;","<br>",$text1);
             $text1 = ereg_replace("&lt;BR&gt;","<BR>",$text1);
             $text1 = ereg_replace("[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]","<a href=\"\\0\" target=_blank>\\0</a>", $text1);
-            $minmax = mysql_fetch_array(mysql_query("SELECT `min_align`,`max_align`, `close` FROM `forum` WHERE `id` = '{$_GET['topic']}'"));
+            $minmax = mysqli_fetch_array(db_query("SELECT `min_align`,`max_align`, `close` FROM `forum` WHERE `id` = '{$_GET['topic']}'"));
             $min_align=$minmax['min_align'];
             $max_align=$minmax['max_align'];
 
@@ -258,12 +258,12 @@ function test() {
             if (($minmax['min_align'] == 0 && $minmax['max_align'] == 0) || ($user['align']>=$minmax['min_align'] && $user['align']<=$minmax['max_align']) || ($minmax['min_align']==5 && $minmax['max_align']==5 && $user['deal']==1) || ($minmax['min_align']==175 && $minmax['max_align']==777 && ($user['align']=="1.2" or $user['align']=="1.99" or $user['align']="3.99")) || ($user['align']>2 && $user['align']<3)) {
             if ($user['level'] < 4 or $user['align'] == 4 or $minmax['close'] == 1){echo "<font color=red><b>Не выйдет...</b></font>";}else{
             if ($user['invis']=='1' && $user["align"]!=2.5) {
-                mysql_query("INSERT INTO `forum` (`type`,`topic`,`text`,`parent`,`author`,`date`,`min_align`,`max_align`)
+                db_query("INSERT INTO `forum` (`type`,`topic`,`text`,`parent`,`author`,`date`,`min_align`,`max_align`)
                 VALUES (2,'{$text2}','".strip_tags(nl2br($text1),"<b><i><u><code><BR><a>")."','{$_GET['topic']}','<b>невидимка</b>','".date("d.m.y H:i:s")."','$min_align','$max_align') ;");
             }else
-                mysql_query("INSERT INTO `forum` (`type`,`topic`,`text`,`parent`,`author`,`date`,`min_align`,`max_align`)
+                db_query("INSERT INTO `forum` (`type`,`topic`,`text`,`parent`,`author`,`date`,`min_align`,`max_align`)
                 VALUES (2,'{$text2}','".strip_tags(nl2br($text1),"<b><i><u><code><BR><a>")."','{$_GET['topic']}','".nick3($_SESSION['uid'])."','".date("d.m.y H:i:s")."','$min_align','$max_align') ;");
-                mysql_query("UPDATE `forum` SET `updated` = now() WHERE `id` = '{$_GET['topic']}';");
+                db_query("UPDATE `forum` SET `updated` = now() WHERE `id` = '{$_GET['topic']}';");
             }
               echo "<script>document.location.replace('forum.php?$_SERVER[QUERY_STRING]')</script>";
               die;
@@ -279,16 +279,16 @@ function test() {
             if ($user['align']>1.1 && $user['align']<2) {$angel="паладином";}
             if ($user['align']>2 && $user['align']<3) {$angel="Ангелом";}
             if ($user['invis']=='1' && $user["align"]!=2.5) {
-            mysql_query("UPDATE `forum` SET `text` = '<font color=red>Удалил невидимка</font>' WHERE `id` = {$_GET['dp']} LIMIT 1;");
+            db_query("UPDATE `forum` SET `text` = '<font color=red>Удалил невидимка</font>' WHERE `id` = {$_GET['dp']} LIMIT 1;");
             }else
-            mysql_query("UPDATE `forum` SET `text` = '<font color=red>Удалено $angel ".nick3($_SESSION['uid'])."</font>' WHERE `id` = {$_GET['dp']} LIMIT 1;");
+            db_query("UPDATE `forum` SET `text` = '<font color=red>Удалено $angel ".nick3($_SESSION['uid'])."</font>' WHERE `id` = {$_GET['dp']} LIMIT 1;");
         }
 
         if ($_GET['dt'] && (($user['align']>1.4 && $user['align']<2) || ($user['align']>2 && $user['align']<3))  || $user['align'] == '777' || ($user['align'] > '3.05' && $user['align'] < '4'))
         {
-			$mne = mysql_fetch_array(mysql_query("SELECT * FROM `forum` WHERE `id` = '{$_GET['dt']}' LIMIT 1; "));
-			$mne2 = mysql_fetch_array(mysql_query("SELECT * FROM `forum` WHERE `id` = '{$mne['parent']}' LIMIT 1; "));
-              mysql_query("DELETE FROM `forum`WHERE `id` = {$_GET['dt']} LIMIT 1;");        
+			$mne = mysqli_fetch_array(db_query("SELECT * FROM `forum` WHERE `id` = '{$_GET['dt']}' LIMIT 1; "));
+			$mne2 = mysqli_fetch_array(db_query("SELECT * FROM `forum` WHERE `id` = '{$mne['parent']}' LIMIT 1; "));
+              db_query("DELETE FROM `forum`WHERE `id` = {$_GET['dt']} LIMIT 1;");
               $f=fopen("logs/forumlog.txt","ab");
               $_POST["txt"]=str_replace("\r","",$_POST["txt"]);
               $_POST["txt"]=str_replace("\n","",$_POST["txt"]);
@@ -299,38 +299,38 @@ function test() {
         if ($_GET['com'] && $_GET['cpr'] && (($user['align']>1.6 && $user['align']<2) || ($user['align']>2 && $user['align']<3))  || $user['align'] == '777' || ($user['align'] > '3.05' && $user['align'] < '4'))
         {
             if ($user['invis']==1 && $user["align"]!=2.5) {
-            mysql_query("UPDATE `forum` SET `text` = CONCAT(`text`,'<BR><font color=red><b>невидимка</b>: ".$_GET['cpr']."</font>') WHERE `id` = {$_GET['com']} LIMIT 1;");
+            db_query("UPDATE `forum` SET `text` = CONCAT(`text`,'<BR><font color=red><b>невидимка</b>: ".$_GET['cpr']."</font>') WHERE `id` = {$_GET['com']} LIMIT 1;");
             }else
-            mysql_query("UPDATE `forum` SET `text` = CONCAT(`text`,'<BR><font color=red>".nick3($_SESSION['uid']).": ".$_GET['cpr']."</font>') WHERE `id` = {$_GET['com']} LIMIT 1;");
+            db_query("UPDATE `forum` SET `text` = CONCAT(`text`,'<BR><font color=red>".nick3($_SESSION['uid']).": ".$_GET['cpr']."</font>') WHERE `id` = {$_GET['com']} LIMIT 1;");
 
         }
         if ($_GET['do'] && (($user['align']>1.4 && $user['align']<2) || ($user['align']>2 && $user['align']<3))  || $user['align'] == '777' || ($user['align'] > '3.05' && $user['align'] < '4'))
         {
             if ($_GET['do'] == "open") {
-                mysql_query("UPDATE `forum` SET `close` = '0' WHERE `id` = {$_GET['topic']} LIMIT 1;");
+                db_query("UPDATE `forum` SET `close` = '0' WHERE `id` = {$_GET['topic']} LIMIT 1;");
             }
             if ($_GET['do'] == "close") {
             if ($user['align']>1.1 && $user['align']<2) {$angel="паладином";}
             if ($user['align']>2 && $user['align']<3) {$angel="Ангелом";}
             if ($user['invis']=='1' && $user["align"]!=2.5) {
-                mysql_query("UPDATE `forum` SET `close` = '1', `closepal` = '<font color=red>Обсуждение закрыл невидимка</font>' WHERE `id` = {$_GET['topic']} LIMIT 1;");
+                db_query("UPDATE `forum` SET `close` = '1', `closepal` = '<font color=red>Обсуждение закрыл невидимка</font>' WHERE `id` = {$_GET['topic']} LIMIT 1;");
 }else
-                mysql_query("UPDATE `forum` SET `close` = '1', `closepal` = '<font color=red>Обсуждение закрыто $angel ".nick3($_SESSION['uid'])."</font>' WHERE `id` = {$_GET['topic']} LIMIT 1;");
+                db_query("UPDATE `forum` SET `close` = '1', `closepal` = '<font color=red>Обсуждение закрыто $angel ".nick3($_SESSION['uid'])."</font>' WHERE `id` = {$_GET['topic']} LIMIT 1;");
             }
             if ($_GET['do'] == "fix") {
-                mysql_query("UPDATE `forum` SET `fix` = '1' WHERE `id` = {$_GET['topic']} LIMIT 1;");
+                db_query("UPDATE `forum` SET `fix` = '1' WHERE `id` = {$_GET['topic']} LIMIT 1;");
             }
             if ($_GET['do'] == "unfix") {
-                mysql_query("UPDATE `forum` SET `fix` = '0' WHERE `id` = {$_GET['topic']} LIMIT 1;");
+                db_query("UPDATE `forum` SET `fix` = '0' WHERE `id` = {$_GET['topic']} LIMIT 1;");
             }
         }
 
           if(!$_GET['conf']) {
-            $row = mysql_fetch_array(mysql_query("SELECT * FROM `forum` WHERE `id` = '{$_GET['topic']}'"));
+            $row = mysqli_fetch_array(db_query("SELECT * FROM `forum` WHERE `id` = '{$_GET['topic']}'"));
             {
             if (($row['min_align'] == 0 && $row['max_align'] == 0) || ($user['align']>=$row['min_align'] && $user['align']<=$row['max_align']) || ($row['min_align']==5 && $row['max_align']==5 && $user['deal']==1) || ($row['min_align']==3.092 && $row['max_align']==777 && ($user['align']=="1.2" or $user['align']=="1.99" or $user['align']="3.99")) || ($user['align']>2 && $user['align']<3)) {
-                $nextdb = mysql_fetch_array(mysql_query("SELECT `id` FROM `forum` WHERE `id` < '{$_GET['topic']}' and `parent` = '{$row['parent']}' ORDER by `id` DESC LIMIT 1"));
-                $prevdb = mysql_fetch_array(mysql_query("SELECT `id` FROM `forum` WHERE `id` > '{$_GET['topic']}' and `parent` = '{$row['parent']}' ORDER by `id` ASC LIMIT 1"));
+                $nextdb = mysqli_fetch_array(db_query("SELECT `id` FROM `forum` WHERE `id` < '{$_GET['topic']}' and `parent` = '{$row['parent']}' ORDER by `id` DESC LIMIT 1"));
+                $prevdb = mysqli_fetch_array(db_query("SELECT `id` FROM `forum` WHERE `id` > '{$_GET['topic']}' and `parent` = '{$row['parent']}' ORDER by `id` ASC LIMIT 1"));
                 $prev=$prevdb['id'];
                 $next=$nextdb['id'];
                 $top=$row['parent'];
@@ -348,7 +348,7 @@ function test() {
                   ветвь »</A></TD></TR></TBODY></TABLE></CENTER>
             <?
 
-                $par_top=mysql_fetch_row(mysql_query("SELECT closepal, id FROM `forum` WHERE id=".(int)$_GET['topic']));
+                $par_top=mysqli_fetch_row(db_query("SELECT closepal, id FROM `forum` WHERE id=".(int)$_GET['topic']));
                 if (((int)$par_top[1]!=0)OR((int)$_GET['konftop']>0)) //
                     {
 
@@ -372,7 +372,7 @@ function test() {
                     if ($_POST['selectt']!='' && $_POST['numt']!='')
                             echo "<center><h3>Тема перемещена.</h3><a href='forum.php?topic=".$_POST['numt']."&konftop=".$_POST['selectt']."'>forum.php?topic=".$_POST['numt']."&konftop=".$_POST['selectt']."</a></center>";
                 }
-                $pgs = mysql_fetch_array(mysql_query("SELECT count(`id`) FROM `forum` WHERE `parent` = '{$_GET['topic']}';"));
+                $pgs = mysqli_fetch_array(db_query("SELECT count(`id`) FROM `forum` WHERE `parent` = '{$_GET['topic']}';"));
                 if (!isset($_GET["page"])) $_GET["page"]=floor(($pgs[0]-1)/20);
                 $pgs = $pgs[0]/20;
                 if ($pgs) {
@@ -399,8 +399,8 @@ function test() {
                         echo " <a onclick='var obj; if (obj = prompt(\"Введите комментарий\",\"\")) { window.location=\"forum.php?topic=".$_GET['topic']."&page=".$_GET['page']."&cpr=\"+obj+\"&com=".$row['id']."\"; }' href='#'>[комментарий]</a>";
                     }
                 echo "<BR>".pre($row['text'])."<HR>";
-                    $data = mysql_query("SELECT * FROM `forum` WHERE `parent` = '{$_GET['topic']}'  ORDER by `id` ASC LIMIT ".max(0,(int)($_GET['page']*20)).",20;");
-                    while($row = mysql_fetch_array($data))   {
+                    $data = db_query("SELECT * FROM `forum` WHERE `parent` = '{$_GET['topic']}'  ORDER by `id` ASC LIMIT ".max(0,(int)($_GET['page']*20)).",20;");
+                    while($row = mysqli_fetch_array($data))   {
                         echo "{$row['author']} (<span class=date>{$row['date']}</span>)";
                         if(($user['align']>1.6 && $user['align']<2) || ($user['align']>2 && $user['align']<3)  || $user['align'] == '777' || ($user['align'] > '3.05' && $user['align'] < '4')) {
                             echo " <a href='?topic={$_GET['topic']}&page=".$_GET['page']."&dp={$row['id']}'><img src='i/clear.gif'></a>";
@@ -416,7 +416,7 @@ function test() {
                     echo "<br><div align=center>$closepal</div><br><br>";
                 }
                 else {
-                    $effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE (`owner` = '{$user['id']}' or owner=$user[id]+"._BOTSEPARATOR_.") and (`name` = 'Заклятие форумного молчания' or type=3) LIMIT 1;"));
+                    $effect = mysqli_fetch_array(db_query("SELECT `time` FROM `effects` WHERE (`owner` = '{$user['id']}' or owner=$user[id]+"._BOTSEPARATOR_.") and (`name` = 'Заклятие форумного молчания' or type=3) LIMIT 1;"));
                     if ( $_SESSION['uid'] && !$effect['time'] && $user['align'] != 4 && $user['level'] > 3) {
           ?>
             <A name=answer></A>
@@ -486,7 +486,7 @@ function test() {
           }
         }
         else {
-            $row = mysql_fetch_array(mysql_query("SELECT * FROM `forum` WHERE `id` = '{$_GET['conf']}'"));
+            $row = mysqli_fetch_array(db_query("SELECT * FROM `forum` WHERE `id` = '{$_GET['conf']}'"));
             if (($row['min_align'] == 0 && $row['max_align'] == 0) || ($user['align']>=$row['min_align'] && $user['align']<=$row['max_align']) || ($row['min_align']==5 && $row['max_align']==5 && $user['deal']==1) || ($row['min_align']==175 && $row['max_align']==777 && ($user['align']=="1.2" or $user['align']=="1.99" or $user['align']=="3.99")) || ($user['align']>2 && $user['align']<3)){
 
             ?>
@@ -495,7 +495,7 @@ function test() {
                 <p style="text-align:justify; padding:10px;"><?=pre($row['text'])?></p>
             </center>
             <?
-            $pgs = mysql_fetch_array(mysql_query("SELECT count(`id`) FROM `forum` WHERE `parent` = '{$_GET['conf']}' ORDER by `fix` DESC, `updated` DESC;"));
+            $pgs = mysqli_fetch_array(db_query("SELECT count(`id`) FROM `forum` WHERE `parent` = '{$_GET['conf']}' ORDER by `fix` DESC, `updated` DESC;"));
 
             $pgs = $pgs[0]/20;
             if ($pgs) {
@@ -516,13 +516,13 @@ function test() {
             $LastPage=(ceil($pgs)>4 ? (ceil($pgs)-1)!=$_GET['page'] ? "<a href='?topic=".$_GET['topic']."&page=".(ceil($pgs)-1)."'>   Последняя </a>":"":"");
             $pages_str=$FirstPage.$pages_str.$LastPage;
             echo $pages_str;
-            $data = mysql_query("SELECT * FROM `forum` WHERE `parent` = '{$_GET['conf']}' ORDER by `fix` DESC, `updated` DESC LIMIT ".(INT)($_GET['page']*20).",20;");
-            while($row = mysql_fetch_array($data))   {
+            $data = db_query("SELECT * FROM `forum` WHERE `parent` = '{$_GET['conf']}' ORDER by `fix` DESC, `updated` DESC LIMIT ".(INT)($_GET['page']*20).",20;");
+            while($row = mysqli_fetch_array($data))   {
                 $logi = '';
                 $userlist = '';
                 $icons=$row['icon'];
-                $data2 = mysql_query("SELECT `author` FROM `forum` WHERE `parent` = '{$row['id']}' ORDER by `id` DESC LIMIT 10");
-                while($row2 = mysql_fetch_array($data2))     {
+                $data2 = db_query("SELECT `author` FROM `forum` WHERE `parent` = '{$row['id']}' ORDER by `id` DESC LIMIT 10");
+                while($row2 = mysqli_fetch_array($data2))     {
                     $userlist = strip_tags($row2[0],"");
                     list ($username,$level)=split (" \[",$userlist);
                     if ($logi) $logi=", $logi"; 
@@ -530,9 +530,9 @@ function test() {
 
                 }
                 $query="select count(*) as CountNumber from table where i=2";
-                $datacount = mysql_fetch_array(mysql_query("SELECT count(*) as CountNumber FROM `forum` WHERE `parent` = '{$row['id']}';"));
+                $datacount = mysqli_fetch_array(db_query("SELECT count(*) as CountNumber FROM `forum` WHERE `parent` = '{$row['id']}';"));
                 $count=$datacount["CountNumber"];
-                $lasttimedb = mysql_fetch_array(mysql_query("SELECT `date` FROM `forum` WHERE `parent` = '{$row['id']}' ORDER by `id` DESC LIMIT 1;"));
+                $lasttimedb = mysqli_fetch_array(db_query("SELECT `date` FROM `forum` WHERE `parent` = '{$row['id']}' ORDER by `id` DESC LIMIT 1;"));
                 $lasttime=$lasttimedb['date'];
 
                 echo "<p class=pleft>".($row['fix']?"<IMG src=\"i/fixed.gif\" alt=\"Закреплено\" title=\"Закреплено\" border=0> ":"")."<a href='?topic=".$row['id'];
@@ -551,7 +551,7 @@ function test() {
                 echo "Страницы: ";
             }
             echo $pages_str;
-            $effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE (`owner` = '{$user['id']}' or owner=$user[id]+"._BOTSEPARATOR_.") and (`name` = 'Заклятие форумного молчания' or type=3) LIMIT 1;"));
+            $effect = mysqli_fetch_array(db_query("SELECT `time` FROM `effects` WHERE (`owner` = '{$user['id']}' or owner=$user[id]+"._BOTSEPARATOR_.") and (`name` = 'Заклятие форумного молчания' or type=3) LIMIT 1;"));
             if ( $_SESSION['uid'] && !$effect['time'] && $user['align'] != 4 && $user['level'] > 3 && (($_GET["conf"]!=10 && $_GET["conf"]!=3) || $user["id"]==7)) {
 
 

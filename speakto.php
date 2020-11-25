@@ -6,8 +6,8 @@
     include "startpodzemel.php";
     if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 
-  $ros=mysql_query("SELECT * FROM `labirint` WHERE `user_id`='{$_SESSION['uid']}'");
-  $mir=mysql_fetch_array($ros);
+  $ros=db_query("SELECT * FROM `labirint` WHERE `user_id`='{$_SESSION['uid']}'");
+  $mir=mysqli_fetch_array($ros);
   $mesto = $mir['location'];
   $vektor = $mir['vector'];
   $glava = $mir['glava'];
@@ -60,9 +60,9 @@
       $r=mq("select users.login from quests left join users on users.id=quests.user where quests.quest=6 order by quests.step desc limit 0, 10");
       $i=0;
       $prizes=array();
-      while ($rec=mysql_fetch_assoc($r)) $prizes[$rec["login"]]=1;
+      while ($rec=mysqli_fetch_assoc($r)) $prizes[$rec["login"]]=1;
       $r=mq("select users.login, sum(step) as ss from quests left join users on users.id=quests.user where (quests.quest=6 or quests.quest=5) group by quests.user order by ss desc limit 0, 10");
-      while ($rec=mysql_fetch_assoc($r)) $prizes[$rec["login"]]=1;
+      while ($rec=mysqli_fetch_assoc($r)) $prizes[$rec["login"]]=1;
       foreach ($prizes as $k=>$v) $prizes2[]=$k;
       shuffle($prizes2);
       foreach ($prizes2 as $k=>$v) {
@@ -135,7 +135,7 @@
       $speach="Больше всего снежков кинуть: ";
       $r=mq("select users.login, quests.step from quests left join users on users.id=quests.user where quests.quest=5 order by quests.step desc limit 0, 10");
       $i=0;
-      while ($rec=mysql_fetch_assoc($r)) {
+      while ($rec=mysqli_fetch_assoc($r)) {
         $i++;
         if ($i>1) $speach.=", ";
         $speach.=" $rec[login] ($rec[step])";

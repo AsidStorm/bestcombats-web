@@ -2,23 +2,23 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".mysql_real_escape_string($_SESSION['uid'])."' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".db_escape_string($_SESSION['uid'])."' LIMIT 1;"));
 	include "functions.php";
-	$d = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `setsale` = 0 ; "));
+	$d = mysqli_fetch_array(db_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '".db_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `setsale` = 0 ; "));
 	if ($user['room'] != 1097) { header("Location: main.php");  die(); }
 	if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 
 	if ($_GET['sed']) {
 
-		$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `dressed`= 0 AND `id` = '".mysql_real_escape_string($_GET['sed'])."' AND `owner` = '".mysql_real_escape_string($_SESSION['uid'])."'  AND `podzem`=0 LIMIT 1;"));
+		$dress = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `dressed`= 0 AND `id` = '".db_escape_string($_GET['sed'])."' AND `owner` = '".db_escape_string($_SESSION['uid'])."'  AND `podzem`=0 LIMIT 1;"));
 		if($dress["podzem"] == 0){
 		$price=$dress['ecost']/1;
 		destructitem($dress['id']);
 		$allcost=round($price-$dress['duration']*($dress['ecost']/($dress['maxdur']*10)),2);
-		mysql_query("UPDATE `users` set `ekr` = `ekr`+ '".(round($price-$dress['duration']*($dress['ecost']/($dress['maxdur']*10)),2))."' WHERE id = '".mysql_real_escape_string($_SESSION['uid'])."' ");
+		db_query("UPDATE `users` set `ekr` = `ekr`+ '".(round($price-$dress['duration']*($dress['ecost']/($dress['maxdur']*10)),2))."' WHERE id = '".db_escape_string($_SESSION['uid'])."' ");
 		//$allcost=$dress['ecost']1;
-		//mysql_query("UPDATE `users` set `ekr` = `ekr`+ '".$dress['ecost']."' WHERE id = {$_SESSION['uid']}");
-		mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','".mysql_real_escape_string($user['login'])." продал в магазин товар: ".mysql_real_escape_string($dress['name'])." id:(cap".mysql_real_escape_string($dress['id']).") [".mysql_real_escape_string($dress['duration'])."".mysql_real_escape_string($dress['maxdur'])."] за ".mysql_real_escape_string($allcost)." екр. ',1,'".time()."');");
+		//db_query("UPDATE `users` set `ekr` = `ekr`+ '".$dress['ecost']."' WHERE id = {$_SESSION['uid']}");
+		db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($_SESSION['uid'])."','".db_escape_string($user['login'])." продал в магазин товар: ".db_escape_string($dress['name'])." id:(cap".db_escape_string($dress['id']).") [".db_escape_string($dress['duration'])."".db_escape_string($dress['maxdur'])."] за ".db_escape_string($allcost)." екр. ',1,'".time()."');");
 		echo "<font color=red><b>Вы продали \"{$dress['name']}\" за ".$allcost." екр.</b></font>";
 		}
 	}
@@ -28,24 +28,24 @@
 		if ($_GET['set']) { $set = $_GET['set']; }
 		if ($_POST['set']) { $set = $_POST['set']; }
 		if (!$_POST['count']) { $_POST['count'] =1; }
-		$dress = mysql_fetch_array(mysql_query("SELECT * FROM `vipshop` WHERE `id` = '".mysql_real_escape_string($set)."' LIMIT 1;"));
+		$dress = mysqli_fetch_array(db_query("SELECT * FROM `vipshop` WHERE `id` = '".db_escape_string($set)."' LIMIT 1;"));
 		if (($dress['massa']*$_POST['count']+$d[0]) > (get_meshok())) {
 			echo "<font color=red><b>Недостаточно места в рюкзаке.</b></font>";
 		}
 		elseif(($user['ekr']>= ($dress['ecost']*$_POST['count'])) && ($dress['count'] >= $_POST['count'])) {
 
 			for($k=1;$k<=$_POST['count'];$k++) {
-				if(mysql_query("INSERT INTO `inventory`
+				if(db_query("INSERT INTO `inventory`
 				(`prototype`,`owner`,`name`,`type`,`massa`,`ecost`,`img`,`maxdur`,`isrep`,
 					`gsila`,`glovk`,`ginta`,`gintel`,`ghp`,`gmana`,`gnoj`,`gtopor`,`gdubina`,`gmech`,`gposoh`,`gfire`,`gwater`,`gair`,`gearth`,`glight`,`ggray`,`gdark`,`needident`,`nsila`,`nlovk`,`ninta`,`nintel`,`nmudra`,`nvinos`,`nnoj`,`ntopor`,`ndubina`,`nmech`,`nposoh`,`nfire`,`nwater`,`nair`,`nearth`,`nlight`,`ngray`,`ndark`,`mfudar`,`mfantiudar`,`bron5`,`zol_zeton`,`godenm`,`timem`,`plus_hp`,`k_kach`,`r_kach`,`d_kach`,`z_kach`,
 					`mfkrit`,`mfakrit`,`mfuvorot`,`mfauvorot`,`bron1`,`bron2`,`bron3`,`bron4`,`maxu`,`minu`,`magic`,`nlevel`,`nalign`,`dategoden`,`goden`,`otdel`,`gmp`,`gmeshok`,`artefact`,`destinyinv`,`gift`,`mfkritpow`,`mfantikritpow`,`mfparir`,`mfshieldblock`,`mfcontr`,`mfrub`,`mfkol`,`mfdrob`,`mfrej`,`mfdhit`,`mfdmag`,`mfhitp`,`mfmagp`,`opisan`,`second`,`dvur`
 				)
 				VALUES
 					
-				('".mysql_real_escape_string($dress['id'])."','".mysql_real_escape_string($_SESSION['uid'])."','".mysql_real_escape_string($dress['name'])."','".mysql_real_escape_string($dress['type'])."',".mysql_real_escape_string($dress['massa']).",".mysql_real_escape_string($dress['ecost']).",'".mysql_real_escape_string($dress['img'])."',".mysql_real_escape_string($dress['maxdur']).",".mysql_real_escape_string($dress['isrep']).",'".mysql_real_escape_string($dress['gsila'])."','".mysql_real_escape_string($dress['glovk'])."','".mysql_real_escape_string($dress['ginta'])."','".mysql_real_escape_string($dress['gintel'])."','".mysql_real_escape_string($dress['ghp'])."','".mysql_real_escape_string($dress['gmana'])."','".mysql_real_escape_string($dress['gnoj'])."','".mysql_real_escape_string($dress['gtopor'])."','".mysql_real_escape_string($dress['gdubina'])."','".mysql_real_escape_string($dress['gmech'])."','".mysql_real_escape_string($dress['gposoh'])."','".mysql_real_escape_string($dress['gfire'])."','".mysql_real_escape_string($dress['gwater'])."',
-				'".mysql_real_escape_string($dress['gair'])."','".mysql_real_escape_string($dress['gearth'])."','".mysql_real_escape_string($dress['glight'])."','".mysql_real_escape_string($dress['ggray'])."','".mysql_real_escape_string($dress['gdark'])."','".mysql_real_escape_string($dress['needident'])."','".mysql_real_escape_string($dress['nsila'])."','".mysql_real_escape_string($dress['nlovk'])."','".mysql_real_escape_string($dress['ninta'])."','".mysql_real_escape_string($dress['nintel'])."','".mysql_real_escape_string($dress['nmudra'])."','".mysql_real_escape_string($dress['nvinos'])."','".mysql_real_escape_string($dress['nnoj'])."','".mysql_real_escape_string($dress['ntopor'])."','".mysql_real_escape_string($dress['ndubina'])."','".mysql_real_escape_string($dress['nmech'])."','".mysql_real_escape_string($dress['nposoh'])."','".mysql_real_escape_string($dress['nfire'])."','".mysql_real_escape_string($dress['nwater'])."','".mysql_real_escape_string($dress['nair'])."','".mysql_real_escape_string($dress['nearth'])."','".mysql_real_escape_string($dress['nlight'])."','".mysql_real_escape_string($dress['ngray'])."','".mysql_real_escape_string($dress['ndark'])."','".mysql_real_escape_string($dress['mfudar'])."','".mysql_real_escape_string($dress['mfantiudar'])."','".mysql_real_escape_string($dress['bron5'])."','".mysql_real_escape_string($dress['zol_zeton'])."','".mysql_real_escape_string($dress['godenm'])."','".mysql_real_escape_string($dress['timem'])."','".mysql_real_escape_string($dress['plus_hp'])."','".mysql_real_escape_string($dress['k_kach'])."','".mysql_real_escape_string($dress['r_kach'])."','".mysql_real_escape_string($dress['d_kach'])."','".mysql_real_escape_string($dress['z_kach'])."',
-				'".mysql_real_escape_string($dress['mfkrit'])."','".mysql_real_escape_string($dress['mfakrit'])."','".mysql_real_escape_string($dress['mfuvorot'])."','".mysql_real_escape_string($dress['mfauvorot'])."','".mysql_real_escape_string($dress['bron1'])."','".mysql_real_escape_string($dress['bron2'])."','".mysql_real_escape_string($dress['bron3'])."','".mysql_real_escape_string($dress['bron4'])."','".mysql_real_escape_string($dress['maxu'])."','".mysql_real_escape_string($dress['minu'])."','".mysql_real_escape_string($dress['magic'])."','".mysql_real_escape_string($dress['nlevel'])."','".mysql_real_escape_string($dress['nalign'])."','".(($dress['goden'])?($dress['goden']*24*60*60+time()):"")."','".mysql_real_escape_string($dress['goden'])."','".mysql_real_escape_string($dress['razdel'])."','".mysql_real_escape_string($dress['gmp'])."','".mysql_real_escape_string($dress['gmeshok'])."','".mysql_real_escape_string($dress['artefact'])."','".mysql_real_escape_string($dress['destiny'])."','".mysql_real_escape_string($dress['gift'])."','".mysql_real_escape_string($dress['mfkritpow'])."','".mysql_real_escape_string($dress['mfantikritpow'])."',
-				'".mysql_real_escape_string($dress['mfparir'])."','".mysql_real_escape_string($dress['mfshieldblockj'])."','".mysql_real_escape_string($dress['mfcontr'])."','".mysql_real_escape_string($dress['mfrub'])."','".mysql_real_escape_string($dress['mfkol'])."','".mysql_real_escape_string($dress['mfdrob'])."','".mysql_real_escape_string($dress['mfrej'])."','".mysql_real_escape_string($dress['mfdhit'])."','".mysql_real_escape_string($dress['mfdmag'])."','".mysql_real_escape_string($dress['mfhitp'])."','".mysql_real_escape_string($dress['mfmagp'])."','".mysql_real_escape_string($dress['opisan'])."','".mysql_real_escape_string($dress['second'])."','".mysql_real_escape_string($dress['dvur'])."') ;"))
+				('".db_escape_string($dress['id'])."','".db_escape_string($_SESSION['uid'])."','".db_escape_string($dress['name'])."','".db_escape_string($dress['type'])."',".db_escape_string($dress['massa']).",".db_escape_string($dress['ecost']).",'".db_escape_string($dress['img'])."',".db_escape_string($dress['maxdur']).",".db_escape_string($dress['isrep']).",'".db_escape_string($dress['gsila'])."','".db_escape_string($dress['glovk'])."','".db_escape_string($dress['ginta'])."','".db_escape_string($dress['gintel'])."','".db_escape_string($dress['ghp'])."','".db_escape_string($dress['gmana'])."','".db_escape_string($dress['gnoj'])."','".db_escape_string($dress['gtopor'])."','".db_escape_string($dress['gdubina'])."','".db_escape_string($dress['gmech'])."','".db_escape_string($dress['gposoh'])."','".db_escape_string($dress['gfire'])."','".db_escape_string($dress['gwater'])."',
+				'".db_escape_string($dress['gair'])."','".db_escape_string($dress['gearth'])."','".db_escape_string($dress['glight'])."','".db_escape_string($dress['ggray'])."','".db_escape_string($dress['gdark'])."','".db_escape_string($dress['needident'])."','".db_escape_string($dress['nsila'])."','".db_escape_string($dress['nlovk'])."','".db_escape_string($dress['ninta'])."','".db_escape_string($dress['nintel'])."','".db_escape_string($dress['nmudra'])."','".db_escape_string($dress['nvinos'])."','".db_escape_string($dress['nnoj'])."','".db_escape_string($dress['ntopor'])."','".db_escape_string($dress['ndubina'])."','".db_escape_string($dress['nmech'])."','".db_escape_string($dress['nposoh'])."','".db_escape_string($dress['nfire'])."','".db_escape_string($dress['nwater'])."','".db_escape_string($dress['nair'])."','".db_escape_string($dress['nearth'])."','".db_escape_string($dress['nlight'])."','".db_escape_string($dress['ngray'])."','".db_escape_string($dress['ndark'])."','".db_escape_string($dress['mfudar'])."','".db_escape_string($dress['mfantiudar'])."','".db_escape_string($dress['bron5'])."','".db_escape_string($dress['zol_zeton'])."','".db_escape_string($dress['godenm'])."','".db_escape_string($dress['timem'])."','".db_escape_string($dress['plus_hp'])."','".db_escape_string($dress['k_kach'])."','".db_escape_string($dress['r_kach'])."','".db_escape_string($dress['d_kach'])."','".db_escape_string($dress['z_kach'])."',
+				'".db_escape_string($dress['mfkrit'])."','".db_escape_string($dress['mfakrit'])."','".db_escape_string($dress['mfuvorot'])."','".db_escape_string($dress['mfauvorot'])."','".db_escape_string($dress['bron1'])."','".db_escape_string($dress['bron2'])."','".db_escape_string($dress['bron3'])."','".db_escape_string($dress['bron4'])."','".db_escape_string($dress['maxu'])."','".db_escape_string($dress['minu'])."','".db_escape_string($dress['magic'])."','".db_escape_string($dress['nlevel'])."','".db_escape_string($dress['nalign'])."','".(($dress['goden'])?($dress['goden']*24*60*60+time()):"")."','".db_escape_string($dress['goden'])."','".db_escape_string($dress['razdel'])."','".db_escape_string($dress['gmp'])."','".db_escape_string($dress['gmeshok'])."','".db_escape_string($dress['artefact'])."','".db_escape_string($dress['destiny'])."','".db_escape_string($dress['gift'])."','".db_escape_string($dress['mfkritpow'])."','".db_escape_string($dress['mfantikritpow'])."',
+				'".db_escape_string($dress['mfparir'])."','".db_escape_string($dress['mfshieldblockj'])."','".db_escape_string($dress['mfcontr'])."','".db_escape_string($dress['mfrub'])."','".db_escape_string($dress['mfkol'])."','".db_escape_string($dress['mfdrob'])."','".db_escape_string($dress['mfrej'])."','".db_escape_string($dress['mfdhit'])."','".db_escape_string($dress['mfdmag'])."','".db_escape_string($dress['mfhitp'])."','".db_escape_string($dress['mfmagp'])."','".db_escape_string($dress['opisan'])."','".db_escape_string($dress['second'])."','".db_escape_string($dress['dvur'])."') ;"))
 				{
 					$good = 1;
 				}
@@ -54,27 +54,27 @@
 				}
 			}
 			if ($good) {
-				mysql_query("UPDATE `vipshop` SET `count`=`count`-'".mysql_real_escape_string($_POST['count'])."' WHERE `id` = '".mysql_real_escape_string($set)."' LIMIT 1;");
+				db_query("UPDATE `vipshop` SET `count`=`count`-'".db_escape_string($_POST['count'])."' WHERE `id` = '".db_escape_string($set)."' LIMIT 1;");
 				echo "<font color=red><b>Вы купили {$_POST['count']} шт. \"{$dress['name']}\".</b></font>";
-				mysql_query("UPDATE `users` set `ekr` = `ekr`- '".mysql_real_escape_string($_POST['count']*$dress['ecost'])."' WHERE id = '".mysql_real_escape_string($_SESSION['uid'])."' ;");
+				db_query("UPDATE `users` set `ekr` = `ekr`- '".db_escape_string($_POST['count']*$dress['ecost'])."' WHERE id = '".db_escape_string($_SESSION['uid'])."' ;");
 				$user['ekr'] -= $_POST['count']*$dress['ecost'];
 				$limit=$_POST['count'];
-				$invdb = mysql_query("SELECT `id` FROM `inventory` WHERE `name` = '".mysql_real_escape_string($dress['name'])."' ORDER by `id` DESC LIMIT ".mysql_real_escape_string($limit)." ;" );
-				//$invdb = mysql_query("SELECT id FROM `inventory` WHERE `name` = '".{$dress['name']}."' ORDER by `id` DESC LIMIT $limit ;" );
+				$invdb = db_query("SELECT `id` FROM `inventory` WHERE `name` = '".db_escape_string($dress['name'])."' ORDER by `id` DESC LIMIT ".db_escape_string($limit)." ;" );
+				//$invdb = db_query("SELECT id FROM `inventory` WHERE `name` = '".{$dress['name']}."' ORDER by `id` DESC LIMIT $limit ;" );
 				if ($limit == 1) {
-					$dressinv = mysql_fetch_array($invdb);
+					$dressinv = mysqli_fetch_array($invdb);
 					$dressid = "cap".$dressinv['id'];
 					$dresscount=" ";
 				}
 				else {
 					$dressid="";
-					while ($dressinv = mysql_fetch_array($invdb))  {
+					while ($dressinv = mysqli_fetch_array($invdb))  {
 						$dressid .= "cap".$dressinv['id'].",";
 					}
 					$dresscount="(x".$_POST['count'].") ";
 				}
 				$allcost=$_POST['count']*$dress['ecost'];
-				mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','".mysql_real_escape_string($user['login'])." купил товар: ".mysql_real_escape_string($dress['name'])." ".mysql_real_escape_string($dresscount)."id:(".mysql_real_escape_string($dressid).") [0/".mysql_real_escape_string($dress['maxdur'])."] за ".mysql_real_escape_string($allcost)." екр. ',1,'".time()."');");
+				db_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($_SESSION['uid'])."','".db_escape_string($user['login'])." купил товар: ".db_escape_string($dress['name'])." ".db_escape_string($dresscount)."id:(".db_escape_string($dressid).") [0/".db_escape_string($dress['maxdur'])."] за ".db_escape_string($allcost)." екр. ',1,'".time()."');");
 			}
 		}
 		else {
@@ -266,7 +266,7 @@ switch ($_GET['otdel']) {
 if($_REQUEST['present']) {
 
 	if($_POST['to_login'] && $_POST['flower']) {
-		$to = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '".mysql_real_escape_string($_POST['to_login'])."' LIMIT 1;"));
+		$to = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `login` = '".db_escape_string($_POST['to_login'])."' LIMIT 1;"));
 		if ($_POST['to_login'] == $user['login']) {
 			echo "<b><font color=red>Очень щедро дарить что-то самому себе ;)</font></b>";
 		
@@ -279,29 +279,29 @@ if($_REQUEST['present']) {
 			if($_POST['from']==1) { $from = 'Аноним'; }
 			elseif($_POST['from']==2 && $user['klan']) { $from = ' клана '.$user['klan']; }
 			else {$from = $user['login'];}
-			if ($to) if(mysql_query("UPDATE `inventory` SET `owner` = '".mysql_real_escape_string($to['id'])."', `present` = '".mysql_real_escape_string($from)."', `letter` = '".mysql_real_escape_string($_POST['podarok2'])."' WHERE  `present` = '' AND `id` = '".mysql_real_escape_string($_POST['flower'])."' AND `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `dressed` = 0  AND `setsale`=0")) {
-				$res = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '".mysql_real_escape_string($_POST['flower'])."' LIMIT 1; "));
+			if ($to) if(db_query("UPDATE `inventory` SET `owner` = '".db_escape_string($to['id'])."', `present` = '".db_escape_string($from)."', `letter` = '".db_escape_string($_POST['podarok2'])."' WHERE  `present` = '' AND `id` = '".db_escape_string($_POST['flower'])."' AND `owner` = '".db_escape_string($_SESSION['uid'])."' AND `dressed` = 0  AND `setsale`=0")) {
+				$res = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `id` = '".db_escape_string($_POST['flower'])."' LIMIT 1; "));
 				$buket_name=$res['name'];
-				mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','Подарен предмет ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".$res['duration']."".mysql_real_escape_string($res['maxdur'])."] от ".mysql_real_escape_string($from)." к ".mysql_real_escape_string($to['login'])."','1','".time()."');");
-				mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($to['id'])."','Подарен предмет ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."".mysql_real_escape_string($res['maxdur'])."] от ".mysql_real_escape_string($from)." к ".mysql_real_escape_string($to['login'])."','1','".time()."');");
+				db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($_SESSION['uid'])."','Подарен предмет ".db_escape_string($res['name'])." id:(cap".db_escape_string($res['id']).") [".$res['duration']."".db_escape_string($res['maxdur'])."] от ".db_escape_string($from)." к ".db_escape_string($to['login'])."','1','".time()."');");
+				db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($to['id'])."','Подарен предмет ".db_escape_string($res['name'])." id:(cap".db_escape_string($res['id']).") [".db_escape_string($res['duration'])."".db_escape_string($res['maxdur'])."] от ".db_escape_string($from)." к ".db_escape_string($to['login'])."','1','".time()."');");
 				if(($_POST['from']==1) || ($_POST['from']==2)) {
 					$action="подарил";
-					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($to['id'])."','Подарен предмет ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."".mysql_real_escape_string($res['maxdur'])."] от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($to['login'])."','5','".time()."');");
+					db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($to['id'])."','Подарен предмет ".db_escape_string($res['name'])." id:(cap".db_escape_string($res['id']).") [".db_escape_string($res['duration'])."".db_escape_string($res['maxdur'])."] от ".db_escape_string($user['login'])." к ".db_escape_string($to['login'])."','5','".time()."');");
 				}
 				else {
 					if ($user['sex'] == 0) {$action="подарила";}
 					else {$action="подарил";}
 				}
-				$us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '".mysql_real_escape_string($to['id'])."' LIMIT 1;"));
+				$us = mysqli_fetch_array(db_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '".db_escape_string($to['id'])."' LIMIT 1;"));
 				if($us[0]){
 					addchp ('<font color=red>Внимание!</font> <span oncontextmenu=OpenMenu()>'.$from.'</span> '.$action.' вам <B>'.$buket_name.'</B>.   ','{[]}'.$_POST['to_login'].'{[]}');
 				} else {
 					// если в офе
-					mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".mysql_real_escape_string($to['id'])."','','".'<font color=red>Внимание!</font> <span oncontextmenu=OpenMenu()>'.mysql_real_escape_string($from).'</span> '.mysql_real_escape_string($action).' вам <B>'.mysql_real_escape_string($buket_name).'</B>.   '."');");
+					db_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".db_escape_string($to['id'])."','','".'<font color=red>Внимание!</font> <span oncontextmenu=OpenMenu()>'.db_escape_string($from).'</span> '.db_escape_string($action).' вам <B>'.db_escape_string($buket_name).'</B>.   '."');");
 				}
 				echo "<b><font color=red>Подарок удачно доставлен к \"",$_POST['to_login'],"\"</font></b>";
 			}
-			echo mysql_error();
+			echo db_error();
 		}
 	}
 
@@ -331,8 +331,8 @@ Login <INPUT TYPE=text NAME=to_login value="">
 
 //print_r($_POST);
 
-	$data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `gift`=1 AND `setsale`=0 AND `present` = '' ORDER by `id` DESC; ");
-	while($row = mysql_fetch_array($data)) {
+	$data = db_query("SELECT * FROM `inventory` WHERE `owner` = '".db_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `gift`=1 AND `setsale`=0 AND `present` = '' ORDER by `id` DESC; ");
+	while($row = mysqli_fetch_array($data)) {
 		if(!in_array($row['id'],array_keys($_SESSION['flowers']))) {
 			$row['count'] = 1;
 			if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
@@ -353,8 +353,8 @@ Login <INPUT TYPE=text NAME=to_login value="">
 	}
 	else
 if ($_REQUEST['sale']) {
-	$data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `dressed` = 0  AND `setsale`=0  AND `podzem`=0 AND `gift`=0 AND `honor`=0 AND `cost`=0 ORDER by `update` DESC; ");
-	while($row = mysql_fetch_array($data)) {
+	$data = db_query("SELECT * FROM `inventory` WHERE `owner` = '".db_escape_string($_SESSION['uid'])."' AND `dressed` = 0  AND `setsale`=0  AND `podzem`=0 AND `gift`=0 AND `honor`=0 AND `cost`=0 ORDER by `update` DESC; ");
+	while($row = mysqli_fetch_array($data)) {
 		$row['count'] = 1;
 		if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
 		echo "<TR bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"http://img.also.bestcombats.net/i/sh/{$row['img']}\" BORDER=0>";
@@ -372,8 +372,8 @@ if ($_REQUEST['sale']) {
 	}
 } else
 {
-	$data = mysql_query("SELECT * FROM `vipshop` WHERE `count` > 0 AND `razdel` = '".mysql_real_escape_string($_GET['otdel'])."' ORDER by `ecost` ASC, `nlevel` ASC");
-		while($row = mysql_fetch_array($data)) {
+	$data = db_query("SELECT * FROM `vipshop` WHERE `count` > 0 AND `razdel` = '".db_escape_string($_GET['otdel'])."' ORDER by `ecost` ASC, `nlevel` ASC");
+		while($row = mysqli_fetch_array($data)) {
 		if ($i==0) { $i = 1; $color = '#dabc98';} else { $i = 0; $color = '#D5D5D5'; }
 		echo "<TR bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"http://img.also.bestcombats.net/i/sh/{$row['img']}\" BORDER=0>";
 		?>
@@ -385,7 +385,7 @@ if ($_REQUEST['sale']) {
 		echo "</TD></TR>";
 	}
 }
-	$user8 = mysql_fetch_array(mysql_query("SELECT ekr FROM `users` WHERE `id` = '".mysql_real_escape_string($_SESSION['uid'])."' LIMIT 1;"));
+	$user8 = mysqli_fetch_array(db_query("SELECT ekr FROM `users` WHERE `id` = '".db_escape_string($_SESSION['uid'])."' LIMIT 1;"));
       
 ?>
 </TABLE>

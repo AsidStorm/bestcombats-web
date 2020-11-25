@@ -2,15 +2,15 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "../connect.php";	
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	if (($user['login']=="Реализатор")) {
 
 ?>
 <table width="100%" border="1" cellspacing="0" cellpadding="0"><tr>
 <td align="left" valign="top">
 <?
-$nes = mysql_query("SELECT * FROM `podzem2` WHERE name='".$_GET['name']."'");
-$s = mysql_fetch_array($nes);
+$nes = db_query("SELECT * FROM `podzem2` WHERE name='".$_GET['name']."'");
+$s = mysqli_fetch_array($nes);
 ?>
 <table width="460" border="1" cellspacing="0" cellpadding="0">
   <tr>
@@ -1580,23 +1580,23 @@ print'<td height="50" width="50" align="center" bgcolor="#0066FF"><a href="?n=9&
 </table>
 <?
 if($_GET['v']){
-if($s["n".$_GET['v'].""]!=''){$Up = mysql_query("UPDATE podzem2 SET v".$_GET['n']."='',n".$_GET['v']."='' WHERE name='".$_GET['name']."'");}
-else{$Up = mysql_query("UPDATE podzem2 SET v".$_GET['n']."='".$_GET['v']."',n".$_GET['v']."='".$_GET['n']."' WHERE name='".$_GET['name']."'");}
+if($s["n".$_GET['v'].""]!=''){$Up = db_query("UPDATE podzem2 SET v".$_GET['n']."='',n".$_GET['v']."='' WHERE name='".$_GET['name']."'");}
+else{$Up = db_query("UPDATE podzem2 SET v".$_GET['n']."='".$_GET['v']."',n".$_GET['v']."='".$_GET['n']."' WHERE name='".$_GET['name']."'");}
 print "<script>location.href='?n=".$_GET['v']."&name=".$_GET['name']."'</script>";
 }
 if($_GET['d']){
-if($s["v".$_GET['d'].""]!=''){$Up = mysql_query("UPDATE podzem2 SET n".$_GET['n']."='',v".$_GET['v']."='' WHERE name='".$_GET['name']."'");}
-else{$Up = mysql_query("UPDATE podzem2 SET n".$_GET['n']."='".$_GET['d']."',v".$_GET['d']."='".$_GET['n']."' WHERE name='".$_GET['name']."'");}
+if($s["v".$_GET['d'].""]!=''){$Up = db_query("UPDATE podzem2 SET n".$_GET['n']."='',v".$_GET['v']."='' WHERE name='".$_GET['name']."'");}
+else{$Up = db_query("UPDATE podzem2 SET n".$_GET['n']."='".$_GET['d']."',v".$_GET['d']."='".$_GET['n']."' WHERE name='".$_GET['name']."'");}
 print "<script>location.href='?n=".$_GET['n']."&name=".$_GET['name']."'</script>";
 }
 if($_GET['p']){
-if($s["l".$_GET['p'].""]==''){$Up = mysql_query("UPDATE podzem2 SET p".$_GET['n']."='".$_GET['p']."',l".$_GET['p']."='".$_GET['n']."' WHERE name='".$_GET['name']."'");}
-else{$Up = mysql_query("UPDATE podzem2 SET p".$_GET['n']."='',l".$_GET['p']."='' WHERE name='".$_GET['name']."'");}
+if($s["l".$_GET['p'].""]==''){$Up = db_query("UPDATE podzem2 SET p".$_GET['n']."='".$_GET['p']."',l".$_GET['p']."='".$_GET['n']."' WHERE name='".$_GET['name']."'");}
+else{$Up = db_query("UPDATE podzem2 SET p".$_GET['n']."='',l".$_GET['p']."='' WHERE name='".$_GET['name']."'");}
 print "<script>location.href='?n=".$_GET['p']."&name=".$_GET['name']."'</script>";
 }
 if($_GET['l']){
-if($s["p".$_GET['l'].""]==''){$Up = mysql_query("UPDATE podzem2 SET l".$_GET['n']."='".$_GET['l']."',p".$_GET['l']."='".$_GET['n']."' WHERE name='".$_GET['name']."'");}
-else{$Up = mysql_query("UPDATE podzem2 SET l".$_GET['n']."='',p".$_GET['l']."='' WHERE name='".$_GET['name']."'");}
+if($s["p".$_GET['l'].""]==''){$Up = db_query("UPDATE podzem2 SET l".$_GET['n']."='".$_GET['l']."',p".$_GET['l']."='".$_GET['n']."' WHERE name='".$_GET['name']."'");}
+else{$Up = db_query("UPDATE podzem2 SET l".$_GET['n']."='',p".$_GET['l']."='' WHERE name='".$_GET['name']."'");}
 print "<script>location.href='?n=".$_GET['l']."&name=".$_GET['name']."'</script>";
 }
 
@@ -1669,12 +1669,12 @@ if($_GET['w']==1){print"<font>Вы добавили бота на клетку "
 if($_GET['w']==2){print"<font>Вы удалили бота с клетки ".$_GET['n']."</font>";}
 
 if($_GET['sozdat']){
-mysql_query("UPDATE podzem3 SET n".$_GET['n']."='".$_GET['botd']."' WHERE glava='default' and name='".$_GET['nas']."'");
+db_query("UPDATE podzem3 SET n".$_GET['n']."='".$_GET['botd']."' WHERE glava='default' and name='".$_GET['nas']."'");
 print "<script>location.href='?n=".$_GET['n']."&w=1&name=".$_GET['nas']."'</script>";
 exit();
 }
 if($_GET['delite']){
-mysql_query("UPDATE podzem3 SET n".$_GET['n']."='' WHERE glava='default' and name='".$_GET['name']."'");
+db_query("UPDATE podzem3 SET n".$_GET['n']."='' WHERE glava='default' and name='".$_GET['name']."'");
 print "<script>location.href='?n=".$_GET['n']."&w=2&name=".$_GET['name']."'</script>";
 exit();
 }

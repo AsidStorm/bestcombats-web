@@ -6,12 +6,12 @@ function useteleport($n) {
   die;  
 }
 
-$rs=mysql_query("select * from labirint where user_id='".$_SESSION['uid']."'");
-$t=mysql_fetch_array($rs);
+$rs=db_query("select * from labirint where user_id='".$_SESSION['uid']."'");
+$t=mysqli_fetch_array($rs);
 
 
-$f = mysql_query("SELECT * FROM podzem3 WHERE glava='$glava' and name='".$t['name']."'");
-while($rt = mysql_fetch_array($f)) {
+$f = db_query("SELECT * FROM podzem3 WHERE glava='$glava' and name='".$t['name']."'");
+while($rt = mysqli_fetch_array($f)) {
 
   if($vector=='0'){$loc4=$location+30;}
   if($vector=='0'){$loc3=$location+20;}
@@ -49,26 +49,26 @@ while($rt = mysql_fetch_array($f)) {
   }
 
   if($repa["n$mesto"]=='teleport' || $repa["n$mesto"]=='teleport3') {
-    mysql_query("UPDATE `labirint` SET `name` = 'Канализация 2 этаж',`location`='24',`vector`='90',`l`='430',`t`='214' WHERE `user_id` = '{$_SESSION['uid']}'");
+    db_query("UPDATE `labirint` SET `name` = 'Канализация 2 этаж',`location`='24',`vector`='90',`l`='430',`t`='214' WHERE `user_id` = '{$_SESSION['uid']}'");
     print "<script>location.href='main.php?act=none'</script>";
     exit;
   }
 
   if($repa["n$mesto"]=='teleport2'){                                              //,`vector`='90',`l`='430',`t`='214'
-    mysql_query("UPDATE `labirint` SET `name` = 'Канализация 3 этаж',`location`='78',`vector`='180',`l`='478',`t`='154'  WHERE `user_id` = '{$_SESSION['uid']}'");
+    db_query("UPDATE `labirint` SET `name` = 'Канализация 3 этаж',`location`='78',`vector`='180',`l`='478',`t`='154'  WHERE `user_id` = '{$_SESSION['uid']}'");
     print "<script>location.href='main.php?act=none'</script>";
     exit;
   }
 
 
   if($repa["n$mesto"]=='teleport1'){
-    mysql_query("UPDATE `labirint` SET `name` = 'Канализация 1 этаж',`location`='47',`vector`='270',`l`='465',`t`='190' WHERE `user_id` = '{$_SESSION['uid']}'");
+    db_query("UPDATE `labirint` SET `name` = 'Канализация 1 этаж',`location`='47',`vector`='270',`l`='465',`t`='190' WHERE `user_id` = '{$_SESSION['uid']}'");
     print "<script>location.href='main.php?act=none'</script>";
     exit;
   }
 
   if($repa["n$mesto"]=='20'){
-    mysql_query("UPDATE `users`,`online` SET `users`.`room` = '404',`online`.`room` = '404' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+    db_query("UPDATE `users`,`online` SET `users`.`room` = '404',`online`.`room` = '404' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
     print "<script>location.href='main.php?act=none'</script>";
     exit;
   }
@@ -216,15 +216,15 @@ while($rt = mysql_fetch_array($f)) {
   $s.='<div style="position:absolute; left:165px; top:80px;"><img src="'.IMGBASE.'/labirint3/'.$ob2.'.gif" width="50" height="80" title="'.$b_n2.'"></div>';
   }
   }
-  $obraz11=mysql_fetch_array(mysql_query("SELECT user_id FROM `labirint` WHERE `glava`='$glava' LIMIT 1;"));
+  $obraz11=mysqli_fetch_array(db_query("SELECT user_id FROM `labirint` WHERE `glava`='$glava' LIMIT 1;"));
   global $mir;
-  $rogs=mysql_query("SELECT labirint.login,labirint.location, users.shadow, users.sex FROM `labirint` left join users on labirint.user_id=users.id WHERE `glava`='$glava' and name='$mir[name]'");
-  echo mysql_error();
+  $rogs=db_query("SELECT labirint.login,labirint.location, users.shadow, users.sex FROM `labirint` left join users on labirint.user_id=users.id WHERE `glava`='$glava' and name='$mir[name]'");
+  echo db_error();
   $i=0;
-  while($mores=mysql_fetch_array($rogs)){
-  //$obraz22=mysql_fetch_array(mysql_query("SELECT `shadow` FROM `users` WHERE `id` = '$mores[user_id]' LIMIT 1;"));
+  while($mores=mysqli_fetch_array($rogs)){
+  //$obraz22=mysqli_fetch_array(db_query("SELECT `shadow` FROM `users` WHERE `id` = '$mores[user_id]' LIMIT 1;"));
   $i++;
-  $nus=mysql_num_rows($rogs);
+  $nus=mysqli_num_rows($rogs);
 
   if($vector == 0){$lac = $location+30;}
   if($vector == 90){$lac = $location+3;}
@@ -279,13 +279,13 @@ while($rt = mysql_fetch_array($f)) {
   $s.='<div style="position:absolute; left:155px; top:70px;"><img src="'.IMGBASE.'/labirint3/'.$ob32.'.gif" width="65" height="110" title="'.$b_n32.'"></div>';
   }
   }
-  //$rogs=mysql_query("SELECT login,location FROM `labirint` WHERE `glava`='$glava'");
-  //$rogs=mysql_query("SELECT labirint.login,labirint.location, users.shadow FROM `labirint` left join users on labirint.user_id=users.id WHERE `glava`='$glava'");
-  mysql_data_seek($rogs,0);
+  //$rogs=db_query("SELECT login,location FROM `labirint` WHERE `glava`='$glava'");
+  //$rogs=db_query("SELECT labirint.login,labirint.location, users.shadow FROM `labirint` left join users on labirint.user_id=users.id WHERE `glava`='$glava'");
+  mysqli_data_seek($rogs,0);
   $i=0;
-  while($mores=mysql_fetch_array($rogs)){
+  while($mores=mysqli_fetch_array($rogs)){
   $i++;
-  $nus=mysql_num_rows($rogs);
+  $nus=mysqli_num_rows($rogs);
   if($vector == 0){$lac = $location+20;}
   if($vector == 90){$lac = $location+2;}
   if($vector == 180){$lac = $location-20;}
@@ -368,13 +368,13 @@ while($rt = mysql_fetch_array($f)) {
   }
 
   }
-  //$rogs=mysql_query("SELECT login,location FROM `labirint` WHERE `glava`='$glava'");
-  //$rogs=mysql_query("SELECT labirint.login,labirint.location, users.shadow FROM `labirint` left join users on labirint.user_id=users.id WHERE `glava`='$glava'");
-  mysql_data_seek($rogs,0);
+  //$rogs=db_query("SELECT login,location FROM `labirint` WHERE `glava`='$glava'");
+  //$rogs=db_query("SELECT labirint.login,labirint.location, users.shadow FROM `labirint` left join users on labirint.user_id=users.id WHERE `glava`='$glava'");
+  mysqli_data_seek($rogs,0);
   $i=0;
-  while($mores=mysql_fetch_array($rogs)){
+  while($mores=mysqli_fetch_array($rogs)){
   $i++;
-  $nus=mysql_num_rows($rogs);
+  $nus=mysqli_num_rows($rogs);
   if($vector == 0){$lac = $location+10;}
   if($vector == 90){$lac = $location+1;}
   if($vector == 180){$lac = $location-10;}

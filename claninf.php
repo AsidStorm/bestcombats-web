@@ -4,7 +4,7 @@
   include "functions.php";
   $_SERVER['QUERY_STRING']=str_replace("%20"," ",$_SERVER['QUERY_STRING']);
   $us = " `name` = '{$_SERVER['QUERY_STRING']}' or `short` = '{$_SERVER['QUERY_STRING']}' ";
-  $klan = mysql_fetch_array(mysql_query("SELECT * FROM `clans`  WHERE {$us} LIMIT 1;"));
+  $klan = mysqli_fetch_array(db_query("SELECT * FROM `clans`  WHERE {$us} LIMIT 1;"));
   $klan["members"]=unserialize($klan["members"]);
   foreach ($klan["members"] as $k=>$v) {
     $klan["members"][$k]["klan"]=$klan["short"];
@@ -98,15 +98,15 @@ echo'<td>Тип правления: <FONT color=#007200><B>Демократия<
 <td>
 Бойцы клана:
 <?
-					$data=mysql_query("SELECT `id`, `login`,`level`,`align` FROM `users` WHERE `klan` = '".$klan['short']."' order by level DESC, login asc ;");
-					while ($row = mysql_fetch_array($data)) {
+					$data=db_query("SELECT `id`, `login`,`level`,`align` FROM `users` WHERE `klan` = '".$klan['short']."' order by level DESC, login asc ;");
+					while ($row = mysqli_fetch_array($data)) {
 							echo '<br>';
 							nick2($row['id']);
 }
 
-$R_ONLINE = mysql_query("SELECT `klan` FROM users WHERE `klan` = '{$klan['short']}';");
+$R_ONLINE = db_query("SELECT `klan` FROM users WHERE `klan` = '{$klan['short']}';");
 $total = 0;
-        while(mysql_fetch_array($R_ONLINE)){
+        while(mysqli_fetch_array($R_ONLINE)){
         $total++;
         }
 ?>

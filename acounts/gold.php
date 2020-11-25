@@ -3,8 +3,8 @@ session_start();
 if ($_SESSION['uid'] == null) header("Location: index.php");
 include "../connect.php";
 include "../functions.php";
-$user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
-$al = mysql_fetch_array(mq("SELECT * FROM `aligns` WHERE `vip` = '1' LIMIT 1;"));
+$user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+$al = mysqli_fetch_array(mq("SELECT * FROM `aligns` WHERE `vip` = '1' LIMIT 1;"));
 if ($user['vip']!= 3) die;
 if ($user['battle'] != 0) { header('location: /fbattle.php');die();}
 if (in_array($user["id"],$testusers)) define("ALLFREE",1);
@@ -54,7 +54,7 @@ echo "<form method=post><fieldset><legend>Смена имени</legend>
 <tr><td>Новый логин</td><td><input type='text' name='new-login'> </td></tr>
 <tr><td><input type=submit value='Изменить'></td></tr></table></fieldset></form>";			
 if (isset($_POST['new-login'])) {
-$target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".mysql_real_escape_string($_POST['new-login'])."';"));
+$target_user_tel=mysqli_fetch_array(db_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".db_escape_string($_POST['new-login'])."';"));
 If (!empty($target_user_tel['id'])){
 echo"<font color=red>Логин &quot;".$_POST['new-login']."&quot; Занят!</font><br>";
 }elseif (!ereg("^[a-zA-Zа-яА-Я0-9][a-zA-Zа-яА-Я0-9_ -]+[a-zA-Zа-яА-Я0-9]$",$_POST['new-login'])){
@@ -64,7 +64,7 @@ echo"<font color=red>Логин может содержать от 4 до 20 с�
 }elseif (ereg("[a-zA-Z]",$_POST['login']) && ereg("[а-яА-Я]",$_POST['login'])){
 echo"<font color=red>Логин не может содержать одновременно буквы русского и латинского алфавитов!</font><br>";
 }else{
-mysql_query("UPDATE `users` SET `login` = '".mysql_real_escape_string($_POST['new-login'])."',`loginhistory`=concat(`loginhistory`,';".$user['login']."||".date('d-m-Y')."') WHERE `id` = '".$user['id']."';");
+db_query("UPDATE `users` SET `login` = '".db_escape_string($_POST['new-login'])."',`loginhistory`=concat(`loginhistory`,';".$user['login']."||".date('d-m-Y')."') WHERE `id` = '".$user['id']."';");
 echo"<font color=red>Вы изменили логин!</font><br>";
 }
 }
@@ -80,7 +80,7 @@ $path = '/var/www/bestcombats/data/www/img.bestcombats.net/shadow/"'.$user['sex'
 if ($image_info[0]==120 and $image_info[1]==220){
 if (file_exists($path)) unlink($path);
 move_uploaded_file($_FILES['shadow_file']['tmp_name'], '/var/www/bestcombats/data/www/img.bestcombats.net/shadow/'.$user['sex'].'/upload/'.$user['id'].".gif");
-mysql_query("UPDATE `users` SET `shadow`='upload/".$user['id'].".gif' WHERE `id` = '".$user['id']."';");
+db_query("UPDATE `users` SET `shadow`='upload/".$user['id'].".gif' WHERE `id` = '".$user['id']."';");
 echo"<font color=red>Вы установили образ!</font>";
 die("<script>top.window.location='/battle.php';</script>");
 }else{
@@ -99,7 +99,7 @@ $levelstats=statsat($user['nextup']);
 undressall($user['id']);
 mq("UPDATE `users` SET `stats` = '".($levelstats['stats']-9)."'+'".$user[extrastats].".', `sila`= '3',`lovk`= '3',`inta`= '3',`mudra`= '0',`intel`= '0',`spirit`= '".$levelstats["spirit"]."', sexy= '0',`vinos`= '".$levelstats["vinos"]."',`maxhp`= '".$levelstats["vinos"]."'*6,`maxmana`= '0',`mana`= '0' WHERE `id`='$user[id]' LIMIT 1;");
 mq("UPDATE `userdata` SET `stats` = '".($levelstats['stats']-9)."'+'".$user[extrastats]."', `sila`= '3',`lovk`= '3',`inta`= '3',`mudra`= '0',`intel`= '0',`spirit`= '".$levelstats["spirit"]."', `sexy` = '0',`vinos`= '".$levelstats["vinos"]."' WHERE `id`='$user[id]' LIMIT 1");
-echo mysql_error();
+echo db_error();
 fixstats($user["id"]);
 mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" бесплатно сбросил параметры в Комнате Знахаря. ',1,'".time()."');");
 echo "<font color=red>Все прошло удачно. Вы можете перераспределить параметры.</font>";
@@ -156,7 +156,7 @@ if (mq("UPDATE `users` SET ".(ALLFREE?"":"money=money-32,")." `master`=$levelsta
 mq("UPDATE `userdata` SET `master`=$levelstats[master]+$user[extramaster],noj=0,mec=0,topor=0,dubina=0,posoh=0, luk=0, mfire=0, mwater=0, mair=0, mearth=0, mlight=0, mgray=0, mdark=0 WHERE `id`='$user[id]'");
 fixstats($user["id"]);
 if (!ALLFREE) $user["money"]-=32;
-mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" перераспределил умения, заплатив 32 кр. в Комнате Знахаря ($user[money]/$user[ekr]). ',1,'".time()."');");
+db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" перераспределил умения, заплатив 32 кр. в Комнате Знахаря ($user[money]/$user[ekr]). ',1,'".time()."');");
 echo "<font color=red>Все прошло удачно. Вы можете перераспределить умения.</font>";
 } else echo "<font color=red>Произошла ошибка!</font>";
 }

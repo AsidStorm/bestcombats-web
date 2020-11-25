@@ -1,5 +1,5 @@
 <?php
-$target=mqfa("SELECT users.id, users.level, users.room, users.login, users.vinos, users.mudra, users.battle,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".mysql_escape_string($_POST['target'])."'");
+$target=mqfa("SELECT users.id, users.level, users.room, users.login, users.vinos, users.mudra, users.battle,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".db_escape_string($_POST['target'])."'");
 $plus=0;
 global $nodrink;
 $todispell=mqfa("select * from effects where owner='$target[id]' and (name='Уязвимость оружию' or name='Уязвимость стихиям' or name='Слабость') order by rand()");

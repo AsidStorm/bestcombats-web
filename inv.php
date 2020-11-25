@@ -9,8 +9,8 @@
 
 <?php
 include'connect.php';
-$musor = mysql_query('SELECT `owner` FROM `inventory` WHERE `id`>0');
-while ($page=mysql_fetch_array($musor)){
+$musor = db_query('SELECT `owner` FROM `inventory` WHERE `id`>0');
+while ($page=mysqli_fetch_array($musor)){
 var_dump($page);
 }
 ?>

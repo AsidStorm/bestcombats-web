@@ -2,11 +2,11 @@
 session_start();
 include "connect.php";
 include "functions.php";
-$user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+$user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 if(!$_POST['ref']){
 $ref = $_GET['ref'];}else{$ref = $_POST['ref'];}
 if (!ereg("^[0-9]+$",$ref)){$ref=0;}
-if(!empty($ref)){$s_ref = mysql_fetch_array(mq("SELECT id FROM `users` WHERE `id`='$ref';"));
+if(!empty($ref)){$s_ref = mysqli_fetch_array(mq("SELECT id FROM `users` WHERE `id`='$ref';"));
 if(!$s_ref){$ref=0;}
 }
 
@@ -43,17 +43,17 @@ if ($_POST['add'] && $_GET['edit']) {
        reportadms("<br><b>$user[login]</b>: спам в инфе", "Комментатор");
        addch("<img src=http://img.bestcombats.net/pbuttons/sleep.gif> Комментатор наложил заклятие молчания на &quot;$user[login]&quot;, сроком 60 мин. Причина: РВС.");
      }
-     mq("UPDATE `users` SET  `city` = '".mysql_real_escape_string($_POST['city2'])."', `icq` = '".mysql_real_escape_string($_POST['icq'])."',
-                 `http` = '".mysql_real_escape_string($_POST['homepage'])."', `info` = '".$_POST['hobby']."', `lozung` = '".mysql_real_escape_string($_POST['about'])."',
-                 `color` = '".mysql_real_escape_string($_POST['ChatColor'])."', `realname` = '".mysql_real_escape_string($_POST['name'])."' WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;");
-     $user = mysql_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+     mq("UPDATE `users` SET  `city` = '".db_escape_string($_POST['city2'])."', `icq` = '".db_escape_string($_POST['icq'])."',
+                 `http` = '".db_escape_string($_POST['homepage'])."', `info` = '".$_POST['hobby']."', `lozung` = '".db_escape_string($_POST['about'])."',
+                 `color` = '".db_escape_string($_POST['ChatColor'])."', `realname` = '".db_escape_string($_POST['name'])."' WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;");
+     $user = mysqli_fetch_array(mq("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     }
 }
 if ($_POST['add'] && !$_GET['edit']) {
 
                 $stop =0;
                 $login=$_POST['login'];
-                $res = mysql_fetch_array(mq("SELECT `id` FROM `users` WHERE `login` = '".$login."' union SELECT `id` FROM `allusers` WHERE `login` = '".$login."'"));
+                $res = mysqli_fetch_array(mq("SELECT `id` FROM `users` WHERE `login` = '".$login."' union SELECT `id` FROM `allusers` WHERE `login` = '".$login."'"));
                 $birth_day=(int)$_POST['birth_day'];
                 $birth_month=(int)$_POST['birth_month'];
                 $birth_year=(int)$_POST['birth_year'];
@@ -146,8 +146,8 @@ if ($_POST['add'] && !$_GET['edit']) {
                     if ($birth_month < 10)  {$birth_month = "0".$birth_month;}
                     $birthday=$birth_day."-".$birth_month."-".$birth_year;
            
-                    if(mq("INSERT INTO `users` (`borncity`,`login`,`pass`,`email`,`realname`,`borndate`,`sex`,`city`,`icq`,`http`,`info`,`lozung`,`color`,`ip`,`showmyinfo`,`refer`,`vip`)VALUES('Devils City','".mysql_real_escape_string($_POST['login'])."','".md5($_POST['psw'])."','".mysql_real_escape_string($_POST['email'])."','".mysql_real_escape_string($_POST['name'])."','$birthday','".mysql_real_escape_string($_POST['sex'])."','".mysql_real_escape_string($_POST['city2'])."','".mysql_real_escape_string($_POST['icq'])."','".mysql_real_escape_string($_POST['homepage'])."','".mysql_real_escape_string($_POST['hobby'])."','".mysql_real_escape_string($_POST['about'])."','".mysql_real_escape_string($_POST['ChatColor'])."','".$_SERVER['REMOTE_ADDR']."','1','$ref','1');")) {
-                      $i = mysql_insert_id();
+                    if(mq("INSERT INTO `users` (`borncity`,`login`,`pass`,`email`,`realname`,`borndate`,`sex`,`city`,`icq`,`http`,`info`,`lozung`,`color`,`ip`,`showmyinfo`,`refer`,`vip`)VALUES('Devils City','".db_escape_string($_POST['login'])."','".md5($_POST['psw'])."','".db_escape_string($_POST['email'])."','".db_escape_string($_POST['name'])."','$birthday','".db_escape_string($_POST['sex'])."','".db_escape_string($_POST['city2'])."','".db_escape_string($_POST['icq'])."','".db_escape_string($_POST['homepage'])."','".db_escape_string($_POST['hobby'])."','".db_escape_string($_POST['about'])."','".db_escape_string($_POST['ChatColor'])."','".$_SERVER['REMOTE_ADDR']."','1','$ref','1');")) {
+                      $i = db_insert_id();
                       mq("insert into userdata (id) values($i)");
                       if ($_SESSION["spammer"]) {
                         reportadms("Зарегистрирован новый возможно спамер: <b>$_POST[login]</b>");
@@ -185,13 +185,13 @@ mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$i','Silver Ac
 //
 mq("INSERT INTO `online` (`id` ,`date` ,`room`)VALUES ('".$i."', '".time()."', '1');");
 if(!empty($ref)){
-        $us = mysql_fetch_array(mq("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$ref}' LIMIT 1;"));
+        $us = mysqli_fetch_array(mq("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$ref}' LIMIT 1;"));
                 if($us[0]){
         addchp ('<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$_POST['login'].'</B> зарегистрировался по Вашей ссылке. Вам будет перечислена премия за каждый набранный им уровень кроме первого.</font>   ','{[]}'.nick7 ($ref).'{[]}');
             } else {
         mq("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$ref."','','".'<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$_POST['login'].'</B> зарегистрировался по Вашей ссылке. Вам будет перечислена премия за каждый набранный им уровень кроме первого.</font> '."');");
             }
-            echo mysql_error();
+            echo db_error();
 
 
 

@@ -2,9 +2,9 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 	include "functions.php";
-	$al = mysql_fetch_assoc(mysql_query("SELECT * FROM `aligns` WHERE `align` = '{$user['align']}' LIMIT 1;"));
+	$al = mysqli_fetch_assoc(db_query("SELECT * FROM `aligns` WHERE `align` = '{$user['align']}' LIMIT 1;"));
 	header("Cache-Control: no-cache");
 	if ($user['align']<1 or $user['align']>6) header("Location: index.php");
 ?>
@@ -28,12 +28,12 @@
 <tr>
 	<td valign=top>
 	<?
-	$online = mysql_query("select id from `online`  WHERE `real_time` >= ".(time()-60).";");
+	$online = db_query("select id from `online`  WHERE `real_time` >= ".(time()-60).";");
 	$i=0;
 	echo "<table border=1 cellspacing=0 cellpadding=2>
 			<tr align=center bgcolor=#A5A5A5><td><b>№</b></td><td><b>Ник</b></td><td><b>Локация</b></td><td><b>Город</b></td></tr>";
-	while($ON = mysql_fetch_array($online)){
-		$USER = mysql_fetch_array(mysql_query("SELECT login,id,align,klan,level,deal,battle,room,incity FROM `users` WHERE `id` = '{$ON['id']}' "));
+	while($ON = mysqli_fetch_array($online)){
+		$USER = mysqli_fetch_array(db_query("SELECT login,id,align,klan,level,deal,battle,room,incity FROM `users` WHERE `id` = '{$ON['id']}' "));
 		$rrm = $rooms[$USER['room']];
 		$i++;
 		echo "<tr>";
@@ -45,7 +45,7 @@
 		If (!empty($rrm)){
 			echo $rrm;
 		}else{
-			$labirint=mysql_fetch_array(mysql_query("SELECT name from `labirint` where `user_id`=".$USER['id']." LIMIT 1;"));
+			$labirint=mysqli_fetch_array(db_query("SELECT name from `labirint` where `user_id`=".$USER['id']." LIMIT 1;"));
 			echo $labirint['name'];
 		}
 		
@@ -63,11 +63,11 @@
 	</td>
 	<td valign=top>
 	<?
-	$online = mysql_query("select *  from `users`  WHERE `user_id`=0 and `vid`=0 and `borntime` BETWEEN '".date("Y-m-d H:i:s" ,(time()-86400))."' and '".date("Y-m-d H:i:s" ,time())."' Order by borntime ASC;"); 
+	$online = db_query("select *  from `users`  WHERE `user_id`=0 and `vid`=0 and `borntime` BETWEEN '".date("Y-m-d H:i:s" ,(time()-86400))."' and '".date("Y-m-d H:i:s" ,time())."' Order by borntime ASC;");
 	$i=0;
 	echo "<table border=1 cellspacing=0 cellpadding=2>
 			<tr align=center bgcolor=#A5A5A5><td><b>№</b></td><td><b>Ник</b></td><td><b>Локация</b></td><td><b>Город</b></td></tr>";
-	while($ON = mysql_fetch_array($online)){
+	while($ON = mysqli_fetch_array($online)){
 		$rrm = $rooms[$ON['room']];
 		$i++;
 		echo "<tr>";

@@ -1,5 +1,5 @@
 <?
-  $uses_zel = mysql_fetch_array(mysql_query("SELECT name FROM `effects` WHERE `owner` = ".$user['id']." AND `type`=188 and name like 'Самодельный эликсир%'"));
+  $uses_zel = mysqli_fetch_array(db_query("SELECT name FROM `effects` WHERE `owner` = ".$user['id']." AND `type`=188 and name like 'Самодельный эликсир%'"));
   $ins_time = floor($magic['time']*60);
 
   global $nodrink;
@@ -21,7 +21,7 @@
         $mfval.="$row[$v]";
       }
     }
-    mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`, type, `mf`,`mfval`) values ('".$user['id']."','".$row['name']."',".(time()+$ins_time).",188, '$mf', '$mfval');");
+    db_query("INSERT INTO `effects` (`owner`,`name`,`time`, type, `mf`,`mfval`) values ('".$user['id']."','".$row['name']."',".(time()+$ins_time).",188, '$mf', '$mfval');");
     echo "Выпит эликсир &quot;".$row['name']."&quot;.";
     $bet=1;
   }

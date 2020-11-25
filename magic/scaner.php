@@ -10,7 +10,7 @@ if ($user['battle'] > 0) {
   $r=mq("SELECT * FROM `fieldparties` WHERE field='$user[caveleader]'");
   $out="";
   $data=array();
-  while ($rec=mysql_fetch_assoc($r)) {
+  while ($rec=mysqli_fetch_assoc($r)) {
     if ($rec["user"]==$user["id"]) {
       $x=$rec["x"];
       $y=$rec["y"];
@@ -32,8 +32,8 @@ if ($user['battle'] > 0) {
 	//undressall($user['id']);
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	global $rooms;
-	$rs = mysql_query("SELECT * FROM `users` WHERE in_tower='$user[in_tower]' ORDER by `room` DESC;");
-	while($r = mysql_fetch_array($rs)) {
+	$rs = db_query("SELECT * FROM `users` WHERE in_tower='$user[in_tower]' ORDER by `room` DESC;");
+	while($r = mysqli_fetch_array($rs)) {
 		if($rt != $r['room']) {
 			$rt = $r['room'];
 			$rr .= "\n".$rooms[$r['room']].": ";
@@ -42,7 +42,7 @@ if ($user['battle'] > 0) {
 	}
 	echo "<font color=red><b>Отчет о сканировании у вас в рюкзаке<b></font>";
 	
-	mysql_query("INSERT INTO `inventory` (`bs`,`owner`,`name`,`type`,`massa`,`cost`,`img`,`letter`,`maxdur`,`isrep`)VALUES('$user[in_tower]','{$_SESSION['uid']}','Отчет о сканировании','200',1,0,'paper100.gif','{$rr}',1,0) ;");
+	db_query("INSERT INTO `inventory` (`bs`,`owner`,`name`,`type`,`massa`,`cost`,`img`,`letter`,`maxdur`,`isrep`)VALUES('$user[in_tower]','{$_SESSION['uid']}','Отчет о сканировании','200',1,0,'paper100.gif','{$rr}',1,0) ;");
 	
 	$bet=1;
 }

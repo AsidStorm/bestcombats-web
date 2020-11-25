@@ -2,7 +2,7 @@
     session_start();
     if ($_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
-    $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+    $user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
     include "functions.php";
     if ($user['room'] != 27) { header("Location: main.php");  die(); }
     if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
@@ -49,14 +49,14 @@ var transfersale = true;
 
 if (@!$_REQUEST['razdel']) { $_REQUEST['razdel']=1; }
 if (@$_REQUEST['FindLogin']) {
-    $res=mysql_fetch_array(mysql_query("SELECT `id`, `level`, `room`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`,`login`,in_tower FROM `users` WHERE `login` ='".mysql_real_escape_string($_REQUEST['FindLogin'])."';"));
-    if (!$res) $res=mqfa("SELECT id, level, room, align, login, in_tower, 0 as online from allusers where login='".mysql_real_escape_string($_REQUEST['FindLogin'])."'");
+    $res=mysqli_fetch_array(db_query("SELECT `id`, `level`, `room`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`,`login`,in_tower FROM `users` WHERE `login` ='".db_escape_string($_REQUEST['FindLogin'])."';"));
+    if (!$res) $res=mqfa("SELECT id, level, room, align, login, in_tower, 0 as online from allusers where login='".db_escape_string($_REQUEST['FindLogin'])."'");
     $tologin = $res['login'];
     $step=3;
 }
 if (@$_REQUEST['to_id']) {
-    $res=mysql_fetch_array(mysql_query("SELECT `id`, `level`, `room`, `align`, (select `id` from `online` WHERE `online`.`date` >= ".(time()-60)." AND `online`.`id` = users.`id`) as `online`,`login`,in_tower FROM `users` WHERE `id` ='".mysql_escape_string($_REQUEST['to_id'])."';"));
-    if (!$res) $res=mqfa("SELECT id, level, room, align, login, in_tower, 0 as online from allusers where id='".mysql_real_escape_string($_REQUEST['to_id'])."'");
+    $res=mysqli_fetch_array(db_query("SELECT `id`, `level`, `room`, `align`, (select `id` from `online` WHERE `online`.`date` >= ".(time()-60)." AND `online`.`id` = users.`id`) as `online`,`login`,in_tower FROM `users` WHERE `id` ='".db_escape_string($_REQUEST['to_id'])."';"));
+    if (!$res) $res=mqfa("SELECT id, level, room, align, login, in_tower, 0 as online from allusers where id='".db_escape_string($_REQUEST['to_id'])."'");
     $tologin = $res['login'];
     $step=3;
 }
@@ -71,7 +71,7 @@ if (@$step==3){
     elseif ($res['in_tower']>0) $mess='Персонаж находится в Башне Смерти или на поле битвы';
     else{
         $idkomu=$id_person_x;
-        $komu=mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` ='".$idkomu."';"));
+        $komu=mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` ='".$idkomu."';"));
         $mess=$_REQUEST['FindLogin'];
         $step=3;
     }
@@ -94,8 +94,8 @@ if ($step==3) {
         reportadms("<br><b>$user[login]</b>: $_REQUEST[message]", "Комментатор");
         addch("<img src=i/magic/sleep.gif> Комментатор наложил заклятие молчания на &quot;{$user['login']}&quot;, сроком 30 мин. Причина: РВС.");
       } else {
-        mysql_query("UPDATE `users` set money=money-'0.1' where id='".$user['id']."'");
-        mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`letter`,`maxdur`,`isrep`)VALUES('".$idkomu."','Сообщение телеграфом','200',1,0,'paper100.gif','От персонажа \"{$user['login']}\": \n ".$_REQUEST['message']."',1,0) ;");
+        db_query("UPDATE `users` set money=money-'0.1' where id='".$user['id']."'");
+        db_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`letter`,`maxdur`,`isrep`)VALUES('".$idkomu."','Сообщение телеграфом','200',1,0,'paper100.gif','От персонажа \"{$user['login']}\": \n ".$_REQUEST['message']."',1,0) ;");
         tele_check($komu['login'],$_REQUEST['message']);
         $mess='Сообщение персонажу "'.$komu['login'].'" будет доставлено.';
       }
@@ -104,18 +104,18 @@ if ($step==3) {
         if (is_numeric($_REQUEST['setkredit']) && ($_REQUEST['setkredit']>0) && ($_REQUEST['setkredit']*1.05 <= $user['money'])) {
             if (!cangive($_REQUEST["setkredit"])) {
               $mess="Передаваемая сумма превышает лимит.";
-            } elseif (mysql_query("UPDATE `users` set money=money-".strval($_REQUEST["setkredit"]*1.05)." where id='".$user['id']."'") && mysql_query("UPDATE `users` set money=money+".strval($_REQUEST[setkredit])." where id='".$idkomu."'")) {
+            } elseif (db_query("UPDATE `users` set money=money-".strval($_REQUEST["setkredit"]*1.05)." where id='".$user['id']."'") && db_query("UPDATE `users` set money=money+".strval($_REQUEST[setkredit])." where id='".$idkomu."'")) {
                 updbalance($user['id'], $idkomu, $_REQUEST["setkredit"]);
                 $mess='Удачно передано '.strval($_REQUEST[setkredit]).' кр к персонажу '.$komu['login'];
-                mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Почтой передано ".strval($_REQUEST[setkredit])." кр. от \"".$user['login']."\" к \"".$komu['login']."\" ',1,'".time()."');");
-                mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$idkomu}','Почтой передано ".strval($_REQUEST[setkredit])." кр. от \"".$user['login']."\" к \"".$komu['login']."\" ',1,'".time()."');");
+                db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Почтой передано ".strval($_REQUEST[setkredit])." кр. от \"".$user['login']."\" к \"".$komu['login']."\" ',1,'".time()."');");
+                db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$idkomu}','Почтой передано ".strval($_REQUEST[setkredit])." кр. от \"".$user['login']."\" к \"".$komu['login']."\" ',1,'".time()."');");
                 $user['money']-=$_REQUEST[setkredit]*1.05;
-                $us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$idkomu}' LIMIT 1;"));
+                $us = mysqli_fetch_array(db_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$idkomu}' LIMIT 1;"));
                 if($us[0]){
                     addchp ('<font color=red>Внимание!</font> Вам пришел почтовый перевод '.strval($_REQUEST[setkredit]).' кр. от <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>   ','{[]}'.$_POST['to_login'].'{[]}');
                 } else {
                     // если в офе
-                    mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$to['id']."','','".'<font color=red>Внимание!</font> Вам пришел почтовый перевод '.strval($_REQUEST[setkredit]).' кр. от <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>  '."');");
+                    db_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$to['id']."','','".'<font color=red>Внимание!</font> Вам пришел почтовый перевод '.strval($_REQUEST[setkredit]).' кр. от <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>  '."');");
                 }
             }
             else {
@@ -125,7 +125,7 @@ if ($step==3) {
             $mess="Недостаточно денег";
         }
     } elseif ((is_numeric($_REQUEST['setobject']) && $_REQUEST['setobject']>0) && (is_numeric($_REQUEST['to_id']) && $_REQUEST['to_id']>0) && !$_REQUEST['gift'] && $_REQUEST['sd4']==$user['id']) {
-        $res = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `id` = '{$_REQUEST['setobject']}' $cond LIMIT 1;"));
+        $res = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `id` = '{$_REQUEST['setobject']}' $cond LIMIT 1;"));
         $prc=itemprice($res);
         if (!$res['id']) {
             $mess="Предмет не найден в рюкзаке";
@@ -135,19 +135,19 @@ if ($step==3) {
         } elseif ($user['money']<1) {
             $mess='Недостаточно денег на оплату передачи';
         } else {
-            if (mysql_query("update `inventory` set `owner` = ".$komu['id']." where `id`='".$res['id']."' and `owner`= '".$user['id']."';")) {
+            if (db_query("update `inventory` set `owner` = ".$komu['id']." where `id`='".$res['id']."' and `owner`= '".$user['id']."';")) {
                 updbalance($user['id'], $komu['id'], $prc["price"]);
-                mysql_query("update `users` set `money`=`money`-1 where `id`='".$user['id']."'");
-                mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Почтой передан предмет \"".$res['name']."\" id:(cap".$res['id'].") [".$res['duration']."/".$res['maxdur']."] от \"".$user['login']."\" к \"".$komu['login']."\", налог 1 кр.','1','".time()."');");
-                mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$idkomu}','Почтой передан предмет \"".$res['name']."\" id:(cap".$res['id'].") [".$res['duration']."/".$res['maxdur']."] от \"".$user['login']."\" к \"".$komu['login']."\", налог 1 кр.','1','".time()."');");
+                db_query("update `users` set `money`=`money`-1 where `id`='".$user['id']."'");
+                db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Почтой передан предмет \"".$res['name']."\" id:(cap".$res['id'].") [".$res['duration']."/".$res['maxdur']."] от \"".$user['login']."\" к \"".$komu['login']."\", налог 1 кр.','1','".time()."');");
+                db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$idkomu}','Почтой передан предмет \"".$res['name']."\" id:(cap".$res['id'].") [".$res['duration']."/".$res['maxdur']."] от \"".$user['login']."\" к \"".$komu['login']."\", налог 1 кр.','1','".time()."');");
                 $mess='Удачно передано "'.$res['name'].'" к персонажу '.$komu['login'];
                 $user['money']-=1;
-                $us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$komu['id']}' LIMIT 1;"));
+                $us = mysqli_fetch_array(db_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$komu['id']}' LIMIT 1;"));
                 if($us[0]){
                     addchp ('<font color=red>Внимание!</font> Вам почтой передан предмет <b>'.$res['name'].'</b> от <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>   ','{[]}'.$_POST['to_login'].'{[]}');
                 } else {
                     // если в офе
-                    mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$to['id']."','','".'<font color=red>Внимание!</font> Вам почтой передан предмет <b>'.$res['name'].'</b> от <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>  '."');");
+                    db_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$to['id']."','','".'<font color=red>Внимание!</font> Вам почтой передан предмет <b>'.$res['name'].'</b> от <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>  '."');");
                 }
             }
         }
@@ -171,8 +171,8 @@ function reloadit(){
 echo 'К кому передавать: <font color=red><SCRIPT>drwfl("'.@$komu['login'].'",'.@$komu['id'].',"'.@$komu['level'].'","'.@$komu['align'].'","'.@$komu['klan'].'")</SCRIPT></font>';
 ?> <INPUT TYPE=button value="Сменить" onClick="findlogin('Передача предметов','post.php','FindLogin')"><BR><?
 }else{
-    $roww = mysql_fetch_array(mysql_query("SELECT * FROM `trade` WHERE `baer` = {$user['id']} LIMIT 1;"));
-    mysql_query("DELETE FROM `trade` WHERE `baer` = {$user['id']} LIMIT 1;");
+    $roww = mysqli_fetch_array(db_query("SELECT * FROM `trade` WHERE `baer` = {$user['id']} LIMIT 1;"));
+    db_query("DELETE FROM `trade` WHERE `baer` = {$user['id']} LIMIT 1;");
     if (!$roww['id']) {
 ?> <SCRIPT>findlogin('Передача предметов','post.php','FindLogin');</SCRIPT><? }
 else
@@ -244,7 +244,7 @@ if ($step==3) {
 <TR>
     <TD align=center><B>Рюкзак (масса: <?php
 
-    $d = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0; "));
+    $d = mysqli_fetch_array(db_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0; "));
 
     echo $d[0];
     ?>/<?=$user['sila']*4?>)</B></TD>
@@ -253,19 +253,19 @@ if ($step==3) {
 <TABLE BORDER=0 WIDTH=100% CELLSPACING="1" CELLPADDING="2" BGCOLOR="#A5A5A5">
 <?php
     if ($_SESSION['razdel']==null) {
-      $data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' $cond AND `type` < 25 ORDER by `update` DESC; ");
+      $data = db_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' $cond AND `type` < 25 ORDER by `update` DESC; ");
     }
     if ($_SESSION['razdel']==1) {                                                                           
-      $data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' $cond AND `type` = 25 ORDER by `update` DESC; ");
+      $data = db_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' $cond AND `type` = 25 ORDER by `update` DESC; ");
     }
     if ($_SESSION['razdel']==2) {
-      $data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' $cond AND `type` > 50 ORDER by `update` DESC; ");
+      $data = db_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' $cond AND `type` > 50 ORDER by `update` DESC; ");
     }
     if ($_SESSION['razdel']==3) {
-      $data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' $cond AND `type` = 50 ORDER by `update` DESC; ");
+      $data = db_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' $cond AND `type` = 50 ORDER by `update` DESC; ");
     }
 
-    while($row = mysql_fetch_array($data)) {
+    while($row = mysqli_fetch_array($data)) {
         $row['count'] = 1;
         if (@$i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
         echo "<TR bgcolor={$color}><TD align=center ><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
@@ -280,7 +280,7 @@ if ($step==3) {
         showitem ($row);
         echo "</TD></TR>";
     }
-    if (mysql_num_rows($data) == 0) {
+    if (mysqli_num_rows($data) == 0) {
         echo "<tr><td align=center bgcolor=#C7C7C7>Пусто</td></tr>";
     }
 ?>

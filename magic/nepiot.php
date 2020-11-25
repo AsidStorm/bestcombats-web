@@ -4,8 +4,8 @@
 
 		if ($_SESSION['uid'] == null) header("Location: index.php");
 
-		$tar = mysql_fetch_array(mysql_query("SELECT `id`,`bar`,`room` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;")); 
-		mysql_query("select * from `online`  WHERE `id` = '{$tar['id']}';");
+		$tar = mysqli_fetch_array(db_query("SELECT `id`,`bar`,`room` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+		db_query("select * from `online`  WHERE `id` = '{$tar['id']}';");
 
 		$target=$_POST['target'];
 		if ($tar['id']) {
@@ -24,8 +24,8 @@
 					$ok=1;
 				}
 				if ($ok == 1) {
-					if (mysql_query("UPDATE `users` SET `bar`='0',`room`='20' WHERE `id` = {$tar['id']} LIMIT 1;")) {
-						mysql_query("UPDATE `online` SET `room`='20' WHERE `id` = {$tar['id']} LIMIT 1;");
+					if (db_query("UPDATE `users` SET `bar`='0',`room`='20' WHERE `id` = {$tar['id']} LIMIT 1;")) {
+						db_query("UPDATE `online` SET `room`='20' WHERE `id` = {$tar['id']} LIMIT 1;");
 						if ($user['sex'] == 1) {$action="выгнал";}
 						else {$action="выгнала";}
 						if ($user['align'] > '2' && $user['align'] < '3')  {

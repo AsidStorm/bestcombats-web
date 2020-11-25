@@ -2,7 +2,7 @@
 	session_start();
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
-	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".mysql_real_escape_string($_SESSION['uid'])."' LIMIT 1;"));
+	$user = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '".db_escape_string($_SESSION['uid'])."' LIMIT 1;"));
 	include "functions.php";
 	if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 ?><HTML><HEAD>
@@ -48,11 +48,11 @@ var transfersale = true;
 
 if (@!$_REQUEST['razdel']) { $_REQUEST['razdel']=1; }
 if (@$_REQUEST['FindLogin']) {
-	$res=mysql_fetch_array(mysql_query("SELECT `id`, `level`, `room`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `login` ='".mysql_real_escape_string($_REQUEST['FindLogin'])."';"));
+	$res=mysqli_fetch_array(db_query("SELECT `id`, `level`, `room`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `login` ='".db_escape_string($_REQUEST['FindLogin'])."';"));
 	$step=3;
 }
 if (@$_REQUEST['to_id']) {
-	$res=mysql_fetch_array(mysql_query("SELECT `id`, `level`, `room`, `align`, (select `id` from `online` WHERE `online`.`date` >= ".(time()-60)." AND `online`.`id` = users.`id`) as `online` FROM `users` WHERE `id` ='".mysql_real_escape_string($_REQUEST['to_id'])."';"));
+	$res=mysqli_fetch_array(db_query("SELECT `id`, `level`, `room`, `align`, (select `id` from `online` WHERE `online`.`date` >= ".(time()-60)." AND `online`.`id` = users.`id`) as `online` FROM `users` WHERE `id` ='".db_escape_string($_REQUEST['to_id'])."';"));
 	$step=3;
 }
 if (@$step==3){
@@ -68,7 +68,7 @@ if (@$step==3){
 	elseif ($user['level']<7) $mess='Персонажам до 7-го уровня передачи предметов запрещены';
 	else{
 		$idkomu=$id_person_x;
-		$komu=mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` ='".mysql_real_escape_string($idkomu)."';"));
+		$komu=mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` ='".db_escape_string($idkomu)."';"));
 		$mess=$_REQUEST['FindLogin'];
 		$step=3;
 	}
@@ -79,11 +79,11 @@ if ($step==3) {
 		$_REQUEST['setkredit'] = round($_REQUEST['setkredit'],2);
 		if ($user['money']<$_REQUEST['setkredit']) $mess="Недостаточно денег";
 		else {
-			if ((mysql_query("UPDATE `users` set `money`=`money`-'".mysql_real_escape_string(strval($_REQUEST[setkredit]))."' where id='".mysql_real_escape_string($user['id'])."'")) && (mysql_query("UPDATE `users` set `money`=`money`+'".mysql_real_escape_string(strval($_REQUEST[setkredit]))."' where id='".mysql_real_escape_string($idkomu)."'"))) {
+			if ((db_query("UPDATE `users` set `money`=`money`-'".db_escape_string(strval($_REQUEST[setkredit]))."' where id='".db_escape_string($user['id'])."'")) && (db_query("UPDATE `users` set `money`=`money`+'".db_escape_string(strval($_REQUEST[setkredit]))."' where id='".db_escape_string($idkomu)."'"))) {
 				$mess='Удачно переданы '.strval($_REQUEST[setkredit]).' кр к персонажу '.$komu['login'];
 				addchp ('<font color=red>Внимание!</font> Персонаж "'.$user['login'].'" передал вам <B>'.strval($_REQUEST[setkredit]).' кр</B>.   ','{[]}'.$komu['login'].'{[]}');
-					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','Переведены кредиты ".mysql_real_escape_string(strval($_REQUEST[setkredit]))." от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
-					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','Переведены кредиты ".mysql_real_escape_string(strval($_REQUEST[setkredit]))." от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
+					db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($_SESSION['uid'])."','Переведены кредиты ".db_escape_string(strval($_REQUEST[setkredit]))." от ".db_escape_string($user['login'])." к ".db_escape_string($komu['login'])."','1','".time()."');");
+					db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($idkomu)."','Переведены кредиты ".db_escape_string(strval($_REQUEST[setkredit]))." от ".db_escape_string($user['login'])." к ".db_escape_string($komu['login'])."','1','".time()."');");
 				$user['money']-=$_REQUEST[setkredit];
 			}
 			else {
@@ -95,11 +95,11 @@ if ($step==3) {
 		$_REQUEST['setekredit'] = round($_REQUEST['setekredit'],2);
 		if ($user['ekr']<$_REQUEST['setekredit']) $mess="Недостаточно денег";
 		else {
-			if ((mysql_query("UPDATE `users` set `ekr`=`ekr`-'".mysql_real_escape_string(strval($_REQUEST[setekredit]))."' where id='".mysql_real_escape_string($user['id'])."'")) && (mysql_query("UPDATE `users` set `ekr`=`ekr`+'".mysql_real_escape_string(strval($_REQUEST[setekredit]))."' where id='".mysql_real_escape_string($idkomu)."'"))) {
+			if ((db_query("UPDATE `users` set `ekr`=`ekr`-'".db_escape_string(strval($_REQUEST[setekredit]))."' where id='".db_escape_string($user['id'])."'")) && (db_query("UPDATE `users` set `ekr`=`ekr`+'".db_escape_string(strval($_REQUEST[setekredit]))."' where id='".db_escape_string($idkomu)."'"))) {
 				$mess='Удачно переданы '.strval($_REQUEST[setekredit]).' екр к персонажу '.$komu['login'];
 				addchp ('<font color=red>Внимание!</font> Персонаж "'.$user['login'].'" передал вам <B>'.strval($_REQUEST[setekredit]).' екр</B>.   ','{[]}'.$komu['login'].'{[]}');
-					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','Переведены ЕвроКредиты ".mysql_real_escape_string(strval($_REQUEST[setekredit]))." от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
-					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','Переведены ЕвроКредиты ".mysql_real_escape_string(strval($_REQUEST[setekredit]))." от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
+					db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($_SESSION['uid'])."','Переведены ЕвроКредиты ".db_escape_string(strval($_REQUEST[setekredit]))." от ".db_escape_string($user['login'])." к ".db_escape_string($komu['login'])."','1','".time()."');");
+					db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($idkomu)."','Переведены ЕвроКредиты ".db_escape_string(strval($_REQUEST[setekredit]))." от ".db_escape_string($user['login'])." к ".db_escape_string($komu['login'])."','1','".time()."');");
 				$user['money']-=$_REQUEST[setekredit];
 			}
 			else {
@@ -108,10 +108,10 @@ if ($step==3) {
 		}
 	}
 	if ($_REQUEST['setobject'] && $_REQUEST['to_id'] && !$_REQUEST['gift'] && $_REQUEST['sd4']==$user['id'] && $_GET['s4i']==$user['sid']) {
-	    $result = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($idkomu)."' AND `prototype` = '11529';");
-	    echo mysql_error();
-		$num_rows = mysql_num_rows($result);
-		$res = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `id` = '".mysql_real_escape_string($_REQUEST['setobject'])."' AND dressed=0 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = '' AND `honor` = 0 AND `artefact` = 0;"));
+	    $result = db_query("SELECT * FROM `inventory` WHERE `owner` = '".db_escape_string($idkomu)."' AND `prototype` = '11529';");
+	    echo db_error();
+		$num_rows = mysqli_num_rows($result);
+		$res = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `owner` = '".db_escape_string($_SESSION['uid'])."' AND `id` = '".db_escape_string($_REQUEST['setobject'])."' AND dressed=0 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = '' AND `honor` = 0 AND `artefact` = 0;"));
 		if (!$res['id']) $mess="Предмет не найден в рюкзаке";
 		elseif ($res['dressed']!=0) $mess="Сначала необходимо снять предмет с себя.";
 		elseif ($res['prototype']==11529 and $num_rows>0) $mess="Слишком много таких предметов.";
@@ -121,7 +121,7 @@ if ($step==3) {
 			if (@$value['present']) $mess='Нельзя передавать подарки';
 			elseif (@$value['destinyinv']) $mess='Вещь связана с вами общей судьбой';
 			else{
-				$mto = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($idkomu)."' AND `dressed` = 0 AND `honor` = 0 AND `artefact` = 0 AND `setsale` = 0; "));
+				$mto = mysqli_fetch_array(db_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '".db_escape_string($idkomu)."' AND `dressed` = 0 AND `honor` = 0 AND `artefact` = 0 AND `setsale` = 0; "));
 
 				$u = $user;
 				$user['id'] = $idkomu;
@@ -130,10 +130,10 @@ if ($step==3) {
 
 				$newmass=$mto[0]+$res['massa'];
 				if ($newmass<=$allmass) {
-					if ((mysql_query("update `users` set `money`=`money`-1 where `id`='".mysql_real_escape_string($user['id'])."'")) && (mysql_query("update `inventory` set `owner` = '".mysql_real_escape_string($komu['id'])."' where `id`='".mysql_real_escape_string($res['id'])."' and `owner`= '".mysql_real_escape_string($user['id'])."';"))) {
+					if ((db_query("update `users` set `money`=`money`-1 where `id`='".db_escape_string($user['id'])."'")) && (db_query("update `inventory` set `owner` = '".db_escape_string($komu['id'])."' where `id`='".db_escape_string($res['id'])."' and `owner`= '".db_escape_string($user['id'])."';"))) {
 						if (($user['room'] < 501) || ($user['room'] > 560)) {
-							mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','Передан предмет ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."/".mysql_real_escape_string($res['maxdur'])."] от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login']).", налог 1 кр.','1','".time()."');");
-							mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','Передан предмет ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."/".mysql_real_escape_string($res['maxdur'])."] от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login']).", налог 1 кр.','1','".time()."');");
+							db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($_SESSION['uid'])."','Передан предмет ".db_escape_string($res['name'])." id:(cap".db_escape_string($res['id']).") [".db_escape_string($res['duration'])."/".db_escape_string($res['maxdur'])."] от ".db_escape_string($user['login'])." к ".db_escape_string($komu['login']).", налог 1 кр.','1','".time()."');");
+							db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($idkomu)."','Передан предмет ".db_escape_string($res['name'])." id:(cap".db_escape_string($res['id']).") [".db_escape_string($res['duration'])."/".db_escape_string($res['maxdur'])."] от ".db_escape_string($user['login'])." к ".db_escape_string($komu['login']).", налог 1 кр.','1','".time()."');");
 						}
 						$mess='Удачно передано "'.$value['name'].'" к персонажу '.$komu['login'];
 						addchp ('<font color=red>Внимание!</font> Персонаж "'.$user['login'].'" передал вам "'.$value['name'].'".   ','{[]}'.$komu['login'].'{[]}');
@@ -150,9 +150,9 @@ if ($step==3) {
 		}
 	}
 	if ($_REQUEST['setobject'] && $_REQUEST['to_id'] && $_REQUEST['gift'] && $_REQUEST['sd4']==$user['id'] && $_GET['s4i']==$user['sid']) {
-		$result = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($idkomu)."' AND `prototype` = '11529';");
-		$num_rows = mysql_num_rows($result);
-		$res = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `id` = '".mysql_real_escape_string($_REQUEST['setobject'])."' AND dressed=0 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = '' AND `honor` = 0 AND `artefact` = 0;"));
+		$result = db_query("SELECT * FROM `inventory` WHERE `owner` = '".db_escape_string($idkomu)."' AND `prototype` = '11529';");
+		$num_rows = mysqli_num_rows($result);
+		$res = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `owner` = '".db_escape_string($_SESSION['uid'])."' AND `id` = '".db_escape_string($_REQUEST['setobject'])."' AND dressed=0 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = '' AND `honor` = 0 AND `artefact` = 0;"));
 		if (!$res['id']) $mess="Предмет не найден в рюкзаке";
 		elseif ($res['dressed']!=0) $mess="Сначала необходимо снять предмет с себя.";
 		elseif ($res['prototype']==11529 and $num_rows>0) $mess="Слишком много таких предметов.";
@@ -162,7 +162,7 @@ if ($step==3) {
 			if (@$value['present']) $mess='Нельзя передавать подарки';
 			elseif (@$value['destinyinv']) $mess='Вещь связана с вами общей судьбой';
 			else{
-				$mto = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($idkomu)."' AND `dressed` = 0 AND `setsale` = 0; "));
+				$mto = mysqli_fetch_array(db_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '".db_escape_string($idkomu)."' AND `dressed` = 0 AND `setsale` = 0; "));
 
 				$u = $user;
 				$user['id'] = $idkomu;
@@ -171,11 +171,11 @@ if ($step==3) {
 
 				$newmass=$mto[0]+$res['massa'];
 				if ($newmass<=$allmass) {
-					if (mysql_query("update `inventory` set `present` = '".mysql_real_escape_string($user['login'])."' ,`owner` = '".mysql_real_escape_string($komu['id'])."' where `id`='".mysql_real_escape_string($res['id'])."' and `owner`= '".mysql_real_escape_string($user['id'])."';")) {
+					if (db_query("update `inventory` set `present` = '".db_escape_string($user['login'])."' ,`owner` = '".db_escape_string($komu['id'])."' where `id`='".db_escape_string($res['id'])."' and `owner`= '".db_escape_string($user['id'])."';")) {
 						addchp ('<font color=red>Внимание!</font> Персонаж "'.$user['login'].'" подарил вам "'.$value['name'].'"</B>.   ','{[]}'.$komu['login'].'{[]}');
 						if (($user['room'] < 501) || ($user['room'] > 560)) {
-							mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','Подарен предмет ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."/".mysql_real_escape_string($res['maxdur'])."] от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
-							mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','Подарен предмет ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."/".mysql_real_escape_string($res['maxdur'])."] от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
+							db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($_SESSION['uid'])."','Подарен предмет ".db_escape_string($res['name'])." id:(cap".db_escape_string($res['id']).") [".db_escape_string($res['duration'])."/".db_escape_string($res['maxdur'])."] от ".db_escape_string($user['login'])." к ".db_escape_string($komu['login'])."','1','".time()."');");
+							db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($idkomu)."','Подарен предмет ".db_escape_string($res['name'])." id:(cap".db_escape_string($res['id']).") [".db_escape_string($res['duration'])."/".db_escape_string($res['maxdur'])."] от ".db_escape_string($user['login'])." к ".db_escape_string($komu['login'])."','1','".time()."');");
 						}
 						$mess='Удачно подарен предмет "'.$value['name'].'"  персонажу '.$komu['login'];
 					}
@@ -191,7 +191,7 @@ if ($step==3) {
 	}
 
 	if ($_REQUEST['cost'] > 0 && $_REQUEST['to_id']) {
-		$res = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `dressed`=0 AND `artefact` =0  AND `id` = '".mysql_real_escape_string($_REQUEST['id_th'])."' LIMIT 1;"));
+		$res = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `owner` = '".db_escape_string($_SESSION['uid'])."' AND `dressed`=0 AND `artefact` =0  AND `id` = '".db_escape_string($_REQUEST['id_th'])."' LIMIT 1;"));
 		if (!$res['id']) $mess="Предмет не найден в рюкзаке";
 		elseif ($res['dressed']!=0) $mess="Сначала необходимо снять предмет.";
 		else {
@@ -216,8 +216,8 @@ if ($step==3) {
 					$re .= "</TD></TR></table>";
 					$re = str_replace("\n","",$re);
 					$mess = 'Предложение персонажу '.$komu['login'].' сделано.';
-					mysql_query("update `inventory` set `tradesale` = '".mysql_real_escape_string($_REQUEST['cost'])."' where `id`='".mysql_real_escape_string($res['id'])."' and `owner`= '".mysql_real_escape_string($res['owner'])."';");
-					mysql_query("INSERT INTO `trade`(`to_id` ,`login`  ,`txt` ,`kr` ,`id` ,`baer` ) VALUES ('".mysql_real_escape_string($_SESSION['uid'])."','".mysql_real_escape_string($user['login'])."','".mysql_real_escape_string($re)."',".mysql_real_escape_string($_REQUEST['cost']).",'".mysql_real_escape_string($_REQUEST['id_th'])."',".mysql_real_escape_string($_REQUEST['to_id']).");");
+					db_query("update `inventory` set `tradesale` = '".db_escape_string($_REQUEST['cost'])."' where `id`='".db_escape_string($res['id'])."' and `owner`= '".db_escape_string($res['owner'])."';");
+					db_query("INSERT INTO `trade`(`to_id` ,`login`  ,`txt` ,`kr` ,`id` ,`baer` ) VALUES ('".db_escape_string($_SESSION['uid'])."','".db_escape_string($user['login'])."','".db_escape_string($re)."',".db_escape_string($_REQUEST['cost']).",'".db_escape_string($_REQUEST['id_th'])."',".db_escape_string($_REQUEST['to_id']).");");
 
 			}
 		}
@@ -225,18 +225,18 @@ if ($step==3) {
 	}
 
 	if ($_REQUEST['transfersale'] && $_REQUEST['to_id']) {
-		$res = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `dressed`=0 AND `owner` = '".mysql_real_escape_string($_REQUEST['to_id'])."' AND `id` = '".mysql_real_escape_string($_REQUEST['transfersale'])."' LIMIT 1;"));
+		$res = mysqli_fetch_array(db_query("SELECT * FROM `inventory` WHERE `dressed`=0 AND `owner` = '".db_escape_string($_REQUEST['to_id'])."' AND `id` = '".db_escape_string($_REQUEST['transfersale'])."' LIMIT 1;"));
 		if($user['money'] < $res['tradesale']) {
 		    $mess ='<font color=red><b>Не хватает денег для проведения операции</b></font>';
 		} 
 		else
 		{
-		    mysql_query("update `inventory` set `owner` = '".mysql_real_escape_string($user['id'])."' where `id`='".mysql_real_escape_string($res['id'])."' and `owner`= '".mysql_real_escape_string($res['owner'])."';");
-		    mysql_query("update `users` set `money`=`money`-'".mysql_real_escape_string($res['tradesale'])."' where `id`='".mysql_real_escape_string($user['id'])."'");
-		    mysql_query("update `users` set `money`=`money`+'".mysql_real_escape_string($res['tradesale'])."' where `id`='".mysql_real_escape_string($_REQUEST['to_id'])."'");
+		    db_query("update `inventory` set `owner` = '".db_escape_string($user['id'])."' where `id`='".db_escape_string($res['id'])."' and `owner`= '".db_escape_string($res['owner'])."';");
+		    db_query("update `users` set `money`=`money`-'".db_escape_string($res['tradesale'])."' where `id`='".db_escape_string($user['id'])."'");
+		    db_query("update `users` set `money`=`money`+'".db_escape_string($res['tradesale'])."' where `id`='".db_escape_string($_REQUEST['to_id'])."'");
 		    if (($user['room'] < 501) || ($user['room'] > 560)) {
-		    	mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','Покупка за ".mysql_real_escape_string($res['tradesale'])."кр (".mysql_real_escape_string($res['name']).") у ".$komu['login']."',1,'".time()."');");
-		    	mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','Продажа за ".mysql_real_escape_string($res['tradesale'])."кр (".mysql_real_escape_string($res['name']).") к ".$user['login']."',1,'".time()."');");
+		    	db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($_SESSION['uid'])."','Покупка за ".db_escape_string($res['tradesale'])."кр (".db_escape_string($res['name']).") у ".$komu['login']."',1,'".time()."');");
+		    	db_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".db_escape_string($idkomu)."','Продажа за ".db_escape_string($res['tradesale'])."кр (".db_escape_string($res['name']).") к ".$user['login']."',1,'".time()."');");
 		    }
 		    $mess='Удачно куплено "'.$res['name'].'" персонажу '.$komu['login'];
 		    $mess2='Удачно куплено "'.$res['name'].'" персонажeм '.$user['login'];
@@ -291,9 +291,9 @@ function reloadit(){
 echo 'К кому передавать: <font color=red><SCRIPT>drwfl("'.@$komu['login'].'",'.@$komu['id'].',"'.@$komu['level'].'","'.@$komu['align'].'","'.@$komu['klan'].'")</SCRIPT></font>';
 ?> <INPUT TYPE=button value="Сменить" onClick="findlogin('Передача предметов','give.php','FindLogin')"><BR><?
 }else{
-	$roww = mysql_fetch_array(mysql_query("SELECT * FROM `trade` WHERE `baer` = '".mysql_real_escape_string($user['id'])."' LIMIT 1;"));
-	mysql_query("DELETE FROM `trade` WHERE `baer` = '".mysql_real_escape_string($user['id'])."' LIMIT 1;");
-	$rwx = mysql_fetch_array(mysql_query("SELECT `id` FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($roww['to_id'])."' AND `tradesale` > 0 AND `id` = '".mysql_real_escape_string($roww['id'])."' LIMIT 1;"));
+	$roww = mysqli_fetch_array(db_query("SELECT * FROM `trade` WHERE `baer` = '".db_escape_string($user['id'])."' LIMIT 1;"));
+	db_query("DELETE FROM `trade` WHERE `baer` = '".db_escape_string($user['id'])."' LIMIT 1;");
+	$rwx = mysqli_fetch_array(db_query("SELECT `id` FROM `inventory` WHERE `owner` = '".db_escape_string($roww['to_id'])."' AND `tradesale` > 0 AND `id` = '".db_escape_string($roww['id'])."' LIMIT 1;"));
 	if (!$roww['id'] OR !$rwx['id']) {
 ?> <SCRIPT>findlogin('Передача предметов','give.php','FindLogin');</SCRIPT><? }
 else
@@ -357,7 +357,7 @@ if ($step==3) {
 <TR>
 	<TD align=center><B>Рюкзак (масса: <?php
 
-	$d = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `artefact` ='' AND `honor` ='' AND `setsale` = 0; "));
+	$d = mysqli_fetch_array(db_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '".db_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `artefact` ='' AND `honor` ='' AND `setsale` = 0; "));
 
 	echo $d[0];
 	?>/<?=get_meshok()?>)</B></TD>
@@ -366,18 +366,18 @@ if ($step==3) {
 <TABLE BORDER=0 WIDTH=100% CELLSPACING="1" CELLPADDING="2" BGCOLOR="#A5A5A5">
 <?php
 	if ($_SESSION['razdel']==null) {
-		$data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `type` < 25 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = '' AND `artefact` =0 ORDER by `update` DESC; ");
+		$data = db_query("SELECT * FROM `inventory` WHERE `owner` = '".db_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `type` < 25 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = '' AND `artefact` =0 ORDER by `update` DESC; ");
 	}
 	if ($_SESSION['razdel']==1) {
-		$data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `type` = 25 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = ''  ORDER by `update` DESC; ");
+		$data = db_query("SELECT * FROM `inventory` WHERE `owner` = '".db_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `type` = 25 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = ''  ORDER by `update` DESC; ");
 	}
 	if ($_SESSION['razdel']==2) {
-		$data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `type` > 50 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = ''  ORDER by `update` DESC; ");
+		$data = db_query("SELECT * FROM `inventory` WHERE `owner` = '".db_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `type` > 50 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = ''  ORDER by `update` DESC; ");
 	}
 	if ($_SESSION['razdel']==3) {
-		$data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `type` = 50 AND `setsale` = 0 AND `present` = ''   AND `destinyinv` = ''  ORDER by `update` DESC; ");
+		$data = db_query("SELECT * FROM `inventory` WHERE `owner` = '".db_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `type` = 50 AND `setsale` = 0 AND `present` = ''   AND `destinyinv` = ''  ORDER by `update` DESC; ");
 	}
-	while($row = mysql_fetch_array($data)) {
+	while($row = mysqli_fetch_array($data)) {
 		$row['count'] = 1;
 		if (@$i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
 		echo "<TR bgcolor={$color}><TD align=center ><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
@@ -394,7 +394,7 @@ if ($step==3) {
 		showitem ($row);
 		echo "</TD></TR>";
 	}
-	if (mysql_num_rows($data) == 0) {
+	if (mysqli_num_rows($data) == 0) {
 		echo "<tr><td align=center bgcolor=#C7C7C7>Пусто</td></tr>";
 	}
 ?>

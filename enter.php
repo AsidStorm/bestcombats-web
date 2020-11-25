@@ -5,7 +5,7 @@
 
     if (@$_POST["login"]) checkuserbylogin($_POST['login']);
 if($_POST['code']  && $_SESSION['sid'] && $_SESSION['puid'] && $_SESSION['stap']){
-$data4 = mysql_fetch_array(mysql_query("SELECT pass2,pass FROM `users` WHERE `id` = '{$_SESSION['puid']}' LIMIT 1;"));
+$data4 = mysqli_fetch_array(db_query("SELECT pass2,pass FROM `users` WHERE `id` = '{$_SESSION['puid']}' LIMIT 1;"));
 if(md5($_POST['code'])==$data4['pass2']){
 $chkps1="yes";
 }else{$koko="<FONT COLOR=\"white\">Неверный пароль</FONT><BR>";}
@@ -16,9 +16,9 @@ $chkps1="yes";
 
 if(($chkps1=="yes" or $koko) && $_SESSION['stap']==$data4['pass']){
 $_SESSION['stap'] = addslashes($_SESSION['stap']);
-    $data = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['puid']}' AND `pass` = '".$_SESSION['stap']."' LIMIT 1;"));
+    $data = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['puid']}' AND `pass` = '".$_SESSION['stap']."' LIMIT 1;"));
 }else{
-    $data = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '{$_POST['login']}' AND `pass` = '".md5($_POST['psw'])."' LIMIT 1;"));
+    $data = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `login` = '{$_POST['login']}' AND `pass` = '".md5($_POST['psw'])."' LIMIT 1;"));
 }
 
     if ($data[0] == null) {
@@ -47,7 +47,7 @@ if(($chkps1!="yes") or empty($koko)){
         resetmax($data['id']);
         //delo_multi
         if($_COOKIE['battle']!= null && $data['id'] != $_COOKIE['battle']) {
-            mysql_query("INSERT INTO `delo_multi` (`idperslater`,`idpersnow`) values ('".$_COOKIE['battle']."','".$data['id']."');");
+            db_query("INSERT INTO `delo_multi` (`idperslater`,`idpersnow`) values ('".$_COOKIE['battle']."','".$data['id']."');");
         }
 
         ///
@@ -95,14 +95,14 @@ exit();
                 unset($_SESSION['puid']);
 	setcookie("uid",$data['id'],time()+86400,"/",".bestcombats.net");
 	            setcookie("hashcode",md5($data['id'].$data["pass"].$data["login"]),time()+86400,"/",".bestcombats.net");
-          mysql_query("UPDATE `online` SET `date` = ".time()." WHERE `id` = {$data['id']};");
-         mysql_query("UPDATE `users` SET `sid` = '".session_id()."', `browser` = '".$_SERVER['HTTP_USER_AGENT']."', `cityip` = '".$_SERVER['REMOTE_ADDR']."' WHERE `id` = {$data['id']};");
+          db_query("UPDATE `online` SET `date` = ".time()." WHERE `id` = {$data['id']};");
+         db_query("UPDATE `users` SET `sid` = '".session_id()."', `browser` = '".$_SERVER['HTTP_USER_AGENT']."', `cityip` = '".$_SERVER['REMOTE_ADDR']."' WHERE `id` = {$data['id']};");
         $time_now=time();
-        mysql_query("INSERT INTO `iplog` (owner,ip,date) values ('".$data['id']."','".$_SERVER['REMOTE_ADDR']."','$time_now');");
+        db_query("INSERT INTO `iplog` (owner,ip,date) values ('".$data['id']."','".$_SERVER['REMOTE_ADDR']."','$time_now');");
 
         if ($data['id']!=7 && $data['id']!=3313 && !$data["invis"]) {
           $drugi1 = mq("SELECT friends.user, friends.friend, friends.enemy, online.date, users.login FROM friends left join online on online.id=friends.user left join users on users.id=online.id WHERE (friends.friend='$data[id]' or friends.enemy='$data[id]') and online.date>".(time()-60));
-          while ($drugi = mysql_fetch_array($drugi1)) {
+          while ($drugi = mysqli_fetch_array($drugi1)) {
             if ($drugi["friend"]) {
                 addchp ('<font color=red>Внимание!</font> <font color="Black">Вас приветствует <a href="javascript:top.AddTo(\\\\\''.$data['login'].'\\\\\')"><span oncontextmenu="OpenMenu()">'.$data['login'].'</span></a></font>','{[]}'.$drugi['login'].'{[]}');
             } else {
@@ -111,9 +111,9 @@ exit();
           }
         }
 
-        $rs=mysql_query("SELECT * FROM `telegraph` WHERE `owner` = '".$data['id']."';");
-        mysql_query("DELETE FROM `telegraph` WHERE `owner` = '".$data['id']."';");
-        while($r = mysql_fetch_array($rs)) {
+        $rs=db_query("SELECT * FROM `telegraph` WHERE `owner` = '".$data['id']."';");
+        db_query("DELETE FROM `telegraph` WHERE `owner` = '".$data['id']."';");
+        while($r = mysqli_fetch_array($rs)) {
             addchp ($r['text'],'{[]}'.$data['login'].'{[]}');
         }
         if (!file_exists(CHATROOT."bus")) mkdir(CHATROOT."bus");
