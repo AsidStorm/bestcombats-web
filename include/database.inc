@@ -1,7 +1,7 @@
 <?php
 
 // Соединяемся с базой данных
-$db = mysqli_connect($con_adr, $con_use, $con_pas, $con_bd);
+$db = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 if( !$db ) {
     die("Нарушена связь с базой данных");

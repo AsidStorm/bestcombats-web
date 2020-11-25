@@ -26,8 +26,8 @@ if($status == false){
 if($_SESSION['uid']!='241959'){die("Текнические работы.");}
 }
   #Коннект с БД#
-include_once("nbm,jkl,ggbdfgdrgv.ini");
-include_once("include/database.inc");
+require_once("include/config.inc");
+require_once("include/database.inc");
 
     foreach ($_POST as $k=>$v) {
         $_POST[$k] = htmlspecialchars(mysql_real_escape_string($v));
