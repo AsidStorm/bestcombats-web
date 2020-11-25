@@ -870,7 +870,6 @@ header('location: tower.php'); } }
 <HTML><HEAD>
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
 <link href="<?=IMGBASE?>/i/move/design6.css" rel="stylesheet" type="text/css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>

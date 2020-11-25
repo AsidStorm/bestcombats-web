@@ -24,7 +24,6 @@
 <link rel=stylesheet type="text/css" href="/i/main.css">
 <link href="/i/move/design6.css" rel="stylesheet" type="text/css">
 <script src="/i/js/move.js"></script>
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>

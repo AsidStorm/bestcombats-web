@@ -9,7 +9,6 @@
     $cond="AND `dressed` = 0 AND `dressed` = 0 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = '' AND `artefact` = 0 AND `honor` =0 AND `podzem`=0 and type<>189 and type<>199 and type<>54";
 ?><HTML><HEAD>
 <link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>

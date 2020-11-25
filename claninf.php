@@ -18,7 +18,6 @@
 
         ?>
 <html><head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 <link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">
 <meta http-equiv="Content-Language" content="ru">
 <TITLE>Произошла ошибка</TITLE></HEAD><BODY text="#FFFFFF"><p><font color=black>
@@ -36,7 +35,6 @@
 <title>Информация о клане <?=$klan['name']?></title>
 <link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">
 <link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <link href="<?=IMG_PATH?>/css/design3.css" rel="stylesheet" type="text/css">
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 <meta http-equiv=PRAGMA content=NO-CACHE>

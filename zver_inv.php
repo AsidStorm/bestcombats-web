@@ -9,7 +9,6 @@ ob_start("ob_gzhandler");
     }
 ?>
 <HTML><HEAD>
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>

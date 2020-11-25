@@ -6,7 +6,6 @@ include "connect.php";
 <title>Таблица кланового опыта</title>
 <link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <link href="<?=IMG_PATH?>/css/design3.css" rel="stylesheet" type="text/css">
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 <meta http-equiv=PRAGMA content=NO-CACHE>

@@ -219,7 +219,6 @@ if(!empty($ref)){
 }
                 ?>
 <HTML><HEAD><TITLE>BestcombatS</TITLE>
-<META content="text/html; charset=windows-1251" http-equiv=Content-type>
 <link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/reg/css/reg.css">
 <link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">

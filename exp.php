@@ -1,7 +1,6 @@
 <HTML><HEAD><TITLE>Таблица опыта </TITLE>
 <META content=INDEX,FOLLOW name=robots>
 <META content="1 days" name=revisit-after>
-<META http-equiv=Content-type content="text/html; charset=windows-1251">
 <META http-equiv=Pragma content=no-cache>
 <META http-equiv=Cache-control content=private>
 <link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">

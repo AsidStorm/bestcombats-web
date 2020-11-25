@@ -10,7 +10,6 @@
 <head>
 <link rel="icon" href="/i/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/i/favicon.ico" type="image/x-icon"> 
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 <title>Новости и события Bkwar</title>
 <link href="/css/event.css" rel="stylesheet" type="text/css">
 <SCRIPT language="JavaScript" src="/js/event.js"></SCRIPT>

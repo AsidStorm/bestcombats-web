@@ -38,7 +38,6 @@
 <HEAD><TITLE>Форум Бойцовского Клуба</TITLE>
 <META content="INDEX,FOLLOW" name="robots">
 <META content="1 days" name="revisit-after">
-<META http-equiv="Content-type" content="text/html; charset=windows-1251">
 <META http-equiv="Pragma" content="no-cache">
 <META http-equiv="Cache-control" content="private">
 <META http-equiv="Expires" content="0"><LINK href="<?=IMG_PATH?>/css/forum.css" type="text/css" rel="stylesheet">

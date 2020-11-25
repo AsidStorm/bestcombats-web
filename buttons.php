@@ -1,6 +1,5 @@
 <?php
 $djs=array();
-  header ("Content-type: text/html; charset=windows-1251");
     session_start();
     if (@$_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
@@ -17,7 +16,6 @@ if ($_GET['ch'] != null){
 <HTML>
 	<HEAD>
 		<link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
-		<meta http-equiv="Content-type" content="text/html; charset=windows-1251">
 		<SCRIPT LANGUAGE="JavaScript" SRC="<?=IMG_PATH?>/js/ch.js"></SCRIPT>
 		<SCRIPT LANGUAGE="JavaScript" SRC="<?=IMG_PATH?>/js/sl2.js"></SCRIPT>
                 <script LANGUAGE="JavaScript">
@@ -274,7 +272,6 @@ document.location.href='<? echo htmlspecialchars($_SERVER["PHP_SELF"])?>?<?=time
 }
 setTimeout('refr()',<?=($left*1000)?>);
 </script>
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <SCRIPT LANGUAGE="JavaScript">
 top.ChatTranslit = false;
 

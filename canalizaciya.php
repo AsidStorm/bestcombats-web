@@ -89,7 +89,6 @@ if(in_array($user['room'], $canalrooms)){
     print "<script>location.href='vxod.php'</script>"; exit();
   }
 ?>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 <meta http-equiv="Content-Language" content="ru">
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
 <SCRIPT LANGUAGE="JavaScript" >

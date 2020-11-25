@@ -25,7 +25,6 @@ if ($user['battle'] != 0) {
     
 <head>
     <link rel=stylesheet type="text/css" href="/i/main.css">
-    <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
     <meta Http-Equiv=Cache-Control Content=no-cache>
     <meta http-equiv=PRAGMA content=NO-CACHE>
     <meta Http-Equiv=Expires Content=0>

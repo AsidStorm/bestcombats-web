@@ -11,7 +11,6 @@
 ?>
 	<HTML><HEAD>
 <link rel=stylesheet type="text/css" href="http://img.old-bk.ru/i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 
 <SCRIPT>
 function fastshow (content) {
@@ -151,7 +150,6 @@ if($user['room']==5 && vrag=="on"){
 			die ("<script>top.location.href='index.php';</script>");
 		}
 		$cha = file("/chat.txt");
-		header('Content-Type: text/html; charset=windows-1251');
 		echo "<script>";
 		$ks = 0;
 		foreach($cha as $k => $v) {

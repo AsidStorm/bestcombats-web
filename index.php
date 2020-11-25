@@ -6,7 +6,6 @@ include'connect.php';
 
 <head>
 <meta name='yandex-verification' content='6d7acbfac7461d47' />
-  <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251"/>
 <meta name="keywords" content="1px, color, #817a63 1px, 1px double, #817a63, double, #817a63 1px double, font-size, font-family, #d6d3ce 1px, 1px solid, background-color, text-decoration, #d6d3ce, solid, normal, none, #dfddd3, font-weight, border-left, 75pt, verdana, border-bottom, border-top, border-right, white, verdanasans-serifarial, helvetica, #2b2b18, sans-serif,">
   <title>Bestcombats - Браузерная онлайн игра 2012-2013г.</title>
   <link rel="icon" href="<?=IMG_PATH?>/favicon.ico" type="image/x-icon">

@@ -25,7 +25,6 @@ ob_start("ob_gzhandler");
         }
     </script>
 <link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <SCRIPT src='<?=IMG_PATH?>/js/commoninf.js'></SCRIPT>
 <SCRIPT LANGUAGE="JavaScript1.2" SRC="<?=IMG_PATH?>/js/keypad.js"></SCRIPT>
 <style type="text/css">
@@ -116,7 +115,6 @@ ob_start("ob_gzhandler");
     if (mq("insert into confirmpasswd(login,passwd,date,ip,active) values('bbb".$_POST['id']."bbb','".$newpass."','".$lasttime."','".$ipclient."',1)")){
         $headers  = "Mime-Version: 1.1 \r\n";
         $headers .= "Date: ".date("r")." \r\n";
-        $headers .= "Content-type: text/html; charset=windows-1251 \r\n";
         $headers .= "From: Support Bestcombats <support@bestcombats.net>\r\n";
 
         $headers = trim($headers);

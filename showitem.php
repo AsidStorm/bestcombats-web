@@ -3,8 +3,6 @@
 include 'connect.php';
 include 'functions.php';
 
-header('Content-type: text/html; charset=windows-1251');
-
 echo '
     <style type="text/css">
         table

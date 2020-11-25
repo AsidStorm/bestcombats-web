@@ -4,7 +4,6 @@
 <link rel="apple-touch-icon-precomposed" href="<?=IMG_PATH?>/apple-touch-icon.png" />
 <META content="Fight Club, игра, online" http-equiv=Keywords name=Keywords>
 <META content="Fight Club" http-equiv=Description name=Description>
-<META content="text/html; charset=windows-1251" http-equiv=Content-type>
 <script>
 var delay = 10;     // Каждые n сек. увеличение HP на 1%
 var Mdelay = 12;

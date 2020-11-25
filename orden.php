@@ -10,7 +10,6 @@
       die;
     }
 ?><html><head>
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
 <style>
 .row {

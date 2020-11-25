@@ -109,7 +109,6 @@
 if($_GET['trunklog']==1 && $klan["glava"]==$user['id']) {?>
 <HTML><HEAD>                               <!--http://bestcombats.net-->
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
@@ -179,7 +178,6 @@ exit();
 if($_GET['kaznalog']==1 && $polno[$user['id']][5]==1){?>
 <HTML><HEAD>                               <!--http://bestcombats.net-->
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
@@ -244,7 +242,6 @@ exit();
 ?>
 <HTML><HEAD>                               <!--http://bestcombats.net-->
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>

@@ -16,7 +16,6 @@
     $data = db_query('select align,u.id,sex,klan,level,login,battle,o.date,invis, (SELECT `id` FROM `effects` WHERE `type` = 2 AND `owner` = u.id LIMIT 1) as slp, (SELECT `id` FROM `effects` WHERE (`type` = 11 OR `type` = 12 OR `type` = 13 OR `type` = 14) AND `owner` = u.id LIMIT 1) as trv,deal FROM `online` as o, `users` as u WHERE o.`id` = u.`id` AND (o.`date` >= '.(time()-90).' OR u.`in_tower`>0) AND u.`room` = '.$user['room'].' AND u.incity = "'.$user['incity'].'" ORDER by `u`.`login`;');
 ?>
 <HTML><HEAD><link rel=stylesheet type="text/css" href="i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 
 <SCRIPT>
 
@@ -112,7 +111,6 @@ if (!$_GET['room']) {
         die ("<script>top.location.href='index.php';</script>");
       }
       $cha = file(CHATROOT."chat.txt");
-      header('Content-Type: text/html; charset=windows-1251');
         echo "<script>";
         $ks = 0;
         if ($_SESSION["chattime"]) {

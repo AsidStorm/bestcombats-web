@@ -9,7 +9,6 @@
 <HTML>
     <HEAD>
         <link rel=stylesheet type="text/css" href="i/main.css">
-        <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
     </HEAD>
 <BODY leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=e2e0e0>
 <h4>Средняя загрузка</h4>

@@ -129,7 +129,6 @@
 ?>
 <HTML><HEAD>
 <link rel=stylesheet type="text/css" href="i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META HTTP-EQUIV=Expires CONTENT=0>

@@ -7,7 +7,6 @@
 <HTML>
 	<HEAD>
 		<link rel=stylesheet type="text/css" href="i/main.css">
-		<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 	</HEAD>
 <left><BODY leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=e2e0e0>
 <?

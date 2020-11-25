@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <LINK href="<?=IMG_PATH?>/css/main.css" type=text/css rel=stylesheet>
-        <META http-equiv=Content-type content="text/html; charset=windows-1251">
     </head>
     <title>Востановление пароля на BestcombatS.net</title>
     <body bottomMargin=0 vLink=#333333 aLink=#000000 link=#000000 bgColor=#666666 leftMargin=0 topMargin=0 rightMargin=0 marginheight="0" marignwidth="0">

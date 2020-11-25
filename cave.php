@@ -10,7 +10,6 @@
       header('Location: cave.php');
       exit;
     }
-    header("Content-Type: text/html; charset=windows-1251");
   }
   if ($user["battle"]) {
     header("location: fbattle.php");

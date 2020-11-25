@@ -427,7 +427,6 @@ if (!$obshaga || ($obshaga && @$_GET["changearenda"]) || ((!$obshaga["etaz"] || 
 ?>
 <HTML><HEAD>
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
@@ -702,7 +701,6 @@ if (!@$_GET["changearenda"] && (($obshaga['etaz']>0 && $_GET['etaz'] == "" && $_
 
 <HTML><HEAD>
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
@@ -914,7 +912,6 @@ progress_update();
 if($obshaga['balanse'] >= 0 && ($obshaga['etaz'] == "1" || $obshaga['etaz'] == "2" || $obshaga['etaz'] == "3") && $_GET['etaz'] != "" &&  $_GET['etaz'] != "0" && $user['vip']!=3 || $_GET['room'] != "" && $user['vip']!=3 || $user['vip']==3 && $user['room']==104) {?>
 <HTML><HEAD>
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>

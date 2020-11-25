@@ -12,7 +12,6 @@
   $left=$tme-time();
 ?><html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
 <meta http-equiv="Cache-Control" content="no-cache" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />

@@ -1,11 +1,10 @@
 <html>
   <head>
-    <meta content="text/html; charset=windows-1251" http-equiv='Content-type' />
-    <link rel=stylesheet type="text/css" href="/i/main.css" />  
+    <link rel=stylesheet type="text/css" href="/i/main.css" />
     <meta Http-Equiv='Cache-Control' Content='no-cache' />
     <meta http-equiv='pragma' content='no-cache' />
     <meta Http-Equiv='Expires' Content='0' />
-    <script type='text/javascript' charset="windows-1251" src='time.js'></script>
+    <script type='text/javascript' src='time.js'></script>
   </head>
   <body  bgcolor='#e2e0e0' leftmargin='0' topmargin='0' background='i/boloto/backgrounds/vault.jpg'>
     <?php

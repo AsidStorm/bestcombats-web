@@ -518,7 +518,6 @@ $_SESSION['ekr_online'] = time();
     if(@$_POST['changepsw'] or @$_GET['changepsw']) {?>
 <HTML><HEAD>
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
@@ -714,7 +713,6 @@ if(!empty($user['pass2'])){echo"<BR><B>Второй пароль установ�
         ?>
 <HTML><HEAD>
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
@@ -777,7 +775,6 @@ echo"<font color=red>Вы избавились от эффекта невиди�
         ?>
 <HTML><HEAD>
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 <SCRIPT LANGUAGE="JavaScript" SRC="<?=IMG_PATH?>/js/sl2.27.js?1"></SCRIPT>
 <meta http-equiv=PRAGMA content=NO-CACHE>
@@ -1018,7 +1015,6 @@ top.changeroom=<?=$user['room']?>;
 ?>
 <HTML><HEAD>
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 <SCRIPT LANGUAGE="JavaScript" SRC="<?=IMG_PATH?>/js/sl2.27.js?1"></SCRIPT>
 <meta http-equiv=PRAGMA content=NO-CACHE>
@@ -1794,7 +1790,6 @@ if($_SESSION['strokes']==1){
 <HTML><HEAD>
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
 <link href="<?=IMGBASE?>/i/move/design6.css" rel="stylesheet" type="text/css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content="no-cache, max-age=0, must-revalidate, no-store">
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>

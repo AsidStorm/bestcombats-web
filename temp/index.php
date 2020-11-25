@@ -10,7 +10,6 @@ if(!empty($_GET['exit'])){session_start(); session_destroy();}
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <title>Virt-Life | Твоя Виртуальная жизнь | Старый Бойцовский клуб | OldBK | Старый БК | БК | Онлайн | Игра | Браузерная игра | Браузерка | Бойцовский клуб</title>
-<meta http-equiv="content-type" content="text/html; charset=Windows-1251" />
 <meta name="author" content="virt-life.com" />
 <meta name="description" content="Игра посвященная боям света и тьмы ! Чью сторону ты примешь ? Великие битвы и сражения ждут тебя ! Кем ты будешь - воином или великим магом ?
 Приятное общение в чате, бои, поединки !

@@ -3,7 +3,6 @@ if($is_main!='is') die();
 ?>
 <HTML><HEAD>
 <link rel=stylesheet type="text/css" href="<?=IMG_PATH?>/css/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <script>
 var main_uid= 'main';
 var delay = 10;		// Каждые n сек. увеличение HP на 1%

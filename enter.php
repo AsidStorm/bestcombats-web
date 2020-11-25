@@ -22,17 +22,17 @@ $_SESSION['stap'] = addslashes($_SESSION['stap']);
 }
 
     if ($data[0] == null) {
-        echo "<html><head><META http-equiv=Content-type content='text/html; charset=windows-1251'><title>Произошла ошибка</title></head><body><BR>Произошла ошибка!<BR>Неверный пароль, войдите с <a href=index.php>главной страницы</a>.<BR><BR><BR><hr><table width=100%><tr><td align=left><b><a href='javascript:window.history.go(-1);'>Назад</a></b></td><td align=right>(C) bestcombats</td></tr></table></body></html>";
+        echo "<html><head><title>Произошла ошибка</title></head><body><BR>Произошла ошибка!<BR>Неверный пароль, войдите с <a href=index.php>главной страницы</a>.<BR><BR><BR><hr><table width=100%><tr><td align=left><b><a href='javascript:window.history.go(-1);'>Назад</a></b></td><td align=right>(C) bestcombats</td></tr></table></body></html>";
         $f=fopen("logs/error.log","ab");
         fwrite($f, date("d.m.Y H:i",time())." $_SERVER[REMOTE_ADDR] $_POST[login] $_POST[psw]\r\n");
         fclose($f);
     }
 //  elseif ($data['klan'] != 'adminion') {
-//      echo "<html><head><META http-equiv=Content-type content='text/html; charset=windows-1251'><title>Произошла ошибка</title></head><body><BR>Произошла ошибка!<BR>Временная приостановка. После всех технических работ вы снова сможете войти на сайт. <font color=red><b>Открытие в 17:15 по Москве.</b></font><BR><BR><BR><hr><table width=100%><tr><td align=left><b><a href='javascript:window.history.go(-1);'>Назад</a></b></td><td align=right>(C) bestcombats</td></tr></table></body></html>";
+//      echo "<html><head><title>Произошла ошибка</title></head><body><BR>Произошла ошибка!<BR>Временная приостановка. После всех технических работ вы снова сможете войти на сайт. <font color=red><b>Открытие в 17:15 по Москве.</b></font><BR><BR><BR><hr><table width=100%><tr><td align=left><b><a href='javascript:window.history.go(-1);'>Назад</a></b></td><td align=right>(C) bestcombats</td></tr></table></body></html>";
 //  }
     elseif($data['block']==1)
     {
-        echo "<html><head><META http-equiv=Content-type content='text/html; charset=windows-1251'><title>Произошла ошибка</title></head><body><BR>Произошла ошибка!<BR>Персонаж заблокирован.<BR><BR><BR><font color=red>Причина: ".$data['palcom']."</font><hr><table width=100%><tr><td align=left><b><a href='javascript:window.history.go(-1);'>Назад</a></b></td><td align=right>(C) bestcombats</td></tr></table></body></html>";
+        echo "<html><head><title>Произошла ошибка</title></head><body><BR>Произошла ошибка!<BR>Персонаж заблокирован.<BR><BR><BR><font color=red>Причина: ".$data['palcom']."</font><hr><table width=100%><tr><td align=left><b><a href='javascript:window.history.go(-1);'>Назад</a></b></td><td align=right>(C) bestcombats</td></tr></table></body></html>";
     }
     else
     {
@@ -65,7 +65,6 @@ if($_SESSION['sid'] && $_SESSION['puid'] && $_SESSION['stap']==$data['pass'] && 
 ?>
 <HTML><HEAD>
 <link rel=stylesheet type="text/css" href="/i/main.css">
-<meta content="text/html; charset=windows-1251" http-equiv=Content-type>
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
