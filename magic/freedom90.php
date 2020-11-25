@@ -1,41 +1,41 @@
 <?php
-// Магия Свободы на месяц
+// РњР°РіРёСЏ РЎРІРѕР±РѕРґС‹ РЅР° РјРµСЃСЏС†
 		if ($_SESSION['uid'] == null) header("Location: index.php");
 		if ($user['spellfreedom']==1) {
-		echo"Персонаж уже подвластен магии хаоса";
+		echo"РџРµСЂСЃРѕРЅР°Р¶ СѓР¶Рµ РїРѕРґРІР»Р°СЃС‚РµРЅ РјР°РіРёРё С…Р°РѕСЃР°";
 		}
 		elseif ($user['vip']==1) {
-		echo"VIP персонаж не может прочесть данный свиток";
+		echo"VIP РїРµСЂСЃРѕРЅР°Р¶ РЅРµ РјРѕР¶РµС‚ РїСЂРѕС‡РµСЃС‚СЊ РґР°РЅРЅС‹Р№ СЃРІРёС‚РѕРє";
 		}
 		elseif ($user['align']> '1' && $user['align']< '2') {
-		echo"Паладин не может использовать данный свиток";
+		echo"РџР°Р»Р°РґРёРЅ РЅРµ РјРѕР¶РµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РґР°РЅРЅС‹Р№ СЃРІРёС‚РѕРє";
 		}
 		elseif ($user['align']> '3' && $user['align']< '3') {
-		echo"Тарман не может использовать данный свиток";
+		echo"РўР°СЂРјР°РЅ РЅРµ РјРѕР¶РµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РґР°РЅРЅС‹Р№ СЃРІРёС‚РѕРє";
 		}
 		elseif ($user['align']=='4') {
-		echo"Хаосник не может прочесть данный свиток";
+		echo"РҐР°РѕСЃРЅРёРє РЅРµ РјРѕР¶РµС‚ РїСЂРѕС‡РµСЃС‚СЊ РґР°РЅРЅС‹Р№ СЃРІРёС‚РѕРє";
 		}
 		else{
 		$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 		$magictime=time()+(90*60*1440);		
-		if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','Магия свободы','$magictime',22);")) {
+		if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','РњР°РіРёСЏ СЃРІРѕР±РѕРґС‹','$magictime',22);")) {
 		mysql_query("DELETE FROM`effects` WHERE `owner` = '{$user['id']}' and `type` = '10' LIMIT 1 ;");
 		mysql_query("UPDATE `users` SET  `spellfreedom`='1' WHERE `id` = {$user['id']} LIMIT 1;");						
 		$ldtarget=$user['login'];
 		$ldblock=1;
-		if ($user['sex'] == 1) {$action="применил";}
-		else {$action="применила";}
-		if ($user['sex'] == 1)  {$pol="стал свободным";}
-		else {$pol="стала свободной";}
-		$mess="Персонаж &quot;{$user['login']}&quot; $action магию истинного хаоса и $pol.";
-		$messch="Персонаж &quot;{$user['login']}&quot; $action магию истинного хаоса и $pol.";						
+		if ($user['sex'] == 1) {$action="РїСЂРёРјРµРЅРёР»";}
+		else {$action="РїСЂРёРјРµРЅРёР»Р°";}
+		if ($user['sex'] == 1)  {$pol="СЃС‚Р°Р» СЃРІРѕР±РѕРґРЅС‹Рј";}
+		else {$pol="СЃС‚Р°Р»Р° СЃРІРѕР±РѕРґРЅРѕР№";}
+		$mess="РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot; $action РјР°РіРёСЋ РёСЃС‚РёРЅРЅРѕРіРѕ С…Р°РѕСЃР° Рё $pol.";
+		$messch="РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot; $action РјР°РіРёСЋ РёСЃС‚РёРЅРЅРѕРіРѕ С…Р°РѕСЃР° Рё $pol.";						
 		mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$user['id']."','$mess','".time()."');");
 		addch("<img src=i/magic/freedom90.gif> $messch");
-		echo "<font color=red><b>Персонаж \"{$user['login']}\" свободен</b></font>";			
+		echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"{$user['login']}\" СЃРІРѕР±РѕРґРµРЅ</b></font>";			
 		}
 		else {
-		echo "<font color=red><b>Вы не можете наложить магию Истинного Хаоса на этого персонажа!<b></font>";
+		echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РЅР°Р»РѕР¶РёС‚СЊ РјР°РіРёСЋ РСЃС‚РёРЅРЅРѕРіРѕ РҐР°РѕСЃР° РЅР° СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°!<b></font>";
 		}
 	$bet=1;
 }

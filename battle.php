@@ -1,12 +1,12 @@
-<HTML><HEAD><TITLE>BestCombats - Браузерная онлайн игра</TITLE>
+<HTML><HEAD><TITLE>BestCombats - Р‘СЂР°СѓР·РµСЂРЅР°СЏ РѕРЅР»Р°Р№РЅ РёРіСЂР°</TITLE>
 <link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="http://img.bestcombats.net/apple-touch-icon.png" />
 <link rel="apple-touch-icon-precomposed" href="http://img.bestcombats.net/apple-touch-icon.png" />
-<META content="Fight Club, игра, online" http-equiv=Keywords name=Keywords>
+<META content="Fight Club, РёРіСЂР°, online" http-equiv=Keywords name=Keywords>
 <META content="Fight Club" http-equiv=Description name=Description>
 <META content="text/html; charset=windows-1251" http-equiv=Content-type>
 <script>
-var delay = 10;     // Каждые n сек. увеличение HP на 1%
+var delay = 10;     // РљР°Р¶РґС‹Рµ n СЃРµРє. СѓРІРµР»РёС‡РµРЅРёРµ HP РЅР° 1%
 var Mdelay = 12;
 top.server = "http://bestcombats.net";
 function get_mainframe() {return top.frames['main']; }
@@ -95,7 +95,7 @@ function AddToPrivate(login, nolookCtrl){
         top.frames['bottom'].document.forms[0].text.value = 'private ['+login+'] ' + top.frames['bottom'].document.forms[0].text.value;
     }
 }
-//////////////////////ШМОТ В ЧАТ/////////////////////
+//////////////////////РЁРњРћРў Р’ Р§РђРў/////////////////////
 function insItem(id){
     top.frames['bottom'].window.document.F1.text.focus();
     top.frames['bottom'].document.forms[0].text.value = top.frames['bottom'].document.forms[0].text.value + ' [item:'+id+'] ';
@@ -120,16 +120,16 @@ var rnd = Math.random();
 
 
 
-//-- Обновление чата
-var ChatTimerID = -1;       // id таймера для чата
-var ChatDelay = 15;         // через сколько сек. рефрешить чат
-var ChatNormDelay = 15;     // через сколько сек. рефрешить чат при нормальном обновлении
-var ChatSlowDelay = 55;     // через сколько сек. рефрешить чат при медленном обновлении
-var ChatOm = false;         // фильтр сообщений в чате
-var ChatSys = false;        // фильтр системных сообщений в чате
-var ChatSlow = false;       // обновление чата раз в минуту
-var ChatTranslit = false;   // преобразование транслита
-var lid = 0;                // номер последнего сообщения в чате
+//-- РћР±РЅРѕРІР»РµРЅРёРµ С‡Р°С‚Р°
+var ChatTimerID = -1;       // id С‚Р°Р№РјРµСЂР° РґР»СЏ С‡Р°С‚Р°
+var ChatDelay = 15;         // С‡РµСЂРµР· СЃРєРѕР»СЊРєРѕ СЃРµРє. СЂРµС„СЂРµС€РёС‚СЊ С‡Р°С‚
+var ChatNormDelay = 15;     // С‡РµСЂРµР· СЃРєРѕР»СЊРєРѕ СЃРµРє. СЂРµС„СЂРµС€РёС‚СЊ С‡Р°С‚ РїСЂРё РЅРѕСЂРјР°Р»СЊРЅРѕРј РѕР±РЅРѕРІР»РµРЅРёРё
+var ChatSlowDelay = 55;     // С‡РµСЂРµР· СЃРєРѕР»СЊРєРѕ СЃРµРє. СЂРµС„СЂРµС€РёС‚СЊ С‡Р°С‚ РїСЂРё РјРµРґР»РµРЅРЅРѕРј РѕР±РЅРѕРІР»РµРЅРёРё
+var ChatOm = false;         // С„РёР»СЊС‚СЂ СЃРѕРѕР±С‰РµРЅРёР№ РІ С‡Р°С‚Рµ
+var ChatSys = false;        // С„РёР»СЊС‚СЂ СЃРёСЃС‚РµРјРЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№ РІ С‡Р°С‚Рµ
+var ChatSlow = false;       // РѕР±РЅРѕРІР»РµРЅРёРµ С‡Р°С‚Р° СЂР°Р· РІ РјРёРЅСѓС‚Сѓ
+var ChatTranslit = false;   // РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ С‚СЂР°РЅСЃР»РёС‚Р°
+var lid = 0;                // РЅРѕРјРµСЂ РїРѕСЃР»РµРґРЅРµРіРѕ СЃРѕРѕР±С‰РµРЅРёСЏ РІ С‡Р°С‚Рµ
 function RefreshChat()
 {   var s = '&lid='+lid;
     if (ChatOm) { s=s+'&om=1'; }
@@ -139,12 +139,12 @@ function RefreshChat()
     top.frames['refreshed'].location='ch.php?show='+Math.random()+s;
 
 }
-// останавливает обновление чата
+// РѕСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РѕР±РЅРѕРІР»РµРЅРёРµ С‡Р°С‚Р°
 function StopRefreshChat(){
     if (ChatTimerID>=0) {clearTimeout(ChatTimerID); }
     ChatTimerID = -1;
 }
-// сбрасывает таймер счетчика
+// СЃР±СЂР°СЃС‹РІР°РµС‚ С‚Р°Р№РјРµСЂ СЃС‡РµС‚С‡РёРєР°
 function NextRefreshChat(){
     if (ChatTimerID>=0) {clearTimeout(ChatTimerID); }
     ChatTimerID = setTimeout('RefreshChat()', ChatDelay*1000);
@@ -178,23 +178,23 @@ function switchtolog(b) {
     top.frames['chat'].clickbut('log');
   }
 }
-// Прокрутка текста чата вниз
+// РџСЂРѕРєСЂСѓС‚РєР° С‚РµРєСЃС‚Р° С‡Р°С‚Р° РІРЅРёР·
 function srld(){
   if (top.frames['chat'].document.getElementById('logs').style.display=='none') {
     top.frames['chat'].window.scrollBy(0, 65000);
   }
 }
-// Установка lid
+// РЈСЃС‚Р°РЅРѕРІРєР° lid
 function slid(newlid)
 {   var o = top.frames['bottom'].F1;
     if (o) {lid=newlid;o.lid.value=newlid;}
 }
 
-// Перезагружаем список online, делаем это не сразу, а с паузой
-var OnlineDelay = 12;       // пауза в сек. перед релоудом списка online
-var OnlineTimerOn = -1;     // id таймера
-var OnlineOldPosition = 0;  // Позиция списка перед релоудом
-var OnlineStop = true;      // ручное обновление чата
+// РџРµСЂРµР·Р°РіСЂСѓР¶Р°РµРј СЃРїРёСЃРѕРє online, РґРµР»Р°РµРј СЌС‚Рѕ РЅРµ СЃСЂР°Р·Сѓ, Р° СЃ РїР°СѓР·РѕР№
+var OnlineDelay = 12;       // РїР°СѓР·Р° РІ СЃРµРє. РїРµСЂРµРґ СЂРµР»РѕСѓРґРѕРј СЃРїРёСЃРєР° online
+var OnlineTimerOn = -1;     // id С‚Р°Р№РјРµСЂР°
+var OnlineOldPosition = 0;  // РџРѕР·РёС†РёСЏ СЃРїРёСЃРєР° РїРµСЂРµРґ СЂРµР»РѕСѓРґРѕРј
+var OnlineStop = true;      // СЂСѓС‡РЅРѕРµ РѕР±РЅРѕРІР»РµРЅРёРµ С‡Р°С‚Р°
 function rld(now) {
     if (OnlineTimerOn < 0 || now) {
         var tm = now ? 2000 : OnlineDelay*1000;
@@ -221,31 +221,31 @@ setInterval(function (){
                 }
             }, 5000);
 
-//-- Очистка чата
-var ChatClearTimerID = -1;  // id таймера для чата
-var ChatClearDelay = 900;   // через сколько сек. чистим чат
-var ChatClearSize = 10000;  // Сколько байт оставляем после чистки
+//-- РћС‡РёСЃС‚РєР° С‡Р°С‚Р°
+var ChatClearTimerID = -1;  // id С‚Р°Р№РјРµСЂР° РґР»СЏ С‡Р°С‚Р°
+var ChatClearDelay = 900;   // С‡РµСЂРµР· СЃРєРѕР»СЊРєРѕ СЃРµРє. С‡РёСЃС‚РёРј С‡Р°С‚
+var ChatClearSize = 10000;  // РЎРєРѕР»СЊРєРѕ Р±Р°Р№С‚ РѕСЃС‚Р°РІР»СЏРµРј РїРѕСЃР»Рµ С‡РёСЃС‚РєРё
 function RefreshClearChat(){
     if (ChatClearTimerID>=0) { clearTimeout(ChatClearTimerID); }
     ChatClearTimerID = setTimeout('RefreshClearChat()', ChatClearDelay*1000);
     var s = top.frames['chat'].document.getElementById("mes").innerHTML;
-    if (s.length > ChatClearSize) { // Надо чистить
+    if (s.length > ChatClearSize) { // РќР°РґРѕ С‡РёСЃС‚РёС‚СЊ
         var j = s.lastIndexOf('<BR>', s.length-ChatClearSize);
         top.frames['chat'].document.getElementById("mes").innerHTML = s.substring(j, s.length);
     }
     var s = top.frames['chat'].document.getElementById("mes_sys").innerHTML;
-    if (s.length > ChatClearSize) { // Надо чистить
+    if (s.length > ChatClearSize) { // РќР°РґРѕ С‡РёСЃС‚РёС‚СЊ
         var j = s.lastIndexOf('<BR>', s.length-ChatClearSize);
         top.frames['chat'].document.getElementById("mes_sys").innerHTML = s.substring(j, s.length);
     }
     var s = top.frames['chat'].document.getElementById("mes_clan").innerHTML;
-    if (s.length > ChatClearSize) { // Надо чистить
+    if (s.length > ChatClearSize) { // РќР°РґРѕ С‡РёСЃС‚РёС‚СЊ
         var j = s.lastIndexOf('<BR>', s.length-ChatClearSize);
         top.frames['chat'].document.getElementById("mes_clan").innerHTML = s.substring(j, s.length);
     }
 }
 
-//-- Прочие функции
+//-- РџСЂРѕС‡РёРµ С„СѓРЅРєС†РёРё
 var oldlocation = '';
 function cht(nm){
     if (oldlocation == '') {
@@ -271,7 +271,7 @@ function CLR2(){
     top.frames['chat'].document.getElementById("mes").innerHTML='';
     top.frames['chat'].document.getElementById("oMenu").style.top="0px";
 }
-function strt(){// Начинаем
+function strt(){// РќР°С‡РёРЅР°РµРј
     ChatTimerID = setTimeout('RefreshChat()', 1000);
     OnlineTimerOn = setTimeout('onlineReload(true)', 2*1000);
     ChatClearTimerID = setTimeout('RefreshClearChat()', ChatClearDelay*1000);
@@ -281,8 +281,8 @@ function strt(){// Начинаем
 
 var user = getCookie("battle");
 if ((user == null)||(user == "")) {
-    document.write('<BODY>Внимание! Вы или не ввели ваш логин/пароль на титульной странице или в вашем браузере отключена поддержка Cookie. Необходимо их включить (это абсолютно безопасно!) для продолжения игры.<BR>');
-    document.write('В меню браузера Internet Explorer выберите "Сервис" => "Свойства обозревателя" перейдите на закладку "Конфиденциальность" и передвиньте ползунок в положение "Средний". И попробуйте снова зайти с <A HREF="/">титульной страницы</A>.<BR>В браузере IE версии 5 меню: "Сервис" => "Свойства обозревателя" => "Безопасность" => "Интернет" кнопка "Другой" => файлы "cookie"<BR>Если у вас IE 4-й версии, возможно вам не удастся зайти, с проблемой этой версии браузера мы работаем, но пока единственным решением является: обновление браузера до 5-й или 6-й версии.<BR>Если ничего не помогает, проверьте настройки вашего FireWall, если он установлен, то может не пропускать активные страницы и cookie.</BODY>');
+    document.write('<BODY>Р’РЅРёРјР°РЅРёРµ! Р’С‹ РёР»Рё РЅРµ РІРІРµР»Рё РІР°С€ Р»РѕРіРёРЅ/РїР°СЂРѕР»СЊ РЅР° С‚РёС‚СѓР»СЊРЅРѕР№ СЃС‚СЂР°РЅРёС†Рµ РёР»Рё РІ РІР°С€РµРј Р±СЂР°СѓР·РµСЂРµ РѕС‚РєР»СЋС‡РµРЅР° РїРѕРґРґРµСЂР¶РєР° Cookie. РќРµРѕР±С…РѕРґРёРјРѕ РёС… РІРєР»СЋС‡РёС‚СЊ (СЌС‚Рѕ Р°Р±СЃРѕР»СЋС‚РЅРѕ Р±РµР·РѕРїР°СЃРЅРѕ!) РґР»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РёРіСЂС‹.<BR>');
+    document.write('Р’ РјРµРЅСЋ Р±СЂР°СѓР·РµСЂР° Internet Explorer РІС‹Р±РµСЂРёС‚Рµ "РЎРµСЂРІРёСЃ" => "РЎРІРѕР№СЃС‚РІР° РѕР±РѕР·СЂРµРІР°С‚РµР»СЏ" РїРµСЂРµР№РґРёС‚Рµ РЅР° Р·Р°РєР»Р°РґРєСѓ "РљРѕРЅС„РёРґРµРЅС†РёР°Р»СЊРЅРѕСЃС‚СЊ" Рё РїРµСЂРµРґРІРёРЅСЊС‚Рµ РїРѕР»Р·СѓРЅРѕРє РІ РїРѕР»РѕР¶РµРЅРёРµ "РЎСЂРµРґРЅРёР№". Р РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР° Р·Р°Р№С‚Рё СЃ <A HREF="/">С‚РёС‚СѓР»СЊРЅРѕР№ СЃС‚СЂР°РЅРёС†С‹</A>.<BR>Р’ Р±СЂР°СѓР·РµСЂРµ IE РІРµСЂСЃРёРё 5 РјРµРЅСЋ: "РЎРµСЂРІРёСЃ" => "РЎРІРѕР№СЃС‚РІР° РѕР±РѕР·СЂРµРІР°С‚РµР»СЏ" => "Р‘РµР·РѕРїР°СЃРЅРѕСЃС‚СЊ" => "РРЅС‚РµСЂРЅРµС‚" РєРЅРѕРїРєР° "Р”СЂСѓРіРѕР№" => С„Р°Р№Р»С‹ "cookie"<BR>Р•СЃР»Рё Сѓ РІР°СЃ IE 4-Р№ РІРµСЂСЃРёРё, РІРѕР·РјРѕР¶РЅРѕ РІР°Рј РЅРµ СѓРґР°СЃС‚СЃСЏ Р·Р°Р№С‚Рё, СЃ РїСЂРѕР±Р»РµРјРѕР№ СЌС‚РѕР№ РІРµСЂСЃРёРё Р±СЂР°СѓР·РµСЂР° РјС‹ СЂР°Р±РѕС‚Р°РµРј, РЅРѕ РїРѕРєР° РµРґРёРЅСЃС‚РІРµРЅРЅС‹Рј СЂРµС€РµРЅРёРµРј СЏРІР»СЏРµС‚СЃСЏ: РѕР±РЅРѕРІР»РµРЅРёРµ Р±СЂР°СѓР·РµСЂР° РґРѕ 5-Р№ РёР»Рё 6-Р№ РІРµСЂСЃРёРё.<BR>Р•СЃР»Рё РЅРёС‡РµРіРѕ РЅРµ РїРѕРјРѕРіР°РµС‚, РїСЂРѕРІРµСЂСЊС‚Рµ РЅР°СЃС‚СЂРѕР№РєРё РІР°С€РµРіРѕ FireWall, РµСЃР»Рё РѕРЅ СѓСЃС‚Р°РЅРѕРІР»РµРЅ, С‚Рѕ РјРѕР¶РµС‚ РЅРµ РїСЂРѕРїСѓСЃРєР°С‚СЊ Р°РєС‚РёРІРЅС‹Рµ СЃС‚СЂР°РЅРёС†С‹ Рё cookie.</BODY>');
 } else {
     if (document.all && document.all.item && !window.opera && !document.layers) {
 
@@ -313,7 +313,7 @@ if ((user == null)||(user == "")) {
 
 
 
-    } else { alert("Рекомендуемый браузер для игры - Internet Explorer 5.0 или выше.");
+    } else { alert("Р РµРєРѕРјРµРЅРґСѓРµРјС‹Р№ Р±СЂР°СѓР·РµСЂ РґР»СЏ РёРіСЂС‹ - Internet Explorer 5.0 РёР»Рё РІС‹С€Рµ.");
     document.write(
     '<frameset rows="37, *, 30, 5" FRAMEBORDER="0" BORDER="0" FRAMESPACING="0">'+
         '<frame src="top.php" target="_top" scrolling=NO NORESIZE FRAMEBORDER="0" BORDER="0" FRAMESPACING="0" MARGINWIDTH="0" MARGINHEIGHT="0">'+
@@ -341,8 +341,8 @@ if ((user == null)||(user == "")) {
 </SCRIPT>
 
 <NOSCRIPT>
-<FONT COLOR="red">Внимание!</FONT> В вашем браузере отключена поддержка JavaScript. Необходимо их включить (это абсолютно безопасно!) для продолжения игры.<BR>
-В меню браузера Internet Explorer выберите "Сервис" => "Свойства обозревателя" перейдите на закладку "Безопасность". Для зоны <B>Интернет</B> нажмите кнопку "Другой". Установите уровень безопасности "Средний", этого достаточно. Или же, в списке параметров найдите раздел "Сценарии" и там нужно разрешить выполнение Активных сценариев.<br>
+<FONT COLOR="red">Р’РЅРёРјР°РЅРёРµ!</FONT> Р’ РІР°С€РµРј Р±СЂР°СѓР·РµСЂРµ РѕС‚РєР»СЋС‡РµРЅР° РїРѕРґРґРµСЂР¶РєР° JavaScript. РќРµРѕР±С…РѕРґРёРјРѕ РёС… РІРєР»СЋС‡РёС‚СЊ (СЌС‚Рѕ Р°Р±СЃРѕР»СЋС‚РЅРѕ Р±РµР·РѕРїР°СЃРЅРѕ!) РґР»СЏ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РёРіСЂС‹.<BR>
+Р’ РјРµРЅСЋ Р±СЂР°СѓР·РµСЂР° Internet Explorer РІС‹Р±РµСЂРёС‚Рµ "РЎРµСЂРІРёСЃ" => "РЎРІРѕР№СЃС‚РІР° РѕР±РѕР·СЂРµРІР°С‚РµР»СЏ" РїРµСЂРµР№РґРёС‚Рµ РЅР° Р·Р°РєР»Р°РґРєСѓ "Р‘РµР·РѕРїР°СЃРЅРѕСЃС‚СЊ". Р”Р»СЏ Р·РѕРЅС‹ <B>РРЅС‚РµСЂРЅРµС‚</B> РЅР°Р¶РјРёС‚Рµ РєРЅРѕРїРєСѓ "Р”СЂСѓРіРѕР№". РЈСЃС‚Р°РЅРѕРІРёС‚Рµ СѓСЂРѕРІРµРЅСЊ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё "РЎСЂРµРґРЅРёР№", СЌС‚РѕРіРѕ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ. РР»Рё Р¶Рµ, РІ СЃРїРёСЃРєРµ РїР°СЂР°РјРµС‚СЂРѕРІ РЅР°Р№РґРёС‚Рµ СЂР°Р·РґРµР» "РЎС†РµРЅР°СЂРёРё" Рё С‚Р°Рј РЅСѓР¶РЅРѕ СЂР°Р·СЂРµС€РёС‚СЊ РІС‹РїРѕР»РЅРµРЅРёРµ РђРєС‚РёРІРЅС‹С… СЃС†РµРЅР°СЂРёРµРІ.<br>
 <FONT COLOR="red">Attention!</FONT> Your browser does not support JavaScript. To continue the game, please turn the support on (it's absolutely safe).<BR>
 In the Internet Explorer browser menu choose "Tools" => "Internet Options" and go to "Security". For the <B>Internet</B> zone press the "Custom level" button. State the "Medium", this will be enough. You can also find the "Scripting" page in the list of the parameters and allow Active Scripting there.
 </NOSCRIPT></BODY></HTML>

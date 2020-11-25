@@ -3,7 +3,7 @@ if(in_array($user['room'], $canalrooms)){
 $nes = mysql_query("SELECT * FROM podzem2 WHERE name='".$mir['name']."'");
 $s = mysql_fetch_array($nes);
 $rooms[0] = "";
-    // характеристики комнат
+    // С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РєРѕРјРЅР°С‚
 $rhar=array();
 $vector=0;
 $rhar['01']=array($s["v1"],$s["p1"],$s["n1"],$s["l1"]);

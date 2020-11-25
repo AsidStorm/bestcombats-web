@@ -5,10 +5,10 @@
       if ($user["level"]==0 || canmakequest(13)) {
         mq("update users set hp=maxhp where id='$user[id]'");
         $user["hp"]=$user["maxhp"];
-        $report="<b><font color=red>Вы Восстановили Свои Силы.</b></font>";
+        $report="<b><font color=red>Р’С‹ Р’РѕСЃСЃС‚Р°РЅРѕРІРёР»Рё РЎРІРѕРё РЎРёР»С‹.</b></font>";
         if ($user["level"]>0) makequest(13);
       } else {
-        $report="<b><font color=red>Не стоит пить из этой бутылки слишком часто, на всех не хватит.</b></font>";
+        $report="<b><font color=red>РќРµ СЃС‚РѕРёС‚ РїРёС‚СЊ РёР· СЌС‚РѕР№ Р±СѓС‚С‹Р»РєРё СЃР»РёС€РєРѕРј С‡Р°СЃС‚Рѕ, РЅР° РІСЃРµС… РЅРµ С…РІР°С‚РёС‚.</b></font>";
       }
     }
     if (@$_GET["sit"]) {
@@ -16,10 +16,10 @@
       if ($user["level"]==0 || canmakequest(14)) {
         mq("update users set mana=maxmana where id='$user[id]'");
         $user["mana"]=$user["maxmana"];
-        $report="Вы Восстановили Манну.";
+        $report="Р’С‹ Р’РѕСЃСЃС‚Р°РЅРѕРІРёР»Рё РњР°РЅРЅСѓ.";
         if ($user["level"]>0) makequest(14);
       } else {
-        $report="Не стоит пить из этой бутылки слишком часто, на всех не хватит.";
+        $report="РќРµ СЃС‚РѕРёС‚ РїРёС‚СЊ РёР· СЌС‚РѕР№ Р±СѓС‚С‹Р»РєРё СЃР»РёС€РєРѕРј С‡Р°СЃС‚Рѕ, РЅР° РІСЃРµС… РЅРµ С…РІР°С‚РёС‚.";
       }
     }
   }

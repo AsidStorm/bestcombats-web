@@ -7,40 +7,40 @@
 
 ?>
 <form method=post action="add_bot.php">
-<b>Добавление ботов</b>
+<b>Р”РѕР±Р°РІР»РµРЅРёРµ Р±РѕС‚РѕРІ</b>
 <table>
 
-<tr><td>Бот да \ нет</td><td>
+<tr><td>Р‘РѕС‚ РґР° \ РЅРµС‚</td><td>
   <select name="bot">
-    <option value="1">да</option>
-	<option value="0">Нет</option>
+    <option value="1">РґР°</option>
+	<option value="0">РќРµС‚</option>
   </select>
-<tr><td>Имя Бота</td><td>
+<tr><td>РРјСЏ Р‘РѕС‚Р°</td><td>
 <input name="name" type="text" />
-<tr><td>Левел</td><td>
+<tr><td>Р›РµРІРµР»</td><td>
 <input name="level" type="text" />
-<tr><td>Статов</td><td>
+<tr><td>РЎС‚Р°С‚РѕРІ</td><td>
 <input name="stats" type="text" />
-<tr><td>Мастерство</td><td>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ</td><td>
 <input name="master" type="text" />
 
-<tr><td>Сила</td><td>
+<tr><td>РЎРёР»Р°</td><td>
 <input name="sila" type="text" />
-<tr><td>Ловкость</td><td>
+<tr><td>Р›РѕРІРєРѕСЃС‚СЊ</td><td>
 <input name="lovk" type="text" />
-<tr><td>Интуиция</td><td>
+<tr><td>РРЅС‚СѓРёС†РёСЏ</td><td>
 <input name="inta" type="text" />
-<tr><td>Выносливость</td><td>
+<tr><td>Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ</td><td>
 <input name="vinos" type="text" />
 
-<tr><td>Хп</td><td>
+<tr><td>РҐРї</td><td>
 <input name="hp" type="text" />
 
-<tr><td>Образ</td><td>
+<tr><td>РћР±СЂР°Р·</td><td>
 <input name="shadow" type="text" />
 
 </table>
-<INPUT TYPE="submit" value=" Добавить бота ">
+<INPUT TYPE="submit" value=" Р”РѕР±Р°РІРёС‚СЊ Р±РѕС‚Р° ">
 </form>
 
 <?
@@ -58,15 +58,15 @@ else { echo mysql_error();}
 ////////////////////////////////////////////////////////////////////
 ?>
 <form method=post action="add_bot.php">
-<b>Вставка образа</b>
+<b>Р’СЃС‚Р°РІРєР° РѕР±СЂР°Р·Р°</b>
 <table>
 
-<tr><td>Имя Бота</td><td>
+<tr><td>РРјСЏ Р‘РѕС‚Р°</td><td>
 <input name="names" type="text" />
-<tr><td>Образ</td><td>
+<tr><td>РћР±СЂР°Р·</td><td>
 <input name="shadow" type="text" />
 </table>
-<INPUT TYPE="submit" value=" Добавить бота ">
+<INPUT TYPE="submit" value=" Р”РѕР±Р°РІРёС‚СЊ Р±РѕС‚Р° ">
 </form>
 
 <?

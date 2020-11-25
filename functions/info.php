@@ -28,7 +28,7 @@
 
   function infpersout($user) {
     global $djs;
-    $ret="<IMG align=right alt=\"Знак зодиака\" height=99 src=\"".IMGBASE."/i/";
+    $ret="<IMG align=right alt=\"Р—РЅР°Рє Р·РѕРґРёР°РєР°\" height=99 src=\"".IMGBASE."/i/";
     if ($user[zodiac]) { 
       $ret.="$user[zodiac]"; 
     } elseif ($user['zodiac'] =="") {
@@ -43,37 +43,37 @@
         <TD align=left vAlign=top  style=\"width:250px;\">";
     $ret.=showpersout($user["id"],1);
     if ($user['deal']==2) {
-      $ret.='<FIELDSET><LEGEND><IMG SRC="'.IMGBASE.'/i/alchemy1.gif" WIDTH=35 HEIGHT=24 ALT="Алхимик"></LEGEND>
-  <small>Регистрированный алхимик. Имеет право продавать услуги Бойцовского Клуба, включая:<BR>
-  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-art.gif" width=35 height=24 alt="Артефакты"> Артефакты<BR></small></fieldset>';
+      $ret.='<FIELDSET><LEGEND><IMG SRC="'.IMGBASE.'/i/alchemy1.gif" WIDTH=35 HEIGHT=24 ALT="РђР»С…РёРјРёРє"></LEGEND>
+  <small>Р РµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Р№ Р°Р»С…РёРјРёРє. РРјРµРµС‚ РїСЂР°РІРѕ РїСЂРѕРґР°РІР°С‚СЊ СѓСЃР»СѓРіРё Р‘РѕР№С†РѕРІСЃРєРѕРіРѕ РљР»СѓР±Р°, РІРєР»СЋС‡Р°СЏ:<BR>
+  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-art.gif" width=35 height=24 alt="РђСЂС‚РµС„Р°РєС‚С‹"> РђСЂС‚РµС„Р°РєС‚С‹<BR></small></fieldset>';
     }
     if ($user['deal']==3) {
-      $ret.='<FIELDSET><LEGEND><IMG SRC="'.IMGBASE.'/i/alchemy1.gif" WIDTH=35 HEIGHT=24 ALT="Алхимик"></LEGEND>
-  <small>Регистрированный алхимик. Имеет право продавать услуги Бойцовского Клуба, включая:<BR>
-  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-art.gif" width=35 height=24 alt="Артефакты"> Артефакты<BR>
-  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-flower.gif" width=35 height=24 alt="Букеты"> Букеты<BR></small></fieldset>';
+      $ret.='<FIELDSET><LEGEND><IMG SRC="'.IMGBASE.'/i/alchemy1.gif" WIDTH=35 HEIGHT=24 ALT="РђР»С…РёРјРёРє"></LEGEND>
+  <small>Р РµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Р№ Р°Р»С…РёРјРёРє. РРјРµРµС‚ РїСЂР°РІРѕ РїСЂРѕРґР°РІР°С‚СЊ СѓСЃР»СѓРіРё Р‘РѕР№С†РѕРІСЃРєРѕРіРѕ РљР»СѓР±Р°, РІРєР»СЋС‡Р°СЏ:<BR>
+  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-art.gif" width=35 height=24 alt="РђСЂС‚РµС„Р°РєС‚С‹"> РђСЂС‚РµС„Р°РєС‚С‹<BR>
+  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-flower.gif" width=35 height=24 alt="Р‘СѓРєРµС‚С‹"> Р‘СѓРєРµС‚С‹<BR></small></fieldset>';
     }
     if ($user['deal']==4) {
-      $ret.='<FIELDSET><LEGEND><IMG SRC="'.IMGBASE.'/i/alchemy1.gif" WIDTH=35 HEIGHT=24 ALT="Алхимик"></LEGEND>
-  <small>Регистрированный алхимик. Имеет право продавать услуги Бойцовского Клуба, включая:<BR>
-  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-art.gif" width=35 height=24 alt="Артефакты"> Артефакты<BR>
-  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-flower.gif" width=35 height=24 alt="Букеты"> Букеты<BR>
-  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-book.gif" width=35 height=24 alt="Квитанции на книги"> Квитанции на книги<BR></small></fieldset>';
+      $ret.='<FIELDSET><LEGEND><IMG SRC="'.IMGBASE.'/i/alchemy1.gif" WIDTH=35 HEIGHT=24 ALT="РђР»С…РёРјРёРє"></LEGEND>
+  <small>Р РµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Р№ Р°Р»С…РёРјРёРє. РРјРµРµС‚ РїСЂР°РІРѕ РїСЂРѕРґР°РІР°С‚СЊ СѓСЃР»СѓРіРё Р‘РѕР№С†РѕРІСЃРєРѕРіРѕ РљР»СѓР±Р°, РІРєР»СЋС‡Р°СЏ:<BR>
+  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-art.gif" width=35 height=24 alt="РђСЂС‚РµС„Р°РєС‚С‹"> РђСЂС‚РµС„Р°РєС‚С‹<BR>
+  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-flower.gif" width=35 height=24 alt="Р‘СѓРєРµС‚С‹"> Р‘СѓРєРµС‚С‹<BR>
+  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-book.gif" width=35 height=24 alt="РљРІРёС‚Р°РЅС†РёРё РЅР° РєРЅРёРіРё"> РљРІРёС‚Р°РЅС†РёРё РЅР° РєРЅРёРіРё<BR></small></fieldset>';
     }
     if ($user['deal']==5) {
-      $ret.='<FIELDSET><LEGEND><IMG SRC="'.IMGBASE.'/i/alchemy1.gif" WIDTH=35 HEIGHT=24 ALT="Алхимик"></LEGEND>
-  <small>Регистрированный алхимик. Имеет право продавать услуги Бойцовского Клуба, включая:<BR>
-  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-art.gif" width=35 height=24 alt="Артефакты"> Артефакты<BR>
-  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-flower.gif" width=35 height=24 alt="Букеты"> Букеты<BR>
-  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-book.gif" width=35 height=24 alt="Квитанции на книги"> Квитанции на книги<BR>
-  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-build.gif" width=35 height=24 alt="Недвижимость"> Недвижимость<BR></small></fieldset>';
+      $ret.='<FIELDSET><LEGEND><IMG SRC="'.IMGBASE.'/i/alchemy1.gif" WIDTH=35 HEIGHT=24 ALT="РђР»С…РёРјРёРє"></LEGEND>
+  <small>Р РµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Р№ Р°Р»С…РёРјРёРє. РРјРµРµС‚ РїСЂР°РІРѕ РїСЂРѕРґР°РІР°С‚СЊ СѓСЃР»СѓРіРё Р‘РѕР№С†РѕРІСЃРєРѕРіРѕ РљР»СѓР±Р°, РІРєР»СЋС‡Р°СЏ:<BR>
+  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-art.gif" width=35 height=24 alt="РђСЂС‚РµС„Р°РєС‚С‹"> РђСЂС‚РµС„Р°РєС‚С‹<BR>
+  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-flower.gif" width=35 height=24 alt="Р‘СѓРєРµС‚С‹"> Р‘СѓРєРµС‚С‹<BR>
+  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-book.gif" width=35 height=24 alt="РљРІРёС‚Р°РЅС†РёРё РЅР° РєРЅРёРіРё"> РљРІРёС‚Р°РЅС†РёРё РЅР° РєРЅРёРіРё<BR>
+  &nbsp;&nbsp; <IMG src="'.IMGBASE.'/i/alchemy-build.gif" width=35 height=24 alt="РќРµРґРІРёР¶РёРјРѕСЃС‚СЊ"> РќРµРґРІРёР¶РёРјРѕСЃС‚СЊ<BR></small></fieldset>';
     }
-    if (in_array($user["id"], $cryers)) $ret.="<img title=\"Нытик\" alt=\"Нытик\" src=\"".IMGBASE."/i/cryer.gif\">";
+    if (in_array($user["id"], $cryers)) $ret.="<img title=\"РќС‹С‚РёРє\" alt=\"РќС‹С‚РёРє\" src=\"".IMGBASE."/i/cryer.gif\">";
     if ($user['married']) {
-      if ($user['sex'] == 1) $ret.='<a href="inf.php?login='.$user["married"].'" target="_blank"><img src="'.IMGBASE.'/i/married.gif" onmouseover=\'fastshow("Женат на <b>'.$user['married'].'</b>")\' onmouseout=\'hideshow();\'"></a> ';
-      else $ret.='<a href="inf.php?login='.$user[married].'" target="_blank"><img src="'.IMGBASE.'/i/married.gif" onmouseover=\'fastshow("Замужем за <b>'.$user['married'].'</b>")\' onmouseout=\'hideshow();\'"></a> ';
+      if ($user['sex'] == 1) $ret.='<a href="inf.php?login='.$user["married"].'" target="_blank"><img src="'.IMGBASE.'/i/married.gif" onmouseover=\'fastshow("Р–РµРЅР°С‚ РЅР° <b>'.$user['married'].'</b>")\' onmouseout=\'hideshow();\'"></a> ';
+      else $ret.='<a href="inf.php?login='.$user[married].'" target="_blank"><img src="'.IMGBASE.'/i/married.gif" onmouseover=\'fastshow("Р—Р°РјСѓР¶РµРј Р·Р° <b>'.$user['married'].'</b>")\' onmouseout=\'hideshow();\'"></a> ';
     }
-### Показываем аккаунты в информации о персонаже ###
+### РџРѕРєР°Р·С‹РІР°РµРј Р°РєРєР°СѓРЅС‚С‹ РІ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РїРµСЂСЃРѕРЅР°Р¶Рµ ###
     if ($user['vip']==1) {
       $ret.=' <img src="http://img.bestcombats.net/znaks/vip1.gif" onmouseover=\'fastshow("<b>Silver Account</b>")\' onmouseout=\'hideshow();\'> ';
     }elseif ($user['vip']==2) {
@@ -83,10 +83,10 @@
     }   
 ##################
     if ($user['radiodj']==1) {
-      $ret.=' <img src="http://img.bestcombats.net/znaks/radio.gif" onmouseover=\'fastshow("Персонаж является радистом Бойцовского Клуба")\' onmouseout=\'hideshow();\'> ';
+      $ret.=' <img src="http://img.bestcombats.net/znaks/radio.gif" onmouseover=\'fastshow("РџРµСЂСЃРѕРЅР°Р¶ СЏРІР»СЏРµС‚СЃСЏ СЂР°РґРёСЃС‚РѕРј Р‘РѕР№С†РѕРІСЃРєРѕРіРѕ РљР»СѓР±Р°")\' onmouseout=\'hideshow();\'> ';
     }
     if ($user['spellfreedom']==1) {
-      $ret.=' <img src="'.IMGBASE.'/i/freedom.gif" onmouseover=\'fastshow("<b>Свобода. Магия истинного хаоса.</b><br>Персонаж свободен.")\' onmouseout=\'hideshow();\'>';
+      $ret.=' <img src="'.IMGBASE.'/i/freedom.gif" onmouseover=\'fastshow("<b>РЎРІРѕР±РѕРґР°. РњР°РіРёСЏ РёСЃС‚РёРЅРЅРѕРіРѕ С…Р°РѕСЃР°.</b><br>РџРµСЂСЃРѕРЅР°Р¶ СЃРІРѕР±РѕРґРµРЅ.")\' onmouseout=\'hideshow();\'>';
     }
      $medals=mysql_query("SELECT * from `medals` where `owner`='$user[id]'  ");
     while ($medals_w=mysql_fetch_array($medals)){
@@ -105,39 +105,39 @@
     
     $znTowerLevel = mysql_result(mysql_query("SELECT reputation FROM zn_tower WHERE user_id = " . $user['id']), 0, 0);
     if ($znTowerLevel >= 100 && $znTowerLevel <= 999) {
-        $ret.="<img src=\"http://img.bestcombats.net/znaks/znrune_1.gif\" onmouseover=\"fastshow('<b>Храм Знаний</b><br>Посвящённый 1-го круга')\" onmouseout=\"hideshow();\">";
+        $ret.="<img src=\"http://img.bestcombats.net/znaks/znrune_1.gif\" onmouseover=\"fastshow('<b>РҐСЂР°Рј Р—РЅР°РЅРёР№</b><br>РџРѕСЃРІСЏС‰С‘РЅРЅС‹Р№ 1-РіРѕ РєСЂСѓРіР°')\" onmouseout=\"hideshow();\">";
     }
     if ($znTowerLevel >= 1000 && $znTowerLevel <= 9999) {
-        $ret.="<img src=\"http://img.bestcombats.net/znaks/znrune_2.gif\" onmouseover=\"fastshow('<b>Храм Знаний</b><br>Посвящённый 2-го круга')\" onmouseout=\"hideshow();\">";
+        $ret.="<img src=\"http://img.bestcombats.net/znaks/znrune_2.gif\" onmouseover=\"fastshow('<b>РҐСЂР°Рј Р—РЅР°РЅРёР№</b><br>РџРѕСЃРІСЏС‰С‘РЅРЅС‹Р№ 2-РіРѕ РєСЂСѓРіР°')\" onmouseout=\"hideshow();\">";
     }
     if ($znTowerLevel >= 9999) {
-        $ret.="<img src=\"http://img.bestcombats.net/znaks/znrune_3.gif\" onmouseover=\"fastshow('<b>Храм Знаний</b><br>Посвящённый 3-го круга')\" onmouseout=\"hideshow();\">";
+        $ret.="<img src=\"http://img.bestcombats.net/znaks/znrune_3.gif\" onmouseover=\"fastshow('<b>РҐСЂР°Рј Р—РЅР°РЅРёР№</b><br>РџРѕСЃРІСЏС‰С‘РЅРЅС‹Р№ 3-РіРѕ РєСЂСѓРіР°')\" onmouseout=\"hideshow();\">";
     }
-//Значки за победы by InvadeR
+//Р—РЅР°С‡РєРё Р·Р° РїРѕР±РµРґС‹ by InvadeR
 ###########################################################################
-    //100 побед
+    //100 РїРѕР±РµРґ
     if ($user['win']>=100) {
-        $ret.="<img src=\"".IMGBASE."/i/win100.gif\" onmouseover=\"fastshow('<b><i>Медаль за 100 побед</i></b>')\" onmouseout=\"hideshow();\">";
+        $ret.="<img src=\"".IMGBASE."/i/win100.gif\" onmouseover=\"fastshow('<b><i>РњРµРґР°Р»СЊ Р·Р° 100 РїРѕР±РµРґ</i></b>')\" onmouseout=\"hideshow();\">";
     }
-    //500 побед
+    //500 РїРѕР±РµРґ
     if ($user['win']>=500) {
-        $ret.="<img src=\"".IMGBASE."/i/win500.gif\" onmouseover=\"fastshow('<b><i>Медаль за 500 побед</i></b>')\" onmouseout=\"hideshow();\">";
+        $ret.="<img src=\"".IMGBASE."/i/win500.gif\" onmouseover=\"fastshow('<b><i>РњРµРґР°Р»СЊ Р·Р° 500 РїРѕР±РµРґ</i></b>')\" onmouseout=\"hideshow();\">";
     }
-    //1000 побед
+    //1000 РїРѕР±РµРґ
     if ($user['win']>=1000) {
-        $ret.="<img src=\"".IMGBASE."/i/win1000.gif\" onmouseover=\"fastshow('<b><i>Медаль за 1000 побед</i></b>')\" onmouseout=\"hideshow();\">";
+        $ret.="<img src=\"".IMGBASE."/i/win1000.gif\" onmouseover=\"fastshow('<b><i>РњРµРґР°Р»СЊ Р·Р° 1000 РїРѕР±РµРґ</i></b>')\" onmouseout=\"hideshow();\">";
     }
-    //3000 побед
+    //3000 РїРѕР±РµРґ
     if ($user['win']>=3000) {
-        $ret.="<img src=\"".IMGBASE."/i/win3000.gif\" onmouseover=\"fastshow('<b><i>Медаль за 3000 побед</i></b>')\" onmouseout=\"hideshow();\">";
+        $ret.="<img src=\"".IMGBASE."/i/win3000.gif\" onmouseover=\"fastshow('<b><i>РњРµРґР°Р»СЊ Р·Р° 3000 РїРѕР±РµРґ</i></b>')\" onmouseout=\"hideshow();\">";
     }
-    //5000 побед
+    //5000 РїРѕР±РµРґ
     if ($user['win']>=5000) {
-        $ret.="<img src=\"".IMGBASE."/i/win5000.gif\" onmouseover=\"fastshow('<b><i>Медаль за 5000 побед</i></b>')\" onmouseout=\"hideshow();\">";
+        $ret.="<img src=\"".IMGBASE."/i/win5000.gif\" onmouseover=\"fastshow('<b><i>РњРµРґР°Р»СЊ Р·Р° 5000 РїРѕР±РµРґ</i></b>')\" onmouseout=\"hideshow();\">";
     }
-    //10000 побед
+    //10000 РїРѕР±РµРґ
     if ($user['win']>=10000) {
-        $ret.="<img src=\"".IMGBASE."/i/win10000.gif\" onmouseover=\"fastshow('<b><i>Медаль за 10000 побед</i></b>')\" onmouseout=\"hideshow();\">";
+        $ret.="<img src=\"".IMGBASE."/i/win10000.gif\" onmouseover=\"fastshow('<b><i>РњРµРґР°Р»СЊ Р·Р° 10000 РїРѕР±РµРґ</i></b>')\" onmouseout=\"hideshow();\">";
     }
 ###########################################################################
 
@@ -146,55 +146,55 @@
     $data=mysql_fetch_array(mysql_query("select * from `online` WHERE `date` >= ".(time()-60)." AND `id` = ".$user['id'].";"));
     $dd = mysql_query("SELECT * FROM `effects` WHERE `owner` = ".$user['id'].";");
     $ddtravma = mysql_fetch_array(mysql_query("SELECT * FROM `effects` WHERE `owner` = ".$user['id']." and (`type`=11 or `type`=12 or `type`=13 or `type`=14) order by `type` desc limit 1;"));
-    if ($ddtravma['type'] == 14) {$trt="неизлечимая";}
-    elseif ($ddtravma['type'] == 13) {$trt="тяжелая";}
-    elseif ($ddtravma['type'] == 12) {$trt="средняя";}
-    elseif ($ddtravma['type'] == 11) {$trt="легкая";}
+    if ($ddtravma['type'] == 14) {$trt="РЅРµРёР·Р»РµС‡РёРјР°СЏ";}
+    elseif ($ddtravma['type'] == 13) {$trt="С‚СЏР¶РµР»Р°СЏ";}
+    elseif ($ddtravma['type'] == 12) {$trt="СЃСЂРµРґРЅСЏСЏ";}
+    elseif ($ddtravma['type'] == 11) {$trt="Р»РµРіРєР°СЏ";}
     else {$trt=0;}
     while($row = mysql_fetch_array($dd)) {
       if ($row['time'] < time()) {
         $row['time'] = time();
       }
       if ($trt && ($row['type']==11 or $row['type']==12 or $row['type']==13 or $row['type']==14)) {
-        $ret.="<br><IMG height=15 src=\"".IMGBASE."/i/travma2.gif\" width=24 alt=\"Ослаблены характеристики\"><SMALL>У персонажа $trt травма <b>\"{$row['name']}\"</b> - еще ".floor(($row['time']-time())/60/60)." ч. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." мин.</SMALL>";
+        $ret.="<br><IMG height=15 src=\"".IMGBASE."/i/travma2.gif\" width=24 alt=\"РћСЃР»Р°Р±Р»РµРЅС‹ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё\"><SMALL>РЈ РїРµСЂСЃРѕРЅР°Р¶Р° $trt С‚СЂР°РІРјР° <b>\"{$row['name']}\"</b> - РµС‰Рµ ".floor(($row['time']-time())/60/60)." С‡. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." РјРёРЅ.</SMALL>";
       }
       if ($magtrt && $row['type']!=2 && $row['type']!=3 && $row['type']!=10) {
-        $ret.="<br><IMG height=15 src=\"".IMGBASE."/i/mtravma2.gif\" width=24><SMALL>У персонажа $trt магическая травма <b>\"{$row['name']}\"</b> - еще ".floor(($row['time']-time())/60/60)." ч. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." мин.</SMALL>";
+        $ret.="<br><IMG height=15 src=\"".IMGBASE."/i/mtravma2.gif\" width=24><SMALL>РЈ РїРµСЂСЃРѕРЅР°Р¶Р° $trt РјР°РіРёС‡РµСЃРєР°СЏ С‚СЂР°РІРјР° <b>\"{$row['name']}\"</b> - РµС‰Рµ ".floor(($row['time']-time())/60/60)." С‡. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." РјРёРЅ.</SMALL>";
       }
       if ($row['type'] == 2) {
-        $ret.="<br><IMG height=15 src=\"".IMGBASE."/i/sleeps1.gif\" width=24><SMALL>На персонажа наложено заклятие молчания. Будет молчать еще ".floor(($row['time']-time())/60/60)." ч. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." мин.</SMALL>";
+        $ret.="<br><IMG height=15 src=\"".IMGBASE."/i/sleeps1.gif\" width=24><SMALL>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ. Р‘СѓРґРµС‚ РјРѕР»С‡Р°С‚СЊ РµС‰Рµ ".floor(($row['time']-time())/60/60)." С‡. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." РјРёРЅ.</SMALL>";
       }
       if ($row['type'] == 10) {
-        $ret.="<br><IMG height=15 src=\"".IMGBASE."/i/chains.gif\" width=24><SMALL>Персонаж не может перемещаться еще ".floor(($row['time']-time())/60/60)." ч. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." мин.</SMALL>";
+        $ret.="<br><IMG height=15 src=\"".IMGBASE."/i/chains.gif\" width=24><SMALL>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РјРѕР¶РµС‚ РїРµСЂРµРјРµС‰Р°С‚СЊСЃСЏ РµС‰Рµ ".floor(($row['time']-time())/60/60)." С‡. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." РјРёРЅ.</SMALL>";
       }
       if ($row['type'] == 3) {
-        $ret.="<br><IMG height=15 src=\"".IMGBASE."/i/sleeps0.gif\" width=24><SMALL>Персонажу запрещено общение на форуме. Будет молчать еще ".floor(($row['time']-time())/60/60)." ч. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." мин.</SMALL>";
+        $ret.="<br><IMG height=15 src=\"".IMGBASE."/i/sleeps0.gif\" width=24><SMALL>РџРµСЂСЃРѕРЅР°Р¶Сѓ Р·Р°РїСЂРµС‰РµРЅРѕ РѕР±С‰РµРЅРёРµ РЅР° С„РѕСЂСѓРјРµ. Р‘СѓРґРµС‚ РјРѕР»С‡Р°С‚СЊ РµС‰Рµ ".floor(($row['time']-time())/60/60)." С‡. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." РјРёРЅ.</SMALL>";
       }
     }
-    $data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '$user[id]' AND (`name` LIKE '%Букет%') AND `present` <> '' order by id asc ; ");
-    if(mysql_num_rows($data)) $ret.='<BR><BR>Букеты цветов: <BR>';
+    $data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '$user[id]' AND (`name` LIKE '%Р‘СѓРєРµС‚%') AND `present` <> '' order by id asc ; ");
+    if(mysql_num_rows($data)) $ret.='<BR><BR>Р‘СѓРєРµС‚С‹ С†РІРµС‚РѕРІ: <BR>';
     while($row = mysql_fetch_array($data)) {
-      $ret.="<div style=\"float: left; margin:0px; padding:0px;\"><img width=60px height=60x src='".IMGBASE."/i/sh/{$row['img']}' alt = '{$row['name']}\nПодарок от {$row['present']}".(($row['letter'])?"\n".$row['letter']:"")."'></div>";
+      $ret.="<div style=\"float: left; margin:0px; padding:0px;\"><img width=60px height=60x src='".IMGBASE."/i/sh/{$row['img']}' alt = '{$row['name']}\nРџРѕРґР°СЂРѕРє РѕС‚ {$row['present']}".(($row['letter'])?"\n".$row['letter']:"")."'></div>";
     }
     $data = mysql_query("SELECT * FROM `inventory` WHERE `gift`=1 AND `present` <> '' and `owner` = '$user[id]'  and dategoden>".time()." order by id desc");
     $r=mq("select id, item from obshagastorage where gift=1 and pers='$user[id]' order by id desc");
-    if(mysql_num_rows($data)+mysql_num_rows($r)) $ret.='<BR><BR><BR>1<BR><BR><BR><BR>Подарки: <BR>';
+    if(mysql_num_rows($data)+mysql_num_rows($r)) $ret.='<BR><BR><BR>1<BR><BR><BR><BR>РџРѕРґР°СЂРєРё: <BR>';
     $ret.="<div style=\"width:610px\">";
     $i=0;
     while($row = mysql_fetch_array($data)) {
-      $ret.="<div style=\"float: left; margin:0px; padding:0px; width:60px; height:60px\"><img width=60px height=60x src='".IMGBASE."/i/sh/{$row['img']}' title='{$row['name']}\nПодарок от {$row['present']}".(($row['letter'])?"\n".remquotes($row['letter']):"")."'></div>";
+      $ret.="<div style=\"float: left; margin:0px; padding:0px; width:60px; height:60px\"><img width=60px height=60x src='".IMGBASE."/i/sh/{$row['img']}' title='{$row['name']}\nРџРѕРґР°СЂРѕРє РѕС‚ {$row['present']}".(($row['letter'])?"\n".remquotes($row['letter']):"")."'></div>";
       $i++;
       if ($i==20 && mysql_num_rows($data)>20) {
-        $ret.="<div id=\"viewall\"><br><br><small><A href=\"javascript:void(0)\" onclick=\"document.getElementById('allgifts').style.display='';document.getElementById('viewall').style.display='none';return false;\">Нажмите сюда, чтобы увидеть все подарки...</A></small></div>
+        $ret.="<div id=\"viewall\"><br><br><small><A href=\"javascript:void(0)\" onclick=\"document.getElementById('allgifts').style.display='';document.getElementById('viewall').style.display='none';return false;\">РќР°Р¶РјРёС‚Рµ СЃСЋРґР°, С‡С‚РѕР±С‹ СѓРІРёРґРµС‚СЊ РІСЃРµ РїРѕРґР°СЂРєРё...</A></small></div>
         <div id=\"allgifts\" style=\"display:none\">";
       }
     }
     while($rec = mysql_fetch_array($r)) {
       $row=unserialize($rec["item"]);
-      $ret.="<div style=\"float: left; margin:0px; padding:0px; width:60px; height:60px\"><img width=60px height=60x src='".IMGBASE."/i/sh/{$row['img']}' title='{$row['name']}\nПодарок от {$row['present']}".(($row['letter'])?"\n".remquotes($row['letter']):"")."'></div>";
+      $ret.="<div style=\"float: left; margin:0px; padding:0px; width:60px; height:60px\"><img width=60px height=60x src='".IMGBASE."/i/sh/{$row['img']}' title='{$row['name']}\nРџРѕРґР°СЂРѕРє РѕС‚ {$row['present']}".(($row['letter'])?"\n".remquotes($row['letter']):"")."'></div>";
       $i++;
       if ($i==20 && mysql_num_rows($data)+mysql_num_rows($r)>20) {
-        $ret.="<div id=\"viewall\"><br><br><small><A href=\"javascript:void(0)\" onclick=\"document.getElementById('allgifts').style.display='';document.getElementById('viewall').style.display='none';return false;\">Нажмите сюда, чтобы увидеть все подарки...</A></small></div>
+        $ret.="<div id=\"viewall\"><br><br><small><A href=\"javascript:void(0)\" onclick=\"document.getElementById('allgifts').style.display='';document.getElementById('viewall').style.display='none';return false;\">РќР°Р¶РјРёС‚Рµ СЃСЋРґР°, С‡С‚РѕР±С‹ СѓРІРёРґРµС‚СЊ РІСЃРµ РїРѕРґР°СЂРєРё...</A></small></div>
         <div id=\"allgifts\" style=\"display:none\">";
       }
     }
@@ -212,33 +212,33 @@
       $id=0;
       if ($tmp > 0) {
         $id++;
-        if ($id<3) {$out .= $tmp." мес. ";}
+        if ($id<3) {$out .= $tmp." РјРµСЃ. ";}
         $time_still = $time_still-$tmp*2592000;
       }
       $tmp = floor($time_still/604800);
       if ($tmp > 0) {
         $id++;
-        if ($id<3) {$out .= $tmp." нед. ";}
+        if ($id<3) {$out .= $tmp." РЅРµРґ. ";}
         $time_still = $time_still-$tmp*604800;
       }
       $tmp = floor($time_still/86400);
       if ($tmp > 0) {
         $id++;
-        if ($id<3) {$out .= $tmp." дн. ";}
+        if ($id<3) {$out .= $tmp." РґРЅ. ";}
         $time_still = $time_still-$tmp*86400;
       }
       $tmp = floor($time_still/3600);
       if ($tmp > 0) {
         $id++;
-        if ($id<3) {$out .= $tmp." ч. ";}
+        if ($id<3) {$out .= $tmp." С‡. ";}
         $time_still = $time_still-$tmp*3600;
       }
       $tmp = floor($time_still/60);
       if ($tmp > 0) {
         $id++;
-        if ($id<3) {$out .= $tmp." мин. ";}
+        if ($id<3) {$out .= $tmp." РјРёРЅ. ";}
       }
-      $ret.="<H3>Обезличен. Еще $out</H3>";
+      $ret.="<H3>РћР±РµР·Р»РёС‡РµРЅ. Р•С‰Рµ $out</H3>";
 
       $noinfo=1;
     } else {

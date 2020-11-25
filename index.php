@@ -8,7 +8,7 @@ include'connect.php';
 <meta name='yandex-verification' content='6d7acbfac7461d47' />
   <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251"/>
 <meta name="keywords" content="1px, color, #817a63 1px, 1px double, #817a63, double, #817a63 1px double, font-size, font-family, #d6d3ce 1px, 1px solid, background-color, text-decoration, #d6d3ce, solid, normal, none, #dfddd3, font-weight, border-left, 75pt, verdana, border-bottom, border-top, border-right, white, verdanasans-serifarial, helvetica, #2b2b18, sans-serif,">
-  <title>Bestcombats - Браузерная онлайн игра 2012-2013г.</title>
+  <title>Bestcombats - Р‘СЂР°СѓР·РµСЂРЅР°СЏ РѕРЅР»Р°Р№РЅ РёРіСЂР° 2012-2013Рі.</title>
   <link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="http://img.bestcombats.net/index/css/styles.css"/>
   <script type="text/javascript" src="http://img.bestcombats.net/index/js/functions.js"></script>
@@ -57,19 +57,19 @@ $(document).ready(function(){
  
 <td class="block-left">
 <div class="navigation-left"><ul id="menu">
-<li><a href="index.php"><span>Главная</a></span></li>
-<li><a href="/forum.php"><span>Форум</span></a></li>
-<li><a href="/register.php"><span>Регистрация</span></a></li>
-<li><a href="http://events.bestcombats.net/"><span>Новости</span></a></li>
-<li><a href="http://scrolls.bestcombats.net/"><span>Скроллы</span></a></li>
+<li><a href="index.php"><span>Р“Р»Р°РІРЅР°СЏ</a></span></li>
+<li><a href="/forum.php"><span>Р¤РѕСЂСѓРј</span></a></li>
+<li><a href="/register.php"><span>Р РµРіРёСЃС‚СЂР°С†РёСЏ</span></a></li>
+<li><a href="http://events.bestcombats.net/"><span>РќРѕРІРѕСЃС‚Рё</span></a></li>
+<li><a href="http://scrolls.bestcombats.net/"><span>РЎРєСЂРѕР»Р»С‹</span></a></li>
 </li>
 </ul>
 </div>
 	<div class="left-private"></div>
 <form method=post name=F1 action=enter.php>
-<INPUT onfocus="if ( 'Логин' == value ) { value = ''; } " onblur="if ('' == value ) { value = 'Логин'; } " class=inup style="WIDTH: 144px" value=Логин name=login><br>
+<INPUT onfocus="if ( 'Р›РѕРіРёРЅ' == value ) { value = ''; } " onblur="if ('' == value ) { value = 'Р›РѕРіРёРЅ'; } " class=inup style="WIDTH: 144px" value=Р›РѕРіРёРЅ name=login><br>
 <INPUT class=inup style="WIDTH: 144px" type=password name=psw AUTOCOMPLETE=off><br>
-<INPUT onclick="this.blur(); " class=btn type=submit value=" Войти " style="WIDTH: 144px"></form>
+<INPUT onclick="this.blur(); " class=btn type=submit value=" Р’РѕР№С‚Рё " style="WIDTH: 144px"></form>
 </div>
 	<div class="left-sword"></div>
 
@@ -87,7 +87,7 @@ E244122496646</font></span><br>
 <span lang="ru"><font size="2" color="#FFCC99">Qiwi</font></span><br>
 <span lang="ru"><font size="2" color="#CCCCCC">
 +79522060366<br></font></span><br>
-<span lang="ru"><font size="2" color="#FFCC99">Yandex Деньги</font></span><br>
+<span lang="ru"><font size="2" color="#FFCC99">Yandex Р”РµРЅСЊРіРё</font></span><br>
 <span lang="ru"><font size="2" color="#CCCCCC">410011763674058</font></span>
 
 <p align="center" style=" margin-top: 0; margin-bottom: 5px">
@@ -117,16 +117,16 @@ E244122496646</font></span><br>
 <td>
 <?
 if($status == true){
-echo"Статус сервера <font color=green><b>Online</b></font><br>";
+echo"РЎС‚Р°С‚СѓСЃ СЃРµСЂРІРµСЂР° <font color=green><b>Online</b></font><br>";
 }else{
-echo"Статус сервера <font color=red><b>Offline</b></font><br>";
+echo"РЎС‚Р°С‚СѓСЃ СЃРµСЂРІРµСЂР° <font color=red><b>Offline</b></font><br>";
 }
 $num = mysql_num_rows(mysql_query("SELECT `id` FROM `users` WHERE bot not like '1'"));
-echo"Игроков:<b> ".$num." </b>чел.<br>";
+echo"РРіСЂРѕРєРѕРІ:<b> ".$num." </b>С‡РµР».<br>";
 $numb = mysql_num_rows(mysql_query("SELECT `id` FROM `users` WHERE battle>0"));
-echo"В поединке:<b> ".$numb." </b>чел.<br>";
+echo"Р’ РїРѕРµРґРёРЅРєРµ:<b> ".$numb." </b>С‡РµР».<br>";
 $online = mysql_num_rows(mysql_query("select * from `online`  WHERE `real_time` >= ".(time()-60).";"));
-echo"Онлайн:<b> ".$online." </b>чел.<br>";
+echo"РћРЅР»Р°Р№РЅ:<b> ".$online." </b>С‡РµР».<br>";
 ?>
 </td></tr>
 
@@ -137,7 +137,7 @@ echo"Онлайн:<b> ".$online." </b>чел.<br>";
  	
 <div class="navigation-right"><ul id="menu2">
 <li><a href="http://support.bestcombats.net/"><span>Support</a></span></li>
-<li><a href="/rememberpassword.php"><span>Забыли пароль?</a></span></li>
+<li><a href="/rememberpassword.php"><span>Р—Р°Р±С‹Р»Рё РїР°СЂРѕР»СЊ?</a></span></li>
 </li>
 </ul>
 </div>

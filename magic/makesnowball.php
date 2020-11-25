@@ -1,13 +1,13 @@
 <?
   if ($user["room"]!=20) {
-    echo "Ñíåæêè ìîæíî ëåïèòü òîëüêî íà Öåíòðàëüíîé ïëîùàäè.";
+    echo "Ð¡Ð½ÐµÐ¶ÐºÐ¸ Ð¼Ð¾Ð¶Ð½Ð¾ Ð»ÐµÐ¿Ð¸Ñ‚ÑŒ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð½Ð° Ð¦ÐµÐ½Ñ‚Ñ€Ð°Ð»ÑŒÐ½Ð¾Ð¹ Ð¿Ð»Ð¾Ñ‰Ð°Ð´Ð¸.";
   } elseif ($user["battle"]) {
-    echo "Íå â áîþ.";
+    echo "ÐÐµ Ð² Ð±Ð¾ÑŽ.";
   } else {
     $i=mqfa1("select id from effects where owner='$user[id]' and type=".MAKESNOWBALL);
     if ($i) mq("update effects set time=".(time()+180)." where id='$i'");
-    else mq("insert into effects set name='Ñîáðàòü ñíåã', owner='$user[id]', time=".(time()+180).", type=".MAKESNOWBALL.", isp=1");
-    echo "Âû íà÷àëè ëåïèòü ñíåæîê.";
+    else mq("insert into effects set name='Ð¡Ð¾Ð±Ñ€Ð°Ñ‚ÑŒ ÑÐ½ÐµÐ³', owner='$user[id]', time=".(time()+180).", type=".MAKESNOWBALL.", isp=1");
+    echo "Ð’Ñ‹ Ð½Ð°Ñ‡Ð°Ð»Ð¸ Ð»ÐµÐ¿Ð¸Ñ‚ÑŒ ÑÐ½ÐµÐ¶Ð¾Ðº.";
     updeffects();
     $bet=1;
   }

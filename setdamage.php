@@ -10,16 +10,16 @@ die;
     $_POST["chdrob"]=(int)$_POST["chdrob"];
     $_POST["chmag"]=(int)$_POST["chmag"];
     mq("update $_POST[tbl] set chkol='$_POST[chkol]', chrub='$_POST[chrub]', chrej='$_POST[chrej]', chdrob='$_POST[chdrob]', chmag='$_POST[chmag]' where id='$_POST[item]'");
-    if ($_POST["chkol"]+$_POST["chrub"]+$_POST["chrej"]+$_POST["chdrob"]+$_POST["chmag"]!=100) echo "<script>alert('Неверные данные!')</script>";
+    if ($_POST["chkol"]+$_POST["chrub"]+$_POST["chrej"]+$_POST["chdrob"]+$_POST["chmag"]!=100) echo "<script>alert('РќРµРІРµСЂРЅС‹Рµ РґР°РЅРЅС‹Рµ!')</script>";
   }
   $r=mq("select * from shop where type=3 and count>0 order by razdel, name");
   echo "<table>
   <tr><td></td>
-  <td><b>Колящие</b></td>
-  <td><b>Рубящие</b></td>
-  <td><b>Режущие</b></td>
-  <td><b>Дробящие</b></td>
-  <td><b>Магические</b></td>
+  <td><b>РљРѕР»СЏС‰РёРµ</b></td>
+  <td><b>Р СѓР±СЏС‰РёРµ</b></td>
+  <td><b>Р РµР¶СѓС‰РёРµ</b></td>
+  <td><b>Р”СЂРѕР±СЏС‰РёРµ</b></td>
+  <td><b>РњР°РіРёС‡РµСЃРєРёРµ</b></td>
   </tr>
   ";
   while ($rec=mysql_fetch_assoc($r)) {
@@ -32,7 +32,7 @@ die;
     <td><input type=text size=3 name=\"chrej\" value=\"$rec[chrej]\"></td>
     <td><input type=text size=3 name=\"chdrob\" value=\"$rec[chdrob]\"></td>
     <td><input type=text size=3 name=\"chmag\" value=\"$rec[chmag]\"></td>
-    <td><input type=submit value=\"Сохранить\"></td>
+    <td><input type=submit value=\"РЎРѕС…СЂР°РЅРёС‚СЊ\"></td>
     </tr></form>";
   }
   echo "</table>";
@@ -40,11 +40,11 @@ die;
   $r=mq("select * from berezka where type=3 and count>0 order by razdel, name");
   echo "<hr><table>
   <tr><td></td>
-  <td><b>Колящие</b></td>
-  <td><b>Рубящие</b></td>
-  <td><b>Режущие</b></td>
-  <td><b>Дробящие</b></td>
-  <td><b>Магические</b></td>
+  <td><b>РљРѕР»СЏС‰РёРµ</b></td>
+  <td><b>Р СѓР±СЏС‰РёРµ</b></td>
+  <td><b>Р РµР¶СѓС‰РёРµ</b></td>
+  <td><b>Р”СЂРѕР±СЏС‰РёРµ</b></td>
+  <td><b>РњР°РіРёС‡РµСЃРєРёРµ</b></td>
   </tr>
   ";
   while ($rec=mysql_fetch_assoc($r)) {
@@ -57,7 +57,7 @@ die;
     <td><input type=text size=3 name=\"chdrob\" value=\"$rec[chdrob]\"></td>
     <td><input type=text size=3 name=\"chrej\" value=\"$rec[chrej]\"></td>
     <td><input type=text size=3 name=\"chmag\" value=\"$rec[chmag]\"></td>
-    <td><input type=submit value=\"Сохранить\"></td>
+    <td><input type=submit value=\"РЎРѕС…СЂР°РЅРёС‚СЊ\"></td>
     </tr></form>";
   }
   echo "</table>";

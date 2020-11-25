@@ -7,58 +7,58 @@
 
 ?>
 <form method=post action="add_priem.php">
-<b>Приемы</b>
+<b>РџСЂРёРµРјС‹</b>
 <table>
 
-<tr><td>Название </td><td><input type=text name=name value=''> </td></tr>
-<tr><td>Картинка </td><td><input type=text name=priem value=''> </td></tr>
-<tr><td>Тип Приема 
+<tr><td>РќР°Р·РІР°РЅРёРµ </td><td><input type=text name=name value=''> </td></tr>
+<tr><td>РљР°СЂС‚РёРЅРєР° </td><td><input type=text name=priem value=''> </td></tr>
+<tr><td>РўРёРї РџСЂРёРµРјР° 
 	</td><td><select name="type">
 			<option value="0"></option>
-			<option value="1">Приемы атаки</option>
-			<option value="2">Приемы защиты</option>
-			<option value="3">Приемы контрударов</option>
-			<option value="4">Приемы критических ударов</option>
-			<option value="5">Приемы парирования</option>
-			<option value="6">Комбо-приемы</option>
-			<option value="7">Приемы крови</option>
-			<option value="8">Приемы жертвы</option>
-			<option value="9">Приемы силы духа</option>
-			<option value="10">Заклинания Огня</option>
-			<option value="11">Заклинания Воды</option>
-			<option value="12">Заклинания Воздуха</option>
-			<option value="13">Заклинания Земли</option>
-			<option value="14">Заклинания магии Света</option>
-			<option value="15">Заклинания Серой магии</option>
-			<option value="16">Заклинания магии Тьмы</option>
+			<option value="1">РџСЂРёРµРјС‹ Р°С‚Р°РєРё</option>
+			<option value="2">РџСЂРёРµРјС‹ Р·Р°С‰РёС‚С‹</option>
+			<option value="3">РџСЂРёРµРјС‹ РєРѕРЅС‚СЂСѓРґР°СЂРѕРІ</option>
+			<option value="4">РџСЂРёРµРјС‹ РєСЂРёС‚РёС‡РµСЃРєРёС… СѓРґР°СЂРѕРІ</option>
+			<option value="5">РџСЂРёРµРјС‹ РїР°СЂРёСЂРѕРІР°РЅРёСЏ</option>
+			<option value="6">РљРѕРјР±Рѕ-РїСЂРёРµРјС‹</option>
+			<option value="7">РџСЂРёРµРјС‹ РєСЂРѕРІРё</option>
+			<option value="8">РџСЂРёРµРјС‹ Р¶РµСЂС‚РІС‹</option>
+			<option value="9">РџСЂРёРµРјС‹ СЃРёР»С‹ РґСѓС…Р°</option>
+			<option value="10">Р—Р°РєР»РёРЅР°РЅРёСЏ РћРіРЅСЏ</option>
+			<option value="11">Р—Р°РєР»РёРЅР°РЅРёСЏ Р’РѕРґС‹</option>
+			<option value="12">Р—Р°РєР»РёРЅР°РЅРёСЏ Р’РѕР·РґСѓС…Р°</option>
+			<option value="13">Р—Р°РєР»РёРЅР°РЅРёСЏ Р—РµРјР»Рё</option>
+			<option value="14">Р—Р°РєР»РёРЅР°РЅРёСЏ РјР°РіРёРё РЎРІРµС‚Р°</option>
+			<option value="15">Р—Р°РєР»РёРЅР°РЅРёСЏ РЎРµСЂРѕР№ РјР°РіРёРё</option>
+			<option value="16">Р—Р°РєР»РёРЅР°РЅРёСЏ РјР°РіРёРё РўСЊРјС‹</option>
 	</select> </td></tr>
 </table>
-<b>Требования:</b>
+<b>РўСЂРµР±РѕРІР°РЅРёСЏ:</b>
 <table>
-<tr><td>Уровень  </td><td><input type=text name=minlevel  value="0"></td></tr>
-<tr><td>Сила  </td><td><input type=text name=need_sil  value="0"></td></tr>
-<tr><td>Выносливость  </td><td><input type=text name=need_vyn  value="0"></td></tr>
-<tr><td>Интеллект </td><td><input type=text name=intel value="0"> </td></tr>
+<tr><td>РЈСЂРѕРІРµРЅСЊ  </td><td><input type=text name=minlevel  value="0"></td></tr>
+<tr><td>РЎРёР»Р°  </td><td><input type=text name=need_sil  value="0"></td></tr>
+<tr><td>Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ  </td><td><input type=text name=need_vyn  value="0"></td></tr>
+<tr><td>РРЅС‚РµР»Р»РµРєС‚ </td><td><input type=text name=intel value="0"> </td></tr>
 <tr><td><img src=http://img.combats.com/i/misc/micro/hit.gif></td><td><input type=text name=n_hit  value="0"></td></tr>
 <tr><td><img src=http://img.combats.com/i/misc/micro/krit.gif></td><td><input type=text name=n_krit  value="0"></td></tr>
 <tr><td><img src=http://img.combats.com/i/misc/micro/counter.gif></td><td><input type=text name=n_counter  value="0"></td></tr>
 <tr><td><img src=http://img.combats.com/i/misc/micro/block.gif></td><td><input type=text name=n_block  value="0"></td></tr>
 <tr><td><img src=http://img.combats.com/i/misc/micro/parry.gif></td><td><input type=text name=n_parry  value="0"></td></tr>
 <tr><td><img src=http://img.combats.com/i/misc/micro/hp.gif></td><td><input type=text name=n_hp  value="0"></td></tr>
-<tr><td>Сила Духа  </td><td><input type=text name=sduh  value="0"></td></tr>
-<tr><td>Задержка  </td><td><input type=text name=wait  value="0"></td></tr>
-<tr><td>Мастерство огня  </td><td><input type=text name=m_magic1  value="0"></td></tr>
-<tr><td>Мастерство воды  </td><td><input type=text name=m_magic2  value="0"></td></tr>
-<tr><td>Мастерство воздуха  </td><td><input type=text name=m_magic3  value="0"></td></tr>
-<tr><td>Мастерство земли  </td><td><input type=text name=m_magic4 value="0"> </td></tr>
-<tr><td>Светлая магия  </td><td><input type=text name=m_magic5  value="0"></td></tr>
-<tr><td>Серая магия  </td><td><input type=text name=m_magic6  value="0"></td></tr>
-<tr><td>Темная магия  </td><td><input type=text name=m_magic7  value="0"></td></tr>
-<tr><td>Расход маны  </td><td><input type=text name=mana  value="0"></td></tr>
-<tr><td>Приём Тратит Ход  </td><td><input type=text name=hod  value="0"></td></tr>
-<tr><td>Описание </td><td><textarea name=opisan value=''> </textarea></td></tr>
+<tr><td>РЎРёР»Р° Р”СѓС…Р°  </td><td><input type=text name=sduh  value="0"></td></tr>
+<tr><td>Р—Р°РґРµСЂР¶РєР°  </td><td><input type=text name=wait  value="0"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РѕРіРЅСЏ  </td><td><input type=text name=m_magic1  value="0"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РІРѕРґС‹  </td><td><input type=text name=m_magic2  value="0"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РІРѕР·РґСѓС…Р°  </td><td><input type=text name=m_magic3  value="0"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ Р·РµРјР»Рё  </td><td><input type=text name=m_magic4 value="0"> </td></tr>
+<tr><td>РЎРІРµС‚Р»Р°СЏ РјР°РіРёСЏ  </td><td><input type=text name=m_magic5  value="0"></td></tr>
+<tr><td>РЎРµСЂР°СЏ РјР°РіРёСЏ  </td><td><input type=text name=m_magic6  value="0"></td></tr>
+<tr><td>РўРµРјРЅР°СЏ РјР°РіРёСЏ  </td><td><input type=text name=m_magic7  value="0"></td></tr>
+<tr><td>Р Р°СЃС…РѕРґ РјР°РЅС‹  </td><td><input type=text name=mana  value="0"></td></tr>
+<tr><td>РџСЂРёС‘Рј РўСЂР°С‚РёС‚ РҐРѕРґ  </td><td><input type=text name=hod  value="0"></td></tr>
+<tr><td>РћРїРёСЃР°РЅРёРµ </td><td><textarea name=opisan value=''> </textarea></td></tr>
 </table>
-<INPUT TYPE="submit" value=" Добавить прием ">
+<INPUT TYPE="submit" value=" Р”РѕР±Р°РІРёС‚СЊ РїСЂРёРµРј ">
 </form>
 
 <?

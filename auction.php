@@ -27,14 +27,14 @@
 			if($_GET['kredit']>=0.01){
 				if(mysql_query("insert into `auction` (id,time,price,pers_id,stype,xdd,bids) values ('".$dress['id']."', '".(time()+86400)."', '".(float)$_GET['kredit']."', '".$_SESSION['uid']."', '', '', '')")){
 					if(mysql_query("update `inventory` set `auction`=3, `owner`=owner+200000000 WHERE `id`='".(int)$_GET['n']."'")){
-						$err= "<font color=red><b>Вы выставили ".$dress['name']." на аукцион за ".(float)$_GET['kredit']." кр.</b></font>";
+						$err= "<font color=red><b>Р’С‹ РІС‹СЃС‚Р°РІРёР»Рё ".$dress['name']." РЅР° Р°СѓРєС†РёРѕРЅ Р·Р° ".(float)$_GET['kredit']." РєСЂ.</b></font>";
 					}
 				}
 			}else{
-				$err = "<font color=red>Вы не можете выставить предмет за бесценок</font>";
+				$err = "<font color=red>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РІС‹СЃС‚Р°РІРёС‚СЊ РїСЂРµРґРјРµС‚ Р·Р° Р±РµСЃС†РµРЅРѕРє</font>";
 			}
 		}else{
-			$err = "<font color=red>Вы не можете выставить чужой предмет</font>";
+			$err = "<font color=red>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РІС‹СЃС‚Р°РІРёС‚СЊ С‡СѓР¶РѕР№ РїСЂРµРґРјРµС‚</font>";
 		}
 		$_GET['razdel']=3;
 	}
@@ -49,17 +49,17 @@
 					$sales = (($dress['sales']=="")?((float)$_GET['kredit']):($dress['sales'].",".(float)$_GET['kredit']));
 					if(mysql_query("update `users` set `money`=money-".(float)$_GET['kredit']." WHERE `id`='".$_SESSION['uid']."'")){
 						if(mysql_query("update `auction` set `price`='".(float)$_GET['kredit']."', `bids`='".$bids."', `sales`='".$sales."' WHERE `id`='".(int)$_GET['n']."'")){
-							$err= "<font color=red><b>Вы поставили ставку на ".$dress['name']." в количестве ".(float)$_GET['kredit']." кр.</b></font>";
+							$err= "<font color=red><b>Р’С‹ РїРѕСЃС‚Р°РІРёР»Рё СЃС‚Р°РІРєСѓ РЅР° ".$dress['name']." РІ РєРѕР»РёС‡РµСЃС‚РІРµ ".(float)$_GET['kredit']." РєСЂ.</b></font>";
 						}
 					}
 				}else{
-					$err = "<font color=red>Вы не можете сделать ставку ниже текущей</font>";
+					$err = "<font color=red>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СЃРґРµР»Р°С‚СЊ СЃС‚Р°РІРєСѓ РЅРёР¶Рµ С‚РµРєСѓС‰РµР№</font>";
 				}
 			}else{
-				$err = "<font color=red>Вы не можете сделать ставку на свой предмет</font>";
+				$err = "<font color=red>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СЃРґРµР»Р°С‚СЊ СЃС‚Р°РІРєСѓ РЅР° СЃРІРѕР№ РїСЂРµРґРјРµС‚</font>";
 			}
 		}else{
-			$err = "<font color=red>У Вас недостаточно денег</font>";
+			$err = "<font color=red>РЈ Р’Р°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі</font>";
 		}
 		$_GET['razdel']=0;
 	}
@@ -92,7 +92,7 @@ showURL: false
 });
 </SCRIPT>
 <SCRIPT LANGUAGE="JavaScript">
-// Закрывает окно
+// Р—Р°РєСЂС‹РІР°РµС‚ РѕРєРЅРѕ
 function closehint3()
 {
 	document.all("hint3").style.visibility="hidden";
@@ -107,14 +107,14 @@ function AddCount(name)
 }
 function sale(name, txt, n, kr)
 {
-	var s = prompt("Поставить на аукцион \""+txt+"\". Укажите цену:", kr);
+	var s = prompt("РџРѕСЃС‚Р°РІРёС‚СЊ РЅР° Р°СѓРєС†РёРѕРЅ \""+txt+"\". РЈРєР°Р¶РёС‚Рµ С†РµРЅСѓ:", kr);
 	if ((s != null)&&(s != '')) {
 		location.href="auction.php?sale="+name+"&kredit="+s+"&n="+n;
 	}
 }
 function cssale(name, txt, n, kr)
 {
-	var s = prompt("Поднять ставку \""+txt+"\". Укажите цену:", kr);
+	var s = prompt("РџРѕРґРЅСЏС‚СЊ СЃС‚Р°РІРєСѓ \""+txt+"\". РЈРєР°Р¶РёС‚Рµ С†РµРЅСѓ:", kr);
 	if ((s != null)&&(s != '')) {
 		location.href="auction.php?cssale="+name+"&kredit="+s+"&n="+n;
 	}
@@ -124,7 +124,7 @@ function cssale(name, txt, n, kr)
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=#e0e0e0>
 <TABLE border=0 width=100% cellspacing="0" cellpadding="0">
 <FORM action="city.php" method=GET>
-<tr><td valign=top><div align=center><h3>Филиал Аукциона</h3></div><td align=right>
+<tr><td valign=top><div align=center><h3>Р¤РёР»РёР°Р» РђСѓРєС†РёРѕРЅР°</h3></div><td align=right>
 <link href="/i/move/design6.css" rel="stylesheet" type="text/css"><script language="javascript" type="text/javascript">
 function fastshow2 (content, eEvent ) {
 var el = document.getElementById("mmoves");
@@ -159,7 +159,7 @@ document.getElementById("mmoves").style.visibility = 'hidden';
 
 <TABLE height=15 border="0" cellspacing="0" cellpadding="0">
 <TR>
-<TD rowspan=3 valign="bottom"><a href="?rnd=0.313154328583547"><img src="/i/move/rel_1.gif" width="15" height="16" alt="Обновить" border="0" /></a></TD>
+<TD rowspan=3 valign="bottom"><a href="?rnd=0.313154328583547"><img src="/i/move/rel_1.gif" width="15" height="16" alt="РћР±РЅРѕРІРёС‚СЊ" border="0" /></a></TD>
 <TD colspan="3"><img src="/i/move/navigatin_462.gif" width="80" height="4" /></TD>
 </TR>
 <TR>
@@ -180,7 +180,7 @@ document.getElementById("mmoves").style.visibility = 'hidden';
 
 <tr>
 <td ><img src="/i/move/links.gif" width="9" height="7" /></td>
-<td  nowrap><a href="city.php?btg=1" onClick="return check_access();" class="menutop" title="Время перехода: 10 сек.  ">Большая торговая</a></td>
+<td  nowrap><a href="city.php?btg=1" onClick="return check_access();" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє.  ">Р‘РѕР»СЊС€Р°СЏ С‚РѕСЂРіРѕРІР°СЏ</a></td>
 </tr>
 </table>
 </td>
@@ -241,10 +241,10 @@ progress_update();
 }
 </script>
 <br>
-	<small>Масса:
+	<small>РњР°СЃСЃР°:
 
 	<?=(int)$d[0];?>/<?=$user['sila']*4?> <BR>
-	У вас в наличии: <FONT COLOR="#339900"><?=$user['money']?></FONT> кр.</small>
+	РЈ РІР°СЃ РІ РЅР°Р»РёС‡РёРё: <FONT COLOR="#339900"><?=$user['money']?></FONT> РєСЂ.</small>
 
 </TD></TR>
 
@@ -260,11 +260,11 @@ progress_update();
 <FORM METHOD=POST name=F1>
 
 <tr>
-	<td width="60px" align="center" bgcolor="#C7C7C7"><b>Залы:</b></td>
-	<td width="120px" align="center" bgcolor="<?=(!isset($_GET['razdel']) or $_GET['razdel']==0)?"#A5A5A5":"#C7C7C7"?>"><a href="?razdel=0">Аукцион</a></td>
-	<td width="120px" align="center" bgcolor="<?=(isset($_GET['razdel']) and $_GET['razdel']==1)?"#A5A5A5":"#C7C7C7"?>"><a href="?razdel=1">Мои ставки </a></td>
-	<td width="120px" align="center" bgcolor="<?=(isset($_GET['razdel']) and $_GET['razdel']==2)?"#A5A5A5":"#C7C7C7"?>"><a href="?razdel=2">Мои лоты</a></td>
-	<td width="180px" align="center" bgcolor="<?=(isset($_GET['razdel']) and $_GET['razdel']==3)?"#A5A5A5":"#C7C7C7"?>"><a href="?razdel=3">Выставить на аукцион</a></td>
+	<td width="60px" align="center" bgcolor="#C7C7C7"><b>Р—Р°Р»С‹:</b></td>
+	<td width="120px" align="center" bgcolor="<?=(!isset($_GET['razdel']) or $_GET['razdel']==0)?"#A5A5A5":"#C7C7C7"?>"><a href="?razdel=0">РђСѓРєС†РёРѕРЅ</a></td>
+	<td width="120px" align="center" bgcolor="<?=(isset($_GET['razdel']) and $_GET['razdel']==1)?"#A5A5A5":"#C7C7C7"?>"><a href="?razdel=1">РњРѕРё СЃС‚Р°РІРєРё </a></td>
+	<td width="120px" align="center" bgcolor="<?=(isset($_GET['razdel']) and $_GET['razdel']==2)?"#A5A5A5":"#C7C7C7"?>"><a href="?razdel=2">РњРѕРё Р»РѕС‚С‹</a></td>
+	<td width="180px" align="center" bgcolor="<?=(isset($_GET['razdel']) and $_GET['razdel']==3)?"#A5A5A5":"#C7C7C7"?>"><a href="?razdel=3">Р’С‹СЃС‚Р°РІРёС‚СЊ РЅР° Р°СѓРєС†РёРѕРЅ</a></td>
 </tr>
 </table>
 <TABLE cellpadding=0 cellspacing=0 width="100%">
@@ -277,10 +277,10 @@ progress_update();
 <?if(!isset($_GET['razdel']) or $_GET['razdel']==0){?>
 		<table border=0 cellspacing="1" cellpadding="4" bgcolor="#a5a5a5" width="600px">
 		<tr valign=top>
-			<td width="80" align="center">Предмет</td>
-			<td width="120" align="center">Ставка</td>
-			<td width="200" align="center">Владелец</td>
-			<td width="110" align="center">Время</td>
+			<td width="80" align="center">РџСЂРµРґРјРµС‚</td>
+			<td width="120" align="center">РЎС‚Р°РІРєР°</td>
+			<td width="200" align="center">Р’Р»Р°РґРµР»РµС†</td>
+			<td width="110" align="center">Р’СЂРµРјСЏ</td>
 		</tr>	
 		<?
 		$q = mysql_query("select i.*, a.id as auc_id, a.time as auc_time, a.price as auc_price, a.pers_id as auc_pers_id, a.stype as auc_bider, a.stype as auc_bider_id, a.bids as auc_bids, a.sales as auc_sales, u.login as auc_owner from users u, inventory i, auction a where i.id=a.id and u.id=a.pers_id");
@@ -317,103 +317,103 @@ progress_update();
 		}
 	
 		$item_descr = "<b>".$item['name']."</b><BR>";
-		$item_descr .= "Долговечность: {$item['duration']}/{$item['maxdur']}<BR>";
-		$item_descr .= (($magic['chanse'] && $item['show']==1)?"Вероятность срабатывания: ".$magic['chanse']."%<BR>":"")."
-		".(($magic['time'])?"Продолжительность действия магии: ".$magic['time']." мин.<BR>":"")."
-		".(($item['goden'])?"Срок годности: ".time_left($item['dategoden'])." ".((!$item['count'])?"(до ".date("Y.m.d H:i",$item['dategoden']).")":"")."<BR>":"")."
-		".(($item['nsila'] OR $item['nlovk'] OR $item['ninta'] OR $item['nvinos'] OR $item['nlevel'] OR $item['nintel'] OR $item['nmudra'] OR $item['nnoj'] OR $item['ntopor'] OR $item['ndubina'] OR $item['nmech'] OR $item['nposoh'] OR $item['nfire'] OR $item['nwater'] OR $item['nair'] OR $item['nearth'] OR $item['nearth'] OR $item['nlight'] OR $item['ngray'] OR $item['ndark'])?"<b>Требуется минимальное:</b><BR>":"")."
-		".(($item['nlevel']>0)?"• Уровень: {$item['nlevel']}</font><BR>":"")."
-		".(($item['nsila']>0)?"• Сила: {$item['nsila']}</font><BR>":"")."
-		".(($item['nlovk']>0)?"• Ловкость: {$item['nlovk']}</font><BR>":"")."
-		".(($item['ninta']>0)?"• Интуиция: {$item['ninta']}</font><BR>":"")."
-		".(($item['nvinos']>0)?"• Выносливость: {$item['nvinos']}</font><BR>":"")."
-		".(($item['nintel']>0)?"• Интеллект: {$item['nintel']}</font><BR>":"")."
-		".(($item['nmudra']>0)?"• Мудрость: {$item['nmudra']}</font><BR>":"")."
-		".(($item['nnoj']>0)?"• Мастерство владения ножами и кастетами: {$item['nnoj']}</font><BR>":"")."
-		".(($item['ntopor']>0)?"• Мастерство владения топорами и секирами: {$item['ntopor']}</font><BR>":"")."
-		".(($item['ndubina']>0)?"• Мастерство владения дубинами и булавами: {$item['ndubina']}</font><BR>":"")."
-		".(($item['nmech']>0)?"• Мастерство владения мечами: {$item['nmech']}</font><BR>":"")."
-		".(($item['nposoh']>0)?"• Мастерство владения посохами: {$item['nposoh']}</font><BR>":"")."
-		".(($item['nfire']>0)?"• Мастерство владения стихией Огня: {$item['nfire']}</font><BR>":"")."
-		".(($item['nwater']>0)?"• Мастерство владения стихией Воды: {$item['nwater']}</font><BR>":"")."
-		".(($item['nair']>0)?"• Мастерство владения стихией Воздуха: {$item['nair']}</font><BR>":"")."
-		".(($item['nearth']>0)?"• Мастерство владения стихией Земли: {$item['nearth']}</font><BR>":"")."
-		".(($item['nlight']>0)?"• Мастерство владения магией Света: {$item['nlight']}</font><BR>":"")."
-		".(($item['ngray']>0)?"• Мастерство владения серой магией: {$item['ngray']}</font><BR>":"")."
-		".(($item['ndark']>0)?"• Мастерство владения магией Тьмы: {$item['ndark']}</font><BR>":"")."
-        ".(($item['gmeshok'] OR $item['honor'] OR $item['mfhitp'] OR $item['mfmagp'] OR $item['attacka'] OR $item['add_stats'] OR $item['mfpodav'] OR $item['gsila'] OR $item['mfdhit'] OR $item['mfdmag']  OR $item['mfkritpow']  OR $item['mfantikritpow'] OR $item['mfparir']  OR $item['mfshieldblock'] OR $item['mfcontr']  OR $item['mfrub'] OR $item['mfkol']  OR $item['mfdrob'] OR $item['mfrej'] OR $item['mfkrit'] OR $item['mfakrit']  OR $item['mfuvorot'] OR $item['mfauvorot']  OR $item['glovk'] OR $item['ghp'] OR $item['gmana'] OR $item['ginta'] OR $item['gintel'] OR $item['gnoj'] OR $item['gtopor'] OR $item['gdubina'] OR $item['gmech'] OR $item['gposoh'] OR $item['gfire'] OR $item['gwater'] OR $item['gair'] OR $item['gearth'] OR $item['gearth'] OR $item['glight'] OR $item['ggray'] OR $item['gdark'] OR $item['minu'] OR $item['maxu'] OR $item['bron1'] OR $item['bron2'] OR $item['bron3'] OR $item['bron4'])?"<b>Действует на:</b><BR>":"")."
-	    ".(($item['deistvie'] && $item['show']==1)?"<b>Действует на:</b><BR>• ".$item['deistvie']."<BR> ":"")."
-        ".(($item['minu'])?"• Минимальное наносимое повреждение: {$item['minu']}<BR>":"")."
-		".(($item['maxu'])?"• Максимальное наносимое повреждение: {$item['maxu']}<BR>":"")."
-		".(($item['gsila'])?"• Сила: ".(($item['gsila']>0)?"+":"")."{$item['gsila']}<BR>":"")."
-		".(($item['glovk'])?"• Ловкость: ".(($item['glovk']>0)?"+":"")."{$item['glovk']}<BR>":"")."
-		".(($item['ginta'])?"• Интуиция: ".(($item['ginta']>0)?"+":"")."{$item['ginta']}<BR>":"")."
-		".(($item['gintel'])?"• Интеллект: ".(($item['gintel']>0)?"+":"")."{$item['gintel']}<BR>":"")."
-		".(($item['ghp'])?"• Уровень жизни: +{$item['ghp']}<BR>":"")."
-		".(($item['gmana'])?"• Уровень маны: +{$item['gmana']}<BR>":"")."
-		".(($item['mfkrit'])?"• Мф. критических ударов: ".(($item['mfkrit']>0)?"+":"")."{$item['mfkrit']}%<BR>":"")."
-		".(($item['mfakrit'])?"• Мф. против крит. ударов: ".(($item['mfakrit']>0)?"+":"")."{$item['mfakrit']}%<BR>":"")."
-		".(($item['mfkritpow'])?"• Мф. мощности критического. удара: ".(($item['mfkritpow']>0)?"+":"")."{$item['mfkritpow']}%<BR>":"")."
-		".(($item['mfantikritpow'])?"• Мф. против мощ. крит. удара: ".(($item['mfantikritpow']>0)?"+":"")."{$item['mfantikritpow']}%<BR>":"")."
-		".(($item['mfparir'])?"• Мф. парирования: ".(($item['mfparir']>0)?"+":"")."{$item['mfparir']}%<BR>":"")."
-		".(($item['mfshieldblock'])?"• Мф. блока щитом: ".(($item['mfshieldblock']>0)?"+":"")."{$item['mfshieldblock']}%<BR>":"")."
-		".(($item['mfcontr'])?"• Мф. контрудара: ".(($item['mfcontr']>0)?"+":"")."{$item['mfcontr']}%<BR>":"")."
-		".(($item['mfuvorot'])?"• Мф. увертливости: ".(($item['mfuvorot']>0)?"+":"")."{$item['mfuvorot']}%<BR>":"")."
-		".(($item['mfauvorot'])?"• Мф. против увертлив.: ".(($item['mfauvorot']>0)?"+":"")."{$item['mfauvorot']}%<BR>":"")."
-		".(($item['gnoj'])?"• Мастерство владения ножами и кастетами: +{$item['gnoj']}<BR>":"")."
-		".(($item['gtopor'])?"• Мастерство владения топорами и секирами: +{$item['gtopor']}<BR>":"")."
-		".(($item['gdubina'])?"• Мастерство владения дубинами и булавами: +{$item['gdubina']}<BR>":"")."
-		".(($item['gmech'])?"• Мастерство владения мечами: +{$item['gmech']}<BR>":"")."
-		".(($item['gposoh'])?"• Мастерство владения посохами: +{$item['gposoh']}<BR>":"")."
-		".(($item['gfire'])?"• Мастерство владения стихией Огня: +{$item['gfire']}<BR>":"")."
-		".(($item['gwater'])?"• Мастерство владения стихией Воды: +{$item['gwater']}<BR>":"")."
-		".(($item['gair'])?"• Мастерство владения стихией Воздуха: +{$item['gair']}<BR>":"")."
-		".(($item['gearth'])?"• Мастерство владения стихией Земли: +{$item['gearth']}<BR>":"")."
-		".(($item['glight'])?"• Мастерство владения магией Света: +{$item['glight']}<BR>":"")."
-		".(($item['ggray'])?"• Мастерство владения серой магией: +{$item['ggray']}<BR>":"")."
-		".(($item['gdark'])?"• Мастерство владения магией Тьмы: +{$item['gdark']}<BR>":"").""
+		$item_descr .= "Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: {$item['duration']}/{$item['maxdur']}<BR>";
+		$item_descr .= (($magic['chanse'] && $item['show']==1)?"Р’РµСЂРѕСЏС‚РЅРѕСЃС‚СЊ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ: ".$magic['chanse']."%<BR>":"")."
+		".(($magic['time'])?"РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РґРµР№СЃС‚РІРёСЏ РјР°РіРёРё: ".$magic['time']." РјРёРЅ.<BR>":"")."
+		".(($item['goden'])?"РЎСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё: ".time_left($item['dategoden'])." ".((!$item['count'])?"(РґРѕ ".date("Y.m.d H:i",$item['dategoden']).")":"")."<BR>":"")."
+		".(($item['nsila'] OR $item['nlovk'] OR $item['ninta'] OR $item['nvinos'] OR $item['nlevel'] OR $item['nintel'] OR $item['nmudra'] OR $item['nnoj'] OR $item['ntopor'] OR $item['ndubina'] OR $item['nmech'] OR $item['nposoh'] OR $item['nfire'] OR $item['nwater'] OR $item['nair'] OR $item['nearth'] OR $item['nearth'] OR $item['nlight'] OR $item['ngray'] OR $item['ndark'])?"<b>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</b><BR>":"")."
+		".(($item['nlevel']>0)?"вЂў РЈСЂРѕРІРµРЅСЊ: {$item['nlevel']}</font><BR>":"")."
+		".(($item['nsila']>0)?"вЂў РЎРёР»Р°: {$item['nsila']}</font><BR>":"")."
+		".(($item['nlovk']>0)?"вЂў Р›РѕРІРєРѕСЃС‚СЊ: {$item['nlovk']}</font><BR>":"")."
+		".(($item['ninta']>0)?"вЂў РРЅС‚СѓРёС†РёСЏ: {$item['ninta']}</font><BR>":"")."
+		".(($item['nvinos']>0)?"вЂў Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: {$item['nvinos']}</font><BR>":"")."
+		".(($item['nintel']>0)?"вЂў РРЅС‚РµР»Р»РµРєС‚: {$item['nintel']}</font><BR>":"")."
+		".(($item['nmudra']>0)?"вЂў РњСѓРґСЂРѕСЃС‚СЊ: {$item['nmudra']}</font><BR>":"")."
+		".(($item['nnoj']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РЅРѕР¶Р°РјРё Рё РєР°СЃС‚РµС‚Р°РјРё: {$item['nnoj']}</font><BR>":"")."
+		".(($item['ntopor']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ С‚РѕРїРѕСЂР°РјРё Рё СЃРµРєРёСЂР°РјРё: {$item['ntopor']}</font><BR>":"")."
+		".(($item['ndubina']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РґСѓР±РёРЅР°РјРё Рё Р±СѓР»Р°РІР°РјРё: {$item['ndubina']}</font><BR>":"")."
+		".(($item['nmech']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјРµС‡Р°РјРё: {$item['nmech']}</font><BR>":"")."
+		".(($item['nposoh']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РїРѕСЃРѕС…Р°РјРё: {$item['nposoh']}</font><BR>":"")."
+		".(($item['nfire']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: {$item['nfire']}</font><BR>":"")."
+		".(($item['nwater']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: {$item['nwater']}</font><BR>":"")."
+		".(($item['nair']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: {$item['nair']}</font><BR>":"")."
+		".(($item['nearth']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: {$item['nearth']}</font><BR>":"")."
+		".(($item['nlight']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РЎРІРµС‚Р°: {$item['nlight']}</font><BR>":"")."
+		".(($item['ngray']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃРµСЂРѕР№ РјР°РіРёРµР№: {$item['ngray']}</font><BR>":"")."
+		".(($item['ndark']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РўСЊРјС‹: {$item['ndark']}</font><BR>":"")."
+        ".(($item['gmeshok'] OR $item['honor'] OR $item['mfhitp'] OR $item['mfmagp'] OR $item['attacka'] OR $item['add_stats'] OR $item['mfpodav'] OR $item['gsila'] OR $item['mfdhit'] OR $item['mfdmag']  OR $item['mfkritpow']  OR $item['mfantikritpow'] OR $item['mfparir']  OR $item['mfshieldblock'] OR $item['mfcontr']  OR $item['mfrub'] OR $item['mfkol']  OR $item['mfdrob'] OR $item['mfrej'] OR $item['mfkrit'] OR $item['mfakrit']  OR $item['mfuvorot'] OR $item['mfauvorot']  OR $item['glovk'] OR $item['ghp'] OR $item['gmana'] OR $item['ginta'] OR $item['gintel'] OR $item['gnoj'] OR $item['gtopor'] OR $item['gdubina'] OR $item['gmech'] OR $item['gposoh'] OR $item['gfire'] OR $item['gwater'] OR $item['gair'] OR $item['gearth'] OR $item['gearth'] OR $item['glight'] OR $item['ggray'] OR $item['gdark'] OR $item['minu'] OR $item['maxu'] OR $item['bron1'] OR $item['bron2'] OR $item['bron3'] OR $item['bron4'])?"<b>Р”РµР№СЃС‚РІСѓРµС‚ РЅР°:</b><BR>":"")."
+	    ".(($item['deistvie'] && $item['show']==1)?"<b>Р”РµР№СЃС‚РІСѓРµС‚ РЅР°:</b><BR>вЂў ".$item['deistvie']."<BR> ":"")."
+        ".(($item['minu'])?"вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: {$item['minu']}<BR>":"")."
+		".(($item['maxu'])?"вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: {$item['maxu']}<BR>":"")."
+		".(($item['gsila'])?"вЂў РЎРёР»Р°: ".(($item['gsila']>0)?"+":"")."{$item['gsila']}<BR>":"")."
+		".(($item['glovk'])?"вЂў Р›РѕРІРєРѕСЃС‚СЊ: ".(($item['glovk']>0)?"+":"")."{$item['glovk']}<BR>":"")."
+		".(($item['ginta'])?"вЂў РРЅС‚СѓРёС†РёСЏ: ".(($item['ginta']>0)?"+":"")."{$item['ginta']}<BR>":"")."
+		".(($item['gintel'])?"вЂў РРЅС‚РµР»Р»РµРєС‚: ".(($item['gintel']>0)?"+":"")."{$item['gintel']}<BR>":"")."
+		".(($item['ghp'])?"вЂў РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: +{$item['ghp']}<BR>":"")."
+		".(($item['gmana'])?"вЂў РЈСЂРѕРІРµРЅСЊ РјР°РЅС‹: +{$item['gmana']}<BR>":"")."
+		".(($item['mfkrit'])?"вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРёС… СѓРґР°СЂРѕРІ: ".(($item['mfkrit']>0)?"+":"")."{$item['mfkrit']}%<BR>":"")."
+		".(($item['mfakrit'])?"вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚. СѓРґР°СЂРѕРІ: ".(($item['mfakrit']>0)?"+":"")."{$item['mfakrit']}%<BR>":"")."
+		".(($item['mfkritpow'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ. СѓРґР°СЂР°: ".(($item['mfkritpow']>0)?"+":"")."{$item['mfkritpow']}%<BR>":"")."
+		".(($item['mfantikritpow'])?"вЂў РњС„. РїСЂРѕС‚РёРІ РјРѕС‰. РєСЂРёС‚. СѓРґР°СЂР°: ".(($item['mfantikritpow']>0)?"+":"")."{$item['mfantikritpow']}%<BR>":"")."
+		".(($item['mfparir'])?"вЂў РњС„. РїР°СЂРёСЂРѕРІР°РЅРёСЏ: ".(($item['mfparir']>0)?"+":"")."{$item['mfparir']}%<BR>":"")."
+		".(($item['mfshieldblock'])?"вЂў РњС„. Р±Р»РѕРєР° С‰РёС‚РѕРј: ".(($item['mfshieldblock']>0)?"+":"")."{$item['mfshieldblock']}%<BR>":"")."
+		".(($item['mfcontr'])?"вЂў РњС„. РєРѕРЅС‚СЂСѓРґР°СЂР°: ".(($item['mfcontr']>0)?"+":"")."{$item['mfcontr']}%<BR>":"")."
+		".(($item['mfuvorot'])?"вЂў РњС„. СѓРІРµСЂС‚Р»РёРІРѕСЃС‚Рё: ".(($item['mfuvorot']>0)?"+":"")."{$item['mfuvorot']}%<BR>":"")."
+		".(($item['mfauvorot'])?"вЂў РњС„. РїСЂРѕС‚РёРІ СѓРІРµСЂС‚Р»РёРІ.: ".(($item['mfauvorot']>0)?"+":"")."{$item['mfauvorot']}%<BR>":"")."
+		".(($item['gnoj'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РЅРѕР¶Р°РјРё Рё РєР°СЃС‚РµС‚Р°РјРё: +{$item['gnoj']}<BR>":"")."
+		".(($item['gtopor'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ С‚РѕРїРѕСЂР°РјРё Рё СЃРµРєРёСЂР°РјРё: +{$item['gtopor']}<BR>":"")."
+		".(($item['gdubina'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РґСѓР±РёРЅР°РјРё Рё Р±СѓР»Р°РІР°РјРё: +{$item['gdubina']}<BR>":"")."
+		".(($item['gmech'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјРµС‡Р°РјРё: +{$item['gmech']}<BR>":"")."
+		".(($item['gposoh'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РїРѕСЃРѕС…Р°РјРё: +{$item['gposoh']}<BR>":"")."
+		".(($item['gfire'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: +{$item['gfire']}<BR>":"")."
+		".(($item['gwater'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: +{$item['gwater']}<BR>":"")."
+		".(($item['gair'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: +{$item['gair']}<BR>":"")."
+		".(($item['gearth'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: +{$item['gearth']}<BR>":"")."
+		".(($item['glight'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РЎРІРµС‚Р°: +{$item['glight']}<BR>":"")."
+		".(($item['ggray'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃРµСЂРѕР№ РјР°РіРёРµР№: +{$item['ggray']}<BR>":"")."
+		".(($item['gdark'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РўСЊРјС‹: +{$item['gdark']}<BR>":"").""
                
-         .(($item['bron1']!=0)?"• Броня головы: {$item['bron11']}-{$item['bron1']} (".(((($item['bron11']-1)!=0)?($item['bron11']-1)."+":""))."d".(1+$item['bron1']-$item['bron11']).")<br>":"")."
-		".(($item['bron2']!=0)?"• Броня корпуса: {$item['bron22']}-{$item['bron2']} (".(((($item['bron22']-1)!=0)?($item['bron22']-1)."+":""))."d".(1+$item['bron2']-$item['bron22']).")<br>":"")."
-		".(($item['bron3']!=0)?"• Броня пояса: {$item['bron33']}-{$item['bron3']} (".(((($item['bron33']-1)!=0)?($item['bron33']-1)."+":""))."d".(1+$item['bron3']-$item['bron33']).")<br>":"")."
-		".(($item['bron4']!=0)?"• Броня ног: {$item['bron44']}-{$item['bron4']} (".(((($item['bron44']-1)!=0)?($item['bron44']-1)."+":""))."d".(1+$item['bron4']-$item['bron44']).")<br>":"")."
+         .(($item['bron1']!=0)?"вЂў Р‘СЂРѕРЅСЏ РіРѕР»РѕРІС‹: {$item['bron11']}-{$item['bron1']} (".(((($item['bron11']-1)!=0)?($item['bron11']-1)."+":""))."d".(1+$item['bron1']-$item['bron11']).")<br>":"")."
+		".(($item['bron2']!=0)?"вЂў Р‘СЂРѕРЅСЏ РєРѕСЂРїСѓСЃР°: {$item['bron22']}-{$item['bron2']} (".(((($item['bron22']-1)!=0)?($item['bron22']-1)."+":""))."d".(1+$item['bron2']-$item['bron22']).")<br>":"")."
+		".(($item['bron3']!=0)?"вЂў Р‘СЂРѕРЅСЏ РїРѕСЏСЃР°: {$item['bron33']}-{$item['bron3']} (".(((($item['bron33']-1)!=0)?($item['bron33']-1)."+":""))."d".(1+$item['bron3']-$item['bron33']).")<br>":"")."
+		".(($item['bron4']!=0)?"вЂў Р‘СЂРѕРЅСЏ РЅРѕРі: {$item['bron44']}-{$item['bron4']} (".(((($item['bron44']-1)!=0)?($item['bron44']-1)."+":""))."d".(1+$item['bron4']-$item['bron44']).")<br>":"")."
 
-		".(($item['add_stats'])?"• Количество увеличений: {$item['add_stats']}<BR>":"")."
-        ".(($item['attacka'])?"• Дополнительный удар: +{$item['attacka']}<BR>":"")."
-		".(($item['mfdhit'])?"• Защита от урона: ".(($item['mfdhit']>0)?"+":"")."{$item['mfdhit']}%<BR>":"")."
-		".(($item['mfdmag'])?"• Защита от магии: ".(($item['mfdmag']>0)?"+":"")."{$item['mfdmag']}%<BR>":"")."
-		".(($item['mfdfire'])?"• Защита от магии Огня: ".(($item['mfdfire']>0)?"+":"")."{$item['mfdfire']}%<BR>":"")."
-        ".(($item['mfdair'])?"• Защита от магии Воздуха: ".(($item['mfdair']>0)?"+":"")."{$item['mfdair']}%<BR>":"")."
-        ".(($item['mfdwater'])?"• Защита от магии Воды: ".(($item['mfdwater']>0)?"+":"")."{$item['mfdwater']}%<BR>":"")."
-        ".(($item['mfdearth'])?"• Защита от магии Земли: ".(($item['mfdearth']>0)?"+":"")."{$item['mfdearth']}%<BR>":"")."
-        ".(($item['mffire'])?"• Мф. мощности урона Огня: ".(($item['mffire']>0)?"+":"")."{$item['mffire']}%<BR>":"")."
-        ".(($item['mfair'])?"• Мф. мощности урона Воздуха: ".(($item['mfair']>0)?"+":"")."{$item['mfair']}%<BR>":"")."
-        ".(($item['mfwater'])?"• Мф. мощности урона Воды: ".(($item['mfwater']>0)?"+":"")."{$item['mfwater']}%<BR>":"")."
-        ".(($item['mfearth'])?"• Мф. мощности урона Земли: ".(($item['mfearth']>0)?"+":"")."{$item['mfearth']}%<BR>":"")."
-        ".(($item['mfhitp'])?"• Мф. мощности урона: ".(($item['mfhitp']>0)?"+":"")."{$item['mfhitp']}%<BR>":"")."
-		".(($item['mfmagp'])?"• Мф. мощности магии: ".(($item['mfmagp']>0)?"+":"")."{$item['mfmagp']}%<BR>":"")."
-		".(($item['mfpodav'])?"• Мф. подавления защиты от магии: ".(($item['mfpodav']>0)?"+":"")."{$item['mfpodav']}%<BR>":"")."
-		".(($item['mfrub'])?"• Мф. мощности рубящго урона: ".(($item['mfrub']>0)?"+":"")."{$item['mfrub']}%<BR>":"")."
-		".(($item['mfkol'])?"• Мф. мощности колющего урона: ".(($item['mfkol']>0)?"+":"")."{$item['mfkol']}%<BR>":"")."
-		".(($item['mfdrob'])?"• Мф. мощности дробящего урона: ".(($item['mfdrob']>0)?"+":"")."{$item['mfdrob']}%<BR>":"")."
-		".(($item['mfrej'])?"•  Мф. мощности режущего урона: ".(($item['mfrej']>0)?"+":"")."{$item['mfrej']}%<BR>":"")."
-		".(($item['gmeshok'])?"• Увеличивает рюкзак: +{$item['gmeshok']}<BR>":"")."
-		".(($item['letter'])?"Количество символов: ".strlen($item['letter'])."</div>":"")."
-		".(($item['letter'])?"На бумаге записан текст:<div style='background-color:FAF0E6;'> ".nl2br($item['letter'])."</div>":"")."
-		".(($magic['name'] && $item['type'] != 50 && $item['type'] != 25 && $item['type'] != 29 && ($item['type'] != 200))?"<font color=maroon>Наложены заклятия:</font> <img src=\"http://img.wapbk.ru/i/magic/".$magic['img']."\" alt=\"".$magic['name']."\">".$magic['name']."<BR>":"")."
-		".((($item['type'] == 25))?"<font color=maroon>Наложены заклятия:</font> ".$magic['name']."<BR>":"")."
-		".((($item['type'] == 29))?"<font color=maroon>Наложены заклятия:</font> ".$magic['name']."<BR>":"")."
-        ".(($item['text'])?"На ручке выгравирована надпись:<center>".$item['text']."</center><BR>":"")."
-		".(($incmagic['max'])?"	Встроено заклятие <img src=\"/i/magic/".$incmagic['img']."\" alt=\"".$incmagic['name']."\"> ".$incmagic['cur']." шт.	<BR>":"")."
-		".(($item['podzem'])?"<br><font style='font-size:11px; color:#990000'>Предмет из подземелья</font><BR>":"")."
-	    ".(($item['sh']==1)?"<i>Особенности:</i><BR>• Колющие атаки: Регулярны<BR>• Режущие атаки: Ничтожно редки<BR>• Рубящие атаки:  Ничтожно редки<BR>• Ледяные атаки: Ничтожно редки<BR>":"")."
-        ".(($item['dvur'])?"<font style='font-size:11px; color:#990000'>двуручное оружие</font><BR>":"")."
+		".(($item['add_stats'])?"вЂў РљРѕР»РёС‡РµСЃС‚РІРѕ СѓРІРµР»РёС‡РµРЅРёР№: {$item['add_stats']}<BR>":"")."
+        ".(($item['attacka'])?"вЂў Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СѓРґР°СЂ: +{$item['attacka']}<BR>":"")."
+		".(($item['mfdhit'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ СѓСЂРѕРЅР°: ".(($item['mfdhit']>0)?"+":"")."{$item['mfdhit']}%<BR>":"")."
+		".(($item['mfdmag'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё: ".(($item['mfdmag']>0)?"+":"")."{$item['mfdmag']}%<BR>":"")."
+		".(($item['mfdfire'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РћРіРЅСЏ: ".(($item['mfdfire']>0)?"+":"")."{$item['mfdfire']}%<BR>":"")."
+        ".(($item['mfdair'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р’РѕР·РґСѓС…Р°: ".(($item['mfdair']>0)?"+":"")."{$item['mfdair']}%<BR>":"")."
+        ".(($item['mfdwater'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р’РѕРґС‹: ".(($item['mfdwater']>0)?"+":"")."{$item['mfdwater']}%<BR>":"")."
+        ".(($item['mfdearth'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р—РµРјР»Рё: ".(($item['mfdearth']>0)?"+":"")."{$item['mfdearth']}%<BR>":"")."
+        ".(($item['mffire'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° РћРіРЅСЏ: ".(($item['mffire']>0)?"+":"")."{$item['mffire']}%<BR>":"")."
+        ".(($item['mfair'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° Р’РѕР·РґСѓС…Р°: ".(($item['mfair']>0)?"+":"")."{$item['mfair']}%<BR>":"")."
+        ".(($item['mfwater'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° Р’РѕРґС‹: ".(($item['mfwater']>0)?"+":"")."{$item['mfwater']}%<BR>":"")."
+        ".(($item['mfearth'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° Р—РµРјР»Рё: ".(($item['mfearth']>0)?"+":"")."{$item['mfearth']}%<BR>":"")."
+        ".(($item['mfhitp'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР°: ".(($item['mfhitp']>0)?"+":"")."{$item['mfhitp']}%<BR>":"")."
+		".(($item['mfmagp'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё: ".(($item['mfmagp']>0)?"+":"")."{$item['mfmagp']}%<BR>":"")."
+		".(($item['mfpodav'])?"вЂў РњС„. РїРѕРґР°РІР»РµРЅРёСЏ Р·Р°С‰РёС‚С‹ РѕС‚ РјР°РіРёРё: ".(($item['mfpodav']>0)?"+":"")."{$item['mfpodav']}%<BR>":"")."
+		".(($item['mfrub'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СЂСѓР±СЏС‰РіРѕ СѓСЂРѕРЅР°: ".(($item['mfrub']>0)?"+":"")."{$item['mfrub']}%<BR>":"")."
+		".(($item['mfkol'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РєРѕР»СЋС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($item['mfkol']>0)?"+":"")."{$item['mfkol']}%<BR>":"")."
+		".(($item['mfdrob'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РґСЂРѕР±СЏС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($item['mfdrob']>0)?"+":"")."{$item['mfdrob']}%<BR>":"")."
+		".(($item['mfrej'])?"вЂў  РњС„. РјРѕС‰РЅРѕСЃС‚Рё СЂРµР¶СѓС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($item['mfrej']>0)?"+":"")."{$item['mfrej']}%<BR>":"")."
+		".(($item['gmeshok'])?"вЂў РЈРІРµР»РёС‡РёРІР°РµС‚ СЂСЋРєР·Р°Рє: +{$item['gmeshok']}<BR>":"")."
+		".(($item['letter'])?"РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ: ".strlen($item['letter'])."</div>":"")."
+		".(($item['letter'])?"РќР° Р±СѓРјР°РіРµ Р·Р°РїРёСЃР°РЅ С‚РµРєСЃС‚:<div style='background-color:FAF0E6;'> ".nl2br($item['letter'])."</div>":"")."
+		".(($magic['name'] && $item['type'] != 50 && $item['type'] != 25 && $item['type'] != 29 && ($item['type'] != 200))?"<font color=maroon>РќР°Р»РѕР¶РµРЅС‹ Р·Р°РєР»СЏС‚РёСЏ:</font> <img src=\"http://img.wapbk.ru/i/magic/".$magic['img']."\" alt=\"".$magic['name']."\">".$magic['name']."<BR>":"")."
+		".((($item['type'] == 25))?"<font color=maroon>РќР°Р»РѕР¶РµРЅС‹ Р·Р°РєР»СЏС‚РёСЏ:</font> ".$magic['name']."<BR>":"")."
+		".((($item['type'] == 29))?"<font color=maroon>РќР°Р»РѕР¶РµРЅС‹ Р·Р°РєР»СЏС‚РёСЏ:</font> ".$magic['name']."<BR>":"")."
+        ".(($item['text'])?"РќР° СЂСѓС‡РєРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅР° РЅР°РґРїРёСЃСЊ:<center>".$item['text']."</center><BR>":"")."
+		".(($incmagic['max'])?"	Р’СЃС‚СЂРѕРµРЅРѕ Р·Р°РєР»СЏС‚РёРµ <img src=\"/i/magic/".$incmagic['img']."\" alt=\"".$incmagic['name']."\"> ".$incmagic['cur']." С€С‚.	<BR>":"")."
+		".(($item['podzem'])?"<br><font style='font-size:11px; color:#990000'>РџСЂРµРґРјРµС‚ РёР· РїРѕРґР·РµРјРµР»СЊСЏ</font><BR>":"")."
+	    ".(($item['sh']==1)?"<i>РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё:</i><BR>вЂў РљРѕР»СЋС‰РёРµ Р°С‚Р°РєРё: Р РµРіСѓР»СЏСЂРЅС‹<BR>вЂў Р РµР¶СѓС‰РёРµ Р°С‚Р°РєРё: РќРёС‡С‚РѕР¶РЅРѕ СЂРµРґРєРё<BR>вЂў Р СѓР±СЏС‰РёРµ Р°С‚Р°РєРё:  РќРёС‡С‚РѕР¶РЅРѕ СЂРµРґРєРё<BR>вЂў Р›РµРґСЏРЅС‹Рµ Р°С‚Р°РєРё: РќРёС‡С‚РѕР¶РЅРѕ СЂРµРґРєРё<BR>":"")."
+        ".(($item['dvur'])?"<font style='font-size:11px; color:#990000'>РґРІСѓСЂСѓС‡РЅРѕРµ РѕСЂСѓР¶РёРµ</font><BR>":"")."
 		".(($item['opisan'])?"<small>".$item['opisan']."</small><BR>":"")."
-        ".((!$item['isrep'])?"<small><font color=maroon>Предмет не подлежит ремонту</font></small><BR>":"");
+        ".((!$item['isrep'])?"<small><font color=maroon>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><BR>":"");
 		?>
 		<tr bgcolor="#e2e2e2" onclick="cssale('2', '<?=$item['name']?>', '<?=$item['id']?>', '<?=$item['cost']?>');" style="cursor:pointer">
 			<td align="center"><img src="/i/sh/<?=$item['img']?>" title="<?=$item_descr?>"></td>
-			<td align="right"><?=number_format($item['auc_price'], 2, '.', ' ')?> кр.
+			<td align="right"><?=number_format($item['auc_price'], 2, '.', ' ')?> РєСЂ.
 				<?
 					$your_bid = '';
 					if($item['auc_bids']!=""){
@@ -424,10 +424,10 @@ progress_update();
 						foreach($bids as $k=>$bidder_id){
 							$login = mysql_fetch_assoc(mysql_query("select login from users where id='".$bidder_id."' LIMIT 1"));
 							$bidders[] = ($k==0)?"<b>".$login['login']."</b>":$login['login'];
-							$your_bid = ($bidder_id==$_SESSION['uid'])?'(ваша ставка)<br>':'';
+							$your_bid = ($bidder_id==$_SESSION['uid'])?'(РІР°С€Р° СЃС‚Р°РІРєР°)<br>':'';
 						}
 						$bidders_out = implode("<br>", $bidders);
-						echo $your_bid.'<span title="'.$bidders_out.'">(участников: '.count($bids).')</span>';
+						echo $your_bid.'<span title="'.$bidders_out.'">(СѓС‡Р°СЃС‚РЅРёРєРѕРІ: '.count($bids).')</span>';
 					}
 				?>
 			</td>
@@ -439,10 +439,10 @@ progress_update();
 <?}elseif(isset($_GET['razdel']) and $_GET['razdel']==1){?>
 <table border=0 cellspacing="1" cellpadding="4" bgcolor="#a5a5a5" width="600px">
 		<tr valign=top>
-			<td width="80" align="center">Предмет</td>
-			<td width="120" align="center">Ставка</td>
-			<td width="200" align="center">Владелец</td>
-			<td width="110" align="center">Время</td>
+			<td width="80" align="center">РџСЂРµРґРјРµС‚</td>
+			<td width="120" align="center">РЎС‚Р°РІРєР°</td>
+			<td width="200" align="center">Р’Р»Р°РґРµР»РµС†</td>
+			<td width="110" align="center">Р’СЂРµРјСЏ</td>
 		</tr>	
 		<?
 		$q = mysql_query("select i.*, a.id as auc_id, a.time as auc_time, a.price as auc_price, a.pers_id as auc_pers_id, a.stype as auc_bider, a.stype as auc_bider_id, a.bids as auc_bids, a.sales as auc_sales, u.login as auc_owner from users u, inventory i, auction a where i.id=a.id and u.id=a.pers_id and a.bids!=''");
@@ -487,103 +487,103 @@ progress_update();
 		}
 	
 		$item_descr = "<b>".$item['name']."</b><BR>";
-		$item_descr .= "Долговечность: {$item['duration']}/{$item['maxdur']}<BR>";
-		$item_descr .= (($magic['chanse'] && $item['show']==1)?"Вероятность срабатывания: ".$magic['chanse']."%<BR>":"")."
-		".(($magic['time'])?"Продолжительность действия магии: ".$magic['time']." мин.<BR>":"")."
-		".(($item['goden'])?"Срок годности: ".time_left($item['dategoden'])." ".((!$item['count'])?"(до ".date("Y.m.d H:i",$item['dategoden']).")":"")."<BR>":"")."
-		".(($item['nsila'] OR $item['nlovk'] OR $item['ninta'] OR $item['nvinos'] OR $item['nlevel'] OR $item['nintel'] OR $item['nmudra'] OR $item['nnoj'] OR $item['ntopor'] OR $item['ndubina'] OR $item['nmech'] OR $item['nposoh'] OR $item['nfire'] OR $item['nwater'] OR $item['nair'] OR $item['nearth'] OR $item['nearth'] OR $item['nlight'] OR $item['ngray'] OR $item['ndark'])?"<b>Требуется минимальное:</b><BR>":"")."
-		".(($item['nlevel']>0)?"• Уровень: {$item['nlevel']}</font><BR>":"")."
-		".(($item['nsila']>0)?"• Сила: {$item['nsila']}</font><BR>":"")."
-		".(($item['nlovk']>0)?"• Ловкость: {$item['nlovk']}</font><BR>":"")."
-		".(($item['ninta']>0)?"• Интуиция: {$item['ninta']}</font><BR>":"")."
-		".(($item['nvinos']>0)?"• Выносливость: {$item['nvinos']}</font><BR>":"")."
-		".(($item['nintel']>0)?"• Интеллект: {$item['nintel']}</font><BR>":"")."
-		".(($item['nmudra']>0)?"• Мудрость: {$item['nmudra']}</font><BR>":"")."
-		".(($item['nnoj']>0)?"• Мастерство владения ножами и кастетами: {$item['nnoj']}</font><BR>":"")."
-		".(($item['ntopor']>0)?"• Мастерство владения топорами и секирами: {$item['ntopor']}</font><BR>":"")."
-		".(($item['ndubina']>0)?"• Мастерство владения дубинами и булавами: {$item['ndubina']}</font><BR>":"")."
-		".(($item['nmech']>0)?"• Мастерство владения мечами: {$item['nmech']}</font><BR>":"")."
-		".(($item['nposoh']>0)?"• Мастерство владения посохами: {$item['nposoh']}</font><BR>":"")."
-		".(($item['nfire']>0)?"• Мастерство владения стихией Огня: {$item['nfire']}</font><BR>":"")."
-		".(($item['nwater']>0)?"• Мастерство владения стихией Воды: {$item['nwater']}</font><BR>":"")."
-		".(($item['nair']>0)?"• Мастерство владения стихией Воздуха: {$item['nair']}</font><BR>":"")."
-		".(($item['nearth']>0)?"• Мастерство владения стихией Земли: {$item['nearth']}</font><BR>":"")."
-		".(($item['nlight']>0)?"• Мастерство владения магией Света: {$item['nlight']}</font><BR>":"")."
-		".(($item['ngray']>0)?"• Мастерство владения серой магией: {$item['ngray']}</font><BR>":"")."
-		".(($item['ndark']>0)?"• Мастерство владения магией Тьмы: {$item['ndark']}</font><BR>":"")."
-        ".(($item['gmeshok'] OR $item['honor'] OR $item['mfhitp'] OR $item['mfmagp'] OR $item['attacka'] OR $item['add_stats'] OR $item['mfpodav'] OR $item['gsila'] OR $item['mfdhit'] OR $item['mfdmag']  OR $item['mfkritpow']  OR $item['mfantikritpow'] OR $item['mfparir']  OR $item['mfshieldblock'] OR $item['mfcontr']  OR $item['mfrub'] OR $item['mfkol']  OR $item['mfdrob'] OR $item['mfrej'] OR $item['mfkrit'] OR $item['mfakrit']  OR $item['mfuvorot'] OR $item['mfauvorot']  OR $item['glovk'] OR $item['ghp'] OR $item['gmana'] OR $item['ginta'] OR $item['gintel'] OR $item['gnoj'] OR $item['gtopor'] OR $item['gdubina'] OR $item['gmech'] OR $item['gposoh'] OR $item['gfire'] OR $item['gwater'] OR $item['gair'] OR $item['gearth'] OR $item['gearth'] OR $item['glight'] OR $item['ggray'] OR $item['gdark'] OR $item['minu'] OR $item['maxu'] OR $item['bron1'] OR $item['bron2'] OR $item['bron3'] OR $item['bron4'])?"<b>Действует на:</b><BR>":"")."
-	    ".(($item['deistvie'] && $item['show']==1)?"<b>Действует на:</b><BR>• ".$item['deistvie']."<BR> ":"")."
-        ".(($item['minu'])?"• Минимальное наносимое повреждение: {$item['minu']}<BR>":"")."
-		".(($item['maxu'])?"• Максимальное наносимое повреждение: {$item['maxu']}<BR>":"")."
-		".(($item['gsila'])?"• Сила: ".(($item['gsila']>0)?"+":"")."{$item['gsila']}<BR>":"")."
-		".(($item['glovk'])?"• Ловкость: ".(($item['glovk']>0)?"+":"")."{$item['glovk']}<BR>":"")."
-		".(($item['ginta'])?"• Интуиция: ".(($item['ginta']>0)?"+":"")."{$item['ginta']}<BR>":"")."
-		".(($item['gintel'])?"• Интеллект: ".(($item['gintel']>0)?"+":"")."{$item['gintel']}<BR>":"")."
-		".(($item['ghp'])?"• Уровень жизни: +{$item['ghp']}<BR>":"")."
-		".(($item['gmana'])?"• Уровень маны: +{$item['gmana']}<BR>":"")."
-		".(($item['mfkrit'])?"• Мф. критических ударов: ".(($item['mfkrit']>0)?"+":"")."{$item['mfkrit']}%<BR>":"")."
-		".(($item['mfakrit'])?"• Мф. против крит. ударов: ".(($item['mfakrit']>0)?"+":"")."{$item['mfakrit']}%<BR>":"")."
-		".(($item['mfkritpow'])?"• Мф. мощности критического. удара: ".(($item['mfkritpow']>0)?"+":"")."{$item['mfkritpow']}%<BR>":"")."
-		".(($item['mfantikritpow'])?"• Мф. против мощ. крит. удара: ".(($item['mfantikritpow']>0)?"+":"")."{$item['mfantikritpow']}%<BR>":"")."
-		".(($item['mfparir'])?"• Мф. парирования: ".(($item['mfparir']>0)?"+":"")."{$item['mfparir']}%<BR>":"")."
-		".(($item['mfshieldblock'])?"• Мф. блока щитом: ".(($item['mfshieldblock']>0)?"+":"")."{$item['mfshieldblock']}%<BR>":"")."
-		".(($item['mfcontr'])?"• Мф. контрудара: ".(($item['mfcontr']>0)?"+":"")."{$item['mfcontr']}%<BR>":"")."
-		".(($item['mfuvorot'])?"• Мф. увертливости: ".(($item['mfuvorot']>0)?"+":"")."{$item['mfuvorot']}%<BR>":"")."
-		".(($item['mfauvorot'])?"• Мф. против увертлив.: ".(($item['mfauvorot']>0)?"+":"")."{$item['mfauvorot']}%<BR>":"")."
-		".(($item['gnoj'])?"• Мастерство владения ножами и кастетами: +{$item['gnoj']}<BR>":"")."
-		".(($item['gtopor'])?"• Мастерство владения топорами и секирами: +{$item['gtopor']}<BR>":"")."
-		".(($item['gdubina'])?"• Мастерство владения дубинами и булавами: +{$item['gdubina']}<BR>":"")."
-		".(($item['gmech'])?"• Мастерство владения мечами: +{$item['gmech']}<BR>":"")."
-		".(($item['gposoh'])?"• Мастерство владения посохами: +{$item['gposoh']}<BR>":"")."
-		".(($item['gfire'])?"• Мастерство владения стихией Огня: +{$item['gfire']}<BR>":"")."
-		".(($item['gwater'])?"• Мастерство владения стихией Воды: +{$item['gwater']}<BR>":"")."
-		".(($item['gair'])?"• Мастерство владения стихией Воздуха: +{$item['gair']}<BR>":"")."
-		".(($item['gearth'])?"• Мастерство владения стихией Земли: +{$item['gearth']}<BR>":"")."
-		".(($item['glight'])?"• Мастерство владения магией Света: +{$item['glight']}<BR>":"")."
-		".(($item['ggray'])?"• Мастерство владения серой магией: +{$item['ggray']}<BR>":"")."
-		".(($item['gdark'])?"• Мастерство владения магией Тьмы: +{$item['gdark']}<BR>":"").""
+		$item_descr .= "Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: {$item['duration']}/{$item['maxdur']}<BR>";
+		$item_descr .= (($magic['chanse'] && $item['show']==1)?"Р’РµСЂРѕСЏС‚РЅРѕСЃС‚СЊ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ: ".$magic['chanse']."%<BR>":"")."
+		".(($magic['time'])?"РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РґРµР№СЃС‚РІРёСЏ РјР°РіРёРё: ".$magic['time']." РјРёРЅ.<BR>":"")."
+		".(($item['goden'])?"РЎСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё: ".time_left($item['dategoden'])." ".((!$item['count'])?"(РґРѕ ".date("Y.m.d H:i",$item['dategoden']).")":"")."<BR>":"")."
+		".(($item['nsila'] OR $item['nlovk'] OR $item['ninta'] OR $item['nvinos'] OR $item['nlevel'] OR $item['nintel'] OR $item['nmudra'] OR $item['nnoj'] OR $item['ntopor'] OR $item['ndubina'] OR $item['nmech'] OR $item['nposoh'] OR $item['nfire'] OR $item['nwater'] OR $item['nair'] OR $item['nearth'] OR $item['nearth'] OR $item['nlight'] OR $item['ngray'] OR $item['ndark'])?"<b>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</b><BR>":"")."
+		".(($item['nlevel']>0)?"вЂў РЈСЂРѕРІРµРЅСЊ: {$item['nlevel']}</font><BR>":"")."
+		".(($item['nsila']>0)?"вЂў РЎРёР»Р°: {$item['nsila']}</font><BR>":"")."
+		".(($item['nlovk']>0)?"вЂў Р›РѕРІРєРѕСЃС‚СЊ: {$item['nlovk']}</font><BR>":"")."
+		".(($item['ninta']>0)?"вЂў РРЅС‚СѓРёС†РёСЏ: {$item['ninta']}</font><BR>":"")."
+		".(($item['nvinos']>0)?"вЂў Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: {$item['nvinos']}</font><BR>":"")."
+		".(($item['nintel']>0)?"вЂў РРЅС‚РµР»Р»РµРєС‚: {$item['nintel']}</font><BR>":"")."
+		".(($item['nmudra']>0)?"вЂў РњСѓРґСЂРѕСЃС‚СЊ: {$item['nmudra']}</font><BR>":"")."
+		".(($item['nnoj']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РЅРѕР¶Р°РјРё Рё РєР°СЃС‚РµС‚Р°РјРё: {$item['nnoj']}</font><BR>":"")."
+		".(($item['ntopor']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ С‚РѕРїРѕСЂР°РјРё Рё СЃРµРєРёСЂР°РјРё: {$item['ntopor']}</font><BR>":"")."
+		".(($item['ndubina']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РґСѓР±РёРЅР°РјРё Рё Р±СѓР»Р°РІР°РјРё: {$item['ndubina']}</font><BR>":"")."
+		".(($item['nmech']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјРµС‡Р°РјРё: {$item['nmech']}</font><BR>":"")."
+		".(($item['nposoh']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РїРѕСЃРѕС…Р°РјРё: {$item['nposoh']}</font><BR>":"")."
+		".(($item['nfire']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: {$item['nfire']}</font><BR>":"")."
+		".(($item['nwater']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: {$item['nwater']}</font><BR>":"")."
+		".(($item['nair']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: {$item['nair']}</font><BR>":"")."
+		".(($item['nearth']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: {$item['nearth']}</font><BR>":"")."
+		".(($item['nlight']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РЎРІРµС‚Р°: {$item['nlight']}</font><BR>":"")."
+		".(($item['ngray']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃРµСЂРѕР№ РјР°РіРёРµР№: {$item['ngray']}</font><BR>":"")."
+		".(($item['ndark']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РўСЊРјС‹: {$item['ndark']}</font><BR>":"")."
+        ".(($item['gmeshok'] OR $item['honor'] OR $item['mfhitp'] OR $item['mfmagp'] OR $item['attacka'] OR $item['add_stats'] OR $item['mfpodav'] OR $item['gsila'] OR $item['mfdhit'] OR $item['mfdmag']  OR $item['mfkritpow']  OR $item['mfantikritpow'] OR $item['mfparir']  OR $item['mfshieldblock'] OR $item['mfcontr']  OR $item['mfrub'] OR $item['mfkol']  OR $item['mfdrob'] OR $item['mfrej'] OR $item['mfkrit'] OR $item['mfakrit']  OR $item['mfuvorot'] OR $item['mfauvorot']  OR $item['glovk'] OR $item['ghp'] OR $item['gmana'] OR $item['ginta'] OR $item['gintel'] OR $item['gnoj'] OR $item['gtopor'] OR $item['gdubina'] OR $item['gmech'] OR $item['gposoh'] OR $item['gfire'] OR $item['gwater'] OR $item['gair'] OR $item['gearth'] OR $item['gearth'] OR $item['glight'] OR $item['ggray'] OR $item['gdark'] OR $item['minu'] OR $item['maxu'] OR $item['bron1'] OR $item['bron2'] OR $item['bron3'] OR $item['bron4'])?"<b>Р”РµР№СЃС‚РІСѓРµС‚ РЅР°:</b><BR>":"")."
+	    ".(($item['deistvie'] && $item['show']==1)?"<b>Р”РµР№СЃС‚РІСѓРµС‚ РЅР°:</b><BR>вЂў ".$item['deistvie']."<BR> ":"")."
+        ".(($item['minu'])?"вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: {$item['minu']}<BR>":"")."
+		".(($item['maxu'])?"вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: {$item['maxu']}<BR>":"")."
+		".(($item['gsila'])?"вЂў РЎРёР»Р°: ".(($item['gsila']>0)?"+":"")."{$item['gsila']}<BR>":"")."
+		".(($item['glovk'])?"вЂў Р›РѕРІРєРѕСЃС‚СЊ: ".(($item['glovk']>0)?"+":"")."{$item['glovk']}<BR>":"")."
+		".(($item['ginta'])?"вЂў РРЅС‚СѓРёС†РёСЏ: ".(($item['ginta']>0)?"+":"")."{$item['ginta']}<BR>":"")."
+		".(($item['gintel'])?"вЂў РРЅС‚РµР»Р»РµРєС‚: ".(($item['gintel']>0)?"+":"")."{$item['gintel']}<BR>":"")."
+		".(($item['ghp'])?"вЂў РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: +{$item['ghp']}<BR>":"")."
+		".(($item['gmana'])?"вЂў РЈСЂРѕРІРµРЅСЊ РјР°РЅС‹: +{$item['gmana']}<BR>":"")."
+		".(($item['mfkrit'])?"вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРёС… СѓРґР°СЂРѕРІ: ".(($item['mfkrit']>0)?"+":"")."{$item['mfkrit']}%<BR>":"")."
+		".(($item['mfakrit'])?"вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚. СѓРґР°СЂРѕРІ: ".(($item['mfakrit']>0)?"+":"")."{$item['mfakrit']}%<BR>":"")."
+		".(($item['mfkritpow'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ. СѓРґР°СЂР°: ".(($item['mfkritpow']>0)?"+":"")."{$item['mfkritpow']}%<BR>":"")."
+		".(($item['mfantikritpow'])?"вЂў РњС„. РїСЂРѕС‚РёРІ РјРѕС‰. РєСЂРёС‚. СѓРґР°СЂР°: ".(($item['mfantikritpow']>0)?"+":"")."{$item['mfantikritpow']}%<BR>":"")."
+		".(($item['mfparir'])?"вЂў РњС„. РїР°СЂРёСЂРѕРІР°РЅРёСЏ: ".(($item['mfparir']>0)?"+":"")."{$item['mfparir']}%<BR>":"")."
+		".(($item['mfshieldblock'])?"вЂў РњС„. Р±Р»РѕРєР° С‰РёС‚РѕРј: ".(($item['mfshieldblock']>0)?"+":"")."{$item['mfshieldblock']}%<BR>":"")."
+		".(($item['mfcontr'])?"вЂў РњС„. РєРѕРЅС‚СЂСѓРґР°СЂР°: ".(($item['mfcontr']>0)?"+":"")."{$item['mfcontr']}%<BR>":"")."
+		".(($item['mfuvorot'])?"вЂў РњС„. СѓРІРµСЂС‚Р»РёРІРѕСЃС‚Рё: ".(($item['mfuvorot']>0)?"+":"")."{$item['mfuvorot']}%<BR>":"")."
+		".(($item['mfauvorot'])?"вЂў РњС„. РїСЂРѕС‚РёРІ СѓРІРµСЂС‚Р»РёРІ.: ".(($item['mfauvorot']>0)?"+":"")."{$item['mfauvorot']}%<BR>":"")."
+		".(($item['gnoj'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РЅРѕР¶Р°РјРё Рё РєР°СЃС‚РµС‚Р°РјРё: +{$item['gnoj']}<BR>":"")."
+		".(($item['gtopor'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ С‚РѕРїРѕСЂР°РјРё Рё СЃРµРєРёСЂР°РјРё: +{$item['gtopor']}<BR>":"")."
+		".(($item['gdubina'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РґСѓР±РёРЅР°РјРё Рё Р±СѓР»Р°РІР°РјРё: +{$item['gdubina']}<BR>":"")."
+		".(($item['gmech'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјРµС‡Р°РјРё: +{$item['gmech']}<BR>":"")."
+		".(($item['gposoh'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РїРѕСЃРѕС…Р°РјРё: +{$item['gposoh']}<BR>":"")."
+		".(($item['gfire'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: +{$item['gfire']}<BR>":"")."
+		".(($item['gwater'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: +{$item['gwater']}<BR>":"")."
+		".(($item['gair'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: +{$item['gair']}<BR>":"")."
+		".(($item['gearth'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: +{$item['gearth']}<BR>":"")."
+		".(($item['glight'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РЎРІРµС‚Р°: +{$item['glight']}<BR>":"")."
+		".(($item['ggray'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃРµСЂРѕР№ РјР°РіРёРµР№: +{$item['ggray']}<BR>":"")."
+		".(($item['gdark'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РўСЊРјС‹: +{$item['gdark']}<BR>":"").""
                
-         .(($item['bron1']!=0)?"• Броня головы: {$item['bron11']}-{$item['bron1']} (".(((($item['bron11']-1)!=0)?($item['bron11']-1)."+":""))."d".(1+$item['bron1']-$item['bron11']).")<br>":"")."
-		".(($item['bron2']!=0)?"• Броня корпуса: {$item['bron22']}-{$item['bron2']} (".(((($item['bron22']-1)!=0)?($item['bron22']-1)."+":""))."d".(1+$item['bron2']-$item['bron22']).")<br>":"")."
-		".(($item['bron3']!=0)?"• Броня пояса: {$item['bron33']}-{$item['bron3']} (".(((($item['bron33']-1)!=0)?($item['bron33']-1)."+":""))."d".(1+$item['bron3']-$item['bron33']).")<br>":"")."
-		".(($item['bron4']!=0)?"• Броня ног: {$item['bron44']}-{$item['bron4']} (".(((($item['bron44']-1)!=0)?($item['bron44']-1)."+":""))."d".(1+$item['bron4']-$item['bron44']).")<br>":"")."
+         .(($item['bron1']!=0)?"вЂў Р‘СЂРѕРЅСЏ РіРѕР»РѕРІС‹: {$item['bron11']}-{$item['bron1']} (".(((($item['bron11']-1)!=0)?($item['bron11']-1)."+":""))."d".(1+$item['bron1']-$item['bron11']).")<br>":"")."
+		".(($item['bron2']!=0)?"вЂў Р‘СЂРѕРЅСЏ РєРѕСЂРїСѓСЃР°: {$item['bron22']}-{$item['bron2']} (".(((($item['bron22']-1)!=0)?($item['bron22']-1)."+":""))."d".(1+$item['bron2']-$item['bron22']).")<br>":"")."
+		".(($item['bron3']!=0)?"вЂў Р‘СЂРѕРЅСЏ РїРѕСЏСЃР°: {$item['bron33']}-{$item['bron3']} (".(((($item['bron33']-1)!=0)?($item['bron33']-1)."+":""))."d".(1+$item['bron3']-$item['bron33']).")<br>":"")."
+		".(($item['bron4']!=0)?"вЂў Р‘СЂРѕРЅСЏ РЅРѕРі: {$item['bron44']}-{$item['bron4']} (".(((($item['bron44']-1)!=0)?($item['bron44']-1)."+":""))."d".(1+$item['bron4']-$item['bron44']).")<br>":"")."
 
-		".(($item['add_stats'])?"• Количество увеличений: {$item['add_stats']}<BR>":"")."
-        ".(($item['attacka'])?"• Дополнительный удар: +{$item['attacka']}<BR>":"")."
-		".(($item['mfdhit'])?"• Защита от урона: ".(($item['mfdhit']>0)?"+":"")."{$item['mfdhit']}%<BR>":"")."
-		".(($item['mfdmag'])?"• Защита от магии: ".(($item['mfdmag']>0)?"+":"")."{$item['mfdmag']}%<BR>":"")."
-		".(($item['mfdfire'])?"• Защита от магии Огня: ".(($item['mfdfire']>0)?"+":"")."{$item['mfdfire']}%<BR>":"")."
-        ".(($item['mfdair'])?"• Защита от магии Воздуха: ".(($item['mfdair']>0)?"+":"")."{$item['mfdair']}%<BR>":"")."
-        ".(($item['mfdwater'])?"• Защита от магии Воды: ".(($item['mfdwater']>0)?"+":"")."{$item['mfdwater']}%<BR>":"")."
-        ".(($item['mfdearth'])?"• Защита от магии Земли: ".(($item['mfdearth']>0)?"+":"")."{$item['mfdearth']}%<BR>":"")."
-        ".(($item['mffire'])?"• Мф. мощности урона Огня: ".(($item['mffire']>0)?"+":"")."{$item['mffire']}%<BR>":"")."
-        ".(($item['mfair'])?"• Мф. мощности урона Воздуха: ".(($item['mfair']>0)?"+":"")."{$item['mfair']}%<BR>":"")."
-        ".(($item['mfwater'])?"• Мф. мощности урона Воды: ".(($item['mfwater']>0)?"+":"")."{$item['mfwater']}%<BR>":"")."
-        ".(($item['mfearth'])?"• Мф. мощности урона Земли: ".(($item['mfearth']>0)?"+":"")."{$item['mfearth']}%<BR>":"")."
-        ".(($item['mfhitp'])?"• Мф. мощности урона: ".(($item['mfhitp']>0)?"+":"")."{$item['mfhitp']}%<BR>":"")."
-		".(($item['mfmagp'])?"• Мф. мощности магии: ".(($item['mfmagp']>0)?"+":"")."{$item['mfmagp']}%<BR>":"")."
-		".(($item['mfpodav'])?"• Мф. подавления защиты от магии: ".(($item['mfpodav']>0)?"+":"")."{$item['mfpodav']}%<BR>":"")."
-		".(($item['mfrub'])?"• Мф. мощности рубящго урона: ".(($item['mfrub']>0)?"+":"")."{$item['mfrub']}%<BR>":"")."
-		".(($item['mfkol'])?"• Мф. мощности колющего урона: ".(($item['mfkol']>0)?"+":"")."{$item['mfkol']}%<BR>":"")."
-		".(($item['mfdrob'])?"• Мф. мощности дробящего урона: ".(($item['mfdrob']>0)?"+":"")."{$item['mfdrob']}%<BR>":"")."
-		".(($item['mfrej'])?"•  Мф. мощности режущего урона: ".(($item['mfrej']>0)?"+":"")."{$item['mfrej']}%<BR>":"")."
-		".(($item['gmeshok'])?"• Увеличивает рюкзак: +{$item['gmeshok']}<BR>":"")."
-		".(($item['letter'])?"Количество символов: ".strlen($item['letter'])."</div>":"")."
-		".(($item['letter'])?"На бумаге записан текст:<div style='background-color:FAF0E6;'> ".nl2br($item['letter'])."</div>":"")."
-		".(($magic['name'] && $item['type'] != 50 && $item['type'] != 25 && $item['type'] != 29 && ($item['type'] != 200))?"<font color=maroon>Наложены заклятия:</font> <img src=\"http://img.wapbk.ru/i/magic/".$magic['img']."\" alt=\"".$magic['name']."\">".$magic['name']."<BR>":"")."
-		".((($item['type'] == 25))?"<font color=maroon>Наложены заклятия:</font> ".$magic['name']."<BR>":"")."
-		".((($item['type'] == 29))?"<font color=maroon>Наложены заклятия:</font> ".$magic['name']."<BR>":"")."
-        ".(($item['text'])?"На ручке выгравирована надпись:<center>".$item['text']."</center><BR>":"")."
-		".(($incmagic['max'])?"	Встроено заклятие <img src=\"/i/magic/".$incmagic['img']."\" alt=\"".$incmagic['name']."\"> ".$incmagic['cur']." шт.	<BR>":"")."
-		".(($item['podzem'])?"<br><font style='font-size:11px; color:#990000'>Предмет из подземелья</font><BR>":"")."
-	    ".(($item['sh']==1)?"<i>Особенности:</i><BR>• Колющие атаки: Регулярны<BR>• Режущие атаки: Ничтожно редки<BR>• Рубящие атаки:  Ничтожно редки<BR>• Ледяные атаки: Ничтожно редки<BR>":"")."
-        ".(($item['dvur'])?"<font style='font-size:11px; color:#990000'>двуручное оружие</font><BR>":"")."
+		".(($item['add_stats'])?"вЂў РљРѕР»РёС‡РµСЃС‚РІРѕ СѓРІРµР»РёС‡РµРЅРёР№: {$item['add_stats']}<BR>":"")."
+        ".(($item['attacka'])?"вЂў Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СѓРґР°СЂ: +{$item['attacka']}<BR>":"")."
+		".(($item['mfdhit'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ СѓСЂРѕРЅР°: ".(($item['mfdhit']>0)?"+":"")."{$item['mfdhit']}%<BR>":"")."
+		".(($item['mfdmag'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё: ".(($item['mfdmag']>0)?"+":"")."{$item['mfdmag']}%<BR>":"")."
+		".(($item['mfdfire'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РћРіРЅСЏ: ".(($item['mfdfire']>0)?"+":"")."{$item['mfdfire']}%<BR>":"")."
+        ".(($item['mfdair'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р’РѕР·РґСѓС…Р°: ".(($item['mfdair']>0)?"+":"")."{$item['mfdair']}%<BR>":"")."
+        ".(($item['mfdwater'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р’РѕРґС‹: ".(($item['mfdwater']>0)?"+":"")."{$item['mfdwater']}%<BR>":"")."
+        ".(($item['mfdearth'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р—РµРјР»Рё: ".(($item['mfdearth']>0)?"+":"")."{$item['mfdearth']}%<BR>":"")."
+        ".(($item['mffire'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° РћРіРЅСЏ: ".(($item['mffire']>0)?"+":"")."{$item['mffire']}%<BR>":"")."
+        ".(($item['mfair'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° Р’РѕР·РґСѓС…Р°: ".(($item['mfair']>0)?"+":"")."{$item['mfair']}%<BR>":"")."
+        ".(($item['mfwater'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° Р’РѕРґС‹: ".(($item['mfwater']>0)?"+":"")."{$item['mfwater']}%<BR>":"")."
+        ".(($item['mfearth'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° Р—РµРјР»Рё: ".(($item['mfearth']>0)?"+":"")."{$item['mfearth']}%<BR>":"")."
+        ".(($item['mfhitp'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР°: ".(($item['mfhitp']>0)?"+":"")."{$item['mfhitp']}%<BR>":"")."
+		".(($item['mfmagp'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё: ".(($item['mfmagp']>0)?"+":"")."{$item['mfmagp']}%<BR>":"")."
+		".(($item['mfpodav'])?"вЂў РњС„. РїРѕРґР°РІР»РµРЅРёСЏ Р·Р°С‰РёС‚С‹ РѕС‚ РјР°РіРёРё: ".(($item['mfpodav']>0)?"+":"")."{$item['mfpodav']}%<BR>":"")."
+		".(($item['mfrub'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СЂСѓР±СЏС‰РіРѕ СѓСЂРѕРЅР°: ".(($item['mfrub']>0)?"+":"")."{$item['mfrub']}%<BR>":"")."
+		".(($item['mfkol'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РєРѕР»СЋС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($item['mfkol']>0)?"+":"")."{$item['mfkol']}%<BR>":"")."
+		".(($item['mfdrob'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РґСЂРѕР±СЏС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($item['mfdrob']>0)?"+":"")."{$item['mfdrob']}%<BR>":"")."
+		".(($item['mfrej'])?"вЂў  РњС„. РјРѕС‰РЅРѕСЃС‚Рё СЂРµР¶СѓС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($item['mfrej']>0)?"+":"")."{$item['mfrej']}%<BR>":"")."
+		".(($item['gmeshok'])?"вЂў РЈРІРµР»РёС‡РёРІР°РµС‚ СЂСЋРєР·Р°Рє: +{$item['gmeshok']}<BR>":"")."
+		".(($item['letter'])?"РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ: ".strlen($item['letter'])."</div>":"")."
+		".(($item['letter'])?"РќР° Р±СѓРјР°РіРµ Р·Р°РїРёСЃР°РЅ С‚РµРєСЃС‚:<div style='background-color:FAF0E6;'> ".nl2br($item['letter'])."</div>":"")."
+		".(($magic['name'] && $item['type'] != 50 && $item['type'] != 25 && $item['type'] != 29 && ($item['type'] != 200))?"<font color=maroon>РќР°Р»РѕР¶РµРЅС‹ Р·Р°РєР»СЏС‚РёСЏ:</font> <img src=\"http://img.wapbk.ru/i/magic/".$magic['img']."\" alt=\"".$magic['name']."\">".$magic['name']."<BR>":"")."
+		".((($item['type'] == 25))?"<font color=maroon>РќР°Р»РѕР¶РµРЅС‹ Р·Р°РєР»СЏС‚РёСЏ:</font> ".$magic['name']."<BR>":"")."
+		".((($item['type'] == 29))?"<font color=maroon>РќР°Р»РѕР¶РµРЅС‹ Р·Р°РєР»СЏС‚РёСЏ:</font> ".$magic['name']."<BR>":"")."
+        ".(($item['text'])?"РќР° СЂСѓС‡РєРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅР° РЅР°РґРїРёСЃСЊ:<center>".$item['text']."</center><BR>":"")."
+		".(($incmagic['max'])?"	Р’СЃС‚СЂРѕРµРЅРѕ Р·Р°РєР»СЏС‚РёРµ <img src=\"/i/magic/".$incmagic['img']."\" alt=\"".$incmagic['name']."\"> ".$incmagic['cur']." С€С‚.	<BR>":"")."
+		".(($item['podzem'])?"<br><font style='font-size:11px; color:#990000'>РџСЂРµРґРјРµС‚ РёР· РїРѕРґР·РµРјРµР»СЊСЏ</font><BR>":"")."
+	    ".(($item['sh']==1)?"<i>РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё:</i><BR>вЂў РљРѕР»СЋС‰РёРµ Р°С‚Р°РєРё: Р РµРіСѓР»СЏСЂРЅС‹<BR>вЂў Р РµР¶СѓС‰РёРµ Р°С‚Р°РєРё: РќРёС‡С‚РѕР¶РЅРѕ СЂРµРґРєРё<BR>вЂў Р СѓР±СЏС‰РёРµ Р°С‚Р°РєРё:  РќРёС‡С‚РѕР¶РЅРѕ СЂРµРґРєРё<BR>вЂў Р›РµРґСЏРЅС‹Рµ Р°С‚Р°РєРё: РќРёС‡С‚РѕР¶РЅРѕ СЂРµРґРєРё<BR>":"")."
+        ".(($item['dvur'])?"<font style='font-size:11px; color:#990000'>РґРІСѓСЂСѓС‡РЅРѕРµ РѕСЂСѓР¶РёРµ</font><BR>":"")."
 		".(($item['opisan'])?"<small>".$item['opisan']."</small><BR>":"")."
-        ".((!$item['isrep'])?"<small><font color=maroon>Предмет не подлежит ремонту</font></small><BR>":"");
+        ".((!$item['isrep'])?"<small><font color=maroon>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><BR>":"");
 		?>
 		<tr bgcolor="#e2e2e2" onclick="cssale('2', '<?=$item['name']?>', '<?=$item['id']?>', '<?=$item['cost']?>');" style="cursor:pointer">
 			<td width="80" align="center"><img src="/i/sh/<?=$item['img']?>" title="<?=$item_descr?>"></td>
-			<td width="120" align="right"><?=number_format($item['auc_price'], 2, '.', ' ')?> кр.
+			<td width="120" align="right"><?=number_format($item['auc_price'], 2, '.', ' ')?> РєСЂ.
 				<?
 					$your_bid = '';
 					if($item['auc_bids']!=""){
@@ -594,10 +594,10 @@ progress_update();
 						foreach($bids as $k=>$bidder_id){
 							$login = mysql_fetch_assoc(mysql_query("select login from users where id='".$bidder_id."' LIMIT 1"));
 							$bidders[] = ($k==0)?"<b>".$login['login']."</b>":$login['login'];
-							$your_bid = ($bidder_id==$_SESSION['uid'])?'(ваша ставка)<br>':'';
+							$your_bid = ($bidder_id==$_SESSION['uid'])?'(РІР°С€Р° СЃС‚Р°РІРєР°)<br>':'';
 						}
 						$bidders_out = implode("<br>", $bidders);
-						echo '<span title="'.$bidders_out.'">(участников: '.count($bids).')</span>';
+						echo '<span title="'.$bidders_out.'">(СѓС‡Р°СЃС‚РЅРёРєРѕРІ: '.count($bids).')</span>';
 					}
 				?>
 			</td>
@@ -609,10 +609,10 @@ progress_update();
 <?}elseif(isset($_GET['razdel']) and $_GET['razdel']==2){?>
 <table border=0 cellspacing="1" cellpadding="4" bgcolor="#a5a5a5" width="600px">
 		<tr valign=top>
-			<td width="80" align="center">Предмет</td>
-			<td width="120" align="center">Ставка</td>
-			<td width="200" align="center">Владелец</td>
-			<td width="110" align="center">Время</td>
+			<td width="80" align="center">РџСЂРµРґРјРµС‚</td>
+			<td width="120" align="center">РЎС‚Р°РІРєР°</td>
+			<td width="200" align="center">Р’Р»Р°РґРµР»РµС†</td>
+			<td width="110" align="center">Р’СЂРµРјСЏ</td>
 		</tr>	
 		<?
 		$q = mysql_query("select i.*, a.id as auc_id, a.time as auc_time, a.price as auc_price, a.pers_id as auc_pers_id, a.stype as auc_bider, a.stype as auc_bider_id, a.bids as auc_bids, a.sales as auc_sales, u.login as auc_owner from users u, inventory i, auction a where i.id=a.id and u.id=a.pers_id and a.pers_id='".$_SESSION['uid']."'");
@@ -651,103 +651,103 @@ progress_update();
 		}
 	
 		$item_descr = "<b>".$item['name']."</b><BR>";
-		$item_descr .= "Долговечность: {$item['duration']}/{$item['maxdur']}<BR>";
-		$item_descr .= (($magic['chanse'] && $item['show']==1)?"Вероятность срабатывания: ".$magic['chanse']."%<BR>":"")."
-		".(($magic['time'])?"Продолжительность действия магии: ".$magic['time']." мин.<BR>":"")."
-		".(($item['goden'])?"Срок годности: ".time_left($item['dategoden'])." ".((!$item['count'])?"(до ".date("Y.m.d H:i",$item['dategoden']).")":"")."<BR>":"")."
-		".(($item['nsila'] OR $item['nlovk'] OR $item['ninta'] OR $item['nvinos'] OR $item['nlevel'] OR $item['nintel'] OR $item['nmudra'] OR $item['nnoj'] OR $item['ntopor'] OR $item['ndubina'] OR $item['nmech'] OR $item['nposoh'] OR $item['nfire'] OR $item['nwater'] OR $item['nair'] OR $item['nearth'] OR $item['nearth'] OR $item['nlight'] OR $item['ngray'] OR $item['ndark'])?"<b>Требуется минимальное:</b><BR>":"")."
-		".(($item['nlevel']>0)?"• Уровень: {$item['nlevel']}</font><BR>":"")."
-		".(($item['nsila']>0)?"• Сила: {$item['nsila']}</font><BR>":"")."
-		".(($item['nlovk']>0)?"• Ловкость: {$item['nlovk']}</font><BR>":"")."
-		".(($item['ninta']>0)?"• Интуиция: {$item['ninta']}</font><BR>":"")."
-		".(($item['nvinos']>0)?"• Выносливость: {$item['nvinos']}</font><BR>":"")."
-		".(($item['nintel']>0)?"• Интеллект: {$item['nintel']}</font><BR>":"")."
-		".(($item['nmudra']>0)?"• Мудрость: {$item['nmudra']}</font><BR>":"")."
-		".(($item['nnoj']>0)?"• Мастерство владения ножами и кастетами: {$item['nnoj']}</font><BR>":"")."
-		".(($item['ntopor']>0)?"• Мастерство владения топорами и секирами: {$item['ntopor']}</font><BR>":"")."
-		".(($item['ndubina']>0)?"• Мастерство владения дубинами и булавами: {$item['ndubina']}</font><BR>":"")."
-		".(($item['nmech']>0)?"• Мастерство владения мечами: {$item['nmech']}</font><BR>":"")."
-		".(($item['nposoh']>0)?"• Мастерство владения посохами: {$item['nposoh']}</font><BR>":"")."
-		".(($item['nfire']>0)?"• Мастерство владения стихией Огня: {$item['nfire']}</font><BR>":"")."
-		".(($item['nwater']>0)?"• Мастерство владения стихией Воды: {$item['nwater']}</font><BR>":"")."
-		".(($item['nair']>0)?"• Мастерство владения стихией Воздуха: {$item['nair']}</font><BR>":"")."
-		".(($item['nearth']>0)?"• Мастерство владения стихией Земли: {$item['nearth']}</font><BR>":"")."
-		".(($item['nlight']>0)?"• Мастерство владения магией Света: {$item['nlight']}</font><BR>":"")."
-		".(($item['ngray']>0)?"• Мастерство владения серой магией: {$item['ngray']}</font><BR>":"")."
-		".(($item['ndark']>0)?"• Мастерство владения магией Тьмы: {$item['ndark']}</font><BR>":"")."
-        ".(($item['gmeshok'] OR $item['honor'] OR $item['mfhitp'] OR $item['mfmagp'] OR $item['attacka'] OR $item['add_stats'] OR $item['mfpodav'] OR $item['gsila'] OR $item['mfdhit'] OR $item['mfdmag']  OR $item['mfkritpow']  OR $item['mfantikritpow'] OR $item['mfparir']  OR $item['mfshieldblock'] OR $item['mfcontr']  OR $item['mfrub'] OR $item['mfkol']  OR $item['mfdrob'] OR $item['mfrej'] OR $item['mfkrit'] OR $item['mfakrit']  OR $item['mfuvorot'] OR $item['mfauvorot']  OR $item['glovk'] OR $item['ghp'] OR $item['gmana'] OR $item['ginta'] OR $item['gintel'] OR $item['gnoj'] OR $item['gtopor'] OR $item['gdubina'] OR $item['gmech'] OR $item['gposoh'] OR $item['gfire'] OR $item['gwater'] OR $item['gair'] OR $item['gearth'] OR $item['gearth'] OR $item['glight'] OR $item['ggray'] OR $item['gdark'] OR $item['minu'] OR $item['maxu'] OR $item['bron1'] OR $item['bron2'] OR $item['bron3'] OR $item['bron4'])?"<b>Действует на:</b><BR>":"")."
-	    ".(($item['deistvie'] && $item['show']==1)?"<b>Действует на:</b><BR>• ".$item['deistvie']."<BR> ":"")."
-        ".(($item['minu'])?"• Минимальное наносимое повреждение: {$item['minu']}<BR>":"")."
-		".(($item['maxu'])?"• Максимальное наносимое повреждение: {$item['maxu']}<BR>":"")."
-		".(($item['gsila'])?"• Сила: ".(($item['gsila']>0)?"+":"")."{$item['gsila']}<BR>":"")."
-		".(($item['glovk'])?"• Ловкость: ".(($item['glovk']>0)?"+":"")."{$item['glovk']}<BR>":"")."
-		".(($item['ginta'])?"• Интуиция: ".(($item['ginta']>0)?"+":"")."{$item['ginta']}<BR>":"")."
-		".(($item['gintel'])?"• Интеллект: ".(($item['gintel']>0)?"+":"")."{$item['gintel']}<BR>":"")."
-		".(($item['ghp'])?"• Уровень жизни: +{$item['ghp']}<BR>":"")."
-		".(($item['gmana'])?"• Уровень маны: +{$item['gmana']}<BR>":"")."
-		".(($item['mfkrit'])?"• Мф. критических ударов: ".(($item['mfkrit']>0)?"+":"")."{$item['mfkrit']}%<BR>":"")."
-		".(($item['mfakrit'])?"• Мф. против крит. ударов: ".(($item['mfakrit']>0)?"+":"")."{$item['mfakrit']}%<BR>":"")."
-		".(($item['mfkritpow'])?"• Мф. мощности критического. удара: ".(($item['mfkritpow']>0)?"+":"")."{$item['mfkritpow']}%<BR>":"")."
-		".(($item['mfantikritpow'])?"• Мф. против мощ. крит. удара: ".(($item['mfantikritpow']>0)?"+":"")."{$item['mfantikritpow']}%<BR>":"")."
-		".(($item['mfparir'])?"• Мф. парирования: ".(($item['mfparir']>0)?"+":"")."{$item['mfparir']}%<BR>":"")."
-		".(($item['mfshieldblock'])?"• Мф. блока щитом: ".(($item['mfshieldblock']>0)?"+":"")."{$item['mfshieldblock']}%<BR>":"")."
-		".(($item['mfcontr'])?"• Мф. контрудара: ".(($item['mfcontr']>0)?"+":"")."{$item['mfcontr']}%<BR>":"")."
-		".(($item['mfuvorot'])?"• Мф. увертливости: ".(($item['mfuvorot']>0)?"+":"")."{$item['mfuvorot']}%<BR>":"")."
-		".(($item['mfauvorot'])?"• Мф. против увертлив.: ".(($item['mfauvorot']>0)?"+":"")."{$item['mfauvorot']}%<BR>":"")."
-		".(($item['gnoj'])?"• Мастерство владения ножами и кастетами: +{$item['gnoj']}<BR>":"")."
-		".(($item['gtopor'])?"• Мастерство владения топорами и секирами: +{$item['gtopor']}<BR>":"")."
-		".(($item['gdubina'])?"• Мастерство владения дубинами и булавами: +{$item['gdubina']}<BR>":"")."
-		".(($item['gmech'])?"• Мастерство владения мечами: +{$item['gmech']}<BR>":"")."
-		".(($item['gposoh'])?"• Мастерство владения посохами: +{$item['gposoh']}<BR>":"")."
-		".(($item['gfire'])?"• Мастерство владения стихией Огня: +{$item['gfire']}<BR>":"")."
-		".(($item['gwater'])?"• Мастерство владения стихией Воды: +{$item['gwater']}<BR>":"")."
-		".(($item['gair'])?"• Мастерство владения стихией Воздуха: +{$item['gair']}<BR>":"")."
-		".(($item['gearth'])?"• Мастерство владения стихией Земли: +{$item['gearth']}<BR>":"")."
-		".(($item['glight'])?"• Мастерство владения магией Света: +{$item['glight']}<BR>":"")."
-		".(($item['ggray'])?"• Мастерство владения серой магией: +{$item['ggray']}<BR>":"")."
-		".(($item['gdark'])?"• Мастерство владения магией Тьмы: +{$item['gdark']}<BR>":"").""
+		$item_descr .= "Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: {$item['duration']}/{$item['maxdur']}<BR>";
+		$item_descr .= (($magic['chanse'] && $item['show']==1)?"Р’РµСЂРѕСЏС‚РЅРѕСЃС‚СЊ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ: ".$magic['chanse']."%<BR>":"")."
+		".(($magic['time'])?"РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РґРµР№СЃС‚РІРёСЏ РјР°РіРёРё: ".$magic['time']." РјРёРЅ.<BR>":"")."
+		".(($item['goden'])?"РЎСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё: ".time_left($item['dategoden'])." ".((!$item['count'])?"(РґРѕ ".date("Y.m.d H:i",$item['dategoden']).")":"")."<BR>":"")."
+		".(($item['nsila'] OR $item['nlovk'] OR $item['ninta'] OR $item['nvinos'] OR $item['nlevel'] OR $item['nintel'] OR $item['nmudra'] OR $item['nnoj'] OR $item['ntopor'] OR $item['ndubina'] OR $item['nmech'] OR $item['nposoh'] OR $item['nfire'] OR $item['nwater'] OR $item['nair'] OR $item['nearth'] OR $item['nearth'] OR $item['nlight'] OR $item['ngray'] OR $item['ndark'])?"<b>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</b><BR>":"")."
+		".(($item['nlevel']>0)?"вЂў РЈСЂРѕРІРµРЅСЊ: {$item['nlevel']}</font><BR>":"")."
+		".(($item['nsila']>0)?"вЂў РЎРёР»Р°: {$item['nsila']}</font><BR>":"")."
+		".(($item['nlovk']>0)?"вЂў Р›РѕРІРєРѕСЃС‚СЊ: {$item['nlovk']}</font><BR>":"")."
+		".(($item['ninta']>0)?"вЂў РРЅС‚СѓРёС†РёСЏ: {$item['ninta']}</font><BR>":"")."
+		".(($item['nvinos']>0)?"вЂў Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: {$item['nvinos']}</font><BR>":"")."
+		".(($item['nintel']>0)?"вЂў РРЅС‚РµР»Р»РµРєС‚: {$item['nintel']}</font><BR>":"")."
+		".(($item['nmudra']>0)?"вЂў РњСѓРґСЂРѕСЃС‚СЊ: {$item['nmudra']}</font><BR>":"")."
+		".(($item['nnoj']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РЅРѕР¶Р°РјРё Рё РєР°СЃС‚РµС‚Р°РјРё: {$item['nnoj']}</font><BR>":"")."
+		".(($item['ntopor']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ С‚РѕРїРѕСЂР°РјРё Рё СЃРµРєРёСЂР°РјРё: {$item['ntopor']}</font><BR>":"")."
+		".(($item['ndubina']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РґСѓР±РёРЅР°РјРё Рё Р±СѓР»Р°РІР°РјРё: {$item['ndubina']}</font><BR>":"")."
+		".(($item['nmech']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјРµС‡Р°РјРё: {$item['nmech']}</font><BR>":"")."
+		".(($item['nposoh']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РїРѕСЃРѕС…Р°РјРё: {$item['nposoh']}</font><BR>":"")."
+		".(($item['nfire']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: {$item['nfire']}</font><BR>":"")."
+		".(($item['nwater']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: {$item['nwater']}</font><BR>":"")."
+		".(($item['nair']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: {$item['nair']}</font><BR>":"")."
+		".(($item['nearth']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: {$item['nearth']}</font><BR>":"")."
+		".(($item['nlight']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РЎРІРµС‚Р°: {$item['nlight']}</font><BR>":"")."
+		".(($item['ngray']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃРµСЂРѕР№ РјР°РіРёРµР№: {$item['ngray']}</font><BR>":"")."
+		".(($item['ndark']>0)?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РўСЊРјС‹: {$item['ndark']}</font><BR>":"")."
+        ".(($item['gmeshok'] OR $item['honor'] OR $item['mfhitp'] OR $item['mfmagp'] OR $item['attacka'] OR $item['add_stats'] OR $item['mfpodav'] OR $item['gsila'] OR $item['mfdhit'] OR $item['mfdmag']  OR $item['mfkritpow']  OR $item['mfantikritpow'] OR $item['mfparir']  OR $item['mfshieldblock'] OR $item['mfcontr']  OR $item['mfrub'] OR $item['mfkol']  OR $item['mfdrob'] OR $item['mfrej'] OR $item['mfkrit'] OR $item['mfakrit']  OR $item['mfuvorot'] OR $item['mfauvorot']  OR $item['glovk'] OR $item['ghp'] OR $item['gmana'] OR $item['ginta'] OR $item['gintel'] OR $item['gnoj'] OR $item['gtopor'] OR $item['gdubina'] OR $item['gmech'] OR $item['gposoh'] OR $item['gfire'] OR $item['gwater'] OR $item['gair'] OR $item['gearth'] OR $item['gearth'] OR $item['glight'] OR $item['ggray'] OR $item['gdark'] OR $item['minu'] OR $item['maxu'] OR $item['bron1'] OR $item['bron2'] OR $item['bron3'] OR $item['bron4'])?"<b>Р”РµР№СЃС‚РІСѓРµС‚ РЅР°:</b><BR>":"")."
+	    ".(($item['deistvie'] && $item['show']==1)?"<b>Р”РµР№СЃС‚РІСѓРµС‚ РЅР°:</b><BR>вЂў ".$item['deistvie']."<BR> ":"")."
+        ".(($item['minu'])?"вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: {$item['minu']}<BR>":"")."
+		".(($item['maxu'])?"вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: {$item['maxu']}<BR>":"")."
+		".(($item['gsila'])?"вЂў РЎРёР»Р°: ".(($item['gsila']>0)?"+":"")."{$item['gsila']}<BR>":"")."
+		".(($item['glovk'])?"вЂў Р›РѕРІРєРѕСЃС‚СЊ: ".(($item['glovk']>0)?"+":"")."{$item['glovk']}<BR>":"")."
+		".(($item['ginta'])?"вЂў РРЅС‚СѓРёС†РёСЏ: ".(($item['ginta']>0)?"+":"")."{$item['ginta']}<BR>":"")."
+		".(($item['gintel'])?"вЂў РРЅС‚РµР»Р»РµРєС‚: ".(($item['gintel']>0)?"+":"")."{$item['gintel']}<BR>":"")."
+		".(($item['ghp'])?"вЂў РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: +{$item['ghp']}<BR>":"")."
+		".(($item['gmana'])?"вЂў РЈСЂРѕРІРµРЅСЊ РјР°РЅС‹: +{$item['gmana']}<BR>":"")."
+		".(($item['mfkrit'])?"вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРёС… СѓРґР°СЂРѕРІ: ".(($item['mfkrit']>0)?"+":"")."{$item['mfkrit']}%<BR>":"")."
+		".(($item['mfakrit'])?"вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚. СѓРґР°СЂРѕРІ: ".(($item['mfakrit']>0)?"+":"")."{$item['mfakrit']}%<BR>":"")."
+		".(($item['mfkritpow'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ. СѓРґР°СЂР°: ".(($item['mfkritpow']>0)?"+":"")."{$item['mfkritpow']}%<BR>":"")."
+		".(($item['mfantikritpow'])?"вЂў РњС„. РїСЂРѕС‚РёРІ РјРѕС‰. РєСЂРёС‚. СѓРґР°СЂР°: ".(($item['mfantikritpow']>0)?"+":"")."{$item['mfantikritpow']}%<BR>":"")."
+		".(($item['mfparir'])?"вЂў РњС„. РїР°СЂРёСЂРѕРІР°РЅРёСЏ: ".(($item['mfparir']>0)?"+":"")."{$item['mfparir']}%<BR>":"")."
+		".(($item['mfshieldblock'])?"вЂў РњС„. Р±Р»РѕРєР° С‰РёС‚РѕРј: ".(($item['mfshieldblock']>0)?"+":"")."{$item['mfshieldblock']}%<BR>":"")."
+		".(($item['mfcontr'])?"вЂў РњС„. РєРѕРЅС‚СЂСѓРґР°СЂР°: ".(($item['mfcontr']>0)?"+":"")."{$item['mfcontr']}%<BR>":"")."
+		".(($item['mfuvorot'])?"вЂў РњС„. СѓРІРµСЂС‚Р»РёРІРѕСЃС‚Рё: ".(($item['mfuvorot']>0)?"+":"")."{$item['mfuvorot']}%<BR>":"")."
+		".(($item['mfauvorot'])?"вЂў РњС„. РїСЂРѕС‚РёРІ СѓРІРµСЂС‚Р»РёРІ.: ".(($item['mfauvorot']>0)?"+":"")."{$item['mfauvorot']}%<BR>":"")."
+		".(($item['gnoj'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РЅРѕР¶Р°РјРё Рё РєР°СЃС‚РµС‚Р°РјРё: +{$item['gnoj']}<BR>":"")."
+		".(($item['gtopor'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ С‚РѕРїРѕСЂР°РјРё Рё СЃРµРєРёСЂР°РјРё: +{$item['gtopor']}<BR>":"")."
+		".(($item['gdubina'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РґСѓР±РёРЅР°РјРё Рё Р±СѓР»Р°РІР°РјРё: +{$item['gdubina']}<BR>":"")."
+		".(($item['gmech'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјРµС‡Р°РјРё: +{$item['gmech']}<BR>":"")."
+		".(($item['gposoh'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РїРѕСЃРѕС…Р°РјРё: +{$item['gposoh']}<BR>":"")."
+		".(($item['gfire'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: +{$item['gfire']}<BR>":"")."
+		".(($item['gwater'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: +{$item['gwater']}<BR>":"")."
+		".(($item['gair'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: +{$item['gair']}<BR>":"")."
+		".(($item['gearth'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: +{$item['gearth']}<BR>":"")."
+		".(($item['glight'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РЎРІРµС‚Р°: +{$item['glight']}<BR>":"")."
+		".(($item['ggray'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃРµСЂРѕР№ РјР°РіРёРµР№: +{$item['ggray']}<BR>":"")."
+		".(($item['gdark'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РўСЊРјС‹: +{$item['gdark']}<BR>":"").""
                
-         .(($item['bron1']!=0)?"• Броня головы: {$item['bron11']}-{$item['bron1']} (".(((($item['bron11']-1)!=0)?($item['bron11']-1)."+":""))."d".(1+$item['bron1']-$item['bron11']).")<br>":"")."
-		".(($item['bron2']!=0)?"• Броня корпуса: {$item['bron22']}-{$item['bron2']} (".(((($item['bron22']-1)!=0)?($item['bron22']-1)."+":""))."d".(1+$item['bron2']-$item['bron22']).")<br>":"")."
-		".(($item['bron3']!=0)?"• Броня пояса: {$item['bron33']}-{$item['bron3']} (".(((($item['bron33']-1)!=0)?($item['bron33']-1)."+":""))."d".(1+$item['bron3']-$item['bron33']).")<br>":"")."
-		".(($item['bron4']!=0)?"• Броня ног: {$item['bron44']}-{$item['bron4']} (".(((($item['bron44']-1)!=0)?($item['bron44']-1)."+":""))."d".(1+$item['bron4']-$item['bron44']).")<br>":"")."
+         .(($item['bron1']!=0)?"вЂў Р‘СЂРѕРЅСЏ РіРѕР»РѕРІС‹: {$item['bron11']}-{$item['bron1']} (".(((($item['bron11']-1)!=0)?($item['bron11']-1)."+":""))."d".(1+$item['bron1']-$item['bron11']).")<br>":"")."
+		".(($item['bron2']!=0)?"вЂў Р‘СЂРѕРЅСЏ РєРѕСЂРїСѓСЃР°: {$item['bron22']}-{$item['bron2']} (".(((($item['bron22']-1)!=0)?($item['bron22']-1)."+":""))."d".(1+$item['bron2']-$item['bron22']).")<br>":"")."
+		".(($item['bron3']!=0)?"вЂў Р‘СЂРѕРЅСЏ РїРѕСЏСЃР°: {$item['bron33']}-{$item['bron3']} (".(((($item['bron33']-1)!=0)?($item['bron33']-1)."+":""))."d".(1+$item['bron3']-$item['bron33']).")<br>":"")."
+		".(($item['bron4']!=0)?"вЂў Р‘СЂРѕРЅСЏ РЅРѕРі: {$item['bron44']}-{$item['bron4']} (".(((($item['bron44']-1)!=0)?($item['bron44']-1)."+":""))."d".(1+$item['bron4']-$item['bron44']).")<br>":"")."
 
-		".(($item['add_stats'])?"• Количество увеличений: {$item['add_stats']}<BR>":"")."
-        ".(($item['attacka'])?"• Дополнительный удар: +{$item['attacka']}<BR>":"")."
-		".(($item['mfdhit'])?"• Защита от урона: ".(($item['mfdhit']>0)?"+":"")."{$item['mfdhit']}%<BR>":"")."
-		".(($item['mfdmag'])?"• Защита от магии: ".(($item['mfdmag']>0)?"+":"")."{$item['mfdmag']}%<BR>":"")."
-		".(($item['mfdfire'])?"• Защита от магии Огня: ".(($item['mfdfire']>0)?"+":"")."{$item['mfdfire']}%<BR>":"")."
-        ".(($item['mfdair'])?"• Защита от магии Воздуха: ".(($item['mfdair']>0)?"+":"")."{$item['mfdair']}%<BR>":"")."
-        ".(($item['mfdwater'])?"• Защита от магии Воды: ".(($item['mfdwater']>0)?"+":"")."{$item['mfdwater']}%<BR>":"")."
-        ".(($item['mfdearth'])?"• Защита от магии Земли: ".(($item['mfdearth']>0)?"+":"")."{$item['mfdearth']}%<BR>":"")."
-        ".(($item['mffire'])?"• Мф. мощности урона Огня: ".(($item['mffire']>0)?"+":"")."{$item['mffire']}%<BR>":"")."
-        ".(($item['mfair'])?"• Мф. мощности урона Воздуха: ".(($item['mfair']>0)?"+":"")."{$item['mfair']}%<BR>":"")."
-        ".(($item['mfwater'])?"• Мф. мощности урона Воды: ".(($item['mfwater']>0)?"+":"")."{$item['mfwater']}%<BR>":"")."
-        ".(($item['mfearth'])?"• Мф. мощности урона Земли: ".(($item['mfearth']>0)?"+":"")."{$item['mfearth']}%<BR>":"")."
-        ".(($item['mfhitp'])?"• Мф. мощности урона: ".(($item['mfhitp']>0)?"+":"")."{$item['mfhitp']}%<BR>":"")."
-		".(($item['mfmagp'])?"• Мф. мощности магии: ".(($item['mfmagp']>0)?"+":"")."{$item['mfmagp']}%<BR>":"")."
-		".(($item['mfpodav'])?"• Мф. подавления защиты от магии: ".(($item['mfpodav']>0)?"+":"")."{$item['mfpodav']}%<BR>":"")."
-		".(($item['mfrub'])?"• Мф. мощности рубящго урона: ".(($item['mfrub']>0)?"+":"")."{$item['mfrub']}%<BR>":"")."
-		".(($item['mfkol'])?"• Мф. мощности колющего урона: ".(($item['mfkol']>0)?"+":"")."{$item['mfkol']}%<BR>":"")."
-		".(($item['mfdrob'])?"• Мф. мощности дробящего урона: ".(($item['mfdrob']>0)?"+":"")."{$item['mfdrob']}%<BR>":"")."
-		".(($item['mfrej'])?"•  Мф. мощности режущего урона: ".(($item['mfrej']>0)?"+":"")."{$item['mfrej']}%<BR>":"")."
-		".(($item['gmeshok'])?"• Увеличивает рюкзак: +{$item['gmeshok']}<BR>":"")."
-		".(($item['letter'])?"Количество символов: ".strlen($item['letter'])."</div>":"")."
-		".(($item['letter'])?"На бумаге записан текст:<div style='background-color:FAF0E6;'> ".nl2br($item['letter'])."</div>":"")."
-		".(($magic['name'] && $item['type'] != 50 && $item['type'] != 25 && $item['type'] != 29 && ($item['type'] != 200))?"<font color=maroon>Наложены заклятия:</font> <img src=\"http://img.wapbk.ru/i/magic/".$magic['img']."\" alt=\"".$magic['name']."\">".$magic['name']."<BR>":"")."
-		".((($item['type'] == 25))?"<font color=maroon>Наложены заклятия:</font> ".$magic['name']."<BR>":"")."
-		".((($item['type'] == 29))?"<font color=maroon>Наложены заклятия:</font> ".$magic['name']."<BR>":"")."
-        ".(($item['text'])?"На ручке выгравирована надпись:<center>".$item['text']."</center><BR>":"")."
-		".(($incmagic['max'])?"	Встроено заклятие <img src=\"/i/magic/".$incmagic['img']."\" alt=\"".$incmagic['name']."\"> ".$incmagic['cur']." шт.	<BR>":"")."
-		".(($item['podzem'])?"<br><font style='font-size:11px; color:#990000'>Предмет из подземелья</font><BR>":"")."
-	    ".(($item['sh']==1)?"<i>Особенности:</i><BR>• Колющие атаки: Регулярны<BR>• Режущие атаки: Ничтожно редки<BR>• Рубящие атаки:  Ничтожно редки<BR>• Ледяные атаки: Ничтожно редки<BR>":"")."
-        ".(($item['dvur'])?"<font style='font-size:11px; color:#990000'>двуручное оружие</font><BR>":"")."
+		".(($item['add_stats'])?"вЂў РљРѕР»РёС‡РµСЃС‚РІРѕ СѓРІРµР»РёС‡РµРЅРёР№: {$item['add_stats']}<BR>":"")."
+        ".(($item['attacka'])?"вЂў Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СѓРґР°СЂ: +{$item['attacka']}<BR>":"")."
+		".(($item['mfdhit'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ СѓСЂРѕРЅР°: ".(($item['mfdhit']>0)?"+":"")."{$item['mfdhit']}%<BR>":"")."
+		".(($item['mfdmag'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё: ".(($item['mfdmag']>0)?"+":"")."{$item['mfdmag']}%<BR>":"")."
+		".(($item['mfdfire'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РћРіРЅСЏ: ".(($item['mfdfire']>0)?"+":"")."{$item['mfdfire']}%<BR>":"")."
+        ".(($item['mfdair'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р’РѕР·РґСѓС…Р°: ".(($item['mfdair']>0)?"+":"")."{$item['mfdair']}%<BR>":"")."
+        ".(($item['mfdwater'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р’РѕРґС‹: ".(($item['mfdwater']>0)?"+":"")."{$item['mfdwater']}%<BR>":"")."
+        ".(($item['mfdearth'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р—РµРјР»Рё: ".(($item['mfdearth']>0)?"+":"")."{$item['mfdearth']}%<BR>":"")."
+        ".(($item['mffire'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° РћРіРЅСЏ: ".(($item['mffire']>0)?"+":"")."{$item['mffire']}%<BR>":"")."
+        ".(($item['mfair'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° Р’РѕР·РґСѓС…Р°: ".(($item['mfair']>0)?"+":"")."{$item['mfair']}%<BR>":"")."
+        ".(($item['mfwater'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° Р’РѕРґС‹: ".(($item['mfwater']>0)?"+":"")."{$item['mfwater']}%<BR>":"")."
+        ".(($item['mfearth'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° Р—РµРјР»Рё: ".(($item['mfearth']>0)?"+":"")."{$item['mfearth']}%<BR>":"")."
+        ".(($item['mfhitp'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР°: ".(($item['mfhitp']>0)?"+":"")."{$item['mfhitp']}%<BR>":"")."
+		".(($item['mfmagp'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё: ".(($item['mfmagp']>0)?"+":"")."{$item['mfmagp']}%<BR>":"")."
+		".(($item['mfpodav'])?"вЂў РњС„. РїРѕРґР°РІР»РµРЅРёСЏ Р·Р°С‰РёС‚С‹ РѕС‚ РјР°РіРёРё: ".(($item['mfpodav']>0)?"+":"")."{$item['mfpodav']}%<BR>":"")."
+		".(($item['mfrub'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СЂСѓР±СЏС‰РіРѕ СѓСЂРѕРЅР°: ".(($item['mfrub']>0)?"+":"")."{$item['mfrub']}%<BR>":"")."
+		".(($item['mfkol'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РєРѕР»СЋС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($item['mfkol']>0)?"+":"")."{$item['mfkol']}%<BR>":"")."
+		".(($item['mfdrob'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РґСЂРѕР±СЏС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($item['mfdrob']>0)?"+":"")."{$item['mfdrob']}%<BR>":"")."
+		".(($item['mfrej'])?"вЂў  РњС„. РјРѕС‰РЅРѕСЃС‚Рё СЂРµР¶СѓС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($item['mfrej']>0)?"+":"")."{$item['mfrej']}%<BR>":"")."
+		".(($item['gmeshok'])?"вЂў РЈРІРµР»РёС‡РёРІР°РµС‚ СЂСЋРєР·Р°Рє: +{$item['gmeshok']}<BR>":"")."
+		".(($item['letter'])?"РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ: ".strlen($item['letter'])."</div>":"")."
+		".(($item['letter'])?"РќР° Р±СѓРјР°РіРµ Р·Р°РїРёСЃР°РЅ С‚РµРєСЃС‚:<div style='background-color:FAF0E6;'> ".nl2br($item['letter'])."</div>":"")."
+		".(($magic['name'] && $item['type'] != 50 && $item['type'] != 25 && $item['type'] != 29 && ($item['type'] != 200))?"<font color=maroon>РќР°Р»РѕР¶РµРЅС‹ Р·Р°РєР»СЏС‚РёСЏ:</font> <img src=\"http://img.wapbk.ru/i/magic/".$magic['img']."\" alt=\"".$magic['name']."\">".$magic['name']."<BR>":"")."
+		".((($item['type'] == 25))?"<font color=maroon>РќР°Р»РѕР¶РµРЅС‹ Р·Р°РєР»СЏС‚РёСЏ:</font> ".$magic['name']."<BR>":"")."
+		".((($item['type'] == 29))?"<font color=maroon>РќР°Р»РѕР¶РµРЅС‹ Р·Р°РєР»СЏС‚РёСЏ:</font> ".$magic['name']."<BR>":"")."
+        ".(($item['text'])?"РќР° СЂСѓС‡РєРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅР° РЅР°РґРїРёСЃСЊ:<center>".$item['text']."</center><BR>":"")."
+		".(($incmagic['max'])?"	Р’СЃС‚СЂРѕРµРЅРѕ Р·Р°РєР»СЏС‚РёРµ <img src=\"/i/magic/".$incmagic['img']."\" alt=\"".$incmagic['name']."\"> ".$incmagic['cur']." С€С‚.	<BR>":"")."
+		".(($item['podzem'])?"<br><font style='font-size:11px; color:#990000'>РџСЂРµРґРјРµС‚ РёР· РїРѕРґР·РµРјРµР»СЊСЏ</font><BR>":"")."
+	    ".(($item['sh']==1)?"<i>РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё:</i><BR>вЂў РљРѕР»СЋС‰РёРµ Р°С‚Р°РєРё: Р РµРіСѓР»СЏСЂРЅС‹<BR>вЂў Р РµР¶СѓС‰РёРµ Р°С‚Р°РєРё: РќРёС‡С‚РѕР¶РЅРѕ СЂРµРґРєРё<BR>вЂў Р СѓР±СЏС‰РёРµ Р°С‚Р°РєРё:  РќРёС‡С‚РѕР¶РЅРѕ СЂРµРґРєРё<BR>вЂў Р›РµРґСЏРЅС‹Рµ Р°С‚Р°РєРё: РќРёС‡С‚РѕР¶РЅРѕ СЂРµРґРєРё<BR>":"")."
+        ".(($item['dvur'])?"<font style='font-size:11px; color:#990000'>РґРІСѓСЂСѓС‡РЅРѕРµ РѕСЂСѓР¶РёРµ</font><BR>":"")."
 		".(($item['opisan'])?"<small>".$item['opisan']."</small><BR>":"")."
-        ".((!$item['isrep'])?"<small><font color=maroon>Предмет не подлежит ремонту</font></small><BR>":"");
+        ".((!$item['isrep'])?"<small><font color=maroon>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><BR>":"");
 		?>
 		<tr bgcolor="#e2e2e2" onclick="cssale('2', '<?=$item['name']?>', '<?=$item['id']?>', '<?=$item['cost']?>');" style="cursor:pointer">
 			<td width="80" align="center"><img src="/i/sh/<?=$item['img']?>" title="<?=$item_descr?>"></td>
-			<td width="120" align="right"><?=number_format($item['auc_price'], 2, '.', ' ')?> кр.
+			<td width="120" align="right"><?=number_format($item['auc_price'], 2, '.', ' ')?> РєСЂ.
 				<?
 					$your_bid = '';
 					if($item['auc_bids']!=""){
@@ -758,10 +758,10 @@ progress_update();
 						foreach($bids as $k=>$bidder_id){
 							$login = mysql_fetch_assoc(mysql_query("select login from users where id='".$bidder_id."' LIMIT 1"));
 							$bidders[] = ($k==0)?"<b>".$login['login']."</b>":$login['login'];
-							$your_bid = ($bidder_id==$_SESSION['uid'])?'(ваша ставка)<br>':'';
+							$your_bid = ($bidder_id==$_SESSION['uid'])?'(РІР°С€Р° СЃС‚Р°РІРєР°)<br>':'';
 						}
 						$bidders_out = implode("<br>", $bidders);
-						echo '<span title="'.$bidders_out.'">(участников: '.count($bids).')</span>';
+						echo '<span title="'.$bidders_out.'">(СѓС‡Р°СЃС‚РЅРёРєРѕРІ: '.count($bids).')</span>';
 					}
 				?>
 			</td>
@@ -772,7 +772,7 @@ progress_update();
 		</table>
 <?}elseif(isset($_GET['razdel']) and $_GET['razdel']==3){?>
 	<table cellspacing="1" cellpadding="4" border="0" bgcolor="#a5a5a5" width="600px">
-	<?$data = mysql_query("SELECT * FROM `inventory` WHERE `type` < 25   AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `type` = 200 AND `name` NOT LIKE '% (мф)%'  AND `name` NOT LIKE '%Букет%'  AND `name` NOT LIKE '%Мешок%' ORDER by `update` DESC; ");
+	<?$data = mysql_query("SELECT * FROM `inventory` WHERE `type` < 25   AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `type` = 200 AND `name` NOT LIKE '% (РјС„)%'  AND `name` NOT LIKE '%Р‘СѓРєРµС‚%'  AND `name` NOT LIKE '%РњРµС€РѕРє%' ORDER by `update` DESC; ");
 	while($row = mysql_fetch_array($data)) {
 			echo mysql_error();
 
@@ -781,7 +781,7 @@ progress_update();
 		echo "<TR bgcolor={$color}><TD align=center ><IMG SRC=\"/i/sh/{$row['img']}\" BORDER=0>";
 		?>
 		<BR><small>
-		<BR><A onclick="sale('1', '<?=$row['name']?>', '<?=$row['id']?>', '<?=$row['cost']?>');" HREF="#">Выставить на аукцион</A>
+		<BR><A onclick="sale('1', '<?=$row['name']?>', '<?=$row['id']?>', '<?=$row['cost']?>');" HREF="#">Р’С‹СЃС‚Р°РІРёС‚СЊ РЅР° Р°СѓРєС†РёРѕРЅ</A>
 		</TD>
 		</small>
 		</TD>

@@ -1,98 +1,98 @@
-var toInvPhrase = 'В инвентарь ';
+var toInvPhrase = 'Р’ РёРЅРІРµРЅС‚Р°СЂСЊ ';
 var reCount = /^\(X([0-9]+)\)/;
 
 var ingridients = [
-/*			["Шкура пещерного оленя", "mater1", 60, 60],
-			["Золото", "mater2", 60, 60],
-			["Серебро", "mater3", 60, 60],
-			["Лучистое серебро", "mater4", 60, 60],
-			["Мифрил", "mater5", 60, 60],
-			["Железное дерево", "mater6", 60, 60],
-			["Слиток пустынной руды", "mater7", 60, 60],
-			["Троекорень", "mater8", 60, 60],
-			["Корень змеиного дерева", "mater9", 60, 60],
-			["Кора змеиного дерева", "mater10", 60, 60],
-			["Кожа Общего Врага", "mater11", 60, 60],
-			["Сталь", "mater12", 60, 60],
-			["Кристалл тысячи ответов", "mater13", 60, 60],
-			["Сгусток эфира", "mater14", 60, 60],
-			["Сгусток астрала", "mater15", 60, 60],
-			["Глубинный камень", "mater16", 60, 60],
-			["Плод змеиного дерева", "mater17", 60, 60],
-			["Тысячелетний камень", "mater18", 60, 60],
-			["Кристалл времен", "mater19", 60, 60],
-			["Эссенция лунного света", "mater20", 60, 60],
-			["Эссенция глубины", "mater21", 60, 60],
-			["Эссенция чистоты", "mater22", 60, 60],
-			["Ралиэль", "mater23", 60, 60],
-			["Стихиалия", "mater24", 60, 60],
-			["Кристалл голоса предков", "mater25", 60, 60],
-			["Кристалл стабильности", "mater26", 60, 60],
-			["Камень затаенного солнца", "mater27", 60, 60],
-			["Лучистый рубин", "mater28", 60, 60],
-			["Лучистый топаз", "mater29", 60, 60],
-			["Шепот гор", "mater30", 60, 60],
-			["Эссенция праведного гнева", "mater31", 60, 60],
+/*			["РЁРєСѓСЂР° РїРµС‰РµСЂРЅРѕРіРѕ РѕР»РµРЅСЏ", "mater1", 60, 60],
+			["Р—РѕР»РѕС‚Рѕ", "mater2", 60, 60],
+			["РЎРµСЂРµР±СЂРѕ", "mater3", 60, 60],
+			["Р›СѓС‡РёСЃС‚РѕРµ СЃРµСЂРµР±СЂРѕ", "mater4", 60, 60],
+			["РњРёС„СЂРёР»", "mater5", 60, 60],
+			["Р–РµР»РµР·РЅРѕРµ РґРµСЂРµРІРѕ", "mater6", 60, 60],
+			["РЎР»РёС‚РѕРє РїСѓСЃС‚С‹РЅРЅРѕР№ СЂСѓРґС‹", "mater7", 60, 60],
+			["РўСЂРѕРµРєРѕСЂРµРЅСЊ", "mater8", 60, 60],
+			["РљРѕСЂРµРЅСЊ Р·РјРµРёРЅРѕРіРѕ РґРµСЂРµРІР°", "mater9", 60, 60],
+			["РљРѕСЂР° Р·РјРµРёРЅРѕРіРѕ РґРµСЂРµРІР°", "mater10", 60, 60],
+			["РљРѕР¶Р° РћР±С‰РµРіРѕ Р’СЂР°РіР°", "mater11", 60, 60],
+			["РЎС‚Р°Р»СЊ", "mater12", 60, 60],
+			["РљСЂРёСЃС‚Р°Р»Р» С‚С‹СЃСЏС‡Рё РѕС‚РІРµС‚РѕРІ", "mater13", 60, 60],
+			["РЎРіСѓСЃС‚РѕРє СЌС„РёСЂР°", "mater14", 60, 60],
+			["РЎРіСѓСЃС‚РѕРє Р°СЃС‚СЂР°Р»Р°", "mater15", 60, 60],
+			["Р“Р»СѓР±РёРЅРЅС‹Р№ РєР°РјРµРЅСЊ", "mater16", 60, 60],
+			["РџР»РѕРґ Р·РјРµРёРЅРѕРіРѕ РґРµСЂРµРІР°", "mater17", 60, 60],
+			["РўС‹СЃСЏС‡РµР»РµС‚РЅРёР№ РєР°РјРµРЅСЊ", "mater18", 60, 60],
+			["РљСЂРёСЃС‚Р°Р»Р» РІСЂРµРјРµРЅ", "mater19", 60, 60],
+			["Р­СЃСЃРµРЅС†РёСЏ Р»СѓРЅРЅРѕРіРѕ СЃРІРµС‚Р°", "mater20", 60, 60],
+			["Р­СЃСЃРµРЅС†РёСЏ РіР»СѓР±РёРЅС‹", "mater21", 60, 60],
+			["Р­СЃСЃРµРЅС†РёСЏ С‡РёСЃС‚РѕС‚С‹", "mater22", 60, 60],
+			["Р Р°Р»РёСЌР»СЊ", "mater23", 60, 60],
+			["РЎС‚РёС…РёР°Р»РёСЏ", "mater24", 60, 60],
+			["РљСЂРёСЃС‚Р°Р»Р» РіРѕР»РѕСЃР° РїСЂРµРґРєРѕРІ", "mater25", 60, 60],
+			["РљСЂРёСЃС‚Р°Р»Р» СЃС‚Р°Р±РёР»СЊРЅРѕСЃС‚Рё", "mater26", 60, 60],
+			["РљР°РјРµРЅСЊ Р·Р°С‚Р°РµРЅРЅРѕРіРѕ СЃРѕР»РЅС†Р°", "mater27", 60, 60],
+			["Р›СѓС‡РёСЃС‚С‹Р№ СЂСѓР±РёРЅ", "mater28", 60, 60],
+			["Р›СѓС‡РёСЃС‚С‹Р№ С‚РѕРїР°Р·", "mater29", 60, 60],
+			["РЁРµРїРѕС‚ РіРѕСЂ", "mater30", 60, 60],
+			["Р­СЃСЃРµРЅС†РёСЏ РїСЂР°РІРµРґРЅРѕРіРѕ РіРЅРµРІР°", "mater31", 60, 60],
 
-			["Слиток света", "mater261", 60, 60],
-			["Осколок бездны", "mater262", 60, 60],
-			["Расскаленная магма", "mater267", 60, 60],
-			["Песок просвета", "mater275", 60, 60],
-			["Песчаная руда", "mater276", 60, 60],
-			["Сущность кольца", "sp_mat3", 40, 25],
-			["Сущность браслета", "sp_mat5", 40, 25],
-			["Сущность ожерелья", "sp_mat7", 40, 25],
-			["Сущность перчаток", "sp_mat9", 40, 25],
-			["Сущность пояса", "sp_mat13", 40, 25],
-			["Сущность серег", "sp_mat15", 40, 25],
-			["Сущность серег", "sp_mat15", 40, 25],
+			["РЎР»РёС‚РѕРє СЃРІРµС‚Р°", "mater261", 60, 60],
+			["РћСЃРєРѕР»РѕРє Р±РµР·РґРЅС‹", "mater262", 60, 60],
+			["Р Р°СЃСЃРєР°Р»РµРЅРЅР°СЏ РјР°РіРјР°", "mater267", 60, 60],
+			["РџРµСЃРѕРє РїСЂРѕСЃРІРµС‚Р°", "mater275", 60, 60],
+			["РџРµСЃС‡Р°РЅР°СЏ СЂСѓРґР°", "mater276", 60, 60],
+			["РЎСѓС‰РЅРѕСЃС‚СЊ РєРѕР»СЊС†Р°", "sp_mat3", 40, 25],
+			["РЎСѓС‰РЅРѕСЃС‚СЊ Р±СЂР°СЃР»РµС‚Р°", "sp_mat5", 40, 25],
+			["РЎСѓС‰РЅРѕСЃС‚СЊ РѕР¶РµСЂРµР»СЊСЏ", "sp_mat7", 40, 25],
+			["РЎСѓС‰РЅРѕСЃС‚СЊ РїРµСЂС‡Р°С‚РѕРє", "sp_mat9", 40, 25],
+			["РЎСѓС‰РЅРѕСЃС‚СЊ РїРѕСЏСЃР°", "sp_mat13", 40, 25],
+			["РЎСѓС‰РЅРѕСЃС‚СЊ СЃРµСЂРµРі", "sp_mat15", 40, 25],
+			["РЎСѓС‰РЅРѕСЃС‚СЊ СЃРµСЂРµРі", "sp_mat15", 40, 25],
 
  
-			["Кристальный песок", "mater292", 60, 60],
-			["Мерцающий кристалл", "mater293", 60, 60],
-			["Слезы лунного мерцания", "mater294", 60, 60],
-			["Чешуйчатая шкура", "mater295", 60, 60],
-			["Самородок мерцающего металла", "mater296", 60, 60],
-			["Изменчивые водоросли", "mater297", 60, 60],
-			["Древний мох", "mater298", 60, 60],
-			["Черное масло", "mater299", 60, 60],
-			["Бурая шкура", "mater300", 60, 60],
-			["Кость болотного тролля", "mater301", 60, 60],
+			["РљСЂРёСЃС‚Р°Р»СЊРЅС‹Р№ РїРµСЃРѕРє", "mater292", 60, 60],
+			["РњРµСЂС†Р°СЋС‰РёР№ РєСЂРёСЃС‚Р°Р»Р»", "mater293", 60, 60],
+			["РЎР»РµР·С‹ Р»СѓРЅРЅРѕРіРѕ РјРµСЂС†Р°РЅРёСЏ", "mater294", 60, 60],
+			["Р§РµС€СѓР№С‡Р°С‚Р°СЏ С€РєСѓСЂР°", "mater295", 60, 60],
+			["РЎР°РјРѕСЂРѕРґРѕРє РјРµСЂС†Р°СЋС‰РµРіРѕ РјРµС‚Р°Р»Р»Р°", "mater296", 60, 60],
+			["РР·РјРµРЅС‡РёРІС‹Рµ РІРѕРґРѕСЂРѕСЃР»Рё", "mater297", 60, 60],
+			["Р”СЂРµРІРЅРёР№ РјРѕС…", "mater298", 60, 60],
+			["Р§РµСЂРЅРѕРµ РјР°СЃР»Рѕ", "mater299", 60, 60],
+			["Р‘СѓСЂР°СЏ С€РєСѓСЂР°", "mater300", 60, 60],
+			["РљРѕСЃС‚СЊ Р±РѕР»РѕС‚РЅРѕРіРѕ С‚СЂРѕР»Р»СЏ", "mater301", 60, 60],
  
-   ["Обломок Пирамидального Ключа 1", "key_cube_1", 60, 60],
-   ["Осколок Пирамидального Ключа 2", "key_cube_2", 60, 60] ,
-   ["Пирамидальный ключ", "key_cube_3", 60, 60],
-	["Зачаровать Украшение [0]", "enh_1_0", 40, 25],
- ["Зачаровать Оружие [0]", "enh_3_0", 40, 25],
- ["Зачаровать Броню [0]", "enh_4_0", 40, 25],
- ["Зачаровать Перчатки [0]", "enh_5_0", 40, 25],
- ["Зачаровать Шлем [0]", "enh_9_0", 40, 25],
-	["Зачаровать Украшение [1]", "enh_1_1", 40, 25],
- ["Зачаровать Оружие [1]", "enh_3_1", 40, 25],
- ["Зачаровать Броню [1]", "enh_4_1", 40, 25],
- ["Зачаровать Перчатки [1]", "enh_5_1", 40, 25],
- ["Зачаровать Шлем [1]", "enh_9_1", 40, 25],
-	["Зачаровать Украшение [2]", "enh_1_2", 40, 25],
- ["Зачаровать Оружие [2]", "enh_3_2", 40, 25],
- ["Зачаровать Броню [2]", "enh_4_2", 40, 25],
- ["Зачаровать Перчатки [2]", "enh_5_2", 40, 25],
- ["Зачаровать Шлем [2]", "enh_9_2", 40, 25],
- ["Верхняя Часть Ключа Портала", "key_amul_1", 60, 60],
- ["Правая Часть Ключа Портала", "key_amul_2", 60, 60],
- ["Левая Часть Ключа Портала", "key_amul_3", 60, 60],
- ["Первая часть руны", "key_TR_1", 60, 60],
-	["Вторая часть руны", "key_TR_2", 60, 60],
- ["Третья часть руны", "key_TR_3", 60, 60],
- ["Четвёртая часть руны", "key_TR_4", 60, 60],
- ["Пятая часть руны", "key_TR_5", 60, 60],
+   ["РћР±Р»РѕРјРѕРє РџРёСЂР°РјРёРґР°Р»СЊРЅРѕРіРѕ РљР»СЋС‡Р° 1", "key_cube_1", 60, 60],
+   ["РћСЃРєРѕР»РѕРє РџРёСЂР°РјРёРґР°Р»СЊРЅРѕРіРѕ РљР»СЋС‡Р° 2", "key_cube_2", 60, 60] ,
+   ["РџРёСЂР°РјРёРґР°Р»СЊРЅС‹Р№ РєР»СЋС‡", "key_cube_3", 60, 60],
+	["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РЈРєСЂР°С€РµРЅРёРµ [0]", "enh_1_0", 40, 25],
+ ["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РћСЂСѓР¶РёРµ [0]", "enh_3_0", 40, 25],
+ ["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ Р‘СЂРѕРЅСЋ [0]", "enh_4_0", 40, 25],
+ ["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РџРµСЂС‡Р°С‚РєРё [0]", "enh_5_0", 40, 25],
+ ["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РЁР»РµРј [0]", "enh_9_0", 40, 25],
+	["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РЈРєСЂР°С€РµРЅРёРµ [1]", "enh_1_1", 40, 25],
+ ["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РћСЂСѓР¶РёРµ [1]", "enh_3_1", 40, 25],
+ ["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ Р‘СЂРѕРЅСЋ [1]", "enh_4_1", 40, 25],
+ ["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РџРµСЂС‡Р°С‚РєРё [1]", "enh_5_1", 40, 25],
+ ["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РЁР»РµРј [1]", "enh_9_1", 40, 25],
+	["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РЈРєСЂР°С€РµРЅРёРµ [2]", "enh_1_2", 40, 25],
+ ["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РћСЂСѓР¶РёРµ [2]", "enh_3_2", 40, 25],
+ ["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ Р‘СЂРѕРЅСЋ [2]", "enh_4_2", 40, 25],
+ ["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РџРµСЂС‡Р°С‚РєРё [2]", "enh_5_2", 40, 25],
+ ["Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РЁР»РµРј [2]", "enh_9_2", 40, 25],
+ ["Р’РµСЂС…РЅСЏСЏ Р§Р°СЃС‚СЊ РљР»СЋС‡Р° РџРѕСЂС‚Р°Р»Р°", "key_amul_1", 60, 60],
+ ["РџСЂР°РІР°СЏ Р§Р°СЃС‚СЊ РљР»СЋС‡Р° РџРѕСЂС‚Р°Р»Р°", "key_amul_2", 60, 60],
+ ["Р›РµРІР°СЏ Р§Р°СЃС‚СЊ РљР»СЋС‡Р° РџРѕСЂС‚Р°Р»Р°", "key_amul_3", 60, 60],
+ ["РџРµСЂРІР°СЏ С‡Р°СЃС‚СЊ СЂСѓРЅС‹", "key_TR_1", 60, 60],
+	["Р’С‚РѕСЂР°СЏ С‡Р°СЃС‚СЊ СЂСѓРЅС‹", "key_TR_2", 60, 60],
+ ["РўСЂРµС‚СЊСЏ С‡Р°СЃС‚СЊ СЂСѓРЅС‹", "key_TR_3", 60, 60],
+ ["Р§РµС‚РІС‘СЂС‚Р°СЏ С‡Р°СЃС‚СЊ СЂСѓРЅС‹", "key_TR_4", 60, 60],
+ ["РџСЏС‚Р°СЏ С‡Р°СЃС‚СЊ СЂСѓРЅС‹", "key_TR_5", 60, 60],
  */
-			/*["Грибочки", "gg_token", 60, 60],
-			["Маленькие Грибочки", "gg_small_token", 60, 60],
+			/*["Р“СЂРёР±РѕС‡РєРё", "gg_token", 60, 60],
+			["РњР°Р»РµРЅСЊРєРёРµ Р“СЂРёР±РѕС‡РєРё", "gg_small_token", 60, 60],
 
- ["Кусок старой ржавой кольчуги", "gg3_hishn_kolch", 60, 60],
- ["Обломок доспеха", "gg3_hishn_dosp", 60, 60],
- ["Обломок меча", "gg3_hishn_sword", 60, 60],
- ["Палец латной перчатки", "gg3_hishn_finger", 60, 60]*/
+ ["РљСѓСЃРѕРє СЃС‚Р°СЂРѕР№ СЂР¶Р°РІРѕР№ РєРѕР»СЊС‡СѓРіРё", "gg3_hishn_kolch", 60, 60],
+ ["РћР±Р»РѕРјРѕРє РґРѕСЃРїРµС…Р°", "gg3_hishn_dosp", 60, 60],
+ ["РћР±Р»РѕРјРѕРє РјРµС‡Р°", "gg3_hishn_sword", 60, 60],
+ ["РџР°Р»РµС† Р»Р°С‚РЅРѕР№ РїРµСЂС‡Р°С‚РєРё", "gg3_hishn_finger", 60, 60]*/
 
  
 
@@ -104,80 +104,80 @@ var ingridients = [
 	
 	var recipes = [
 /*
-		["spell_curse", "Черная Метка", {"mater12": 1, "mater28": 1, "mater16": 1, "mater17": 1, "mater18": 1, "mater29": 1}, {}],
-		["spell_curseb", "Красная Метка", {"mater4": 1, "mater14": 3, "mater25": 1, "mater27": 1, "mater30": 1, "mater31": 1, "mater24": 1}, {}],
+		["spell_curse", "Р§РµСЂРЅР°СЏ РњРµС‚РєР°", {"mater12": 1, "mater28": 1, "mater16": 1, "mater17": 1, "mater18": 1, "mater29": 1}, {}],
+		["spell_curseb", "РљСЂР°СЃРЅР°СЏ РњРµС‚РєР°", {"mater4": 1, "mater14": 3, "mater25": 1, "mater27": 1, "mater30": 1, "mater31": 1, "mater24": 1}, {}],
 
  
-  ["key_amul_4", "Ключ Портала", {"key_amul_1": 1, "key_amul_2": 1, "key_amul_3": 1}, {}],
+  ["key_amul_4", "РљР»СЋС‡ РџРѕСЂС‚Р°Р»Р°", {"key_amul_1": 1, "key_amul_2": 1, "key_amul_3": 1}, {}],
 
-		["sp_tacpts_BLK1", "Тактика Защиты: 1", {"mater11": 3}, {}],
-		["sp_tacpts_BLK2", "Тактика Защиты: 2", {"mater19": 2}, {}],
-		["sp_tacpts_BLK3", "Тактика Защиты: 3", {"mater29": 2}, {}],
-		["sp_tacpts_BLK4", "Тактика Защиты: 4", {"mater21": 1}, {}],
-		["sp_tacpts_BLK5", "Тактика Защиты: 5", {"mater21": 1, "mater23": 1}, {}],
+		["sp_tacpts_BLK1", "РўР°РєС‚РёРєР° Р—Р°С‰РёС‚С‹: 1", {"mater11": 3}, {}],
+		["sp_tacpts_BLK2", "РўР°РєС‚РёРєР° Р—Р°С‰РёС‚С‹: 2", {"mater19": 2}, {}],
+		["sp_tacpts_BLK3", "РўР°РєС‚РёРєР° Р—Р°С‰РёС‚С‹: 3", {"mater29": 2}, {}],
+		["sp_tacpts_BLK4", "РўР°РєС‚РёРєР° Р—Р°С‰РёС‚С‹: 4", {"mater21": 1}, {}],
+		["sp_tacpts_BLK5", "РўР°РєС‚РёРєР° Р—Р°С‰РёС‚С‹: 5", {"mater21": 1, "mater23": 1}, {}],
 	
-		["sp_tacpts_HIT1", "Тактика Боя: 1", {"mater7": 3}, {}],
-		["sp_tacpts_HIT2", "Тактика Боя: 2", {"mater18": 2}, {}],
-		["sp_tacpts_HIT3", "Тактика Боя: 3", {"mater30": 2}, {}],
-		["sp_tacpts_HIT4", "Тактика Боя: 4", {"mater22": 1}, {}],
-		["sp_tacpts_HIT5", "Тактика Боя: 5", {"mater22": 1, "mater23": 1}, {}],
+		["sp_tacpts_HIT1", "РўР°РєС‚РёРєР° Р‘РѕСЏ: 1", {"mater7": 3}, {}],
+		["sp_tacpts_HIT2", "РўР°РєС‚РёРєР° Р‘РѕСЏ: 2", {"mater18": 2}, {}],
+		["sp_tacpts_HIT3", "РўР°РєС‚РёРєР° Р‘РѕСЏ: 3", {"mater30": 2}, {}],
+		["sp_tacpts_HIT4", "РўР°РєС‚РёРєР° Р‘РѕСЏ: 4", {"mater22": 1}, {}],
+		["sp_tacpts_HIT5", "РўР°РєС‚РёРєР° Р‘РѕСЏ: 5", {"mater22": 1, "mater23": 1}, {}],
 	
-		["sp_tacpts_KRT1", "Тактика Крови: 1", {"mater9": 3}, {}],
-		["sp_tacpts_KRT2", "Тактика Крови: 2", {"mater16": 2}, {}],
-		["sp_tacpts_KRT3", "Тактика Крови: 3", {"mater27": 2}, {}],
-		["sp_tacpts_KRT4", "Тактика Крови: 4", {"mater31": 1}, {}],
-		["sp_tacpts_KRT5", "Тактика Крови: 5", {"mater31": 1, "mater23": 1}, {}],
+		["sp_tacpts_KRT1", "РўР°РєС‚РёРєР° РљСЂРѕРІРё: 1", {"mater9": 3}, {}],
+		["sp_tacpts_KRT2", "РўР°РєС‚РёРєР° РљСЂРѕРІРё: 2", {"mater16": 2}, {}],
+		["sp_tacpts_KRT3", "РўР°РєС‚РёРєР° РљСЂРѕРІРё: 3", {"mater27": 2}, {}],
+		["sp_tacpts_KRT4", "РўР°РєС‚РёРєР° РљСЂРѕРІРё: 4", {"mater31": 1}, {}],
+		["sp_tacpts_KRT5", "РўР°РєС‚РёРєР° РљСЂРѕРІРё: 5", {"mater31": 1, "mater23": 1}, {}],
 	
-		["sp_tacpts_CNTR1", "Тактика Ответа: 1", {"mater10": 3}, {}],
-		["sp_tacpts_CNTR2", "Тактика Ответа: 2", {"mater17": 2}, {}],
-		["sp_tacpts_CNTR3", "Тактика Ответа: 3", {"mater28": 2}, {}],
-		["sp_tacpts_CNTR4", "Тактика Ответа: 4", {"mater20": 1}, {}],
-		["sp_tacpts_CNTR5", "Тактика Ответа: 5", {"mater20": 1, "mater23": 1}, {}],
+		["sp_tacpts_CNTR1", "РўР°РєС‚РёРєР° РћС‚РІРµС‚Р°: 1", {"mater10": 3}, {}],
+		["sp_tacpts_CNTR2", "РўР°РєС‚РёРєР° РћС‚РІРµС‚Р°: 2", {"mater17": 2}, {}],
+		["sp_tacpts_CNTR3", "РўР°РєС‚РёРєР° РћС‚РІРµС‚Р°: 3", {"mater28": 2}, {}],
+		["sp_tacpts_CNTR4", "РўР°РєС‚РёРєР° РћС‚РІРµС‚Р°: 4", {"mater20": 1}, {}],
+		["sp_tacpts_CNTR5", "РўР°РєС‚РёРєР° РћС‚РІРµС‚Р°: 5", {"mater20": 1, "mater23": 1}, {}],
 	
-		["sp_tacpts_PRY1", "Тактика Отражения: 1", {"mater8": 3}, {}],
-		["sp_tacpts_PRY2", "Тактика Отражения: 2", {"mater15": 2}, {}],
-		["sp_tacpts_PRY3", "Тактика Отражения: 3", {"mater26": 2}, {}],
-		["sp_tacpts_PRY4", "Тактика Отражения: 4", {"mater24": 1}, {}],
-		["sp_tacpts_PRY5", "Тактика Отражения: 5", {"mater24": 1, "mater23": 1}, {}],
+		["sp_tacpts_PRY1", "РўР°РєС‚РёРєР° РћС‚СЂР°Р¶РµРЅРёСЏ: 1", {"mater8": 3}, {}],
+		["sp_tacpts_PRY2", "РўР°РєС‚РёРєР° РћС‚СЂР°Р¶РµРЅРёСЏ: 2", {"mater15": 2}, {}],
+		["sp_tacpts_PRY3", "РўР°РєС‚РёРєР° РћС‚СЂР°Р¶РµРЅРёСЏ: 3", {"mater26": 2}, {}],
+		["sp_tacpts_PRY4", "РўР°РєС‚РёРєР° РћС‚СЂР°Р¶РµРЅРёСЏ: 4", {"mater24": 1}, {}],
+		["sp_tacpts_PRY5", "РўР°РєС‚РёРєР° РћС‚СЂР°Р¶РµРЅРёСЏ: 5", {"mater24": 1, "mater23": 1}, {}],
 
-  ["key_cube_3", "Пирамидальный ключ", {"key_cube_1": 1, "key_cube_2": 1}],
+  ["key_cube_3", "РџРёСЂР°РјРёРґР°Р»СЊРЅС‹Р№ РєР»СЋС‡", {"key_cube_1": 1, "key_cube_2": 1}],
  
-  ["key_TR_6", "Отпирающая руна", {"key_TR_1": 1, "key_TR_2": 1, "key_TR_3": 1, "key_TR_4": 1, "key_TR_5": 1}, {}],
+  ["key_TR_6", "РћС‚РїРёСЂР°СЋС‰Р°СЏ СЂСѓРЅР°", {"key_TR_1": 1, "key_TR_2": 1, "key_TR_3": 1, "key_TR_4": 1, "key_TR_5": 1}, {}],
 
 
-  ["dispell1", "Снять Проклятие", {'mater298': 5,'mater294': 1}],
+  ["dispell1", "РЎРЅСЏС‚СЊ РџСЂРѕРєР»СЏС‚РёРµ", {'mater298': 5,'mater294': 1}],
 
 
-	 ["enh_1_1", "Зачаровать Украшение [1]", {"enh_1_0": 3,"key_cube_3": 1}, {}],
-		["enh_3_1", "Зачаровать Оружие [1]", {"enh_3_0": 3,"key_cube_3": 1}, {}],
-		["enh_4_1", "Зачаровать Броню [1]", {"enh_4_0": 3,"key_cube_3": 1}, {}],
-		["enh_5_1", "Зачаровать Перчатки [1]", {"enh_5_0": 3,"key_cube_3": 1}, {}],
-		["enh_9_1", "Зачаровать Шлем [1]", {"enh_9_0": 3,"key_cube_3": 1}, {}],
-  ["enh_1_2", "Зачаровать Украшение [2]", {"enh_1_1": 3,"key_cube_3": 1}, {}],
-		["enh_3_2", "Зачаровать Оружие [2]", {"enh_3_1": 3,"key_cube_3": 1}, {}],
-		["enh_4_2", "Зачаровать Броню [2]", {"enh_4_1": 3,"key_cube_3": 1}, {}],
-		["enh_5_2", "Зачаровать Перчатки [2]", {"enh_5_1": 3,"key_cube_3": 1}, {}],
-		["enh_9_2", "Зачаровать Шлем [2]", {"enh_9_1": 3,"key_cube_3": 1}, {}],
-  ["enh_1_3", "Зачаровать Украшение [3]", {"enh_1_2": 3,"key_cube_3": 1,"mater24": 1}, {}],
-		["enh_3_3", "Зачаровать Оружие [3]", {"enh_3_2": 3,"key_cube_3": 1,"mater22": 1}, {}],
-		["enh_4_3", "Зачаровать Броню [3]", {"enh_4_2": 3,"key_cube_3": 1,"mater21": 1}, {}],
-		["enh_5_3", "Зачаровать Перчатки [3]", {"enh_5_2": 3,"key_cube_3": 1,"mater20": 1}, {}],
-		["enh_9_3", "Зачаровать Шлем [3]", {"enh_9_2": 3,"key_cube_3": 1,"mater31": 1}, {}],
+	 ["enh_1_1", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РЈРєСЂР°С€РµРЅРёРµ [1]", {"enh_1_0": 3,"key_cube_3": 1}, {}],
+		["enh_3_1", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РћСЂСѓР¶РёРµ [1]", {"enh_3_0": 3,"key_cube_3": 1}, {}],
+		["enh_4_1", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ Р‘СЂРѕРЅСЋ [1]", {"enh_4_0": 3,"key_cube_3": 1}, {}],
+		["enh_5_1", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РџРµСЂС‡Р°С‚РєРё [1]", {"enh_5_0": 3,"key_cube_3": 1}, {}],
+		["enh_9_1", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РЁР»РµРј [1]", {"enh_9_0": 3,"key_cube_3": 1}, {}],
+  ["enh_1_2", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РЈРєСЂР°С€РµРЅРёРµ [2]", {"enh_1_1": 3,"key_cube_3": 1}, {}],
+		["enh_3_2", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РћСЂСѓР¶РёРµ [2]", {"enh_3_1": 3,"key_cube_3": 1}, {}],
+		["enh_4_2", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ Р‘СЂРѕРЅСЋ [2]", {"enh_4_1": 3,"key_cube_3": 1}, {}],
+		["enh_5_2", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РџРµСЂС‡Р°С‚РєРё [2]", {"enh_5_1": 3,"key_cube_3": 1}, {}],
+		["enh_9_2", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РЁР»РµРј [2]", {"enh_9_1": 3,"key_cube_3": 1}, {}],
+  ["enh_1_3", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РЈРєСЂР°С€РµРЅРёРµ [3]", {"enh_1_2": 3,"key_cube_3": 1,"mater24": 1}, {}],
+		["enh_3_3", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РћСЂСѓР¶РёРµ [3]", {"enh_3_2": 3,"key_cube_3": 1,"mater22": 1}, {}],
+		["enh_4_3", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ Р‘СЂРѕРЅСЋ [3]", {"enh_4_2": 3,"key_cube_3": 1,"mater21": 1}, {}],
+		["enh_5_3", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РџРµСЂС‡Р°С‚РєРё [3]", {"enh_5_2": 3,"key_cube_3": 1,"mater20": 1}, {}],
+		["enh_9_3", "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ РЁР»РµРј [3]", {"enh_9_2": 3,"key_cube_3": 1,"mater31": 1}, {}],
 */
 
- ["gg_token", "Грибочки", {"gg_small_token": 10}],
+ ["gg_token", "Р“СЂРёР±РѕС‡РєРё", {"gg_small_token": 10}],
 
- ["gg3_suv_grib1", "Светящийся гриб", {"gg3_hishn_kolch": 2}],
- ["gg3_suv_grib2", "Светящийся гриб", {"gg3_hishn_kolch": 2}],
- ["gg3_suv_grib3", "Светящийся гриб", {"gg3_hishn_kolch": 2}],
+ ["gg3_suv_grib1", "РЎРІРµС‚СЏС‰РёР№СЃСЏ РіСЂРёР±", {"gg3_hishn_kolch": 2}],
+ ["gg3_suv_grib2", "РЎРІРµС‚СЏС‰РёР№СЃСЏ РіСЂРёР±", {"gg3_hishn_kolch": 2}],
+ ["gg3_suv_grib3", "РЎРІРµС‚СЏС‰РёР№СЃСЏ РіСЂРёР±", {"gg3_hishn_kolch": 2}],
 
- ["gg3_suv_insect_f", "Насекомое в смоле", {"gg3_hishn_dosp": 2}],
- ["gg3_suv_insect_m", "Насекомое в смоле", {"gg3_hishn_sword": 2}],
+ ["gg3_suv_insect_f", "РќР°СЃРµРєРѕРјРѕРµ РІ СЃРјРѕР»Рµ", {"gg3_hishn_dosp": 2}],
+ ["gg3_suv_insect_m", "РќР°СЃРµРєРѕРјРѕРµ РІ СЃРјРѕР»Рµ", {"gg3_hishn_sword": 2}],
 
- ["gg3_suv_civiar", "Шар с непонятным содержимым", {"gg3_hishn_finger": 2}],
- ["gg3_suv_orchid", "Невянущий цветок", {"gg3_hishn_kolch": 2,"gg3_hishn_dosp": 2}],
- ["gg3_suv_horn1", "Жвалы", {"gg3_hishn_sword": 2,"gg3_hishn_finger": 2}],
- ["gg3_suv_horn2", "Жвалы", {"gg3_hishn_sword": 2,"gg3_hishn_finger": 2}]
+ ["gg3_suv_civiar", "РЁР°СЂ СЃ РЅРµРїРѕРЅСЏС‚РЅС‹Рј СЃРѕРґРµСЂР¶РёРјС‹Рј", {"gg3_hishn_finger": 2}],
+ ["gg3_suv_orchid", "РќРµРІСЏРЅСѓС‰РёР№ С†РІРµС‚РѕРє", {"gg3_hishn_kolch": 2,"gg3_hishn_dosp": 2}],
+ ["gg3_suv_horn1", "Р–РІР°Р»С‹", {"gg3_hishn_sword": 2,"gg3_hishn_finger": 2}],
+ ["gg3_suv_horn2", "Р–РІР°Р»С‹", {"gg3_hishn_sword": 2,"gg3_hishn_finger": 2}]
 	];
 
 var addedIngr = new Array();
@@ -224,9 +224,9 @@ function showAllRecipes(ingr){
 		if ( shouldShow )
 			showRecipes.add([i, 0]);
 	}
-	var str = "Найдено рецептов ("+(activeIngr ? "где присутствует <b>"+activeIngr[0]+"</b>" : "<b>всего</b>")+"): <b>"+showRecipes.length+"</b>";
+	var str = "РќР°Р№РґРµРЅРѕ СЂРµС†РµРїС‚РѕРІ ("+(activeIngr ? "РіРґРµ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ <b>"+activeIngr[0]+"</b>" : "<b>РІСЃРµРіРѕ</b>")+"): <b>"+showRecipes.length+"</b>";
 	str += drawRecipes(showRecipes, activeIngr ? 3 : 4);
-	showDialogWindow1("Рецепты", str, 400);
+	showDialogWindow1("Р РµС†РµРїС‚С‹", str, 400);
 }
 
 function ingrChoose(id){
@@ -249,7 +249,7 @@ function addIngr(){
 
 	var ingrQuant = parseInt(document.getElementById("ingrQuant").value);
 	if ( !(ingrQuant > 0) ){
-		alert("Количество ингидиента должно быть отличное от нуля число!");
+		alert("РљРѕР»РёС‡РµСЃС‚РІРѕ РёРЅРіРёРґРёРµРЅС‚Р° РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РѕС‚Р»РёС‡РЅРѕРµ РѕС‚ РЅСѓР»СЏ С‡РёСЃР»Рѕ!");
 		return;
 	}
 	var selectControl = document.getElementById("ingrName");
@@ -257,7 +257,7 @@ function addIngr(){
 	var optionValue = selectControl.options[i].value;
 	var optionText = selectControl.options[i].text;
 	if ( optionValue == "" ){
-		alert("Ингредиент не выбран!");
+		alert("РРЅРіСЂРµРґРёРµРЅС‚ РЅРµ РІС‹Р±СЂР°РЅ!");
 		return;
 	}
 	var ingr = ingridients[optionValue];
@@ -288,7 +288,7 @@ function drawAddedIngr(){
 	for ( var i = addedIngr.length-1; i >= 0; i-- ){
 		str += "<table width=100% id=constr><tbody>";
 		str += "<tr><td width=60 valign=top><img src='"+imP3+addedIngr[i][0]+".gif'></td>";
-		str += "<td valign=top><b>"+addedIngr[i][1]+"</b><br>Количество: <b>"+addedIngr[i][2]+" шт.</b></td>";
+		str += "<td valign=top><b>"+addedIngr[i][1]+"</b><br>РљРѕР»РёС‡РµСЃС‚РІРѕ: <b>"+addedIngr[i][2]+" С€С‚.</b></td>";
 		str += "<td width=30><input type=button class=b value='-' onClick=\"javascript:removeIngr("+i+");\"></td></tr>";
 		str += "</tbody></table>";
 	}
@@ -331,7 +331,7 @@ function findRecipes(noAlert){
 		foundRecipes.add([i, maxTimes]);
 	}
 	if ( foundRecipes.length == 0 && !noAlert )
-		alert("Не найдено ни одного рецепта!");
+		alert("РќРµ РЅР°Р№РґРµРЅРѕ РЅРё РѕРґРЅРѕРіРѕ СЂРµС†РµРїС‚Р°!");
 	drawAviableRecipes();
 }
 
@@ -341,14 +341,14 @@ function drawRecipes(recipesArray, mode){
 		var recipe = recipes[recipesArray[i][0]];
 		var str1 = "<table width=100% id=constr><tbody>";
 		str1 += "<tr><td width=60 valign=top><img src='"+imP3+recipe[0]+".gif'></td>";
-		str1 += "<td valign=top><b>"+recipe[1]+"</b><br><b>Состав:</b> ";
+		str1 += "<td valign=top><b>"+recipe[1]+"</b><br><b>РЎРѕСЃС‚Р°РІ:</b> ";
 		var str2 = "";
 		var k = 1;
 		for ( var j in recipe[2] ){
 			var str3 = getNameForIngr(j);
 			if ( mode == 3 && j == activeIngr[1] )
 				str3 = "<u>"+str3+"</u>";
-			str2 += str3+" (<b>"+recipe[2][j]+"шт.</b>)";
+			str2 += str3+" (<b>"+recipe[2][j]+"С€С‚.</b>)";
 			if ( k != recipe[2].length )
 				str2 += ", ";
 			k++;
@@ -358,30 +358,30 @@ function drawRecipes(recipesArray, mode){
 		var k = 1;
 		for ( var j in recipe[3] ){
 			if ( k == 1 )
-				str2 += "<b>Дополнительно требуется:</b> ";
-			str2 += j+" (<b>"+recipe[3][j]+"шт.</b>)";
+				str2 += "<b>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ С‚СЂРµР±СѓРµС‚СЃСЏ:</b> ";
+			str2 += j+" (<b>"+recipe[3][j]+"С€С‚.</b>)";
 			str2 += ", ";
 			k++;
 		}
 		str1 += str2+"<br>";
 		if ( mode == 1 || mode == 2 ){
 			if ( mode == 1 )
-				str1 += "Макс. количество:";
+				str1 += "РњР°РєСЃ. РєРѕР»РёС‡РµСЃС‚РІРѕ:";
 			else if ( mode == 2 )
-				str1 += "Собранное количество:";
-			str1 += " <b>"+recipesArray[i][1]+"шт.</b></td>";
+				str1 += "РЎРѕР±СЂР°РЅРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ:";
+			str1 += " <b>"+recipesArray[i][1]+"С€С‚.</b></td>";
 		}
 		if ( mode == 1 ){
-			str1 += "<td width=60 align=center>Собрать<br>";
-			str1 += "<input type=text class=in id="+mode+"recipe"+i+" style='text-align:right;width:25px;' value=0 onKeyPress=\"javascript:controlNumber();\"> шт.<br>";
+			str1 += "<td width=60 align=center>РЎРѕР±СЂР°С‚СЊ<br>";
+			str1 += "<input type=text class=in id="+mode+"recipe"+i+" style='text-align:right;width:25px;' value=0 onKeyPress=\"javascript:controlNumber();\"> С€С‚.<br>";
 			str1 += "<input type=button class=b value=go onClick=\"javascript:addRecipe("+i+", parseInt(document.getElementById('"+mode+"recipe"+i+"').value))\"></td>";
 		}
 		else if ( mode == 2 ){
 			str1 += "<td width=30><input type=button class=b value='-' onClick=\"javascript:removeAcceptedRecipe("+i+");\"></td>";
 		}
 		else if ( mode == 3 || mode == 4 ){
-			str1 += "<td width=80 align=center>Добавить ингредиенты для ";
-			str1 += "<input type=text class=in id="+mode+"recipe"+i+" style='text-align:right;width:25px;' value=0 onKeyPress=\"javascript:controlNumber();\"> шт.<br>";
+			str1 += "<td width=80 align=center>Р”РѕР±Р°РІРёС‚СЊ РёРЅРіСЂРµРґРёРµРЅС‚С‹ РґР»СЏ ";
+			str1 += "<input type=text class=in id="+mode+"recipe"+i+" style='text-align:right;width:25px;' value=0 onKeyPress=\"javascript:controlNumber();\"> С€С‚.<br>";
 			str1 += "<input type=button class=b value=go onClick=\"javascript:addIngridientsForRecipe("+recipesArray[i][0]+", parseInt(document.getElementById('"+mode+"recipe"+i+"').value))\"></td>";
 		}
 		str1 += "</tr></thead></table>";
@@ -393,7 +393,7 @@ function drawRecipes(recipesArray, mode){
 function addIngridientsForRecipe(recipeId, recipeQuant){
 	var recipe = recipes[recipeId];
 	if ( !(recipeQuant > 0) ){
-		alert("Количество собираемого предмета должнобыть больше нуля!");
+		alert("РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРѕР±РёСЂР°РµРјРѕРіРѕ РїСЂРµРґРјРµС‚Р° РґРѕР»Р¶РЅРѕР±С‹С‚СЊ Р±РѕР»СЊС€Рµ РЅСѓР»СЏ!");
 		return;
 	}
 	for ( var i in recipe[2] ){
@@ -409,11 +409,11 @@ function addIngridientsForRecipe(recipeId, recipeQuant){
 }
 
 function showAnalyzeWindow(){
-	var str = "Введите содержимое своего рюкзака (закладка \"<b>Прочее</b>\"):<br>";
+	var str = "Р’РІРµРґРёС‚Рµ СЃРѕРґРµСЂР¶РёРјРѕРµ СЃРІРѕРµРіРѕ СЂСЋРєР·Р°РєР° (Р·Р°РєР»Р°РґРєР° \"<b>РџСЂРѕС‡РµРµ</b>\"):<br>";
 	str += "<textarea id='bagContent' style='width:100%; height: 300px;'></textarea><br>";
-	str += "<input type=button class=info_button value='Приступить к обработке' ";
+	str += "<input type=button class=info_button value='РџСЂРёСЃС‚СѓРїРёС‚СЊ Рє РѕР±СЂР°Р±РѕС‚РєРµ' ";
 	str += "onClick=\"javascript:makeAnalyze(document.getElementById('bagContent').value);\">";
-	showDialogWindow1("Анализ содержимого рюкзака", str, 400);
+	showDialogWindow1("РђРЅР°Р»РёР· СЃРѕРґРµСЂР¶РёРјРѕРіРѕ СЂСЋРєР·Р°РєР°", str, 400);
 }
 
 function makeAnalyze(content){
@@ -445,7 +445,7 @@ function makeAnalyze(content){
 		}
 	}
 	if ( !foundSmth )
-		alert("Ничего не найдено...");
+		alert("РќРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ...");
 	else
 		drawAddedIngr();
 	hideDialogWindow();
@@ -473,11 +473,11 @@ function removeAcceptedRecipe(i){
 function addRecipe(i, q){
 	var q1 = foundRecipes[i][1];
 	if ( !(q > 0) ){
-		alert("Количество получаемых вещей должно быть больше нуля!");
+		alert("РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР»СѓС‡Р°РµРјС‹С… РІРµС‰РµР№ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ РЅСѓР»СЏ!");
 		return;
 	}
 	else if ( q > q1 ){
-		alert("Количество получаемых вещей не может быть больше их максимально возможного количества!");
+		alert("РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР»СѓС‡Р°РµРјС‹С… РІРµС‰РµР№ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ РёС… РјР°РєСЃРёРјР°Р»СЊРЅРѕ РІРѕР·РјРѕР¶РЅРѕРіРѕ РєРѕР»РёС‡РµСЃС‚РІР°!");
 		return
 	}
 	var recipe = recipes[foundRecipes[i][0]];
@@ -507,8 +507,8 @@ function getNameForIngr(ingr){
 }
 
 function makeSelectBlock(){
-	var str = "<table id=constr border=0><thead><tr><td colSpan=4>Добавить в конструктор</td></tr></thead><tbody>";
-	str += "<tr><td align=right width=25%>Название:</td>";
+	var str = "<table id=constr border=0><thead><tr><td colSpan=4>Р”РѕР±Р°РІРёС‚СЊ РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ</td></tr></thead><tbody>";
+	str += "<tr><td align=right width=25%>РќР°Р·РІР°РЅРёРµ:</td>";
 	str += "<td colSpan=2><select id='ingrName' onChange=\"javascript:ingrChoose(this.value);\"><option value=''>-----</option>";
 	for ( var i = 0; i < ingridients.length; i++ ){
 		str += "<option value="+i+">"+ingridients[i][0]+"</option>";
@@ -516,36 +516,36 @@ function makeSelectBlock(){
 	str += "</select></td>";
 	str += "<td width=25% rowSpan=3><img src='"+initvars.imageBlank+"' height=60 width=60 id='ingrPic'></td></tr>";
 	str += "<tr><td align=right>ID:</td><td id='ingrId'></td>";
-	str += "<td width=25% align=right>Изображение:</td></tr>";
-	str += "<tr><td align=right>Количество:</td><td colSpan=2><input type=text class=in maxlength=5 style='width:80px;' id=ingrQuant onKeyPress=\"javascript:controlNumber();\"> шт.</td></tr>";
-	str += "<tr><td>&nbsp;</td><td><input type=button class=b value=Добавить onClick=\"javascript:addIngr();\"></td>";
-	//str += "<td colSpan=2 align=center><input type=button class=b value='Рецепты' onClick=\"javascript:showAllRecipes(document.getElementById('ingrName').value);\"></td></tr>";
-	str += "<tr><td colSpan=4 align=center><input type=button class=b value='Анализ содержимого рюкзака' onClick=\"javascript:showAnalyzeWindow();\"></td></tr>";
-	str += "<tr><td colSpan=4 align=center><input type=button class=b value='Приступить к поиску рецептов' onClick=\"javascript:findRecipes();\"></td></tr>"; 
-	str += "<tr><td colSpan=4 align=center><input type=button class=b value='Очистить конструктор' onClick=\"javascript:makeConstructor();\"></td></tr>";
+	str += "<td width=25% align=right>РР·РѕР±СЂР°Р¶РµРЅРёРµ:</td></tr>";
+	str += "<tr><td align=right>РљРѕР»РёС‡РµСЃС‚РІРѕ:</td><td colSpan=2><input type=text class=in maxlength=5 style='width:80px;' id=ingrQuant onKeyPress=\"javascript:controlNumber();\"> С€С‚.</td></tr>";
+	str += "<tr><td>&nbsp;</td><td><input type=button class=b value=Р”РѕР±Р°РІРёС‚СЊ onClick=\"javascript:addIngr();\"></td>";
+	//str += "<td colSpan=2 align=center><input type=button class=b value='Р РµС†РµРїС‚С‹' onClick=\"javascript:showAllRecipes(document.getElementById('ingrName').value);\"></td></tr>";
+	str += "<tr><td colSpan=4 align=center><input type=button class=b value='РђРЅР°Р»РёР· СЃРѕРґРµСЂР¶РёРјРѕРіРѕ СЂСЋРєР·Р°РєР°' onClick=\"javascript:showAnalyzeWindow();\"></td></tr>";
+	str += "<tr><td colSpan=4 align=center><input type=button class=b value='РџСЂРёСЃС‚СѓРїРёС‚СЊ Рє РїРѕРёСЃРєСѓ СЂРµС†РµРїС‚РѕРІ' onClick=\"javascript:findRecipes();\"></td></tr>"; 
+	str += "<tr><td colSpan=4 align=center><input type=button class=b value='РћС‡РёСЃС‚РёС‚СЊ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ' onClick=\"javascript:makeConstructor();\"></td></tr>";
 	str += "<tr><td colSpan=4 align=center>&nbsp;</td></tr>";
-	str += "<tr><td colSpan=2 align=right>Количество ингредиентов:</td><td colSpan=2><b>"+ingridients.length+"</b></td></tr>";
-	str += "<tr><td colSpan=2 align=right>Количество рецептов:</td><td colSpan=2><b>"+recipes.length+"</b></td></tr>";
+	str += "<tr><td colSpan=2 align=right>РљРѕР»РёС‡РµСЃС‚РІРѕ РёРЅРіСЂРµРґРёРµРЅС‚РѕРІ:</td><td colSpan=2><b>"+ingridients.length+"</b></td></tr>";
+	str += "<tr><td colSpan=2 align=right>РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС†РµРїС‚РѕРІ:</td><td colSpan=2><b>"+recipes.length+"</b></td></tr>";
 	str += "</tbody></table>";
 	return str;
 }
 
 function makeConstructorItemsBlock(){
-	var str = "<table id=constr><thead><tr><td>Добавлено в конструктор</td></tr></thead><tbody><tr><td>";
+	var str = "<table id=constr><thead><tr><td>Р”РѕР±Р°РІР»РµРЅРѕ РІ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ</td></tr></thead><tbody><tr><td>";
 	str += "<div id=constrContent style='width:100%;height:200px;overflow:auto;'>";
 	str += "</div></td></tr></tbody></table>";
 	return str;
 }
 
 function makeAviableRecipesBlock(){
-	var str = "<table id=constr><thead><tr><td>Возможные рецепты</td></tr></thead><tbody><tr><td>";
+	var str = "<table id=constr><thead><tr><td>Р’РѕР·РјРѕР¶РЅС‹Рµ СЂРµС†РµРїС‚С‹</td></tr></thead><tbody><tr><td>";
 	str += "<div id=aviableRecipes style='width:100%;height:200px;overflow:auto;'>";
 	str += "</div></td></tr></tbody></table>";
 	return str;
 }
 
 function makeAcceptedRecipesBlock(){
-	var str = "<table id=constr><thead><tr><td>Принятые рецепты</td></tr></thead><tbody><tr><td>";
+	var str = "<table id=constr><thead><tr><td>РџСЂРёРЅСЏС‚С‹Рµ СЂРµС†РµРїС‚С‹</td></tr></thead><tbody><tr><td>";
 	str += "<div id=acceptedRecipes style='width:100%;height:200px;overflow:auto;'>";
 	str += "</div></td></tr></tbody></table>";
 	return str;
@@ -576,7 +576,7 @@ function prepareScriptStatus1(w, h, id, closingFunction){
 		str += "<tr><td class='info_content'><div id='"+id+"Text' style='height:20px;width:100%;overflow:auto;text-align:center;'></div></td></tr>";
 		if ( closingFunction != null ){
 			str += "<tr><td align='center'>";
-			str += "<input type='button' class='info_button' value='Закрыть' onClick=\"javascript:"+closingFunction+"\"></td></tr>";
+			str += "<input type='button' class='info_button' value='Р—Р°РєСЂС‹С‚СЊ' onClick=\"javascript:"+closingFunction+"\"></td></tr>";
 		}
 		str += "</table>";
 		document.getElementById('baseDiv').innerHTML += str;

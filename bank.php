@@ -44,9 +44,9 @@ ob_start("ob_gzhandler");
 </HEAD>
 <body bgcolor=e2e0e0 style="margin-left:10px">
 <TABLE width=100%>
-<TR><TD><H3>Банк</TD>
+<TR><TD><H3>Р‘Р°РЅРє</TD>
 <link href="http://img.bestcombats.net/js/design6.css" rel="stylesheet" type="text/css">
-<td align=right width=60><INPUT TYPE=button value="Вернуться" onClick="returned2('strah=3&');"></td>
+<td align=right width=60><INPUT TYPE=button value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" onClick="returned2('strah=3&');"></td>
 </tr>
 </table>
 <?
@@ -57,11 +57,11 @@ ob_start("ob_gzhandler");
         mq("update users set ekr=ekr+$ec where id='$user[id]'");
         mq("update userdata set balance=$ec*11+balance where id='$user[id]'");
         mq("delete from inventory where id='$_GET[givecheque]'");
-        echo "<b>По квитанции вы получили $ec екр.</b><br>";
-        mq("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" сдал квитанцию (id:$_GET[givecheque]) за $ec екр ($user[money]/$user[ekr]). ',2,'".time()."');");
+        echo "<b>РџРѕ РєРІРёС‚Р°РЅС†РёРё РІС‹ РїРѕР»СѓС‡РёР»Рё $ec РµРєСЂ.</b><br>";
+        mq("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" СЃРґР°Р» РєРІРёС‚Р°РЅС†РёСЋ (id:$_GET[givecheque]) Р·Р° $ec РµРєСЂ ($user[money]/$user[ekr]). ',2,'".time()."');");
       }
     }
-    //заходим на счет
+    //Р·Р°С…РѕРґРёРј РЅР° СЃС‡РµС‚
     if($_POST['enter'] && $_POST['pass']) {
 
                     $data = mq("SELECT * FROM `bank` WHERE (`owner` = '".$user['id']."' or `owner2` = '".$user['id']."') AND `id`= '".$_POST['id']."' AND `pass` = '".md5($_POST['pass'])."';");
@@ -72,41 +72,41 @@ ob_start("ob_gzhandler");
                     }
                     else
                     {
-                        err('Ошибка входа.');
+                        err('РћС€РёР±РєР° РІС…РѕРґР°.');
                     }
 
 
     }
     if(!$_SESSION['bankid'] )
 {
-//открытие счета
+//РѕС‚РєСЂС‹С‚РёРµ СЃС‡РµС‚Р°
     if($_POST['reg'] && $_POST['rpass'] && $_POST['rpass2']) {
         if ($_POST['rpass'] == $_POST['rpass2']) {
             if ($user['money'] >= 3) {
                 if(mq("INSERT INTO `bank` (`pass`,`owner`) values ('".md5($_POST['rpass2'])."','".$user['id']."');")) {
                     $sh_num=mysql_insert_id();
-                    err('Ваш номер счета: '.mysql_insert_id().', запишите.');
+                    err('Р’Р°С€ РЅРѕРјРµСЂ СЃС‡РµС‚Р°: '.mysql_insert_id().', Р·Р°РїРёС€РёС‚Рµ.');
                     mq("UPDATE users SET money = money-3 WHERE id = ".$user['id']." LIMIT 1;");
-                    mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" открыл счет №".$sh_num." в банке. ',1,'".time()."');");
-                    mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" заплатил за открытие счета в банке 3 кр. ',1,'".time()."');");
+                    mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" РѕС‚РєСЂС‹Р» СЃС‡РµС‚ в„–".$sh_num." РІ Р±Р°РЅРєРµ. ',1,'".time()."');");
+                    mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" Р·Р°РїР»Р°С‚РёР» Р·Р° РѕС‚РєСЂС‹С‚РёРµ СЃС‡РµС‚Р° РІ Р±Р°РЅРєРµ 3 РєСЂ. ',1,'".time()."');");
                 }
                 else {
-                    err('Техническая ошибка');
+                    err('РўРµС…РЅРёС‡РµСЃРєР°СЏ РѕС€РёР±РєР°');
                 }
             } else {
-                err('Недостаточно денег');
+                err('РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі');
             }
         } else {
-            err('Не совпадают пароли');
+            err('РќРµ СЃРѕРІРїР°РґР°СЋС‚ РїР°СЂРѕР»Рё');
         }
     }
-//высылаем пароль на мыло
+//РІС‹СЃС‹Р»Р°РµРј РїР°СЂРѕР»СЊ РЅР° РјС‹Р»Рѕ
     if ($_POST['resendmail']){
 
     $bank2 = mysql_fetch_array(mq("SELECT mail FROM `bank` WHERE `owner` = ".$user['id'].";"));
 
         if ($bank2['mail']==0) {
-        err('У вас запрещена высылка пароля на email');
+        err('РЈ РІР°СЃ Р·Р°РїСЂРµС‰РµРЅР° РІС‹СЃС‹Р»РєР° РїР°СЂРѕР»СЏ РЅР° email');
         }else{
     $newpass=md5(md5(math.rand(-2000000,2000000).$user['login']));
     $newpass=substr($newpass,0,10);
@@ -124,46 +124,46 @@ ob_start("ob_gzhandler");
 
         $aa='<html>
                 <head>
-                    <title>Востановление пароля</title>
+                    <title>Р’РѕСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ</title>
                 </head>
                 <body>
-                    Добрый день '.$user['realname'].'.<br>
-                    Вами было запрошено востановление пароля для счета '.$_POST['id'].' c IP адреса - '.$ipclient.', если это были не Вы, просто удалите это письмо.<br>
+                    Р”РѕР±СЂС‹Р№ РґРµРЅСЊ '.$user['realname'].'.<br>
+                    Р’Р°РјРё Р±С‹Р»Рѕ Р·Р°РїСЂРѕС€РµРЅРѕ РІРѕСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ РґР»СЏ СЃС‡РµС‚Р° '.$_POST['id'].' c IP Р°РґСЂРµСЃР° - '.$ipclient.', РµСЃР»Рё СЌС‚Рѕ Р±С‹Р»Рё РЅРµ Р’С‹, РїСЂРѕСЃС‚Рѕ СѓРґР°Р»РёС‚Рµ СЌС‚Рѕ РїРёСЃСЊРјРѕ.<br>
                     <br>
                     ------------------------------------------------------------------<br>
-                    Ваш № счета  | '.$_POST['id'].'<br>
-                    Новый пароль | '.$newpass.'<br>
+                    Р’Р°С€ в„– СЃС‡РµС‚Р°  | '.$_POST['id'].'<br>
+                    РќРѕРІС‹Р№ РїР°СЂРѕР»СЊ | '.$newpass.'<br>
                     ------------------------------------------------------------------<br>
                     <br>
                     <br>
-                    <h3>Для подтверждения нового пароля пройдите по ссылке ниже.</h3><br>
-                    <a href="http://bestcombats.net/confpassbank.php?newpass='.$newpass.'&login='.$_POST['id'].'&flag=1&timev='.$lasttime.'">Востановление пароля</a>
+                    <h3>Р”Р»СЏ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ РЅРѕРІРѕРіРѕ РїР°СЂРѕР»СЏ РїСЂРѕР№РґРёС‚Рµ РїРѕ СЃСЃС‹Р»РєРµ РЅРёР¶Рµ.</h3><br>
+                    <a href="http://bestcombats.net/confpassbank.php?newpass='.$newpass.'&login='.$_POST['id'].'&flag=1&timev='.$lasttime.'">Р’РѕСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ</a>
                     <br>
-                    <font color="blue">Если вы не восстановите пароль до <b>'.date("d-M-Y", $lasttime) .' 00:00</b>, ссылка будет неактивной.</font>
+                    <font color="blue">Р•СЃР»Рё РІС‹ РЅРµ РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚Рµ РїР°СЂРѕР»СЊ РґРѕ <b>'.date("d-M-Y", $lasttime) .' 00:00</b>, СЃСЃС‹Р»РєР° Р±СѓРґРµС‚ РЅРµР°РєС‚РёРІРЅРѕР№.</font>
                     <br>
-                    Отвечать на данное письмо не нужно.
+                    РћС‚РІРµС‡Р°С‚СЊ РЅР° РґР°РЅРЅРѕРµ РїРёСЃСЊРјРѕ РЅРµ РЅСѓР¶РЅРѕ.
                 </body>
             </html>';
 
-        mail($user['email'],"Востановление банковского счета на BestcombatS.net, для пользователя - ".$user['login'],$aa,$headers);
-        err('Выслан номер счета и пароль на email, указанный в анкете.');
+        mail($user['email'],"Р’РѕСЃС‚Р°РЅРѕРІР»РµРЅРёРµ Р±Р°РЅРєРѕРІСЃРєРѕРіРѕ СЃС‡РµС‚Р° РЅР° BestcombatS.net, РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ - ".$user['login'],$aa,$headers);
+        err('Р’С‹СЃР»Р°РЅ РЅРѕРјРµСЂ СЃС‡РµС‚Р° Рё РїР°СЂРѕР»СЊ РЅР° email, СѓРєР°Р·Р°РЅРЅС‹Р№ РІ Р°РЅРєРµС‚Рµ.');
     }else{
-        err('Сегодня пароль уже высылался. Проверьте почту');
+        err('РЎРµРіРѕРґРЅСЏ РїР°СЂРѕР»СЊ СѓР¶Рµ РІС‹СЃС‹Р»Р°Р»СЃСЏ. РџСЂРѕРІРµСЂСЊС‚Рµ РїРѕС‡С‚Сѓ');
     }
 }
 }
         if ($_POST['open']){
         ?>
 <FORM action="bank.php" method=POST name="F3">
-<H4>Открытие счета</H4>
-Номер счета и пароль строго привязаны только к вашему персонажу. Только персонаж <b><?=$user['login']?></b> может использовать этот счет, никто другой, даже зная ваш номер и пароль, не получит доступа к нему!<BR><BR>
+<H4>РћС‚РєСЂС‹С‚РёРµ СЃС‡РµС‚Р°</H4>
+РќРѕРјРµСЂ СЃС‡РµС‚Р° Рё РїР°СЂРѕР»СЊ СЃС‚СЂРѕРіРѕ РїСЂРёРІСЏР·Р°РЅС‹ С‚РѕР»СЊРєРѕ Рє РІР°С€РµРјСѓ РїРµСЂСЃРѕРЅР°Р¶Сѓ. РўРѕР»СЊРєРѕ РїРµСЂСЃРѕРЅР°Р¶ <b><?=$user['login']?></b> РјРѕР¶РµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЌС‚РѕС‚ СЃС‡РµС‚, РЅРёРєС‚Рѕ РґСЂСѓРіРѕР№, РґР°Р¶Рµ Р·РЅР°СЏ РІР°С€ РЅРѕРјРµСЂ Рё РїР°СЂРѕР»СЊ, РЅРµ РїРѕР»СѓС‡РёС‚ РґРѕСЃС‚СѓРїР° Рє РЅРµРјСѓ!<BR><BR>
 <table><tr><TD valign=top>
 <table>
-<tr><TD><nobr>Придумайте пароль к счету</nobr><br><INPUT TYPE=password name=rpass>&nbsp;<img border=0 SRC="/i/misc/klav_transparent.gif"  style='cursor: hand' onClick="KeypadShow(1, 'F3', 'rpass', 'keypad3');"></TD></tr>
-<tr><TD><nobr>Введите пароль повторно</nobr><br><INPUT TYPE=password name=rpass2>&nbsp;<img border=0 SRC="/i/misc/klav_transparent.gif"  style='cursor: hand' onClick="KeypadShow(1, 'F3', 'rpass2', 'keypad3');"></TD></tr>
-<tr><TD><nobr>Вы заплатите: <B>3.00 кр.</B></td></tr>
+<tr><TD><nobr>РџСЂРёРґСѓРјР°Р№С‚Рµ РїР°СЂРѕР»СЊ Рє СЃС‡РµС‚Сѓ</nobr><br><INPUT TYPE=password name=rpass>&nbsp;<img border=0 SRC="/i/misc/klav_transparent.gif"  style='cursor: hand' onClick="KeypadShow(1, 'F3', 'rpass', 'keypad3');"></TD></tr>
+<tr><TD><nobr>Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ РїРѕРІС‚РѕСЂРЅРѕ</nobr><br><INPUT TYPE=password name=rpass2>&nbsp;<img border=0 SRC="/i/misc/klav_transparent.gif"  style='cursor: hand' onClick="KeypadShow(1, 'F3', 'rpass2', 'keypad3');"></TD></tr>
+<tr><TD><nobr>Р’С‹ Р·Р°РїР»Р°С‚РёС‚Рµ: <B>3.00 РєСЂ.</B></td></tr>
 </table>
-<INPUT TYPE=submit value="Открыть счет" name=reg>
+<INPUT TYPE=submit value="РћС‚РєСЂС‹С‚СЊ СЃС‡РµС‚" name=reg>
 </TD>
 <TD><div id="keypad3" align=center style="display: none;"></div>
 </TD>
@@ -175,52 +175,52 @@ ob_start("ob_gzhandler");
 </TR>
 </TABLE>
 <BR>
-Мы предоставляем следующие услуги:
+РњС‹ РїСЂРµРґРѕСЃС‚Р°РІР»СЏРµРј СЃР»РµРґСѓСЋС‰РёРµ СѓСЃР»СѓРіРё:
 <OL>
-<LI>Открытие счета
-<LI>Возможность положить/снять кредиты/еврокредиты со счета
-<LI>Перевести кредиты/еврокредиты с одного счета на другой
-<LI>Обменный пункт. Обмен еврокредитов на кредиты
-<LI>Выплату екр по квитанциям об оплате
+<LI>РћС‚РєСЂС‹С‚РёРµ СЃС‡РµС‚Р°
+<LI>Р’РѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕР»РѕР¶РёС‚СЊ/СЃРЅСЏС‚СЊ РєСЂРµРґРёС‚С‹/РµРІСЂРѕРєСЂРµРґРёС‚С‹ СЃРѕ СЃС‡РµС‚Р°
+<LI>РџРµСЂРµРІРµСЃС‚Рё РєСЂРµРґРёС‚С‹/РµРІСЂРѕРєСЂРµРґРёС‚С‹ СЃ РѕРґРЅРѕРіРѕ СЃС‡РµС‚Р° РЅР° РґСЂСѓРіРѕР№
+<LI>РћР±РјРµРЅРЅС‹Р№ РїСѓРЅРєС‚. РћР±РјРµРЅ РµРІСЂРѕРєСЂРµРґРёС‚РѕРІ РЅР° РєСЂРµРґРёС‚С‹
+<LI>Р’С‹РїР»Р°С‚Сѓ РµРєСЂ РїРѕ РєРІРёС‚Р°РЅС†РёСЏРј РѕР± РѕРїР»Р°С‚Рµ
 </OL>
 <?
   $r=mq("select id, name from inventory where type=199 and owner='$user[id]'");
   while ($rec=mysql_fetch_assoc($r)) {
-    $rec["name"]=str_replace("Квитанция", "квитанцию", $rec["name"]);
-    echo "<a href=\"/bank.php?givecheque=$rec[id]\">Сдать $rec[name]</a><br>";
+    $rec["name"]=str_replace("РљРІРёС‚Р°РЅС†РёСЏ", "РєРІРёС‚Р°РЅС†РёСЋ", $rec["name"]);
+    echo "<a href=\"/bank.php?givecheque=$rec[id]\">РЎРґР°С‚СЊ $rec[name]</a><br>";
   }
 ?>
 <FORM action="bank.php" method=POST>
-Хотите открыть свой счет? Услуга платная: <B>3.00 кр.</B> <INPUT TYPE=submit value="Открыть счет" name=open>
+РҐРѕС‚РёС‚Рµ РѕС‚РєСЂС‹С‚СЊ СЃРІРѕР№ СЃС‡РµС‚? РЈСЃР»СѓРіР° РїР»Р°С‚РЅР°СЏ: <B>3.00 РєСЂ.</B> <INPUT TYPE=submit value="РћС‚РєСЂС‹С‚СЊ СЃС‡РµС‚" name=open>
 </FORM>
 <TABLE><TR><FORM action="bank.php" name="F2" method=POST><TD>
-<FIELDSET><LEGEND><B>Управление счетом</B> </LEGEND>
+<FIELDSET><LEGEND><B>РЈРїСЂР°РІР»РµРЅРёРµ СЃС‡РµС‚РѕРј</B> </LEGEND>
 <?
 if ($bank['owner']==$user["id"] || $bank['owner2']==$user["id"])
-{echo "<br>Вас проверили и допустили к счету<br>";}
+{echo "<br>Р’Р°СЃ РїСЂРѕРІРµСЂРёР»Рё Рё РґРѕРїСѓСЃС‚РёР»Рё Рє СЃС‡РµС‚Сѓ<br>";}
 else
 {$_SESSION['bankid'] = null;}
 ?>
 <TABLE>
 <TR><TD valign=top>
 <TABLE>
-<TR><TD>Номер счета</td> <TD colspan=2>
+<TR><TD>РќРѕРјРµСЂ СЃС‡РµС‚Р°</td> <TD colspan=2>
         <? inschet($user['id']); ?>
 </td></tr>
-<TR><TD>Пароль</td><td> <INPUT style='width:90;' type=password value="" name=pass></td><TD style='padding: 0, 0, 3, 5'><img border=0 SRC="/i/misc/klav_transparent.gif" style='cursor: hand' onClick="KeypadShow(1, 'F2', 'pass', 'keypad2');"></TD></tr>
-<TR><TD colspan=3 align=center><INPUT TYPE=submit value="Войти" name=enter></td></tr>
+<TR><TD>РџР°СЂРѕР»СЊ</td><td> <INPUT style='width:90;' type=password value="" name=pass></td><TD style='padding: 0, 0, 3, 5'><img border=0 SRC="/i/misc/klav_transparent.gif" style='cursor: hand' onClick="KeypadShow(1, 'F2', 'pass', 'keypad2');"></TD></tr>
+<TR><TD colspan=3 align=center><INPUT TYPE=submit value="Р’РѕР№С‚Рё" name=enter></td></tr>
 </TABLE>
 </TD>
 <TD><div id="keypad2" align=center style="display: none;"></div></TD></TR>
 </TABLE>
 </FIELDSET>
 </TD></TR></TABLE>
-Забыли номер счета и/или пароль? Можно их выслать на email, указанный в анкете <INPUT TYPE=submit value="Выслать" name=resendmail>
+Р—Р°Р±С‹Р»Рё РЅРѕРјРµСЂ СЃС‡РµС‚Р° Рё/РёР»Рё РїР°СЂРѕР»СЊ? РњРѕР¶РЅРѕ РёС… РІС‹СЃР»Р°С‚СЊ РЅР° email, СѓРєР°Р·Р°РЅРЅС‹Р№ РІ Р°РЅРєРµС‚Рµ <INPUT TYPE=submit value="Р’С‹СЃР»Р°С‚СЊ" name=resendmail>
 <br><br>
 </FORM>
             <?}}else{
     $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
-//кладем кредиты на счет
+//РєР»Р°РґРµРј РєСЂРµРґРёС‚С‹ РЅР° СЃС‡РµС‚
     if($_POST['in'] && $_POST['ik']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write");
         $_POST['ik'] = round($_POST['ik'],2);
@@ -228,23 +228,23 @@ else
         if (is_numeric($_POST['ik']) && ($_POST['ik']>0) && ($_POST['ik'] <= $user['money'])) {
             $user['money'] -= $_POST['ik'];
             if (mq("UPDATE `users` SET `money` = `money` - '".$_POST['ik']."' WHERE `id`= ".$user['id']." LIMIT 1;")) {
-                $mywarn="Деньги удачно положены на счет";
+                $mywarn="Р”РµРЅСЊРіРё СѓРґР°С‡РЅРѕ РїРѕР»РѕР¶РµРЅС‹ РЅР° СЃС‡РµС‚";
                 mq("UPDATE `bank` SET `cr` = `cr` + '".$_POST['ik']."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;");
-                mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" положил на свой счет №".$_SESSION['bankid']." ".$_POST['ik']." кр. ',1,'".time()."');");
+                mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РџРµСЂСЃРѕРЅР°Р¶ \"".$user['login']."\" РїРѕР»РѕР¶РёР» РЅР° СЃРІРѕР№ СЃС‡РµС‚ в„–".$_SESSION['bankid']." ".$_POST['ik']." РєСЂ. ',1,'".time()."');");
                 $putkr = $_POST['ik']+$bank['cr'];
-                mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Вы положили на счет <b>{$_POST['ik']} кр.</b>, комиссия <b>0 кр.</b> <i>(Итого: {$putkr} кр., {$bank['ekr']} екр.)</i>','{$_SESSION['bankid']}');");
+                mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Р’С‹ РїРѕР»РѕР¶РёР»Рё РЅР° СЃС‡РµС‚ <b>{$_POST['ik']} РєСЂ.</b>, РєРѕРјРёСЃСЃРёСЏ <b>0 РєСЂ.</b> <i>(РС‚РѕРіРѕ: {$putkr} РєСЂ., {$bank['ekr']} РµРєСЂ.)</i>','{$_SESSION['bankid']}');");
 
             }
             else {
-                $mywarn="Произошла ошибка!";
+                $mywarn="РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!";
             }
         } else {
-          $mywarn="У вас недостаточно денег для выполнения операции";
+          $mywarn="РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёРё";
         }
         $_POST['in']=0;
         mq("unlock tables");
     }
-//Кладем еврокрелиты на счет
+//РљР»Р°РґРµРј РµРІСЂРѕРєСЂРµР»РёС‚С‹ РЅР° СЃС‡РµС‚
     if($_POST['ekrin'] && $_POST['ekrik']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write");
         $_POST['ekrik'] = round($_POST['ekrik'],2);
@@ -252,22 +252,22 @@ else
         if (is_numeric($_POST['ekrik']) && ($_POST['ekrik']>0) && ($_POST['ekrik'] <= $user['ekr'])) {
           $user['ekr'] -= $_POST['ekrik'];
           if (mq("UPDATE `users` SET `ekr` = `ekr` - '".$_POST['ekrik']."' WHERE `id`= ".$user['id']." LIMIT 1;")) {
-            $mywarn="Еврокредиты удачно положены на счет";
+            $mywarn="Р•РІСЂРѕРєСЂРµРґРёС‚С‹ СѓРґР°С‡РЅРѕ РїРѕР»РѕР¶РµРЅС‹ РЅР° СЃС‡РµС‚";
             mq("UPDATE `bank` SET `ekr` = `ekr` + '".$_POST['ekrik']."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;");
-            mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" положил на свой счет №".$_SESSION['bankid']." ".$_POST['ekrik']." екр. $user[money]/$user[ekr]',1,'".time()."');");
+            mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РџРµСЂСЃРѕРЅР°Р¶ \"".$user['login']."\" РїРѕР»РѕР¶РёР» РЅР° СЃРІРѕР№ СЃС‡РµС‚ в„–".$_SESSION['bankid']." ".$_POST['ekrik']." РµРєСЂ. $user[money]/$user[ekr]',1,'".time()."');");
             $putekr = $_POST['ekrik']+$bank['ekr'];
-            mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Вы положили на счет <b>{$_POST['ekrik']} екр.</b>, комиссия <b>0 кр.</b> <i>(Итого: {$bank['cr']} кр., {$putekr} екр.)</i>','{$_SESSION['bankid']}');");
+            mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Р’С‹ РїРѕР»РѕР¶РёР»Рё РЅР° СЃС‡РµС‚ <b>{$_POST['ekrik']} РµРєСЂ.</b>, РєРѕРјРёСЃСЃРёСЏ <b>0 РєСЂ.</b> <i>(РС‚РѕРіРѕ: {$bank['cr']} РєСЂ., {$putekr} РµРєСЂ.)</i>','{$_SESSION['bankid']}');");
           } else {
-            $mywarn="Произошла ошибка!";
+            $mywarn="РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!";
           }
         } else {
-          $mywarn="У вас недостаточно Еврокредитов для выполнения операции";
+          $mywarn="РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ Р•РІСЂРѕРєСЂРµРґРёС‚РѕРІ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёРё";
         }
         $_POST['ekrin']=0;
         mq("unlock tables");
         $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
     }
-//Снимаем еврокредиты со счета
+//РЎРЅРёРјР°РµРј РµРІСЂРѕРєСЂРµРґРёС‚С‹ СЃРѕ СЃС‡РµС‚Р°
     if($_POST['ekrout'] && $_POST['ekrok']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write");
         $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
@@ -275,24 +275,24 @@ else
         if (is_numeric($_POST['ekrok']) && ($_POST['ekrok']>0) && ($_POST['ekrok'] <= $bank['ekr'])) {
             $user['ekr'] += $_POST['ekrok'];
             if (mq("UPDATE `users` SET `ekr` = `ekr` + '".$_POST['ekrok']."' WHERE `id`= ".$user['id']." LIMIT 1;")) {
-                $mywarn="Еврокредиты удачно сняты со счета";
+                $mywarn="Р•РІСЂРѕРєСЂРµРґРёС‚С‹ СѓРґР°С‡РЅРѕ СЃРЅСЏС‚С‹ СЃРѕ СЃС‡РµС‚Р°";
                 mq("UPDATE `bank` SET `ekr` = `ekr` - '".$_POST['ekrok']."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;");
                 $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
-                mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" снял со своего счета №".$_SESSION['bankid']." ".$_POST['ekrok']." екр. $user[money]/$user[ekr]',1,'".time()."');");
-                mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Вы сняли со счета <b>{$_POST['ekrok']} екр.</b>, комиссия <b>0 кр.</b> <i>(Итого: {$bank['cr']} кр., {$bank['ekr']} екр.)</i>','{$_SESSION['bankid']}');");
+                mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РџРµСЂСЃРѕРЅР°Р¶ \"".$user['login']."\" СЃРЅСЏР» СЃРѕ СЃРІРѕРµРіРѕ СЃС‡РµС‚Р° в„–".$_SESSION['bankid']." ".$_POST['ekrok']." РµРєСЂ. $user[money]/$user[ekr]',1,'".time()."');");
+                mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Р’С‹ СЃРЅСЏР»Рё СЃРѕ СЃС‡РµС‚Р° <b>{$_POST['ekrok']} РµРєСЂ.</b>, РєРѕРјРёСЃСЃРёСЏ <b>0 РєСЂ.</b> <i>(РС‚РѕРіРѕ: {$bank['cr']} РєСЂ., {$bank['ekr']} РµРєСЂ.)</i>','{$_SESSION['bankid']}');");
 
             }
             else {
-            $mywarn="Произошла ошибка!";
+            $mywarn="РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!";
           }
         } else {
-          $mywarn="У вас недостаточно Еврокредитов на счету для выполнения операции";
+          $mywarn="РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ Р•РІСЂРѕРєСЂРµРґРёС‚РѕРІ РЅР° СЃС‡РµС‚Сѓ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёРё";
         }
         $_POST['ekrout']=0;
         mq("unlock tables");
         $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
     }
-//Снимаем кредиты со счета
+//РЎРЅРёРјР°РµРј РєСЂРµРґРёС‚С‹ СЃРѕ СЃС‡РµС‚Р°
     if($_POST['out'] && $_POST['ok']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write"); 
         $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
@@ -300,23 +300,23 @@ else
         if (is_numeric($_POST['ok']) && ($_POST['ok']>0) && ($_POST['ok'] <= $bank['cr'])) {
             $user['money'] += $_POST['ok'];
             if (mq("UPDATE `users` SET `money` = `money` + '".$_POST['ok']."' WHERE `id`= ".$user['id']." LIMIT 1;")) {
-                $mywarn="Деньги удачно сняты со счета";
+                $mywarn="Р”РµРЅСЊРіРё СѓРґР°С‡РЅРѕ СЃРЅСЏС‚С‹ СЃРѕ СЃС‡РµС‚Р°";
                 mq("UPDATE `bank` SET `cr` = `cr` - '".$_POST['ok']."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;");
                 $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
-                mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" снял со своего счета №".$_SESSION['bankid']." ".$_POST['ok']." кр.',1,'".time()."');");
-                mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Вы сняли со счета <b>{$_POST['ok']} кр.</b>, комиссия <b>0 кр.</b> <i>(Итого: {$bank['cr']} кр., {$bank['ekr']} екр.)</i>','{$_SESSION['bankid']}');");
+                mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РџРµСЂСЃРѕРЅР°Р¶ \"".$user['login']."\" СЃРЅСЏР» СЃРѕ СЃРІРѕРµРіРѕ СЃС‡РµС‚Р° в„–".$_SESSION['bankid']." ".$_POST['ok']." РєСЂ.',1,'".time()."');");
+                mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Р’С‹ СЃРЅСЏР»Рё СЃРѕ СЃС‡РµС‚Р° <b>{$_POST['ok']} РєСЂ.</b>, РєРѕРјРёСЃСЃРёСЏ <b>0 РєСЂ.</b> <i>(РС‚РѕРіРѕ: {$bank['cr']} РєСЂ., {$bank['ekr']} РµРєСЂ.)</i>','{$_SESSION['bankid']}');");
 
             }
             else {
-                $mywarn="Произошла ошибка!";
+                $mywarn="РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!";
             }
         } else {
-          $mywarn="У вас недостаточно денег на счету для выполнения операции";
+          $mywarn="РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РЅР° СЃС‡РµС‚Сѓ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёРё";
         }
         mq("unlock tables");
         $_POST['out']=0;
     }
-//обмен еврокредитов
+//РѕР±РјРµРЅ РµРІСЂРѕРєСЂРµРґРёС‚РѕРІ
     if($_POST['change'] && $_POST['ok1']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write"); 
         $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
@@ -326,21 +326,21 @@ else
             $bank['ekr'] -= $_POST['ok1'];
             $add_money=$_POST['ok1'] * 80;
             if (mq("UPDATE `bank` SET `cr` = `cr` + '$add_money' WHERE `id`= ".$bank['id']." LIMIT 1;")) {
-                $mywarn="Обмен произведен успешно";
+                $mywarn="РћР±РјРµРЅ РїСЂРѕРёР·РІРµРґРµРЅ СѓСЃРїРµС€РЅРѕ";
                 mq("UPDATE `bank` SET `ekr` = `ekr` - '".$_POST['ok1']."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;");
                 $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
-                mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" обменял ".$_POST['ok1']." екр. на ".$add_money." кр. на счету №".$_SESSION['bankid']." в банке. ',1,'".time()."');");
+                mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РџРµСЂСЃРѕРЅР°Р¶ \"".$user['login']."\" РѕР±РјРµРЅСЏР» ".$_POST['ok1']." РµРєСЂ. РЅР° ".$add_money." РєСЂ. РЅР° СЃС‡РµС‚Сѓ в„–".$_SESSION['bankid']." РІ Р±Р°РЅРєРµ. ',1,'".time()."');");
             }
             else {
-                $mywarn="Произошла ошибка!";
+                $mywarn="РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!";
             }
         } else {
-          $mywarn="У вас недостаточно денег на валютном счету для выполнения операции";
+          $mywarn="РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РЅР° РІР°Р»СЋС‚РЅРѕРј СЃС‡РµС‚Сѓ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёРё";
         }
         $_POST['change']=0;
         mq("unlock tables");
     }
-    //обмен еврокредитов
+    //РѕР±РјРµРЅ РµРІСЂРѕРєСЂРµРґРёС‚РѕРІ
     if($_POST['change'] && $_POST['ok1']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write"); 
         $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
@@ -350,21 +350,21 @@ else
             $bank['ekr'] -= $_POST['ok1'];
             $add_money=$_POST['ok1'] * 80;
             if (mq("UPDATE `bank` SET `cr` = `cr` + '$add_money' WHERE `id`= ".$bank['id']." LIMIT 1;")) {
-                $mywarn="Обмен произведен успешно";
+                $mywarn="РћР±РјРµРЅ РїСЂРѕРёР·РІРµРґРµРЅ СѓСЃРїРµС€РЅРѕ";
                 mq("UPDATE `bank` SET `ekr` = `ekr` - '".$_POST['ok1']."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;");
                 $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
-                mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" обменял ".$_POST['ok1']." екр. на ".$add_money." кр. на счету №".$_SESSION['bankid']." в банке. ',1,'".time()."');");
+                mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РџРµСЂСЃРѕРЅР°Р¶ \"".$user['login']."\" РѕР±РјРµРЅСЏР» ".$_POST['ok1']." РµРєСЂ. РЅР° ".$add_money." РєСЂ. РЅР° СЃС‡РµС‚Сѓ в„–".$_SESSION['bankid']." РІ Р±Р°РЅРєРµ. ',1,'".time()."');");
             }
             else {
-                $mywarn="Произошла ошибка!";
+                $mywarn="РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!";
             }
         } else {
-          $mywarn="У вас недостаточно денег на валютном счету для выполнения операции";
+          $mywarn="РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РЅР° РІР°Р»СЋС‚РЅРѕРј СЃС‡РµС‚Сѓ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёРё";
         }
         $_POST['change']=0;
         mq("unlock tables");
     }
-    //обмен кредитов
+    //РѕР±РјРµРЅ РєСЂРµРґРёС‚РѕРІ
     if($_POST['change'] && $_POST['krekr']) {
         mq("lock tables users write, bank write, delo write, bankhistory write, userdata write"); 
         $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
@@ -374,71 +374,71 @@ else
             $bank['cr'] -= $_POST['krekr'];
             $add_money=$_POST['krekr'] / 1000;
             if (mq("UPDATE `bank` SET `ekr` = `ekr` + '$add_money' WHERE `id`= ".$bank['id']." LIMIT 1;")) {
-                $mywarn="Обмен произведен успешно";
+                $mywarn="РћР±РјРµРЅ РїСЂРѕРёР·РІРµРґРµРЅ СѓСЃРїРµС€РЅРѕ";
                 mq("UPDATE `bank` SET `cr` = `cr` - '".$_POST['krekr']."' WHERE `id`= ".$_SESSION['bankid']." LIMIT 1;");
                 $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
-                mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" обменял ".$_POST['krekr']." кр. на ".$add_money." екр. на счету №".$_SESSION['bankid']." в банке. ',1,'".time()."');");
+                mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РџРµСЂСЃРѕРЅР°Р¶ \"".$user['login']."\" РѕР±РјРµРЅСЏР» ".$_POST['krekr']." РєСЂ. РЅР° ".$add_money." РµРєСЂ. РЅР° СЃС‡РµС‚Сѓ в„–".$_SESSION['bankid']." РІ Р±Р°РЅРєРµ. ',1,'".time()."');");
             }
             else {
-                $mywarn="Произошла ошибка!";
+                $mywarn="РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!";
             }
         } else {
-          $mywarn="У вас недостаточно денег на валютном счету для выполнения операции";
+          $mywarn="РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РЅР° РІР°Р»СЋС‚РЅРѕРј СЃС‡РµС‚Сѓ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёРё";
         }
         $_POST['change']=0;
         mq("unlock tables");
     }
-//смена пароля
+//СЃРјРµРЅР° РїР°СЂРѕР»СЏ
     if($_POST['change_psw'] && $_POST['new_psw'] && $_POST['new_psw2']) {
         if ($_POST['new_psw'] == $_POST['new_psw2']) {
                 if (mq("UPDATE `bank` SET `pass` = '".md5($_POST['new_psw2'])."' WHERE `id` = ".$_SESSION['bankid'].";")) {
-                    err('Пароль успешно изменен.');
+                    err('РџР°СЂРѕР»СЊ СѓСЃРїРµС€РЅРѕ РёР·РјРµРЅРµРЅ.');
                 }
                 else {
-                    err('Техническая ошибка');
+                    err('РўРµС…РЅРёС‡РµСЃРєР°СЏ РѕС€РёР±РєР°');
                 }
         } else {
-            err('Не совпадают пароли');
+            err('РќРµ СЃРѕРІРїР°РґР°СЋС‚ РїР°СЂРѕР»Рё');
         }
     }
-//разрешаем высылать пароль
+//СЂР°Р·СЂРµС€Р°РµРј РІС‹СЃС‹Р»Р°С‚СЊ РїР°СЂРѕР»СЊ
 
     if($_POST['start_send_email']) {
                 if (mq("UPDATE `bank` SET `mail` = 1 WHERE `id` = ".$_SESSION['bankid'].";")) {
-                    err('Вы разрешили высылку номера счета и пароля на email.');
+                    err('Р’С‹ СЂР°Р·СЂРµС€РёР»Рё РІС‹СЃС‹Р»РєСѓ РЅРѕРјРµСЂР° СЃС‡РµС‚Р° Рё РїР°СЂРѕР»СЏ РЅР° email.');
                 }
     }
-//запрещаем высылать пароль
+//Р·Р°РїСЂРµС‰Р°РµРј РІС‹СЃС‹Р»Р°С‚СЊ РїР°СЂРѕР»СЊ
     if($_POST['stop_send_email']) {
                 if (mq("UPDATE `bank` SET `mail` = 0 WHERE `id` = ".$_SESSION['bankid'].";")) {
-                    err('Вы запретили высылку номера счета и пароля на email.');
+                    err('Р’С‹ Р·Р°РїСЂРµС‚РёР»Рё РІС‹СЃС‹Р»РєСѓ РЅРѕРјРµСЂР° СЃС‡РµС‚Р° Рё РїР°СЂРѕР»СЏ РЅР° email.');
                 }
     }
-//делаем заметки
+//РґРµР»Р°РµРј Р·Р°РјРµС‚РєРё
         if($_POST['save_notepad'])
         {
         $_POST['notepad']=htmlspecialchars($_POST['notepad']);
         if(preg_match("/__/",$_POST['notepad']) || preg_match("/--/",$_POST['notepad']))
         {
-        echo"В тексте не должно присутствовать подряд более 1 символа '_' или '-'.";
+        echo"Р’ С‚РµРєСЃС‚Рµ РЅРµ РґРѕР»Р¶РЅРѕ РїСЂРёСЃСѓС‚СЃС‚РІРѕРІР°С‚СЊ РїРѕРґСЂСЏРґ Р±РѕР»РµРµ 1 СЃРёРјРІРѕР»Р° '_' РёР»Рё '-'.";
         }else{
         mq("update `bank` set `note` = '".$_POST['notepad']."' WHERE `id` = '".$_SESSION['bankid']."';");
-        err('Сохранено.');
+        err('РЎРѕС…СЂР°РЅРµРЅРѕ.');
         }
         }
     $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
-//переводим кредиды на другой счет
+//РїРµСЂРµРІРѕРґРёРј РєСЂРµРґРёРґС‹ РЅР° РґСЂСѓРіРѕР№ СЃС‡РµС‚
     if($_POST['wu'] && $_POST['sum'] && $_POST['number'] && $user["level"]>=4) {
       mq("lock tables users write, bank write, delo write, bankhistory write, userdata write"); 
       $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
       $_POST["number"]=(int)$_POST["number"];
         $al=mqfa("select align, level, users.id from bank left join users on users.id=bank.owner where bank.id='$_POST[number]'");
         if ($user['align'] == 4 || $al["align"]==4) {
-          $mywarn="Хаосникам переводы запрещены!";
+          $mywarn="РҐР°РѕСЃРЅРёРєР°Рј РїРµСЂРµРІРѕРґС‹ Р·Р°РїСЂРµС‰РµРЅС‹!";
         } elseif ($al['level']<4 || $user["level"]<4) {
-          $mywarn="Передачи возможны с 4-го уровня!";
+          $mywarn="РџРµСЂРµРґР°С‡Рё РІРѕР·РјРѕР¶РЅС‹ СЃ 4-РіРѕ СѓСЂРѕРІРЅСЏ!";
         } elseif (!cangive($_POST['sum'])) {
-          $mywarn="Сумма передачи превышает допустимый лимит.";
+          $mywarn="РЎСѓРјРјР° РїРµСЂРµРґР°С‡Рё РїСЂРµРІС‹С€Р°РµС‚ РґРѕРїСѓСЃС‚РёРјС‹Р№ Р»РёРјРёС‚.";
         } else {
             $bank2 = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_POST['number'].";"));
             $to = mysql_fetch_array(mq("SELECT login FROM `users` WHERE `id` = ".$bank2['owner'].";"));
@@ -453,33 +453,33 @@ else
                           updbalance($user["id"], $al["id"], $_POST['sum']);
                           mq("UPDATE `bank` SET `cr` = `cr` + '".$_POST['sum']."' WHERE `id`= ".$_POST['number']." LIMIT 1;");
                           $bank = mysql_fetch_array(mq("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid'].";"));
-                          mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Персонаж \"".$user['login']."\" перевел со своего банковского счета №".$_SESSION['bankid']." на счет №".$_POST['number']." к персонажу ".$to['login']." ".$_POST['sum']." кр. Дополнительно снято ".$nalog." кр. за услуги банка ',1,'".time()."');");
-                          mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$bank2['owner']}','Персонаж \"".$user['login']."\" перевел со своего банковского счета №".$_SESSION['bankid']." на счет №".$_POST['number']." к персонажу ".$to['login']." ".$_POST['sum']." кр. Дополнительно снято ".$nalog." кр. за услуги банка ',1,'".time()."');");
+                          mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РџРµСЂСЃРѕРЅР°Р¶ \"".$user['login']."\" РїРµСЂРµРІРµР» СЃРѕ СЃРІРѕРµРіРѕ Р±Р°РЅРєРѕРІСЃРєРѕРіРѕ СЃС‡РµС‚Р° в„–".$_SESSION['bankid']." РЅР° СЃС‡РµС‚ в„–".$_POST['number']." Рє РїРµСЂСЃРѕРЅР°Р¶Сѓ ".$to['login']." ".$_POST['sum']." РєСЂ. Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ СЃРЅСЏС‚Рѕ ".$nalog." РєСЂ. Р·Р° СѓСЃР»СѓРіРё Р±Р°РЅРєР° ',1,'".time()."');");
+                          mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$bank2['owner']}','РџРµСЂСЃРѕРЅР°Р¶ \"".$user['login']."\" РїРµСЂРµРІРµР» СЃРѕ СЃРІРѕРµРіРѕ Р±Р°РЅРєРѕРІСЃРєРѕРіРѕ СЃС‡РµС‚Р° в„–".$_SESSION['bankid']." РЅР° СЃС‡РµС‚ в„–".$_POST['number']." Рє РїРµСЂСЃРѕРЅР°Р¶Сѓ ".$to['login']." ".$_POST['sum']." РєСЂ. Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ СЃРЅСЏС‚Рѕ ".$nalog." РєСЂ. Р·Р° СѓСЃР»СѓРіРё Р±Р°РЅРєР° ',1,'".time()."');");
 
                           $otkogo = mysql_fetch_array(mq("SELECT `login` FROM `users` WHERE `id` = '{$bank['owner']}';"));
                           $komy = mysql_fetch_array(mq("SELECT `login` FROM `users` WHERE `id` = '{$bank2['owner']}';"));
                           $bablo = $_POST['sum']+$bank2['cr'];
-                          mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Вы перевели <b>{$_POST['sum']} кр.</b> на счет {$_POST['number']} персонажа \"{$komy['login']}\", комиссия <b>$nalog кр.</b> <i>(Итого: {$bank['cr']} кр., {$bank['ekr']} екр.)</i>','{$_SESSION['bankid']}');");
-                          mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Вам переведено <b>{$_POST['sum']} кр.</b> со счета {$_SESSION['bankid']} персонажа \"{$otkogo['login']}\" <i>(Итого: {$bablo} кр., {$bank2['ekr']} екр.)</i>','{$_POST['number']}');");
+                          mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Р’С‹ РїРµСЂРµРІРµР»Рё <b>{$_POST['sum']} РєСЂ.</b> РЅР° СЃС‡РµС‚ {$_POST['number']} РїРµСЂСЃРѕРЅР°Р¶Р° \"{$komy['login']}\", РєРѕРјРёСЃСЃРёСЏ <b>$nalog РєСЂ.</b> <i>(РС‚РѕРіРѕ: {$bank['cr']} РєСЂ., {$bank['ekr']} РµРєСЂ.)</i>','{$_SESSION['bankid']}');");
+                          mq("INSERT INTO `bankhistory`(`id` , `text` , `bankid`) VALUES ('','Р’Р°Рј РїРµСЂРµРІРµРґРµРЅРѕ <b>{$_POST['sum']} РєСЂ.</b> СЃРѕ СЃС‡РµС‚Р° {$_SESSION['bankid']} РїРµСЂСЃРѕРЅР°Р¶Р° \"{$otkogo['login']}\" <i>(РС‚РѕРіРѕ: {$bablo} РєСЂ., {$bank2['ekr']} РµРєСЂ.)</i>','{$_POST['number']}');");
 
                           $sum=$_POST['sum'];
                           $schet=$_POST['number'];
-                          $mywarn="$sum кр. успешно переведены на счет № $schet";
+                          $mywarn="$sum РєСЂ. СѓСЃРїРµС€РЅРѕ РїРµСЂРµРІРµРґРµРЅС‹ РЅР° СЃС‡РµС‚ в„– $schet";
                         }
                         else {
-                            $mywarn="Произошла ошибка!";
+                            $mywarn="РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!";
                         }
                     }
                     else {
-                        $mywarn="У вас недостаточно денег на счету для выполнения операции";
+                        $mywarn="РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РЅР° СЃС‡РµС‚Сѓ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёРё";
                     }
                 }
                 else {
-                    $mywarn="У вас недостаточно денег на счету для выполнения операции";
+                    $mywarn="РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РЅР° СЃС‡РµС‚Сѓ РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕРїРµСЂР°С†РёРё";
                 }
             }
             else {
-                $mywarn="Данные о счете получателя не найдены.";
+                $mywarn="Р”Р°РЅРЅС‹Рµ Рѕ СЃС‡РµС‚Рµ РїРѕР»СѓС‡Р°С‚РµР»СЏ РЅРµ РЅР°Р№РґРµРЅС‹.";
             }
         }
         $_POST['wu']=0;
@@ -490,65 +490,65 @@ else
 <?
   $r=mq("select id, name from inventory where type=199 and owner='$user[id]'");
   while ($rec=mysql_fetch_assoc($r)) {
-    $rec["name"]=str_replace("Квитанция", "квитанцию", $rec["name"]);
-    echo "<a href=\"/bank.php?givecheque=$rec[id]\">Сдать $rec[name]</a><br>";
+    $rec["name"]=str_replace("РљРІРёС‚Р°РЅС†РёСЏ", "РєРІРёС‚Р°РЅС†РёСЋ", $rec["name"]);
+    echo "<a href=\"/bank.php?givecheque=$rec[id]\">РЎРґР°С‚СЊ $rec[name]</a><br>";
   }
 ?>
 <FORM action="bank.php" method=POST name=F1>
 <INPUT TYPE=hidden name=sid value="230451324010">
 <TABLE width=100%>
 <TR>
-<TD valign=top width=30%><H4>Управление счетом</H4> &nbsp;
-<b>Счёт №:</b> <?=$_SESSION['bankid']?> <a href="?exit=1">[x]</a><br>
+<TD valign=top width=30%><H4>РЈРїСЂР°РІР»РµРЅРёРµ СЃС‡РµС‚РѕРј</H4> &nbsp;
+<b>РЎС‡С‘С‚ в„–:</b> <?=$_SESSION['bankid']?> <a href="?exit=1">[x]</a><br>
 </TD>
 <TD valign=top align=center width=40%>
 <TABLE><TR><TD>
-<FIELDSET><LEGEND><B>У вас на счету</B> </LEGEND>
+<FIELDSET><LEGEND><B>РЈ РІР°СЃ РЅР° СЃС‡РµС‚Сѓ</B> </LEGEND>
 <TABLE>
-<TR><TD>Кредитов:</TD><TD><B><?=$bank['cr']?></B></TD></TR>
-<TR><TD>Еврокредитов:</TD><TD><B><?=$bank['ekr']?></B></TD></TR>
+<TR><TD>РљСЂРµРґРёС‚РѕРІ:</TD><TD><B><?=$bank['cr']?></B></TD></TR>
+<TR><TD>Р•РІСЂРѕРєСЂРµРґРёС‚РѕРІ:</TD><TD><B><?=$bank['ekr']?></B></TD></TR>
 <TR><TD colspan=2><HR></TD></TR>
-<TR><TD>При себе наличных:</TD><TD><B><?=$user['money']?> кр.</B><BR><B><?=$user['ekr']?> екр.</B></TD></TR>
+<TR><TD>РџСЂРё СЃРµР±Рµ РЅР°Р»РёС‡РЅС‹С…:</TD><TD><B><?=$user['money']?> РєСЂ.</B><BR><B><?=$user['ekr']?> РµРєСЂ.</B></TD></TR>
 </TABLE>
 </FIELDSET>
 </TD></TR></TABLE>
 </TD>
-<TD valign=top align=right width=30%><FONT COLOR=red>Внимание!</FONT> Некоторые услуги банка платные, о размере взымаемой комиссии написано в соответствующем разделе.</TD>
+<TD valign=top align=right width=30%><FONT COLOR=red>Р’РЅРёРјР°РЅРёРµ!</FONT> РќРµРєРѕС‚РѕСЂС‹Рµ СѓСЃР»СѓРіРё Р±Р°РЅРєР° РїР»Р°С‚РЅС‹Рµ, Рѕ СЂР°Р·РјРµСЂРµ РІР·С‹РјР°РµРјРѕР№ РєРѕРјРёСЃСЃРёРё РЅР°РїРёСЃР°РЅРѕ РІ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРј СЂР°Р·РґРµР»Рµ.</TD>
 </TR>
 </TABLE>
 <TABLE cellspacing=5><TR>
-<TD valign=top width=50%><FIELDSET><LEGEND><B>Пополнить счет</B> </LEGEND>
-Сумма <INPUT TYPE=text NAME=ik size=6 maxlength=11> кр. <INPUT TYPE=submit name=in value="Положить кредиты на счет" onclick="if (isNaN(parseFloat(document.F1.ik.value))) {alert('Укажите сумму'); return false;} else {return confirm('Вы хотите положить на свой счет '+parseFloat(document.F1.ik.value)+' кр. ?')}"><BR>
-Сумма <INPUT TYPE=text NAME=ekrik size=6 maxlength=11> екр. <INPUT TYPE=submit name=ekrin value="Положить еврокредиты на счет" onclick="if (isNaN(parseFloat(document.F1.ekrik.value))) {alert('Укажите сумму'); return false;} else {return confirm('Вы хотите положить на свой счет '+parseFloat(document.F1.ekrik.value)+' екр. ?')}"><BR>
+<TD valign=top width=50%><FIELDSET><LEGEND><B>РџРѕРїРѕР»РЅРёС‚СЊ СЃС‡РµС‚</B> </LEGEND>
+РЎСѓРјРјР° <INPUT TYPE=text NAME=ik size=6 maxlength=11> РєСЂ. <INPUT TYPE=submit name=in value="РџРѕР»РѕР¶РёС‚СЊ РєСЂРµРґРёС‚С‹ РЅР° СЃС‡РµС‚" onclick="if (isNaN(parseFloat(document.F1.ik.value))) {alert('РЈРєР°Р¶РёС‚Рµ СЃСѓРјРјСѓ'); return false;} else {return confirm('Р’С‹ С…РѕС‚РёС‚Рµ РїРѕР»РѕР¶РёС‚СЊ РЅР° СЃРІРѕР№ СЃС‡РµС‚ '+parseFloat(document.F1.ik.value)+' РєСЂ. ?')}"><BR>
+РЎСѓРјРјР° <INPUT TYPE=text NAME=ekrik size=6 maxlength=11> РµРєСЂ. <INPUT TYPE=submit name=ekrin value="РџРѕР»РѕР¶РёС‚СЊ РµРІСЂРѕРєСЂРµРґРёС‚С‹ РЅР° СЃС‡РµС‚" onclick="if (isNaN(parseFloat(document.F1.ekrik.value))) {alert('РЈРєР°Р¶РёС‚Рµ СЃСѓРјРјСѓ'); return false;} else {return confirm('Р’С‹ С…РѕС‚РёС‚Рµ РїРѕР»РѕР¶РёС‚СЊ РЅР° СЃРІРѕР№ СЃС‡РµС‚ '+parseFloat(document.F1.ekrik.value)+' РµРєСЂ. ?')}"><BR>
 </FIELDSET></TD>
-<TD valign=top width=50%><FIELDSET><LEGEND><B>Снять со счета</B> </LEGEND>
-Сумма <INPUT TYPE=text NAME=ok size=6 maxlength=11> кр. <INPUT TYPE=submit name=out value="Снять кредиты со счета" onclick="if (isNaN(parseFloat(document.F1.ok.value))) {alert('Укажите сумму'); return false;} else {return confirm('Вы хотите снять со своего счета '+parseFloat(document.F1.ok.value)+' кр. ?')}"><BR>
-Сумма <INPUT TYPE=text NAME=ekrok size=6 maxlength=11> екр. <INPUT TYPE=submit name=ekrout value="Снять еврокредиты со счета" onclick="if (isNaN(parseFloat(document.F1.ekrok.value))) {alert('Укажите сумму'); return false;} else {return confirm('Вы хотите снять со своего счета '+parseFloat(document.F1.ekrok.value)+' екр. ?')}"><BR>
+<TD valign=top width=50%><FIELDSET><LEGEND><B>РЎРЅСЏС‚СЊ СЃРѕ СЃС‡РµС‚Р°</B> </LEGEND>
+РЎСѓРјРјР° <INPUT TYPE=text NAME=ok size=6 maxlength=11> РєСЂ. <INPUT TYPE=submit name=out value="РЎРЅСЏС‚СЊ РєСЂРµРґРёС‚С‹ СЃРѕ СЃС‡РµС‚Р°" onclick="if (isNaN(parseFloat(document.F1.ok.value))) {alert('РЈРєР°Р¶РёС‚Рµ СЃСѓРјРјСѓ'); return false;} else {return confirm('Р’С‹ С…РѕС‚РёС‚Рµ СЃРЅСЏС‚СЊ СЃРѕ СЃРІРѕРµРіРѕ СЃС‡РµС‚Р° '+parseFloat(document.F1.ok.value)+' РєСЂ. ?')}"><BR>
+РЎСѓРјРјР° <INPUT TYPE=text NAME=ekrok size=6 maxlength=11> РµРєСЂ. <INPUT TYPE=submit name=ekrout value="РЎРЅСЏС‚СЊ РµРІСЂРѕРєСЂРµРґРёС‚С‹ СЃРѕ СЃС‡РµС‚Р°" onclick="if (isNaN(parseFloat(document.F1.ekrok.value))) {alert('РЈРєР°Р¶РёС‚Рµ СЃСѓРјРјСѓ'); return false;} else {return confirm('Р’С‹ С…РѕС‚РёС‚Рµ СЃРЅСЏС‚СЊ СЃРѕ СЃРІРѕРµРіРѕ СЃС‡РµС‚Р° '+parseFloat(document.F1.ekrok.value)+' РµРєСЂ. ?')}"><BR>
 
 </FIELDSET></TD>
 </TR><TR>
-<TD valign=top><FIELDSET><LEGEND><B>Перевести кредиты на другой счет</B> </LEGEND>
+<TD valign=top><FIELDSET><LEGEND><B>РџРµСЂРµРІРµСЃС‚Рё РєСЂРµРґРёС‚С‹ РЅР° РґСЂСѓРіРѕР№ СЃС‡РµС‚</B> </LEGEND>
 <?
-if ($user["level"]<4) echo "<b>Доступно с 4-го уровня.</b>";
-else { ?>Сумма <INPUT TYPE=text NAME=sum size=6 maxlength=11> кр.<BR>
-Номер счета куда перевести кредиты <INPUT TYPE=text NAME=number size=12 maxlength=15><BR>
-<INPUT TYPE=submit name=wu value="Перевести кредиты на другой счет" onclick="if (isNaN(parseFloat(document.F1.sum.value)) || isNaN(parseInt(document.F1.number.value)) ) {alert('Укажите сумму и номер счета'); return false;} else {return confirm('Вы хотите перевести со своего счета '+parseFloat(document.F1.sum.value)+' кр. на счет номер '+parseInt(document.F1.number.value)+' ?')}"><BR>
-Комиссия составляет <B>3.00 %</B> от суммы, но не менее <B>1.00 кр</B>.<? } ?>
+if ($user["level"]<4) echo "<b>Р”РѕСЃС‚СѓРїРЅРѕ СЃ 4-РіРѕ СѓСЂРѕРІРЅСЏ.</b>";
+else { ?>РЎСѓРјРјР° <INPUT TYPE=text NAME=sum size=6 maxlength=11> РєСЂ.<BR>
+РќРѕРјРµСЂ СЃС‡РµС‚Р° РєСѓРґР° РїРµСЂРµРІРµСЃС‚Рё РєСЂРµРґРёС‚С‹ <INPUT TYPE=text NAME=number size=12 maxlength=15><BR>
+<INPUT TYPE=submit name=wu value="РџРµСЂРµРІРµСЃС‚Рё РєСЂРµРґРёС‚С‹ РЅР° РґСЂСѓРіРѕР№ СЃС‡РµС‚" onclick="if (isNaN(parseFloat(document.F1.sum.value)) || isNaN(parseInt(document.F1.number.value)) ) {alert('РЈРєР°Р¶РёС‚Рµ СЃСѓРјРјСѓ Рё РЅРѕРјРµСЂ СЃС‡РµС‚Р°'); return false;} else {return confirm('Р’С‹ С…РѕС‚РёС‚Рµ РїРµСЂРµРІРµСЃС‚Рё СЃРѕ СЃРІРѕРµРіРѕ СЃС‡РµС‚Р° '+parseFloat(document.F1.sum.value)+' РєСЂ. РЅР° СЃС‡РµС‚ РЅРѕРјРµСЂ '+parseInt(document.F1.number.value)+' ?')}"><BR>
+РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІР»СЏРµС‚ <B>3.00 %</B> РѕС‚ СЃСѓРјРјС‹, РЅРѕ РЅРµ РјРµРЅРµРµ <B>1.00 РєСЂ</B>.<? } ?>
 </FIELDSET></TD>
 <TD valign=top>
-<FIELDSET><LEGEND><B>Обменный пункт</B> </LEGEND>
-Обменять кредиты на еврокредиты.<BR>
-Курс <B>1000 кр.</B> = <B>1.00 екр.</B><BR>
-<font color=red><b>Примечание:</b> Для обмена "Кредиты" должны быть на валютном счету в банке.</font><br>
-Сумма <INPUT TYPE=text NAME=krekr size=6 maxlength=80> кр.
-<INPUT TYPE=submit name=change value="Обменять" onclick="if (isNaN(parseFloat(document.F1.krekr.value))) {alert('Укажите обмениваемую сумму'); return false;} else {return confirm('Вы хотите обменять '+parseFloat(document.F1.krekr.value)+' кр. на екр ?')}">
+<FIELDSET><LEGEND><B>РћР±РјРµРЅРЅС‹Р№ РїСѓРЅРєС‚</B> </LEGEND>
+РћР±РјРµРЅСЏС‚СЊ РєСЂРµРґРёС‚С‹ РЅР° РµРІСЂРѕРєСЂРµРґРёС‚С‹.<BR>
+РљСѓСЂСЃ <B>1000 РєСЂ.</B> = <B>1.00 РµРєСЂ.</B><BR>
+<font color=red><b>РџСЂРёРјРµС‡Р°РЅРёРµ:</b> Р”Р»СЏ РѕР±РјРµРЅР° "РљСЂРµРґРёС‚С‹" РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РЅР° РІР°Р»СЋС‚РЅРѕРј СЃС‡РµС‚Сѓ РІ Р±Р°РЅРєРµ.</font><br>
+РЎСѓРјРјР° <INPUT TYPE=text NAME=krekr size=6 maxlength=80> РєСЂ.
+<INPUT TYPE=submit name=change value="РћР±РјРµРЅСЏС‚СЊ" onclick="if (isNaN(parseFloat(document.F1.krekr.value))) {alert('РЈРєР°Р¶РёС‚Рµ РѕР±РјРµРЅРёРІР°РµРјСѓСЋ СЃСѓРјРјСѓ'); return false;} else {return confirm('Р’С‹ С…РѕС‚РёС‚Рµ РѕР±РјРµРЅСЏС‚СЊ '+parseFloat(document.F1.krekr.value)+' РєСЂ. РЅР° РµРєСЂ ?')}">
 </FIELDSET>
-<FIELDSET><LEGEND><B>Обменный пункт</B> </LEGEND>
-Обменять еврокредиты на кредиты.<BR>
-Курс <B>1 екр.</B> = <B>80.00 кр.</B><BR>
-<font color=red><b>Примечание:</b> Для обмена "Еврокредиты" должны быть на валютном счету в банке.</font><br>
-Сумма <INPUT TYPE=text NAME=ok1 size=6 maxlength=80> екр.
-<INPUT TYPE=submit name=change value="Обменять" onclick="if (isNaN(parseFloat(document.F1.ok1.value))) {alert('Укажите обмениваемую сумму'); return false;} else {return confirm('Вы хотите обменять '+parseFloat(document.F1.ok1.value)+' екр. на кредиты ?')}">
+<FIELDSET><LEGEND><B>РћР±РјРµРЅРЅС‹Р№ РїСѓРЅРєС‚</B> </LEGEND>
+РћР±РјРµРЅСЏС‚СЊ РµРІСЂРѕРєСЂРµРґРёС‚С‹ РЅР° РєСЂРµРґРёС‚С‹.<BR>
+РљСѓСЂСЃ <B>1 РµРєСЂ.</B> = <B>80.00 РєСЂ.</B><BR>
+<font color=red><b>РџСЂРёРјРµС‡Р°РЅРёРµ:</b> Р”Р»СЏ РѕР±РјРµРЅР° "Р•РІСЂРѕРєСЂРµРґРёС‚С‹" РґРѕР»Р¶РЅС‹ Р±С‹С‚СЊ РЅР° РІР°Р»СЋС‚РЅРѕРј СЃС‡РµС‚Сѓ РІ Р±Р°РЅРєРµ.</font><br>
+РЎСѓРјРјР° <INPUT TYPE=text NAME=ok1 size=6 maxlength=80> РµРєСЂ.
+<INPUT TYPE=submit name=change value="РћР±РјРµРЅСЏС‚СЊ" onclick="if (isNaN(parseFloat(document.F1.ok1.value))) {alert('РЈРєР°Р¶РёС‚Рµ РѕР±РјРµРЅРёРІР°РµРјСѓСЋ СЃСѓРјРјСѓ'); return false;} else {return confirm('Р’С‹ С…РѕС‚РёС‚Рµ РѕР±РјРµРЅСЏС‚СЊ '+parseFloat(document.F1.ok1.value)+' РµРєСЂ. РЅР° РєСЂРµРґРёС‚С‹ ?')}">
 </FIELDSET>
 </TD>
 
@@ -556,24 +556,24 @@ else { ?>Сумма <INPUT TYPE=text NAME=sum size=6 maxlength=11> кр.<BR>
 <TD valign=top></TD>
 <TD></TD>
 </TR><TR>
-<TD valign=top><FIELDSET><LEGEND><B>Настройки</B> </LEGEND>
+<TD valign=top><FIELDSET><LEGEND><B>РќР°СЃС‚СЂРѕР№РєРё</B> </LEGEND>
 <?if($bank['mail']==0) {?>
-Вы запретили высылку номера счета и пароля на email. Можете включить эту функцию.
-<INPUT TYPE=submit name=start_send_email value="Разрешить высылку пароля на email">
+Р’С‹ Р·Р°РїСЂРµС‚РёР»Рё РІС‹СЃС‹Р»РєСѓ РЅРѕРјРµСЂР° СЃС‡РµС‚Р° Рё РїР°СЂРѕР»СЏ РЅР° email. РњРѕР¶РµС‚Рµ РІРєР»СЋС‡РёС‚СЊ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ.
+<INPUT TYPE=submit name=start_send_email value="Р Р°Р·СЂРµС€РёС‚СЊ РІС‹СЃС‹Р»РєСѓ РїР°СЂРѕР»СЏ РЅР° email">
             <?}else{?>
-У вас разрешена высылка номера счета и пароля на email. Если вы не уверены в своем email, или убеждены, что не забудете свой номер счета и пароль к нему, то можете запретить высылку пароля на email. Это убережет вас от кражи кредитов с вашего счета в случае взлома вашего email. Но если вы сами забудете свой номер счета и/или пароль, вам уже никто не поможет!<BR>
-<INPUT TYPE=submit name=stop_send_email value="Запретить высылку пароля на email">
+РЈ РІР°СЃ СЂР°Р·СЂРµС€РµРЅР° РІС‹СЃС‹Р»РєР° РЅРѕРјРµСЂР° СЃС‡РµС‚Р° Рё РїР°СЂРѕР»СЏ РЅР° email. Р•СЃР»Рё РІС‹ РЅРµ СѓРІРµСЂРµРЅС‹ РІ СЃРІРѕРµРј email, РёР»Рё СѓР±РµР¶РґРµРЅС‹, С‡С‚Рѕ РЅРµ Р·Р°Р±СѓРґРµС‚Рµ СЃРІРѕР№ РЅРѕРјРµСЂ СЃС‡РµС‚Р° Рё РїР°СЂРѕР»СЊ Рє РЅРµРјСѓ, С‚Рѕ РјРѕР¶РµС‚Рµ Р·Р°РїСЂРµС‚РёС‚СЊ РІС‹СЃС‹Р»РєСѓ РїР°СЂРѕР»СЏ РЅР° email. Р­С‚Рѕ СѓР±РµСЂРµР¶РµС‚ РІР°СЃ РѕС‚ РєСЂР°Р¶Рё РєСЂРµРґРёС‚РѕРІ СЃ РІР°С€РµРіРѕ СЃС‡РµС‚Р° РІ СЃР»СѓС‡Р°Рµ РІР·Р»РѕРјР° РІР°С€РµРіРѕ email. РќРѕ РµСЃР»Рё РІС‹ СЃР°РјРё Р·Р°Р±СѓРґРµС‚Рµ СЃРІРѕР№ РЅРѕРјРµСЂ СЃС‡РµС‚Р° Рё/РёР»Рё РїР°СЂРѕР»СЊ, РІР°Рј СѓР¶Рµ РЅРёРєС‚Рѕ РЅРµ РїРѕРјРѕР¶РµС‚!<BR>
+<INPUT TYPE=submit name=stop_send_email value="Р—Р°РїСЂРµС‚РёС‚СЊ РІС‹СЃС‹Р»РєСѓ РїР°СЂРѕР»СЏ РЅР° email">
             <?}?>
-<HR><B>Сменить пароль</B><BR>
+<HR><B>РЎРјРµРЅРёС‚СЊ РїР°СЂРѕР»СЊ</B><BR>
 
 <table>
-<tr><TD>Новый пароль</TD><TD><INPUT TYPE=password name=new_psw></TD><TD><img border=0 SRC="/i/misc/klav_transparent.gif"  style='cursor: hand' onClick="KeypadShow(1, 'F1', 'new_psw', 'keypad1');"></TD></tr>
-<tr><TD>Введите новый пароль повторно</TD><TD><INPUT TYPE=password name=new_psw2></TD><TD><img border=0 SRC="/i/misc/klav_transparent.gif" style='cursor: hand' onClick="KeypadShow(1, 'F1', 'new_psw2', 'keypad1');"></TD></tr>
+<tr><TD>РќРѕРІС‹Р№ РїР°СЂРѕР»СЊ</TD><TD><INPUT TYPE=password name=new_psw></TD><TD><img border=0 SRC="/i/misc/klav_transparent.gif"  style='cursor: hand' onClick="KeypadShow(1, 'F1', 'new_psw', 'keypad1');"></TD></tr>
+<tr><TD>Р’РІРµРґРёС‚Рµ РЅРѕРІС‹Р№ РїР°СЂРѕР»СЊ РїРѕРІС‚РѕСЂРЅРѕ</TD><TD><INPUT TYPE=password name=new_psw2></TD><TD><img border=0 SRC="/i/misc/klav_transparent.gif" style='cursor: hand' onClick="KeypadShow(1, 'F1', 'new_psw2', 'keypad1');"></TD></tr>
 </table>
-<INPUT TYPE=submit name=change_psw value="Сменить пароль"><BR>
+<INPUT TYPE=submit name=change_psw value="РЎРјРµРЅРёС‚СЊ РїР°СЂРѕР»СЊ"><BR>
 <div id="keypad1" align=center style="display: none;"></div>
 </FIELDSET></TD>
-<TD valign=top><FIELDSET><LEGEND><B>Последние операции</B> </LEGEND>
+<TD valign=top><FIELDSET><LEGEND><B>РџРѕСЃР»РµРґРЅРёРµ РѕРїРµСЂР°С†РёРё</B> </LEGEND>
 
 <TABLE cellpadding="2" cellspacing="0" border="0">
 <?
@@ -587,10 +587,10 @@ echo "<TR><TD><font class=date>$hist[date]</font> $hist[text]</TD></TR>";
 </TD>
 </TR>
 <TR>
-<TD colspan="2" valign=top><FIELDSET><LEGEND><B>Записная книжка</B> </LEGEND>
-Здесь вы можете записывать любую информацию для себя. Номера счетов друзей, кто кому чего должен и прочее. Записная книжка общая для всех счетов.<BR>
+<TD colspan="2" valign=top><FIELDSET><LEGEND><B>Р—Р°РїРёСЃРЅР°СЏ РєРЅРёР¶РєР°</B> </LEGEND>
+Р—РґРµСЃСЊ РІС‹ РјРѕР¶РµС‚Рµ Р·Р°РїРёСЃС‹РІР°С‚СЊ Р»СЋР±СѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ РґР»СЏ СЃРµР±СЏ. РќРѕРјРµСЂР° СЃС‡РµС‚РѕРІ РґСЂСѓР·РµР№, РєС‚Рѕ РєРѕРјСѓ С‡РµРіРѕ РґРѕР»Р¶РµРЅ Рё РїСЂРѕС‡РµРµ. Р—Р°РїРёСЃРЅР°СЏ РєРЅРёР¶РєР° РѕР±С‰Р°СЏ РґР»СЏ РІСЃРµС… СЃС‡РµС‚РѕРІ.<BR>
 <TEXTAREA NAME=notepad ROWS=10 COLS=67 style="width:100%"><?=$bank['note']?></TEXTAREA><BR>
-<INPUT TYPE=submit name=save_notepad value="Сохранить изменения">
+<INPUT TYPE=submit name=save_notepad value="РЎРѕС…СЂР°РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ">
 </FIELDSET>
 </TD>
 </TR>

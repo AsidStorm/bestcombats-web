@@ -38,15 +38,15 @@ $effs = mysql_fetch_array(mq("SELECT * FROM `effects` WHERE `owner` = '".$user['
 
 if($effs){
 ///////////
-//if($effs['stihiya']=='ogon'){$bosa = "Огненная Элементаль (проекция)"; $bid = "15";}//id bota
-//if($effs['stihiya']=='voda'){$bosa = "Водная Элементаль (проекция)"; $bid = "19";}//id bota
-//if($effs['stihiya']=='vozduh'){$bosa = "Воздушная Элементаль (проекция)"; $bid = "23";}//id bota
-//if($effs['stihiya']=='zemlya'){$bosa = "Земная Элементаль (проекция)"; $bid = "24";}//id bota
+//if($effs['stihiya']=='ogon'){$bosa = "РћРіРЅРµРЅРЅР°СЏ Р­Р»РµРјРµРЅС‚Р°Р»СЊ (РїСЂРѕРµРєС†РёСЏ)"; $bid = "15";}//id bota
+//if($effs['stihiya']=='voda'){$bosa = "Р’РѕРґРЅР°СЏ Р­Р»РµРјРµРЅС‚Р°Р»СЊ (РїСЂРѕРµРєС†РёСЏ)"; $bid = "19";}//id bota
+//if($effs['stihiya']=='vozduh'){$bosa = "Р’РѕР·РґСѓС€РЅР°СЏ Р­Р»РµРјРµРЅС‚Р°Р»СЊ (РїСЂРѕРµРєС†РёСЏ)"; $bid = "23";}//id bota
+//if($effs['stihiya']=='zemlya'){$bosa = "Р—РµРјРЅР°СЏ Р­Р»РµРјРµРЅС‚Р°Р»СЊ (РїСЂРѕРµРєС†РёСЏ)"; $bid = "24";}//id bota
 
-if($effs['stihiya']=='ogon'){$bosa = "Огненная Элементаль (проекция)"; $bid = "103";}//id bota
-if($effs['stihiya']=='voda'){$bosa = "Водная Элементаль (проекция)"; $bid = "102";}//id bota
-if($effs['stihiya']=='vozduh'){$bosa = "Воздушная Элементаль (проекция)"; $bid = "101";}//id bota
-if($effs['stihiya']=='zemlya'){$bosa = "Земная Элементаль (проекция)"; $bid = "100";}//id bota
+if($effs['stihiya']=='ogon'){$bosa = "РћРіРЅРµРЅРЅР°СЏ Р­Р»РµРјРµРЅС‚Р°Р»СЊ (РїСЂРѕРµРєС†РёСЏ)"; $bid = "103";}//id bota
+if($effs['stihiya']=='voda'){$bosa = "Р’РѕРґРЅР°СЏ Р­Р»РµРјРµРЅС‚Р°Р»СЊ (РїСЂРѕРµРєС†РёСЏ)"; $bid = "102";}//id bota
+if($effs['stihiya']=='vozduh'){$bosa = "Р’РѕР·РґСѓС€РЅР°СЏ Р­Р»РµРјРµРЅС‚Р°Р»СЊ (РїСЂРѕРµРєС†РёСЏ)"; $bid = "101";}//id bota
+if($effs['stihiya']=='zemlya'){$bosa = "Р—РµРјРЅР°СЏ Р­Р»РµРјРµРЅС‚Р°Р»СЊ (РїСЂРѕРµРєС†РёСЏ)"; $bid = "100";}//id bota
 ///////////
 
 $nom = star_sign(substr($user['borndate'],3,2), substr($user['borndate'],0,2));
@@ -68,13 +68,13 @@ mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$bosa."','"
 		}
 		$t1 = explode(";",$bd['t1']);		
 		if (in_array ($user['id'],$t1)) {$ttt = 1;} else {	$ttt = 2;}					
-		addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($bot,"B".$ttt).' вмешался впоединок за '.nick5($user['id'],"B".$ttt).'<BR>');
+		addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($bot,"B".$ttt).' РІРјРµС€Р°Р»СЃСЏ РІРїРѕРµРґРёРЅРѕРє Р·Р° '.nick5($user['id'],"B".$ttt).'<BR>');
 					
 		mq('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t'.$ttt.'`=CONCAT(`t'.$ttt.'`,\';'.$bot.'\')  WHERE `id` = '.$user['battle'].' ;');
 		
 		mq("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = ".$user['battle']." LIMIT 1;");
 ////////////////
-}///////////////////////////////////////////////////////////////////против//////////////////////////////////////////////////////////
+}///////////////////////////////////////////////////////////////////РїСЂРѕС‚РёРІ//////////////////////////////////////////////////////////
 else{
 ///////////
 mq("UPDATE `effects` SET `isp` = '1' WHERE `id`='".$effs['id']."' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;");
@@ -89,7 +89,7 @@ mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$bosa."','"
 		}
 		$t1 = explode(";",$bd['t1']);		
 		if (in_array ($_POST['enemy'],$t1)) {$ttt = 1;} else {	$ttt = 2;}					
-		addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($bot,"B".$ttt).' вмешался впоединок за '.nick5($_POST['enemy'],"B".$ttt).'<BR>');
+		addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($bot,"B".$ttt).' РІРјРµС€Р°Р»СЃСЏ РІРїРѕРµРґРёРЅРѕРє Р·Р° '.nick5($_POST['enemy'],"B".$ttt).'<BR>');
 		mq('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t'.$ttt.'`=CONCAT(`t'.$ttt.'`,\';'.$bot.'\')  WHERE `id` = '.$user['battle'].' ;');
 		mq("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = ".$user['battle']." LIMIT 1;");
 ////////////////

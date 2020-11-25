@@ -21,22 +21,22 @@
 
 </HEAD>
 <body leftmargin=5 topmargin=5 marginwidth=0 marginheight=0 bgcolor=#e2e0e0 >
-<table align=right><tr><td><INPUT TYPE="button" onclick="location.href='main.php';" value="Вернуться" title="Вернуться"></table>
+<table align=right><tr><td><INPUT TYPE="button" onclick="location.href='main.php';" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" title="Р’РµСЂРЅСѓС‚СЊСЃСЏ"></table>
 
 <?php
 if ($user['align'] == '2.7'  || $user['align'] == '77'  || $user['align'] == '2.5' || $user['align'] == '2.6') {
 		
-			echo "<h3>Панель Благородства персонажа {$user['login']}!</h3>";
+			echo "<h3>РџР°РЅРµР»СЊ Р‘Р»Р°РіРѕСЂРѕРґСЃС‚РІР° РїРµСЂСЃРѕРЅР°Р¶Р° {$user['login']}!</h3>";
 		}
 
 		if ($user['align'] == '2.7'  || $user['align'] == '77'  || $user['align'] == '2.5' || $user['align'] == '2.6') {
-				echo "<form method=post><fieldset><legend>Начислить благородство</legend>
-					<table><tr><td>Логин</td><td><input type='text' name='login' value='",$_POST['login'],"'></td><td>Благородства</td><td><input type='text' name='honorpoints' value='",$_POST['honorpoints'],"'></td><td><input type=submit value='Начислить'></td></tr></table>";
+				echo "<form method=post><fieldset><legend>РќР°С‡РёСЃР»РёС‚СЊ Р±Р»Р°РіРѕСЂРѕРґСЃС‚РІРѕ</legend>
+					<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='",$_POST['login'],"'></td><td>Р‘Р»Р°РіРѕСЂРѕРґСЃС‚РІР°</td><td><input type='text' name='honorpoints' value='",$_POST['honorpoints'],"'></td><td><input type=submit value='РќР°С‡РёСЃР»РёС‚СЊ'></td></tr></table>";
 				if ($_POST['login'] && $_POST['honorpoints']) {
 					$dd = mysql_fetch_array(mysql_query("SELECT `ip`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 					if($dd) {
 						mysql_query("UPDATE `users` SET `honorpoints` = `honorpoints`+'".$_POST['honorpoints']."' WHERE `login` = '".$_POST['login']."';");
-						echo "<font color=red>Начислено ",$_POST['honorpoints']," благородства</font><BR>";
+						echo "<font color=red>РќР°С‡РёСЃР»РµРЅРѕ ",$_POST['honorpoints']," Р±Р»Р°РіРѕСЂРѕРґСЃС‚РІР°</font><BR>";
 					}
 				}
 }

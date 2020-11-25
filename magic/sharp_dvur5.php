@@ -1,5 +1,5 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
 $magic = mysql_fetch_array(mysql_query("SELECT `chanse` FROM `magic` WHERE `id` = '95' ;"));  
     
 if ($user['intel'] >= 15) {
@@ -8,23 +8,23 @@ if ($user['intel'] >= 15) {
   }
 else {$int=0;}
 if ($user['battle'] > 0) {
-	echo "Не в бою...";
+	echo "РќРµ РІ Р±РѕСЋ...";
 }
 	
 		if ($_SESSION['uid'] == null) header("Location: index.php");
 	
 		$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE  `type` = '3' AND `dvur` = '1' AND `owner` = '{$user['id']}' AND `name` = '{$_POST['target']}' AND `sharped` = 0 LIMIT 1;"));
-		$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = 'Заточка на +5: двуручное оружие' AND `owner` = '{$user['id']}' LIMIT 1;"));
+		$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = 'Р—Р°С‚РѕС‡РєР° РЅР° +5: РґРІСѓСЂСѓС‡РЅРѕРµ РѕСЂСѓР¶РёРµ' AND `owner` = '{$user['id']}' LIMIT 1;"));
 		
 		if ($dress && $svitok) {
 			if (mysql_query("UPDATE `inventory` SET `sharped` = 1, `name` = CONCAT(`name`,' +5'), `minu` = `minu`+5, `maxu`=`maxu`+5, `nmech` = `nmech`+0, `cost` = `cost`+30, `nvinos` = `nvinos`+0 WHERE `id` = {$dress['id']} LIMIT 1;")) {
-				echo "<font color=red><b>Предмет \"{$_POST['target']}\" удачно заточен +5.<b></font> ";
+				echo "<font color=red><b>РџСЂРµРґРјРµС‚ \"{$_POST['target']}\" СѓРґР°С‡РЅРѕ Р·Р°С‚РѕС‡РµРЅ +5.<b></font> ";
 				$bet=1;
 			}
 			else {
-				echo "<font color=red><b>Произошла ошибка!<b></font>";
+				echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
 			}
 		} else {
-			echo "<font color=red><b>Неправильное имя предмета или неправильный свиток<b></font>";
+			echo "<font color=red><b>РќРµРїСЂР°РІРёР»СЊРЅРѕРµ РёРјСЏ РїСЂРµРґРјРµС‚Р° РёР»Рё РЅРµРїСЂР°РІРёР»СЊРЅС‹Р№ СЃРІРёС‚РѕРє<b></font>";
 		}
 ?>

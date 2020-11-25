@@ -3,11 +3,11 @@
    while ($zaderjown = mysql_fetch_array($zaderj)) {
    if($zaderjown['type']==1022) {
         mq("DELETE FROM `zaderjka` WHERE `id` = '".$zaderjown['id']."' LIMIT 1;");
-       addchp ('<font color=red>Внимание!</font> Закончилось время задержки на свиток Невидимость.', '{[]}'.nick7($id).'{[]}');
+       addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р—Р°РєРѕРЅС‡РёР»РѕСЃСЊ РІСЂРµРјСЏ Р·Р°РґРµСЂР¶РєРё РЅР° СЃРІРёС‚РѕРє РќРµРІРёРґРёРјРѕСЃС‚СЊ.', '{[]}'.nick7($id).'{[]}');
         }
    if($zaderjown['type']==5) {
         mq("DELETE FROM `zaderjka` WHERE `id` = '".$zaderjown['id']."' LIMIT 1;");
-       addchp ('<font color=red>Внимание!</font> Закончилось время задержки на Смену образа VIP.', '{[]}'.nick7($id).'{[]}');
+       addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р—Р°РєРѕРЅС‡РёР»РѕСЃСЊ РІСЂРµРјСЏ Р·Р°РґРµСЂР¶РєРё РЅР° РЎРјРµРЅСѓ РѕР±СЂР°Р·Р° VIP.', '{[]}'.nick7($id).'{[]}');
         }
    }
 ?>

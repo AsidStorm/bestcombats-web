@@ -9,19 +9,19 @@ if ($user['level'] >= 1) {
 }else {$int=0;}
 $bos = mysql_query("SELECT `id`,`prototype`,`name` FROM `bots` WHERE `name` = '".$_POST['target']."' AND `battle` = '".$user['battle']."' AND `hp` > '0'");
 $bor = mysql_fetch_array($bos);
-if ($user['battle'] == 0) {echo "Это боевая магия...";}
-elseif ($user['level'] < 1) { echo "Вашего уровня не достаточно для использования этого заклинания!"; }
-elseif (!$bor) { echo "".$_POST['target']." не в бою или умер!"; }
-elseif ($bor['prototype']!='3920'){echo "Этот свиток не для этого Астрала!";}
+if ($user['battle'] == 0) {echo "Р­С‚Рѕ Р±РѕРµРІР°СЏ РјР°РіРёСЏ...";}
+elseif ($user['level'] < 1) { echo "Р’Р°С€РµРіРѕ СѓСЂРѕРІРЅСЏ РЅРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РѕРіРѕ Р·Р°РєР»РёРЅР°РЅРёСЏ!"; }
+elseif (!$bor) { echo "".$_POST['target']." РЅРµ РІ Р±РѕСЋ РёР»Рё СѓРјРµСЂ!"; }
+elseif ($bor['prototype']!='3920'){echo "Р­С‚РѕС‚ СЃРІРёС‚РѕРє РЅРµ РґР»СЏ СЌС‚РѕРіРѕ РђСЃС‚СЂР°Р»Р°!";}
 elseif (rand(1,100) < $int) {    
 $damage = ($user['intel']+$user['level'])*25;  
-addlog($user['battle'],'<span class=sysdate>'.date("H:i").' </span><b>'.$user['login'].'</b> использовал заклятие <b>изгнание астрала</b> на '.$_POST['target'].', элементаль потеряла  <b>'.$damage.'</b> хп энергии.<BR>');    
+addlog($user['battle'],'<span class=sysdate>'.date("H:i").' </span><b>'.$user['login'].'</b> РёСЃРїРѕР»СЊР·РѕРІР°Р» Р·Р°РєР»СЏС‚РёРµ <b>РёР·РіРЅР°РЅРёРµ Р°СЃС‚СЂР°Р»Р°</b> РЅР° '.$_POST['target'].', СЌР»РµРјРµРЅС‚Р°Р»СЊ РїРѕС‚РµСЂСЏР»Р°  <b>'.$damage.'</b> С…Рї СЌРЅРµСЂРіРёРё.<BR>');    
 mysql_query("update bots set `hp`=`hp`-'".$damage."' WHERE name='".$_POST['target']."' AND `battle`='".$user['battle']."' AND `hp` > '0'");
 // $bet=1;
       
 
 } else {
-        echo "Свиток рассыпался в ваших руках...";
+        echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
         $bet=1;
       }  
 ?>

@@ -1,7 +1,7 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
 if ($user['battle'] > 0) {
-	echo "Не в бою...";
+	echo "РќРµ РІ Р±РѕСЋ...";
 } else {
 
 	$magic = mysql_fetch_array(mysql_query("SELECT `chanse` FROM `magic` WHERE `id` = '3' ;"));			
@@ -17,10 +17,10 @@ if ($user['battle'] > 0) {
 	
 		$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = '{$target}' AND `needident` = 1 LIMIT 1;"));
 		if (mysql_query("UPDATE `inventory` SET `needident` = 0 WHERE `id` = {$dress['id']} LIMIT 1;")) {
-			echo "<font color=red><b>Предмет \"{$target}\" удачно идентифицирован <b></font>";
+			echo "<font color=red><b>РџСЂРµРґРјРµС‚ \"{$target}\" СѓРґР°С‡РЅРѕ РёРґРµРЅС‚РёС„РёС†РёСЂРѕРІР°РЅ <b></font>";
 			$bet=1;
 		} else {
-			echo "<font color=red><b>Неправильное имя предмета<b></font>";
+			echo "<font color=red><b>РќРµРїСЂР°РІРёР»СЊРЅРѕРµ РёРјСЏ РїСЂРµРґРјРµС‚Р°<b></font>";
 		}
 }
 ?>

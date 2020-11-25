@@ -1,5 +1,5 @@
 <?php
-// пропуск забытых
+// РїСЂРѕРїСѓСЃРє Р·Р°Р±С‹С‚С‹С…
 
 if ($_SESSION['uid'] == null) header("Location: index.php");
         $tar = mysql_fetch_array(mysql_query("SELECT `id`,`align` FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
@@ -10,7 +10,7 @@ if ($_SESSION['uid'] == null) header("Location: index.php");
 		mysql_query("DELETE FROM visit_podzem_b WHERE login='".mysql_real_escape_string($user['login'])."'");		
 		//mysql_query("DELETE FROM visit_podzem_l WHERE login='".mysql_real_escape_string($user['login'])."'");	
 		mysql_query("DELETE FROM visit_podzem_g WHERE login='".mysql_real_escape_string($user['login'])."'");		
-        echo "<font color=red><b>\"{$user['login']}\"  использовал заклятие \"Пропуск Забытых\" </b></font>";
+        echo "<font color=red><b>\"{$user['login']}\"  РёСЃРїРѕР»СЊР·РѕРІР°Р» Р·Р°РєР»СЏС‚РёРµ \"РџСЂРѕРїСѓСЃРє Р—Р°Р±С‹С‚С‹С…\" </b></font>";
         $bet=1;
 		}
 ?>

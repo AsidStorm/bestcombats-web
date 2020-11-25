@@ -42,27 +42,27 @@ while($rt = mysql_fetch_array($f)) {
 
   include"podzem/raschet_bot.php";
   ////////////////////////////////////////////////
-  //////////////Œ·˙ÂÍÚ˚////////////////
+  //////////////–û–±—ä–µ–∫—Ç—ã////////////////
   if (substr($repa["n$mesto"],0,3)=="obj") {
     $obj=explode("-",$repa["n$mesto"]);
     if ($obj["1"]=="tpt") useteleport($obj[2]);
   }
 
   if($repa["n$mesto"]=='teleport' || $repa["n$mesto"]=='teleport3') {
-    mysql_query("UPDATE `labirint` SET `name` = ' ‡Ì‡ÎËÁ‡ˆËˇ 2 ˝Ú‡Ê',`location`='24',`vector`='90',`l`='430',`t`='214' WHERE `user_id` = '{$_SESSION['uid']}'");
+    mysql_query("UPDATE `labirint` SET `name` = '–ö–∞–Ω–∞–ª–∏–∑–∞—Ü–∏—è 2 —ç—Ç–∞–∂',`location`='24',`vector`='90',`l`='430',`t`='214' WHERE `user_id` = '{$_SESSION['uid']}'");
     print "<script>location.href='main.php?act=none'</script>";
     exit;
   }
 
   if($repa["n$mesto"]=='teleport2'){                                              //,`vector`='90',`l`='430',`t`='214'
-    mysql_query("UPDATE `labirint` SET `name` = ' ‡Ì‡ÎËÁ‡ˆËˇ 3 ˝Ú‡Ê',`location`='78',`vector`='180',`l`='478',`t`='154'  WHERE `user_id` = '{$_SESSION['uid']}'");
+    mysql_query("UPDATE `labirint` SET `name` = '–ö–∞–Ω–∞–ª–∏–∑–∞—Ü–∏—è 3 —ç—Ç–∞–∂',`location`='78',`vector`='180',`l`='478',`t`='154'  WHERE `user_id` = '{$_SESSION['uid']}'");
     print "<script>location.href='main.php?act=none'</script>";
     exit;
   }
 
 
   if($repa["n$mesto"]=='teleport1'){
-    mysql_query("UPDATE `labirint` SET `name` = ' ‡Ì‡ÎËÁ‡ˆËˇ 1 ˝Ú‡Ê',`location`='47',`vector`='270',`l`='465',`t`='190' WHERE `user_id` = '{$_SESSION['uid']}'");
+    mysql_query("UPDATE `labirint` SET `name` = '–ö–∞–Ω–∞–ª–∏–∑–∞—Ü–∏—è 1 —ç—Ç–∞–∂',`location`='47',`vector`='270',`l`='465',`t`='190' WHERE `user_id` = '{$_SESSION['uid']}'");
     print "<script>location.href='main.php?act=none'</script>";
     exit;
   }
@@ -74,74 +74,74 @@ while($rt = mysql_fetch_array($f)) {
   }
 
   if($repa["n$loc2"]=='20' and $vector==$repa["v$loc2"]){
-    $s.='<div style="position:absolute; left:60px; top:34px;"><img src="'.IMGBASE.'/labirint3/sclad.gif" width="255" border="0" height="172" alt="¡˚‚¯ËÈ ÒÍÎ‡‰ Ï‡Ú˚Ì‡."></div>';
+    $s.='<div style="position:absolute; left:60px; top:34px;"><img src="'.IMGBASE.'/labirint3/sclad.gif" width="255" border="0" height="172" alt="–ë—ã–≤—à–∏–π —Å–∫–ª–∞–¥ –º–∞—Ä—Ç—ã–Ω–∞."></div>';
   }
 
   if($repa["n$loc3"]=='20' and $vector==$repa["v$loc3"]){
-    $s.='<div style="position:absolute; left:107px; top:55px;"><img src="'.IMGBASE.'/labirint3/sclad2.jpg" width="162" border="0" height="110" alt="¡˚‚¯ËÈ ÒÍÎ‡‰ Ï‡Ú˚Ì‡."></div>';
+    $s.='<div style="position:absolute; left:107px; top:55px;"><img src="'.IMGBASE.'/labirint3/sclad2.jpg" width="162" border="0" height="110" alt="–ë—ã–≤—à–∏–π —Å–∫–ª–∞–¥ –º–∞—Ä—Ç—ã–Ω–∞."></div>';
   }
 
   if($repa["n$loc4"]=='20' and $vector==$repa["v$loc4"]){
-    $s.='<div style="position:absolute; left:130px; top:66px;"><img src="'.IMGBASE.'/labirint3/sclad3.jpg" width="117" border="0" height="80" alt="¡˚‚¯ËÈ ÒÍÎ‡‰ Ï‡Ú˚Ì‡."></div>';
+    $s.='<div style="position:absolute; left:130px; top:66px;"><img src="'.IMGBASE.'/labirint3/sclad3.jpg" width="117" border="0" height="80" alt="–ë—ã–≤—à–∏–π —Å–∫–ª–∞–¥ –º–∞—Ä—Ç—ã–Ω–∞."></div>';
   }
 
   if($repa["n$loc2"]=='el' and $vector==$repa["v$loc2"]){
-    $s.='<div style="position:absolute; left:150px; top:115px;"><a href="?act=el"><img src="'.IMGBASE.'/labirint3/zel.gif" width="80" border="0" height="80" alt="«ÂÎ¸Â"></a></div>';
+    $s.='<div style="position:absolute; left:150px; top:115px;"><a href="?act=el"><img src="'.IMGBASE.'/labirint3/zel.gif" width="80" border="0" height="80" alt="–ó–µ–ª—å–µ"></a></div>';
   }
 
   if($repa["n$loc3"]=='el' and $vector==$repa["v$loc3"]){
-    $s.='<div style="position:absolute; left:165px; top:115px;"><img src="'.IMGBASE.'/labirint3/zel.gif" width="50" border="0" height="50" alt="«ÂÎ¸Â"></div>';
+    $s.='<div style="position:absolute; left:165px; top:115px;"><img src="'.IMGBASE.'/labirint3/zel.gif" width="50" border="0" height="50" alt="–ó–µ–ª—å–µ"></div>';
   }
 
   if($repa["n$loc2"]=='teleport' and $vector==$repa["v$loc2"]){
-    $s.='<div style="position:absolute; left:150px; top:115px;"><img src="'.IMGBASE.'/labirint3/telep.gif" width="80" border="0" height="80" alt="“ÂÎÂÔÓÚ"></div>';
+    $s.='<div style="position:absolute; left:150px; top:115px;"><img src="'.IMGBASE.'/labirint3/telep.gif" width="80" border="0" height="80" alt="–¢–µ–ª–µ–ø–æ—Ä—Ç"></div>';
   }
 
   if($repa["n$loc2"]=='teleport3' and $vector==90){
-    $s.='<div style="position:absolute; left:150px; top:115px;"><img src="'.IMGBASE.'/labirint3/telep.gif" width="80" border="0" height="80" alt="“ÂÎÂÔÓÚ Ì‡ 2 ˝Ú‡Ê"></div>';
+    $s.='<div style="position:absolute; left:150px; top:115px;"><img src="'.IMGBASE.'/labirint3/telep.gif" width="80" border="0" height="80" alt="–¢–µ–ª–µ–ø–æ—Ä—Ç –Ω–∞ 2 —ç—Ç–∞–∂"></div>';
   }
 
   if($repa["n$loc3"]=='teleport' and $vector==$repa["v$loc3"]){
-    $s.='<div style="position:absolute; left:165px; top:115px;"><img src="'.IMGBASE.'/labirint3/telep.gif" width="50" border="0" height="50" alt="“ÂÎÂÔÓÚ"></div>';
+    $s.='<div style="position:absolute; left:165px; top:115px;"><img src="'.IMGBASE.'/labirint3/telep.gif" width="50" border="0" height="50" alt="–¢–µ–ª–µ–ø–æ—Ä—Ç"></div>';
   }
   //////////////////2etaz/////////////
 
   if($repa["n$loc2"]=='teleport1' and $vector==$repa["v$loc2"]){
-    $s.='<div style="position:absolute; left:150px; top:115px;"><img src="'.IMGBASE.'/labirint3/telep.gif" width="80" border="0" height="80" alt="“ÂÎÂÔÓÚ Ì‡ 1 ›Ú‡Ê"></div>';
+    $s.='<div style="position:absolute; left:150px; top:115px;"><img src="'.IMGBASE.'/labirint3/telep.gif" width="80" border="0" height="80" alt="–¢–µ–ª–µ–ø–æ—Ä—Ç –Ω–∞ 1 –≠—Ç–∞–∂"></div>';
   }
 
   if($repa["n$loc2"]=='teleport2' and $vector==180){
-    $s.='<div style="position:absolute; left:150px; top:115px;"><img src="'.IMGBASE.'/labirint3/telep.gif" width="80" border="0" height="80" alt="“ÂÎÂÔÓÚ Ì‡ 3 ›Ú‡Ê"></div>';
+    $s.='<div style="position:absolute; left:150px; top:115px;"><img src="'.IMGBASE.'/labirint3/telep.gif" width="80" border="0" height="80" alt="–¢–µ–ª–µ–ø–æ—Ä—Ç –Ω–∞ 3 –≠—Ç–∞–∂"></div>';
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   if(($repa["n$mesto"]=='11.1' or $repa["n$mesto"]=='11.0') and $vector==$repa["v$mesto"]){
-    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:180px; top:165px;"><img src="'.IMGBASE.'/labirint3/1/kanal.gif" width="40" height="40" border="0" alt="¬Ó‰ÓÒÚÓÍ" style="CURSOR:pointer;" onClick="stok('.$mesto.');"></div>';
+    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:180px; top:165px;"><img src="'.IMGBASE.'/labirint3/1/kanal.gif" width="40" height="40" border="0" alt="–í–æ–¥–æ—Å—Ç–æ–∫" style="CURSOR:pointer;" onClick="stok('.$mesto.');"></div>';
   }
 
   if(($repa["n$loc2"]=='11.1' or $repa["n$loc2"]=='11.0') and $vector==$repa["v$loc2"]){
-    $s.='<div  style="position:absolute; left:180px; top:140px;"><img src="'.IMGBASE.'/labirint3/1/kanal.gif" width="25" height="25" border="0" alt="¬Ó‰ÓÒÚÓÍ"></div>';
+    $s.='<div  style="position:absolute; left:180px; top:140px;"><img src="'.IMGBASE.'/labirint3/1/kanal.gif" width="25" height="25" border="0" alt="–í–æ–¥–æ—Å—Ç–æ–∫"></div>';
   }
 
   if(($repa["n$loc3"]=='11.1' or $repa["n$loc3"]=='11.0') and $vector==$repa["v$loc3"]){
-    $s.='<div  style="position:absolute; left:182px; top:130px;"><img src="'.IMGBASE.'/labirint3/1/kanal.gif" width="15" height="15" border="0" alt="¬Ó‰ÓÒÚÓÍ"></div>';
+    $s.='<div  style="position:absolute; left:182px; top:130px;"><img src="'.IMGBASE.'/labirint3/1/kanal.gif" width="15" height="15" border="0" alt="–í–æ–¥–æ—Å—Ç–æ–∫"></div>';
   }
 
   if(($repa["n$loc4"]=='11.1' or $repa["n$loc4"]=='11.0') and $vector==$repa["v$loc4"]){
-    $s.='<div  style="position:absolute; left:182px; top:125px;"><img src="'.IMGBASE.'/labirint3/1/kanal.gif" width="10" height="10" border="0" alt="¬Ó‰ÓÒÚÓÍ"></div>';
+    $s.='<div  style="position:absolute; left:182px; top:125px;"><img src="'.IMGBASE.'/labirint3/1/kanal.gif" width="10" height="10" border="0" alt="–í–æ–¥–æ—Å—Ç–æ–∫"></div>';
   }
 
   /////////////
   if(($repa["n$loc2"]=='12.1' or $repa["n$loc2"]=='12.0') and $vector==$repa["v$loc2"]){
-    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:160px; top:170px;"><img src="'.IMGBASE.'/labirint3/1/stok.gif" width="60" height="15" border="0" alt="¬Ó‰ÓÒÚÓÍ" style="CURSOR:pointer;" onClick="stok2('.$loc2.');"></div>';
+    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:160px; top:170px;"><img src="'.IMGBASE.'/labirint3/1/stok.gif" width="60" height="15" border="0" alt="–í–æ–¥–æ—Å—Ç–æ–∫" style="CURSOR:pointer;" onClick="stok2('.$loc2.');"></div>';
   }
 
   if(($repa["n$loc3"]=='12.1' or $repa["n$loc3"]=='12.0') and $vector==$repa["v$loc3"]){
-    $s.='<div  style="position:absolute; left:175px; top:150px;"><img src="'.IMGBASE.'/labirint3/1/stok.gif" width="40" height="8" border="0" alt="¬Ó‰ÓÒÚÓÍ"></div>';
+    $s.='<div  style="position:absolute; left:175px; top:150px;"><img src="'.IMGBASE.'/labirint3/1/stok.gif" width="40" height="8" border="0" alt="–í–æ–¥–æ—Å—Ç–æ–∫"></div>';
   }
 
   if(($repa["n$loc4"]=='12.1' or $repa["n$loc4"]=='12.0') and $vector==$repa["v$loc4"]){
-    $s.='<div  style="position:absolute; left:178px; top:138px;"><img src="'.IMGBASE.'/labirint3/1/stok.gif" width="20" height="5" border="0" alt="¬Ó‰ÓÒÚÓÍ"></div>';
+    $s.='<div  style="position:absolute; left:178px; top:138px;"><img src="'.IMGBASE.'/labirint3/1/stok.gif" width="20" height="5" border="0" alt="–í–æ–¥–æ—Å—Ç–æ–∫"></div>';
   }
 
   ////////////////klju4i/////////////////////////
@@ -162,7 +162,7 @@ while($rt = mysql_fetch_array($f)) {
   
   if (substr($repa["n$loc2"],0,3)=="obj" && $step1["fwd"]) {
     $tmp=explode("-",$repa["n$loc2"]);
-    if ($tmp[1]=="tpt") echo "<div style=\"position:absolute; left:150px; top:115px;\"><img src=\"".IMGBASE."/labirint3/telep.gif\" width=\"80\" border=\"0\" height=\"80\" alt=\"“ÂÎÂÔÓÚ\"></div>";
+    if ($tmp[1]=="tpt") echo "<div style=\"position:absolute; left:150px; top:115px;\"><img src=\"".IMGBASE."/labirint3/telep.gif\" width=\"80\" border=\"0\" height=\"80\" alt=\"–¢–µ–ª–µ–ø–æ—Ä—Ç\"></div>";
   }
   
   if (strpos($repa["n$loc2"],"s")===0 && $step1["fwd"]) {
@@ -170,36 +170,36 @@ while($rt = mysql_fetch_array($f)) {
   }
   if(substr($repa["n$loc3"],0,3)=="obj" && $step2['fwd']){
     $tmp=explode("-",$repa["n$loc3"]);
-    if ($tmp[1]=="tpt") echo "<div style=\"position:absolute; left:160px; top:110px;\"><img src=\"".IMGBASE."/labirint3/telep.gif\" width=\"60\" border=\"0\" height=\"60\" alt=\"“ÂÎÂÔÓÚ\"></div>";
+    if ($tmp[1]=="tpt") echo "<div style=\"position:absolute; left:160px; top:110px;\"><img src=\"".IMGBASE."/labirint3/telep.gif\" width=\"60\" border=\"0\" height=\"60\" alt=\"–¢–µ–ª–µ–ø–æ—Ä—Ç\"></div>";
   }
   if(substr($repa["n$loc4"],0,3)=="obj" && $step3['fwd']){
     $tmp=explode("-",$repa["n$loc4"]);
-    if ($tmp[1]=="tpt") echo "<div style=\"position:absolute; left:170px; top:110px;\"><img src=\"".IMGBASE."/labirint3/telep.gif\" width=\"40\" border=\"0\" height=\"40\" alt=\"“ÂÎÂÔÓÚ\"></div>";
+    if ($tmp[1]=="tpt") echo "<div style=\"position:absolute; left:170px; top:110px;\"><img src=\"".IMGBASE."/labirint3/telep.gif\" width=\"40\" border=\"0\" height=\"40\" alt=\"–¢–µ–ª–µ–ø–æ—Ä—Ç\"></div>";
   }
 
   if(($repa["n$mesto"]=='key1' or $repa["n$mesto"]=='key2' or $repa["n$mesto"]=='key3' or $repa["n$mesto"]=='key4' or $repa["n$mesto"]=='key5' or $repa["n$mesto"]=='key6' or $repa["n$mesto"]=='key7' or $repa["n$mesto"]=='key8' or $repa["n$mesto"]=='key9' or $repa["n$mesto"]=='key10') and $vector==$repa["v$mesto"]){
-    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:160px; top:165px;"><img src="'.IMGBASE.'/labirint3/'.$repa["n$mesto"].'.gif" width="60" height="60" border="0" alt=" Î˛˜ π'.$nomers.'" style="CURSOR:pointer;" onClick="key('.$mesto.','.$nomers.');"></div>';
+    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:160px; top:165px;"><img src="'.IMGBASE.'/labirint3/'.$repa["n$mesto"].'.gif" width="60" height="60" border="0" alt="–ö–ª—é—á ‚Ññ'.$nomers.'" style="CURSOR:pointer;" onClick="key('.$mesto.','.$nomers.');"></div>';
   }
   if(($repa["n$loc2"]=='key1' or $repa["n$loc2"]=='key2' or $repa["n$loc2"]=='key3' or $repa["n$loc2"]=='key4' or $repa["n$loc2"]=='key5' or $repa["n$loc2"]=='key6' or $repa["n$loc2"]=='key7' or $repa["n$loc2"]=='key8' or $repa["n$loc2"]=='key9' or $repa["n$loc2"]=='key10') and $vector==$repa["v$loc2"]){
-    $s.='<div  style="position:absolute; left:175px; top:140px;"><img src="'.IMGBASE.'/labirint3/'.$repa["n$loc2"].'.gif" width="40" height="40" border="0" alt=" Î˛˜ π'.$nomers.'"></div>';
+    $s.='<div  style="position:absolute; left:175px; top:140px;"><img src="'.IMGBASE.'/labirint3/'.$repa["n$loc2"].'.gif" width="40" height="40" border="0" alt="–ö–ª—é—á ‚Ññ'.$nomers.'"></div>';
   }
   if($step2['fwd'] and ($repa["n$loc3"]=='key1' or $repa["n$loc3"]=='key2' or $repa["n$loc3"]=='key3' or $repa["n$loc3"]=='key4' or $repa["n$loc3"]=='key5' or $repa["n$loc3"]=='key6' or $repa["n$loc3"]=='key7' or $repa["n$loc3"]=='key8' or $repa["n$loc3"]=='key9' or $repa["n$loc3"]=='key10') and $vector==$repa["v$loc3"]){
-    $s.='<div  style="position:absolute; left:175px; top:130px;"><img src="'.IMGBASE.'/labirint3/'.$repa["n$loc3"].'.gif" width="25" height="25" border="0" alt=" Î˛˜ π'.$nomers.'"></div>';
+    $s.='<div  style="position:absolute; left:175px; top:130px;"><img src="'.IMGBASE.'/labirint3/'.$repa["n$loc3"].'.gif" width="25" height="25" border="0" alt="–ö–ª—é—á ‚Ññ'.$nomers.'"></div>';
   }
   if($step3['fwd'] and ($repa["n$loc4"]=='key1' or $repa["n$loc4"]=='key2' or $repa["n$loc4"]=='key3' or $repa["n$loc4"]=='key4' or $repa["n$loc4"]=='key5' or $repa["n$loc4"]=='key6' or $repa["n$loc4"]=='key7' or $repa["n$loc4"]=='key8' or $repa["n$loc4"]=='key9' or $repa["n$loc4"]=='key10') and $vector==$repa["v$loc4"]){
-    $s.='<div  style="position:absolute; left:182px; top:125px;"><img src="'.IMGBASE.'/labirint3/'.$repa["n$loc4"].'.gif" width="15" height="15" border="0" alt=" Î˛˜ π'.$nomers.'"></div>';
+    $s.='<div  style="position:absolute; left:182px; top:125px;"><img src="'.IMGBASE.'/labirint3/'.$repa["n$loc4"].'.gif" width="15" height="15" border="0" alt="–ö–ª—é—á ‚Ññ'.$nomers.'"></div>';
   }
   
   
 
   if($step3['fwd'] and ($repa["n$loc4"]=='13.1' or $repa["n$loc4"]=='13.0')){
-    $s.='<div  style="position:absolute; left:178px; top:120px;"><img src="'.IMGBASE.'/img/podzem/sun.gif" width="25" height="25" border="0" alt="—ÛÌ‰ÛÍ"></div>';
+    $s.='<div  style="position:absolute; left:178px; top:120px;"><img src="'.IMGBASE.'/img/podzem/sun.gif" width="25" height="25" border="0" alt="–°—É–Ω–¥—É–∫"></div>';
   }
   if($step3['fwd'] and ($repa["n$loc4"]=='14.1' or $repa["n$loc4"]=='14.0')){
-    $s.='<div  style="position:absolute; left:178px; top:120px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="25" height="25" border="0" alt="—ÛÌ‰ÛÍ"></div>';
+    $s.='<div  style="position:absolute; left:178px; top:120px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="25" height="25" border="0" alt="–°—É–Ω–¥—É–∫"></div>';
   }
   if($step3['fwd'] and ($repa["n$loc4"]=='15.0' || $repa["n$loc4"]=='15.1' || $repa["n$loc4"]=='15.2' || $repa["n$loc4"]=='15.3' || $repa["n$loc4"]=='15.4' || $repa["n$loc4"]=='16.1' || $repa["n$loc4"]=='16.0' || $repa["n$loc4"]=='17.0' || $repa["n$loc4"]=='17.1' || $repa["n$loc4"]=='17.2' || $repa["n$loc4"]=='18.1')){
-    $s.='<div  style="position:absolute; left:178px; top:120px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="25" height="25" border="0" alt="—ÛÌ‰ÛÍ"></div>';
+    $s.='<div  style="position:absolute; left:178px; top:120px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="25" height="25" border="0" alt="–°—É–Ω–¥—É–∫"></div>';
   }
   //////////////////////3/////////////////////////
   if($step3['fwd'] and $rt["n$loc4"]!='') {
@@ -249,17 +249,17 @@ while($rt = mysql_fetch_array($f)) {
   }
   }
   if($step3['fwd'] and $repa["n$loc4"]>='1' and $repa["n$loc4"]<='10'){
-    $s.='<div style="position:absolute; left:124px; top:66px;"><img src="'.IMGBASE.'/labirint3/rewet.gif" width="122" border="0" height="82" title="–Â¯ÂÚÍ‡ (ÌÛÊÂÌ ÍÎ˛˜ π'.$repa["n$loc4"].')"></div>';
+    $s.='<div style="position:absolute; left:124px; top:66px;"><img src="'.IMGBASE.'/labirint3/rewet.gif" width="122" border="0" height="82" title="–†–µ—à–µ—Ç–∫–∞ (–Ω—É–∂–µ–Ω –∫–ª—é—á ‚Ññ'.$repa["n$loc4"].')"></div>';
   }
   /////////////////////////////////////////////
   if($step2['fwd'] and ($repa["n$loc3"]=='13.1' or $repa["n$loc3"]=='13.0')){
-    $s.='<div  style="position:absolute; left:170px; top:120px;"><img src="'.IMGBASE.'/img/podzem/sun.gif" width="40" height="40" border="0" alt="—ÛÌ‰ÛÍ"></div>';
+    $s.='<div  style="position:absolute; left:170px; top:120px;"><img src="'.IMGBASE.'/img/podzem/sun.gif" width="40" height="40" border="0" alt="–°—É–Ω–¥—É–∫"></div>';
   }
   if($step2['fwd'] and ($repa["n$loc3"]=='14.1' or $repa["n$loc3"]=='14.0')){
-    $s.='<div  style="position:absolute; left:170px; top:120px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="40" height="40" border="0" alt="—ÛÌ‰ÛÍ"></div>';
+    $s.='<div  style="position:absolute; left:170px; top:120px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="40" height="40" border="0" alt="–°—É–Ω–¥—É–∫"></div>';
   }
   if($step2['fwd'] and ($repa["n$loc3"]=='15.3' or $repa["n$loc3"]=='15.2' or $repa["n$loc3"]=='15.1' or $repa["n$loc3"]=='15.0' or $repa["n$loc3"]=='16.1' or $repa["n$loc3"]=='16.0' or $repa["n$loc3"]=='17.0' or $repa["n$loc3"]=='17.1' or $repa["n$loc3"]=='17.2' || $repa["n$loc3"]=='18.1')){
-    $s.='<div  style="position:absolute; left:170px; top:120px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="40" height="40" border="0" alt="—ÛÌ‰ÛÍ"></div>';
+    $s.='<div  style="position:absolute; left:170px; top:120px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="40" height="40" border="0" alt="–°—É–Ω–¥—É–∫"></div>';
   }
   /////////////////////2///////////////////////
   if($step2['fwd'] and $rt["n$loc3"]!='') {
@@ -309,21 +309,21 @@ while($rt = mysql_fetch_array($f)) {
   }
   }
   if($step2['fwd'] and $repa["n$loc3"]>='1' and $repa["n$loc3"]<='10'){
-  $s.='<div  style="position:absolute; left:103px; top:50px;"><img src="'.IMGBASE.'/labirint3/rewet.gif" width="172" border="0" height="120" alt="–Â¯ÂÚÍ‡ (ÌÛÊÂÌ ÍÎ˛˜ π'.$repa["n$loc3"].')"></div>';
-  $s.='<div style="position:absolute; left:124px; top:66px;"><img src="'.IMGBASE.'/labirint3/rewet.gif" width="122" border="0" height="82" alt="–Â¯ÂÚÍ‡ (ÌÛÊÂÌ ÍÎ˛˜ π'.$repa["n$loc3"].')"></div>';
+  $s.='<div  style="position:absolute; left:103px; top:50px;"><img src="'.IMGBASE.'/labirint3/rewet.gif" width="172" border="0" height="120" alt="–†–µ—à–µ—Ç–∫–∞ (–Ω—É–∂–µ–Ω –∫–ª—é—á ‚Ññ'.$repa["n$loc3"].')"></div>';
+  $s.='<div style="position:absolute; left:124px; top:66px;"><img src="'.IMGBASE.'/labirint3/rewet.gif" width="122" border="0" height="82" alt="–†–µ—à–µ—Ç–∫–∞ (–Ω—É–∂–µ–Ω –∫–ª—é—á ‚Ññ'.$repa["n$loc3"].')"></div>';
   }
   ///////////////////////////////////////////
   if($step1['fwd'] and ($repa["n$loc2"]=='13.1' or $repa["n$loc2"]=='13.0')){
-    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:155px; top:130px;"><img src="'.IMGBASE.'/img/podzem/sun.gif" width="60" height="60" border="0" alt="—ÛÌ‰ÛÍ" style="CURSOR:pointer;" onClick="sunduk('.$loc2.');"></div>';
+    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:155px; top:130px;"><img src="'.IMGBASE.'/img/podzem/sun.gif" width="60" height="60" border="0" alt="–°—É–Ω–¥—É–∫" style="CURSOR:pointer;" onClick="sunduk('.$loc2.');"></div>';
   }
   if($step1['fwd'] and ($repa["n$loc2"]=='14.1' or $repa["n$loc2"]=='14.0')){
-    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:155px; top:130px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="60" height="60" border="0" alt="—ÛÌ‰ÛÍ" style="CURSOR:pointer;" onClick="sunduk2('.$loc2.');"></div>';
+    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:155px; top:130px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="60" height="60" border="0" alt="–°—É–Ω–¥—É–∫" style="CURSOR:pointer;" onClick="sunduk2('.$loc2.');"></div>';
   }
   if($step1['fwd'] and ($repa["n$loc2"]=='15.3' or $repa["n$loc2"]=='15.2' or $repa["n$loc2"]=='15.1' or $repa["n$loc2"]=='15.0')){
-    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:155px; top:130px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="60" height="60" border="0" alt="—ÛÌ‰ÛÍ" style="CURSOR:pointer;" onClick="sunduk2('.$loc2.');"></div>';
+    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:155px; top:130px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="60" height="60" border="0" alt="–°—É–Ω–¥—É–∫" style="CURSOR:pointer;" onClick="sunduk2('.$loc2.');"></div>';
   }
   if($step1['fwd'] and ($repa["n$loc2"]=='16.1' or $repa["n$loc2"]=='16.0' or $repa["n$loc2"]=='17.0' or $repa["n$loc2"]=='17.1' or $repa["n$loc2"]=='17.2' || $repa["n$loc2"]=='18.1')){
-    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:155px; top:130px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="60" height="60" border="0" alt="—ÛÌ‰ÛÍ" style="CURSOR:pointer;" onClick="sunduk2('.$loc2.');"></div>';
+    $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:155px; top:130px;"><img src="'.IMGBASE.'/img/podzem/2.gif" width="60" height="60" border="0" alt="–°—É–Ω–¥—É–∫" style="CURSOR:pointer;" onClick="sunduk2('.$loc2.');"></div>';
   }
 
   /////////////////////1/////////////////////
@@ -343,7 +343,7 @@ while($rt = mysql_fetch_array($f)) {
       if ($st>500) $char=8;
     }
     if ($char==20667) {
-        $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:135px; top:40px;"><img src="'.IMGBASE.'/labirint3/chars/'.$char.'.gif" width="100" height="160" title="—ÎÛ„‡ ¬‡ÎÂÌÚ‡ˇ" style="CURSOR:pointer;" onClick="opendialog2('.$loc2.', event);"></div>';
+        $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:135px; top:40px;"><img src="'.IMGBASE.'/labirint3/chars/'.$char.'.gif" width="100" height="160" title="–°–ª—É–≥–∞ –í–∞–ª–µ–Ω—Ç–∞—è" style="CURSOR:pointer;" onClick="opendialog2('.$loc2.', event);"></div>';
     } else {
         $s.='<div qonmouseout="closeMenu();" style="position:absolute; left:135px; top:40px;"><img src="'.IMGBASE.'/labirint3/chars/'.$char.'.gif" width="100" height="160" title="'.$chardata[$char]["name"].'" style="CURSOR:pointer;" onClick="opendialog('.$loc2.', event);"></div>';
     }
@@ -400,8 +400,8 @@ while($rt = mysql_fetch_array($f)) {
   }
   ////////////////////////////////////////
   if($step1['fwd'] and $repa["n$loc2"]>='1' and $repa["n$loc2"]<='10'){
-  $s.='<div  style="position:absolute; left:50px; top:31px;"><img src="'.IMGBASE.'/labirint3/rewet.gif" width="265" border="0" height="180" alt="–Â¯ÂÚÍ‡ (ÌÛÊÂÌ ÍÎ˛˜ π'.$repa["n$loc2"].')"></div>';
-  $s.='<div  style="position:absolute; left:103px; top:50px;"><img src="'.IMGBASE.'/labirint3/rewet.gif" width="172" border="0" height="120" alt="–Â¯ÂÚÍ‡ (ÌÛÊÂÌ ÍÎ˛˜ π'.$repa["n$loc2"].')"></div>';
+  $s.='<div  style="position:absolute; left:50px; top:31px;"><img src="'.IMGBASE.'/labirint3/rewet.gif" width="265" border="0" height="180" alt="–†–µ—à–µ—Ç–∫–∞ (–Ω—É–∂–µ–Ω –∫–ª—é—á ‚Ññ'.$repa["n$loc2"].')"></div>';
+  $s.='<div  style="position:absolute; left:103px; top:50px;"><img src="'.IMGBASE.'/labirint3/rewet.gif" width="172" border="0" height="120" alt="–†–µ—à–µ—Ç–∫–∞ (–Ω—É–∂–µ–Ω –∫–ª—é—á ‚Ññ'.$repa["n$loc2"].')"></div>';
   }
 
   $mesto = $location;
@@ -416,7 +416,7 @@ while($rt = mysql_fetch_array($f)) {
   if($location == '09'){$mesto = '9';}
   //////////////0-ja////////////////
   if($step1['fwd'] and $repa["n$mesto"]>='1' and $repa["n$mesto"]<='10'){
-  $s.='<div  style="position:absolute; left:55px; top:31px;"><img src="'.IMGBASE.'/labirint3/rewet.gif" width="265" border="0" height="180" alt="–Â¯ÂÚÍ‡ (ÌÛÊÂÌ ÍÎ˛˜ π'.$repa["n$mesto"].')"></div>';
+  $s.='<div  style="position:absolute; left:55px; top:31px;"><img src="'.IMGBASE.'/labirint3/rewet.gif" width="265" border="0" height="180" alt="–†–µ—à–µ—Ç–∫–∞ (–Ω—É–∂–µ–Ω –∫–ª—é—á ‚Ññ'.$repa["n$mesto"].')"></div>';
   }
 
 

@@ -4,12 +4,12 @@
   include "connect.php";
   include "functions.php";
   if ($user["sex"]==0) {
-    $a="а";
-    $as="ась";
-    $la="ла";
+    $a="Р°";
+    $as="Р°СЃСЊ";
+    $la="Р»Р°";
   } else {
     $a="";
-    $as="ся";
+    $as="СЃСЏ";
     $la="";
   }
   if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
@@ -38,14 +38,14 @@
   if ($user["sex"]==1) {
     $a="";
   } else {
-    $a="а";
+    $a="Р°";
   }
   if ($char==1) {
 
   }
   $char=(int)$char;
   include "dialogs/$char.php";
-  if (!@$bye) $bye="Я, пожалуй, пойду.";
+  if (!@$bye) $bye="РЇ, РїРѕР¶Р°Р»СѓР№, РїРѕР№РґСѓ.";
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -108,8 +108,8 @@
       echo "&bull; <a href=\"dialog.php?char=$char&step=$k\">$v</a><br>";
     }
   } else {
-    echo "<b>Вы пришли слишком рано, приходите через ".ceil($questtime/60)." мин.</b><br><br>
-    <center><a href=\"main.php\">Вернуться</a></center>";
+    echo "<b>Р’С‹ РїСЂРёС€Р»Рё СЃР»РёС€РєРѕРј СЂР°РЅРѕ, РїСЂРёС…РѕРґРёС‚Рµ С‡РµСЂРµР· ".ceil($questtime/60)." РјРёРЅ.</b><br><br>
+    <center><a href=\"main.php\">Р’РµСЂРЅСѓС‚СЊСЃСЏ</a></center>";
   }*/
 ?></td>
   </tr>
@@ -144,7 +144,7 @@
     echo "<br><table align=\"center\">
     <tr><td width=\"330\" valign=\"top\">";
                     
-    echo "<b>10 лучших воинов".($cond?" в этой битве":"").":</b><br><br>";
+    echo "<b>10 Р»СѓС‡С€РёС… РІРѕРёРЅРѕРІ".($cond?" РІ СЌС‚РѕР№ Р±РёС‚РІРµ":"").":</b><br><br>";
     echo "<table>";
     $i=0;
     while ($rec=mysql_fetch_assoc($r)) {
@@ -156,7 +156,7 @@
     echo "</td><td width=\"330\" valign=\"top\">";
 
     if ($cond) {
-      echo "<b>10 лучших воинов за весь поход:</b><br><br>";
+      echo "<b>10 Р»СѓС‡С€РёС… РІРѕРёРЅРѕРІ Р·Р° РІРµСЃСЊ РїРѕС…РѕРґ:</b><br><br>";
       $r=mq("select sum(step), users.login, users.klan, users.level, quests.user from quests left join users on quests.user=users.id where quest='$speakto[quest]' $cond group by quests.user order by 1 desc limit 0, 10");
       echo "<table>";
       $i=0;
@@ -175,7 +175,7 @@
 
     echo "</td><td width=\"330\" valign=\"top\">";
 
-    echo "<b>10 лучших кланов:</b><br><br>";
+    echo "<b>10 Р»СѓС‡С€РёС… РєР»Р°РЅРѕРІ:</b><br><br>";
     echo implode("",file("data/clantop.html"));
 
     echo "</td></tr></table>";

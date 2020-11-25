@@ -2,12 +2,12 @@ function getalign(al)
 {
   var n=parseFloat(al);
 
-  if (n>=1 && n<2) return("Áåëîå áðàòñòâî");
-  if (n>=2 && n<3) return("Õàîñ");
-  if (n>=3 && n<4) return("Òåìíîå áðàòñòâî");
-  if (n==7) return("Íåéòðàëüíîå áðàòñòâî");
-  if (n>7 && n<8) return("Îðäåí Î÷èùåíèÿ Ñòèõèé");
-  if (n>=50 && n<51) return("Àëõèìèêè");
+  if (n>=1 && n<2) return("Ð‘ÐµÐ»Ð¾Ðµ Ð±Ñ€Ð°Ñ‚ÑÑ‚Ð²Ð¾");
+  if (n>=2 && n<3) return("Ð¥Ð°Ð¾Ñ");
+  if (n>=3 && n<4) return("Ð¢ÐµÐ¼Ð½Ð¾Ðµ Ð±Ñ€Ð°Ñ‚ÑÑ‚Ð²Ð¾");
+  if (n==7) return("ÐÐµÐ¹Ñ‚Ñ€Ð°Ð»ÑŒÐ½Ð¾Ðµ Ð±Ñ€Ð°Ñ‚ÑÑ‚Ð²Ð¾");
+  if (n>7 && n<8) return("ÐžÑ€Ð´ÐµÐ½ ÐžÑ‡Ð¸Ñ‰ÐµÐ½Ð¸Ñ Ð¡Ñ‚Ð¸Ñ…Ð¸Ð¹");
+  if (n>=50 && n<51) return("ÐÐ»Ñ…Ð¸Ð¼Ð¸ÐºÐ¸");
   return("");
 }
 
@@ -26,8 +26,8 @@ function drwfl(name, id, level, align, klan, img, sex)
   if (klan) s+="<A HREF='/clans_inf.pl?"+klan+"' target=_blank><IMG SRC='/i/klan/"+klan+".gif' WIDTH=24 HEIGHT=15 ALT=''></A>";
   s+="<B>"+name+"</B>";
   if (level!=-1) s+=" ["+level+"]";
-  if (id!=-1 && !img) s+="<A HREF='/inf.pl?"+id+"' target='_blank'><IMG SRC=/i/inf.gif WIDTH=12 HEIGHT=11 ALT='Èíô. î "+name+"'></A>";
-  if (img) s+="<A HREF='http://capitalcity.combats.com/encicl/obraz_"+(sex?"w":"m")+"1.html?l="+img+"' target='_blank'><IMG SRC=/i/inf.gif WIDTH=12 HEIGHT=11 ALT='Îáðàç "+name+"'></A>";
+  if (id!=-1 && !img) s+="<A HREF='/inf.pl?"+id+"' target='_blank'><IMG SRC=/i/inf.gif WIDTH=12 HEIGHT=11 ALT='Ð˜Ð½Ñ„. Ð¾ "+name+"'></A>";
+  if (img) s+="<A HREF='http://capitalcity.combats.com/encicl/obraz_"+(sex?"w":"m")+"1.html?l="+img+"' target='_blank'><IMG SRC=/i/inf.gif WIDTH=12 HEIGHT=11 ALT='ÐžÐ±Ñ€Ð°Ð· "+name+"'></A>";
 
   document.write(s);
 }

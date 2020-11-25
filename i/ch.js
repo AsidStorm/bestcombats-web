@@ -1,5 +1,5 @@
 //-------------------------------------------------------------
-// Функция для определения координат указателя мыши
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ РєРѕРѕСЂРґРёРЅР°С‚ СѓРєР°Р·Р°С‚РµР»СЏ РјС‹С€Рё
 function defPosition(event) {
       var x = y = 0;
       if (document.attachEvent != null) { // Internet Explorer & Opera
@@ -35,7 +35,7 @@ function ClipBoard(text)
 function OpenMenu(evt,level){
     evt = evt || window.event;
     evt.cancelBubble = true;
-    // Показываем собственное контекстное меню
+    // РџРѕРєР°Р·С‹РІР°РµРј СЃРѕР±СЃС‚РІРµРЅРЅРѕРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРµ РјРµРЅСЋ
     var menu = document.getElementById("oMenu");
     var html = "";
 	login=(evt.target || evt.srcElement).innerHTML;
@@ -51,13 +51,13 @@ function OpenMenu(evt,level){
 	while (login2.indexOf('#')>=0) login2 = login2.replace('#', '%23');
 	while (login2.indexOf('?')>=0) login2 = login2.replace('?', '%3F');
 	
-	html  = '<a href="javascript:void(0)" class="menuItem" onclick="top.AddTo(\''+login+'\');cMenu()">Для</a>'+
-	'<a href="javascript:void(0)" class="menuItem" onclick="top.AddToPrivate(\''+login+'\');cMenu()">В приват</a>'+
-	'<a href="javascript:void(0)" class="menuItem" onclick="window.open(\'inf.php?login='+login2+'\')"; cMenu();">Информация</a>'+
-	'<TEXTAREA ID="holdtext" STYLE="display:none;"></TEXTAREA><A class=menuItem HREF="javascript:ClipBoard(\''+login+'\');cMenu()">Скопировать</A>'+
-	'<a href="javascript:void(0)" class="menuItem" onclick="window.open(\'inf.php?login='+login2+'\')"; cMenu();">Подарок другу</a>';
+	html  = '<a href="javascript:void(0)" class="menuItem" onclick="top.AddTo(\''+login+'\');cMenu()">Р”Р»СЏ</a>'+
+	'<a href="javascript:void(0)" class="menuItem" onclick="top.AddToPrivate(\''+login+'\');cMenu()">Р’ РїСЂРёРІР°С‚</a>'+
+	'<a href="javascript:void(0)" class="menuItem" onclick="window.open(\'inf.php?login='+login2+'\')"; cMenu();">РРЅС„РѕСЂРјР°С†РёСЏ</a>'+
+	'<TEXTAREA ID="holdtext" STYLE="display:none;"></TEXTAREA><A class=menuItem HREF="javascript:ClipBoard(\''+login+'\');cMenu()">РЎРєРѕРїРёСЂРѕРІР°С‚СЊ</A>'+
+	'<a href="javascript:void(0)" class="menuItem" onclick="window.open(\'inf.php?login='+login2+'\')"; cMenu();">РџРѕРґР°СЂРѕРє РґСЂСѓРіСѓ</a>';
  
- // Если есть что показать - показываем
+ // Р•СЃР»Рё РµСЃС‚СЊ С‡С‚Рѕ РїРѕРєР°Р·Р°С‚СЊ - РїРѕРєР°Р·С‹РІР°РµРј
     if (html){
         menu.innerHTML = html;
         menu.style.top = defPosition(evt).y + "px";
@@ -65,7 +65,7 @@ function OpenMenu(evt,level){
         menu.style.display = "";
     }
 
-    // Блокируем всплывание стандартного браузерного меню
+    // Р‘Р»РѕРєРёСЂСѓРµРј РІСЃРїР»С‹РІР°РЅРёРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ Р±СЂР°СѓР·РµСЂРЅРѕРіРѕ РјРµРЅСЋ
     return false;
 }
 

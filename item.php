@@ -35,172 +35,172 @@ else
 	echo "<img src=i/sh/{$row['img']} align=left style='padding: 15px; margin: 10 px;'>";
 	// end if shop
 if ($row['destinyinv']>0) {
-		echo "<a href=#>{$row['name']}</a><img src=i/align_{$row['nalign']}.gif> (Масса: {$row['massa']})<img src=http://img.bestcombats.net/klan/{$row['clan']}.gif><img src=i/destiny{$row['destinyinv']}.gif alt=\"Этот предмет связан с Вами общей судьбой. Вы не можете передать его кому-либо еще.\"><img src=i/artefact{$row['artefact']}.gif>".(($row['present'])?' <IMG SRC="i/podarok.gif" WIDTH="16" HEIGHT="18" BORDER=0 TITLE="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще." ALT="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще.">':"")."<BR>";
+		echo "<a href=#>{$row['name']}</a><img src=i/align_{$row['nalign']}.gif> (РњР°СЃСЃР°: {$row['massa']})<img src=http://img.bestcombats.net/klan/{$row['clan']}.gif><img src=i/destiny{$row['destinyinv']}.gif alt=\"Р­С‚РѕС‚ РїСЂРµРґРјРµС‚ СЃРІСЏР·Р°РЅ СЃ Р’Р°РјРё РѕР±С‰РµР№ СЃСѓРґСЊР±РѕР№. Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РїРµСЂРµРґР°С‚СЊ РµРіРѕ РєРѕРјСѓ-Р»РёР±Рѕ РµС‰Рµ.\"><img src=i/artefact{$row['artefact']}.gif>".(($row['present'])?' <IMG SRC="i/podarok.gif" WIDTH="16" HEIGHT="18" BORDER=0 TITLE="Р­С‚РѕС‚ РїСЂРµРґРјРµС‚ РІР°Рј РїРѕРґР°СЂРёР» '.$row['present'].'. Р’С‹ РЅРµ СЃРјРѕР¶РµС‚Рµ РїРµСЂРµРґР°С‚СЊ СЌС‚РѕС‚ РїСЂРµРґРјРµС‚ РєРѕРјСѓ-Р»РёР±Рѕ РµС‰Рµ." ALT="Р­С‚РѕС‚ РїСЂРµРґРјРµС‚ РІР°Рј РїРѕРґР°СЂРёР» '.$row['present'].'. Р’С‹ РЅРµ СЃРјРѕР¶РµС‚Рµ РїРµСЂРµРґР°С‚СЊ СЌС‚РѕС‚ РїСЂРµРґРјРµС‚ РєРѕРјСѓ-Р»РёР±Рѕ РµС‰Рµ.">':"")."<BR>";
 	}
 elseif ($row['destiny']>0) {
-		echo "<a href=#>{$row['name']}</a><img src=i/align_{$row['nalign']}.gif> (Масса: {$row['massa']})<img src=http://img.bestcombats.net/klan/{$row['clan']}.gif><img src=i/destiny{$row['destiny']}.gif alt=\"Этот предмет будет связан с Вами общей судьбой. Вы не сможете передать его кому-либо еще.\"><img src=i/artefact{$row['artefact']}.gif>".(($row['present'])?' <IMG SRC="i/podarok.gif" WIDTH="16" HEIGHT="18" BORDER=0 TITLE="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще." ALT="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще.">':"")."<BR>";
+		echo "<a href=#>{$row['name']}</a><img src=i/align_{$row['nalign']}.gif> (РњР°СЃСЃР°: {$row['massa']})<img src=http://img.bestcombats.net/klan/{$row['clan']}.gif><img src=i/destiny{$row['destiny']}.gif alt=\"Р­С‚РѕС‚ РїСЂРµРґРјРµС‚ Р±СѓРґРµС‚ СЃРІСЏР·Р°РЅ СЃ Р’Р°РјРё РѕР±С‰РµР№ СЃСѓРґСЊР±РѕР№. Р’С‹ РЅРµ СЃРјРѕР¶РµС‚Рµ РїРµСЂРµРґР°С‚СЊ РµРіРѕ РєРѕРјСѓ-Р»РёР±Рѕ РµС‰Рµ.\"><img src=i/artefact{$row['artefact']}.gif>".(($row['present'])?' <IMG SRC="i/podarok.gif" WIDTH="16" HEIGHT="18" BORDER=0 TITLE="Р­С‚РѕС‚ РїСЂРµРґРјРµС‚ РІР°Рј РїРѕРґР°СЂРёР» '.$row['present'].'. Р’С‹ РЅРµ СЃРјРѕР¶РµС‚Рµ РїРµСЂРµРґР°С‚СЊ СЌС‚РѕС‚ РїСЂРµРґРјРµС‚ РєРѕРјСѓ-Р»РёР±Рѕ РµС‰Рµ." ALT="Р­С‚РѕС‚ РїСЂРµРґРјРµС‚ РІР°Рј РїРѕРґР°СЂРёР» '.$row['present'].'. Р’С‹ РЅРµ СЃРјРѕР¶РµС‚Рµ РїРµСЂРµРґР°С‚СЊ СЌС‚РѕС‚ РїСЂРµРґРјРµС‚ РєРѕРјСѓ-Р»РёР±Рѕ РµС‰Рµ.">':"")."<BR>";
 	}else{
-	echo "<a href=#>{$row['name']}</a>";if($row['koll']>'0'){echo " <b>(x{$row['koll']})</b>";}print"<img src=i/align_{$row['nalign']}.gif> (Масса: {$row['massa']})<img src=http://img.bestcombats.net/klan/{$row['clan']}.gif><img src=i/destiny{$row['destiny']}.gif><img src=i/artefact{$row['artefact']}.gif>".(($row['present'])?' <IMG SRC="i/podarok.gif" WIDTH="16" HEIGHT="18" BORDER=0 TITLE="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще." ALT="Этот предмет вам подарил '.$row['present'].'. Вы не сможете передать этот предмет кому-либо еще.">':"")."<BR>";
+	echo "<a href=#>{$row['name']}</a>";if($row['koll']>'0'){echo " <b>(x{$row['koll']})</b>";}print"<img src=i/align_{$row['nalign']}.gif> (РњР°СЃСЃР°: {$row['massa']})<img src=http://img.bestcombats.net/klan/{$row['clan']}.gif><img src=i/destiny{$row['destiny']}.gif><img src=i/artefact{$row['artefact']}.gif>".(($row['present'])?' <IMG SRC="i/podarok.gif" WIDTH="16" HEIGHT="18" BORDER=0 TITLE="Р­С‚РѕС‚ РїСЂРµРґРјРµС‚ РІР°Рј РїРѕРґР°СЂРёР» '.$row['present'].'. Р’С‹ РЅРµ СЃРјРѕР¶РµС‚Рµ РїРµСЂРµРґР°С‚СЊ СЌС‚РѕС‚ РїСЂРµРґРјРµС‚ РєРѕРјСѓ-Р»РёР±Рѕ РµС‰Рµ." ALT="Р­С‚РѕС‚ РїСЂРµРґРјРµС‚ РІР°Рј РїРѕРґР°СЂРёР» '.$row['present'].'. Р’С‹ РЅРµ СЃРјРѕР¶РµС‚Рµ РїРµСЂРµРґР°С‚СЊ СЌС‚РѕС‚ РїСЂРµРґРјРµС‚ РєРѕРјСѓ-Р»РёР±Рѕ РµС‰Рµ.">':"")."<BR>";
 }
 
-	echo "<b>Владелец: <font color=green>{$row['login']}</font></b> &nbsp; &nbsp;<br>";
-	if($row['ecost']>0) { echo "<b>Цена: {$row['ecost']} екр.</b> &nbsp; &nbsp;"; } elseif($row['cost']>0) { echo "<b>Цена: {$row['cost']} кр.</b> &nbsp; &nbsp;"; }
+	echo "<b>Р’Р»Р°РґРµР»РµС†: <font color=green>{$row['login']}</font></b> &nbsp; &nbsp;<br>";
+	if($row['ecost']>0) { echo "<b>Р¦РµРЅР°: {$row['ecost']} РµРєСЂ.</b> &nbsp; &nbsp;"; } elseif($row['cost']>0) { echo "<b>Р¦РµРЅР°: {$row['cost']} РєСЂ.</b> &nbsp; &nbsp;"; }
 	
 if($row['type']!=200){
-		echo "<BR>Долговечность: {$row['duration']}/{$row['maxdur']}<BR>";
+		echo "<BR>Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: {$row['duration']}/{$row['maxdur']}<BR>";
 }
 if (!$row['needident']) {
-		echo (($magic['chanse'])?"Вероятность срабатывания: ".$magic['chanse']."%<BR>":"")."
-		 ".(($row['goden'])?"Срок годности: {$row['goden']} дн. ".((!$row['count'])?"(до ".date("Y.m.d H:i",$row['dategoden']).")":"")."<BR>":"")."
-        ".(($magic['time'])?"Продолжительность действия магии: ".$magic['time']." мин.<BR>":"")."
-		".(($row['nsila'] OR $row['nlovk'] OR $row['ninta'] OR $row['nvinos'] OR $row['nlevel'] OR $row['nintel'] OR $row['nmudra'] OR $row['nnoj'] OR $row['ntopor'] OR $row['ndubina'] OR $row['nmech'] OR $row['nposoh'] OR $row['nfire'] OR $row['nwater'] OR $row['nair'] OR $row['nearth'] OR $row['nearth'] OR $row['nlight'] OR $row['ngray'] OR $row['ndark'])?"<b>Требуется минимальное:</b><BR>":"")."
-		".(($row['nlevel']>0)?"• ".(($row['nlevel'] > $user['level'])?"<font color=red>":"")."Уровень: {$row['nlevel']}</font><BR>":"")."
-		".(($row['nsila']>0)?"• ".(($row['nsila'] > $user['sila'])?"<font color=red>":"")."Сила: {$row['nsila']}</font><BR>":"")."
-		".(($row['nlovk']>0)?"• ".(($row['nlovk'] > $user['lovk'])?"<font color=red>":"")."Ловкость: {$row['nlovk']}</font><BR>":"")."
-		".(($row['ninta']>0)?"• ".(($row['ninta'] > $user['inta'])?"<font color=red>":"")."Интуиция: {$row['ninta']}</font><BR>":"")."
-		".(($row['nvinos']>0)?"• ".(($row['nvinos'] > $user['vinos'])?"<font color=red>":"")."Выносливость: {$row['nvinos']}</font><BR>":"")."
-		".(($row['nintel']>0)?"• ".(($row['nintel'] > $user['intel'])?"<font color=red>":"")."Интеллект: {$row['nintel']}</font><BR>":"")."
-		".(($row['nmudra']>0)?"• ".(($row['nmudra'] > $user['mudra'])?"<font color=red>":"")."Мудрость: {$row['nmudra']}</font><BR>":"")."
-		".(($row['nnoj']>0)?"• ".(($row['nnoj'] > $user['noj'])?"<font color=red>":"")."Мастерство владения ножами и кастетами: {$row['nnoj']}</font><BR>":"")."
-		".(($row['ntopor']>0)?"• ".(($row['ntopor'] > $user['topor'])?"<font color=red>":"")."Мастерство владения топорами и секирами: {$row['ntopor']}</font><BR>":"")."
-		".(($row['ndubina']>0)?"• ".(($row['ndubina'] > $user['dubina'])?"<font color=red>":"")."Мастерство владения дубинами и булавами: {$row['ndubina']}</font><BR>":"")."
-		".(($row['nmech']>0)?"• ".(($row['nmech'] > $user['mec'])?"<font color=red>":"")."Мастерство владения мечами: {$row['nmech']}</font><BR>":"")."
-		".(($row['nposoh']>0)?"• ".(($row['nposoh'] > $user['posoh'])?"<font color=red>":"")."Мастерство владения посохами: {$row['nposoh']}</font><BR>":"")."
-		".(($row['nfire']>0)?"• ".(($row['nfire'] > $user['mfire'])?"<font color=red>":"")."Мастерство владения стихией Огня: {$row['nfire']}</font><BR>":"")."
-		".(($row['nwater']>0)?"• ".(($row['nwater'] > $user['mwater'])?"<font color=red>":"")."Мастерство владения стихией Воды: {$row['nwater']}</font><BR>":"")."
-		".(($row['nair']>0)?"• ".(($row['nair'] > $user['mair'])?"<font color=red>":"")."Мастерство владения стихией Воздуха: {$row['nair']}</font><BR>":"")."
-		".(($row['nearth']>0)?"• ".(($row['nearth'] > $user['mearth'])?"<font color=red>":"")."Мастерство владения стихией Земли: {$row['nearth']}</font><BR>":"")."
-		".(($row['nlight']>0)?"• ".(($row['nlight'] > $user['mlight'])?"<font color=red>":"")."Мастерство владения магией Света: {$row['nlight']}</font><BR>":"")."
-		".(($row['ngray']>0)?"• ".(($row['ngray'] > $user['mgray'])?"<font color=red>":"")."Мастерство владения серой магией: {$row['ngray']}</font><BR>":"")."
-		".(($row['ndark']>0)?"• ".(($row['ndark'] > $user['mdark'])?"<font color=red>":"")."Мастерство владения магией Тьмы: {$row['ndark']}</font><BR>":"")."
-        ".(($row['mfhitp'] OR $row['mfmagp'] OR $row['mfpodav'] OR $row['attacka'] OR $row['add_stats'] OR $row['gsila'] OR $row['mfdhit'] OR $row['mfdmag']  OR $row['mfkritpow']  OR $row['mfantikritpow'] OR $row['mfparir']  OR $row['mfshieldblock'] OR $row['mfcontr']  OR $row['mfrub'] OR $row['mfkol']  OR $row['mfdrob'] OR $row['mfrej'] OR $row['mfkrit'] OR $row['mfakrit']  OR $row['mfuvorot'] OR $row['mfauvorot']  OR $row['glovk'] OR $row['ghp'] OR $row['gmana'] OR $row['ginta'] OR $row['gintel'] OR $row['gnoj'] OR $row['gtopor'] OR $row['gdubina'] OR $row['gmech']  OR $row['gposoh'] OR $row['gfire'] OR $row['gwater'] OR $row['gair'] OR $row['gearth'] OR $row['gearth'] OR $row['glight'] OR $row['ggray'] OR $row['gdark'] OR $row['bron1'] OR $row['bron2'] OR $row['bron3'] OR $row['bron4'] OR $row['givebuter'])?"<b>Действует на:</b><BR>":"")."
-		".(($row['deistvie'] && $row['show']==1)?"<b>Действует на:</b><BR>• ".$row['deistvie']."<BR> ":"")."
+		echo (($magic['chanse'])?"Р’РµСЂРѕСЏС‚РЅРѕСЃС‚СЊ СЃСЂР°Р±Р°С‚С‹РІР°РЅРёСЏ: ".$magic['chanse']."%<BR>":"")."
+		 ".(($row['goden'])?"РЎСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё: {$row['goden']} РґРЅ. ".((!$row['count'])?"(РґРѕ ".date("Y.m.d H:i",$row['dategoden']).")":"")."<BR>":"")."
+        ".(($magic['time'])?"РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РґРµР№СЃС‚РІРёСЏ РјР°РіРёРё: ".$magic['time']." РјРёРЅ.<BR>":"")."
+		".(($row['nsila'] OR $row['nlovk'] OR $row['ninta'] OR $row['nvinos'] OR $row['nlevel'] OR $row['nintel'] OR $row['nmudra'] OR $row['nnoj'] OR $row['ntopor'] OR $row['ndubina'] OR $row['nmech'] OR $row['nposoh'] OR $row['nfire'] OR $row['nwater'] OR $row['nair'] OR $row['nearth'] OR $row['nearth'] OR $row['nlight'] OR $row['ngray'] OR $row['ndark'])?"<b>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</b><BR>":"")."
+		".(($row['nlevel']>0)?"вЂў ".(($row['nlevel'] > $user['level'])?"<font color=red>":"")."РЈСЂРѕРІРµРЅСЊ: {$row['nlevel']}</font><BR>":"")."
+		".(($row['nsila']>0)?"вЂў ".(($row['nsila'] > $user['sila'])?"<font color=red>":"")."РЎРёР»Р°: {$row['nsila']}</font><BR>":"")."
+		".(($row['nlovk']>0)?"вЂў ".(($row['nlovk'] > $user['lovk'])?"<font color=red>":"")."Р›РѕРІРєРѕСЃС‚СЊ: {$row['nlovk']}</font><BR>":"")."
+		".(($row['ninta']>0)?"вЂў ".(($row['ninta'] > $user['inta'])?"<font color=red>":"")."РРЅС‚СѓРёС†РёСЏ: {$row['ninta']}</font><BR>":"")."
+		".(($row['nvinos']>0)?"вЂў ".(($row['nvinos'] > $user['vinos'])?"<font color=red>":"")."Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: {$row['nvinos']}</font><BR>":"")."
+		".(($row['nintel']>0)?"вЂў ".(($row['nintel'] > $user['intel'])?"<font color=red>":"")."РРЅС‚РµР»Р»РµРєС‚: {$row['nintel']}</font><BR>":"")."
+		".(($row['nmudra']>0)?"вЂў ".(($row['nmudra'] > $user['mudra'])?"<font color=red>":"")."РњСѓРґСЂРѕСЃС‚СЊ: {$row['nmudra']}</font><BR>":"")."
+		".(($row['nnoj']>0)?"вЂў ".(($row['nnoj'] > $user['noj'])?"<font color=red>":"")."РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РЅРѕР¶Р°РјРё Рё РєР°СЃС‚РµС‚Р°РјРё: {$row['nnoj']}</font><BR>":"")."
+		".(($row['ntopor']>0)?"вЂў ".(($row['ntopor'] > $user['topor'])?"<font color=red>":"")."РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ С‚РѕРїРѕСЂР°РјРё Рё СЃРµРєРёСЂР°РјРё: {$row['ntopor']}</font><BR>":"")."
+		".(($row['ndubina']>0)?"вЂў ".(($row['ndubina'] > $user['dubina'])?"<font color=red>":"")."РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РґСѓР±РёРЅР°РјРё Рё Р±СѓР»Р°РІР°РјРё: {$row['ndubina']}</font><BR>":"")."
+		".(($row['nmech']>0)?"вЂў ".(($row['nmech'] > $user['mec'])?"<font color=red>":"")."РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјРµС‡Р°РјРё: {$row['nmech']}</font><BR>":"")."
+		".(($row['nposoh']>0)?"вЂў ".(($row['nposoh'] > $user['posoh'])?"<font color=red>":"")."РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РїРѕСЃРѕС…Р°РјРё: {$row['nposoh']}</font><BR>":"")."
+		".(($row['nfire']>0)?"вЂў ".(($row['nfire'] > $user['mfire'])?"<font color=red>":"")."РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: {$row['nfire']}</font><BR>":"")."
+		".(($row['nwater']>0)?"вЂў ".(($row['nwater'] > $user['mwater'])?"<font color=red>":"")."РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: {$row['nwater']}</font><BR>":"")."
+		".(($row['nair']>0)?"вЂў ".(($row['nair'] > $user['mair'])?"<font color=red>":"")."РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: {$row['nair']}</font><BR>":"")."
+		".(($row['nearth']>0)?"вЂў ".(($row['nearth'] > $user['mearth'])?"<font color=red>":"")."РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: {$row['nearth']}</font><BR>":"")."
+		".(($row['nlight']>0)?"вЂў ".(($row['nlight'] > $user['mlight'])?"<font color=red>":"")."РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РЎРІРµС‚Р°: {$row['nlight']}</font><BR>":"")."
+		".(($row['ngray']>0)?"вЂў ".(($row['ngray'] > $user['mgray'])?"<font color=red>":"")."РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃРµСЂРѕР№ РјР°РіРёРµР№: {$row['ngray']}</font><BR>":"")."
+		".(($row['ndark']>0)?"вЂў ".(($row['ndark'] > $user['mdark'])?"<font color=red>":"")."РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РўСЊРјС‹: {$row['ndark']}</font><BR>":"")."
+        ".(($row['mfhitp'] OR $row['mfmagp'] OR $row['mfpodav'] OR $row['attacka'] OR $row['add_stats'] OR $row['gsila'] OR $row['mfdhit'] OR $row['mfdmag']  OR $row['mfkritpow']  OR $row['mfantikritpow'] OR $row['mfparir']  OR $row['mfshieldblock'] OR $row['mfcontr']  OR $row['mfrub'] OR $row['mfkol']  OR $row['mfdrob'] OR $row['mfrej'] OR $row['mfkrit'] OR $row['mfakrit']  OR $row['mfuvorot'] OR $row['mfauvorot']  OR $row['glovk'] OR $row['ghp'] OR $row['gmana'] OR $row['ginta'] OR $row['gintel'] OR $row['gnoj'] OR $row['gtopor'] OR $row['gdubina'] OR $row['gmech']  OR $row['gposoh'] OR $row['gfire'] OR $row['gwater'] OR $row['gair'] OR $row['gearth'] OR $row['gearth'] OR $row['glight'] OR $row['ggray'] OR $row['gdark'] OR $row['bron1'] OR $row['bron2'] OR $row['bron3'] OR $row['bron4'] OR $row['givebuter'])?"<b>Р”РµР№СЃС‚РІСѓРµС‚ РЅР°:</b><BR>":"")."
+		".(($row['deistvie'] && $row['show']==1)?"<b>Р”РµР№СЃС‚РІСѓРµС‚ РЅР°:</b><BR>вЂў ".$row['deistvie']."<BR> ":"")."
 		
        
 		
-        ".(($row['givebuter'])?"•Уровень жизниь (HP): ".(($row['givebuter']>0)?"+":"")."{$row['givebuter']}<BR>":"")."
-		".(($row['gsila'])?"• Сила: ".(($row['gsila']>0)?"+":"")."{$row['gsila']}<BR>":"")."
-		".(($row['glovk'])?"• Ловкость: ".(($row['glovk']>0)?"+":"")."{$row['glovk']}<BR>":"")."
-		".(($row['ginta'])?"• Интуиция: ".(($row['ginta']>0)?"+":"")."{$row['ginta']}<BR>":"")."
-		".(($row['gintel'])?"• Интеллект: ".(($row['gintel']>0)?"+":"")."{$row['gintel']}<BR>":"")."
-		".(($row['ghp'])?"• Уровень жизни: +{$row['ghp']}<BR>":"")."
-		".(($row['gmana'])?"• Уровень маны: +{$row['gmana']}<BR>":"")."
-		".(($row['mfkrit'])?"• Мф. критических ударов: ".(($row['mfkrit']>0)?"+":"")."{$row['mfkrit']}%<BR>":"")."
-		".(($row['mfakrit'])?"• Мф. против крит. ударов: ".(($row['mfakrit']>0)?"+":"")."{$row['mfakrit']}%<BR>":"")."
-		".(($row['mfkritpow'])?"• Мф. мощности крит. удара: ".(($row['mfkritpow']>0)?"+":"")."{$row['mfkritpow']}%<BR>":"")."
-		".(($row['mfantikritpow'])?"• Мф. против мощ. крит. удара: ".(($row['mfantikritpow']>0)?"+":"")."{$row['mfantikritpow']}%<BR>":"")."
-		".(($row['mfparir'])?"• Мф. парирования: ".(($row['mfparir']>0)?"+":"")."{$row['mfparir']}%<BR>":"")."
-		".(($row['mfshieldblock'])?"• Мф. блока щитом: ".(($row['mfshieldblock']>0)?"+":"")."{$row['mfshieldblock']}%<BR>":"")."
-		".(($row['mfcontr'])?"• Мф. контрудара: ".(($row['mfcontr']>0)?"+":"")."{$row['mfcontr']}%<BR>":"")."
-		".(($row['mfuvorot'])?"• Мф. увертливости: ".(($row['mfuvorot']>0)?"+":"")."{$row['mfuvorot']}%<BR>":"")."
-		".(($row['mfauvorot'])?"• Мф. против увертлив.: ".(($row['mfauvorot']>0)?"+":"")."{$row['mfauvorot']}%<BR>":"")."
-		".(($row['gnoj'])?"• Мастерство владения ножами и кастетами: +{$row['gnoj']}<BR>":"")."
-		".(($row['gtopor'])?"• Мастерство владения топорами и секирами: +{$row['gtopor']}<BR>":"")."
-		".(($row['gdubina'])?"• Мастерство владения дубинами и булавами: +{$row['gdubina']}<BR>":"")."
-		".(($row['gmech'])?"• Мастерство владения мечами: +{$row['gmech']}<BR>":"")."
-		".(($row['gposoh'])?"• Мастерство владения посохами: +{$row['gposoh']}<BR>":"")."
-		".(($row['gfire'])?"• Мастерство владения стихией Огня: +{$row['gfire']}<BR>":"")."
-		".(($row['gwater'])?"• Мастерство владения стихией Воды: +{$row['gwater']}<BR>":"")."
-		".(($row['gair'])?"• Мастерство владения стихией Воздуха: +{$row['gair']}<BR>":"")."
-		".(($row['gearth'])?"• Мастерство владения стихией Земли: +{$row['gearth']}<BR>":"")."
-		".(($row['glight'])?"• Мастерство владения магией Света: +{$row['glight']}<BR>":"")."
-		".(($row['ggray'])?"• Мастерство владения серой магией: +{$row['ggray']}<BR>":"")."
-	    ".(($row['gdark'])?"• Мастерство владения магией Тьмы: +{$row['gdark']}<BR>":"").""
+        ".(($row['givebuter'])?"вЂўРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРёСЊ (HP): ".(($row['givebuter']>0)?"+":"")."{$row['givebuter']}<BR>":"")."
+		".(($row['gsila'])?"вЂў РЎРёР»Р°: ".(($row['gsila']>0)?"+":"")."{$row['gsila']}<BR>":"")."
+		".(($row['glovk'])?"вЂў Р›РѕРІРєРѕСЃС‚СЊ: ".(($row['glovk']>0)?"+":"")."{$row['glovk']}<BR>":"")."
+		".(($row['ginta'])?"вЂў РРЅС‚СѓРёС†РёСЏ: ".(($row['ginta']>0)?"+":"")."{$row['ginta']}<BR>":"")."
+		".(($row['gintel'])?"вЂў РРЅС‚РµР»Р»РµРєС‚: ".(($row['gintel']>0)?"+":"")."{$row['gintel']}<BR>":"")."
+		".(($row['ghp'])?"вЂў РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: +{$row['ghp']}<BR>":"")."
+		".(($row['gmana'])?"вЂў РЈСЂРѕРІРµРЅСЊ РјР°РЅС‹: +{$row['gmana']}<BR>":"")."
+		".(($row['mfkrit'])?"вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРёС… СѓРґР°СЂРѕРІ: ".(($row['mfkrit']>0)?"+":"")."{$row['mfkrit']}%<BR>":"")."
+		".(($row['mfakrit'])?"вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚. СѓРґР°СЂРѕРІ: ".(($row['mfakrit']>0)?"+":"")."{$row['mfakrit']}%<BR>":"")."
+		".(($row['mfkritpow'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РєСЂРёС‚. СѓРґР°СЂР°: ".(($row['mfkritpow']>0)?"+":"")."{$row['mfkritpow']}%<BR>":"")."
+		".(($row['mfantikritpow'])?"вЂў РњС„. РїСЂРѕС‚РёРІ РјРѕС‰. РєСЂРёС‚. СѓРґР°СЂР°: ".(($row['mfantikritpow']>0)?"+":"")."{$row['mfantikritpow']}%<BR>":"")."
+		".(($row['mfparir'])?"вЂў РњС„. РїР°СЂРёСЂРѕРІР°РЅРёСЏ: ".(($row['mfparir']>0)?"+":"")."{$row['mfparir']}%<BR>":"")."
+		".(($row['mfshieldblock'])?"вЂў РњС„. Р±Р»РѕРєР° С‰РёС‚РѕРј: ".(($row['mfshieldblock']>0)?"+":"")."{$row['mfshieldblock']}%<BR>":"")."
+		".(($row['mfcontr'])?"вЂў РњС„. РєРѕРЅС‚СЂСѓРґР°СЂР°: ".(($row['mfcontr']>0)?"+":"")."{$row['mfcontr']}%<BR>":"")."
+		".(($row['mfuvorot'])?"вЂў РњС„. СѓРІРµСЂС‚Р»РёРІРѕСЃС‚Рё: ".(($row['mfuvorot']>0)?"+":"")."{$row['mfuvorot']}%<BR>":"")."
+		".(($row['mfauvorot'])?"вЂў РњС„. РїСЂРѕС‚РёРІ СѓРІРµСЂС‚Р»РёРІ.: ".(($row['mfauvorot']>0)?"+":"")."{$row['mfauvorot']}%<BR>":"")."
+		".(($row['gnoj'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РЅРѕР¶Р°РјРё Рё РєР°СЃС‚РµС‚Р°РјРё: +{$row['gnoj']}<BR>":"")."
+		".(($row['gtopor'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ С‚РѕРїРѕСЂР°РјРё Рё СЃРµРєРёСЂР°РјРё: +{$row['gtopor']}<BR>":"")."
+		".(($row['gdubina'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РґСѓР±РёРЅР°РјРё Рё Р±СѓР»Р°РІР°РјРё: +{$row['gdubina']}<BR>":"")."
+		".(($row['gmech'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјРµС‡Р°РјРё: +{$row['gmech']}<BR>":"")."
+		".(($row['gposoh'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РїРѕСЃРѕС…Р°РјРё: +{$row['gposoh']}<BR>":"")."
+		".(($row['gfire'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: +{$row['gfire']}<BR>":"")."
+		".(($row['gwater'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: +{$row['gwater']}<BR>":"")."
+		".(($row['gair'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: +{$row['gair']}<BR>":"")."
+		".(($row['gearth'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: +{$row['gearth']}<BR>":"")."
+		".(($row['glight'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РЎРІРµС‚Р°: +{$row['glight']}<BR>":"")."
+		".(($row['ggray'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃРµСЂРѕР№ РјР°РіРёРµР№: +{$row['ggray']}<BR>":"")."
+	    ".(($row['gdark'])?"вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РўСЊРјС‹: +{$row['gdark']}<BR>":"").""
        
      
-         .(($row['bron1']!=0)?"• Броня головы: {$row['bron11']}-{$row['bron1']} (".(((($row['bron11']-1)!=0)?($row['bron11']-1)."+":""))."d".(1+$row['bron1']-$row['bron11']).")<br>":"")."
-		".(($row['bron2']!=0)?"• Броня корпуса: {$row['bron22']}-{$row['bron2']} (".(((($row['bron22']-1)!=0)?($row['bron22']-1)."+":""))."d".(1+$row['bron2']-$row['bron22']).")<br>":"")."
-		".(($row['bron3']!=0)?"• Броня пояса: {$row['bron33']}-{$row['bron3']} (".(((($row['bron33']-1)!=0)?($row['bron33']-1)."+":""))."d".(1+$row['bron3']-$row['bron33']).")<br>":"")."
-		".(($row['bron4']!=0)?"• Броня ног: {$row['bron44']}-{$row['bron4']} (".(((($row['bron44']-1)!=0)?($row['bron44']-1)."+":""))."d".(1+$row['bron4']-$row['bron44']).")<br>":"")."
+         .(($row['bron1']!=0)?"вЂў Р‘СЂРѕРЅСЏ РіРѕР»РѕРІС‹: {$row['bron11']}-{$row['bron1']} (".(((($row['bron11']-1)!=0)?($row['bron11']-1)."+":""))."d".(1+$row['bron1']-$row['bron11']).")<br>":"")."
+		".(($row['bron2']!=0)?"вЂў Р‘СЂРѕРЅСЏ РєРѕСЂРїСѓСЃР°: {$row['bron22']}-{$row['bron2']} (".(((($row['bron22']-1)!=0)?($row['bron22']-1)."+":""))."d".(1+$row['bron2']-$row['bron22']).")<br>":"")."
+		".(($row['bron3']!=0)?"вЂў Р‘СЂРѕРЅСЏ РїРѕСЏСЃР°: {$row['bron33']}-{$row['bron3']} (".(((($row['bron33']-1)!=0)?($row['bron33']-1)."+":""))."d".(1+$row['bron3']-$row['bron33']).")<br>":"")."
+		".(($row['bron4']!=0)?"вЂў Р‘СЂРѕРЅСЏ РЅРѕРі: {$row['bron44']}-{$row['bron4']} (".(((($row['bron44']-1)!=0)?($row['bron44']-1)."+":""))."d".(1+$row['bron4']-$row['bron44']).")<br>":"")."
 
-		".(($row['add_stats'] && !$row['count'])?"• Количество увеличений: {$row['add_stats']}<BR>
-		• Сила: {$row['gsila']}<a href=\"upd.php?id=".($row['id'])."&p=1\"><img src=\"i/up.gif\" alt=\"\"></a><br>
-		• Ловкость: {$row['glovk']}<a href=\"upd.php?id=".($row['id'])."&p=2\"><img src=\"i/up.gif\" alt=\"\"></a><br>
-		• Интуиция: {$row['ginta']}<a href=\"upd.php?id=".($row['id'])."&p=3\"><img src=\"i/up.gif\" alt=\"\"></a><br>
-		• Интеллект: {$row['gintel']}<a href=\"upd.php?id=".($row['id'])."&p=4\"><img src=\"i/up.gif\" alt=\"\"></a><br>
+		".(($row['add_stats'] && !$row['count'])?"вЂў РљРѕР»РёС‡РµСЃС‚РІРѕ СѓРІРµР»РёС‡РµРЅРёР№: {$row['add_stats']}<BR>
+		вЂў РЎРёР»Р°: {$row['gsila']}<a href=\"upd.php?id=".($row['id'])."&p=1\"><img src=\"i/up.gif\" alt=\"\"></a><br>
+		вЂў Р›РѕРІРєРѕСЃС‚СЊ: {$row['glovk']}<a href=\"upd.php?id=".($row['id'])."&p=2\"><img src=\"i/up.gif\" alt=\"\"></a><br>
+		вЂў РРЅС‚СѓРёС†РёСЏ: {$row['ginta']}<a href=\"upd.php?id=".($row['id'])."&p=3\"><img src=\"i/up.gif\" alt=\"\"></a><br>
+		вЂў РРЅС‚РµР»Р»РµРєС‚: {$row['gintel']}<a href=\"upd.php?id=".($row['id'])."&p=4\"><img src=\"i/up.gif\" alt=\"\"></a><br>
 		":"")."
-		".(($row['add_stats'] && $row['count'])?"• Количество увеличений: {$row['add_stats']}<BR>":"")."
-        ".(($row['attacka'])?"• Дополнительный удар: +{$row['attacka']}<BR>":"")."
-		".(($row['mfdhit'])?"• Защита от урона: ".(($row['mfdhit']>0)?"+":"")."{$row['mfdhit']}%<BR>":"")."
-		".(($row['mfdmag'])?"• Защита от магии: ".(($row['mfdmag']>0)?"+":"")."{$row['mfdmag']}%<BR>":"")."
-		".(($row['mfdfire'])?"• Защита от магии Огня: ".(($row['mfdfire']>0)?"+":"")."{$row['mfdfire']}%<BR>":"")."
-        ".(($row['mfdair'])?"• Защита от магии Воздуха: ".(($row['mfdair']>0)?"+":"")."{$row['mfdair']}%<BR>":"")."
-        ".(($row['mfdwater'])?"• Защита от магии Воды: ".(($row['mfdwater']>0)?"+":"")."{$row['mfdwater']}%<BR>":"")."
-        ".(($row['mfdearth'])?"• Защита от магии Земли: ".(($row['mfdearth']>0)?"+":"")."{$row['mfdearth']}%<BR>":"")."
-        ".(($row['mffire'])?"• Мф. мощности урона Огня: ".(($row['mffire']>0)?"+":"")."{$row['mffire']}%<BR>":"")."
-        ".(($row['mfair'])?"• Мф. мощности урона Воздуха: ".(($row['mfair']>0)?"+":"")."{$row['mfair']}%<BR>":"")."
-        ".(($row['mfwater'])?"• Мф. мощности урона Воды: ".(($row['mfwater']>0)?"+":"")."{$row['mfwater']}%<BR>":"")."
-        ".(($row['mfearth'])?"• Мф. мощности урона Земли: ".(($row['mfearth']>0)?"+":"")."{$row['mfearth']}%<BR>":"")."
-        ".(($row['mfhitp'])?"• Мф. мощности урона: ".(($row['mfhitp']>0)?"+":"")."{$row['mfhitp']}%<BR>":"")."
-		".(($row['mfmagp'])?"• Мф. мощности магии стихий: ".(($row['mfmagp']>0)?"+":"")."{$row['mfmagp']}%<BR>":"")."
-		".(($row['mfpodav'])?"• Мф. подавления защиты от магии: ".(($row['mfpodav']>0)?"+":"")."{$row['mfpodav']}%<BR>":"")."
-		".(($row['mfrub'])?"• Мф. мощности рубящго урона: ".(($row['mfrub']>0)?"+":"")."{$row['mfrub']}%<BR>":"")."
-		".(($row['mfkol'])?"• Мф. мощности колющего урона: ".(($row['mfkol']>0)?"+":"")."{$row['mfkol']}%<BR>":"")."
-		".(($row['mfdrob'])?"• Мф. мощности дробящего урона: ".(($row['mfdrob']>0)?"+":"")."{$row['mfdrob']}%<BR>":"")."
-		".(($row['mfrej'])?"•  Мф. мощности режущего урона: ".(($row['mfrej']>0)?"+":"")."{$row['mfrej']}%<BR>":"")."
-		".(($row['gmeshok'])?"• Увеличивает рюкзак: +{$row['gmeshok']}<BR>":"")."
-		".(($row['letter'])?"Количество символов: ".strlen($row['letter'])."</div>":"")."
-		".(($row['letter'])?"На бумаге записан текст:<div style='background-color:FAF0E6;'> ".nl2br($row['letter'])."</div>":"")."
+		".(($row['add_stats'] && $row['count'])?"вЂў РљРѕР»РёС‡РµСЃС‚РІРѕ СѓРІРµР»РёС‡РµРЅРёР№: {$row['add_stats']}<BR>":"")."
+        ".(($row['attacka'])?"вЂў Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СѓРґР°СЂ: +{$row['attacka']}<BR>":"")."
+		".(($row['mfdhit'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ СѓСЂРѕРЅР°: ".(($row['mfdhit']>0)?"+":"")."{$row['mfdhit']}%<BR>":"")."
+		".(($row['mfdmag'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё: ".(($row['mfdmag']>0)?"+":"")."{$row['mfdmag']}%<BR>":"")."
+		".(($row['mfdfire'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РћРіРЅСЏ: ".(($row['mfdfire']>0)?"+":"")."{$row['mfdfire']}%<BR>":"")."
+        ".(($row['mfdair'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р’РѕР·РґСѓС…Р°: ".(($row['mfdair']>0)?"+":"")."{$row['mfdair']}%<BR>":"")."
+        ".(($row['mfdwater'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р’РѕРґС‹: ".(($row['mfdwater']>0)?"+":"")."{$row['mfdwater']}%<BR>":"")."
+        ".(($row['mfdearth'])?"вЂў Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р—РµРјР»Рё: ".(($row['mfdearth']>0)?"+":"")."{$row['mfdearth']}%<BR>":"")."
+        ".(($row['mffire'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° РћРіРЅСЏ: ".(($row['mffire']>0)?"+":"")."{$row['mffire']}%<BR>":"")."
+        ".(($row['mfair'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° Р’РѕР·РґСѓС…Р°: ".(($row['mfair']>0)?"+":"")."{$row['mfair']}%<BR>":"")."
+        ".(($row['mfwater'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° Р’РѕРґС‹: ".(($row['mfwater']>0)?"+":"")."{$row['mfwater']}%<BR>":"")."
+        ".(($row['mfearth'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° Р—РµРјР»Рё: ".(($row['mfearth']>0)?"+":"")."{$row['mfearth']}%<BR>":"")."
+        ".(($row['mfhitp'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР°: ".(($row['mfhitp']>0)?"+":"")."{$row['mfhitp']}%<BR>":"")."
+		".(($row['mfmagp'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё СЃС‚РёС…РёР№: ".(($row['mfmagp']>0)?"+":"")."{$row['mfmagp']}%<BR>":"")."
+		".(($row['mfpodav'])?"вЂў РњС„. РїРѕРґР°РІР»РµРЅРёСЏ Р·Р°С‰РёС‚С‹ РѕС‚ РјР°РіРёРё: ".(($row['mfpodav']>0)?"+":"")."{$row['mfpodav']}%<BR>":"")."
+		".(($row['mfrub'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СЂСѓР±СЏС‰РіРѕ СѓСЂРѕРЅР°: ".(($row['mfrub']>0)?"+":"")."{$row['mfrub']}%<BR>":"")."
+		".(($row['mfkol'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РєРѕР»СЋС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($row['mfkol']>0)?"+":"")."{$row['mfkol']}%<BR>":"")."
+		".(($row['mfdrob'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё РґСЂРѕР±СЏС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($row['mfdrob']>0)?"+":"")."{$row['mfdrob']}%<BR>":"")."
+		".(($row['mfrej'])?"вЂў  РњС„. РјРѕС‰РЅРѕСЃС‚Рё СЂРµР¶СѓС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($row['mfrej']>0)?"+":"")."{$row['mfrej']}%<BR>":"")."
+		".(($row['gmeshok'])?"вЂў РЈРІРµР»РёС‡РёРІР°РµС‚ СЂСЋРєР·Р°Рє: +{$row['gmeshok']}<BR>":"")."
+		".(($row['letter'])?"РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ: ".strlen($row['letter'])."</div>":"")."
+		".(($row['letter'])?"РќР° Р±СѓРјР°РіРµ Р·Р°РїРёСЃР°РЅ С‚РµРєСЃС‚:<div style='background-color:FAF0E6;'> ".nl2br($row['letter'])."</div>":"")."
 		
-		".(($row['minu'] OR $row['maxu'] OR $row['mfproboi'] OR $row['mfruburon'] OR $row['mfrejuron'])?"<b>Свойства предмета:</b><BR>":"")."
+		".(($row['minu'] OR $row['maxu'] OR $row['mfproboi'] OR $row['mfruburon'] OR $row['mfrejuron'])?"<b>РЎРІРѕР№СЃС‚РІР° РїСЂРµРґРјРµС‚Р°:</b><BR>":"")."
         
        
-        ".(($row['minu'])?"• Минимальное наносимое повреждение: {$row['minu']}<BR>":"")."
-		".(($row['maxu'])?"• Максимальное наносимое повреждение: {$row['maxu']}<BR>":"")."
-        ".(($row['mfproboi'])?"• Мф. пробоя брони: ".(($row['mfproboi']>0)?"+":"")."{$row['mfproboi']}%<BR>":"")."
-        ".(($row['mfruburon'])?"• Мф. мощности рубящего урона: ".(($row['mfruburon']>0)?"+":"")."{$row['mfruburon']}%<BR>":"")."
-        ".(($row['mfrejuron'])?"• Мф. мощности режущего урона: ".(($row['mfrejuron']>0)?"+":"")."{$row['mfrejuron']}%<BR>":"")."
-       	".(($row['k_kach']>0 or $row['r_kach']>0 or $row['d_kach']>0 or $row['z_kach']>0)?"<b>Особенности:</b><br />":"")."
-         ".(($row['k_kach']>0)?"• Колющие атаки:":"")."
-         ".(($row['k_kach']==10)?" Редки<br />":"")."
-		 ".(($row['k_kach']==30)?" Малы<br />":"")."
-		 ".(($row['k_kach']==50)?" Временами<br />":"")."
-		 ".(($row['k_kach']==70)?" Часты<br />":"")."
-         ".(($row['r_kach']>0)?"• Рубящие атаки:":"")."
-         ".(($row['r_kach']==10)?" Редки<br />":"")."
-		 ".(($row['r_kach']==30)?" Малы<br />":"")."
-		 ".(($row['r_kach']==50)?" Временами<br />":"")."
-		 ".(($row['r_kach']==70)?" Часты<br />":"")."
-         ".(($row['d_kach']>0)?"• Дробящие атаки:":"")."
-         ".(($row['d_kach']==10)?" Редки<br />":"")."
-		 ".(($row['d_kach']==30)?" Малы<br />":"")."
-		 ".(($row['d_kach']==50)?" Временами<br />":"")."
-		 ".(($row['d_kach']==70)?" Часты<br />":"")."
-         ".(($row['z_kach']>0)?"• Режущие атаки:":"")."
-         ".(($row['z_kach']==10)?" Редки<br />":"")."
-		 ".(($row['z_kach']==30)?" Малы<br />":"")."
-		 ".(($row['z_kach']==50)?" Временами<br />":"")."
-		 ".(($row['z_kach']==70)?" Часты<br />":"")."
+        ".(($row['minu'])?"вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: {$row['minu']}<BR>":"")."
+		".(($row['maxu'])?"вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: {$row['maxu']}<BR>":"")."
+        ".(($row['mfproboi'])?"вЂў РњС„. РїСЂРѕР±РѕСЏ Р±СЂРѕРЅРё: ".(($row['mfproboi']>0)?"+":"")."{$row['mfproboi']}%<BR>":"")."
+        ".(($row['mfruburon'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СЂСѓР±СЏС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($row['mfruburon']>0)?"+":"")."{$row['mfruburon']}%<BR>":"")."
+        ".(($row['mfrejuron'])?"вЂў РњС„. РјРѕС‰РЅРѕСЃС‚Рё СЂРµР¶СѓС‰РµРіРѕ СѓСЂРѕРЅР°: ".(($row['mfrejuron']>0)?"+":"")."{$row['mfrejuron']}%<BR>":"")."
+       	".(($row['k_kach']>0 or $row['r_kach']>0 or $row['d_kach']>0 or $row['z_kach']>0)?"<b>РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё:</b><br />":"")."
+         ".(($row['k_kach']>0)?"вЂў РљРѕР»СЋС‰РёРµ Р°С‚Р°РєРё:":"")."
+         ".(($row['k_kach']==10)?" Р РµРґРєРё<br />":"")."
+		 ".(($row['k_kach']==30)?" РњР°Р»С‹<br />":"")."
+		 ".(($row['k_kach']==50)?" Р’СЂРµРјРµРЅР°РјРё<br />":"")."
+		 ".(($row['k_kach']==70)?" Р§Р°СЃС‚С‹<br />":"")."
+         ".(($row['r_kach']>0)?"вЂў Р СѓР±СЏС‰РёРµ Р°С‚Р°РєРё:":"")."
+         ".(($row['r_kach']==10)?" Р РµРґРєРё<br />":"")."
+		 ".(($row['r_kach']==30)?" РњР°Р»С‹<br />":"")."
+		 ".(($row['r_kach']==50)?" Р’СЂРµРјРµРЅР°РјРё<br />":"")."
+		 ".(($row['r_kach']==70)?" Р§Р°СЃС‚С‹<br />":"")."
+         ".(($row['d_kach']>0)?"вЂў Р”СЂРѕР±СЏС‰РёРµ Р°С‚Р°РєРё:":"")."
+         ".(($row['d_kach']==10)?" Р РµРґРєРё<br />":"")."
+		 ".(($row['d_kach']==30)?" РњР°Р»С‹<br />":"")."
+		 ".(($row['d_kach']==50)?" Р’СЂРµРјРµРЅР°РјРё<br />":"")."
+		 ".(($row['d_kach']==70)?" Р§Р°СЃС‚С‹<br />":"")."
+         ".(($row['z_kach']>0)?"вЂў Р РµР¶СѓС‰РёРµ Р°С‚Р°РєРё:":"")."
+         ".(($row['z_kach']==10)?" Р РµРґРєРё<br />":"")."
+		 ".(($row['z_kach']==30)?" РњР°Р»С‹<br />":"")."
+		 ".(($row['z_kach']==50)?" Р’СЂРµРјРµРЅР°РјРё<br />":"")."
+		 ".(($row['z_kach']==70)?" Р§Р°СЃС‚С‹<br />":"")."
 		 
-		 ".(($row['complect_id']>0)?"Часть комплекта: ".echoComplect($row['complect_id'])."<BR>":"")."   
+		 ".(($row['complect_id']>0)?"Р§Р°СЃС‚СЊ РєРѕРјРїР»РµРєС‚Р°: ".echoComplect($row['complect_id'])."<BR>":"")."   
 		
          ".((($row['type'] == 25 &&  $row['show']==1))?"<font color=maroon>:</font> ".$magic['name']."<BR>":"")."
 		".((($row['type'] == 29 &&  $row['show']==1))?"<font color=maroon>:</font> ".$magic['name']."<BR>":"")."
 		
         ".((($row['type'] == 188 &&  $row['show']==1))?"<font color=maroon>:</font> ".$magic['name']."<BR>":"")."
-		".(($row['text'])?"На ручке выгравирована надпись:<center>".$row['text']."</center><BR>":"")."
+		".(($row['text'])?"РќР° СЂСѓС‡РєРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅР° РЅР°РґРїРёСЃСЊ:<center>".$row['text']."</center><BR>":"")."
 	   
-		".(($incmagic['max'])?"	Встроено заклятие <img src=\"i/magic/".$incmagic['img']."\" alt=\"".$incmagic['name']."\"> ".$incmagic['cur']." шт.	<BR>":"")."
-		".(($row['type']==27)?"<small><b>Описание:</b><BR><font color=maroon>Одевается под броню</font></small><BR>":"")."
-		".(($row['type']==28)?"<small><b>Описание:</b><BR><font color=maroon>Одевается поверх брони</font></small><BR>":"")."
-		".(($row['podzem'])?"<small><font color=maroon>Предмет из подземелья</font></small><BR>":"")."
+		".(($incmagic['max'])?"	Р’СЃС‚СЂРѕРµРЅРѕ Р·Р°РєР»СЏС‚РёРµ <img src=\"i/magic/".$incmagic['img']."\" alt=\"".$incmagic['name']."\"> ".$incmagic['cur']." С€С‚.	<BR>":"")."
+		".(($row['type']==27)?"<small><b>РћРїРёСЃР°РЅРёРµ:</b><BR><font color=maroon>РћРґРµРІР°РµС‚СЃСЏ РїРѕРґ Р±СЂРѕРЅСЋ</font></small><BR>":"")."
+		".(($row['type']==28)?"<small><b>РћРїРёСЃР°РЅРёРµ:</b><BR><font color=maroon>РћРґРµРІР°РµС‚СЃСЏ РїРѕРІРµСЂС… Р±СЂРѕРЅРё</font></small><BR>":"")."
+		".(($row['podzem'])?"<small><font color=maroon>РџСЂРµРґРјРµС‚ РёР· РїРѕРґР·РµРјРµР»СЊСЏ</font></small><BR>":"")."
 		      
         
-        ".(($row['second'])?"<small><b>Описание:</b><BR><font style='font-size:11px; color:#990000'>Второе оружие</font></small><BR>":"")."
+        ".(($row['second'])?"<small><b>РћРїРёСЃР°РЅРёРµ:</b><BR><font style='font-size:11px; color:#990000'>Р’С‚РѕСЂРѕРµ РѕСЂСѓР¶РёРµ</font></small><BR>":"")."
         
          
 
         ".((!$row['isrep'])?" ":"")."
-        ".(($row['dvur'])?"<small><b>Описание:</b><BR><font color=maroon>Двуручное оружие</font></small><BR>":"")."
+        ".(($row['dvur'])?"<small><b>РћРїРёСЃР°РЅРёРµ:</b><BR><font color=maroon>Р”РІСѓСЂСѓС‡РЅРѕРµ РѕСЂСѓР¶РёРµ</font></small><BR>":"")."
 		
         
         ".(($row['opisan'])?"<small>".$row['opisan']."</small><BR>":"")."
-        ".(($row['magic']>0 && $row['show']==1)?"\r\n<br/><font style='font-size:11px; color:#990000'>Встроена магия:</font> {$magic['name']} <img src=\"i/magic/".$magic['img']."\" alt=\"".$magic['name']."\"><BR>":"");
+        ".(($row['magic']>0 && $row['show']==1)?"\r\n<br/><font style='font-size:11px; color:#990000'>Р’СЃС‚СЂРѕРµРЅР° РјР°РіРёСЏ:</font> {$magic['name']} <img src=\"i/magic/".$magic['img']."\" alt=\"".$magic['name']."\"><BR>":"");
         
         
 		
        }
-       else { echo "<font color=maroon><B>Свойства предмета не идентифицированы</B></font><BR>"; }
+       else { echo "<font color=maroon><B>РЎРІРѕР№СЃС‚РІР° РїСЂРµРґРјРµС‚Р° РЅРµ РёРґРµРЅС‚РёС„РёС†РёСЂРѕРІР°РЅС‹</B></font><BR>"; }
                 
                 if($row['made']){
                         switch($row['made']){
@@ -226,10 +226,10 @@ if (!$row['needident']) {
                      case 'suncity': $made='Sun City'; break;	
 }
                 }
-		echo "<small>Сделано в Devilscity</small></td></TR>";
+		echo "<small>РЎРґРµР»Р°РЅРѕ РІ Devilscity</small></td></TR>";
 }
 	
-	echo '<HTML><HEAD><TITLE>Бойцовский клуб [ Информация о предмете ]</TITLE>
+	echo '<HTML><HEAD><TITLE>Р‘РѕР№С†РѕРІСЃРєРёР№ РєР»СѓР± [ РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїСЂРµРґРјРµС‚Рµ ]</TITLE>
 <link rel=stylesheet type="text/css" href="i/main.css">
 <link href="i/move/design6.css" rel="stylesheet" type="text/css">
 <body bgcolor=#e2e0e0 style="margin: 10px;">

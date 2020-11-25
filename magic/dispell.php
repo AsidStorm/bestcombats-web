@@ -2,31 +2,31 @@
 $target=mqfa("SELECT users.id, users.level, users.room, users.login, users.vinos, users.mudra, users.battle,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".mysql_escape_string($_POST['target'])."'");
 $plus=0;
 global $nodrink;
-$todispell=mqfa("select * from effects where owner='$target[id]' and (name='Уязвимость оружию' or name='Уязвимость стихиям' or name='Слабость') order by rand()");
+$todispell=mqfa("select * from effects where owner='$target[id]' and (name='РЈСЏР·РІРёРјРѕСЃС‚СЊ РѕСЂСѓР¶РёСЋ' or name='РЈСЏР·РІРёРјРѕСЃС‚СЊ СЃС‚РёС…РёСЏРј' or name='РЎР»Р°Р±РѕСЃС‚СЊ') order by rand()");
 if ($user["battle"] && !$todispell) {
   $fbattle->getbu($target["id"]);
   foreach ($fbattle->battleunits[$target["id"]]["effects"] as $k=>$v) {
     if ($v["type"]==1 && @$v["bad"]) {
-      $v["name"]=str_replace("(заклятие)","",$v["name"]);
+      $v["name"]=str_replace("(Р·Р°РєР»СЏС‚РёРµ)","",$v["name"]);
       $todispell=array("id"=>$k, "mf"=>$v["mf"], "mfval"=>$v["val"], "name"=>$v["name"]);
       break;
     }
   }
 }
 if (in_array($user["room"],$nodrink)) {
-  echo "Здесь запрещено пользоваться магией!";
+  echo "Р—РґРµСЃСЊ Р·Р°РїСЂРµС‰РµРЅРѕ РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РјР°РіРёРµР№!";
 } elseif (!$target["online"] || $target["invis"]) {
-  echo "Персонаж \"$_POST[target]\" не в игре.";
+  echo "РџРµСЂСЃРѕРЅР°Р¶ \"$_POST[target]\" РЅРµ РІ РёРіСЂРµ.";
 } elseif ($target["room"]!=$user["room"] || $target["battle"]!=$user["battle"]) {
-  echo "Персонаж \"$_POST[target]\" вне пределов досягаемости.";
+  echo "РџРµСЂСЃРѕРЅР°Р¶ \"$_POST[target]\" РІРЅРµ РїСЂРµРґРµР»РѕРІ РґРѕСЃСЏРіР°РµРјРѕСЃС‚Рё.";
 } elseif(!$todispell) {
-  echo "На персонаже нет заклинаний, которые можно рассеять.";
+  echo "РќР° РїРµСЂСЃРѕРЅР°Р¶Рµ РЅРµС‚ Р·Р°РєР»РёРЅР°РЅРёР№, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ СЂР°СЃСЃРµСЏС‚СЊ.";
 } elseif ($user['battle'] && !in_array($target['id'],$fbattle->team_mine)) {
-  echo "Это заклятие можно исопльзовать только на союзников!"; 
+  echo "Р­С‚Рѕ Р·Р°РєР»СЏС‚РёРµ РјРѕР¶РЅРѕ РёСЃРѕРїР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РЅР° СЃРѕСЋР·РЅРёРєРѕРІ!"; 
 } else {
   if (!$user["battle"]) {
-    echo "У персонажа \"$target[login]\" успешно рассеяно заклятие $todispell[name].";
-    addch("<img src=i/magic/$row[img]>".($user["invis"]?"Невидимка":"Персонаж &quot;<b>{$user['login']}</b>&quot;")." наложил заклятие \"$row[name]\" на &quot;<b>".($user["invis"] && $user["login"]==$_POST['target']?"Невидимка":"$_POST[target]")."</b>&quot; рассеяв заклятие <b>$todispell[name]</b>.");
+    echo "РЈ РїРµСЂСЃРѕРЅР°Р¶Р° \"$target[login]\" СѓСЃРїРµС€РЅРѕ СЂР°СЃСЃРµСЏРЅРѕ Р·Р°РєР»СЏС‚РёРµ $todispell[name].";
+    addch("<img src=i/magic/$row[img]>".($user["invis"]?"РќРµРІРёРґРёРјРєР°":"РџРµСЂСЃРѕРЅР°Р¶ &quot;<b>{$user['login']}</b>&quot;")." РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ \"$row[name]\" РЅР° &quot;<b>".($user["invis"] && $user["login"]==$_POST['target']?"РќРµРІРёРґРёРјРєР°":"$_POST[target]")."</b>&quot; СЂР°СЃСЃРµСЏРІ Р·Р°РєР»СЏС‚РёРµ <b>$todispell[name]</b>.");
   } else {
     if ($todispell["mfdhit"]) {
       $mf="mfdhit";
@@ -43,9 +43,9 @@ if (in_array($user["room"],$nodrink)) {
     $fbattle->needupdatebu=1;
     $fbattle->getbu($target["id"]);
     unset($fbattle->battleunits[$target["id"]]["effects"][$todispell["id"]]);
-    $fbattle->add_log('<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' использовал'.($user["sex"]==1?"":"а").' заклятие '.$row["name"].' на '.nick5($target['id'],$fbattle->my_class).' рассеяв заклятие <b>'.$todispell["name"].'</b>.<BR>');
+    $fbattle->add_log('<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' РёСЃРїРѕР»СЊР·РѕРІР°Р»'.($user["sex"]==1?"":"Р°").' Р·Р°РєР»СЏС‚РёРµ '.$row["name"].' РЅР° '.nick5($target['id'],$fbattle->my_class).' СЂР°СЃСЃРµСЏРІ Р·Р°РєР»СЏС‚РёРµ <b>'.$todispell["name"].'</b>.<BR>');
     $fbattle->write_log ();
-    echo "Успнешно наложено заклятие $row[name], рассеяно заклятие $todispell[name]."; 
+    echo "РЈСЃРїРЅРµС€РЅРѕ РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ $row[name], СЂР°СЃСЃРµСЏРЅРѕ Р·Р°РєР»СЏС‚РёРµ $todispell[name]."; 
   }
   mq("delete from effects where id='$todispell[id]'");
   $bet=1;

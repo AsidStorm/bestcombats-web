@@ -11,7 +11,7 @@
 <link rel="icon" href="/i/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/i/favicon.ico" type="image/x-icon"> 
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-<title>Новости и события Bkwar</title>
+<title>РќРѕРІРѕСЃС‚Рё Рё СЃРѕР±С‹С‚РёСЏ Bkwar</title>
 <link href="/css/event.css" rel="stylesheet" type="text/css">
 <SCRIPT language="JavaScript" src="/js/event.js"></SCRIPT>
 <SCRIPT language="JavaScript" src="/js/dm.js"></SCRIPT>
@@ -33,7 +33,7 @@
 <table border="0" width="100%">
 <FORM method=post>
 <TR>
-<TD><font color=white><?if(!empty($user['login'])){echo nick5_1($user['id']);}else{echo'Гость';}?></font></TD></TR>
+<TD><font color=white><?if(!empty($user['login'])){echo nick5_1($user['id']);}else{echo'Р“РѕСЃС‚СЊ';}?></font></TD></TR>
 <TR>
 <TD>&nbsp;</TD></TR></FORM>
  
@@ -50,7 +50,7 @@
   <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
    <TR>
    <TD width=1 bgColor=#000000><IMG height=1 src="/i/spacer.gif" width=1></TD>
-   <TD align=left background=/i/menu1at1.gif bgColor=#aa0000 style="padding-left:75px;"><A onmouseover="MM_swapImage('news','','/i/menu1at2.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/"><IMG height=36 src="/i/menu1ps2.gif" width=47 border=0 name=news alt="Новости"></A><A onmouseover="MM_swapImage('#','','/i/menu1at3.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps3.gif" width=42 border=0 name="history" alt="История"></A><A onmouseover="MM_swapImage('status','','/i/menu1at4.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/news/status/"><IMG height=36 src="/i/menu1ps4.gif" width=42 border=0 name="status" alt="Состояние серверов"></A><A onmouseover="MM_swapImage('gallery','','/i/menu1at5.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps5.gif" width=42 border=0 name="gallery" alt="Галерея"></A><A onmouseover="MM_swapImage('vote','','/i/menu1at7.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps7.gif" width=41 border=0 name="vote" alt="Голосования"></A><A onmouseover="MM_swapImage('inwork','','/i/menu1at8.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps8.gif" width=41 border=0 name="inwork" alt="В разработке"></A><A onmouseover="MM_swapImage('release','','/i/menu1at9.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps9.gif" width=48 border=0 name="release" alt="Вестник Администрации"></A></TD>
+   <TD align=left background=/i/menu1at1.gif bgColor=#aa0000 style="padding-left:75px;"><A onmouseover="MM_swapImage('news','','/i/menu1at2.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/"><IMG height=36 src="/i/menu1ps2.gif" width=47 border=0 name=news alt="РќРѕРІРѕСЃС‚Рё"></A><A onmouseover="MM_swapImage('#','','/i/menu1at3.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps3.gif" width=42 border=0 name="history" alt="РСЃС‚РѕСЂРёСЏ"></A><A onmouseover="MM_swapImage('status','','/i/menu1at4.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/news/status/"><IMG height=36 src="/i/menu1ps4.gif" width=42 border=0 name="status" alt="РЎРѕСЃС‚РѕСЏРЅРёРµ СЃРµСЂРІРµСЂРѕРІ"></A><A onmouseover="MM_swapImage('gallery','','/i/menu1at5.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps5.gif" width=42 border=0 name="gallery" alt="Р“Р°Р»РµСЂРµСЏ"></A><A onmouseover="MM_swapImage('vote','','/i/menu1at7.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps7.gif" width=41 border=0 name="vote" alt="Р“РѕР»РѕСЃРѕРІР°РЅРёСЏ"></A><A onmouseover="MM_swapImage('inwork','','/i/menu1at8.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps8.gif" width=41 border=0 name="inwork" alt="Р’ СЂР°Р·СЂР°Р±РѕС‚РєРµ"></A><A onmouseover="MM_swapImage('release','','/i/menu1at9.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps9.gif" width=48 border=0 name="release" alt="Р’РµСЃС‚РЅРёРє РђРґРјРёРЅРёСЃС‚СЂР°С†РёРё"></A></TD>
    <TD width=1 bgColor=#000000><IMG height=1 src="/i/spacer.gif" width=1></TD>
    </TR>
   </TABLE>
@@ -87,7 +87,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                    <B>Горячие ссылки</B>
+                    <B>Р“РѕСЂСЏС‡РёРµ СЃСЃС‹Р»РєРё</B>
                    </TD>
                    <TD width=1>
                     <IMG height=22 src="/i/lmenu_3.gif" width=1>
@@ -110,11 +110,11 @@
                      <TBODY>
                       <TR>
                        <TD align=left>  
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/news">Главная страница</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/news">Р“Р»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°</a></div>
   
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/forum.php">Форум</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/forum.php">Р¤РѕСЂСѓРј</a></div>
   
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/scrolls">Скроллы</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/scrolls">РЎРєСЂРѕР»Р»С‹</a></div>
   
   <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/">Support</a></div>
   
@@ -145,7 +145,7 @@
       </TR>
      </TBODY>
     </TABLE><BR>    
-<!-- 2 меню -->	
+<!-- 2 РјРµРЅСЋ -->	
 	<TABLE cellSpacing=0 cellPadding=0 width=195 border=0>
      <TBODY>
       <TR>
@@ -167,7 +167,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                   <B>Библиотека:</B>
+                   <B>Р‘РёР±Р»РёРѕС‚РµРєР°:</B>
                    <br><br>
                    </TD>
                    <TD width=1>
@@ -218,7 +218,7 @@
 </TR>
 </TBODY></TABLE><BR>
 
-<!-- 3 меню) -->
+<!-- 3 РјРµРЅСЋ) -->
 <TABLE cellSpacing=0 cellPadding=0 width=195 border=0>
      <TBODY>
       <TR>
@@ -240,7 +240,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                   <B>Статистика:</B>
+                   <B>РЎС‚Р°С‚РёСЃС‚РёРєР°:</B>
                    <br><br>
                    </TD>
                    <TD width=1>
@@ -316,7 +316,7 @@
 <TR>
 <TD class=normaltext align=left valign="top">
  
-<div class="page_title"><B>Всё о Изломе Хаоса</B></div>
+<div class="page_title"><B>Р’СЃС‘ Рѕ РР·Р»РѕРјРµ РҐР°РѕСЃР°</B></div>
  
 <HR align=center width="90%" color=#aa0000 noShade SIZE=0.1><TABLE width=100% border="0">
 
@@ -328,20 +328,20 @@
 <TD width="100%">
 <center><table cellspacing=0>
   <TR align=center><TD align=center>
- <A href="?page=1">Введение</A>&nbsp;|&nbsp;<A href="?page=2">Поединки</A>&nbsp;|&nbsp;<A href="?page=3">Уникальные боты</A>&nbsp;|&nbsp;<A href="?page=4">Магазин</A>&nbsp;|&nbsp;<A href="?page=5">Уникальные предметы</A>&nbsp;|&nbsp;<A href="?page=6">Рекомендации</A> </TR></TD></TABLE></center><BR>
+ <A href="?page=1">Р’РІРµРґРµРЅРёРµ</A>&nbsp;|&nbsp;<A href="?page=2">РџРѕРµРґРёРЅРєРё</A>&nbsp;|&nbsp;<A href="?page=3">РЈРЅРёРєР°Р»СЊРЅС‹Рµ Р±РѕС‚С‹</A>&nbsp;|&nbsp;<A href="?page=4">РњР°РіР°Р·РёРЅ</A>&nbsp;|&nbsp;<A href="?page=5">РЈРЅРёРєР°Р»СЊРЅС‹Рµ РїСЂРµРґРјРµС‚С‹</A>&nbsp;|&nbsp;<A href="?page=6">Р РµРєРѕРјРµРЅРґР°С†РёРё</A> </TR></TD></TABLE></center><BR>
   <TABLE class=BL cellspacing=0><TR><TD>
 <?If ($_GET['page']==1 or $_GET['page']==NULL){?>
-  <DIV style="text-align: center;"><B>ИЗЛОМ ХАОСА</B></DIV><br />
+  <DIV style="text-align: center;"><B>РР—Р›РћРњ РҐРђРћРЎРђ</B></DIV><br />
 
-<DIV style="text-align: center;"><TABLE class=QUOTE><TR><TD>Для гостей <SPAN title="Old City"><IMG src="http://img.bestcombats.net/i/sh/fo11.gif" width=17 height=16 border=0></SPAN><B>Old City</B> открыта новая локация, рассчитанная на игроков-одиночек <B><span style="color:#F93737">7+</span></B> уровней - <IMG src="http://img.combats.com/i/align2.gif" width=12 height=15 border=0><B>Излом Хаоса</B>.</TD></TR></TABLE>
-<IMG src="http://img.combats.com/i/align2.9.gif" width=12 height=15 border=0><B>Мы</B> немного приоткрыли завесу тайны, нависшую над новым развлечением сорвиголов.</DIV><br />
+<DIV style="text-align: center;"><TABLE class=QUOTE><TR><TD>Р”Р»СЏ РіРѕСЃС‚РµР№ <SPAN title="Old City"><IMG src="http://img.bestcombats.net/i/sh/fo11.gif" width=17 height=16 border=0></SPAN><B>Old City</B> РѕС‚РєСЂС‹С‚Р° РЅРѕРІР°СЏ Р»РѕРєР°С†РёСЏ, СЂР°СЃСЃС‡РёС‚Р°РЅРЅР°СЏ РЅР° РёРіСЂРѕРєРѕРІ-РѕРґРёРЅРѕС‡РµРє <B><span style="color:#F93737">7+</span></B> СѓСЂРѕРІРЅРµР№ - <IMG src="http://img.combats.com/i/align2.gif" width=12 height=15 border=0><B>РР·Р»РѕРј РҐР°РѕСЃР°</B>.</TD></TR></TABLE>
+<IMG src="http://img.combats.com/i/align2.9.gif" width=12 height=15 border=0><B>РњС‹</B> РЅРµРјРЅРѕРіРѕ РїСЂРёРѕС‚РєСЂС‹Р»Рё Р·Р°РІРµСЃСѓ С‚Р°Р№РЅС‹, РЅР°РІРёСЃС€СѓСЋ РЅР°Рґ РЅРѕРІС‹Рј СЂР°Р·РІР»РµС‡РµРЅРёРµРј СЃРѕСЂРІРёРіРѕР»РѕРІ.</DIV><br />
 <TABLE><TR><TD><IMG SRC="http://img.combats.ru/i/images/subimages/ab_iz_npc.gif" border=0></TD>
 <br />
 <DIV style="text-align: center;"><IMG SRC="http://bestcombats.net/news/others/izlom/karta.jpg" border=0></DIV><br />
-<TD>Испытать себя в бою с силами хаоса вы можете лишь раз в сутки:</B><br />
-Всего один раз в 24 часа дается возможность бросить вызов судьбе и уничтожить как можно больше исчадий ада. Проиграв бой, вы автоматически покидаете поле битвы и приобретаете вредный эффект <IMG SRC="http://img.combats.ru/i/misc/icons/survival_timeout.gif" border=0>«<I>Касание хаоса</I>».<br />
+<TD>РСЃРїС‹С‚Р°С‚СЊ СЃРµР±СЏ РІ Р±РѕСЋ СЃ СЃРёР»Р°РјРё С…Р°РѕСЃР° РІС‹ РјРѕР¶РµС‚Рµ Р»РёС€СЊ СЂР°Р· РІ СЃСѓС‚РєРё:</B><br />
+Р’СЃРµРіРѕ РѕРґРёРЅ СЂР°Р· РІ 24 С‡Р°СЃР° РґР°РµС‚СЃСЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ Р±СЂРѕСЃРёС‚СЊ РІС‹Р·РѕРІ СЃСѓРґСЊР±Рµ Рё СѓРЅРёС‡С‚РѕР¶РёС‚СЊ РєР°Рє РјРѕР¶РЅРѕ Р±РѕР»СЊС€Рµ РёСЃС‡Р°РґРёР№ Р°РґР°. РџСЂРѕРёРіСЂР°РІ Р±РѕР№, РІС‹ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РїРѕРєРёРґР°РµС‚Рµ РїРѕР»Рµ Р±РёС‚РІС‹ Рё РїСЂРёРѕР±СЂРµС‚Р°РµС‚Рµ РІСЂРµРґРЅС‹Р№ СЌС„С„РµРєС‚ <IMG SRC="http://img.combats.ru/i/misc/icons/survival_timeout.gif" border=0>В«<I>РљР°СЃР°РЅРёРµ С…Р°РѕСЃР°</I>В».<br />
 <DIV style="text-align: center;"><IMG SRC="http://www.paladins.ru/uploads/15086/Izlom.gif" border=0></DIV><br />
-Этот эффект не замораживается во время сна в Общежитии и не влияет на задержку посещений пещер.</TD></TR></TABLE>
+Р­С‚РѕС‚ СЌС„С„РµРєС‚ РЅРµ Р·Р°РјРѕСЂР°Р¶РёРІР°РµС‚СЃСЏ РІРѕ РІСЂРµРјСЏ СЃРЅР° РІ РћР±С‰РµР¶РёС‚РёРё Рё РЅРµ РІР»РёСЏРµС‚ РЅР° Р·Р°РґРµСЂР¶РєСѓ РїРѕСЃРµС‰РµРЅРёР№ РїРµС‰РµСЂ.</TD></TR></TABLE>
 <br />
 <?}?>
 
@@ -352,39 +352,39 @@
 <table class=BL cellspacing=0>
   <TR><TD>
     <TABLE class=BL cellspacing=0><TR><TD>
-  Чтобы приступить к испытаниям, необходимо нажать кнопку «<B>Начать поход</B>» и вы автоматически окажетесь в бою. Вмешавшиеся монстры определяются рандомно. <B>Главная задача</B>: убить как можно больше волн с ботами. Стоит помнить, что бой идет с таймаутом в 1 минуту, так что на раздумку тактики совсем не хватает времени. Новая волна с монстрами нападет лишь в том случае, когда будут убиты все предыдущие нечисти. Но это не касается уникальных ботов. Они могут застать вас врасплох и напасть в любое время. После убийства всех монстров в волне, у вас автоматически восстанавливаеться <B>25% НР </B>и <B>маны</B>. <br />
+  Р§С‚РѕР±С‹ РїСЂРёСЃС‚СѓРїРёС‚СЊ Рє РёСЃРїС‹С‚Р°РЅРёСЏРј, РЅРµРѕР±С…РѕРґРёРјРѕ РЅР°Р¶Р°С‚СЊ РєРЅРѕРїРєСѓ В«<B>РќР°С‡Р°С‚СЊ РїРѕС…РѕРґ</B>В» Рё РІС‹ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РѕРєР°Р¶РµС‚РµСЃСЊ РІ Р±РѕСЋ. Р’РјРµС€Р°РІС€РёРµСЃСЏ РјРѕРЅСЃС‚СЂС‹ РѕРїСЂРµРґРµР»СЏСЋС‚СЃСЏ СЂР°РЅРґРѕРјРЅРѕ. <B>Р“Р»Р°РІРЅР°СЏ Р·Р°РґР°С‡Р°</B>: СѓР±РёС‚СЊ РєР°Рє РјРѕР¶РЅРѕ Р±РѕР»СЊС€Рµ РІРѕР»РЅ СЃ Р±РѕС‚Р°РјРё. РЎС‚РѕРёС‚ РїРѕРјРЅРёС‚СЊ, С‡С‚Рѕ Р±РѕР№ РёРґРµС‚ СЃ С‚Р°Р№РјР°СѓС‚РѕРј РІ 1 РјРёРЅСѓС‚Сѓ, С‚Р°Рє С‡С‚Рѕ РЅР° СЂР°Р·РґСѓРјРєСѓ С‚Р°РєС‚РёРєРё СЃРѕРІСЃРµРј РЅРµ С…РІР°С‚Р°РµС‚ РІСЂРµРјРµРЅРё. РќРѕРІР°СЏ РІРѕР»РЅР° СЃ РјРѕРЅСЃС‚СЂР°РјРё РЅР°РїР°РґРµС‚ Р»РёС€СЊ РІ С‚РѕРј СЃР»СѓС‡Р°Рµ, РєРѕРіРґР° Р±СѓРґСѓС‚ СѓР±РёС‚С‹ РІСЃРµ РїСЂРµРґС‹РґСѓС‰РёРµ РЅРµС‡РёСЃС‚Рё. РќРѕ СЌС‚Рѕ РЅРµ РєР°СЃР°РµС‚СЃСЏ СѓРЅРёРєР°Р»СЊРЅС‹С… Р±РѕС‚РѕРІ. РћРЅРё РјРѕРіСѓС‚ Р·Р°СЃС‚Р°С‚СЊ РІР°СЃ РІСЂР°СЃРїР»РѕС… Рё РЅР°РїР°СЃС‚СЊ РІ Р»СЋР±РѕРµ РІСЂРµРјСЏ. РџРѕСЃР»Рµ СѓР±РёР№СЃС‚РІР° РІСЃРµС… РјРѕРЅСЃС‚СЂРѕРІ РІ РІРѕР»РЅРµ, Сѓ РІР°СЃ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЊСЃСЏ <B>25% РќР  </B>Рё <B>РјР°РЅС‹</B>. <br />
 <br />
 <br />
-После чего вмешается следующая волна ботов... Это будет продолжаться до тех пор, пока вы не проиграете. Бой с монстрами нельзя выиграть, но можно и не проиграть, воспользовавшись приемом <IMG SRC="http://img.combats.ru/i/misc/icons/hp_laststrike.gif" border=0><B>Последний Удар</B>. Тогда бой закончится ничьей. Это хорошо тем, что вещи ломаются не так быстро, как при проигрыше.<br />
-<span style="color:#F93737">Важно!</span> Вы <B>не получите опыт </B>за бой, цель сражения – добыть образцы:<br />
+РџРѕСЃР»Рµ С‡РµРіРѕ РІРјРµС€Р°РµС‚СЃСЏ СЃР»РµРґСѓСЋС‰Р°СЏ РІРѕР»РЅР° Р±РѕС‚РѕРІ... Р­С‚Рѕ Р±СѓРґРµС‚ РїСЂРѕРґРѕР»Р¶Р°С‚СЊСЃСЏ РґРѕ С‚РµС… РїРѕСЂ, РїРѕРєР° РІС‹ РЅРµ РїСЂРѕРёРіСЂР°РµС‚Рµ. Р‘РѕР№ СЃ РјРѕРЅСЃС‚СЂР°РјРё РЅРµР»СЊР·СЏ РІС‹РёРіСЂР°С‚СЊ, РЅРѕ РјРѕР¶РЅРѕ Рё РЅРµ РїСЂРѕРёРіСЂР°С‚СЊ, РІРѕСЃРїРѕР»СЊР·РѕРІР°РІС€РёСЃСЊ РїСЂРёРµРјРѕРј <IMG SRC="http://img.combats.ru/i/misc/icons/hp_laststrike.gif" border=0><B>РџРѕСЃР»РµРґРЅРёР№ РЈРґР°СЂ</B>. РўРѕРіРґР° Р±РѕР№ Р·Р°РєРѕРЅС‡РёС‚СЃСЏ РЅРёС‡СЊРµР№. Р­С‚Рѕ С…РѕСЂРѕС€Рѕ С‚РµРј, С‡С‚Рѕ РІРµС‰Рё Р»РѕРјР°СЋС‚СЃСЏ РЅРµ С‚Р°Рє Р±С‹СЃС‚СЂРѕ, РєР°Рє РїСЂРё РїСЂРѕРёРіСЂС‹С€Рµ.<br />
+<span style="color:#F93737">Р’Р°Р¶РЅРѕ!</span> Р’С‹ <B>РЅРµ РїРѕР»СѓС‡РёС‚Рµ РѕРїС‹С‚ </B>Р·Р° Р±РѕР№, С†РµР»СЊ СЃСЂР°Р¶РµРЅРёСЏ вЂ“ РґРѕР±С‹С‚СЊ РѕР±СЂР°Р·С†С‹:<br />
 <br />
-<TABLE class=QUOTE><TR><TD><span style="color:#008000">13:02</span> <span style="color:#F93737">Внимание!</span> Бой закончен. Всего вами нанесено урона: <B>3221 HP</B>. Получено опыта: <B>0</B>.<br />
-<span style="color:#008000">13:02</span> <span style="color:#F93737">Внимание!</span> Вы создали предмет 'Образец'x5</TD></TR></TABLE>
+<TABLE class=QUOTE><TR><TD><span style="color:#008000">13:02</span> <span style="color:#F93737">Р’РЅРёРјР°РЅРёРµ!</span> Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ. Р’СЃРµРіРѕ РІР°РјРё РЅР°РЅРµСЃРµРЅРѕ СѓСЂРѕРЅР°: <B>3221 HP</B>. РџРѕР»СѓС‡РµРЅРѕ РѕРїС‹С‚Р°: <B>0</B>.<br />
+<span style="color:#008000">13:02</span> <span style="color:#F93737">Р’РЅРёРјР°РЅРёРµ!</span> Р’С‹ СЃРѕР·РґР°Р»Рё РїСЂРµРґРјРµС‚ 'РћР±СЂР°Р·РµС†'x5</TD></TR></TABLE>
 <br />
 <TABLE><TR><TD><IMG SRC="http://bestcombats.net/news/i/izlom1.png" border=0></TD>
-		<TD><B>Образец</B>  (Масса: 0.1) <IMG SRC="http://img.combats.ru/i/podarok.gif" border=0> <IMG SRC="http://img.combats.ru/i/destiny.gif" border=0><br />
-Долговечность: 0/1<br />
-<SMALL>Сделано в Old City<br />
-<span style="color:#FF9900">Предмет не подлежит ремонту</span></SMALL></TD></TR></TABLE>
-Образцы выдаются <U>рандомно</U>. Вы можете продержаться 7 волн и получить 1 образец, а можете убить одного бота в первой волне и получить 13 образцов. <br />
+		<TD><B>РћР±СЂР°Р·РµС†</B>  (РњР°СЃСЃР°: 0.1) <IMG SRC="http://img.combats.ru/i/podarok.gif" border=0> <IMG SRC="http://img.combats.ru/i/destiny.gif" border=0><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<SMALL>РЎРґРµР»Р°РЅРѕ РІ Old City<br />
+<span style="color:#FF9900">РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</span></SMALL></TD></TR></TABLE>
+РћР±СЂР°Р·С†С‹ РІС‹РґР°СЋС‚СЃСЏ <U>СЂР°РЅРґРѕРјРЅРѕ</U>. Р’С‹ РјРѕР¶РµС‚Рµ РїСЂРѕРґРµСЂР¶Р°С‚СЊСЃСЏ 7 РІРѕР»РЅ Рё РїРѕР»СѓС‡РёС‚СЊ 1 РѕР±СЂР°Р·РµС†, Р° РјРѕР¶РµС‚Рµ СѓР±РёС‚СЊ РѕРґРЅРѕРіРѕ Р±РѕС‚Р° РІ РїРµСЂРІРѕР№ РІРѕР»РЅРµ Рё РїРѕР»СѓС‡РёС‚СЊ 13 РѕР±СЂР°Р·С†РѕРІ. <br />
 <br />
 
 <?}?>
 
 <?If ($_GET['page']==3){?>
-В разработке!
+Р’ СЂР°Р·СЂР°Р±РѕС‚РєРµ!
 
 <?}?>
 
 <?If ($_GET['page']==4){?>
-<!-- <четвертый бокс> -->
+<!-- <С‡РµС‚РІРµСЂС‚С‹Р№ Р±РѕРєСЃ> -->
  <div class="box">
-<b>Магазин</b>
+<b>РњР°РіР°Р·РёРЅ</b>
 <hr>
 
-Магазин, где можно приобрести вещи за награду находится в «<b>Capital City</b>». Получив необходимое количество образцов, у вас появляется возможность купить те или иные предметы для улучшения собственной амуниции. <br>
+РњР°РіР°Р·РёРЅ, РіРґРµ РјРѕР¶РЅРѕ РїСЂРёРѕР±СЂРµСЃС‚Рё РІРµС‰Рё Р·Р° РЅР°РіСЂР°РґСѓ РЅР°С…РѕРґРёС‚СЃСЏ РІ В«<b>Capital City</b>В». РџРѕР»СѓС‡РёРІ РЅРµРѕР±С…РѕРґРёРјРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕР±СЂР°Р·С†РѕРІ, Сѓ РІР°СЃ РїРѕСЏРІР»СЏРµС‚СЃСЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РєСѓРїРёС‚СЊ С‚Рµ РёР»Рё РёРЅС‹Рµ РїСЂРµРґРјРµС‚С‹ РґР»СЏ СѓР»СѓС‡С€РµРЅРёСЏ СЃРѕР±СЃС‚РІРµРЅРЅРѕР№ Р°РјСѓРЅРёС†РёРё. <br>
 
-<b><span style="color:#F93737">Внимание!</span></b> Все предметы связываются <img src="http://img.combats.ru/i/destiny.gif" border="0"><b>общей судьбой</b> с первым купившим.<br>
+<b><span style="color:#F93737">Р’РЅРёРјР°РЅРёРµ!</span></b> Р’СЃРµ РїСЂРµРґРјРµС‚С‹ СЃРІСЏР·С‹РІР°СЋС‚СЃСЏ <img src="http://img.combats.ru/i/destiny.gif" border="0"><b>РѕР±С‰РµР№ СЃСѓРґСЊР±РѕР№</b> СЃ РїРµСЂРІС‹Рј РєСѓРїРёРІС€РёРј.<br>
 <br>
 <br>
 
@@ -392,35 +392,35 @@
 <?}?>
 
 <?If ($_GET['page']==5){?>
-В разработке!
+Р’ СЂР°Р·СЂР°Р±РѕС‚РєРµ!
 
 <?}?>
 
 <?If ($_GET['page']==6){?>
-<b>Рекомендации</b>
+<b>Р РµРєРѕРјРµРЅРґР°С†РёРё</b>
 <hr>
 
-Опытные борцы утверждают, что...<br>
+РћРїС‹С‚РЅС‹Рµ Р±РѕСЂС†С‹ СѓС‚РІРµСЂР¶РґР°СЋС‚, С‡С‚Рѕ...<br>
 <br>
 <ul style="margin-top: 0px; margin-bottom: 0px;">
-<li>Время используемых обкастов и эликсиров летит стремительно быстро. Каждый размен «ест» 30 секунд от времени. Надо заметить, были случаи, когда на пристрастиях проходили больше волн, чем при полном обкасте.<br>
+<li>Р’СЂРµРјСЏ РёСЃРїРѕР»СЊР·СѓРµРјС‹С… РѕР±РєР°СЃС‚РѕРІ Рё СЌР»РёРєСЃРёСЂРѕРІ Р»РµС‚РёС‚ СЃС‚СЂРµРјРёС‚РµР»СЊРЅРѕ Р±С‹СЃС‚СЂРѕ. РљР°Р¶РґС‹Р№ СЂР°Р·РјРµРЅ В«РµСЃС‚В» 30 СЃРµРєСѓРЅРґ РѕС‚ РІСЂРµРјРµРЅРё. РќР°РґРѕ Р·Р°РјРµС‚РёС‚СЊ, Р±С‹Р»Рё СЃР»СѓС‡Р°Рё, РєРѕРіРґР° РЅР° РїСЂРёСЃС‚СЂР°СЃС‚РёСЏС… РїСЂРѕС…РѕРґРёР»Рё Р±РѕР»СЊС€Рµ РІРѕР»РЅ, С‡РµРј РїСЂРё РїРѕР»РЅРѕРј РѕР±РєР°СЃС‚Рµ.<br>
 </li>
 <br>
-<li>Говоря о том, кто «рулит», а кто нет - можно сказать, что уютно себя чувствуют криты и увороты. Если вы не артовый маг, то долго не продержитесь - о чем и свидетельствует рейтинг лучших бойцов <img src="http://img.combats.com/i/align2.gif" border="0" height="15" width="12"><b>Излома Хаоса</b>.<br>
+<li>Р“РѕРІРѕСЂСЏ Рѕ С‚РѕРј, РєС‚Рѕ В«СЂСѓР»РёС‚В», Р° РєС‚Рѕ РЅРµС‚ - РјРѕР¶РЅРѕ СЃРєР°Р·Р°С‚СЊ, С‡С‚Рѕ СѓСЋС‚РЅРѕ СЃРµР±СЏ С‡СѓРІСЃС‚РІСѓСЋС‚ РєСЂРёС‚С‹ Рё СѓРІРѕСЂРѕС‚С‹. Р•СЃР»Рё РІС‹ РЅРµ Р°СЂС‚РѕРІС‹Р№ РјР°Рі, С‚Рѕ РґРѕР»РіРѕ РЅРµ РїСЂРѕРґРµСЂР¶РёС‚РµСЃСЊ - Рѕ С‡РµРј Рё СЃРІРёРґРµС‚РµР»СЊСЃС‚РІСѓРµС‚ СЂРµР№С‚РёРЅРі Р»СѓС‡С€РёС… Р±РѕР№С†РѕРІ <img src="http://img.combats.com/i/align2.gif" border="0" height="15" width="12"><b>РР·Р»РѕРјР° РҐР°РѕСЃР°</b>.<br>
 
 </li>
 <br>
-<li>В приемах желательно иметь: <img src="http://img.combats.ru/i/misc/icons/hp_laststrike.gif" border="0"><b>Последний удар</b>, чтобы вещи не ломались после боя, <img src="http://img.combats.ru/i/misc/icons/hp_circleshield.gif" border="0"><b>Круговая защита</b> и <img src="http://img.combats.ru/i/misc/icons/hp_defence.gif" border="0"><b>Стойкость</b>. <br>
-<span style="color: rgb(249, 55, 55);">Важно!</span> Берегите <img src="http://img.combats.ru/i/misc/micro/spirit.gif" border="0"><b>силу духа</b>, так как она не восстанавливается в течение боя.</li>
+<li>Р’ РїСЂРёРµРјР°С… Р¶РµР»Р°С‚РµР»СЊРЅРѕ РёРјРµС‚СЊ: <img src="http://img.combats.ru/i/misc/icons/hp_laststrike.gif" border="0"><b>РџРѕСЃР»РµРґРЅРёР№ СѓРґР°СЂ</b>, С‡С‚РѕР±С‹ РІРµС‰Рё РЅРµ Р»РѕРјР°Р»РёСЃСЊ РїРѕСЃР»Рµ Р±РѕСЏ, <img src="http://img.combats.ru/i/misc/icons/hp_circleshield.gif" border="0"><b>РљСЂСѓРіРѕРІР°СЏ Р·Р°С‰РёС‚Р°</b> Рё <img src="http://img.combats.ru/i/misc/icons/hp_defence.gif" border="0"><b>РЎС‚РѕР№РєРѕСЃС‚СЊ</b>. <br>
+<span style="color: rgb(249, 55, 55);">Р’Р°Р¶РЅРѕ!</span> Р‘РµСЂРµРіРёС‚Рµ <img src="http://img.combats.ru/i/misc/micro/spirit.gif" border="0"><b>СЃРёР»Сѓ РґСѓС…Р°</b>, С‚Р°Рє РєР°Рє РѕРЅР° РЅРµ РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ РІ С‚РµС‡РµРЅРёРµ Р±РѕСЏ.</li>
 
 <br>
 <br>
-<li>Образцы выдаются рандомно, то есть они не зависят от количества убитых монстров.</li>
+<li>РћР±СЂР°Р·С†С‹ РІС‹РґР°СЋС‚СЃСЏ СЂР°РЅРґРѕРјРЅРѕ, С‚Рѕ РµСЃС‚СЊ РѕРЅРё РЅРµ Р·Р°РІРёСЃСЏС‚ РѕС‚ РєРѕР»РёС‡РµСЃС‚РІР° СѓР±РёС‚С‹С… РјРѕРЅСЃС‚СЂРѕРІ.</li>
 <br>
-<li>При себе желательно иметь <img src="http://img.combats.ru/i/items/invoke_kar1_heal10.gif" border="0"><b>Целебный пирог</b> на тот случай, если у вас закончился дух, а вам надо срочно восстановить еще немного жизней.</li>
+<li>РџСЂРё СЃРµР±Рµ Р¶РµР»Р°С‚РµР»СЊРЅРѕ РёРјРµС‚СЊ <img src="http://img.combats.ru/i/items/invoke_kar1_heal10.gif" border="0"><b>Р¦РµР»РµР±РЅС‹Р№ РїРёСЂРѕРі</b> РЅР° С‚РѕС‚ СЃР»СѓС‡Р°Р№, РµСЃР»Рё Сѓ РІР°СЃ Р·Р°РєРѕРЅС‡РёР»СЃСЏ РґСѓС…, Р° РІР°Рј РЅР°РґРѕ СЃСЂРѕС‡РЅРѕ РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ РµС‰Рµ РЅРµРјРЅРѕРіРѕ Р¶РёР·РЅРµР№.</li>
 <br>
 <br>
-<li>Подходя к вопросу о выборе оружия, можно отметить, что многие танки предпочитают надевать щит – он помогает продержаться намного дольше. </li>
+<li>РџРѕРґС…РѕРґСЏ Рє РІРѕРїСЂРѕСЃСѓ Рѕ РІС‹Р±РѕСЂРµ РѕСЂСѓР¶РёСЏ, РјРѕР¶РЅРѕ РѕС‚РјРµС‚РёС‚СЊ, С‡С‚Рѕ РјРЅРѕРіРёРµ С‚Р°РЅРєРё РїСЂРµРґРїРѕС‡РёС‚Р°СЋС‚ РЅР°РґРµРІР°С‚СЊ С‰РёС‚ вЂ“ РѕРЅ РїРѕРјРѕРіР°РµС‚ РїСЂРѕРґРµСЂР¶Р°С‚СЊСЃСЏ РЅР°РјРЅРѕРіРѕ РґРѕР»СЊС€Рµ. </li>
 <br><br>
 
 <?}?>

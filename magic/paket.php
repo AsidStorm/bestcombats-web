@@ -1,5 +1,5 @@
 <?php
-// магия "шаг назад"
+// РјР°РіРёСЏ "С€Р°Рі РЅР°Р·Р°Рґ"
 if (rand(1,100)!=1) {
 	
 	if ($_SESSION['uid'] == null) header("Location: index.php");
@@ -11,10 +11,10 @@ if (rand(1,100)!=1) {
 			mysql_query($ins);
 			mysql_query("DELETE FROM `paket` WHERE `pid` = ".$row['pid'].";");
 		}
-		echo "<font color=red><b>Вы вскрыли \"".$paket[2]."\".<b></font> ";	
+		echo "<font color=red><b>Р’С‹ РІСЃРєСЂС‹Р»Рё \"".$paket[2]."\".<b></font> ";	
 		destructitem($_GET['use']);
 	} else {
-		echo "<font color=red><b>Это не ваше...<b></font>";
+		echo "<font color=red><b>Р­С‚Рѕ РЅРµ РІР°С€Рµ...<b></font>";
 	}
 }
 ?>

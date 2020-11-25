@@ -20,8 +20,8 @@
         elseif ($user["level"]<=9) $ghp=180;
         elseif ($user["level"]<=10) $ghp=200;
         else $ghp=220;
-        if (addcaveeffect("Закалка", 24, $ghp)) return "После купания в проруби вы чувствуете себя намного лучше.";
-        else return "Не стоит купаться слишком часто, вода всё же холодная.";
+        if (addcaveeffect("Р—Р°РєР°Р»РєР°", 24, $ghp)) return "РџРѕСЃР»Рµ РєСѓРїР°РЅРёСЏ РІ РїСЂРѕСЂСѓР±Рё РІС‹ С‡СѓРІСЃС‚РІСѓРµС‚Рµ СЃРµР±СЏ РЅР°РјРЅРѕРіРѕ Р»СѓС‡С€Рµ.";
+        else return "РќРµ СЃС‚РѕРёС‚ РєСѓРїР°С‚СЊСЃСЏ СЃР»РёС€РєРѕРј С‡Р°СЃС‚Рѕ, РІРѕРґР° РІСЃС‘ Р¶Рµ С…РѕР»РѕРґРЅР°СЏ.";
     }
  
     function setCaveEffect() {
@@ -31,16 +31,16 @@
         $inUse  = mysql_result(mysql_query("SELECT COUNT(*) FROM effects WHERE owner = $user[id] AND type = $type"), 0, 0);
         if ($inUse) {
             if ($type == 9999) {
-                $msg = 'У Вас уже есть болезнь';
+                $msg = 'РЈ Р’Р°СЃ СѓР¶Рµ РµСЃС‚СЊ Р±РѕР»РµР·РЅСЊ';
             }
             if ($type == 9994) {
-                $msg = 'У вас уже есть отравление';
+                $msg = 'РЈ РІР°СЃ СѓР¶Рµ РµСЃС‚СЊ РѕС‚СЂР°РІР»РµРЅРёРµ';
             }
             if ($type == 9992) {
-                $msg = 'У Вас уже есть проклятие';
+                $msg = 'РЈ Р’Р°СЃ СѓР¶Рµ РµСЃС‚СЊ РїСЂРѕРєР»СЏС‚РёРµ';
             }
             if ($type == 9993) {
-                $msg = 'У Вас уже есть благословение';
+                $msg = 'РЈ Р’Р°СЃ СѓР¶Рµ РµСЃС‚СЊ Р±Р»Р°РіРѕСЃР»РѕРІРµРЅРёРµ';
             }
             header("Location: " . $_SERVER['PHP_SELF'] . ($msg ? '?msg=' . $msg : '' ));
             exit;
@@ -71,16 +71,16 @@
             WHERE id = $user[id]
         ") or die(mysql_error());
         if ($effect['type'] == 9999 || $effect['type'] == 9994) {
-            $strAction = 'заразились';
-            $strItem   = ($effect['type'] == 9999) ? 'болезнью' : 'ядом' ;
+            $strAction = 'Р·Р°СЂР°Р·РёР»РёСЃСЊ';
+            $strItem   = ($effect['type'] == 9999) ? 'Р±РѕР»РµР·РЅСЊСЋ' : 'СЏРґРѕРј' ;
         }
         if ($effect['type'] == 9992 || $effect['type'] == 9993) {
-            $strAction = 'получили';
-            $strItem   = ($effect['type'] == 9992) ? 'проклятие' : 'благословение' ;
-            $strItem  .= ' Глубин';
+            $strAction = 'РїРѕР»СѓС‡РёР»Рё';
+            $strItem   = ($effect['type'] == 9992) ? 'РїСЂРѕРєР»СЏС‚РёРµ' : 'Р±Р»Р°РіРѕСЃР»РѕРІРµРЅРёРµ' ;
+            $strItem  .= ' Р“Р»СѓР±РёРЅ';
         }
-        $msg = 'Вы ' . $strAction . ' ' . $strItem . ' "' . $effect['name'] . '"'; 
-        addchp ('<font color=red>Внимание!</font> ' . $msg, '{[]}'.$user['login'].'{[]}');
+        $msg = 'Р’С‹ ' . $strAction . ' ' . $strItem . ' "' . $effect['name'] . '"'; 
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> ' . $msg, '{[]}'.$user['login'].'{[]}');
         header("Location: " . $_SERVER['PHP_SELF'] . ($msg ? '?msg=' . $msg : '' ));
         exit;
     }

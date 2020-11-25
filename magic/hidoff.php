@@ -1,6 +1,6 @@
 <?php
 
-	if ($user['invis']==0) {echo"<font color=red><b>На вас нет заклятия невидимости<b></font>";}
+	if ($user['invis']==0) {echo"<font color=red><b>РќР° РІР°СЃ РЅРµС‚ Р·Р°РєР»СЏС‚РёСЏ РЅРµРІРёРґРёРјРѕСЃС‚Рё<b></font>";}
        else{
 
         $tar = mysql_fetch_array(mysql_query("SELECT `id`,`align` FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
@@ -12,7 +12,7 @@
         
 }
         else {
-            echo "<font color=red><b>Персонаж \"$target\" не существует!<b></font>";
+            echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!<b></font>";
         }
         }
 $bet=1;

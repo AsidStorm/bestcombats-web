@@ -1,7 +1,7 @@
 /*
  * jQuery delegate plug-in v1.0
  *
- * Copyright (c) 2007 Jörn Zaefferer
+ * Copyright (c) 2007 JГ¶rn Zaefferer
  *
  * $Id: jquery.delegate.js 4786 2008-02-19 20:02:34Z joern.zaefferer $
  *

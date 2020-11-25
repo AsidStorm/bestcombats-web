@@ -18,8 +18,8 @@
   if ($row["prototype"]==1893) {$mf="mfdwater";$mfval=100;}
   if ($row["prototype"]==1894) {$mf="mfdair";$mfval=100;}
   if ($row["prototype"]==1895) {$mf="mfdearth";$mfval=100;}
-  if ($row["name"]=="Неуязвимость Оружию") {$mf="mfdhit";$mfval=250;}
-  if ($row["name"]=="Неуязвимость Стихиям") {$mf="mfdmag";$mfval=250;}
+  if ($row["name"]=="РќРµСѓСЏР·РІРёРјРѕСЃС‚СЊ РћСЂСѓР¶РёСЋ") {$mf="mfdhit";$mfval=250;}
+  if ($row["name"]=="РќРµСѓСЏР·РІРёРјРѕСЃС‚СЊ РЎС‚РёС…РёСЏРј") {$mf="mfdmag";$mfval=250;}
   if ($row["prototype"]=="1996") {$mf="mfdmag";$mfval=-125;$negative=1;}
   if ($row["prototype"]=="2064") {$mf="mfdhit";$mfval=-250;$negative=1;}
   if ($row["prototype"]=="2065") {$mf="mfhitp";$mfval=-30;$negative=1;}
@@ -29,29 +29,29 @@
 
   if (!$negative) $caster=$user["id"]; else $caster=0;
   if ($target["battle"]!=$user["battle"]) {
-    echo "Персонаж $_POST[target] вне пределов досягаемости!";
+    echo "РџРµСЂСЃРѕРЅР°Р¶ $_POST[target] РІРЅРµ РїСЂРµРґРµР»РѕРІ РґРѕСЃСЏРіР°РµРјРѕСЃС‚Рё!";
   } elseif (in_array($user["room"],$nodrink)) {
-    echo "Здесь запрещено пить эликсиры или пользоваться магией!";
+    echo "Р—РґРµСЃСЊ Р·Р°РїСЂРµС‰РµРЅРѕ РїРёС‚СЊ СЌР»РёРєСЃРёСЂС‹ РёР»Рё РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РјР°РіРёРµР№!";
   } elseif ($user["align"]==4 && $user["id"]!=$target["id"] && !$negative) {
-    echo "Персонажам со склонностью хаос запрещено использовать положительную магию на других персонажей.";
+    echo "РџРµСЂСЃРѕРЅР°Р¶Р°Рј СЃРѕ СЃРєР»РѕРЅРЅРѕСЃС‚СЊСЋ С…Р°РѕСЃ Р·Р°РїСЂРµС‰РµРЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїРѕР»РѕР¶РёС‚РµР»СЊРЅСѓСЋ РјР°РіРёСЋ РЅР° РґСЂСѓРіРёС… РїРµСЂСЃРѕРЅР°Р¶РµР№.";
   } elseif ($row["present"] && $user["id"]!=$target["id"]) {
-    echo "Подарочные свитки можно использовать только на себя.";
+    echo "РџРѕРґР°СЂРѕС‡РЅС‹Рµ СЃРІРёС‚РєРё РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РЅР° СЃРµР±СЏ.";
   } elseif (!$target) {
-    echo "Персонаж $_POST[target] не найден.";
+    echo "РџРµСЂСЃРѕРЅР°Р¶ $_POST[target] РЅРµ РЅР°Р№РґРµРЅ.";
   } elseif (!$target["online"]) {
-    echo "Персонаж не в игре.";
+    echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РёРіСЂРµ.";
   } elseif ($target["room"]!=$user["room"] && !$user["battle"]) {
-    echo "Персонаж в другой комнате.";
+    echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ.";
   } elseif (in_array($target["room"], $noattackrooms) && $negative) {
-    echo "В этой локации отрицательная магия запрещена.";
+    echo "Р’ СЌС‚РѕР№ Р»РѕРєР°С†РёРё РѕС‚СЂРёС†Р°С‚РµР»СЊРЅР°СЏ РјР°РіРёСЏ Р·Р°РїСЂРµС‰РµРЅР°.";
   } elseif (($user['battle'] > 0 || $target['battle'] > 0) && !$negative) {
-    echo "Не в бою...";
+    echo "РќРµ РІ Р±РѕСЋ...";
   } elseif($uses_zel && ($row['name']!=$uses_zel['name'] || $user["battle"] || $mfval<$uses_zel["mfval"])) {
-    echo "Еще не прошло действие старого заклятия.";
+    echo "Р•С‰Рµ РЅРµ РїСЂРѕС€Р»Рѕ РґРµР№СЃС‚РІРёРµ СЃС‚Р°СЂРѕРіРѕ Р·Р°РєР»СЏС‚РёСЏ.";
   } elseif(!$negative && time()+$ins_time-$uses_zel["time"]<600) {
-    echo "На персонаже уже есть такое заклятие.";
+    echo "РќР° РїРµСЂСЃРѕРЅР°Р¶Рµ СѓР¶Рµ РµСЃС‚СЊ С‚Р°РєРѕРµ Р·Р°РєР»СЏС‚РёРµ.";
   } elseif ($user['battle'] && in_array($target['id'],$fbattle->team_mine) && $user["id"]!=7) {
-    echo "Нельзя проклинать союзников!"; 
+    echo "РќРµР»СЊР·СЏ РїСЂРѕРєР»РёРЅР°С‚СЊ СЃРѕСЋР·РЅРёРєРѕРІ!"; 
   } else {
     if(!$uses_zel && !$user["battle"]){
       if ($mf=="mfdmag" || $mf=="mfdhit") mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`, caster, $mf) values ('".$target['id']."','".$row['name']."',".(time()+$ins_time).",187, '$caster', '$mfval')");
@@ -65,26 +65,26 @@
       $fbattle->getbu($target["id"]);
       $effid=$row["prototype"];
       if ($uses_zel || $fbattle->battleunits[$target["id"]]["effects"][$effid]) {
-        echo "Еще не прошло действие старого заклятия.";
+        echo "Р•С‰Рµ РЅРµ РїСЂРѕС€Р»Рѕ РґРµР№СЃС‚РІРёРµ СЃС‚Р°СЂРѕРіРѕ Р·Р°РєР»СЏС‚РёСЏ.";
       } else {
         $fbattle->toupdatebu[$target["id"]][$mf]+=$mfval;
         $fbattle->toupdatebu[$target["id"]]["effects"]=1;
         $fbattle->needupdatebu=1;
         $fbattle->getbu($target["id"]);
         $fbattle->battleunits[$target["id"]]["effects"]["$effid"]["img"]=IMGBASE."/i/misc/icon_$row[img]";
-        $fbattle->battleunits[$target["id"]]["effects"]["$effid"]["name"]="<b>$row[name]</b> (заклятие)";
+        $fbattle->battleunits[$target["id"]]["effects"]["$effid"]["name"]="<b>$row[name]</b> (Р·Р°РєР»СЏС‚РёРµ)";
         $fbattle->battleunits[$target["id"]]["effects"]["$effid"]["bad"]=1;
         $fbattle->battleunits[$target["id"]]["effects"]["$effid"]["mf"]=$mf;
         $fbattle->battleunits[$target["id"]]["effects"]["$effid"]["val"]=$mfval;
         $fbattle->battleunits[$target["id"]]["effects"]["$effid"]["type"]=1;
-        $fbattle->add_log('<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' использовал'.($user["sex"]==1?"":"а").' заклятие <b>'.$row["name"].'</b> на '.nick5($target['id'],$fbattle->en_class).' <BR>');
+        $fbattle->add_log('<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' РёСЃРїРѕР»СЊР·РѕРІР°Р»'.($user["sex"]==1?"":"Р°").' Р·Р°РєР»СЏС‚РёРµ <b>'.$row["name"].'</b> РЅР° '.nick5($target['id'],$fbattle->en_class).' <BR>');
         $fbattle->write_log ();
-        echo "Успнешно наложено заклятие $row[name]."; 
+        echo "РЈСЃРїРЅРµС€РЅРѕ РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ $row[name]."; 
         $bet=1;
       }
     } else {
-      echo "<font color=red><b>На персонажа \"{$_POST['target']}\" наложено заклятие \"$row[name]\" </b></font>";
-      addch("<img src=i/magic/$row[img]>".($user["invis"]?"Невидимка":"Персонаж &quot;{$user['login']}&quot;")." наложил заклятие \"$row[name]\" на &quot;".($user["invis"] && $user["login"]==$_POST['target']?"Невидимка":"$_POST[target]")."&quot;, сроком ".($negative?"1 час":"2 часа").".");
+      echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° \"{$_POST['target']}\" РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ \"$row[name]\" </b></font>";
+      addch("<img src=i/magic/$row[img]>".($user["invis"]?"РќРµРІРёРґРёРјРєР°":"РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot;")." РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ \"$row[name]\" РЅР° &quot;".($user["invis"] && $user["login"]==$_POST['target']?"РќРµРІРёРґРёРјРєР°":"$_POST[target]")."&quot;, СЃСЂРѕРєРѕРј ".($negative?"1 С‡Р°СЃ":"2 С‡Р°СЃР°").".");
       $bet=1;
     }
   }

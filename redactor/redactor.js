@@ -3854,7 +3854,7 @@
 			}
 
 			// bullets
-			html = html.replace(/<p>•([\w\W]*?)<\/p>/gi, '<li>$1</li>');
+			html = html.replace(/<p>вЂў([\w\W]*?)<\/p>/gi, '<li>$1</li>');
 
 			// ie inserts a blank font tags when pasting
 			while (/<font>([\w\W]*?)<\/font>/gi.test(html))

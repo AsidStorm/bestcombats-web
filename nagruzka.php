@@ -15,39 +15,39 @@
 <table align=right>
 	<tr>
 		<td>
-			<INPUT TYPE="button" onClick="location.href='?rnd=0.872328978425941'" class="knopka" value="Обновить"> 
+			<INPUT TYPE="button" onClick="location.href='?rnd=0.872328978425941'" class="knopka" value="РћР±РЅРѕРІРёС‚СЊ"> 
 		</td>
 		<td>
-		<INPUT TYPE="button" onClick="location.href='a.php';" value="Вернуться" title="Вернуться">
+		<INPUT TYPE="button" onClick="location.href='a.php';" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" title="Р’РµСЂРЅСѓС‚СЊСЃСЏ">
 		</td>
 	</tr>
 </table>
 
-<h4>Средняя загрузка</h4>
+<h4>РЎСЂРµРґРЅСЏСЏ Р·Р°РіСЂСѓР·РєР°</h4>
 <?
-	echo "<B>за 1 минуту:</B> ".($la[0]*100)."% ";
+	echo "<B>Р·Р° 1 РјРёРЅСѓС‚Сѓ:</B> ".($la[0]*100)."% ";
 	if ($la[0] < 0.16) {
-		echo "<font color=green>низкая</font>";
+		echo "<font color=green>РЅРёР·РєР°СЏ</font>";
 	} elseif ($la[0] < 0.25) {
-		echo "<font color=orange>средняя</font>";
+		echo "<font color=orange>СЃСЂРµРґРЅСЏСЏ</font>";
 	} elseif ($la[0] > 0.25) {
-		echo "<font color=red>высокая</font>";
+		echo "<font color=red>РІС‹СЃРѕРєР°СЏ</font>";
 	}
-	echo "<BR><B>за 5 минут:</B> ".($la[1]*100)."% ";
+	echo "<BR><B>Р·Р° 5 РјРёРЅСѓС‚:</B> ".($la[1]*100)."% ";
 	if ($la[1] < 0.16) {
-		echo "<font color=green>низкая</font>";
+		echo "<font color=green>РЅРёР·РєР°СЏ</font>";
 	} elseif ($la[1] < 0.25) {
-		echo "<font color=orange>средняя</font>";
+		echo "<font color=orange>СЃСЂРµРґРЅСЏСЏ</font>";
 	} elseif ($la[1] > 0.25) {
-		echo "<font color=red>высокая</font>";
+		echo "<font color=red>РІС‹СЃРѕРєР°СЏ</font>";
 	}
-	echo "<BR><B>за 15 минут:</B> ".($la[2]*100)."% ";
+	echo "<BR><B>Р·Р° 15 РјРёРЅСѓС‚:</B> ".($la[2]*100)."% ";
 	if ($la[2] < 0.16) {
-		echo "<font color=green>низкая</font>";
+		echo "<font color=green>РЅРёР·РєР°СЏ</font>";
 	} elseif ($la[2] < 0.25) {
-		echo "<font color=orange>средняя</font>";
+		echo "<font color=orange>СЃСЂРµРґРЅСЏСЏ</font>";
 	} elseif ($la[2] > 0.25) {
-		echo "<font color=red>высокая</font>";
+		echo "<font color=red>РІС‹СЃРѕРєР°СЏ</font>";
 	}
 //	$up=exec("uptime");
 //	echo "<br>".substr($up,0,strpos($up,','));
@@ -58,15 +58,15 @@ $online = mysql_query("select * from `online`  WHERE `real_time` >= ".(time()-60
 ?>
 
 
-<br>(сейчас в клубе <?=mysql_num_rows($online)?> чел.)<br><br>
-<?$num = mysql_num_rows(mysql_query("SELECT `id` FROM `users` WHERE bot not like '1'"));echo"Зарегистрированных:<font color=black><b> ".$num." </font></b>чел.<br>";?></td><?$bl = mysql_num_rows(mysql_query("SELECT `block` FROM `users` WHERE `block` =1"));echo"Заблокировнных:<font color=red><b> ".$bl." </b></font>чел.<br>";?><?$haos = mysql_num_rows(mysql_query("SELECT `align` FROM `users` WHERE `align` =4"));echo"В Хаосе:<font color=red><b> ".$haos." </b></font>чел.<br><br>";
+<br>(СЃРµР№С‡Р°СЃ РІ РєР»СѓР±Рµ <?=mysql_num_rows($online)?> С‡РµР».)<br><br>
+<?$num = mysql_num_rows(mysql_query("SELECT `id` FROM `users` WHERE bot not like '1'"));echo"Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С…:<font color=black><b> ".$num." </font></b>С‡РµР».<br>";?></td><?$bl = mysql_num_rows(mysql_query("SELECT `block` FROM `users` WHERE `block` =1"));echo"Р—Р°Р±Р»РѕРєРёСЂРѕРІРЅРЅС‹С…:<font color=red><b> ".$bl." </b></font>С‡РµР».<br>";?><?$haos = mysql_num_rows(mysql_query("SELECT `align` FROM `users` WHERE `align` =4"));echo"Р’ РҐР°РѕСЃРµ:<font color=red><b> ".$haos." </b></font>С‡РµР».<br><br>";
 
 
 if (!$_POST['dlogs']) {$_POST['dlogs']=date("d.m.y");}
 
 $ddate33="20".substr($_POST['dlogs'],6,2)."-".substr($_POST['dlogs'],3,2)."-".substr($_POST['dlogs'],0,2)."";			
 $res = mysql_fetch_array(mysql_query("select count(`id`) from `users` where `borntime` LIKE '".$ddate33." %';"));
-echo "За Сегодня ".$res[0]." </b>чел.";
+echo "Р—Р° РЎРµРіРѕРґРЅСЏ ".$res[0]." </b>С‡РµР».";
 ?>
 </BODY>
 </HTML>

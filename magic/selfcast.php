@@ -1,14 +1,14 @@
 <?php
   function magictime($hrs) {
     if ($hrs<=24) {
-      if ($hrs%10==1) return "$hrs час";
-      if ($hrs%10==0 || $hrs%10>=5) return "$hrs часов";
-      return "$hrs часа";
+      if ($hrs%10==1) return "$hrs С‡Р°СЃ";
+      if ($hrs%10==0 || $hrs%10>=5) return "$hrs С‡Р°СЃРѕРІ";
+      return "$hrs С‡Р°СЃР°";
     }
     $d=floor($hrs/24);
-    if ($d%10==1) return "$d день";
-    if ($d%10==0 || $d%10>=5) return "$d дней";
-    return "$d дня";
+    if ($d%10==1) return "$d РґРµРЅСЊ";
+    if ($d%10==0 || $d%10>=5) return "$d РґРЅРµР№";
+    return "$d РґРЅСЏ";
   }
 
   if ($row["prototype"]==2315) {
@@ -33,17 +33,17 @@
 
   global $nodrink;
   if (in_array($user["room"],$nodrink)) {
-    echo "Здесь запрещено пить эликсиры и пользоваться магией!";
+    echo "Р—РґРµСЃСЊ Р·Р°РїСЂРµС‰РµРЅРѕ РїРёС‚СЊ СЌР»РёРєСЃРёСЂС‹ Рё РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РјР°РіРёРµР№!";
   } elseif ($user['battle'] > 0) {
-    echo "Не в бою...";
+    echo "РќРµ РІ Р±РѕСЋ...";
   } else {
     if(!$uses_zel){
       mq("insert into effects set owner='$user[id]', name='$row[name]' , time=".(time()+$ins_time).", type='$type'");
     } else {
       updeffect($user["id"], $uses_zel, $ins_time, $row, 0, ($row['name']!=$uses_zel['name']?$row["name"]:""));
     }
-    echo "Успешно использовано заклятие &quot;".$row['name']."&quot;.";
-    addch("<img src=i/magic/$row[magic].gif>".($user["invis"]?"Невидимка":"Персонаж &quot;{$user['login']}&quot;")." использовал заклятие \"$row[name]\" сроком ".magictime(floor($magic["time"]/60)).".");
+    echo "РЈСЃРїРµС€РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅРѕ Р·Р°РєР»СЏС‚РёРµ &quot;".$row['name']."&quot;.";
+    addch("<img src=i/magic/$row[magic].gif>".($user["invis"]?"РќРµРІРёРґРёРјРєР°":"РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot;")." РёСЃРїРѕР»СЊР·РѕРІР°Р» Р·Р°РєР»СЏС‚РёРµ \"$row[name]\" СЃСЂРѕРєРѕРј ".magictime(floor($magic["time"]/60)).".");
     updeffects($user["id"]);
     $bet=1;
   }

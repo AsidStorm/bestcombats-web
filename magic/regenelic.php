@@ -6,11 +6,11 @@ $efftime=$magic["time"]*60;
 
 global $nodrink;
 if (in_array($user["room"],$nodrink)) {
-  echo "Здесь запрещено пить эликсиры!";
+  echo "Р—РґРµСЃСЊ Р·Р°РїСЂРµС‰РµРЅРѕ РїРёС‚СЊ СЌР»РёРєСЃРёСЂС‹!";
 } elseif ($user["battle"]>0) {
-  echo "Не в бою...";
+  echo "РќРµ РІ Р±РѕСЋ...";
 } elseif($elix && $row["name"]!=$elix["name"]) {
-  echo "Еще не прошло действие старого эликсира.";
+  echo "Р•С‰Рµ РЅРµ РїСЂРѕС€Р»Рѕ РґРµР№СЃС‚РІРёРµ СЃС‚Р°СЂРѕРіРѕ СЌР»РёРєСЃРёСЂР°.";
 } else {
   if(!$elix){
     mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$user[id]','$row[name]', ".(time()+$efftime).",$et)");
@@ -18,7 +18,7 @@ if (in_array($user["room"],$nodrink)) {
     updeffect($user["id"], $elix, $efftime, $row, 1);
   }
   mq("delete from effects where owner='$user[id]' and type=".($et==28?HPADDICTIONEFFECT:MANAADDICTIONEFFECT));
-  echo "Выпит эликсир &quot;".$row['name']."&quot;.";
+  echo "Р’С‹РїРёС‚ СЌР»РёРєСЃРёСЂ &quot;".$row['name']."&quot;.";
   updeffects();
   $bet=1;
 }

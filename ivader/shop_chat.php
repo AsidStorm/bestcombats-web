@@ -47,18 +47,18 @@ document.getElementById("mmoves").style.visibility = 'hidden';
 	function w(name,id,align,klan,level,slp,trv,deal,battle,name2,afk) {
 			if (align.length>0) {
 				altext="";
-				if (align>2 && align<2.5) altext = "Ангел";
-				if (align == 2.5) altext = "Ангел-Администратор";
-                if (align == 2.6) altext = "Ангел";
-				if (align>2.6 && align<3) altext = "Ангел";
-				if (align>3.00 && align<4) altext = "Тёмное Братство";
-				if (align>1 && align<2 && klan !="mu") altext = "Паладин";
-				if (align>1 && align<2 && klan =="mu") altext = "Падший ангел";
-				if ( align == 0.98 ) altext ="Тёмный";
-				if ( align == 777 ) altext ="Ангел Падальщик";
-				if ( align == 4 ) altext ="В хаосе";
-				if ( align == 7 ) altext ="Нейтрал";
-				if ( align == 0.99 ) altext ="Светлый";
+				if (align>2 && align<2.5) altext = "РђРЅРіРµР»";
+				if (align == 2.5) altext = "РђРЅРіРµР»-РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ";
+                if (align == 2.6) altext = "РђРЅРіРµР»";
+				if (align>2.6 && align<3) altext = "РђРЅРіРµР»";
+				if (align>3.00 && align<4) altext = "РўС‘РјРЅРѕРµ Р‘СЂР°С‚СЃС‚РІРѕ";
+				if (align>1 && align<2 && klan !="mu") altext = "РџР°Р»Р°РґРёРЅ";
+				if (align>1 && align<2 && klan =="mu") altext = "РџР°РґС€РёР№ Р°РЅРіРµР»";
+				if ( align == 0.98 ) altext ="РўС‘РјРЅС‹Р№";
+				if ( align == 777 ) altext ="РђРЅРіРµР» РџР°РґР°Р»СЊС‰РёРє";
+				if ( align == 4 ) altext ="Р’ С…Р°РѕСЃРµ";
+				if ( align == 7 ) altext ="РќРµР№С‚СЂР°Р»";
+				if ( align == 0.99 ) altext ="РЎРІРµС‚Р»С‹Р№";
 				if (!name2) name2=name;
 				align='<img src="http://img.old-bk.ru/i/align_'+align+'.gif" title="'+altext+'" width=13 height=15>';
 				}
@@ -67,14 +67,14 @@ document.getElementById("mmoves").style.visibility = 'hidden';
                         if (klan.length>0) { klan='<A HREF="/claninf.php?'+klan+'" target=_blank><img src="http://img.old-bk.ru/i/klan/'+klan+'.gif" title="'+klan+'" width=24 height=15></A>';}
 
                         if (deal>0) { klan+='<img src="http://img.old-bk.ru/i/deal.gif" width=15 height=15>';}
-                        if (afk>0) {document.write('<font style=\'font-size:11px;\' onmouseover="javascript:fastshow(\'персонажа нет на месте\');" onmouseout="javascript:hideshow();"> <b>afk</b></font> ');}
+                        if (afk>0) {document.write('<font style=\'font-size:11px;\' onmouseover="javascript:fastshow(\'РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµС‚ РЅР° РјРµСЃС‚Рµ\');" onmouseout="javascript:hideshow();"> <b>afk</b></font> ');}
 
-                        document.write('<A HREF="javascript:top.AddToPrivate(\''+name+'\', top.CtrlPress)" target=refreshed><img src="http://img.old-bk.ru/i/lock.gif" '+filter+' title="Приват" width=20 height=15></A>'+align);
+                        document.write('<A HREF="javascript:top.AddToPrivate(\''+name+'\', top.CtrlPress)" target=refreshed><img src="http://img.old-bk.ru/i/lock.gif" '+filter+' title="РџСЂРёРІР°С‚" width=20 height=15></A>'+align);
 
                         document.write('<a href="(\''+name+'\',true)"></a>'+klan);
-	                document.write('<a href="javascript:top.AddTo(\''+name+'\')" target=refreshed>'+name2+'</a>['+level+']<a href="inf.php?'+id+'" target=_blank title="Инф. о '+name+'">'+'<IMG SRC="http://img.old-bk.ru/i/inf.gif" WIDTH=12 HEIGHT=11 BORDER=0 ALT="Инф. о '+name+'"></a>');
-			if (slp>0) { document.write(' <IMG SRC="http://img.old-bk.ru/i/sleep2.gif" WIDTH=24 HEIGHT=15 BORDER=0 ALT="Наложено заклятие молчания">'); }
-			if (trv>0) { document.write(' <IMG SRC="http://img.old-bk.ru/i/travma2.gif" WIDTH=24 HEIGHT=15 BORDER=0 ALT="Инвалидность">'); }
+	                document.write('<a href="javascript:top.AddTo(\''+name+'\')" target=refreshed>'+name2+'</a>['+level+']<a href="inf.php?'+id+'" target=_blank title="РРЅС„. Рѕ '+name+'">'+'<IMG SRC="http://img.old-bk.ru/i/inf.gif" WIDTH=12 HEIGHT=11 BORDER=0 ALT="РРЅС„. Рѕ '+name+'"></a>');
+			if (slp>0) { document.write(' <IMG SRC="http://img.old-bk.ru/i/sleep2.gif" WIDTH=24 HEIGHT=15 BORDER=0 ALT="РќР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ">'); }
+			if (trv>0) { document.write(' <IMG SRC="http://img.old-bk.ru/i/travma2.gif" WIDTH=24 HEIGHT=15 BORDER=0 ALT="РРЅРІР°Р»РёРґРЅРѕСЃС‚СЊ">'); }
 			document.write('<BR>');
 	}
 	top.rld();
@@ -85,7 +85,7 @@ document.getElementById("mmoves").style.visibility = 'hidden';
 <body mardginwidth=0 leftmardgin=0 leftmargin=0 marginwidth=0 bgcolor=#faf2f2 onscroll="top.myscroll()" onLoad="document.body.scrollTop=top.OnlineOldPosition">
 <center>
 <form method="post" name="onl" id="onl" action="/ch.php?online=<?=mt_rand(1000,1000000000)?>">
-<INPUT TYPE=submit value="Обновить">
+<INPUT TYPE=submit value="РћР±РЅРѕРІРёС‚СЊ">
 
 </center>
 <font style="COLOR:#8f0000;FONT-SIZE:10pt"><B><?=$rooms[$user['room']]?> (<?=mysql_num_rows($data)?>)</B></font>
@@ -128,9 +128,9 @@ if($user['room']==5 && vrag=="on"){
 			if ($row['klan']!="") { $klan='<A HREF="/claninf.php?'.$row['klan'].'" target=_blank><img src=http://img.old-bk.ru/i/klan/'.$row['klan'].'.gif title='.$row['klan'].' width=24 height=15></A>';}else{$klan="";}
 			if ((int)$row['deal']>0) { $klan.='<img src="http://img.old-bk.ru/i/deal.gif" width=12 height=15>';}
 
-			echo "<A HREF=\"javascript:top.AddToPrivate('{$row['login']}', top.CtrlPress)\" target=refreshed><img src=\"http://img.old-bk.ru/i/lock.gif\" ". $filter ." title=\"Приват\" width=20 height=15></A><img src=\"http://img.old-bk.ru/i/align_{$row['align']}.gif\" width=12 height=15>{$klan}{$act_line}<a href=\"javascript:top.AddTo('{$row['login']}')\" target=refreshed>{$row['login']}</a>[{$row['level']}]<a href=\"inf.php?{$row['id']}\" target=_blank title=\"Инф. о {$row['login']}\"><IMG SRC=\"http://img.old-bk.ru/i/inf.gif\" WIDTH=12 HEIGHT=11 BORDER=0 ALT=\"Инф. о {$row['login']}\"></a>";
-			if ((int)$row['slp']>0) { echo(' <IMG SRC="http://img.old-bk.ru/i/sleep2.gif" WIDTH=24 HEIGHT=15 BORDER=0 ALT="Наложено заклятие молчания">'); }
-			if ((int)$row['trv']>0) { echo(' <IMG SRC="http://img.old-bk.ru/i/travma2.gif" WIDTH=24 HEIGHT=15 BORDER=0 ALT="Инвалидность">'); }
+			echo "<A HREF=\"javascript:top.AddToPrivate('{$row['login']}', top.CtrlPress)\" target=refreshed><img src=\"http://img.old-bk.ru/i/lock.gif\" ". $filter ." title=\"РџСЂРёРІР°С‚\" width=20 height=15></A><img src=\"http://img.old-bk.ru/i/align_{$row['align']}.gif\" width=12 height=15>{$klan}{$act_line}<a href=\"javascript:top.AddTo('{$row['login']}')\" target=refreshed>{$row['login']}</a>[{$row['level']}]<a href=\"inf.php?{$row['id']}\" target=_blank title=\"РРЅС„. Рѕ {$row['login']}\"><IMG SRC=\"http://img.old-bk.ru/i/inf.gif\" WIDTH=12 HEIGHT=11 BORDER=0 ALT=\"РРЅС„. Рѕ {$row['login']}\"></a>";
+			if ((int)$row['slp']>0) { echo(' <IMG SRC="http://img.old-bk.ru/i/sleep2.gif" WIDTH=24 HEIGHT=15 BORDER=0 ALT="РќР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ">'); }
+			if ((int)$row['trv']>0) { echo(' <IMG SRC="http://img.old-bk.ru/i/travma2.gif" WIDTH=24 HEIGHT=15 BORDER=0 ALT="РРЅРІР°Р»РёРґРЅРѕСЃС‚СЊ">'); }
 			echo "</br>";
 			
 			}
@@ -139,7 +139,7 @@ if($user['room']==5 && vrag=="on"){
 <!-- </script> 
 -->
 </td></tr></table>
-	<SCRIPT>document.write('<INPUT TYPE=checkbox onclick="if(this.checked == true) { top.OnlineStop = false; } else { top.OnlineStop=true; }" '+(top.OnlineStop?'':'checked')+'> Обновлять автомат.')
+	<SCRIPT>document.write('<INPUT TYPE=checkbox onclick="if(this.checked == true) { top.OnlineStop = false; } else { top.OnlineStop=true; }" '+(top.OnlineStop?'':'checked')+'> РћР±РЅРѕРІР»СЏС‚СЊ Р°РІС‚РѕРјР°С‚.')
 	</SCRIPT></body></html>
 <?php
 	die();
@@ -265,7 +265,7 @@ if($user['room']==5 && vrag=="on"){
 						$res=trim($res);
 						if ($sound==false)
 							$sound=($res==$user['login'])?true:false;
-						if (strlen($res)<3 || strlen($res)>25 || !ereg("^[ёa-zA-Zа-яА-Я0-9-][ёa-zA-Zа-яА-Я0-9_ -]+[a-zA-Zа-яА-Я0-9ё-]$",$res)  || preg_match("/__/",$res) || preg_match("/--/",$res) || preg_match("/  /",$res) || preg_match("/(.)\\1\\1\\1/",$res)){
+						if (strlen($res)<3 || strlen($res)>25 || !ereg("^[С‘a-zA-ZР°-СЏРђ-РЇ0-9-][С‘a-zA-ZР°-СЏРђ-РЇ0-9_ -]+[a-zA-ZР°-СЏРђ-РЇ0-9С‘-]$",$res)  || preg_match("/__/",$res) || preg_match("/--/",$res) || preg_match("/  /",$res) || preg_match("/(.)\\1\\1\\1/",$res)){
 							$math[3]=str_replace($res,$user['login'],$math[3]);
 						}
 					}
@@ -384,7 +384,7 @@ $tmptext=$_GET['text'];
 			if (filesize("/chat.txt")>100*1024) {
 				//file_put_contents("chat.txt", file_get_contents("chat.txt", NULL, NULL, 3*1024), LOCK_EX);
 				// chmod("$fp", 0644);
-				// удаление последней строки
+				// СѓРґР°Р»РµРЅРёРµ РїРѕСЃР»РµРґРЅРµР№ СЃС‚СЂРѕРєРё
 			if ($action!=1) {
 				$file=file("/chat.txt");
 				$fp=fopen("/chat.txt","w");
@@ -393,18 +393,18 @@ $tmptext=$_GET['text'];
 					unset($file[$s]);
 				}
 				fputs($fp, implode("",$file));
-				fputs($fp ,"\r\n:[".time ()."]:[{$user['login']}]:[<font color=\"".(($user['color'])?$user['color']:"#000000")."\">".($_GET['text'])."</font>]:[".$user['room']."]\r\n"); //работа с файлом
+				fputs($fp ,"\r\n:[".time ()."]:[{$user['login']}]:[<font color=\"".(($user['color'])?$user['color']:"#000000")."\">".($_GET['text'])."</font>]:[".$user['room']."]\r\n"); //СЂР°Р±РѕС‚Р° СЃ С„Р°Р№Р»РѕРј
 				flock ($fp,LOCK_UN);
 				fclose($fp);
 				}
 			}else{
 				if ($action!=1) {
-					$fp = fopen ("/chat.txt","a"); //открытие
-					flock ($fp,LOCK_EX); //БЛОКИРОВКА ФАЙЛА
-					fputs($fp ,":[".time ()."]:[{$user['login']}]:[<font color=\"".(($user['color'])?$user['color']:"#000000")."\">".($_GET['text'])."</font>]:[".$user['room']."]\r\n"); //работа с файлом
-					fflush ($fp); //ОЧИЩЕНИЕ ФАЙЛОВОГО БУФЕРА И ЗАПИСЬ В ФАЙЛ
-					flock ($fp,LOCK_UN); //СНЯТИЕ БЛОКИРОВКИ
-					fclose ($fp); //закрытие
+					$fp = fopen ("/chat.txt","a"); //РѕС‚РєСЂС‹С‚РёРµ
+					flock ($fp,LOCK_EX); //Р‘Р›РћРљРР РћР’РљРђ Р¤РђР™Р›Рђ
+					fputs($fp ,":[".time ()."]:[{$user['login']}]:[<font color=\"".(($user['color'])?$user['color']:"#000000")."\">".($_GET['text'])."</font>]:[".$user['room']."]\r\n"); //СЂР°Р±РѕС‚Р° СЃ С„Р°Р№Р»РѕРј
+					fflush ($fp); //РћР§РР©Р•РќРР• Р¤РђР™Р›РћР’РћР“Рћ Р‘РЈР¤Р•Р Рђ Р Р—РђРџРРЎР¬ Р’ Р¤РђР™Р›
+					flock ($fp,LOCK_UN); //РЎРќРЇРўРР• Р‘Р›РћРљРР РћР’РљР
+					fclose ($fp); //Р·Р°РєСЂС‹С‚РёРµ
 				}
 			}
 			

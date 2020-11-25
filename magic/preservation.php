@@ -2,10 +2,10 @@
 
 if ($_SESSION['uid'] == null) header("Location: index.php");
 if (!$user["battle"]) {
-  echo "Этот свиток можно использовать только в бою.";
+  echo "Р­С‚РѕС‚ СЃРІРёС‚РѕРє РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РІ Р±РѕСЋ.";
 } else {
   global $report, $scrollresult;
-  $report="Успнешно использован свиток $row[name].";
+  $report="РЈСЃРїРЅРµС€РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅ СЃРІРёС‚РѕРє $row[name].";
   $bet=1;  
   $scrollresult["report"]=$report;
   $scrollresult["selfcast"]=1;

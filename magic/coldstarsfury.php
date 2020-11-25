@@ -1,19 +1,19 @@
 <?
   if (!$user["battle"]) {
-    echo "Это боевая магия."; 
+    echo "Р­С‚Рѕ Р±РѕРµРІР°СЏ РјР°РіРёСЏ."; 
   } elseif ($user["hp"]<=0) { 
-    echo "Вам это уже не пригодится!"; 
+    echo "Р’Р°Рј СЌС‚Рѕ СѓР¶Рµ РЅРµ РїСЂРёРіРѕРґРёС‚СЃСЏ!"; 
   } elseif ($fbattle->battleunits[$user["id"]]["additdata"]["s_duh"]<=0) {
-    echo "Недостаточно силы духа."; 
+    echo "РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃРёР»С‹ РґСѓС…Р°."; 
   } else {
     if ($user['sex'] == 1) {$action="";}
-    else {$action="а";}
-    $fbattle->add_log('<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$fbattle->my_class).' использовал'.$action.' заклятие <b>'.$row["name"].'</b>.<BR>');
+    else {$action="Р°";}
+    $fbattle->add_log('<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$fbattle->my_class).' РёСЃРїРѕР»СЊР·РѕРІР°Р»'.$action.' Р·Р°РєР»СЏС‚РёРµ <b>'.$row["name"].'</b>.<BR>');
     //$fbattle->write_log ();
     $fbattle->addeffect($user["id"], COLDSTARSFURY, 1, 0, "coldstarsfury", array(), 0);
     $fbattle->battleunits[$user["id"]]["additdata"]["s_duh"]-=1000;
     $fbattle->needupdateaddit[$user["id"]]=1;
-    echo "Усешно использован свиток $row[name].";
+    echo "РЈСЃРµС€РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅ СЃРІРёС‚РѕРє $row[name].";
     $bet=1;
   }
 ?>

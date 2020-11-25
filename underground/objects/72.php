@@ -16,8 +16,8 @@
       $it=mqfa("select id, name from fielditems where field='$user[caveleader]' and x='".($tx*2)."' and y='".($ty*2)."'");
       if ($it) {
         mq("update fielditems set x=".($x*2).", y=".($y*2)." where id='$it[id]'");
-        $report="Â ñóíäóêå âû îáíàðóæèëè $it[name].";
+        $report="Ð’ ÑÑƒÐ½Ð´ÑƒÐºÐµ Ð²Ñ‹ Ð¾Ð±Ð½Ð°Ñ€ÑƒÐ¶Ð¸Ð»Ð¸ $it[name].";
       }
-    } else $report="Ýòîò ñóíäóê ïóñòîé.";
+    } else $report="Ð­Ñ‚Ð¾Ñ‚ ÑÑƒÐ½Ð´ÑƒÐº Ð¿ÑƒÑÑ‚Ð¾Ð¹.";
   }
 ?>

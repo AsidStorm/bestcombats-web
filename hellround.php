@@ -3,7 +3,7 @@
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "connect.php";
 	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
-	$kasanie_haosa = mysql_fetch_array(mysql_query("SELECT time FROM `effects` WHERE `owner` = '{$_SESSION['uid']}' and name='Касание хаоса' LIMIT 1;"));
+	$kasanie_haosa = mysql_fetch_array(mysql_query("SELECT time FROM `effects` WHERE `owner` = '{$_SESSION['uid']}' and name='РљР°СЃР°РЅРёРµ С…Р°РѕСЃР°' LIMIT 1;"));
 	include "functions.php";
 	if ($user['room'] != 2002) {header("Location: main.php");}
     if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
@@ -34,7 +34,7 @@
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=#e0e0e0>
 <TABLE width=100%>
 <TR>
-<TD valign=top width=100%><center><font style="font-size:24px; color:#000033"><h3>Излом Хаоса</h3></font></center></td>
+<TD valign=top width=100%><center><font style="font-size:24px; color:#000033"><h3>РР·Р»РѕРј РҐР°РѕСЃР°</h3></font></center></td>
 <TD nowrap valign=top>
 <BR><DIV align=right>
 <td width=280 valign=top><TABLE cellspacing=0 cellpadding=0><TD width=100%>&nbsp;</TD><TD><HTML>
@@ -81,7 +81,7 @@ document.getElementById("mmoves").style.visibility = 'hidden';
 
 <TABLE height=15 border="0" cellspacing="0" cellpadding="0">
 <TR>
-<TD rowspan=3 valign="bottom"><a href="?rnd=0.313154328583547"><img src="http://img.combats.com/i/move/rel_1.gif" width="15" height="16" alt="Обновить" border="0" /></a></TD>
+<TD rowspan=3 valign="bottom"><a href="?rnd=0.313154328583547"><img src="http://img.combats.com/i/move/rel_1.gif" width="15" height="16" alt="РћР±РЅРѕРІРёС‚СЊ" border="0" /></a></TD>
 <TD colspan="3"><img src="http://img.combats.com/i/move/navigatin_462.gif" width="80" height="4" /></TD>
 </TR>
 <TR>
@@ -102,13 +102,13 @@ document.getElementById("mmoves").style.visibility = 'hidden';
 
 <tr>
 <td ><img src="http://img.combats.com/i/move/links.gif" width="9" height="7" /></td>
-<td  nowrap><a href="city.php?cp=1" onClick="return check_access();" class="menutop">Центральная Площадь</a></td>
+<td  nowrap><a href="city.php?cp=1" onClick="return check_access();" class="menutop">Р¦РµРЅС‚СЂР°Р»СЊРЅР°СЏ РџР»РѕС‰Р°РґСЊ</a></td>
 </tr>
 </table>
 </td>
 </tr>
 </table>
-<!-- <br /><span class="menutop"><nobr>Общежитие</nobr></span>-->
+<!-- <br /><span class="menutop"><nobr>РћР±С‰РµР¶РёС‚РёРµ</nobr></span>-->
 </td>
 </tr>
 </table>
@@ -185,30 +185,30 @@ progress_update();
 <table>
 <TR>
 <TD><FORM>
-<input type="radio" name="start" value="7"  <? If($user['level']<>5 or !isset($kasanie_haosa) or $kasanie_haosa['time']>time() ){echo'disabled';}  ?> >Проход для новичков</input>&nbsp;<br/>
-<input type="radio" name="start" value="8"  <? If($user['level']<>8 or !isset($kasanie_haosa) or $kasanie_haosa['time']>time() ){echo'disabled';}  ?> >Проход для жителей</input>&nbsp;<br/>
-<input type="radio" name="start" value="9"  <? If($user['level']<>9 or !isset($kasanie_haosa) or $kasanie_haosa['time']>time() ){echo'disabled';}  ?> >Проход для любителей</input>&nbsp;<br/>
-<input type="radio" name="start" value="10"  <? If($user['level']<>10 or !isset($kasanie_haosa) or $kasanie_haosa['time']>time() ){echo'disabled';}  ?> >Проход для бывалых</input>&nbsp;<br/>
-<input type="radio" name="start" value="11" <? If($user['level']<>11 or !isset($kasanie_haosa) or $kasanie_haosa['time']>time() ){echo'disabled';} ?> >Проход для профессионалов</input>&nbsp;<br/>
-<input type="radio" name="start" value="12" <? If($user['level']<>12 or !isset($kasanie_haosa) or $kasanie_haosa['time']>time() ){echo'disabled';} ?> >Проход для легенд</input>&nbsp;<br/>
-<INPUT type='submit' value='Начать поход'>
+<input type="radio" name="start" value="7"  <? If($user['level']<>5 or !isset($kasanie_haosa) or $kasanie_haosa['time']>time() ){echo'disabled';}  ?> >РџСЂРѕС…РѕРґ РґР»СЏ РЅРѕРІРёС‡РєРѕРІ</input>&nbsp;<br/>
+<input type="radio" name="start" value="8"  <? If($user['level']<>8 or !isset($kasanie_haosa) or $kasanie_haosa['time']>time() ){echo'disabled';}  ?> >РџСЂРѕС…РѕРґ РґР»СЏ Р¶РёС‚РµР»РµР№</input>&nbsp;<br/>
+<input type="radio" name="start" value="9"  <? If($user['level']<>9 or !isset($kasanie_haosa) or $kasanie_haosa['time']>time() ){echo'disabled';}  ?> >РџСЂРѕС…РѕРґ РґР»СЏ Р»СЋР±РёС‚РµР»РµР№</input>&nbsp;<br/>
+<input type="radio" name="start" value="10"  <? If($user['level']<>10 or !isset($kasanie_haosa) or $kasanie_haosa['time']>time() ){echo'disabled';}  ?> >РџСЂРѕС…РѕРґ РґР»СЏ Р±С‹РІР°Р»С‹С…</input>&nbsp;<br/>
+<input type="radio" name="start" value="11" <? If($user['level']<>11 or !isset($kasanie_haosa) or $kasanie_haosa['time']>time() ){echo'disabled';} ?> >РџСЂРѕС…РѕРґ РґР»СЏ РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»РѕРІ</input>&nbsp;<br/>
+<input type="radio" name="start" value="12" <? If($user['level']<>12 or !isset($kasanie_haosa) or $kasanie_haosa['time']>time() ){echo'disabled';} ?> >РџСЂРѕС…РѕРґ РґР»СЏ Р»РµРіРµРЅРґ</input>&nbsp;<br/>
+<INPUT type='submit' value='РќР°С‡Р°С‚СЊ РїРѕС…РѕРґ'>
 </FORM></TD>
 </TR>
 	
 	<?
 	$tt=mysql_fetch_array(mysql_query("SELECT * FROM hellround_pohod WHERE owner='".$user['id']."'"));
 	$l=time()-60*60*12;
-	$pro=mysql_num_rows(mysql_query("SELECT * FROM inventory WHERE owner='".$user['id']."' and name='Пропуск'"));
+	$pro=mysql_num_rows(mysql_query("SELECT * FROM inventory WHERE owner='".$user['id']."' and name='РџСЂРѕРїСѓСЃРє'"));
 	
-	//echo "<center><input type=submit name=start value='Начать поход'></center>";
+	//echo "<center><input type=submit name=start value='РќР°С‡Р°С‚СЊ РїРѕС…РѕРґ'></center>";
 	/*
 	if($pro<=0){
-		echo "<center><font color=red><b>У вас нету пропуска</b></font></center>";
+		echo "<center><font color=red><b>РЈ РІР°СЃ РЅРµС‚Сѓ РїСЂРѕРїСѓСЃРєР°</b></font></center>";
 	}elseif ($tt['date_out']<=$l || $user['align']=="2.5"){
-		echo "<center><input type=submit name=start value='Начать поход'></center>";
+		echo "<center><input type=submit name=start value='РќР°С‡Р°С‚СЊ РїРѕС…РѕРґ'></center>";
 	} else { 
 		$tr=$tt['date_out']+60*60*12; 
-		echo "<center><font color=red><b>Следующий поход в : ".date("j.m.Y G:i",$tr)."</b></font></center>";
+		echo "<center><font color=red><b>РЎР»РµРґСѓСЋС‰РёР№ РїРѕС…РѕРґ РІ : ".date("j.m.Y G:i",$tr)."</b></font></center>";
 	}
 	*/
 	?>

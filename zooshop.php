@@ -14,7 +14,7 @@
 		if (!$_POST['count']) { $_POST['count'] =1; }
 		$dress = mysql_fetch_array(mysql_query("SELECT * FROM `zooshop` WHERE `id` = '{$set}' LIMIT 1;"));
 		if (($dress['massa']*$_POST['count']+$d[0]) > (get_meshok())) {
-			echo "<font color=red><b>Недостаточно места в рюкзаке.</b></font>";
+			echo "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РјРµСЃС‚Р° РІ СЂСЋРєР·Р°РєРµ.</b></font>";
 		}
 		elseif(($user['money']>= ($dress['cost']*$_POST['count'])) && ($dress['count'] >= $_POST['count'])) {
 
@@ -34,7 +34,7 @@
 			}
 			if ($good) {
 				mysql_query("UPDATE `zooshop` SET `count`=`count`-{$_POST['count']} WHERE `id` = '{$set}' LIMIT 1;");
-				echo "<font color=red><b>Вы купили {$_POST['count']} шт. \"{$dress['name']}\".</b></font>";
+				echo "<font color=red><b>Р’С‹ РєСѓРїРёР»Рё {$_POST['count']} С€С‚. \"{$dress['name']}\".</b></font>";
 				mysql_query("UPDATE `users` set `money` = `money`- '".($_POST['count']*$dress['cost'])."' WHERE id = {$_SESSION['uid']} ;");
 				$user['money'] -= $_POST['count']*$dress['cost'];
 				$limit=$_POST['count'];
@@ -53,11 +53,11 @@
 					$dresscount="(x".$_POST['count'].") ";
 				}
 				$allcost=$_POST['count']*$dress['cost'];
-				mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" купил товар: \"".$dress['name']."\" ".$dresscount."id:(".$dressid.") [0/".$dress['maxdur']."] за ".$allcost." кр. ',1,'".time()."');");
+				mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" РєСѓРїРёР» С‚РѕРІР°СЂ: \"".$dress['name']."\" ".$dresscount."id:(".$dressid.") [0/".$dress['maxdur']."] Р·Р° ".$allcost." РєСЂ. ',1,'".time()."');");
 			}
 		}
 		else {
-			echo "<font color=red><b>Недостаточно денег или нет вещей в наличии.</b></font>";
+			echo "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РёР»Рё РЅРµС‚ РІРµС‰РµР№ РІ РЅР°Р»РёС‡РёРё.</b></font>";
 		}
 	}
 
@@ -71,16 +71,16 @@
 <SCRIPT LANGUAGE="JavaScript">
 function AddCount(name, txt)
 {
-	document.all("hint3").innerHTML = '<table border=0 width=100% cellspacing=1 cellpadding=0 bgcolor="#CCC3AA"><tr><td align=center><B>Купить неск. штук</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</TD></tr><tr><td colspan=2>'+
+	document.all("hint3").innerHTML = '<table border=0 width=100% cellspacing=1 cellpadding=0 bgcolor="#CCC3AA"><tr><td align=center><B>РљСѓРїРёС‚СЊ РЅРµСЃРє. С€С‚СѓРє</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</TD></tr><tr><td colspan=2>'+
 	'<table border=0 width=100% cellspacing=0 cellpadding=0 bgcolor="#FFF6DD"><tr><INPUT TYPE="hidden" name="set" value="'+name+'"><td colspan=2 align=center><B><I>'+txt+'</td></tr><tr><td width=80% align=right>'+
-	'Количество (шт.) <INPUT TYPE="text" NAME="count" size=4></td><td width=20%>&nbsp;<INPUT TYPE="submit" value=" »» ">'+
+	'РљРѕР»РёС‡РµСЃС‚РІРѕ (С€С‚.) <INPUT TYPE="text" NAME="count" size=4></td><td width=20%>&nbsp;<INPUT TYPE="submit" value=" В»В» ">'+
 	'</TD></TR></TABLE></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = event.x+document.body.scrollLeft-20;
 	document.all("hint3").style.top = event.y+document.body.scrollTop+5;
 	document.all("count").focus();
 }
-// Закрывает окно
+// Р—Р°РєСЂС‹РІР°РµС‚ РѕРєРЅРѕ
 function closehint3()
 {
 	document.all("hint3").style.visibility="hidden";
@@ -90,9 +90,9 @@ function closehint3()
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=#e0e0e0>
 <TABLE border=0 width=100% cellspacing="0" cellpadding="0">
 <FORM action="city.php" method=GET>
-<tr><td><h3>Зоомагазин</td><td align=right>
-<INPUT TYPE="button" value="Подсказка" style="background-color:#A9AFC0" onClick="window.open('help/shop.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">
-<INPUT TYPE="submit" value="Вернуться" name="cp"></td></tr>
+<tr><td><h3>Р—РѕРѕРјР°РіР°Р·РёРЅ</td><td align=right>
+<INPUT TYPE="button" value="РџРѕРґСЃРєР°Р·РєР°" style="background-color:#A9AFC0" onClick="window.open('help/shop.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">
+<INPUT TYPE="submit" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" name="cp"></td></tr>
 </FORM>
 </table>
 <TABLE border=0 width=100% cellspacing="0" cellpadding="4">
@@ -101,20 +101,20 @@ function closehint3()
 	<INPUT TYPE="hidden" name="sid" value="">
 	<INPUT TYPE="hidden" name="id" value="1">
 	<TD valign=top align=left>
-<!--Зоомагазин-->
+<!--Р—РѕРѕРјР°РіР°Р·РёРЅ-->
 <TABLE border=0 width=100% cellspacing="0" cellpadding="0" bgcolor="#A5A5A5">
 <TR>
-	<TD align=center><B>Отделы магазина "<?php
+	<TD align=center><B>РћС‚РґРµР»С‹ РјР°РіР°Р·РёРЅР° "<?php
 	if ($_POST['sale']) {
-		//echo "Скупка";
+		//echo "РЎРєСѓРїРєР°";
 	} else
 switch ($_GET['otdel']) {
 	case null:
-		echo "Заклинания: нейтральные";
+		echo "Р—Р°РєР»РёРЅР°РЅРёСЏ: РЅРµР№С‚СЂР°Р»СЊРЅС‹Рµ";
 		$_GET['otdel'] = 1;
 	break;
 	case 1:
-		echo "Амуниция: еда";
+		echo "РђРјСѓРЅРёС†РёСЏ: РµРґР°";
 	break;
 }
 
@@ -123,7 +123,7 @@ switch ($_GET['otdel']) {
 
 	</TD>
 </TR>
-<TR><TD><!--Рюкзак-->
+<TR><TD><!--Р СЋРєР·Р°Рє-->
 </form>
 		<?
 	}
@@ -134,8 +134,8 @@ switch ($_GET['otdel']) {
 		if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
 		echo "<TR bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
 		?>
-		<BR><A HREF="zooshop.php?otdel=<?=$_GET['otdel']?>&set=<?=$row['id']?>&sid=">купить</A>
-		<IMG SRC="i/up.gif" WIDTH=11 HEIGHT=11 BORDER=0 ALT="Купить несколько штук" style="cursor:hand" onClick="AddCount('<?=$row['id']?>', '<?=$row['name']?>')"></TD>
+		<BR><A HREF="zooshop.php?otdel=<?=$_GET['otdel']?>&set=<?=$row['id']?>&sid=">РєСѓРїРёС‚СЊ</A>
+		<IMG SRC="i/up.gif" WIDTH=11 HEIGHT=11 BORDER=0 ALT="РљСѓРїРёС‚СЊ РЅРµСЃРєРѕР»СЊРєРѕ С€С‚СѓРє" style="cursor:hand" onClick="AddCount('<?=$row['id']?>', '<?=$row['name']?>')"></TD>
 		<?php
 		echo "<TD valign=top>";
 		showitem ($row);
@@ -151,19 +151,19 @@ switch ($_GET['otdel']) {
 	</TD>
 	<TD valign=top width=280>
 
-	<CENTER><B>Масса всех ваших вещей: <?php
+	<CENTER><B>РњР°СЃСЃР° РІСЃРµС… РІР°С€РёС… РІРµС‰РµР№: <?php
 
 
 	echo $d[0];
 	?>/<?=get_meshok()?><BR>
-	У вас в наличии: <FONT COLOR="#339900"><?=$user8['money']?></FONT> кр.</B></CENTER>
+	РЈ РІР°СЃ РІ РЅР°Р»РёС‡РёРё: <FONT COLOR="#339900"><?=$user8['money']?></FONT> РєСЂ.</B></CENTER>
 	<div style="MARGIN-LEFT:15px; MARGIN-TOP: 10px;">
 
-	<INPUT TYPE="submit" value="Продать вещи" name="sale"><BR>
+	<INPUT TYPE="submit" value="РџСЂРѕРґР°С‚СЊ РІРµС‰Рё" name="sale"><BR>
 
-<div style="background-color:#d2d0d0;padding:1"><center><font color="#oooo"><B>Отделы магазина</B></center></div>
-<A HREF="zooshop.php?otdel=1&sid=&0.162486541405194">Заклинания: нейтральные</A><BR>
-<A HREF="zooshop.php?otdel=1&sid=&0.337606814894404">Амуниция: еда</A><BR>
+<div style="background-color:#d2d0d0;padding:1"><center><font color="#oooo"><B>РћС‚РґРµР»С‹ РјР°РіР°Р·РёРЅР°</B></center></div>
+<A HREF="zooshop.php?otdel=1&sid=&0.162486541405194">Р—Р°РєР»РёРЅР°РЅРёСЏ: РЅРµР№С‚СЂР°Р»СЊРЅС‹Рµ</A><BR>
+<A HREF="zooshop.php?otdel=1&sid=&0.337606814894404">РђРјСѓРЅРёС†РёСЏ: РµРґР°</A><BR>
 
 	</div>
 <div id="hint3" class="ahint"></div>

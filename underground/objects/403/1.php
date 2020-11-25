@@ -1,101 +1,101 @@
 <?
-//водостоки пустые
+//РІРѕРґРѕСЃС‚РѕРєРё РїСѓСЃС‚С‹Рµ
   if (($tx*2==30 && $ty*2==44) || ($tx*2==14 && $ty*2==30) || ($tx*2==16 && $ty*2==44) || ($tx*2==24 && $ty*2==46)) {
-    $report="<div style=\"font-weight:normal\">Попахивает...</div>";
+    $report="<div style=\"font-weight:normal\">РџРѕРїР°С…РёРІР°РµС‚...</div>";
   }
-//Слив возле мартына
+//РЎР»РёРІ РІРѕР·Р»Рµ РјР°СЂС‚С‹РЅР°
 if ($tx*2==22 && $ty*2==38) {  
-    gotoxy(30, 44, 1, "Вы благополучно телепортированны.");
+    gotoxy(30, 44, 1, "Р’С‹ Р±Р»Р°РіРѕРїРѕР»СѓС‡РЅРѕ С‚РµР»РµРїРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹.");
 }
-//Магазин луки 
+//РњР°РіР°Р·РёРЅ Р»СѓРєРё 
 if ($tx*2==38 && $ty*2==44) {
 mq("LOCK TABLES `online` write, `users` write;");
 mq("UPDATE `users`,`online` SET `users`.`room` = '404',`online`.`room` = '404' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$user[id]}' ;");  
 print "<script>location.href='shop_luka.php'</script>";
 }
-//Пустые обекты
+//РџСѓСЃС‚С‹Рµ РѕР±РµРєС‚С‹
 if ((($tx*2==34 && $ty*2==48) || ($tx*2==30 && $ty*2==46) || ($tx*2==00 && $ty*2==00) || ($tx*2==00 && $ty*2==00)) && (int)$floor == 1) {  
-    $report="<div style=\"font-weight:normal\">Ничего не произошло</div>";
+    $report="<div style=\"font-weight:normal\">РќРёС‡РµРіРѕ РЅРµ РїСЂРѕРёР·РѕС€Р»Рѕ</div>";
   }
-//Потерянные сундуки
+//РџРѕС‚РµСЂСЏРЅРЅС‹Рµ СЃСѓРЅРґСѓРєРё
   if (($tx*2==24 && $ty*2==40) || ($tx*2==38 && $ty*2==32) || ($tx*2==28 && $ty*2==30) || ($tx*2==22 && $ty*2==34) || ($tx*2==18 && $ty*2==36) || ($tx*2==14 && $ty*2==32) || ($tx*2==12 && $ty*2==30) || ($tx*2==32 && $ty*2==18) || ($tx*2==20 && $ty*2==24) || ($tx*2==34 && $ty*2==26)) {
     if (usagesleft($tx, $ty)) {
-        $report=itemtofloor(11452, 0, 0, 1); // Гайка
+        $report=itemtofloor(11452, 0, 0, 1); // Р“Р°Р№РєР°
       takeusage($tx, $ty);
       if (!@$report) {
         $report="<div style=\"font-weight:normal\"></div>";
       }
     } else {
-      $report="<div style=\"font-weight:normal\">Кто то оказался быстрее...</div>";
+      $report="<div style=\"font-weight:normal\">РљС‚Рѕ С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ...</div>";
     }
   }
-//Забытая экипировка
+//Р—Р°Р±С‹С‚Р°СЏ СЌРєРёРїРёСЂРѕРІРєР°
   if ($tx*2==30 && $ty*2==40) {
     if (usagesleft($tx, $ty)) {
       $rnd=mt_rand(1,100);
       if ($rnd<=50) {
-        $report=pickupitem(1539, 1, 0, 0, 1);// Эликсир жизни (Морковка)
+        $report=pickupitem(1539, 1, 0, 0, 1);// Р­Р»РёРєСЃРёСЂ Р¶РёР·РЅРё (РњРѕСЂРєРѕРІРєР°)
       } elseif ($rnd<=10) {
-        $report=pickupitem(99, 1, 0, 0, 1); // Восстановление Энергии(45 ХП)
+        $report=pickupitem(99, 1, 0, 0, 1); // Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ Р­РЅРµСЂРіРёРё(45 РҐРџ)
       } elseif ($rnd<=15) {
-        $report=pickupitem(125, 1, 0, 0, 1); // Свиток лечения тяж
+        $report=pickupitem(125, 1, 0, 0, 1); // РЎРІРёС‚РѕРє Р»РµС‡РµРЅРёСЏ С‚СЏР¶
       } elseif ($rnd<=20) {
-        $report=pickupitem(124, 1, 0, 0, 1); // Свиток лечения средние
+        $report=pickupitem(124, 1, 0, 0, 1); // РЎРІРёС‚РѕРє Р»РµС‡РµРЅРёСЏ СЃСЂРµРґРЅРёРµ
       } else {
-        $report=pickupitem(123, 1, 0, 0, 1); // Свиток лечения легкие
+        $report=pickupitem(123, 1, 0, 0, 1); // РЎРІРёС‚РѕРє Р»РµС‡РµРЅРёСЏ Р»РµРіРєРёРµ
       }
       takeusage($tx, $ty);
     } else {
-      $report="<div style=\"font-weight:normal\">Пусто.</div>";
+      $report="<div style=\"font-weight:normal\">РџСѓСЃС‚Рѕ.</div>";
     }
   }
-//Водосток Возле рвуна
+//Р’РѕРґРѕСЃС‚РѕРє Р’РѕР·Р»Рµ СЂРІСѓРЅР°
   if ($tx*2==26 && $ty*2==24) {
     if (usagesleft($tx, $ty)) {
-        $report=itemtofloor(11452, 0, 0, 1); // Гайка
+        $report=itemtofloor(11452, 0, 0, 1); // Р“Р°Р№РєР°
       takeusage($tx, $ty);
       if (!@$report) {
         $report="<div style=\"font-weight:normal\"></div>";
       }
     } else {
-      $report="<div style=\"font-weight:normal\">Кто то оказался быстрее...</div>";
+      $report="<div style=\"font-weight:normal\">РљС‚Рѕ С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ...</div>";
     }
   }
-//телепорт на второй
+//С‚РµР»РµРїРѕСЂС‚ РЅР° РІС‚РѕСЂРѕР№
 if ($tx*2==34 && $ty*2==40) {
-    gotoxy(10, 40, 2, "Вы благополучно попали на 2-ой этаж.");
+    gotoxy(10, 40, 2, "Р’С‹ Р±Р»Р°РіРѕРїРѕР»СѓС‡РЅРѕ РїРѕРїР°Р»Рё РЅР° 2-РѕР№ СЌС‚Р°Р¶.");
 }
-//Сундуки с болтами возле мартына
+//РЎСѓРЅРґСѓРєРё СЃ Р±РѕР»С‚Р°РјРё РІРѕР·Р»Рµ РјР°СЂС‚С‹РЅР°
   if (($tx*2==22 && $ty*2==42) || ($tx*2==18 && $ty*2==42)) {
     if (usagesleft($tx, $ty)) {
-        $report=itemtofloor(11465, 0, 0, 1); // Болт
+        $report=itemtofloor(11465, 0, 0, 1); // Р‘РѕР»С‚
       takeusage($tx, $ty);
       if (!@$report) {
         $report="<div style=\"font-weight:normal\"></div>";
       }
     } else {
-      $report="<div style=\"font-weight:normal\">Кто то оказался быстрее...</div>";
+      $report="<div style=\"font-weight:normal\">РљС‚Рѕ С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ...</div>";
     }
   }
-//Сундук возле мартына с вентилем
+//РЎСѓРЅРґСѓРє РІРѕР·Р»Рµ РјР°СЂС‚С‹РЅР° СЃ РІРµРЅС‚РёР»РµРј
   if ($tx*2==20 && $ty*2==44) {
     if (usagesleft($tx, $ty)) {
-        $report=itemtofloor(11452, 0, 0, 1); // Гайка
+        $report=itemtofloor(11452, 0, 0, 1); // Р“Р°Р№РєР°
       takeusage($tx, $ty);
       if (!@$report) {
         $report="<div style=\"font-weight:normal\"></div>";
       }
     } else {
-      $report="<div style=\"font-weight:normal\">Кто то оказался быстрее...</div>";
+      $report="<div style=\"font-weight:normal\">РљС‚Рѕ С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ...</div>";
     }
   }
-  // Мерцающий ключ №5
+  // РњРµСЂС†Р°СЋС‰РёР№ РєР»СЋС‡ в„–5
   if ($tx*2==14 && $ty*2==28) {
-    $iskey = mqfa1("SELECT COUNT(*) FROM inventory WHERE name LIKE '%Мерцающий ключ №5%' AND owner = " . $user['id']);
+    $iskey = mqfa1("SELECT COUNT(*) FROM inventory WHERE name LIKE '%РњРµСЂС†Р°СЋС‰РёР№ РєР»СЋС‡ в„–5%' AND owner = " . $user['id']);
     if (!$iskey) {
         $report=pickupitem(11466, 1, 0, 0, 1);
     } else {
-        $report = "У Вас уже есть <b>Мерцающий ключ №5</b>";
+        $report = "РЈ Р’Р°СЃ СѓР¶Рµ РµСЃС‚СЊ <b>РњРµСЂС†Р°СЋС‰РёР№ РєР»СЋС‡ в„–5</b>";
     }
   }
 ?>

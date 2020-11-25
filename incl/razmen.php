@@ -1,7 +1,7 @@
 <?php
   $this->getbu($this->user['id']);
   
-  //âûñòàâëÿåì ğàóíä äëÿ àñòğàëà
+  //Ğ²Ñ‹ÑÑ‚Ğ°Ğ²Ğ»ÑĞµĞ¼ Ñ€Ğ°ÑƒĞ½Ğ´ Ğ´Ğ»Ñ Ğ°ÑÑ‚Ñ€Ğ°Ğ»Ğ°
   if ($this->battleunits[$this->user['id']]["extra"]["ele"]) mq('UPDATE users SET `udar` = `udar` + 1 WHERE `id` = '.$this->user['id'].'');
 
   $sumwear=$this->battleunits[$this->user["id"]]["weapons"];
@@ -39,7 +39,7 @@
   }
   global $strokes;
 
-// ïğîâåğÿåì ïğàôèëüíîñòü
+// Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€ÑĞµĞ¼ Ğ¿Ñ€Ğ°Ñ„Ğ¸Ğ»ÑŒĞ½Ğ¾ÑÑ‚ÑŒ
 if($defend && $ebota==1 && $enemy && $this->user['hp']>0) {
   if (!isset($this->battle[$enemy][$this->user['id']])) {
     $this->battle[$enemy][$this->user['id']]=array(0,0,0);
@@ -54,9 +54,9 @@ if($defend && $ebota==1 && $enemy && $this->user['hp']>0) {
 
     //$this->enemy_hasshit=$this->checkshit($enemy);
     // ==================================
-    $this->add_log($this->get_comment()); // êîììåíòàòîğ
-    // ïğîâåğÿåì êòî êóäà ïîïàë
-    // óäàğ ïî ìíå
+    $this->add_log($this->get_comment()); // ĞºĞ¾Ğ¼Ğ¼ĞµĞ½Ñ‚Ğ°Ñ‚Ğ¾Ñ€
+    // Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€ÑĞµĞ¼ ĞºÑ‚Ğ¾ ĞºÑƒĞ´Ğ° Ğ¿Ğ¾Ğ¿Ğ°Ğ»
+    // ÑƒĞ´Ğ°Ñ€ Ğ¿Ğ¾ Ğ¼Ğ½Ğµ
     //$enem = mysql_fetch_array(mq("SELECT hp, maxhp, mana, level FROM `users` WHERE `id` = '".bottouser($enemy)."'"));
     //$enem=$this->enemyhar;
     /*if(!function_exists("addlog2")) {
@@ -146,7 +146,7 @@ if($defend && $ebota==1 && $enemy && $this->user['hp']>0) {
     }
 
     
-    // Æèâîé ùèò, æèâîé ìå÷
+    // Ğ–Ğ¸Ğ²Ğ¾Ğ¹ Ñ‰Ğ¸Ñ‚, Ğ¶Ğ¸Ğ²Ğ¾Ğ¹ Ğ¼ĞµÑ‡
     foreach ($this->battleunits[$enemy]["priems"] as $k=>$v) {
       if ($k=="block_target_shield" && $v["active"]>1) {
         foreach ($this->battleunits[$this->user['id']]["priems"] as $k2=>$v2) {
@@ -185,7 +185,7 @@ if($defend && $ebota==1 && $enemy && $this->user['hp']>0) {
     //$this->battleunits[$this->user["id"]]["priems"]=$this->getpriems($this->user['id']);
     //$this->battleunits[$this->currentenemy]["priems"]=$this->getpriems($enemy);
     
-    // õ-êè äğà÷óşùèõñÿ
+    // Ñ…-ĞºĞ¸ Ğ´Ñ€Ğ°Ñ‡ÑƒÑÑ‰Ğ¸Ñ…ÑÑ
     $mf = $this->solve_mf($user["id"], $enemy,$attack,$attack1,$attack2,$attack3,$attack4);
     
     $this->actstrokesbymove($this->user['id']);
@@ -237,7 +237,7 @@ if($defend && $ebota==1 && $enemy && $this->user['hp']>0) {
 
     
     if ($this->battle[$enemy][$this->user['id']][0]==665) {
-      // îí ïîòğàòèë õîä íà ìàãèş;
+      // Ğ¾Ğ½ Ğ¿Ğ¾Ñ‚Ñ€Ğ°Ñ‚Ğ¸Ğ» Ñ…Ğ¾Ğ´ Ğ½Ğ° Ğ¼Ğ°Ğ³Ğ¸Ñ;
       $this->add_log ($this->razmen_log("mag",$this->battle[$enemy][$this->user['id']][0],$this->get_wep_type($this->enemyhar['weap']),0,$enemy,$this->en_class,$this->user['id'],$this->my_class,0,0,665));
       if ($this->battle[$this->user['id']][$enemy][0]!=665 && $this->battle[$this->user['id']][$enemy][0]!=664) {
         if (getchance($mf["he"]['uvorot'])) {
@@ -251,7 +251,7 @@ if($defend && $ebota==1 && $enemy && $this->user['hp']>0) {
         }
       }
     } elseif ($this->battle[$enemy][$this->user['id']][0]==664 && $this->battle[$enemy][$this->user['id']][1]==664) {
-      // ïğîïóñòèë ïî òàéìó;
+      // Ğ¿Ñ€Ğ¾Ğ¿ÑƒÑÑ‚Ğ¸Ğ» Ğ¿Ğ¾ Ñ‚Ğ°Ğ¹Ğ¼Ñƒ;
       $this->add_log ($this->razmen_log("skip",$this->battle[$enemy][$this->user['id']][0],$this->get_wep_type($this->enemyhar['weap']),0,$enemy,$this->en_class,$this->user['id'],$this->my_class,0,0,664));
     } else {
       $attacks=array($this->battle[$enemy][$this->user['id']][0], $this->battle[$enemy][$this->user['id']][3], $this->battle[$enemy][$this->user['id']][4], $this->battle[$enemy][$this->user['id']][5], $this->battle[$enemy][$this->user['id']][6]);
@@ -283,9 +283,9 @@ if($defend && $ebota==1 && $enemy && $this->user['hp']>0) {
       }
     }
 
-    // óäàğ ïî ïğîòèâíèêó
+    // ÑƒĞ´Ğ°Ñ€ Ğ¿Ğ¾ Ğ¿Ñ€Ğ¾Ñ‚Ğ¸Ğ²Ğ½Ğ¸ĞºÑƒ
     if ($attack == 665) {
-      // ÿ ïîòğàòèë õîä íà ìàãèş;
+      // Ñ Ğ¿Ğ¾Ñ‚Ñ€Ğ°Ñ‚Ğ¸Ğ» Ñ…Ğ¾Ğ´ Ğ½Ğ° Ğ¼Ğ°Ğ³Ğ¸Ñ;
       $this->add_log ($this->razmen_log("mag",$attack,$this->battleunits[$this->user["id"]]["weapondata1"]["weptype"],0,$this->user['id'],$this->my_class,$enemy,$this->en_class,0,0, 665));
       if ($this->battle[$enemy][$this->user['id']][0]!=665 && $this->battle[$enemy][$this->user['id']][0]!=664) {
         if (getchance($mf["he"]['uvorot'])) {
@@ -299,7 +299,7 @@ if($defend && $ebota==1 && $enemy && $this->user['hp']>0) {
         }
       }
     } elseif ($attack == 664 && $defend==664) {
-      // ÿ ïğîïóñòèë ïî òàéìó;
+      // Ñ Ğ¿Ñ€Ğ¾Ğ¿ÑƒÑÑ‚Ğ¸Ğ» Ğ¿Ğ¾ Ñ‚Ğ°Ğ¹Ğ¼Ñƒ;
       $this->add_log ($this->razmen_log("skip",$attack,$this->battleunits[$this->user["id"]]["weapondata1"]["weptype"],0,$this->user['id'],$this->my_class,$enemy,$this->en_class,0,0, 664));
     } else {
       $attacks=array($attack, $attack1, $attack2, $attack3, $attack4);
@@ -330,7 +330,7 @@ if($defend && $ebota==1 && $enemy && $this->user['hp']>0) {
       }
     }
 
-    // îáíîâèòü áèòêó
+    // Ğ¾Ğ±Ğ½Ğ¾Ğ²Ğ¸Ñ‚ÑŒ Ğ±Ğ¸Ñ‚ĞºÑƒ
     $this->battle[$enemy][$this->user['id']] = array(0,0,time(),0);
     $this->battle[$this->user['id']][$enemy] = array(0,0,time(),0);
 
@@ -390,7 +390,7 @@ if($defend && $ebota==1 && $enemy && $this->user['hp']>0) {
     $this->remmagstorm($enemy);
     $this->remmagstorm($this->user["id"]);
   } else {
-    // âûñòàâëÿåì óäàğ ïğîòèâíèêó... ïğîñòî...
+    // Ğ²Ñ‹ÑÑ‚Ğ°Ğ²Ğ»ÑĞµĞ¼ ÑƒĞ´Ğ°Ñ€ Ğ¿Ñ€Ğ¾Ñ‚Ğ¸Ğ²Ğ½Ğ¸ĞºÑƒ... Ğ¿Ñ€Ğ¾ÑÑ‚Ğ¾...
     $this->battle[$this->user['id']][$enemy] = array($attack,$defend,time(),$attack1,$attack2,$attack3,$attack4);
     if($this->my_class=="B1" && $jv > 0) {
       mq("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".(time()-1)."' WHERE `id` = ".$this->user['battle']." LIMIT 1;");
@@ -400,7 +400,7 @@ if($defend && $ebota==1 && $enemy && $this->user['hp']>0) {
       mq("UPDATE `battle` SET `to2` = '".time()."', `to1` = '".(time())."' WHERE `id` = ".$this->user['battle']." LIMIT 1;");
     }
 
-    // îáíîâèòü áèòêó
+    // Ğ¾Ğ±Ğ½Ğ¾Ğ²Ğ¸Ñ‚ÑŒ Ğ±Ğ¸Ñ‚ĞºÑƒ
     if ($this->battleunits[$this->user['id']]["follow"]==$enemy) {$this->toupdatebu[$this->user['id']]["follow"]=0;$this->needupdatebu=1;}
     $this->setnextenemy($this->user['id']);
 

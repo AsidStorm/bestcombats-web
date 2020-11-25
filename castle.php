@@ -14,7 +14,7 @@
     $siege=getvar("siege");
     if ($siege==2) {
       if ($user["klan"]!=$castleowner && $user["room"]>707) {
-        sysmsg("Нападающие проникли на стену замка,");
+        sysmsg("РќР°РїР°РґР°СЋС‰РёРµ РїСЂРѕРЅРёРєР»Рё РЅР° СЃС‚РµРЅСѓ Р·Р°РјРєР°,");
         mq("update variables set value=1 where var='siege'");
         $siege=1;
       }
@@ -45,7 +45,7 @@
     }
     addsiegeroutes();
 
-    // переходы
+    // РїРµСЂРµС…РѕРґС‹
     $_GET['path'] = (int)$_GET['path'];
     if($_GET['path'] && $user["movetime"] <= time()) {
       if (!canmove()) {
@@ -58,12 +58,12 @@
             if ($siege<10) {
               $list = mq("SELECT `id`,`room`,`login` FROM `users` WHERE `room` = '".$user['room']."'");
               while($u = mysql_fetch_array($list)) {
-                if($u['id']!=$user['id']) addchp ('<font color=red>Внимание!</font> <B>'.$user['login'].'</B> отправился в <B>'.$rooms[$gotoroom].'</B>.   ','{[]}'.$u['login'].'{[]}');
+                if($u['id']!=$user['id']) addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> <B>'.$user['login'].'</B> РѕС‚РїСЂР°РІРёР»СЃСЏ РІ <B>'.$rooms[$gotoroom].'</B>.   ','{[]}'.$u['login'].'{[]}');
               }
-              // пришел в комнату
+              // РїСЂРёС€РµР» РІ РєРѕРјРЅР°С‚Сѓ
               $list = mq("SELECT `id`,`room`,`login` FROM `users` WHERE `room` = '$gotoroom'");
               while($u = mysql_fetch_array($list)) {
-                addchp ('<font color=red>Внимание!</font> <B>'.$user['login'].'</B> вошел в комнату.   ','{[]}'.$u['login'].'{[]}');
+                addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> <B>'.$user['login'].'</B> РІРѕС€РµР» РІ РєРѕРјРЅР°С‚Сѓ.   ','{[]}'.$u['login'].'{[]}');
               }
             }
             if ($_SERVER["REMOTE_ADDR"]=="127.0.0.1") $movetime=1;
@@ -75,15 +75,15 @@
               header("location: city.php");
               die;
             }
-            // ушел из комнаты
+            // СѓС€РµР» РёР· РєРѕРјРЅР°С‚С‹
             /*$list = mq("SELECT `id`,`room`,`login` FROM `users` WHERE `room` = '".$user['room']."'");
             while($u = mysql_fetch_array($list)) {
-                if($u['id']!=$user['id']) addchp ('<font color=red>Внимание!</font> <B>'.$user['login'].'</B> отправился в <B>'.$rooms[$rhar[$user['room']][$_GET['path']]].'</B>.   ','{[]}'.$u['login'].'{[]}');
+                if($u['id']!=$user['id']) addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> <B>'.$user['login'].'</B> РѕС‚РїСЂР°РІРёР»СЃСЏ РІ <B>'.$rooms[$rhar[$user['room']][$_GET['path']]].'</B>.   ','{[]}'.$u['login'].'{[]}');
             }
-            // пришел в комнату
+            // РїСЂРёС€РµР» РІ РєРѕРјРЅР°С‚Сѓ
             $list = mq("SELECT `id`,`room`,`login` FROM `users` WHERE `room` = '".$rhar[$user['room']][$_GET['path']]."' AND `in_tower`=1;");
             while($u = mysql_fetch_array($list)) {
-                addchp ('<font color=red>Внимание!</font> <B>'.$user['login'].'</B> вошел в комнату.   ','{[]}'.$u['login'].'{[]}');
+                addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> <B>'.$user['login'].'</B> РІРѕС€РµР» РІ РєРѕРјРЅР°С‚Сѓ.   ','{[]}'.$u['login'].'{[]}');
             }*/
           }
         }
@@ -91,7 +91,7 @@
       }
     }
 
-    // нападение
+    // РЅР°РїР°РґРµРЅРёРµ
     if($_POST['attack']) {
       $siege=getvar("siege");
       if ($siege<10) {
@@ -99,12 +99,12 @@
         $error="";
         $k=mqfa1("select klan from users where login='$_POST[attack]'");
         if ($k && $k==$user["klan"]) {
-          $error="Не стоит нападать на своих.";
+          $error="РќРµ СЃС‚РѕРёС‚ РЅР°РїР°РґР°С‚СЊ РЅР° СЃРІРѕРёС….";
         } elseif ($siege!=0 && $user["klan"]!=$castleowner) {
-          if ($k!=$castleowner) $error="Сначала надо разобраться с защитниками.";
+          if ($k!=$castleowner) $error="РЎРЅР°С‡Р°Р»Р° РЅР°РґРѕ СЂР°Р·РѕР±СЂР°С‚СЊСЃСЏ СЃ Р·Р°С‰РёС‚РЅРёРєР°РјРё.";
         }
         if (!$error) $error=attack($_POST["attack"], 3, 0, 1, $attackroom);
-      } else $error="Битва за замок ещё не началась.";
+      } else $error="Р‘РёС‚РІР° Р·Р° Р·Р°РјРѕРє РµС‰С‘ РЅРµ РЅР°С‡Р°Р»Р°СЃСЊ.";
     }
     if($_POST['help'] && $user["klan"]==$castleowner && $user["klan"]) {
       $siege=getvar("siege");
@@ -112,17 +112,17 @@
         include "functions/attack.php";
         $error="";
         $target=mqfa("select id, klan, room from users where login='$_POST[help]'");
-        if (!$target) $error="Персонаж $_POST[help] не найден.";
-        elseif ($target["klan"]!=$user["klan"]) $error="Персонаж $_POST[help] не ваш соклан.";
-        elseif ($target["room"]!=$user["room"]) $error="Персонаж $_POST[help] слишком далеко.";
+        if (!$target) $error="РџРµСЂСЃРѕРЅР°Р¶ $_POST[help] РЅРµ РЅР°Р№РґРµРЅ.";
+        elseif ($target["klan"]!=$user["klan"]) $error="РџРµСЂСЃРѕРЅР°Р¶ $_POST[help] РЅРµ РІР°С€ СЃРѕРєР»Р°РЅ.";
+        elseif ($target["room"]!=$user["room"]) $error="РџРµСЂСЃРѕРЅР°Р¶ $_POST[help] СЃР»РёС€РєРѕРј РґР°Р»РµРєРѕ.";
         if (!$error) $error=attack(0, 3, 0, 1, $attackroom, $_POST["help"]);
-      } else $error="Битва за замок ещё не началась.";
+      } else $error="Р‘РёС‚РІР° Р·Р° Р·Р°РјРѕРє РµС‰С‘ РЅРµ РЅР°С‡Р°Р»Р°СЃСЊ.";
     }
     if ($user['hp']<=0 || $user["klan"]=='') { 
       $siege=getvar("siege");
       if (($siege<10 && $user["hp"]<=0) || ($user["klan"]=="" && $siege==0)) {
         gotoroom(49);
-        addchp ('<font color=red>Внимание!</font>Вы выбыли из битвы за клановый замок.', '{[]}'.$user['login'].'{[]}');
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font>Р’С‹ РІС‹Р±С‹Р»Рё РёР· Р±РёС‚РІС‹ Р·Р° РєР»Р°РЅРѕРІС‹Р№ Р·Р°РјРѕРє.', '{[]}'.$user['login'].'{[]}');
         die(); 
       }
     }
@@ -141,7 +141,7 @@ img.aFilter { filter:Glow(color=d7d7d7,Strength=4,Enabled=0); cursor:hand }
 function findlogin(title, script, name){
     document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: pointer" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
     '<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><form action="'+script+'" method=POST><INPUT TYPE=hidden name=sd4 value="6"><td colspan=2>'+
-    'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" >> "></TD></TR></FORM></TABLE></td></tr></table>';
+    'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" >> "></TD></TR></FORM></TABLE></td></tr></table>';
     document.all("hint3").style.visibility = "visible";
     document.all("hint3").style.left = 200;
     document.all("hint3").style.top = 100;
@@ -216,11 +216,11 @@ function ghideshow() { fullhideshow(mmoves3); }
 <SCRIPT src='i/commoninf.js'></SCRIPT>
 <SCRIPT LANGUAGE="JavaScript" >
 var Hint3Name = '';
-// Заголовок, название скрипта, имя поля с логином
+// Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РёРјСЏ РїРѕР»СЏ СЃ Р»РѕРіРёРЅРѕРј
 function findlogin(title, script, name){
     document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
     '<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><form action="'+script+'" method=POST><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"><td colspan=2>'+
-    'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" »» "></TD></TR></FORM></TABLE></td></tr></table>';
+    'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" В»В» "></TD></TR></FORM></TABLE></td></tr></table>';
     document.all("hint3").style.visibility = "visible";
     document.all("hint3").style.left = 100;
     document.all("hint3").style.top = 100;
@@ -249,8 +249,8 @@ function closehint3(){
 
 <TR><TD><?nick($user);?></TD>
 <TD class='H3' align=right><?=$rooms[$user['room']];?>&nbsp; &nbsp;
-<? if ($siege<10) { ?><IMG SRC="<?=IMGBASE?>i/tower/attack.gif" WIDTH=66 HEIGHT=24 ALT="Напасть на..." style="cursor:hand" onclick="findlogin('Напасть на','castle.php','attack')">
-<? if ($user["klan"]==$castleowner && $user["klan"]) { ?><IMG SRC="<?=IMGBASE?>i/tower/help.gif" WIDTH=66 HEIGHT=24 ALT="Помочь соклану..." style="cursor:hand" onclick="findlogin('Помочь соклану','castle.php','help')"><? } ?>
+<? if ($siege<10) { ?><IMG SRC="<?=IMGBASE?>i/tower/attack.gif" WIDTH=66 HEIGHT=24 ALT="РќР°РїР°СЃС‚СЊ РЅР°..." style="cursor:hand" onclick="findlogin('РќР°РїР°СЃС‚СЊ РЅР°','castle.php','attack')">
+<? if ($user["klan"]==$castleowner && $user["klan"]) { ?><IMG SRC="<?=IMGBASE?>i/tower/help.gif" WIDTH=66 HEIGHT=24 ALT="РџРѕРјРѕС‡СЊ СЃРѕРєР»Р°РЅСѓ..." style="cursor:hand" onclick="findlogin('РџРѕРјРѕС‡СЊ СЃРѕРєР»Р°РЅСѓ','castle.php','help')"><? } ?>
 <? } ?>
 </TD>
 <TR>
@@ -261,27 +261,27 @@ function closehint3(){
 if (@$error) echo "<b><font color=red>$error</font></b>";
 if ($castleowner) {
   if ($onwall) {
-    echo "<b><center>Защитники стены:</center</b></center>";
+    echo "<b><center>Р—Р°С‰РёС‚РЅРёРєРё СЃС‚РµРЅС‹:</center</b></center>";
     while ($rec=mysql_fetch_assoc($defenders)) {
       echo defender($rec);
     }
   } else {
     $cl=mqfa("select name, clanbig from clans where short='$castleowner'");
-    echo "<br><center><b>Владелец замка: $cl[name]</b></center><br>
+    echo "<br><center><b>Р’Р»Р°РґРµР»РµС† Р·Р°РјРєР°: $cl[name]</b></center><br>
     <center><img src=\"http;//img.bestcombats.net/klan/$cl[clanbig].gif\"></center><br><br>";
     //if ($user['id'] == 7 || $user['id'] == 2735) {
         if (time() < $siege) {
-            echo '<center>Следующая осада Кланового Замка - ' . date('d.m.Y H:i', $siege) . '</center>';
+            echo '<center>РЎР»РµРґСѓСЋС‰Р°СЏ РѕСЃР°РґР° РљР»Р°РЅРѕРІРѕРіРѕ Р—Р°РјРєР° - ' . date('d.m.Y H:i', $siege) . '</center>';
         }
     //}
   }
 }
     /*$its = mq("SELECT * FROM `deztow_items` WHERE `room` = '".$user['room']."';");
     if(mysql_num_rows($its)>0) {
-        echo '<H4>В комнате разбросаны вещи:</H4>';
+        echo '<H4>Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</H4>';
     }
     while($it = mysql_fetch_array($its)) {
-        echo ' <A HREF="towerin.php?give=',$it['id'],'"><IMG SRC="i/sh/',$it['img'],'" ALT="Подобрать предмет \'',$it['name'],'\'"></A>';
+        echo ' <A HREF="towerin.php?give=',$it['id'],'"><IMG SRC="i/sh/',$it['img'],'" ALT="РџРѕРґРѕР±СЂР°С‚СЊ РїСЂРµРґРјРµС‚ \'',$it['name'],'\'"></A>';
     }*/
 
 ?>
@@ -320,7 +320,7 @@ function solo(n, name) {
         solo_store = n;
         var add_text = (document.getElementById('add_text') || document.createElement('div'));
         add_text.id = 'add_text';
-        add_text.innerHTML = 'Вы перейдете в: <strong>' + name +'</strong> (<a href="#" onclick="return clear_solo();">отмена</a>)';
+        add_text.innerHTML = 'Р’С‹ РїРµСЂРµР№РґРµС‚Рµ РІ: <strong>' + name +'</strong> (<a href="#" onclick="return clear_solo();">РѕС‚РјРµРЅР°</a>)';
         document.getElementById('ione').parentNode.parentNode.nextSibling.firstChild.appendChild(add_text);
         ch_counter_color('red');
     }
@@ -415,7 +415,7 @@ function stop_fireworks (id) {
                 if ($user["room"]==718) {
                   echo "<div style=\"width:500px\">";
                   if ($siege<10) {
-                    echo "<center><br><b>Во время осады монахи не оказывают свои услуги.</b></center>";
+                    echo "<center><br><b>Р’Рѕ РІСЂРµРјСЏ РѕСЃР°РґС‹ РјРѕРЅР°С…Рё РЅРµ РѕРєР°Р·С‹РІР°СЋС‚ СЃРІРѕРё СѓСЃР»СѓРіРё.</b></center>";
                   } else {
                     if (@$_GET["heal"] && $user["klan"]==$castleowner && $user["klan"]) {
                       if ($user["money"]>=3) {
@@ -426,21 +426,21 @@ function stop_fireworks (id) {
                         }
                         mq("delete from effects where owner='$user[id]' and type=".TRAVMARESISTANCE);
                         mq("update users set hp=maxhp, mana=maxmana, money=money-3 where id='$user[id]'");
-                        echo "<b>Сеанс лечения прошёл успешно.</b><br>";
+                        echo "<b>РЎРµР°РЅСЃ Р»РµС‡РµРЅРёСЏ РїСЂРѕС€С‘Р» СѓСЃРїРµС€РЅРѕ.</b><br>";
                       } else {
-                        echo "<b><font color=red>Недостаточно денег в наличии</font></b><br>";
+                        echo "<b><font color=red>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РІ РЅР°Р»РёС‡РёРё</font></b><br>";
                       }
-                    } elseif (@$_GET["heal"]) echo "<b><font color=red>Лечение доступно только для владельцев замка</font></b><br>";
-                    echo "Местные монахи за скромную плату могут излечить вас от любых телесных и душевных недугов,
-                    будь то тяжёлая травма, которую никто другой не сможет вылечить, или обычная усталость.
-                    За свою работу они берут только 3 кредита.<br><br>
-                    <center><a href=\"castle.php?heal=1&".time()."\">Лечиться</a></center>";                    
+                    } elseif (@$_GET["heal"]) echo "<b><font color=red>Р›РµС‡РµРЅРёРµ РґРѕСЃС‚СѓРїРЅРѕ С‚РѕР»СЊРєРѕ РґР»СЏ РІР»Р°РґРµР»СЊС†РµРІ Р·Р°РјРєР°</font></b><br>";
+                    echo "РњРµСЃС‚РЅС‹Рµ РјРѕРЅР°С…Рё Р·Р° СЃРєСЂРѕРјРЅСѓСЋ РїР»Р°С‚Сѓ РјРѕРіСѓС‚ РёР·Р»РµС‡РёС‚СЊ РІР°СЃ РѕС‚ Р»СЋР±С‹С… С‚РµР»РµСЃРЅС‹С… Рё РґСѓС€РµРІРЅС‹С… РЅРµРґСѓРіРѕРІ,
+                    Р±СѓРґСЊ С‚Рѕ С‚СЏР¶С‘Р»Р°СЏ С‚СЂР°РІРјР°, РєРѕС‚РѕСЂСѓСЋ РЅРёРєС‚Рѕ РґСЂСѓРіРѕР№ РЅРµ СЃРјРѕР¶РµС‚ РІС‹Р»РµС‡РёС‚СЊ, РёР»Рё РѕР±С‹С‡РЅР°СЏ СѓСЃС‚Р°Р»РѕСЃС‚СЊ.
+                    Р—Р° СЃРІРѕСЋ СЂР°Р±РѕС‚Сѓ РѕРЅРё Р±РµСЂСѓС‚ С‚РѕР»СЊРєРѕ 3 РєСЂРµРґРёС‚Р°.<br><br>
+                    <center><a href=\"castle.php?heal=1&".time()."\">Р›РµС‡РёС‚СЊСЃСЏ</a></center>";                    
                   }
                   echo "</div>";
                 } elseif ($user["room"]==719) {
                   echo "<div style=\"width:500px\">";
                   if ($siege<10) {
-                    echo "<center><br><b>Во время осады маг не оказывает свои услуги.</b></center>";
+                    echo "<center><br><b>Р’Рѕ РІСЂРµРјСЏ РѕСЃР°РґС‹ РјР°Рі РЅРµ РѕРєР°Р·С‹РІР°РµС‚ СЃРІРѕРё СѓСЃР»СѓРіРё.</b></center>";
                   } else {
                     $buy=@$_GET["buy"];
                     if ($buy && $user["klan"]==$castleowner && $user["klan"]) {
@@ -450,15 +450,15 @@ function stop_fireworks (id) {
                           $current=mqfa("SELECT id, name FROM `effects` WHERE `owner` =$user[id] and type=187 and intel>0");
                           $eltime=3600*2;
                           if(!$current){
-                            mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`,`intel`) values ('$user[id]','Холодный разум',".(time()+$eltime).",'187', 10)");
+                            mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`,`intel`) values ('$user[id]','РҐРѕР»РѕРґРЅС‹Р№ СЂР°Р·СѓРј',".(time()+$eltime).",'187', 10)");
                             mq("UPDATE users set intel=intel+10 WHERE id=$user[id]");
                             $ok=1;
                           } else {
-                            if ($current["name"]=="Холодный разум") {
+                            if ($current["name"]=="РҐРѕР»РѕРґРЅС‹Р№ СЂР°Р·СѓРј") {
                               mq("UPDATE `effects` set `time` = '".(time()+$eltime)."' WHERE id='$current[id]'");
                               $ok=1;
                             } else {
-                              echo "<b><font color=red>Ещё не прошло действие предыдущего заклятия</font></b><br>";
+                              echo "<b><font color=red>Р•С‰С‘ РЅРµ РїСЂРѕС€Р»Рѕ РґРµР№СЃС‚РІРёРµ РїСЂРµРґС‹РґСѓС‰РµРіРѕ Р·Р°РєР»СЏС‚РёСЏ</font></b><br>";
                             }
                           }                        
                         }
@@ -467,19 +467,19 @@ function stop_fireworks (id) {
                           if ($eff) {
                             mq("update effects set time='".(time()+7200)."' where id='$eff'");
                           } else {
-                            mq("INSERT into effects (`owner`,`name`,`time`,`type`) values ('$user[id]','".($buy==2?"Защита от оружия":"Сокрушение")."',".(time()+7200).",".(199+$buy).");");
+                            mq("INSERT into effects (`owner`,`name`,`time`,`type`) values ('$user[id]','".($buy==2?"Р—Р°С‰РёС‚Р° РѕС‚ РѕСЂСѓР¶РёСЏ":"РЎРѕРєСЂСѓС€РµРЅРёРµ")."',".(time()+7200).",".(199+$buy).");");
                           }
                           $ok=1;
                         }
                         if ($buy>=4 && $buy<=11) {
-                          if ($buy==4) {$mf="mfdfire";$mfval=100;$name="Защита от Огня";}
-                          if ($buy==5) {$mf="mfdwater";$mfval=100;$name="Защита от Воды";}
-                          if ($buy==6) {$mf="mfdair";$mfval=100;$name="Защита от Воздуха";}
-                          if ($buy==7) {$mf="mfdearth";$mfval=100;$name="Защита от Земли";}
-                          if ($buy==8) {$mf="mffire";$mfval=30;$name="Огненное Усилениие";}
-                          if ($buy==9) {$mf="mfwater";$mfval=30;$name="Водное Усилениие";}
-                          if ($buy==10) {$mf="mfair";$mfval=30;$name="Воздушное Усилениие";}
-                          if ($buy==11) {$mf="mfearth";$mfval=30;$name="Земное Усилениие";}
+                          if ($buy==4) {$mf="mfdfire";$mfval=100;$name="Р—Р°С‰РёС‚Р° РѕС‚ РћРіРЅСЏ";}
+                          if ($buy==5) {$mf="mfdwater";$mfval=100;$name="Р—Р°С‰РёС‚Р° РѕС‚ Р’РѕРґС‹";}
+                          if ($buy==6) {$mf="mfdair";$mfval=100;$name="Р—Р°С‰РёС‚Р° РѕС‚ Р’РѕР·РґСѓС…Р°";}
+                          if ($buy==7) {$mf="mfdearth";$mfval=100;$name="Р—Р°С‰РёС‚Р° РѕС‚ Р—РµРјР»Рё";}
+                          if ($buy==8) {$mf="mffire";$mfval=30;$name="РћРіРЅРµРЅРЅРѕРµ РЈСЃРёР»РµРЅРёРёРµ";}
+                          if ($buy==9) {$mf="mfwater";$mfval=30;$name="Р’РѕРґРЅРѕРµ РЈСЃРёР»РµРЅРёРёРµ";}
+                          if ($buy==10) {$mf="mfair";$mfval=30;$name="Р’РѕР·РґСѓС€РЅРѕРµ РЈСЃРёР»РµРЅРёРёРµ";}
+                          if ($buy==11) {$mf="mfearth";$mfval=30;$name="Р—РµРјРЅРѕРµ РЈСЃРёР»РµРЅРёРёРµ";}
                           $eff=mqfa("SELECT id, name, time FROM `effects` WHERE `owner` = $user[id] and mf='$mf' AND `type`=187");
                           if(!$eff){
                             mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`, mf, mfval) values ('$user[id]','$name',".(time()+7200).",187, '$mf', '$mfval')");
@@ -490,19 +490,19 @@ function stop_fireworks (id) {
                               //mq("UPDATE `effects` set `time` = '".(time()+7200)."' WHERE `id` = $eff[id]");
                               $ok=1;
                             } else {
-                              echo "<b><font color=red>Ещё не прошло действие предыдущего заклятия</font></b><br>";
+                              echo "<b><font color=red>Р•С‰С‘ РЅРµ РїСЂРѕС€Р»Рѕ РґРµР№СЃС‚РІРёРµ РїСЂРµРґС‹РґСѓС‰РµРіРѕ Р·Р°РєР»СЏС‚РёСЏ</font></b><br>";
                             }
                           }
                         }
                         if ($ok) {
                           mq("update users set money=money-1 where id='$user[id]'");
-                          echo "<b>Заклинание наложено успешно.</b><br>";
+                          echo "<b>Р—Р°РєР»РёРЅР°РЅРёРµ РЅР°Р»РѕР¶РµРЅРѕ СѓСЃРїРµС€РЅРѕ.</b><br>";
                         }
                       } else {
-                        echo "<b><font color=red>Недостаточно денег в наличии</font></b><br>";
+                        echo "<b><font color=red>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РІ РЅР°Р»РёС‡РёРё</font></b><br>";
                       }
-                    } elseif ($buy) echo "<b><font color=red>Маг предоставляет услуги только для владельцев замка</font></b><br>";
-                    echo "В этом домике проживает маг, который за скромную плату в 1 кр. может наложить любые заклинания, которые он умеет.<br><br>
+                    } elseif ($buy) echo "<b><font color=red>РњР°Рі РїСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ СѓСЃР»СѓРіРё С‚РѕР»СЊРєРѕ РґР»СЏ РІР»Р°РґРµР»СЊС†РµРІ Р·Р°РјРєР°</font></b><br>";
+                    echo "Р’ СЌС‚РѕРј РґРѕРјРёРєРµ РїСЂРѕР¶РёРІР°РµС‚ РјР°Рі, РєРѕС‚РѕСЂС‹Р№ Р·Р° СЃРєСЂРѕРјРЅСѓСЋ РїР»Р°С‚Сѓ РІ 1 РєСЂ. РјРѕР¶РµС‚ РЅР°Р»РѕР¶РёС‚СЊ Р»СЋР±С‹Рµ Р·Р°РєР»РёРЅР°РЅРёСЏ, РєРѕС‚РѕСЂС‹Рµ РѕРЅ СѓРјРµРµС‚.<br><br>
                     <center>
                       <a href=\"castle.php?buy=1&".time()."\"><img border=\"0\" src=\"".IMGBASE."/i/sh/spell_stat_intel.gif\"></a>
                       <a href=\"castle.php?buy=2&".time()."\"><img border=\"0\" src=\"".IMGBASE."/i/sh/spell_protect10.gif\"></a>
@@ -521,7 +521,7 @@ function stop_fireworks (id) {
                 } elseif ($user["room"]==720) {
                   echo "<div style=\"width:500px\">";
                   if ($siege<10) {
-                    echo "<center><br><b>Харчевня закрыта до окончания осады.</b></center>";
+                    echo "<center><br><b>РҐР°СЂС‡РµРІРЅСЏ Р·Р°РєСЂС‹С‚Р° РґРѕ РѕРєРѕРЅС‡Р°РЅРёСЏ РѕСЃР°РґС‹.</b></center>";
                   } else {
                     if (@$_GET["el"] && $user["klan"]==$castleowner && $user["klan"]) {
                       $el=$_GET["el"];
@@ -529,46 +529,46 @@ function stop_fireworks (id) {
                         $price=1;
                         $mfdhit=50;
                         $at="hit";
-                        $name="Эликсир Неуязвимости";
+                        $name="Р­Р»РёРєСЃРёСЂ РќРµСѓСЏР·РІРёРјРѕСЃС‚Рё";
                       }
                       if ($el==2) {
                         $price=1;
                         $mfdmag=50;
                         $at="mag";
-                        $name="Эликсир Стихий";
+                        $name="Р­Р»РёРєСЃРёСЂ РЎС‚РёС…РёР№";
                       }
                       if ($el==3) {
                         $price=2;
                         $mfdhit=75;
                         $at="hit";
-                        $name="Великое зелье Стойкости";
+                        $name="Р’РµР»РёРєРѕРµ Р·РµР»СЊРµ РЎС‚РѕР№РєРѕСЃС‚Рё";
                       }
                       if ($el==4) {
                         $price=2;
                         $mfdmag=75;
                         $at="mag";
-                        $name="Великое зелье Отрицания";
+                        $name="Р’РµР»РёРєРѕРµ Р·РµР»СЊРµ РћС‚СЂРёС†Р°РЅРёСЏ";
                       }
                       if ($el==5) {
                         $price=3;
                         $mfdmag=50;
                         $mfdhit=50;
-                        $name="Зелье Хозяина Канализации";
+                        $name="Р—РµР»СЊРµ РҐРѕР·СЏРёРЅР° РљР°РЅР°Р»РёР·Р°С†РёРё";
                       }
                       if ($el==6) {
                         $price=4;
                         $mfdhit=100;
                         $at="hit";
-                        $name="Нектар Неуязвимости";
+                        $name="РќРµРєС‚Р°СЂ РќРµСѓСЏР·РІРёРјРѕСЃС‚Рё";
                       }
                       if ($el==7) {
                         $price=4;
                         $mfdmag=100;
                         $at="mag";
-                        $name="Нектар Отрицания";
+                        $name="РќРµРєС‚Р°СЂ РћС‚СЂРёС†Р°РЅРёСЏ";
                       }
                       if ($user["money"]<$price) {
-                        echo "<font color=red><b>Недостаточно денег в наличии.</b></font>";
+                        echo "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РІ РЅР°Р»РёС‡РёРё.</b></font>";
                       } else {
                         $cond="";
                         if (@$mfdhit && !@$mfdmag) $cond.=" and mfdhit>0 and mfdmag=0 ";
@@ -581,49 +581,49 @@ function stop_fireworks (id) {
                             mq("update effects set name='$name', mfdhit='$mfdhit', mfdmag='$mfdmag' where id='$el[id]'");
                           }
                           mq("update users set money=money-$price where id='$user[id]'");
-                          echo "<b>Вы выпили кружку зелья.</b><br>";
+                          echo "<b>Р’С‹ РІС‹РїРёР»Рё РєСЂСѓР¶РєСѓ Р·РµР»СЊСЏ.</b><br>";
                           /*} else {
-                            echo "<font color=red><b>Ещё не прошло действие старого эликсира.</b></font><br>";
+                            echo "<font color=red><b>Р•С‰С‘ РЅРµ РїСЂРѕС€Р»Рѕ РґРµР№СЃС‚РІРёРµ СЃС‚Р°СЂРѕРіРѕ СЌР»РёРєСЃРёСЂР°.</b></font><br>";
                           }*/
                           updeffect($user["id"], $el, 60*60*6, array("name"=>$name, "mfd$at"=>1), ($_GET["el"]==5?0:1));
                         } else {
                           mq("insert into `effects` (`owner`,`name`,`time`,`type`, mfdhit, mfdmag) values ('".$user['id']."','$name',".(time()+(60*60*6)).",188, '$mfdhit', '$mfdmag')");
                           mq("update users set money=money-$price where id='$user[id]'");
-                          echo "<b>Вы выпили кружку зелья.</b>";
+                          echo "<b>Р’С‹ РІС‹РїРёР»Рё РєСЂСѓР¶РєСѓ Р·РµР»СЊСЏ.</b>";
                         }
                         if ($at) mq("delete from effects where owner='$user[id]' and type=".ADDICTIONEFFECT." and mfd$at<0");
                       }
-                    } elseif (@$_GET["el"]) echo "<b><font color=red>Харчевня работает только для владельцев замка</font></b><br>";
-                    echo "Лучшие напитки по лучшим ценам только для владельцев замка без каких-либо ограничений. На вынос не продаются.<div>&nbsp;</div>
+                    } elseif (@$_GET["el"]) echo "<b><font color=red>РҐР°СЂС‡РµРІРЅСЏ СЂР°Р±РѕС‚Р°РµС‚ С‚РѕР»СЊРєРѕ РґР»СЏ РІР»Р°РґРµР»СЊС†РµРІ Р·Р°РјРєР°</font></b><br>";
+                    echo "Р›СѓС‡С€РёРµ РЅР°РїРёС‚РєРё РїРѕ Р»СѓС‡С€РёРј С†РµРЅР°Рј С‚РѕР»СЊРєРѕ РґР»СЏ РІР»Р°РґРµР»СЊС†РµРІ Р·Р°РјРєР° Р±РµР· РєР°РєРёС…-Р»РёР±Рѕ РѕРіСЂР°РЅРёС‡РµРЅРёР№. РќР° РІС‹РЅРѕСЃ РЅРµ РїСЂРѕРґР°СЋС‚СЃСЏ.<div>&nbsp;</div>
                     <table align=\"center\">
-                    <tr><td align=\"center\">1 кр.<br>
+                    <tr><td align=\"center\">1 РєСЂ.<br>
                     <a href=\"castle.php?el=1&".time()."\"><img border=\"0\" src=\"".IMGBASE."/i/sh/pot_base_50_damageproof.gif\"></a>
-                    </td><td align=\"center\">1 кр.<br>
+                    </td><td align=\"center\">1 РєСЂ.<br>
                     <a href=\"castle.php?el=2&".time()."\"><img border=\"0\" src=\"".IMGBASE."/i/sh/pot_base_50_magicproof.gif\"></a>
-                    </td><td align=\"center\">2 кр.<br>
+                    </td><td align=\"center\">2 РєСЂ.<br>
                     <a href=\"castle.php?el=3&".time()."\"><img border=\"0\" src=\"".IMGBASE."/i/sh/pot_base_200_alldmg2.gif\"></a></td>
-                    <td align=\"center\">2 кр.<br>
+                    <td align=\"center\">2 РєСЂ.<br>
                     <a href=\"castle.php?el=4&".time()."\"><img border=\"0\" src=\"".IMGBASE."/i/sh/pot_base_200_allmag2.gif\"></a></td>
-                    <td align=\"center\">3 кр.<br>
+                    <td align=\"center\">3 РєСЂ.<br>
                     <a href=\"castle.php?el=5&".time()."\"><img border=\"0\" src=\"".IMGBASE."/i/sh/pot_base_0_ny1.gif\"></a></td>
-                    <td align=\"center\">4 кр.<br>
+                    <td align=\"center\">4 РєСЂ.<br>
                     <a href=\"castle.php?el=6&".time()."\"><img border=\"0\" src=\"".IMGBASE."/i/sh/pot_base_200_alldmg3.gif\"></a>
-                    </td><td align=\"center\">4 кр.<br>
+                    </td><td align=\"center\">4 РєСЂ.<br>
                     <a href=\"castle.php?el=7&".time()."\"><img border=\"0\" src=\"".IMGBASE."/i/sh/pot_base_200_allmag3.gif\"></a></td></tr></table>";
                   }
                   echo "</div>";
                 } elseif ($user["room"]==721) {
                   echo "<div style=\"width:600px\">";
                   if ($siege<10) {
-                    echo "<center><br><b>Не стоит во время осады заниматься сбором трав.</b></center>";
+                    echo "<center><br><b>РќРµ СЃС‚РѕРёС‚ РІРѕ РІСЂРµРјСЏ РѕСЃР°РґС‹ Р·Р°РЅРёРјР°С‚СЊСЃСЏ СЃР±РѕСЂРѕРј С‚СЂР°РІ.</b></center>";
                   } else {
                     if (@$_GET["findgrass"] && $user["klan"]==$castleowner && $user["klan"]) {                      
                       echo cutgrass(6);
                       echo "</div><br>";
-                    } elseif (@$_GET["findgrass"]) echo "<b><font color=red>Траву могут срезать только владельцы замка</font></b><br>";
-                    echo "<div style=\"width:600px\">Тут растёт множество разных алхимических трав, которые владельцы замка могут использовать для своих нужд,
-                    Однако предназначение многих трав забыто или ещё не изучено, поэтому найти необходимую траву обычно не так просто.<br><br>
-                    <center><a href=\"castle.php?findgrass=1&".time()."\">Срезать траву</a></center>";
+                    } elseif (@$_GET["findgrass"]) echo "<b><font color=red>РўСЂР°РІСѓ РјРѕРіСѓС‚ СЃСЂРµР·Р°С‚СЊ С‚РѕР»СЊРєРѕ РІР»Р°РґРµР»СЊС†С‹ Р·Р°РјРєР°</font></b><br>";
+                    echo "<div style=\"width:600px\">РўСѓС‚ СЂР°СЃС‚С‘С‚ РјРЅРѕР¶РµСЃС‚РІРѕ СЂР°Р·РЅС‹С… Р°Р»С…РёРјРёС‡РµСЃРєРёС… С‚СЂР°РІ, РєРѕС‚РѕСЂС‹Рµ РІР»Р°РґРµР»СЊС†С‹ Р·Р°РјРєР° РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РґР»СЏ СЃРІРѕРёС… РЅСѓР¶Рґ,
+                    РћРґРЅР°РєРѕ РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅРёРµ РјРЅРѕРіРёС… С‚СЂР°РІ Р·Р°Р±С‹С‚Рѕ РёР»Рё РµС‰С‘ РЅРµ РёР·СѓС‡РµРЅРѕ, РїРѕСЌС‚РѕРјСѓ РЅР°Р№С‚Рё РЅРµРѕР±С…РѕРґРёРјСѓСЋ С‚СЂР°РІСѓ РѕР±С‹С‡РЅРѕ РЅРµ С‚Р°Рє РїСЂРѕСЃС‚Рѕ.<br><br>
+                    <center><a href=\"castle.php?findgrass=1&".time()."\">РЎСЂРµР·Р°С‚СЊ С‚СЂР°РІСѓ</a></center>";
                   }
                   echo "</div>";
                 } else {
@@ -691,7 +691,7 @@ function stop_fireworks (id) {
                     <td><a onclick="return check('m1');" <?if($routes[$user['room']][1]) { echo 'id="m1"';}?> href="?path=2&<?=time()?>"><img src="i/move/navigatin_52<?if(!$routes[$user['room']][1]) { echo 'i';}?>.gif" width="19" height="22" border="0" <?if(!$routes[$user['room']][1]) { echo 'i';}?>onmousemove="fastshow2('<?=$rooms[$routes[$user['room']][1]]?>');" onmouseout="hideshow();" /></a></td>
                 </tr>
                 <tr>
-                    <td><a href="?<?=time()?>"><img src="i/move/navigatin_58.gif" width="19" height="33" border="0" o nmousemove="fastshow2('<strong>Обновить</strong><br />Переходы:<br />Картинная галерея 1<br />Зал ораторов<br />Картинная галерея 3');" onmouseout="hideshow();" /></a></td>
+                    <td><a href="?<?=time()?>"><img src="i/move/navigatin_58.gif" width="19" height="33" border="0" o nmousemove="fastshow2('<strong>РћР±РЅРѕРІРёС‚СЊ</strong><br />РџРµСЂРµС…РѕРґС‹:<br />РљР°СЂС‚РёРЅРЅР°СЏ РіР°Р»РµСЂРµСЏ 1<br />Р—Р°Р» РѕСЂР°С‚РѕСЂРѕРІ<br />РљР°СЂС‚РёРЅРЅР°СЏ РіР°Р»РµСЂРµСЏ 3');" onmouseout="hideshow();" /></a></td>
                 </tr>
                 <tr>
                     <td><a onclick="return check('m5');" <?if($routes[$user['room']][3]) { echo 'id="m5"';}?> href="?path=4&<?=time()?>"><img src="i/move/navigatin_67<?if(!$routes[$user['room']][3]) { echo 'i';}?>.gif" width="19" height="22" border="0" <?if(!$routes[$user['room']][3]) { echo 'i';}?>onmousemove="fastshow2('<?=$rooms[$routes[$user['room']][3]]?>');" onmouseout="hideshow();" /></a></td>
@@ -730,7 +730,7 @@ function stop_fireworks (id) {
                 </tr>
             </table>
 
-            <!-- <br /><span class="menutop"><nobr>Картинная галерея 2</nobr></span>-->
+            <!-- <br /><span class="menutop"><nobr>РљР°СЂС‚РёРЅРЅР°СЏ РіР°Р»РµСЂРµСЏ 2</nobr></span>-->
             </td>
     </tr>
 </table>
@@ -824,7 +824,7 @@ if (mtime>0) {
 </TD>
 </TR>
 </TABLE>
-<!--<BR>Всего живых участников на данный момент: <B><?
+<!--<BR>Р’СЃРµРіРѕ Р¶РёРІС‹С… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚: <B><?
     echo "<B>".($ls[0]-$ls[1])."</B> + <B>".$ls[1]."</B>";
 ?></B>...<BR>-->
 <div id=hint3 class=ahint></div>

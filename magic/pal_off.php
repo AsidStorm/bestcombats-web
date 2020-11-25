@@ -1,5 +1,5 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
 	//if (rand(1,2)==1) {
 
 		if ($_SESSION['uid'] == null) header("Location: index.php");
@@ -17,38 +17,38 @@
 				}
 				if ($ok == 1) {
 					if (mysql_query("UPDATE `users` SET `align`='0' WHERE `id` = {$tar['id']} LIMIT 1;")) {
-						if ($user['sex'] == 1) {$action="лишил";}
-						else {$action="лишила";}
+						if ($user['sex'] == 1) {$action="Р»РёС€РёР»";}
+						else {$action="Р»РёС€РёР»Р°";}
 						if ($user['align'] > '2' && $user['align'] < '3')  {
-							$angel="Ангел";
+							$angel="РђРЅРіРµР»";
 						}
 						elseif ($user['align'] > '1' && $user['align'] < '2') {
-							$angel="Паладин";
+							$angel="РџР°Р»Р°РґРёРЅ";
 						}
-						$mess="$angel &quot;{$user['login']}&quot; $action &quot;$target&quot; звания &quot;Паладин&quot;.";
-						$messch="$angel &quot;{$user['login']}&quot; $action &quot;$target&quot; звания &quot;Паладин&quot;.";
+						$mess="$angel &quot;{$user['login']}&quot; $action &quot;$target&quot; Р·РІР°РЅРёСЏ &quot;РџР°Р»Р°РґРёРЅ&quot;.";
+						$messch="$angel &quot;{$user['login']}&quot; $action &quot;$target&quot; Р·РІР°РЅРёСЏ &quot;РџР°Р»Р°РґРёРЅ&quot;.";
 						if ($user['invis'] == '1') {
-						$mess="$angel &quot;{$user['login']}&quot; $action &quot;$target&quot; звания &quot;Паладин&quot;.";
-						$messch="&quot;невидимка&quot; лишил звания Паладин персонажа &quot;$target&quot;..";
+						$mess="$angel &quot;{$user['login']}&quot; $action &quot;$target&quot; Р·РІР°РЅРёСЏ &quot;РџР°Р»Р°РґРёРЅ&quot;.";
+						$messch="&quot;РЅРµРІРёРґРёРјРєР°&quot; Р»РёС€РёР» Р·РІР°РЅРёСЏ РџР°Р»Р°РґРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot;..";
                         }
 						mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
 						mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 						addch("<img src=i/magic/pal_off.gif> $messch");
-						echo "<font color=red><b>Персонаж \"$target\" лишен звания \"Паладин\"</b></font>";			
+						echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" Р»РёС€РµРЅ Р·РІР°РЅРёСЏ \"РџР°Р»Р°РґРёРЅ\"</b></font>";			
 					}
 					else {
-						echo "<font color=red><b>Произошла ошибка!<b></font>";
+						echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
 					}
 				}
 				else {
-					echo "<font color=red><b>Вы не можете снять крест этого персонажа!<b></font>";
+					echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СЃРЅСЏС‚СЊ РєСЂРµСЃС‚ СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°!<b></font>";
 				}
 			}
 			else {
-				echo "<font color=red><b>Персонаж \"$target\" не состоит в Ордене </b></font>";
+				echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃРѕСЃС‚РѕРёС‚ РІ РћСЂРґРµРЅРµ </b></font>";
 			}
 		}
 		else {
-			echo "<font color=red><b>Персонаж \"$target\" не существует!<b></font>";
+			echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!<b></font>";
 		}
 ?>

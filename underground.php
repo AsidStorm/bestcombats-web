@@ -349,7 +349,7 @@ IMG.MoveLine{ width:<?
     $ret.="</table></div>
     </td></tr></table>";
 
-    //$ret.="<font style='font-size:14px; color:#8f0000'><b>".$mir['name']."</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<a style=\"cursor:hand;\" onclick=\"if (confirm('Вы уверены что хотите выйти?')) window.location='canalizaciya.php?act=cexit'\">&nbsp;<b style='font-size:14px; color:#000066;'>Выйти</b></a>";
+    //$ret.="<font style='font-size:14px; color:#8f0000'><b>".$mir['name']."</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<a style=\"cursor:hand;\" onclick=\"if (confirm('Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ РІС‹Р№С‚Рё?')) window.location='canalizaciya.php?act=cexit'\">&nbsp;<b style='font-size:14px; color:#000066;'>Р’С‹Р№С‚Рё</b></a>";
     //$ret.='<div style="position:relative;  id="ione"><div align="right"><img src="'.IMGBASE.'/labirint3/'.$gefd['style'].'/podzem.jpg" width=530 height=260 border=1 galleryimg="no" /></div>';
     //$ret.="<div style='position:absolute; left:374px; top:123px;'><img src='".IMGBASE."/labirint3/".$gefd['style']."/yo.gif' border='0' width='150' height='130'></div>";
     
@@ -422,13 +422,13 @@ IMG.MoveLine{ width:<?
     if (CAVESIZE==1) $ret.="left:404px;top:37px;";
     if (CAVESIZE==2) $ret.="left:598px; top:58px;";
     if (CAVESIZE==3) $ret.="left:800px;top:75px;";
-    $ret.="'><a href=\"?x=$x&y=$y&direction=".($direction==0?3:$direction-1)."\" title=\"Поворот налево\"><img src=\"/i/dungeon/turnleft".CAVESIZE.".gif\" border=\"0\" /></a></div>";
+    $ret.="'><a href=\"?x=$x&y=$y&direction=".($direction==0?3:$direction-1)."\" title=\"РџРѕРІРѕСЂРѕС‚ РЅР°Р»РµРІРѕ\"><img src=\"/i/dungeon/turnleft".CAVESIZE.".gif\" border=\"0\" /></a></div>";
 
     $ret.="<div style='position:absolute;";
     if (CAVESIZE==1) $ret.="left:475px;top:37px;";
     if (CAVESIZE==2) $ret.="left:710px; top:60px;";
     if (CAVESIZE==3) $ret.="left:935px;top:75px;";
-    $ret.="'><a href=\"?x=$x&y=$y&direction=".(($direction+1)%4)."\" title=\"Поворот направо\"><img src=\"/i/dungeon/turnright".CAVESIZE.".gif\" border=\"0\" /></a></div>";
+    $ret.="'><a href=\"?x=$x&y=$y&direction=".(($direction+1)%4)."\" title=\"РџРѕРІРѕСЂРѕС‚ РЅР°РїСЂР°РІРѕ\"><img src=\"/i/dungeon/turnright".CAVESIZE.".gif\" border=\"0\" /></a></div>";
 
     $ret.="<div style='position:absolute;";
     if (CAVESIZE==1) $ret.="left:433px;top:62px;";
@@ -597,7 +597,7 @@ progress_update();
     <td>
 <div style="padding-left:30px">
 <font style='font-size:14px; color:#8f0000'><b><?=$rooms[$user["room"]]?></b></font>&nbsp;&nbsp;&nbsp;&nbsp;
-<font style='font-size:14px; color:#8f0000'><b></b></font>&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:hand;" onclick="if (confirm('Вы уверены что хотите выйти?')) window.location='underground.php?exit=1'">&nbsp;<b style='font-size:14px; color:#000066;'>Выйти</b></a>
+<font style='font-size:14px; color:#8f0000'><b></b></font>&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:hand;" onclick="if (confirm('Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ РІС‹Р№С‚Рё?')) window.location='underground.php?exit=1'">&nbsp;<b style='font-size:14px; color:#000066;'>Р’С‹Р№С‚Рё</b></a>
 </div>
 <?
   echo drawmap($map, $map2, array(array("x"=>$x, "y"=>$y, "direction"=>$dir)));
@@ -607,19 +607,19 @@ progress_update();
 <center><table width="440" border="0" cellspacing="1" cellpadding="0" bgcolor="#000000">
   <tr>
 <td background="/img/bg_scroll_05.gif" align="center">
-<a href=inf.php?7 target=_blank title="Информация о <?=$user["login"]?>"><?=$user["login"]?></a> [<?=$user["level"]?>]<a href='inf.php?<?=$user["id"]?>' target='_blank'><img src='/i/inf.gif' border=0></a></td>
+<a href=inf.php?7 target=_blank title="РРЅС„РѕСЂРјР°С†РёСЏ Рѕ <?=$user["login"]?>"><?=$user["login"]?></a> [<?=$user["level"]?>]<a href='inf.php?<?=$user["id"]?>' target='_blank'><img src='/i/inf.gif' border=0></a></td>
 <td background="/img/bg_scroll_05.gif" align="center"><?=$user["hp"]?>/<?=$user["maxhp"]?></td>
 <td background="/img/bg_scroll_05.gif" nowrap style="font-size:9px" style="position: relative">
-<table cellspacing="0" cellpadding="0" style='line-height: 1;padding-top:5px;'><td nowrap style="font-size:9px" style="position: relative"><SPAN id="HP" style='position: absolute; left: 5; z-index: 1; font-weight: bold; color: #FFFFFF'></SPAN><img src="/i/misc/bk_life_loose.gif" alt="Уровень жизни" name="HP1" width="1" height="9" id="HP1"><img src="/i/misc/bk_life_loose.gif" alt="Уровень жизни" name="HP2" width="1" height="9" id="HP2"></td></table></td>
+<table cellspacing="0" cellpadding="0" style='line-height: 1;padding-top:5px;'><td nowrap style="font-size:9px" style="position: relative"><SPAN id="HP" style='position: absolute; left: 5; z-index: 1; font-weight: bold; color: #FFFFFF'></SPAN><img src="/i/misc/bk_life_loose.gif" alt="РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё" name="HP1" width="1" height="9" id="HP1"><img src="/i/misc/bk_life_loose.gif" alt="РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё" name="HP2" width="1" height="9" id="HP2"></td></table></td>
 <td background="/img/bg_scroll_05.gif" align="center"></td>
-<td background="/img/bg_scroll_05.gif" align="center"><IMG alt="Лидер группы" src="/i/misc/lead1.gif" width=24 height=15><A href="#" onClick="findlogin( 'Выберите персонажа которого хотите выгнать','canalizaciya.php', 'kill')"><IMG alt="Выгнать супостата" src="/img/podzem/ico_kill_member1.gif" WIDTH="14" HEIGHT="17"></A>&nbsp;<A href="#" onClick="findlogin( 'Выберите персонажа которому хотите передать лидерство','underground.php', 'change')"><IMG alt="Новый царь" src="/img/podzem/ico_change_leader1.gif" WIDTH="14" HEIGHT="17"></A></td>
+<td background="/img/bg_scroll_05.gif" align="center"><IMG alt="Р›РёРґРµСЂ РіСЂСѓРїРїС‹" src="/i/misc/lead1.gif" width=24 height=15><A href="#" onClick="findlogin( 'Р’С‹Р±РµСЂРёС‚Рµ РїРµСЂСЃРѕРЅР°Р¶Р° РєРѕС‚РѕСЂРѕРіРѕ С…РѕС‚РёС‚Рµ РІС‹РіРЅР°С‚СЊ','canalizaciya.php', 'kill')"><IMG alt="Р’С‹РіРЅР°С‚СЊ СЃСѓРїРѕСЃС‚Р°С‚Р°" src="/img/podzem/ico_kill_member1.gif" WIDTH="14" HEIGHT="17"></A>&nbsp;<A href="#" onClick="findlogin( 'Р’С‹Р±РµСЂРёС‚Рµ РїРµСЂСЃРѕРЅР°Р¶Р° РєРѕС‚РѕСЂРѕРјСѓ С…РѕС‚РёС‚Рµ РїРµСЂРµРґР°С‚СЊ Р»РёРґРµСЂСЃС‚РІРѕ','underground.php', 'change')"><IMG alt="РќРѕРІС‹Р№ С†Р°СЂСЊ" src="/img/podzem/ico_change_leader1.gif" WIDTH="14" HEIGHT="17"></A></td>
 </tr></table></center>
 <br><form action="underground.php">
 <center>
-Размер экрана: <select name="cavesize" onchange="this.form.submit();">
-<option value="1" <? if ($cs==1) echo "selected"; ?>>Стандартный размер</option>
-<option value="2" <? if ($cs==2) echo "selected"; ?>>Полуторный размер</option>
-<option value="3" <? if ($cs==3) echo "selected"; ?>>Двойной размер</option>
+Р Р°Р·РјРµСЂ СЌРєСЂР°РЅР°: <select name="cavesize" onchange="this.form.submit();">
+<option value="1" <? if ($cs==1) echo "selected"; ?>>РЎС‚Р°РЅРґР°СЂС‚РЅС‹Р№ СЂР°Р·РјРµСЂ</option>
+<option value="2" <? if ($cs==2) echo "selected"; ?>>РџРѕР»СѓС‚РѕСЂРЅС‹Р№ СЂР°Р·РјРµСЂ</option>
+<option value="3" <? if ($cs==3) echo "selected"; ?>>Р”РІРѕР№РЅРѕР№ СЂР°Р·РјРµСЂ</option>
 </select>
 </center>
 </form>

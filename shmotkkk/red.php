@@ -41,7 +41,7 @@ $v++;
 </table>
 </td>
 </tr>
-<tr><td width="217" align="center"><input name="save" type="submit" value="Ñîõðàíèòü" /></td></tr> 
+<tr><td width="217" align="center"><input name="save" type="submit" value="Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ" /></td></tr> 
 </table>
 </form>	
 </td>

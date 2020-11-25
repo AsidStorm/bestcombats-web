@@ -34,10 +34,10 @@ $('textarea').limit('500','#charsLeft');
 	<tr><td align=middle width=100%>
 		<table>
 		<tr><td>
-		<BR><fieldset ><legend><b>Блокнот: (<span id="charsLeft"></span>&nbsp;знаков осталось.)</b></legend><form  action="?" method="post"><b>Добавить/редактировать сообщение </b> <small>не более 500 знаков.</small><br>
+		<BR><fieldset ><legend><b>Р‘Р»РѕРєРЅРѕС‚: (<span id="charsLeft"></span>&nbsp;Р·РЅР°РєРѕРІ РѕСЃС‚Р°Р»РѕСЃСЊ.)</b></legend><form  action="?" method="post"><b>Р”РѕР±Р°РІРёС‚СЊ/СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ </b> <small>РЅРµ Р±РѕР»РµРµ 500 Р·РЅР°РєРѕРІ.</small><br>
 <textarea name="text" rows="8" cols="85"><?=$user['bloknot']?></textarea>                     
 
-<br><input type="submit" name="post_mess" value="Сохранить"></form></fieldset>
+<br><input type="submit" name="post_mess" value="РЎРѕС…СЂР°РЅРёС‚СЊ"></form></fieldset>
 			</td>
 		</tr>
 	</table>

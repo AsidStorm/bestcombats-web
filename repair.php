@@ -33,19 +33,19 @@
                     $onecost=0.1;
                     if($onecost <= $user['money'])  {
                         if(mysql_query("UPDATE `inventory` SET `duration` = `duration`-1 WHERE `id` = {$_GET['rep']}")) {
-                            $err = "<font color=red><b>Произведен ремонт предмета \"{$row['name']}\"  за  ".round($onecost,2)."  кр. </b></font>";
+                            $err = "<font color=red><b>РџСЂРѕРёР·РІРµРґРµРЅ СЂРµРјРѕРЅС‚ РїСЂРµРґРјРµС‚Р° \"{$row['name']}\"  Р·Р°  ".round($onecost,2)."  РєСЂ. </b></font>";
                             mysql_query("UPDATE `users` set `money` = `money`- '".(round($onecost,2))."' WHERE id = {$_SESSION['uid']}");
                             $newduration=$row['duration']-1;
-                            mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Отремонтирован предмет \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".round($onecost,2)." кр. ',1,'".time()."');");
+                            mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РћС‚СЂРµРјРѕРЅС‚РёСЂРѕРІР°РЅ РїСЂРµРґРјРµС‚ \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] Сѓ \"".$user['login']."\" Р·Р° ".round($onecost,2)." РєСЂ. ',1,'".time()."');");
                             $user['money']=$user['money'] - round($onecost,2);
                             if(rand(1,10)==1) {
-                                $err .= "<font color=red><b>К сожалению максимальная долговечность предмета из-за ремонта уменьшилась.</b></font>";
+                                $err .= "<font color=red><b>Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґРѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ РїСЂРµРґРјРµС‚Р° РёР·-Р·Р° СЂРµРјРѕРЅС‚Р° СѓРјРµРЅСЊС€РёР»Р°СЃСЊ.</b></font>";
                                 mysql_query("UPDATE `inventory` SET `maxdur` = `maxdur`-1 WHERE `id` = {$_GET['rep']}");
                             }
                         }
                     }
                     else {
-                        $err = "<font color=red><b>Недостаточно денег.</b></font>";
+                        $err = "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі.</b></font>";
                     }
                 }
             break;
@@ -59,18 +59,18 @@
 
                         if(mysql_query("UPDATE `inventory` SET `duration` = `duration`-10 WHERE `id` = {$_GET['rep']}"))
                         {
-                            $err = "<font color=red><b>Произведен ремонт предмета \"{$row['name']}\"  за  ".(round($onecost,2)*10)."  кр. </b></font>";
+                            $err = "<font color=red><b>РџСЂРѕРёР·РІРµРґРµРЅ СЂРµРјРѕРЅС‚ РїСЂРµРґРјРµС‚Р° \"{$row['name']}\"  Р·Р°  ".(round($onecost,2)*10)."  РєСЂ. </b></font>";
                             mysql_query("UPDATE `users` set `money` = `money`- '".(round($onecost,2)*10)."' WHERE id = {$_SESSION['uid']}");
                             $newduration=$row['duration']-10;
-                            mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Отремонтирован предмет \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".(round($onecost,2)*10)." кр. ',1,'".time()."');");
+                            mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РћС‚СЂРµРјРѕРЅС‚РёСЂРѕРІР°РЅ РїСЂРµРґРјРµС‚ \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] Сѓ \"".$user['login']."\" Р·Р° ".(round($onecost,2)*10)." РєСЂ. ',1,'".time()."');");
                             $user['money']=$user['money'] - (round($onecost,2)*10);
                             if(rand(1,7)==1) {
-                                $err .= "<font color=red><b>К сожалению максимальная долговечность предмета из-за ремонта уменьшилась.</b></font>";
+                                $err .= "<font color=red><b>Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґРѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ РїСЂРµРґРјРµС‚Р° РёР·-Р·Р° СЂРµРјРѕРЅС‚Р° СѓРјРµРЅСЊС€РёР»Р°СЃСЊ.</b></font>";
                                 mysql_query("UPDATE `inventory` SET `maxdur` = `maxdur`-1 WHERE `id` = {$_GET['rep']}");
                             }
                         }
                     } else {
-                        $err = "<font color=red><b>Недостаточно денег.</b></font>";
+                        $err = "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі.</b></font>";
                     }
                 }
             break;
@@ -84,18 +84,18 @@
                     if(round($onecost*$full) <= $user['money'])  {
                         if(mysql_query("UPDATE `inventory` SET `duration` = '0' WHERE `id` = {$_GET['rep']}"))
                             {
-                            $err = "<font color=red><b>Произведен ремонт предмета \"{$row['name']}\"  за  ".(round($onecost,2)*$full)."  кр. </b></font>";
+                            $err = "<font color=red><b>РџСЂРѕРёР·РІРµРґРµРЅ СЂРµРјРѕРЅС‚ РїСЂРµРґРјРµС‚Р° \"{$row['name']}\"  Р·Р°  ".(round($onecost,2)*$full)."  РєСЂ. </b></font>";
                             mysql_query("UPDATE `users` set `money` = `money`- '".(round($onecost,2)*$full)."' WHERE id = {$_SESSION['uid']}");
-                            mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Отремонтирован предмет \"".$row['name']."\" id:(cap".$row['id'].") [0/".$row['maxdur']."] у \"".$user['login']."\" за ".(round($onecost,2)*$full)." кр. ',1,'".time()."');");
+                            mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РћС‚СЂРµРјРѕРЅС‚РёСЂРѕРІР°РЅ РїСЂРµРґРјРµС‚ \"".$row['name']."\" id:(cap".$row['id'].") [0/".$row['maxdur']."] Сѓ \"".$user['login']."\" Р·Р° ".(round($onecost,2)*$full)." РєСЂ. ',1,'".time()."');");
                             $user['money']=$user['money'] - (round($onecost,2)*$full);
                             if(rand(1,5)==1) {
-                                $err .= "<font color=red><b>К сожалению максимальная долговечность предмета из-за ремонта уменьшилась.</b></font>";
+                                $err .= "<font color=red><b>Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ РґРѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ РїСЂРµРґРјРµС‚Р° РёР·-Р·Р° СЂРµРјРѕРЅС‚Р° СѓРјРµРЅСЊС€РёР»Р°СЃСЊ.</b></font>";
                                 mysql_query("UPDATE `inventory` SET `maxdur` = `maxdur`-1 WHERE `id` = {$_GET['rep']}");
                             }
                         }
                     }
                     else {
-                        $err = "<font color=red><b>Недостаточно денег.</b></font>";
+                        $err = "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі.</b></font>";
                     }
                 }
             break;
@@ -113,16 +113,16 @@
 <SCRIPT LANGUAGE="JavaScript">
 function AddCount(name)
 {
-    document.all("hint3").innerHTML = ' <FORM METHOD=POST ACTION="repair.php?razdel=1"><table border=0 width=100% cellspacing=1 cellpadding=0 bgcolor="#CCC3AA"><tr><td align=center><B>Гравировка</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</TD></tr><tr><td colspan=2>'+
-    '<table border=0 width=100% cellspacing=0 cellpadding=0 bgcolor="#FFF6DD"><tr><INPUT TYPE="hidden" name="set" value="'+name+'"><td colspan=2 align=center><small>Какую надпись желаете выгравировать:</small></td></tr><tr><td width=80% align=right>'+
-    '<INPUT TYPE="text" NAME="count" size=30></td><td width=20%>&nbsp;<INPUT TYPE="submit" value=" »» ">'+
+    document.all("hint3").innerHTML = ' <FORM METHOD=POST ACTION="repair.php?razdel=1"><table border=0 width=100% cellspacing=1 cellpadding=0 bgcolor="#CCC3AA"><tr><td align=center><B>Р“СЂР°РІРёСЂРѕРІРєР°</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</TD></tr><tr><td colspan=2>'+
+    '<table border=0 width=100% cellspacing=0 cellpadding=0 bgcolor="#FFF6DD"><tr><INPUT TYPE="hidden" name="set" value="'+name+'"><td colspan=2 align=center><small>РљР°РєСѓСЋ РЅР°РґРїРёСЃСЊ Р¶РµР»Р°РµС‚Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°С‚СЊ:</small></td></tr><tr><td width=80% align=right>'+
+    '<INPUT TYPE="text" NAME="count" size=30></td><td width=20%>&nbsp;<INPUT TYPE="submit" value=" В»В» ">'+
     '</TD></TR></TABLE></td></tr></table>';
     document.all("hint3").style.visibility = "visible";
     document.all("hint3").style.left = event.x+document.body.scrollLeft-20;
     document.all("hint3").style.top = event.y+document.body.scrollTop+5;
     document.all("count").focus();
 }
-// Закрывает окно
+// Р—Р°РєСЂС‹РІР°РµС‚ РѕРєРЅРѕ
 function closehint3()
 {
     document.all("hint3").style.visibility="hidden";
@@ -131,11 +131,11 @@ function closehint3()
 <? if ($user['id'] != 7) { ?>
 <script LANGUAGE='JavaScript'>   
 document.ondragstart = test;
-//запрет на перетаскивание
+//Р·Р°РїСЂРµС‚ РЅР° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ
 document.onselectstart = test;
-//запрет на выделение элементов страницы
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂР°РЅРёС†С‹
 document.oncontextmenu = test;
-//запрет на выведение контекстного меню
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РІРµРґРµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 function test() {
  return false
 }
@@ -145,10 +145,10 @@ function test() {
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=#e0e0e0>
 <TABLE border=0 width=100% cellspacing="0" cellpadding="0">
 <FORM action="city.php" method=GET>
-<tr><td><h3>Ремонтная мастерская</td><td align=right>
+<tr><td><h3>Р РµРјРѕРЅС‚РЅР°СЏ РјР°СЃС‚РµСЂСЃРєР°СЏ</td><td align=right>
 
-<INPUT TYPE="button" value="Подсказка" style="background-color:#A9AFC0" onclick="window.open('help/shop.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">
-<INPUT TYPE="submit" value="Вернуться" name="cp"></td></tr>
+<INPUT TYPE="button" value="РџРѕРґСЃРєР°Р·РєР°" style="background-color:#A9AFC0" onclick="window.open('help/shop.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">
+<INPUT TYPE="submit" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" name="cp"></td></tr>
 
 
  
@@ -165,20 +165,20 @@ function test() {
     <TABLE border=0 width=100% cellspacing="0" cellpadding="0" bgcolor="#A5A5A5">
     <TR><TD>
         <TABLE border=0 width=100% cellspacing="0" cellpadding="1" bgcolor=#d4d2d2><TR>
-            <td align=center bgcolor=#C7C7C7><B>Залы:</B></TD>
-            <TD  align=center bgcolor="<?=($_GET['razdel']==0)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?razdel=0">Ремонт</A></TD>
-            <TD  align=center bgcolor="<?=($_GET['razdel']==1)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?razdel=1">Гравировка</A></TD>
-            <TD  align=center bgcolor="<?=($_GET['razdel']==2)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?razdel=2">Перезарядка магии</A></TD>
-            <TD  align=center bgcolor="<?=($_GET['razdel']==3)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?razdel=3">Модифицирование</A></TD>
+            <td align=center bgcolor=#C7C7C7><B>Р—Р°Р»С‹:</B></TD>
+            <TD  align=center bgcolor="<?=($_GET['razdel']==0)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?razdel=0">Р РµРјРѕРЅС‚</A></TD>
+            <TD  align=center bgcolor="<?=($_GET['razdel']==1)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?razdel=1">Р“СЂР°РІРёСЂРѕРІРєР°</A></TD>
+            <TD  align=center bgcolor="<?=($_GET['razdel']==2)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?razdel=2">РџРµСЂРµР·Р°СЂСЏРґРєР° РјР°РіРёРё</A></TD>
+            <TD  align=center bgcolor="<?=($_GET['razdel']==3)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?razdel=3">РњРѕРґРёС„РёС†РёСЂРѕРІР°РЅРёРµ</A></TD>
     </TR>
     <TR>
     <td colspan=5 bgcolor=#A5A5A5>
         <CENTER><B><?
             switch ($_GET['razdel']) {
-                case 0: echo "Починка поврежденных предметов"; break;
-                case 1: echo "Нанесение надписей на оружие"; break;
-                case 2: echo "Перезарядка встроеной магии</B><BR><i>Если в предмет встроена магия, мы поможем ее перезарядить за умеренную плату. Учтите, ничто не вечно под луной, в том числе и магия, рано или поздно встроенный свиток исчерпает все свои ресурсы, и мы уже не сможем его перезарядить.</i>"; break;
-                case 3: echo "Модификация предметов</B><BR><I>Наши мастера помогут вам модифицировать ваши доспехи. К сожалению, технология не позволяет повторно модифицировать вещи. Чем выше у вас интеллект, тем яснее вы сможете объяснить мастерам желаемый результат. Результат может быть непредсказуем!</I><B>"; break;
+                case 0: echo "РџРѕС‡РёРЅРєР° РїРѕРІСЂРµР¶РґРµРЅРЅС‹С… РїСЂРµРґРјРµС‚РѕРІ"; break;
+                case 1: echo "РќР°РЅРµСЃРµРЅРёРµ РЅР°РґРїРёСЃРµР№ РЅР° РѕСЂСѓР¶РёРµ"; break;
+                case 2: echo "РџРµСЂРµР·Р°СЂСЏРґРєР° РІСЃС‚СЂРѕРµРЅРѕР№ РјР°РіРёРё</B><BR><i>Р•СЃР»Рё РІ РїСЂРµРґРјРµС‚ РІСЃС‚СЂРѕРµРЅР° РјР°РіРёСЏ, РјС‹ РїРѕРјРѕР¶РµРј РµРµ РїРµСЂРµР·Р°СЂСЏРґРёС‚СЊ Р·Р° СѓРјРµСЂРµРЅРЅСѓСЋ РїР»Р°С‚Сѓ. РЈС‡С‚РёС‚Рµ, РЅРёС‡С‚Рѕ РЅРµ РІРµС‡РЅРѕ РїРѕРґ Р»СѓРЅРѕР№, РІ С‚РѕРј С‡РёСЃР»Рµ Рё РјР°РіРёСЏ, СЂР°РЅРѕ РёР»Рё РїРѕР·РґРЅРѕ РІСЃС‚СЂРѕРµРЅРЅС‹Р№ СЃРІРёС‚РѕРє РёСЃС‡РµСЂРїР°РµС‚ РІСЃРµ СЃРІРѕРё СЂРµСЃСѓСЂСЃС‹, Рё РјС‹ СѓР¶Рµ РЅРµ СЃРјРѕР¶РµРј РµРіРѕ РїРµСЂРµР·Р°СЂСЏРґРёС‚СЊ.</i>"; break;
+                case 3: echo "РњРѕРґРёС„РёРєР°С†РёСЏ РїСЂРµРґРјРµС‚РѕРІ</B><BR><I>РќР°С€Рё РјР°СЃС‚РµСЂР° РїРѕРјРѕРіСѓС‚ РІР°Рј РјРѕРґРёС„РёС†РёСЂРѕРІР°С‚СЊ РІР°С€Рё РґРѕСЃРїРµС…Рё. Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ, С‚РµС…РЅРѕР»РѕРіРёСЏ РЅРµ РїРѕР·РІРѕР»СЏРµС‚ РїРѕРІС‚РѕСЂРЅРѕ РјРѕРґРёС„РёС†РёСЂРѕРІР°С‚СЊ РІРµС‰Рё. Р§РµРј РІС‹С€Рµ Сѓ РІР°СЃ РёРЅС‚РµР»Р»РµРєС‚, С‚РµРј СЏСЃРЅРµРµ РІС‹ СЃРјРѕР¶РµС‚Рµ РѕР±СЉСЏСЃРЅРёС‚СЊ РјР°СЃС‚РµСЂР°Рј Р¶РµР»Р°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚. Р РµР·СѓР»СЊС‚Р°С‚ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅРµРїСЂРµРґСЃРєР°Р·СѓРµРј!</I><B>"; break;
             }
         ?></B></CENTER>
     </td>
@@ -198,9 +198,9 @@ if ($_GET['razdel']==0) {
         $onecost=0.1;
         ?>
         <BR><small>
-            <? if($row['duration'] >0){?><A HREF="?rep=<?=$row['id']?>&sid=1">Ремонт 1 ед. за <?=round($onecost,2)?> кр.</A><BR><?}  else { echo "не нуждается в ремонте";}?>
-            <? if($row['duration'] >=10){?><A HREF="?rep=<?=$row['id']?>&sid=10">Ремонт 10 ед. за <?=round(($onecost*10),2)?> кр.</A><BR><?}?>
-            <? if($row['duration'] >1){?><A HREF="?rep=<?=$row['id']?>&sid=full">Полный ремонт за <?=round(($row['duration']*$onecost),2)?> кр.</A><?}?>
+            <? if($row['duration'] >0){?><A HREF="?rep=<?=$row['id']?>&sid=1">Р РµРјРѕРЅС‚ 1 РµРґ. Р·Р° <?=round($onecost,2)?> РєСЂ.</A><BR><?}  else { echo "РЅРµ РЅСѓР¶РґР°РµС‚СЃСЏ РІ СЂРµРјРѕРЅС‚Рµ";}?>
+            <? if($row['duration'] >=10){?><A HREF="?rep=<?=$row['id']?>&sid=10">Р РµРјРѕРЅС‚ 10 РµРґ. Р·Р° <?=round(($onecost*10),2)?> РєСЂ.</A><BR><?}?>
+            <? if($row['duration'] >1){?><A HREF="?rep=<?=$row['id']?>&sid=full">РџРѕР»РЅС‹Р№ СЂРµРјРѕРЅС‚ Р·Р° <?=round(($row['duration']*$onecost),2)?> РєСЂ.</A><?}?>
         </small>
         </TD>
         <?php
@@ -211,15 +211,15 @@ if ($_GET['razdel']==0) {
 }
 
 if ($_GET['razdel']==1) {
-    $data = mq("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND ((`type` = 3  AND `name` NOT LIKE '%Букет%') $gravcond) AND `setsale`=0 ORDER by `update` DESC; ");
+    $data = mq("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND ((`type` = 3  AND `name` NOT LIKE '%Р‘СѓРєРµС‚%') $gravcond) AND `setsale`=0 ORDER by `update` DESC; ");
     while($row = mysql_fetch_array($data)) {
         $row['count'] = 1;
         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
         echo "<TR bgcolor={$color}><TD align=center ><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
         ?>
         <BR><small>
-            <? if($row['text']== null){?><A HREF="#" onclick="AddCount(<?=$row['id']?>)">Нанести надпись за 50 кр.</A><BR><?}  else {
-            ?><A HREF="?razdel=1&rep=<?=$row['id']?>&sid=2">Стереть надпись</A><BR><?}?>
+            <? if($row['text']== null){?><A HREF="#" onclick="AddCount(<?=$row['id']?>)">РќР°РЅРµСЃС‚Рё РЅР°РґРїРёСЃСЊ Р·Р° 50 РєСЂ.</A><BR><?}  else {
+            ?><A HREF="?razdel=1&rep=<?=$row['id']?>&sid=2">РЎС‚РµСЂРµС‚СЊ РЅР°РґРїРёСЃСЊ</A><BR><?}?>
         </small>
         </TD>
         <?php
@@ -233,18 +233,18 @@ if ($_GET['razdel']==2) {
     if($_GET['it']) {
         $row = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `includemagicmax` > 0 AND `id` = '{$_GET['it']}' LIMIT 1;"));
         if($user['money'] < $row['includemagiccost'] && $row['includemagicdex'] ==0) {
-            $err= "<font color=red><b>У вас не хватает денег на перезарядку.</b></font>";
+            $err= "<font color=red><b>РЈ РІР°СЃ РЅРµ С…РІР°С‚Р°РµС‚ РґРµРЅРµРі РЅР° РїРµСЂРµР·Р°СЂСЏРґРєСѓ.</b></font>";
         }
         else {
             if($row['includemagicuses'] <=1) {
-                $err= "<font color=red><b>Мы сожалеем, свиток исчерпал все свои ресурсы, и мы уже не можем его перезарядить.</b></font>";
+                $err= "<font color=red><b>РњС‹ СЃРѕР¶Р°Р»РµРµРј, СЃРІРёС‚РѕРє РёСЃС‡РµСЂРїР°Р» РІСЃРµ СЃРІРѕРё СЂРµСЃСѓСЂСЃС‹, Рё РјС‹ СѓР¶Рµ РЅРµ РјРѕР¶РµРј РµРіРѕ РїРµСЂРµР·Р°СЂСЏРґРёС‚СЊ.</b></font>";
                 mysql_query("UPDATE `users` set `money` = `money`- '".($row['includemagiccost'])."' WHERE id = {$_SESSION['uid']}");
-                mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Перезаряжена магия \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".round($onecost,2)." кр. ',1,'".time()."');");
+                mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РџРµСЂРµР·Р°СЂСЏР¶РµРЅР° РјР°РіРёСЏ \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] Сѓ \"".$user['login']."\" Р·Р° ".round($onecost,2)." РєСЂ. ',1,'".time()."');");
                 mysql_query("UPDATE `inventory` SET `includemagic` = '', `includemagicdex` = '', `includemagicmax` = '', `includemagicname` = '', `includemagicuses` = '', `includemagiccost` = '' WHERE `id` = '{$_GET['it']}' LIMIT 1;");
             } else {
-                $err= "<font color=red><b>Магия успешно перезаряжена.</b></font>";
+                $err= "<font color=red><b>РњР°РіРёСЏ СѓСЃРїРµС€РЅРѕ РїРµСЂРµР·Р°СЂСЏР¶РµРЅР°.</b></font>";
                 mysql_query("UPDATE `users` set `money` = `money`- '".($row['includemagiccost'])."' WHERE id = {$_SESSION['uid']}");
-                mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Перезаряжена магия \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".round($onecost,2)." кр. ',1,'".time()."');");
+                mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РџРµСЂРµР·Р°СЂСЏР¶РµРЅР° РјР°РіРёСЏ \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] Сѓ \"".$user['login']."\" Р·Р° ".round($onecost,2)." РєСЂ. ',1,'".time()."');");
                 mysql_query("UPDATE `inventory` SET `includemagicdex` = `includemagicmax`, `includemagicuses` = `includemagicuses`-1 WHERE `id` = '{$_GET['it']}' LIMIT 1;");
             }
         }
@@ -261,10 +261,10 @@ if ($_GET['razdel']==2) {
         <small>
             <?
                 if($row['includemagicdex'] ==0) {
-                    ?><A HREF="?razdel=2&it=<?=$row['id']?>">Перезарядить за <?=$row['includemagiccost']?> кр.</A><BR><?
+                    ?><A HREF="?razdel=2&it=<?=$row['id']?>">РџРµСЂРµР·Р°СЂСЏРґРёС‚СЊ Р·Р° <?=$row['includemagiccost']?> РєСЂ.</A><BR><?
                 }
                 else {
-                    echo 'Не нуждается в перезарядке';
+                    echo 'РќРµ РЅСѓР¶РґР°РµС‚СЃСЏ РІ РїРµСЂРµР·Р°СЂСЏРґРєРµ';
                 }
             ?>
         </small>
@@ -279,12 +279,12 @@ if ($_GET['razdel']==2) {
 if ($_GET['razdel']==3) {
 
     if($_GET['mf']) {
-      $row = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `type` < 25 AND `type` != 0 AND `type` != 12 AND `honor` = 0 AND `artefact` = 0 AND `podzem` != 1 AND `owner` = '{$_SESSION['uid']}' AND `id` = '{$_GET['mf']}' AND `name` NOT LIKE '% (мф)%' AND `name` NOT LIKE '%Букет%'  AND `name` NOT LIKE '%Мешок%' AND `setsale`=0 LIMIT 1;"));
+      $row = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `type` < 25 AND `type` != 0 AND `type` != 12 AND `honor` = 0 AND `artefact` = 0 AND `podzem` != 1 AND `owner` = '{$_SESSION['uid']}' AND `id` = '{$_GET['mf']}' AND `name` NOT LIKE '% (РјС„)%' AND `name` NOT LIKE '%Р‘СѓРєРµС‚%'  AND `name` NOT LIKE '%РњРµС€РѕРє%' AND `setsale`=0 LIMIT 1;"));
       if ($row) {
         if (!$row["cost"]) $row['cost']=$row['ecost']*11;
         $row["cost"]*=0.3;
         if($user['money'] < $row['cost'] OR !$row) {
-            $err= "<font color=red><b>У вас не хватает денег на модификацию.</b></font>";
+            $err= "<font color=red><b>РЈ РІР°СЃ РЅРµ С…РІР°С‚Р°РµС‚ РґРµРЅРµРі РЅР° РјРѕРґРёС„РёРєР°С†РёСЋ.</b></font>";
         }
         else {
             srand(make_seed());
@@ -312,7 +312,7 @@ if ($_GET['razdel']==3) {
 
             switch ($type) {
                 case 1:
-                    // крит
+                    // РєСЂРёС‚
                     $mfkrit = $mf1;
                     $mfantiuvorot = $mf2;
                     $inta = $st1;
@@ -320,7 +320,7 @@ if ($_GET['razdel']==3) {
                     $ninta = $st2;
                 break;
                 case 2:
-                    // ловкость
+                    // Р»РѕРІРєРѕСЃС‚СЊ
                     $mfuvorot = $mf1;
                     $mfantikrit = $mf2;
                     $lovk = $st1;
@@ -328,7 +328,7 @@ if ($_GET['razdel']==3) {
                     $nlovk = $st2;
                 break;
                 case 3:
-                    // сила
+                    // СЃРёР»Р°
                     $mfminu = $min;
                     $mfmaxu = $max;
                     $sila = $st1;
@@ -336,7 +336,7 @@ if ($_GET['razdel']==3) {
                     $nsila = $st2;
                 break;
                 case 4:
-                    // вынос
+                    // РІС‹РЅРѕСЃ
                     $nvinos = $st2;
                     $mfantikrit = $mf1;
                     $bron1 = rand(0,3);
@@ -366,22 +366,22 @@ if ($_GET['razdel']==3) {
                             `ninta` = `ninta`+'".(int)$ninta."',
                             `nvinos` = `nvinos`+'".(int)$nvinos."',
                             ".(SELLCOEF==1?"":"`cost` = `cost` + '".round($row['cost']/10)."',")."
-                            `name` = CONCAT(`name`, ' (мф)')
+                            `name` = CONCAT(`name`, ' (РјС„)')
             WHERE `id` = '{$_GET['mf']}' LIMIT 1;") or die(mysql_error())) {
                 //echo $row['cost'];qqq
                 mysql_query("UPDATE `users` set `money` = `money`- '".($row['cost'])."' WHERE id = {$_SESSION['uid']}") or die(mysql_error());
-                mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Моцифицирована вещь \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] у \"".$user['login']."\" за ".round($row["cost"],2)." кр. ',1,'".time()."');") or die(mysql_error());
-                $err= "<font color=red><b>Вещь модифицирована.</b></font>";
+                mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РњРѕС†РёС„РёС†РёСЂРѕРІР°РЅР° РІРµС‰СЊ \"".$row['name']."\" id:(cap".$row['id'].") [".$newduration."/".$row['maxdur']."] Сѓ \"".$user['login']."\" Р·Р° ".round($row["cost"],2)." РєСЂ. ',1,'".time()."');") or die(mysql_error());
+                $err= "<font color=red><b>Р’РµС‰СЊ РјРѕРґРёС„РёС†РёСЂРѕРІР°РЅР°.</b></font>";
             }
 
         }
       } else {
-        $err= "<font color=red><b>Вещь не может быть модифицирована!</b></font>";
+        $err= "<font color=red><b>Р’РµС‰СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РјРѕРґРёС„РёС†РёСЂРѕРІР°РЅР°!</b></font>";
       }
     }
 
 
-    $data = mysql_query("SELECT * FROM `inventory` WHERE `type` < 25 AND `type` != 12 AND `artefact` = 0  AND `honor` = 0  AND `podzem` != 1 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `name` NOT LIKE '% (мф)%' AND `name` NOT LIKE '%Букет%'  AND `name` NOT LIKE '%Мешок%' AND `name` NOT LIKE '%Копалка новичка%' AND `name` NOT LIKE '%Копалка мастера%' AND `setsale`=0 AND otdel != 50 ORDER by `update` DESC; ");
+    $data = mysql_query("SELECT * FROM `inventory` WHERE `type` < 25 AND `type` != 12 AND `artefact` = 0  AND `honor` = 0  AND `podzem` != 1 AND `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `name` NOT LIKE '% (РјС„)%' AND `name` NOT LIKE '%Р‘СѓРєРµС‚%'  AND `name` NOT LIKE '%РњРµС€РѕРє%' AND `name` NOT LIKE '%РљРѕРїР°Р»РєР° РЅРѕРІРёС‡РєР°%' AND `name` NOT LIKE '%РљРѕРїР°Р»РєР° РјР°СЃС‚РµСЂР°%' AND `setsale`=0 AND otdel != 50 ORDER by `update` DESC; ");
     while($row = mysql_fetch_array($data)) {
         $row['count'] = 1;
         if (!$row["cost"]) $row["cost"]=$row["ecost"]*11;
@@ -389,7 +389,7 @@ if ($_GET['razdel']==3) {
         echo "<TR bgcolor={$color}><TD align=center ><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
         ?>
         <BR><small>
-            <A HREF="?razdel=3&mf=<?=$row['id']?>" onclick="if(!confirm('Вы действительно хотите модифицировать эту вещь?')){ return false;}">Модифицировать за <?=$row['cost']*0.3?> кр.</A><BR>
+            <A HREF="?razdel=3&mf=<?=$row['id']?>" onclick="if(!confirm('Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ РјРѕРґРёС„РёС†РёСЂРѕРІР°С‚СЊ СЌС‚Сѓ РІРµС‰СЊ?')){ return false;}">РњРѕРґРёС„РёС†РёСЂРѕРІР°С‚СЊ Р·Р° <?=$row['cost']*0.3?> РєСЂ.</A><BR>
         </small>
         </TD>
         <?php
@@ -406,10 +406,10 @@ if ($_GET['razdel']==3) {
     <TD align=center>
     </TD>
 <TD valign=top width=280><BR>
-    <CENTER><B>Масса всех ваших вещей:
+    <CENTER><B>РњР°СЃСЃР° РІСЃРµС… РІР°С€РёС… РІРµС‰РµР№:
 
     <?=(int)$d[0];?>/<?=$user['sila']*4?><BR>
-    У вас в наличии: <FONT COLOR="#339900"><?=$user['money']?></FONT> кр.</B></CENTER>
+    РЈ РІР°СЃ РІ РЅР°Р»РёС‡РёРё: <FONT COLOR="#339900"><?=$user['money']?></FONT> РєСЂ.</B></CENTER>
     <BR>
     <?=$err?>
 </TD>

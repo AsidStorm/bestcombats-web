@@ -12,7 +12,7 @@
 <link rel="icon" href="/i/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/i/favicon.ico" type="image/x-icon"> 
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-<title>Новости и события Bkwar</title>
+<title>РќРѕРІРѕСЃС‚Рё Рё СЃРѕР±С‹С‚РёСЏ Bkwar</title>
 <link href="/css/event.css" rel="stylesheet" type="text/css">
 <SCRIPT language="JavaScript" src="/js/event.js"></SCRIPT>
 <SCRIPT language="JavaScript" src="/js/dm.js"></SCRIPT>
@@ -34,7 +34,7 @@
 <table border="0" width="100%">
 <FORM method=post>
 <TR>
-<TD><font color=white><?if(!empty($user['login'])){echo nick5_1($user['id']);}else{echo'Гость';}?></font></TD></TR>
+<TD><font color=white><?if(!empty($user['login'])){echo nick5_1($user['id']);}else{echo'Р“РѕСЃС‚СЊ';}?></font></TD></TR>
 <TR>
 <TD>&nbsp;</TD></TR></FORM>
  
@@ -51,7 +51,7 @@
   <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
    <TR>
    <TD width=1 bgColor=#000000><IMG height=1 src="/i/spacer.gif" width=1></TD>
-   <TD align=left background=/i/menu1at1.gif bgColor=#aa0000 style="padding-left:75px;"><A onmouseover="MM_swapImage('news','','/i/menu1at2.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/"><IMG height=36 src="/i/menu1ps2.gif" width=47 border=0 name=news alt="Новости"></A><A onmouseover="MM_swapImage('#','','/i/menu1at3.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps3.gif" width=42 border=0 name="history" alt="История"></A><A onmouseover="MM_swapImage('status','','/i/menu1at4.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/news/status/"><IMG height=36 src="/i/menu1ps4.gif" width=42 border=0 name="status" alt="Состояние серверов"></A><A onmouseover="MM_swapImage('gallery','','/i/menu1at5.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps5.gif" width=42 border=0 name="gallery" alt="Галерея"></A><A onmouseover="MM_swapImage('vote','','/i/menu1at7.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps7.gif" width=41 border=0 name="vote" alt="Голосования"></A><A onmouseover="MM_swapImage('inwork','','/i/menu1at8.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps8.gif" width=41 border=0 name="inwork" alt="В разработке"></A><A onmouseover="MM_swapImage('release','','/i/menu1at9.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps9.gif" width=48 border=0 name="release" alt="Вестник Администрации"></A></TD>
+   <TD align=left background=/i/menu1at1.gif bgColor=#aa0000 style="padding-left:75px;"><A onmouseover="MM_swapImage('news','','/i/menu1at2.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/"><IMG height=36 src="/i/menu1ps2.gif" width=47 border=0 name=news alt="РќРѕРІРѕСЃС‚Рё"></A><A onmouseover="MM_swapImage('#','','/i/menu1at3.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps3.gif" width=42 border=0 name="history" alt="РСЃС‚РѕСЂРёСЏ"></A><A onmouseover="MM_swapImage('status','','/i/menu1at4.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/news/status/"><IMG height=36 src="/i/menu1ps4.gif" width=42 border=0 name="status" alt="РЎРѕСЃС‚РѕСЏРЅРёРµ СЃРµСЂРІРµСЂРѕРІ"></A><A onmouseover="MM_swapImage('gallery','','/i/menu1at5.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps5.gif" width=42 border=0 name="gallery" alt="Р“Р°Р»РµСЂРµСЏ"></A><A onmouseover="MM_swapImage('vote','','/i/menu1at7.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps7.gif" width=41 border=0 name="vote" alt="Р“РѕР»РѕСЃРѕРІР°РЅРёСЏ"></A><A onmouseover="MM_swapImage('inwork','','/i/menu1at8.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps8.gif" width=41 border=0 name="inwork" alt="Р’ СЂР°Р·СЂР°Р±РѕС‚РєРµ"></A><A onmouseover="MM_swapImage('release','','/i/menu1at9.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps9.gif" width=48 border=0 name="release" alt="Р’РµСЃС‚РЅРёРє РђРґРјРёРЅРёСЃС‚СЂР°С†РёРё"></A></TD>
    <TD width=1 bgColor=#000000><IMG height=1 src="/i/spacer.gif" width=1></TD>
    </TR>
   </TABLE>
@@ -88,7 +88,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                    <B>Горячие ссылки</B>
+                    <B>Р“РѕСЂСЏС‡РёРµ СЃСЃС‹Р»РєРё</B>
                    </TD>
                    <TD width=1>
                     <IMG height=22 src="/i/lmenu_3.gif" width=1>
@@ -111,11 +111,11 @@
                      <TBODY>
                       <TR>
                        <TD align=left>  
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/news">Главная страница</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/news">Р“Р»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°</a></div>
   
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/forum.php">Форум</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/forum.php">Р¤РѕСЂСѓРј</a></div>
   
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/scrolls">Скроллы</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/scrolls">РЎРєСЂРѕР»Р»С‹</a></div>
   
   <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/">Support</a></div>
   
@@ -146,7 +146,7 @@
       </TR>
      </TBODY>
     </TABLE><BR>    
-<!-- 2 меню -->	
+<!-- 2 РјРµРЅСЋ -->	
 	<TABLE cellSpacing=0 cellPadding=0 width=195 border=0>
      <TBODY>
       <TR>
@@ -168,7 +168,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                   <B>Библиотека:</B>
+                   <B>Р‘РёР±Р»РёРѕС‚РµРєР°:</B>
                    <br><br>
                    </TD>
                    <TD width=1>
@@ -220,7 +220,7 @@
 </TR>
 </TBODY></TABLE><BR>
 
-<!-- 3 меню) -->
+<!-- 3 РјРµРЅСЋ) -->
 <TABLE cellSpacing=0 cellPadding=0 width=195 border=0>
      <TBODY>
       <TR>
@@ -242,7 +242,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                   <B>Статистика:</B>
+                   <B>РЎС‚Р°С‚РёСЃС‚РёРєР°:</B>
                    <br><br>
                    </TD>
                    <TD width=1>
@@ -309,237 +309,237 @@
 <TR>
 <TD class=normaltext align=left valign="top">
  
-<div class="page_title"><B>Цветочный Магазин</B></div>
+<div class="page_title"><B>Р¦РІРµС‚РѕС‡РЅС‹Р№ РњР°РіР°Р·РёРЅ</B></div>
 <HR align=center width="90%" color=#aa0000 noShade SIZE=0.1><TABLE width=100% border="0">													  														  
 </TD>
 </tr>
 <tr>
 <td>
 
-<center> <h3>Цветоводство</h3></center><p>
-<!--Схема Цветочного магазина-->
-<b>Схема цветочного магазина:<br><br></b>
+<center> <h3>Р¦РІРµС‚РѕРІРѕРґСЃС‚РІРѕ</h3></center><p>
+<!--РЎС…РµРјР° Р¦РІРµС‚РѕС‡РЅРѕРіРѕ РјР°РіР°Р·РёРЅР°-->
+<b>РЎС…РµРјР° С†РІРµС‚РѕС‡РЅРѕРіРѕ РјР°РіР°Р·РёРЅР°:<br><br></b>
 <img src="http://bestcombats.net/news/i/flowers-9.jpg" alt=""><br>
-<ul><li> Общий зал. Здесь Можете приобрести цветы, траву за кредиты.(см.п.1)<br>
-<li> Составление букета. Отсюда вы управляете составление букета. (см.п.2)<br>
-<li> Подарить букет. Здесь вы можете подарить букет. (см.п.5)<br></ul>
-<br><!--Правила составления букета-->
+<ul><li> РћР±С‰РёР№ Р·Р°Р». Р—РґРµСЃСЊ РњРѕР¶РµС‚Рµ РїСЂРёРѕР±СЂРµСЃС‚Рё С†РІРµС‚С‹, С‚СЂР°РІСѓ Р·Р° РєСЂРµРґРёС‚С‹.(СЃРј.Рї.1)<br>
+<li> РЎРѕСЃС‚Р°РІР»РµРЅРёРµ Р±СѓРєРµС‚Р°. РћС‚СЃСЋРґР° РІС‹ СѓРїСЂР°РІР»СЏРµС‚Рµ СЃРѕСЃС‚Р°РІР»РµРЅРёРµ Р±СѓРєРµС‚Р°. (СЃРј.Рї.2)<br>
+<li> РџРѕРґР°СЂРёС‚СЊ Р±СѓРєРµС‚. Р—РґРµСЃСЊ РІС‹ РјРѕР¶РµС‚Рµ РїРѕРґР°СЂРёС‚СЊ Р±СѓРєРµС‚. (СЃРј.Рї.5)<br></ul>
+<br><!--РџСЂР°РІРёР»Р° СЃРѕСЃС‚Р°РІР»РµРЅРёСЏ Р±СѓРєРµС‚Р°-->
 
-<b>Правила составления букета:<br></b>
+<b>РџСЂР°РІРёР»Р° СЃРѕСЃС‚Р°РІР»РµРЅРёСЏ Р±СѓРєРµС‚Р°:<br></b>
 <ul>
-<li> Число цветов в букете только 1, 3, 5, 7, 9 или 21.
-<li> Букеты составляются только из цветов одного вида.<br>
-<li> Не имеет значения в каком городе находится персонаж.<br>
-<li> Нельзя отправить букет, если персонаж едет в карете.
-<li> Букеты можно отсылать только персонажам, достигшим 4 уровня.<br>
-<li> Внимательнее смотрите таблицу: количество цветов и номер травы.<br>
-<li> Трава определенного номера обязательно присутствует при составлении букета.<br>
+<li> Р§РёСЃР»Рѕ С†РІРµС‚РѕРІ РІ Р±СѓРєРµС‚Рµ С‚РѕР»СЊРєРѕ 1, 3, 5, 7, 9 РёР»Рё 21.
+<li> Р‘СѓРєРµС‚С‹ СЃРѕСЃС‚Р°РІР»СЏСЋС‚СЃСЏ С‚РѕР»СЊРєРѕ РёР· С†РІРµС‚РѕРІ РѕРґРЅРѕРіРѕ РІРёРґР°.<br>
+<li> РќРµ РёРјРµРµС‚ Р·РЅР°С‡РµРЅРёСЏ РІ РєР°РєРѕРј РіРѕСЂРѕРґРµ РЅР°С…РѕРґРёС‚СЃСЏ РїРµСЂСЃРѕРЅР°Р¶.<br>
+<li> РќРµР»СЊР·СЏ РѕС‚РїСЂР°РІРёС‚СЊ Р±СѓРєРµС‚, РµСЃР»Рё РїРµСЂСЃРѕРЅР°Р¶ РµРґРµС‚ РІ РєР°СЂРµС‚Рµ.
+<li> Р‘СѓРєРµС‚С‹ РјРѕР¶РЅРѕ РѕС‚СЃС‹Р»Р°С‚СЊ С‚РѕР»СЊРєРѕ РїРµСЂСЃРѕРЅР°Р¶Р°Рј, РґРѕСЃС‚РёРіС€РёРј 4 СѓСЂРѕРІРЅСЏ.<br>
+<li> Р’РЅРёРјР°С‚РµР»СЊРЅРµРµ СЃРјРѕС‚СЂРёС‚Рµ С‚Р°Р±Р»РёС†Сѓ: РєРѕР»РёС‡РµСЃС‚РІРѕ С†РІРµС‚РѕРІ Рё РЅРѕРјРµСЂ С‚СЂР°РІС‹.<br>
+<li> РўСЂР°РІР° РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ РЅРѕРјРµСЂР° РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ РїСЂРё СЃРѕСЃС‚Р°РІР»РµРЅРёРё Р±СѓРєРµС‚Р°.<br>
 
 <br>
 <br>
-<!--Составление букета-->
-<b>Этапы составления букета.</b><br><br>
+<!--РЎРѕСЃС‚Р°РІР»РµРЅРёРµ Р±СѓРєРµС‚Р°-->
+<b>Р­С‚Р°РїС‹ СЃРѕСЃС‚Р°РІР»РµРЅРёСЏ Р±СѓРєРµС‚Р°.</b><br><br>
 
-<b>1. Покупка атрибутов букета:<br></b>
+<b>1. РџРѕРєСѓРїРєР° Р°С‚СЂРёР±СѓС‚РѕРІ Р±СѓРєРµС‚Р°:<br></b>
 <br><img src="http://bestcombats.net/news/i/flowers-1.jpg" alt=""><br><br>
 <ul>
-<li> Для быстрой покупки нескольких цветов используйте "+", в открывшемся окне укажите количество цветов, которое желаете приобрести.<br>
-<li> Не забываем, что букет можно собрать только из цветов одного вида.
+<li> Р”Р»СЏ Р±С‹СЃС‚СЂРѕР№ РїРѕРєСѓРїРєРё РЅРµСЃРєРѕР»СЊРєРёС… С†РІРµС‚РѕРІ РёСЃРїРѕР»СЊР·СѓР№С‚Рµ "+", РІ РѕС‚РєСЂС‹РІС€РµРјСЃСЏ РѕРєРЅРµ СѓРєР°Р¶РёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ С†РІРµС‚РѕРІ, РєРѕС‚РѕСЂРѕРµ Р¶РµР»Р°РµС‚Рµ РїСЂРёРѕР±СЂРµСЃС‚Рё.<br>
+<li> РќРµ Р·Р°Р±С‹РІР°РµРј, С‡С‚Рѕ Р±СѓРєРµС‚ РјРѕР¶РЅРѕ СЃРѕР±СЂР°С‚СЊ С‚РѕР»СЊРєРѕ РёР· С†РІРµС‚РѕРІ РѕРґРЅРѕРіРѕ РІРёРґР°.
 </ul>
 
-<b>2. Выбор и добавление атрибутов в букет:<br></b>
+<b>2. Р’С‹Р±РѕСЂ Рё РґРѕР±Р°РІР»РµРЅРёРµ Р°С‚СЂРёР±СѓС‚РѕРІ РІ Р±СѓРєРµС‚:<br></b>
 <br><img src="http://bestcombats.net/news/i/flowers-8.jpg" alt=""><br>
-<ul><li> Для быстрого добавления нескольких цветов используйте "+", в открывшемся окне укажите количество цветов, из которого будет состоять букет.<br>
-<li> Добавляем траву определенного номера. (см. таблицу)<br>
+<ul><li> Р”Р»СЏ Р±С‹СЃС‚СЂРѕРіРѕ РґРѕР±Р°РІР»РµРЅРёСЏ РЅРµСЃРєРѕР»СЊРєРёС… С†РІРµС‚РѕРІ РёСЃРїРѕР»СЊР·СѓР№С‚Рµ "+", РІ РѕС‚РєСЂС‹РІС€РµРјСЃСЏ РѕРєРЅРµ СѓРєР°Р¶РёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ С†РІРµС‚РѕРІ, РёР· РєРѕС‚РѕСЂРѕРіРѕ Р±СѓРґРµС‚ СЃРѕСЃС‚РѕСЏС‚СЊ Р±СѓРєРµС‚.<br>
+<li> Р”РѕР±Р°РІР»СЏРµРј С‚СЂР°РІСѓ РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ РЅРѕРјРµСЂР°. (СЃРј. С‚Р°Р±Р»РёС†Сѓ)<br>
 </ul>
 
 
-<b>3. Проверка составления букета:<br></b>
+<b>3. РџСЂРѕРІРµСЂРєР° СЃРѕСЃС‚Р°РІР»РµРЅРёСЏ Р±СѓРєРµС‚Р°:<br></b>
 <br><img src="http://bestcombats.net/news/i/flowers-6.jpg" alt=""><br>
 <ul>
-<li> Проверяем количество цветов.<br>
-<li> Проверяем наличие травы и соответсвует ли она количеству цветов (см. таблицу).<br>
-<li> Если что-то не совпадает, то используем кнопку "Убрать".<br>
-<li> Если все отлично, то кликаем "Собрать букет".
+<li> РџСЂРѕРІРµСЂСЏРµРј РєРѕР»РёС‡РµСЃС‚РІРѕ С†РІРµС‚РѕРІ.<br>
+<li> РџСЂРѕРІРµСЂСЏРµРј РЅР°Р»РёС‡РёРµ С‚СЂР°РІС‹ Рё СЃРѕРѕС‚РІРµС‚СЃРІСѓРµС‚ Р»Рё РѕРЅР° РєРѕР»РёС‡РµСЃС‚РІСѓ С†РІРµС‚РѕРІ (СЃРј. С‚Р°Р±Р»РёС†Сѓ).<br>
+<li> Р•СЃР»Рё С‡С‚Рѕ-С‚Рѕ РЅРµ СЃРѕРІРїР°РґР°РµС‚, С‚Рѕ РёСЃРїРѕР»СЊР·СѓРµРј РєРЅРѕРїРєСѓ "РЈР±СЂР°С‚СЊ".<br>
+<li> Р•СЃР»Рё РІСЃРµ РѕС‚Р»РёС‡РЅРѕ, С‚Рѕ РєР»РёРєР°РµРј "РЎРѕР±СЂР°С‚СЊ Р±СѓРєРµС‚".
 </ul>
 
-<b>4. Оцениваем результат своего труда:<br></b>
+<b>4. РћС†РµРЅРёРІР°РµРј СЂРµР·СѓР»СЊС‚Р°С‚ СЃРІРѕРµРіРѕ С‚СЂСѓРґР°:<br></b>
 <br><img src="http://bestcombats.net/news/i/flowers-7.jpg" alt=""><br>
 <ul>
-<li> Если выдается что-то подобное, то можно Вас поздравить и переходим к пункту 5.<br>
-<li> Если у вас что-то по-другому, то придется потратиться ещё и внимательнее прочитать предыдущие пункты.
+<li> Р•СЃР»Рё РІС‹РґР°РµС‚СЃСЏ С‡С‚Рѕ-С‚Рѕ РїРѕРґРѕР±РЅРѕРµ, С‚Рѕ РјРѕР¶РЅРѕ Р’Р°СЃ РїРѕР·РґСЂР°РІРёС‚СЊ Рё РїРµСЂРµС…РѕРґРёРј Рє РїСѓРЅРєС‚Сѓ 5.<br>
+<li> Р•СЃР»Рё Сѓ РІР°СЃ С‡С‚Рѕ-С‚Рѕ РїРѕ-РґСЂСѓРіРѕРјСѓ, С‚Рѕ РїСЂРёРґРµС‚СЃСЏ РїРѕС‚СЂР°С‚РёС‚СЊСЃСЏ РµС‰С‘ Рё РІРЅРёРјР°С‚РµР»СЊРЅРµРµ РїСЂРѕС‡РёС‚Р°С‚СЊ РїСЂРµРґС‹РґСѓС‰РёРµ РїСѓРЅРєС‚С‹.
 </ul>
 
-<b>5. Заполняем форму и дарим букет:<br></b>
+<b>5. Р—Р°РїРѕР»РЅСЏРµРј С„РѕСЂРјСѓ Рё РґР°СЂРёРј Р±СѓРєРµС‚:<br></b>
 <br><img src="http://bestcombats.net/news/i/flowers-5.jpg" alt=""><br>
 <ul>
-<li> Букет у нас в рюкзаке и теперь заполним форму для его отправления к адресату:<br>
- 1. Указываем имя героя, которому хотим отправить букет.<br>
- 2. Пишем фразу, которая будет отображаться при наведении курсора мыши на букет(не более 60 символов).<br>
- 3. Вписываем то, что будет видеть только тот, кому мы отправляем букет.<br>
- 4. Выбираем, как будет подписан наш букет.<br>
- 5. Кликаем на кнопку "Подарить" под букетом, который хотим подарить.
-<li> Букет отправлен удачно или будет выведено сообщение об ошибке.
+<li> Р‘СѓРєРµС‚ Сѓ РЅР°СЃ РІ СЂСЋРєР·Р°РєРµ Рё С‚РµРїРµСЂСЊ Р·Р°РїРѕР»РЅРёРј С„РѕСЂРјСѓ РґР»СЏ РµРіРѕ РѕС‚РїСЂР°РІР»РµРЅРёСЏ Рє Р°РґСЂРµСЃР°С‚Сѓ:<br>
+ 1. РЈРєР°Р·С‹РІР°РµРј РёРјСЏ РіРµСЂРѕСЏ, РєРѕС‚РѕСЂРѕРјСѓ С…РѕС‚РёРј РѕС‚РїСЂР°РІРёС‚СЊ Р±СѓРєРµС‚.<br>
+ 2. РџРёС€РµРј С„СЂР°Р·Сѓ, РєРѕС‚РѕСЂР°СЏ Р±СѓРґРµС‚ РѕС‚РѕР±СЂР°Р¶Р°С‚СЊСЃСЏ РїСЂРё РЅР°РІРµРґРµРЅРёРё РєСѓСЂСЃРѕСЂР° РјС‹С€Рё РЅР° Р±СѓРєРµС‚(РЅРµ Р±РѕР»РµРµ 60 СЃРёРјРІРѕР»РѕРІ).<br>
+ 3. Р’РїРёСЃС‹РІР°РµРј С‚Рѕ, С‡С‚Рѕ Р±СѓРґРµС‚ РІРёРґРµС‚СЊ С‚РѕР»СЊРєРѕ С‚РѕС‚, РєРѕРјСѓ РјС‹ РѕС‚РїСЂР°РІР»СЏРµРј Р±СѓРєРµС‚.<br>
+ 4. Р’С‹Р±РёСЂР°РµРј, РєР°Рє Р±СѓРґРµС‚ РїРѕРґРїРёСЃР°РЅ РЅР°С€ Р±СѓРєРµС‚.<br>
+ 5. РљР»РёРєР°РµРј РЅР° РєРЅРѕРїРєСѓ "РџРѕРґР°СЂРёС‚СЊ" РїРѕРґ Р±СѓРєРµС‚РѕРј, РєРѕС‚РѕСЂС‹Р№ С…РѕС‚РёРј РїРѕРґР°СЂРёС‚СЊ.
+<li> Р‘СѓРєРµС‚ РѕС‚РїСЂР°РІР»РµРЅ СѓРґР°С‡РЅРѕ РёР»Рё Р±СѓРґРµС‚ РІС‹РІРµРґРµРЅРѕ СЃРѕРѕР±С‰РµРЅРёРµ РѕР± РѕС€РёР±РєРµ.
 <br><br><img src="http://bestcombats.net/news/i/flowers-62.jpg" alt="">
 </ul>
 
 
-<b>Просмотр отправленного букета:<br></b>
+<b>РџСЂРѕСЃРјРѕС‚СЂ РѕС‚РїСЂР°РІР»РµРЅРЅРѕРіРѕ Р±СѓРєРµС‚Р°:<br></b>
 <br><img src="http://bestcombats.net/news/i/flowers-4.jpg" alt=""><br>
 <ul>
-<li> Для этого открываем информации того, кому подарили букет.<br>
-<li> Для прочтения надписи на букете наводим курсор мыши на букет.<br>
-<li> Радуемся тому, что мы только что сделали.<br>
-<li> Спасибо за внимание.
+<li> Р”Р»СЏ СЌС‚РѕРіРѕ РѕС‚РєСЂС‹РІР°РµРј РёРЅС„РѕСЂРјР°С†РёРё С‚РѕРіРѕ, РєРѕРјСѓ РїРѕРґР°СЂРёР»Рё Р±СѓРєРµС‚.<br>
+<li> Р”Р»СЏ РїСЂРѕС‡С‚РµРЅРёСЏ РЅР°РґРїРёСЃРё РЅР° Р±СѓРєРµС‚Рµ РЅР°РІРѕРґРёРј РєСѓСЂСЃРѕСЂ РјС‹С€Рё РЅР° Р±СѓРєРµС‚.<br>
+<li> Р Р°РґСѓРµРјСЃСЏ С‚РѕРјСѓ, С‡С‚Рѕ РјС‹ С‚РѕР»СЊРєРѕ С‡С‚Рѕ СЃРґРµР»Р°Р»Рё.<br>
+<li> РЎРїР°СЃРёР±Рѕ Р·Р° РІРЅРёРјР°РЅРёРµ.
 </ul>
 
 
-<!--Составление таблицы букетов-->
+<!--РЎРѕСЃС‚Р°РІР»РµРЅРёРµ С‚Р°Р±Р»РёС†С‹ Р±СѓРєРµС‚РѕРІ-->
 
 <br>
-<b>Таблица составления букетов:</b>
+<b>РўР°Р±Р»РёС†Р° СЃРѕСЃС‚Р°РІР»РµРЅРёСЏ Р±СѓРєРµС‚РѕРІ:</b>
 <br>
 <p><table align=center width=95% bgcolor=#eeeeee cellSpacing=1 cellPadding=4 border=0>
 
-<!--Трава-->
-<tr bgcolor=#f1f1f1 align=center><td class=medium>количество цветов в букете</td>
+<!--РўСЂР°РІР°-->
+<tr bgcolor=#f1f1f1 align=center><td class=medium>РєРѕР»РёС‡РµСЃС‚РІРѕ С†РІРµС‚РѕРІ РІ Р±СѓРєРµС‚Рµ</td>
 <td class=medium>3</td>
 <td class=medium>5</td>
 <td class=medium>7</td>
 <td class=medium>9</td>
 <td class=medium>21</td></tr>
 <tr bgcolor=#f1f1f1 align=center><td>-</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design1.gif" alt=""><br>трава 1<br>Цена: 0,1 кр.</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design2.gif" alt=""><br>трава 2<br>Цена: 0,3 кр.</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design3.gif" alt=""><br>трава 3<br>Цена: 0,5 кр.</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design4.gif" alt=""><br>трава 4<br>Цена: 1 кр.</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design5.gif" alt=""><br>трава 5<br>Цена: 5 кр.</td></tr>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design1.gif" alt=""><br>С‚СЂР°РІР° 1<br>Р¦РµРЅР°: 0,1 РєСЂ.</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design2.gif" alt=""><br>С‚СЂР°РІР° 2<br>Р¦РµРЅР°: 0,3 РєСЂ.</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design3.gif" alt=""><br>С‚СЂР°РІР° 3<br>Р¦РµРЅР°: 0,5 РєСЂ.</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design4.gif" alt=""><br>С‚СЂР°РІР° 4<br>Р¦РµРЅР°: 1 РєСЂ.</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/f_design5.gif" alt=""><br>С‚СЂР°РІР° 5<br>Р¦РµРЅР°: 5 РєСЂ.</td></tr>
 
-<!--Тюльпаны-->
+<!--РўСЋР»СЊРїР°РЅС‹-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Тюльпан</b><br><img src="http://img.bestcombats.net/i/sh/f_tulip.gif" alt=""><br>Цена: 5 кр.<br>Срок жизни: 3 дня</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip3.gif" alt="Букет тюльпанов 3"><br>Цена: 15,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip5.gif" alt="Букет тюльпанов 5"><br>Цена: 25,3 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip7.gif" alt="Букет тюльпанов 7"><br>Цена: 35,5 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +7</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip9.gif" alt="Букет тюльпанов 9"><br>Цена: 46 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +9<br>• Мф. увертывания (%): +1</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip21.gif" alt="Букет тюльпанов 21"><br>Цена: 110 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +21<br>• Мф. увертывания (%): +5</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>РўСЋР»СЊРїР°РЅ</b><br><img src="http://img.bestcombats.net/i/sh/f_tulip.gif" alt=""><br>Р¦РµРЅР°: 5 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 3 РґРЅСЏ</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip3.gif" alt="Р‘СѓРєРµС‚ С‚СЋР»СЊРїР°РЅРѕРІ 3"><br>Р¦РµРЅР°: 15,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip5.gif" alt="Р‘СѓРєРµС‚ С‚СЋР»СЊРїР°РЅРѕРІ 5"><br>Р¦РµРЅР°: 25,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip7.gif" alt="Р‘СѓРєРµС‚ С‚СЋР»СЊРїР°РЅРѕРІ 7"><br>Р¦РµРЅР°: 35,5 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +7</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip9.gif" alt="Р‘СѓРєРµС‚ С‚СЋР»СЊРїР°РЅРѕРІ 9"><br>Р¦РµРЅР°: 46 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +9<br>вЂў РњС„. СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +1</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/tulip21.gif" alt="Р‘СѓРєРµС‚ С‚СЋР»СЊРїР°РЅРѕРІ 21"><br>Р¦РµРЅР°: 110 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +21<br>вЂў РњС„. СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +5</td></tr>
 
-<!--Нарциссы-->
+<!--РќР°СЂС†РёСЃСЃС‹-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Нарцисс</b><br><img src="http://img.bestcombats.net/i/sh/f_narcissus.gif" alt=""><br>Цена: 5 кр.<br>Срок жизни: 5 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus3.gif" alt="Букет нарциссов 3"><br>Цена: 15,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus5.gif" alt="Букет нарциссов 5"><br>Цена: 25,3 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus7.gif" alt="Букет нарциссов 7"><br>Цена: 35,5 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +7 </td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus9.gif" alt="Букет нарциссов 9"><br>Цена: 46 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +9<br>• Мф. против увертывания (%): +2</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus21.gif" alt="Букет нарциссов 21"><br>Цена: 110 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +21<br>• Мф. против увертывания (%): +5</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>РќР°СЂС†РёСЃСЃ</b><br><img src="http://img.bestcombats.net/i/sh/f_narcissus.gif" alt=""><br>Р¦РµРЅР°: 5 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 5 РґРЅРµР№</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus3.gif" alt="Р‘СѓРєРµС‚ РЅР°СЂС†РёСЃСЃРѕРІ 3"><br>Р¦РµРЅР°: 15,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus5.gif" alt="Р‘СѓРєРµС‚ РЅР°СЂС†РёСЃСЃРѕРІ 5"><br>Р¦РµРЅР°: 25,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus7.gif" alt="Р‘СѓРєРµС‚ РЅР°СЂС†РёСЃСЃРѕРІ 7"><br>Р¦РµРЅР°: 35,5 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +7 </td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus9.gif" alt="Р‘СѓРєРµС‚ РЅР°СЂС†РёСЃСЃРѕРІ 9"><br>Р¦РµРЅР°: 46 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +9<br>вЂў РњС„. РїСЂРѕС‚РёРІ СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +2</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/narcissus21.gif" alt="Р‘СѓРєРµС‚ РЅР°СЂС†РёСЃСЃРѕРІ 21"><br>Р¦РµРЅР°: 110 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +21<br>вЂў РњС„. РїСЂРѕС‚РёРІ СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +5</td></tr>
 
-<!--Хризантемы-->
+<!--РҐСЂРёР·Р°РЅС‚РµРјС‹-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Хризантема</b><br><img src="http://img.bestcombats.net/i/sh/f_chrysanthemum.gif" alt=""><br>Цена: 7 кр.<br>Срок жизни: 3 дня</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum3.gif" alt="Букет хризантем 3"><br>Цена: 21,1 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum5.gif" alt="Букет хризантем 5"><br>Цена: 35,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum7.gif" alt="Букет хризантем 7"><br>Цена: 49,5 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum9.gif" alt="Букет хризантем 9"><br>Цена: 64 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +12<br>• Мф. критического удара (%): +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum21.gif" alt="Букет хризантем 21"><br>Цена: 152 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +24<br>• Мф. критического удара (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>РҐСЂРёР·Р°РЅС‚РµРјР°</b><br><img src="http://img.bestcombats.net/i/sh/f_chrysanthemum.gif" alt=""><br>Р¦РµРЅР°: 7 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 3 РґРЅСЏ</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum3.gif" alt="Р‘СѓРєРµС‚ С…СЂРёР·Р°РЅС‚РµРј 3"><br>Р¦РµРЅР°: 21,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +6</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum5.gif" alt="Р‘СѓРєРµС‚ С…СЂРёР·Р°РЅС‚РµРј 5"><br>Р¦РµРЅР°: 35,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +6</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum7.gif" alt="Р‘СѓРєРµС‚ С…СЂРёР·Р°РЅС‚РµРј 7"><br>Р¦РµРЅР°: 49,5 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +10</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum9.gif" alt="Р‘СѓРєРµС‚ С…СЂРёР·Р°РЅС‚РµРј 9"><br>Р¦РµРЅР°: 64 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +12<br>вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +5</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/chrysanthemum21.gif" alt="Р‘СѓРєРµС‚ С…СЂРёР·Р°РЅС‚РµРј 21"><br>Р¦РµРЅР°: 152 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +24<br>вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +10</td></tr>
 
-<!--Гортензии-->
+<!--Р“РѕСЂС‚РµРЅР·РёРё-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Гортензия</b><br><img src="http://img.bestcombats.net/i/sh/f_hydrangea.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 10 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea3.gif" alt="Букет гортензий 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +7</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea5.gif" alt="Букет гортензий 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +9</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea7.gif" alt="Букет гортензий 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +11</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea9.gif" alt="Букет гортензий 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +13<br>• Мф. увертывания (%): +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea21.gif" alt="Букет гортензий 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +25<br>• Мф. увертывания (%): +10<br>• Мф. против увертывания (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Р“РѕСЂС‚РµРЅР·РёСЏ</b><br><img src="http://img.bestcombats.net/i/sh/f_hydrangea.gif" alt=""><br>Р¦РµРЅР°: 10 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 10 РґРЅРµР№</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea3.gif" alt="Р‘СѓРєРµС‚ РіРѕСЂС‚РµРЅР·РёР№ 3"><br>Р¦РµРЅР°: 30,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +7</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea5.gif" alt="Р‘СѓРєРµС‚ РіРѕСЂС‚РµРЅР·РёР№ 5"><br>Р¦РµРЅР°: 50,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +9</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea7.gif" alt="Р‘СѓРєРµС‚ РіРѕСЂС‚РµРЅР·РёР№ 7"><br>Р¦РµРЅР°: 70,5 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +11</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea9.gif" alt="Р‘СѓРєРµС‚ РіРѕСЂС‚РµРЅР·РёР№ 9"><br>Р¦РµРЅР°: 91 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +13<br>вЂў РњС„. СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +10</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/hydrangea21.gif" alt="Р‘СѓРєРµС‚ РіРѕСЂС‚РµРЅР·РёР№ 21"><br>Р¦РµРЅР°: 215 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +25<br>вЂў РњС„. СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +10<br>вЂў РњС„. РїСЂРѕС‚РёРІ СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +10</td></tr>
 
-<!--Жёлтые розы-->
+<!--Р–С‘Р»С‚С‹Рµ СЂРѕР·С‹-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Желтая роза</b><br><img src="http://img.bestcombats.net/i/sh/f_yrose.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 7 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose3.gif" alt="Букет желтых роз 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +7</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose5.gif" alt="Букет желтых роз 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +9</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose7.gif" alt="Букет желтых роз 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +11</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose9.gif" alt="Букет желтых роз 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +13<br>• Мф. против критического удара (%): +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose21.gif" alt="Букет желтых роз 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +25<br>• Мф. против критического удара (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Р–РµР»С‚Р°СЏ СЂРѕР·Р°</b><br><img src="http://img.bestcombats.net/i/sh/f_yrose.gif" alt=""><br>Р¦РµРЅР°: 10 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 7 РґРЅРµР№</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose3.gif" alt="Р‘СѓРєРµС‚ Р¶РµР»С‚С‹С… СЂРѕР· 3"><br>Р¦РµРЅР°: 30,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +7</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose5.gif" alt="Р‘СѓРєРµС‚ Р¶РµР»С‚С‹С… СЂРѕР· 5"><br>Р¦РµРЅР°: 50,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +9</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose7.gif" alt="Р‘СѓРєРµС‚ Р¶РµР»С‚С‹С… СЂРѕР· 7"><br>Р¦РµРЅР°: 70,5 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +11</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose9.gif" alt="Р‘СѓРєРµС‚ Р¶РµР»С‚С‹С… СЂРѕР· 9"><br>Р¦РµРЅР°: 91 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +13<br>вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +5</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/yrose21.gif" alt="Р‘СѓРєРµС‚ Р¶РµР»С‚С‹С… СЂРѕР· 21"><br>Р¦РµРЅР°: 215 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +25<br>вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +10</td></tr>
 
-<!--Лотосы-->
+<!--Р›РѕС‚РѕСЃС‹-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Лотос</b><br><img src="http://img.bestcombats.net/i/sh/f_lotus.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 5 дней</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_3sdcfse.gif" alt="Букет лотосов 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_5.gif" alt="Букет лотосов 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +5</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_7vsw.gif" alt="Букет лотосов 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +4<br><br>• Максимальное наносимое повреждение: +8<br>• Мф. увертывания (%): +10</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_9verg.gif" alt="Букет лотосов 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +15<br>• Мф. увертывания (%): +10</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_21svs.gif" alt="Лотос"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +20<br>• Мф. увертывания (%): +15<br><br>• Мф. против увертывания (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Р›РѕС‚РѕСЃ</b><br><img src="http://img.bestcombats.net/i/sh/f_lotus.gif" alt=""><br>Р¦РµРЅР°: 10 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 5 РґРЅРµР№</td>
+<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_3sdcfse.gif" alt="Р‘СѓРєРµС‚ Р»РѕС‚РѕСЃРѕРІ 3"><br>Р¦РµРЅР°: 30,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3</td>
+<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_5.gif" alt="Р‘СѓРєРµС‚ Р»РѕС‚РѕСЃРѕРІ 5"><br>Р¦РµРЅР°: 50,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5</td>
+<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_7vsw.gif" alt="Р‘СѓРєРµС‚ Р»РѕС‚РѕСЃРѕРІ 7"><br>Р¦РµРЅР°: 70,5 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +4<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +8<br>вЂў РњС„. СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +10</td>
+<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_9verg.gif" alt="Р‘СѓРєРµС‚ Р»РѕС‚РѕСЃРѕРІ 9"><br>Р¦РµРЅР°: 91 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +15<br>вЂў РњС„. СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +10</td>
+<td><img src="http://img.bestcombats.net/i/sh/fp_lotus_21svs.gif" alt="Р›РѕС‚РѕСЃ"><br>Р¦РµРЅР°: 215 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +20<br>вЂў РњС„. СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +15<br><br>вЂў РњС„. РїСЂРѕС‚РёРІ СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +10</td></tr>
 
-<!--Ландыши-->
+<!--Р›Р°РЅРґС‹С€Рё-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Ландыш</b><br><img src="http://img.bestcombats.net/i/sh/fp_landish1.gif" alt=""><br>Цена: 8 кр.<br>Срок жизни: 3 дня</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_landish3sdfsdf.gif" alt="Букет ландышей 3"><br>Цена: 24,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_landish5.gif" alt="Букет ландышей 5"><br>Цена: 40,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +5</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_landish7dv9.gif" alt="Букет ландышей 7"><br>Цена: 56,5 кр.<br>• Минимальное наносимое повреждение: +4<br><br>• Максимальное наносимое повреждение: +8<br>• Мф. против критического удара (%): +5</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_landish9sd5qx.gif" alt="Букет ландышей 9"><br>Цена: 73 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +10<br>• Мф. против критического удара (%): +5<br><br>• Мф. против увертывания (%): +10</td>
-<td><img src="http://img.bestcombats.net/i/sh/fp_landish21d348j.gif" alt="Букет ландышей 21"><br>Цена: 173 кр.<br>• Минимальное наносимое повреждение: +7<br>• Максимальное наносимое повреждение: +15<br><br>• Мф. против критического удара (%): +15<br><br>• Мф. против увертывания (%): +15</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Р›Р°РЅРґС‹С€</b><br><img src="http://img.bestcombats.net/i/sh/fp_landish1.gif" alt=""><br>Р¦РµРЅР°: 8 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 3 РґРЅСЏ</td>
+<td><img src="http://img.bestcombats.net/i/sh/fp_landish3sdfsdf.gif" alt="Р‘СѓРєРµС‚ Р»Р°РЅРґС‹С€РµР№ 3"><br>Р¦РµРЅР°: 24,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3</td>
+<td><img src="http://img.bestcombats.net/i/sh/fp_landish5.gif" alt="Р‘СѓРєРµС‚ Р»Р°РЅРґС‹С€РµР№ 5"><br>Р¦РµРЅР°: 40,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5</td>
+<td><img src="http://img.bestcombats.net/i/sh/fp_landish7dv9.gif" alt="Р‘СѓРєРµС‚ Р»Р°РЅРґС‹С€РµР№ 7"><br>Р¦РµРЅР°: 56,5 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +4<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +8<br>вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +5</td>
+<td><img src="http://img.bestcombats.net/i/sh/fp_landish9sd5qx.gif" alt="Р‘СѓРєРµС‚ Р»Р°РЅРґС‹С€РµР№ 9"><br>Р¦РµРЅР°: 73 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +10<br>вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +5<br><br>вЂў РњС„. РїСЂРѕС‚РёРІ СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +10</td>
+<td><img src="http://img.bestcombats.net/i/sh/fp_landish21d348j.gif" alt="Р‘СѓРєРµС‚ Р»Р°РЅРґС‹С€РµР№ 21"><br>Р¦РµРЅР°: 173 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +7<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +15<br><br>вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +15<br><br>вЂў РњС„. РїСЂРѕС‚РёРІ СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +15</td></tr>
 
-<!--Магнолии-->
+<!--РњР°РіРЅРѕР»РёРё-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Магнолия</b><br><img src="http://img.bestcombats.net/i/sh/f_magnolia.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 7 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia3dg3f.gif" alt="Букет магнолий 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia5.gif" alt="Букет магнолий 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +7</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia7cvs9.gif" alt="Букет магнолий 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia9v34t.gif" alt="Букет магнолий 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +15<br>• Мф. увертывания (%): +15</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia21gew3.gif" alt="Букет магнолий 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +25<br>• Мф. увертывания (%): +15</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>РњР°РіРЅРѕР»РёСЏ</b><br><img src="http://img.bestcombats.net/i/sh/f_magnolia.gif" alt=""><br>Р¦РµРЅР°: 10 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 7 РґРЅРµР№</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia3dg3f.gif" alt="Р‘СѓРєРµС‚ РјР°РіРЅРѕР»РёР№ 3"><br>Р¦РµРЅР°: 30,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia5.gif" alt="Р‘СѓРєРµС‚ РјР°РіРЅРѕР»РёР№ 5"><br>Р¦РµРЅР°: 50,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +7</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia7cvs9.gif" alt="Р‘СѓРєРµС‚ РјР°РіРЅРѕР»РёР№ 7"><br>Р¦РµРЅР°: 70,5 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +10</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia9v34t.gif" alt="Р‘СѓРєРµС‚ РјР°РіРЅРѕР»РёР№ 9"><br>Р¦РµРЅР°: 91 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +15<br>вЂў РњС„. СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +15</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_magnolia21gew3.gif" alt="Р‘СѓРєРµС‚ РјР°РіРЅРѕР»РёР№ 21"><br>Р¦РµРЅР°: 215 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +25<br>вЂў РњС„. СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +15</td></tr>
 
-<!--Лилии-->
+<!--Р›РёР»РёРё-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Лилия</b><br><img src="http://img.bestcombats.net/i/sh/f_lillyp.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 7 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp3.gif" alt="Букет лилий 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp5.gif" alt="Букет лилий 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp7lgfdd.gif" alt="Букет лилий 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp9.gif" alt="Букет лилий 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +4<br><br>• Максимальное наносимое повреждение: +14<br>• Мф. критического удара (%): +10<br><br>• Мф. увертывания (%): +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp21mxx92.gif" alt="Букет лилий 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +17<br>• Мф. критического удара (%): +20<br><br>• Мф. увертывания (%): +20</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Р›РёР»РёСЏ</b><br><img src="http://img.bestcombats.net/i/sh/f_lillyp.gif" alt=""><br>Р¦РµРЅР°: 10 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 7 РґРЅРµР№</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp3.gif" alt="Р‘СѓРєРµС‚ Р»РёР»РёР№ 3"><br>Р¦РµРЅР°: 30,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp5.gif" alt="Р‘СѓРєРµС‚ Р»РёР»РёР№ 5"><br>Р¦РµРЅР°: 50,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp7lgfdd.gif" alt="Р‘СѓРєРµС‚ Р»РёР»РёР№ 7"><br>Р¦РµРЅР°: 70,5 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +10</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp9.gif" alt="Р‘СѓРєРµС‚ Р»РёР»РёР№ 9"><br>Р¦РµРЅР°: 91 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +4<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +14<br>вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +10<br><br>вЂў РњС„. СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +10</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_lillyp21mxx92.gif" alt="Р‘СѓРєРµС‚ Р»РёР»РёР№ 21"><br>Р¦РµРЅР°: 215 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +17<br>вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +20<br><br>вЂў РњС„. СѓРІРµСЂС‚С‹РІР°РЅРёСЏ (%): +20</td></tr>
 
-<!--Камелии-->
+<!--РљР°РјРµР»РёРё-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Камелия</b><br><img src="http://angelscity.combats.ru/i/f_sasanqua.gif" alt=""><br>Цена: 7 кр.<br>Срок жизни: 5 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki3ki3.gif" alt="Букет камелий 3"><br>Цена: 21,1 кр.<br>• Минимальное наносимое повреждение: +1<br>• Максимальное наносимое повреждение: +3</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki5.gif" alt="Букет камелий 5"><br>Цена: 35,3 кр.<br>• Минимальное наносимое повреждение: +6<br>• Максимальное наносимое повреждение: 6</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki7.gif" alt="Букет камелий 7"><br>Цена: 50 кр.<br>• Минимальное наносимое повреждение: +4<br>• Максимальное наносимое повреждение: +8</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki9.gif" alt="Букет камелий 9"><br>Цена: 68 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +10<br>• Мф. критического удара (%): +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki21mcmk4.gif" alt="Букет камелий 21"><br>Цена: 152 кр.><br>• Минимальное наносимое повреждение: +15<br><br>• Максимальное наносимое повреждение: +15<br>• Мф. критического удара (%): +15<br><br>• Мф. против критического удара (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>РљР°РјРµР»РёСЏ</b><br><img src="http://angelscity.combats.ru/i/f_sasanqua.gif" alt=""><br>Р¦РµРЅР°: 7 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 5 РґРЅРµР№</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki3ki3.gif" alt="Р‘СѓРєРµС‚ РєР°РјРµР»РёР№ 3"><br>Р¦РµРЅР°: 21,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki5.gif" alt="Р‘СѓРєРµС‚ РєР°РјРµР»РёР№ 5"><br>Р¦РµРЅР°: 35,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +6<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: 6</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki7.gif" alt="Р‘СѓРєРµС‚ РєР°РјРµР»РёР№ 7"><br>Р¦РµРЅР°: 50 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +4<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +8</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki9.gif" alt="Р‘СѓРєРµС‚ РєР°РјРµР»РёР№ 9"><br>Р¦РµРЅР°: 68 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +10<br>вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +10</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_kantubaki21mcmk4.gif" alt="Р‘СѓРєРµС‚ РєР°РјРµР»РёР№ 21"><br>Р¦РµРЅР°: 152 РєСЂ.><br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +15<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +15<br>вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +15<br><br>вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +10</td></tr>
 
-<!--Космеи-->
+<!--РљРѕСЃРјРµРё-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Космея</b><br><img src="http://angelscity.combats.ru/i/f_cosmos.gif" alt=""><br>Цена: 20 кр.<br>Срок жизни: 15 дней</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_cosmos3.gif" alt="Букет космей 3"><br>Цена: 60,1 кр.<br>• Минимальное наносимое повреждение: +1<br><br>• Максимальное наносимое повреждение: +3</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_cosmos5.gif" alt="Букет космей 5"><br>Цена: 100,3 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +7<br>• Мф. против критического удара (%): +10</td>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>РљРѕСЃРјРµСЏ</b><br><img src="http://angelscity.combats.ru/i/f_cosmos.gif" alt=""><br>Р¦РµРЅР°: 20 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 15 РґРЅРµР№</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_cosmos3.gif" alt="Р‘СѓРєРµС‚ РєРѕСЃРјРµР№ 3"><br>Р¦РµРЅР°: 60,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +1<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_cosmos5.gif" alt="Р‘СѓРєРµС‚ РєРѕСЃРјРµР№ 5"><br>Р¦РµРЅР°: 100,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +7<br>вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +10</td>
 <td class=medium>-</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_cosmos9.gif" alt="Букет космей 9"><br>Цена: 181 кр.<br>• Минимальное наносимое повреждение: +7<br><br>• Максимальное наносимое повреждение: +10<br>• Мф. против критического удара (%): +15</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_cosmos21sdf3j.gif" alt="Букет космей 21"><br>Цена: 425 кр.<br>• Минимальное наносимое повреждение: +5<br><br>• Максимальное наносимое повреждение: +20<br>• Мф. против критического удара (%): +20</td></tr>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_cosmos9.gif" alt="Р‘СѓРєРµС‚ РєРѕСЃРјРµР№ 9"><br>Р¦РµРЅР°: 181 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +7<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +10<br>вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +15</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_cosmos21sdf3j.gif" alt="Р‘СѓРєРµС‚ РєРѕСЃРјРµР№ 21"><br>Р¦РµРЅР°: 425 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +5<br><br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +20<br>вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +20</td></tr>
 
-<!--Сирень-->
+<!--РЎРёСЂРµРЅСЊ-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Сирень</b><br><img src="http://img.bestcombats.net/i/sh/siren_1.gif" alt=""><br>Цена: 7 кр.<br>Срок жизни: 3 дня</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_3.gif" alt="Букет хризантем 3"><br>Цена: 21,1 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_5.gif" alt="Букет хризантем 5"><br>Цена: 35,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +7 </td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_7.gif" alt="Букет хризантем 7"><br>Цена: 49,5 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_9.gif" alt="Букет хризантем 9"><br>Цена: 64 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +12<br>• Мф. критического удара (%): +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_21.gif" alt="Букет хризантем 21"><br>Цена: 152 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +24<br>• Мф. критического удара (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>РЎРёСЂРµРЅСЊ</b><br><img src="http://img.bestcombats.net/i/sh/siren_1.gif" alt=""><br>Р¦РµРЅР°: 7 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 3 РґРЅСЏ</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_3.gif" alt="Р‘СѓРєРµС‚ С…СЂРёР·Р°РЅС‚РµРј 3"><br>Р¦РµРЅР°: 21,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +6</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_5.gif" alt="Р‘СѓРєРµС‚ С…СЂРёР·Р°РЅС‚РµРј 5"><br>Р¦РµРЅР°: 35,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +7 </td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_7.gif" alt="Р‘СѓРєРµС‚ С…СЂРёР·Р°РЅС‚РµРј 7"><br>Р¦РµРЅР°: 49,5 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +10</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_9.gif" alt="Р‘СѓРєРµС‚ С…СЂРёР·Р°РЅС‚РµРј 9"><br>Р¦РµРЅР°: 64 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +12<br>вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +5</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/siren_21.gif" alt="Р‘СѓРєРµС‚ С…СЂРёР·Р°РЅС‚РµРј 21"><br>Р¦РµРЅР°: 152 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +24<br>вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +10</td></tr>
 
-<!--Рихардия-->
+<!--Р РёС…Р°СЂРґРёСЏ-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Рихардия</b><br><img src="http://img.bestcombats.net/i/sh/cally_1.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 3 дня</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_3.gif" alt="Букет Рихардий 3"><br>Цена: 30,1 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_5.gif" alt="Букет Рихардий 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +6 </td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_7.gif" alt="Букет Рихардий 7"><br>Цена: 70,5 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +10</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_9.gif" alt="Букет Рихардий 9"><br>Цена: 91 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +12<br>• Мф. критического удара (%): +5</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_21.gif" alt="Букет Рихардий 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +2<br>• Максимальное наносимое повреждение: +24<br>• Мф. критического удара (%): +10</td></tr>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Р РёС…Р°СЂРґРёСЏ</b><br><img src="http://img.bestcombats.net/i/sh/cally_1.gif" alt=""><br>Р¦РµРЅР°: 10 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 3 РґРЅСЏ</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_3.gif" alt="Р‘СѓРєРµС‚ Р РёС…Р°СЂРґРёР№ 3"><br>Р¦РµРЅР°: 30,1 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +6</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_5.gif" alt="Р‘СѓРєРµС‚ Р РёС…Р°СЂРґРёР№ 5"><br>Р¦РµРЅР°: 50,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +6 </td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_7.gif" alt="Р‘СѓРєРµС‚ Р РёС…Р°СЂРґРёР№ 7"><br>Р¦РµРЅР°: 70,5 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +10</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_9.gif" alt="Р‘СѓРєРµС‚ Р РёС…Р°СЂРґРёР№ 9"><br>Р¦РµРЅР°: 91 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +12<br>вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +5</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/cally_21.gif" alt="Р‘СѓРєРµС‚ Р РёС…Р°СЂРґРёР№ 21"><br>Р¦РµРЅР°: 215 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +2<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +24<br>вЂў РњС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +10</td></tr>
 
-<!--Красные розы-->
+<!--РљСЂР°СЃРЅС‹Рµ СЂРѕР·С‹-->
 
-<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>Красная роза</b><br><img src="http://img.bestcombats.net/i/sh/f_rose.gif" alt=""><br>Цена: 10 кр.<br>Срок жизни: 7 дней</td>
+<tr bgcolor=#f1f1f1 align=center valign=top><td class=medium><b>РљСЂР°СЃРЅР°СЏ СЂРѕР·Р°</b><br><img src="http://img.bestcombats.net/i/sh/f_rose.gif" alt=""><br>Р¦РµРЅР°: 10 РєСЂ.<br>РЎСЂРѕРє Р¶РёР·РЅРё: 7 РґРЅРµР№</td>
 <td class=medium>-</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_rose_5eudmje.gif" alt="Букет красных роз 5"><br>Цена: 50,3 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +9</td>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_rose_5eudmje.gif" alt="Р‘СѓРєРµС‚ РєСЂР°СЃРЅС‹С… СЂРѕР· 5"><br>Р¦РµРЅР°: 50,3 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +9</td>
 <td class=medium>-</td>
 <td class=medium>-</td>
-<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_rose_21dfioehjf.gif" alt="Букет красных роз 21"><br>Цена: 215 кр.<br>• Минимальное наносимое повреждение: +3<br>• Максимальное наносимое повреждение: +25<br>• Мф. против критического удара (%): +10</td></tr>
+<td class=medium><img src="http://img.bestcombats.net/i/sh/fp_rose_21dfioehjf.gif" alt="Р‘СѓРєРµС‚ РєСЂР°СЃРЅС‹С… СЂРѕР· 21"><br>Р¦РµРЅР°: 215 РєСЂ.<br>вЂў РњРёРЅРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +3<br>вЂў РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РЅР°РЅРѕСЃРёРјРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ: +25<br>вЂў РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +10</td></tr>
 
 </table>
 </td>

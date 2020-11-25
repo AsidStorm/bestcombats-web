@@ -7,165 +7,165 @@
 
 ?>
 <form method=post ENCTYPE="multipart/form-data">
-<b>Вещи</b>
+<b>Р’РµС‰Рё</b>
 <table>
 			
-<tr><td>Название </td><td><input type=text name=names value=''> </td></tr>
-<tr><td>Картинка </td><td><input type=text name=img value=''></td></tr>
-<tr><td>Связан судьбой </td><td><input type=text name=destiny value="0"></td></tr>
-<tr><td>Количество в магазине </td><td><input type=text name=count value="0"></td></tr>
-<tr><td>Тип предмета 
+<tr><td>РќР°Р·РІР°РЅРёРµ </td><td><input type=text name=names value=''> </td></tr>
+<tr><td>РљР°СЂС‚РёРЅРєР° </td><td><input type=text name=img value=''></td></tr>
+<tr><td>РЎРІСЏР·Р°РЅ СЃСѓРґСЊР±РѕР№ </td><td><input type=text name=destiny value="0"></td></tr>
+<tr><td>РљРѕР»РёС‡РµСЃС‚РІРѕ РІ РјР°РіР°Р·РёРЅРµ </td><td><input type=text name=count value="0"></td></tr>
+<tr><td>РўРёРї РїСЂРµРґРјРµС‚Р° 
 	</td><td><select name="type">
 			<option value="0"></option>
-			<option value="3">Оружие</option>
-			<option value="29">Стрелы</option>
-			<option value="11">сапоги</option>
-			<option value="27">Рубахи</option>
-			<option value="9">перчатки</option>
-			<option value="4">Броня</option>
-			<option value="8">шлемы</option>
-			<option value="30">Маски</option>
-			<option value="22">наручи</option>
-			<option value="23">пояса</option>
-			<option value="24">поножи</option>
-			<option value="28">плащи</option>
-			<option value="10">Щиты</option>
-			<option value="1">серьги</option>
-			<option value="2">ожерелья</option>
-			<option value="5">кольца</option>
-			<option value="25">Заклинания</option>
-			<option value="188">Эликсиры</option>
-			<option value="200">Прочее(Подарки)</option>
-			<option value="50">Еда</option>
+			<option value="3">РћСЂСѓР¶РёРµ</option>
+			<option value="29">РЎС‚СЂРµР»С‹</option>
+			<option value="11">СЃР°РїРѕРіРё</option>
+			<option value="27">Р СѓР±Р°С…Рё</option>
+			<option value="9">РїРµСЂС‡Р°С‚РєРё</option>
+			<option value="4">Р‘СЂРѕРЅСЏ</option>
+			<option value="8">С€Р»РµРјС‹</option>
+			<option value="30">РњР°СЃРєРё</option>
+			<option value="22">РЅР°СЂСѓС‡Рё</option>
+			<option value="23">РїРѕСЏСЃР°</option>
+			<option value="24">РїРѕРЅРѕР¶Рё</option>
+			<option value="28">РїР»Р°С‰Рё</option>
+			<option value="10">Р©РёС‚С‹</option>
+			<option value="1">СЃРµСЂСЊРіРё</option>
+			<option value="2">РѕР¶РµСЂРµР»СЊСЏ</option>
+			<option value="5">РєРѕР»СЊС†Р°</option>
+			<option value="25">Р—Р°РєР»РёРЅР°РЅРёСЏ</option>
+			<option value="188">Р­Р»РёРєСЃРёСЂС‹</option>
+			<option value="200">РџСЂРѕС‡РµРµ(РџРѕРґР°СЂРєРё)</option>
+			<option value="50">Р•РґР°</option>
 	</select> </td></tr>
 
-<tr><td>Масса </td><td><input type=text name=massa value="0"> </td></tr>
-<tr><td>Нужна идентификация </td><td><input type=text name=needident value="0"></td></tr>
-<tr><td>Количество знаков </td><td><input type=text name=letter value="0"> </td></tr>
-<tr><td>Может чиниться </td><td><input type=text name=isrep value="1"> </td></tr>
-<tr><td>Годен до... </td><td><input type=text name=dategoden value="0"> </td></tr>
-<tr><td>Раздел магазина 
+<tr><td>РњР°СЃСЃР° </td><td><input type=text name=massa value="0"> </td></tr>
+<tr><td>РќСѓР¶РЅР° РёРґРµРЅС‚РёС„РёРєР°С†РёСЏ </td><td><input type=text name=needident value="0"></td></tr>
+<tr><td>РљРѕР»РёС‡РµСЃС‚РІРѕ Р·РЅР°РєРѕРІ </td><td><input type=text name=letter value="0"> </td></tr>
+<tr><td>РњРѕР¶РµС‚ С‡РёРЅРёС‚СЊСЃСЏ </td><td><input type=text name=isrep value="1"> </td></tr>
+<tr><td>Р“РѕРґРµРЅ РґРѕ... </td><td><input type=text name=dategoden value="0"> </td></tr>
+<tr><td>Р Р°Р·РґРµР» РјР°РіР°Р·РёРЅР° 
 	</td><td><select name="razdel">
 			<option value="0"></option>
-			<option value="1">Оружие</option>
-			<option value="2">Вещи</option>
-			<option value="3">Прочие</option>
+			<option value="1">РћСЂСѓР¶РёРµ</option>
+			<option value="2">Р’РµС‰Рё</option>
+			<option value="3">РџСЂРѕС‡РёРµ</option>
 
 	</select> </td></tr>
-<tr><td>Второе оружие? только для оружия!
+<tr><td>Р’С‚РѕСЂРѕРµ РѕСЂСѓР¶РёРµ? С‚РѕР»СЊРєРѕ РґР»СЏ РѕСЂСѓР¶РёСЏ!
 	</td><td><select name="second">
-			<option value="0">Нет</option>
-			<option value="1">ДА</option>
+			<option value="0">РќРµС‚</option>
+			<option value="1">Р”Рђ</option>
 	</select> </td></tr>
-<tr><td>Мин.износ  </td><td><input type=text name=duration  value="0"></td></tr>
-<tr><td>Макс.износ  </td><td><input type=text name=maxdur  value="0"></td></tr>
-<tr><td>Цена  </td><td><input type=text name=cost  value="0"></td></tr>
+<tr><td>РњРёРЅ.РёР·РЅРѕСЃ  </td><td><input type=text name=duration  value="0"></td></tr>
+<tr><td>РњР°РєСЃ.РёР·РЅРѕСЃ  </td><td><input type=text name=maxdur  value="0"></td></tr>
+<tr><td>Р¦РµРЅР°  </td><td><input type=text name=cost  value="0"></td></tr>
 </table>
-<b>Требования:</b>
+<b>РўСЂРµР±РѕРІР°РЅРёСЏ:</b>
 <table>
-<tr><td>Предмет  </td><td><input type=text name=predmet  value="0"></td></tr>
-<tr><td>Уровень  </td><td><input type=text name=nlevel  value="0"></td></tr>
-<tr><td>Сила  </td><td><input type=text name=nsila  value="0"></td></tr>
-<tr><td>Ловкость  </td><td><input type=text name=nlovk  value="0"></td></tr>
-<tr><td>Интуиция  </td><td><input type=text name=ninta  value="0"></td></tr>
-<tr><td>Вынос  </td><td><input type=text name=nvinos  value="0"></td></tr>
-<tr><td>Интеллект </td><td><input type=text name=nintel value="0"> </td></tr>
-<tr><td>Мудрость  </td><td><input type=text name=nmudra  value="0"></td></tr>
-<tr><td>Ум.ножи  </td><td><input type=text name=nnoj  value="0"></td></tr>
-<tr><td>Ум.топоры  </td><td><input type=text name=ntopor  value="0"></td></tr>
-<tr><td>Ум.дубины  </td><td><input type=text name=ndubina  value="0"></td></tr>
-<tr><td>Ум.мечи  </td><td><input type=text name=nmech  value="0"></td></tr>
-<tr><td>Ум.посохи  </td><td><input type=text name=nposoh  value="0"></td></tr>
-<tr><td>Склонность  </td><td><input type=text name=nalign  value="0"></td></tr>
-<tr><td>Мастерство огня  </td><td><input type=text name=nfire  value="0"></td></tr>
-<tr><td>Мастерство воды  </td><td><input type=text name=nwater  value="0"></td></tr>
-<tr><td>Мастерство воздуха  </td><td><input type=text name=nair  value="0"></td></tr>
-<tr><td>Мастерство земли  </td><td><input type=text name=nearth value="0"> </td></tr>
-<tr><td>Светлая магия  </td><td><input type=text name=nlight  value="0"></td></tr>
-<tr><td>Серая магия  </td><td><input type=text name=ngray  value="0"></td></tr>
-<tr><td>Темная магия  </td><td><input type=text name=ndark  value="0"></td></tr>
+<tr><td>РџСЂРµРґРјРµС‚  </td><td><input type=text name=predmet  value="0"></td></tr>
+<tr><td>РЈСЂРѕРІРµРЅСЊ  </td><td><input type=text name=nlevel  value="0"></td></tr>
+<tr><td>РЎРёР»Р°  </td><td><input type=text name=nsila  value="0"></td></tr>
+<tr><td>Р›РѕРІРєРѕСЃС‚СЊ  </td><td><input type=text name=nlovk  value="0"></td></tr>
+<tr><td>РРЅС‚СѓРёС†РёСЏ  </td><td><input type=text name=ninta  value="0"></td></tr>
+<tr><td>Р’С‹РЅРѕСЃ  </td><td><input type=text name=nvinos  value="0"></td></tr>
+<tr><td>РРЅС‚РµР»Р»РµРєС‚ </td><td><input type=text name=nintel value="0"> </td></tr>
+<tr><td>РњСѓРґСЂРѕСЃС‚СЊ  </td><td><input type=text name=nmudra  value="0"></td></tr>
+<tr><td>РЈРј.РЅРѕР¶Рё  </td><td><input type=text name=nnoj  value="0"></td></tr>
+<tr><td>РЈРј.С‚РѕРїРѕСЂС‹  </td><td><input type=text name=ntopor  value="0"></td></tr>
+<tr><td>РЈРј.РґСѓР±РёРЅС‹  </td><td><input type=text name=ndubina  value="0"></td></tr>
+<tr><td>РЈРј.РјРµС‡Рё  </td><td><input type=text name=nmech  value="0"></td></tr>
+<tr><td>РЈРј.РїРѕСЃРѕС…Рё  </td><td><input type=text name=nposoh  value="0"></td></tr>
+<tr><td>РЎРєР»РѕРЅРЅРѕСЃС‚СЊ  </td><td><input type=text name=nalign  value="0"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РѕРіРЅСЏ  </td><td><input type=text name=nfire  value="0"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РІРѕРґС‹  </td><td><input type=text name=nwater  value="0"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РІРѕР·РґСѓС…Р°  </td><td><input type=text name=nair  value="0"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ Р·РµРјР»Рё  </td><td><input type=text name=nearth value="0"> </td></tr>
+<tr><td>РЎРІРµС‚Р»Р°СЏ РјР°РіРёСЏ  </td><td><input type=text name=nlight  value="0"></td></tr>
+<tr><td>РЎРµСЂР°СЏ РјР°РіРёСЏ  </td><td><input type=text name=ngray  value="0"></td></tr>
+<tr><td>РўРµРјРЅР°СЏ РјР°РіРёСЏ  </td><td><input type=text name=ndark  value="0"></td></tr>
 </table>
-<b>Дает Параметры</b>
+<b>Р”Р°РµС‚ РџР°СЂР°РјРµС‚СЂС‹</b>
 <table>
-<tr><td>Мин.урон </td><td><input type=text name=minu  value="0"></td></tr>
-<tr><td>Макс.урон </td><td><input type=text name=maxu  value="0"></td></tr>
-<tr><td>Сила </td><td><input type=text name=gsila  value="0"></td></tr>
-<tr><td>Ловкость </td><td><input type=text name=glovk  value="0"></td></tr>
-<tr><td>Инуиция </td><td><input type=text name=ginta  value="0"></td></tr>
-<tr><td>Интеллект </td><td><input type=text name=gintel  value="0"></td></tr>
-<tr><td>НР </td><td><input type=text name=ghp  value="0"></td></tr>
-<tr><td>Мана </td><td><input type=text name=gmana  value="0"></td></tr>
-<tr><td>Мф.удар </td><td><input type=text name=mfudar  value="0"></td></tr>
-<tr><td>Мф.антиудар </td><td><input type=text name=mfantiudar  value="0"></td></tr>
-<tr><td>Мф.крит </td><td><input type=text name=mfkrit  value="0"></td></tr>
-<tr><td>Мф.антикрит </td><td><input type=text name=mfakrit  value="0"></td></tr>
-<tr><td>Мф.уворот </td><td><input type=text name=mfuvorot  value="0"></td></tr>
-<tr><td>Мф.антиуворот </td><td><input type=text name=mfauvorot  value="0"></td></tr>
-<tr><td>Мф. Мощности Крита </td><td><input type=text name=mfkritpow  value="0"></td></tr>
-<!--<tr><td>Мф. Против Мощ. Крита </td><td><input type=text name=mfantikritpow  value="0"></td></tr>-->
-<tr><td>Мф.мощности реж. ур. </td><td><input type=text name=mfrej  value="0"></td></tr>
-<tr><td>Мф.мощности дроб. ур. </td><td><input type=text name=mfdrob  value="0"></td></tr>
-<tr><td>Мф.мощности кол. ур. </td><td><input type=text name=mfkol  value="0"></td></tr>
-<tr><td>Мф.мощности руб. ур. </td><td><input type=text name=mfrub  value="0"></td></tr>
-<tr><td>Мф.+HP </td><td><input type=text name=plus_hp  value="0"></td></tr>
-<tr><td>Защита от магии </td><td><input type=text name=mfdmag  value="0"></td></tr>
-<tr><td>Защита от урона </td><td><input type=text name=mfdhit  value="0"></td></tr>
-<tr><td>МФ.контрат </td><td><input type=text name=mfcontr  value="0"></td></tr>
-<tr><td>МФ.парир </td><td><input type=text name=mfparir  value="0"></td></tr>
-<tr><td>Мф. Блока Щитом </td><td><input type=text name=mfshieldblock  value="0"></td></tr>
-<tr><td>Ум.ножи </td><td><input type=text name=gnoj  value="0"></td></tr>
-<tr><td>Ум.топоры </td><td><input type=text name=gtopor  value="0"></td></tr>
-<tr><td>Ум.дубины </td><td><input type=text name=gdubina  value="0"></td></tr>
-<tr><td>Ум.мечи </td><td><input type=text name=gmech   value="0"></td></tr>
-<tr><td>Ум.посохи  </td><td><input type=text name=gposoh  value="0"></td></tr>
-<tr><td>Броня головы </td><td><input type=text name=bron1  value="0"></td></tr>
-<tr><td>Броня корпуса </td><td><input type=text name=bron2  value="0"></td></tr>
-<tr><td>Броня пояса </td><td><input type=text name=bron3  value="0"></td></tr>
-<tr><td>Броня ног </td><td><input type=text name=bron4  value="0"></td></tr>
-<tr><td>Мастерство огня </td><td><input type=text name=gfire  value="0"></td></tr>
-<tr><td>Мастерство воды </td><td><input type=text name=gwater  value="0"></td></tr>
-<tr><td>Мастерство воздуха </td><td><input type=text name=gair  value="0"></td></tr>
-<tr><td>Мастерство земли </td><td><input type=text name=gearth  value="0"></td></tr>
-<tr><td>Светлая магия </td><td><input type=text name=glight  value="0"></td></tr>
-<tr><td>Серая магия </td><td><input type=text name=ggray  value="0"></td></tr>
-<tr><td>Темная магия </td><td><input type=text name=gdark  value="0"></td></tr>
-<tr><td>Ид магии </td><td><input type=text name=magic  value=""></td></tr>
-<tr><td>Описание </td><td><textarea name="opisanie" cols="30" rows="5"></textarea></td></tr>
-<tr><td>Доп.Атака</td><td>
-<tr><td>Колющий урон</td><td>
+<tr><td>РњРёРЅ.СѓСЂРѕРЅ </td><td><input type=text name=minu  value="0"></td></tr>
+<tr><td>РњР°РєСЃ.СѓСЂРѕРЅ </td><td><input type=text name=maxu  value="0"></td></tr>
+<tr><td>РЎРёР»Р° </td><td><input type=text name=gsila  value="0"></td></tr>
+<tr><td>Р›РѕРІРєРѕСЃС‚СЊ </td><td><input type=text name=glovk  value="0"></td></tr>
+<tr><td>РРЅСѓРёС†РёСЏ </td><td><input type=text name=ginta  value="0"></td></tr>
+<tr><td>РРЅС‚РµР»Р»РµРєС‚ </td><td><input type=text name=gintel  value="0"></td></tr>
+<tr><td>РќР  </td><td><input type=text name=ghp  value="0"></td></tr>
+<tr><td>РњР°РЅР° </td><td><input type=text name=gmana  value="0"></td></tr>
+<tr><td>РњС„.СѓРґР°СЂ </td><td><input type=text name=mfudar  value="0"></td></tr>
+<tr><td>РњС„.Р°РЅС‚РёСѓРґР°СЂ </td><td><input type=text name=mfantiudar  value="0"></td></tr>
+<tr><td>РњС„.РєСЂРёС‚ </td><td><input type=text name=mfkrit  value="0"></td></tr>
+<tr><td>РњС„.Р°РЅС‚РёРєСЂРёС‚ </td><td><input type=text name=mfakrit  value="0"></td></tr>
+<tr><td>РњС„.СѓРІРѕСЂРѕС‚ </td><td><input type=text name=mfuvorot  value="0"></td></tr>
+<tr><td>РњС„.Р°РЅС‚РёСѓРІРѕСЂРѕС‚ </td><td><input type=text name=mfauvorot  value="0"></td></tr>
+<tr><td>РњС„. РњРѕС‰РЅРѕСЃС‚Рё РљСЂРёС‚Р° </td><td><input type=text name=mfkritpow  value="0"></td></tr>
+<!--<tr><td>РњС„. РџСЂРѕС‚РёРІ РњРѕС‰. РљСЂРёС‚Р° </td><td><input type=text name=mfantikritpow  value="0"></td></tr>-->
+<tr><td>РњС„.РјРѕС‰РЅРѕСЃС‚Рё СЂРµР¶. СѓСЂ. </td><td><input type=text name=mfrej  value="0"></td></tr>
+<tr><td>РњС„.РјРѕС‰РЅРѕСЃС‚Рё РґСЂРѕР±. СѓСЂ. </td><td><input type=text name=mfdrob  value="0"></td></tr>
+<tr><td>РњС„.РјРѕС‰РЅРѕСЃС‚Рё РєРѕР». СѓСЂ. </td><td><input type=text name=mfkol  value="0"></td></tr>
+<tr><td>РњС„.РјРѕС‰РЅРѕСЃС‚Рё СЂСѓР±. СѓСЂ. </td><td><input type=text name=mfrub  value="0"></td></tr>
+<tr><td>РњС„.+HP </td><td><input type=text name=plus_hp  value="0"></td></tr>
+<tr><td>Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё </td><td><input type=text name=mfdmag  value="0"></td></tr>
+<tr><td>Р—Р°С‰РёС‚Р° РѕС‚ СѓСЂРѕРЅР° </td><td><input type=text name=mfdhit  value="0"></td></tr>
+<tr><td>РњР¤.РєРѕРЅС‚СЂР°С‚ </td><td><input type=text name=mfcontr  value="0"></td></tr>
+<tr><td>РњР¤.РїР°СЂРёСЂ </td><td><input type=text name=mfparir  value="0"></td></tr>
+<tr><td>РњС„. Р‘Р»РѕРєР° Р©РёС‚РѕРј </td><td><input type=text name=mfshieldblock  value="0"></td></tr>
+<tr><td>РЈРј.РЅРѕР¶Рё </td><td><input type=text name=gnoj  value="0"></td></tr>
+<tr><td>РЈРј.С‚РѕРїРѕСЂС‹ </td><td><input type=text name=gtopor  value="0"></td></tr>
+<tr><td>РЈРј.РґСѓР±РёРЅС‹ </td><td><input type=text name=gdubina  value="0"></td></tr>
+<tr><td>РЈРј.РјРµС‡Рё </td><td><input type=text name=gmech   value="0"></td></tr>
+<tr><td>РЈРј.РїРѕСЃРѕС…Рё  </td><td><input type=text name=gposoh  value="0"></td></tr>
+<tr><td>Р‘СЂРѕРЅСЏ РіРѕР»РѕРІС‹ </td><td><input type=text name=bron1  value="0"></td></tr>
+<tr><td>Р‘СЂРѕРЅСЏ РєРѕСЂРїСѓСЃР° </td><td><input type=text name=bron2  value="0"></td></tr>
+<tr><td>Р‘СЂРѕРЅСЏ РїРѕСЏСЃР° </td><td><input type=text name=bron3  value="0"></td></tr>
+<tr><td>Р‘СЂРѕРЅСЏ РЅРѕРі </td><td><input type=text name=bron4  value="0"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РѕРіРЅСЏ </td><td><input type=text name=gfire  value="0"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РІРѕРґС‹ </td><td><input type=text name=gwater  value="0"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РІРѕР·РґСѓС…Р° </td><td><input type=text name=gair  value="0"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ Р·РµРјР»Рё </td><td><input type=text name=gearth  value="0"></td></tr>
+<tr><td>РЎРІРµС‚Р»Р°СЏ РјР°РіРёСЏ </td><td><input type=text name=glight  value="0"></td></tr>
+<tr><td>РЎРµСЂР°СЏ РјР°РіРёСЏ </td><td><input type=text name=ggray  value="0"></td></tr>
+<tr><td>РўРµРјРЅР°СЏ РјР°РіРёСЏ </td><td><input type=text name=gdark  value="0"></td></tr>
+<tr><td>РРґ РјР°РіРёРё </td><td><input type=text name=magic  value=""></td></tr>
+<tr><td>РћРїРёСЃР°РЅРёРµ </td><td><textarea name="opisanie" cols="30" rows="5"></textarea></td></tr>
+<tr><td>Р”РѕРї.РђС‚Р°РєР°</td><td>
+<tr><td>РљРѕР»СЋС‰РёР№ СѓСЂРѕРЅ</td><td>
 			<select name="k_kach">
-			<option value="0">Никакая</option>
-			<option value="10">Редки</option>
-			<option value="30">Малы</option>
-			<option value="50">Временами</option>
-			<option value="70">Часты</option>
+			<option value="0">РќРёРєР°РєР°СЏ</option>
+			<option value="10">Р РµРґРєРё</option>
+			<option value="30">РњР°Р»С‹</option>
+			<option value="50">Р’СЂРµРјРµРЅР°РјРё</option>
+			<option value="70">Р§Р°СЃС‚С‹</option>
 	        </select></td></tr>
-<tr><td>Рубящий урон</td><td>
+<tr><td>Р СѓР±СЏС‰РёР№ СѓСЂРѕРЅ</td><td>
 			<select name="r_kach">
-			<option value="0">Никакая</option>
-			<option value="10">Редки</option>
-			<option value="30">Малы</option>
-			<option value="50">Временами</option>
-			<option value="70">Часты</option>
+			<option value="0">РќРёРєР°РєР°СЏ</option>
+			<option value="10">Р РµРґРєРё</option>
+			<option value="30">РњР°Р»С‹</option>
+			<option value="50">Р’СЂРµРјРµРЅР°РјРё</option>
+			<option value="70">Р§Р°СЃС‚С‹</option>
 	        </select></td></tr>
-<tr><td>Дробящий урон</td><td>
+<tr><td>Р”СЂРѕР±СЏС‰РёР№ СѓСЂРѕРЅ</td><td>
 			<select name="d_kach">
-			<option value="0">Никакая</option>
-			<option value="10">Редки</option>
-			<option value="30">Малы</option>
-			<option value="50">Временами</option>
-			<option value="70">Часты</option>
+			<option value="0">РќРёРєР°РєР°СЏ</option>
+			<option value="10">Р РµРґРєРё</option>
+			<option value="30">РњР°Р»С‹</option>
+			<option value="50">Р’СЂРµРјРµРЅР°РјРё</option>
+			<option value="70">Р§Р°СЃС‚С‹</option>
 	        </select></td></tr>
-<tr><td>Режущий урон</td><td>
+<tr><td>Р РµР¶СѓС‰РёР№ СѓСЂРѕРЅ</td><td>
 			<select name="z_kach">
-			<option value="0">Никакая</option>
-			<option value="10">Редки</option>
-			<option value="30">Малы</option>
-			<option value="50">Временами</option>
-			<option value="70">Часты</option>
+			<option value="0">РќРёРєР°РєР°СЏ</option>
+			<option value="10">Р РµРґРєРё</option>
+			<option value="30">РњР°Р»С‹</option>
+			<option value="50">Р’СЂРµРјРµРЅР°РјРё</option>
+			<option value="70">Р§Р°СЃС‚С‹</option>
 	        </select></td></tr>
 </table>
-<INPUT TYPE="submit" value=" Добавить вещь ">
+<INPUT TYPE="submit" value=" Р”РѕР±Р°РІРёС‚СЊ РІРµС‰СЊ ">
 </form>
 
 <?

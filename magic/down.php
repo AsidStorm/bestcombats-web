@@ -1,11 +1,11 @@
 <?php
-// магия "шаг назад"
+// РјР°РіРёСЏ "С€Р°Рі РЅР°Р·Р°Рґ"
 $uses_zel = mqfa1("SELECT id FROM `effects` WHERE `owner` = ".$user['id']." AND (sila>0 or lovk>0 or inta>0 or intel>0 or mudra>0)");
 
 if ($user['battle'] > 0) {
-	echo "Не в бою...";
+	echo "РќРµ РІ Р±РѕСЋ...";
 } elseif ($uses_zel) {
-  echo "Эту магию нельзя использовать под воздействием эликсира или имея травму.";
+  echo "Р­С‚Сѓ РјР°РіРёСЋ РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїРѕРґ РІРѕР·РґРµР№СЃС‚РІРёРµРј СЌР»РёРєСЃРёСЂР° РёР»Рё РёРјРµСЏ С‚СЂР°РІРјСѓ.";
 } elseif (rand(1,100)!=1) {
   getadditdata($user["id"]);
 	undressall($user['id']);
@@ -47,10 +47,10 @@ if ($user['battle'] > 0) {
 	  mysql_query("UPDATE `users` SET `stats`=`stats`+1,`spirit` = `spirit`-1 WHERE `id` = '{$_SESSION['uid']}' LIMIT 1");
 	  mysql_query("UPDATE `userdata` SET `stats`=`stats`+1,`spirit` = `spirit`-1 WHERE `id` = '{$_SESSION['uid']}' LIMIT 1");
 	}
-	echo "<font color=red><b>Удачно использована магия \"Шаг назад\"<b></font>";
+	echo "<font color=red><b>РЈРґР°С‡РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅР° РјР°РіРёСЏ \"РЁР°Рі РЅР°Р·Р°Рґ\"<b></font>";
 	$bet=1;
 } else {
-  echo "Заклинание не удалось.";
+  echo "Р—Р°РєР»РёРЅР°РЅРёРµ РЅРµ СѓРґР°Р»РѕСЃСЊ.";
   $bet=1;
 }
 ?>

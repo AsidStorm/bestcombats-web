@@ -8,31 +8,31 @@
 <body>
  
 <?php
-//Подключаем БД
+//РџРѕРґРєР»СЋС‡Р°РµРј Р‘Р”
 include'connect.php';
-##### Рассылка почты юзерам ##### 
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Рассылка сообщений</legend>
-<table><tr><td>Тема</td><td><input type='text' name='zagolovok'></td></tr>
+##### Р Р°СЃСЃС‹Р»РєР° РїРѕС‡С‚С‹ СЋР·РµСЂР°Рј ##### 
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Р Р°СЃСЃС‹Р»РєР° СЃРѕРѕР±С‰РµРЅРёР№</legend>
+<table><tr><td>РўРµРјР°</td><td><input type='text' name='zagolovok'></td></tr>
 <tr><TD><TEXTAREA name=sendtext rows=12 cols=12></TEXTAREA></TD></tr>
-<tr><td><input type=submit value='Разослать'></td></tr>
+<tr><td><input type=submit value='Р Р°Р·РѕСЃР»Р°С‚СЊ'></td></tr>
 </table></fieldset></form>";                             
 if (isset($_POST['zagolovok']) && isset($_POST['sendtext'])) {
 $bazamail = mysql_query("SELECT * FROM `userss`;");
-//Тема Письма
+//РўРµРјР° РџРёСЃСЊРјР°
 $subject = $_POST['zagolovok'];
-//Письмо
+//РџРёСЃСЊРјРѕ
 $message = $_POST['sendtext'];
-/* Для отправки HTML-почты вы можете установить шапку Content-type. */
+/* Р”Р»СЏ РѕС‚РїСЂР°РІРєРё HTML-РїРѕС‡С‚С‹ РІС‹ РјРѕР¶РµС‚Рµ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ С€Р°РїРєСѓ Content-type. */
 $headers= "MIME-Version: 1.0\r\n";
 $headers .= "Content-type: text/html; charset=cp1251\r\n";
-//Доп. Шапки
+//Р”РѕРї. РЁР°РїРєРё
 $headers .= "From: Support BestcombatS.net<support@BestcombatS.net>";
-//Отправляем
-//подключаем базу, делаем запрос, получаем текст конкретно для отправки, после:
+//РћС‚РїСЂР°РІР»СЏРµРј
+//РїРѕРґРєР»СЋС‡Р°РµРј Р±Р°Р·Сѓ, РґРµР»Р°РµРј Р·Р°РїСЂРѕСЃ, РїРѕР»СѓС‡Р°РµРј С‚РµРєСЃС‚ РєРѕРЅРєСЂРµС‚РЅРѕ РґР»СЏ РѕС‚РїСЂР°РІРєРё, РїРѕСЃР»Рµ:
 while ($row = mysql_fetch_assoc($bazamail)) {
 $to = "<".$row['email'].">";
 mail($to,$subject, $message,$headers);
-//здесь бы я еще добавил это, что бы не было как спам рассылка:
+//Р·РґРµСЃСЊ Р±С‹ СЏ РµС‰Рµ РґРѕР±Р°РІРёР» СЌС‚Рѕ, С‡С‚Рѕ Р±С‹ РЅРµ Р±С‹Р»Рѕ РєР°Рє СЃРїР°Рј СЂР°СЃСЃС‹Р»РєР°:
 sleep(1);
 }
 }

@@ -2,21 +2,21 @@
 if ($tx*2==2 && $ty*2==10) {
     if (usagesleft($tx, $ty)) {
       if (mqfa1("select id from inventory where owner='$user[id]' and prototype='2459'")) {
-        // 2364	Снадобье Разума, 2363 Снадобье Предчувствия
+        // 2364	РЎРЅР°РґРѕР±СЊРµ Р Р°Р·СѓРјР°, 2363 РЎРЅР°РґРѕР±СЊРµ РџСЂРµРґС‡СѓРІСЃС‚РІРёСЏ
         $report=pickupitem(mt_rand(2363, 2364), 1, 0, 0, 3);
         takeusage($tx, $ty);
         useitem(2459);
         if (!@$report) {
-          $report="<div style=\"font-weight:normal\">Вы набрали из фонтана эликсир.</div>";
+          $report="<div style=\"font-weight:normal\">Р’С‹ РЅР°Р±СЂР°Р»Рё РёР· С„РѕРЅС‚Р°РЅР° СЌР»РёРєСЃРёСЂ.</div>";
         }
       } else {
-        $report="Для того, чтобы набрать эликсир, вам необходима пустая бутылка.";
+        $report="Р”Р»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РЅР°Р±СЂР°С‚СЊ СЌР»РёРєСЃРёСЂ, РІР°Рј РЅРµРѕР±С…РѕРґРёРјР° РїСѓСЃС‚Р°СЏ Р±СѓС‚С‹Р»РєР°.";
       }
     } else {
-      $report="Пусто.";
+      $report="РџСѓСЃС‚Рѕ.";
     }
   }
-//Ключ номер 1
+//РљР»СЋС‡ РЅРѕРјРµСЂ 1
   if ($tx*2==20 && $ty*2==8) {  
     $aBots=mqfaa("
         SELECT bot, cnt, battle 
@@ -36,13 +36,13 @@ if ($tx*2==2 && $ty*2==10) {
             AND floor='1'
     ");
     if ($aBots) {
-        $report = 'Сначала надо зачистить <b>Логово</b>';
+        $report = 'РЎРЅР°С‡Р°Р»Р° РЅР°РґРѕ Р·Р°С‡РёСЃС‚РёС‚СЊ <b>Р›РѕРіРѕРІРѕ</b>';
     } else {
-        $isKey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Мерцающий ключ №1' AND owner = " . $user['id']), 0, 0);
+        $isKey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'РњРµСЂС†Р°СЋС‰РёР№ РєР»СЋС‡ в„–1' AND owner = " . $user['id']), 0, 0);
         if (!$isKey) {
             $report=pickupitem(2533, 1, 0, 0, 3);
         } else {
-            $report = 'У Вас уже есть <b>Мерцающий ключ №1</b>';    
+            $report = 'РЈ Р’Р°СЃ СѓР¶Рµ РµСЃС‚СЊ <b>РњРµСЂС†Р°СЋС‰РёР№ РєР»СЋС‡ в„–1</b>';    
         }
     }
   }

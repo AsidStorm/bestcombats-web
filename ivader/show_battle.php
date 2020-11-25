@@ -4,9 +4,9 @@ include "../connect.php";
 
 <form method=get>
 	<fieldset>
-		<legend>логи боя</legend>
+		<legend>Р»РѕРіРё Р±РѕСЏ</legend>
 		<table>
-			<tr><td>ID</td><td><input type='text' name='id' value='<?=$_GET['id']?>'></td><td><input type=submit value='посмотреть'></td></tr>
+			<tr><td>ID</td><td><input type='text' name='id' value='<?=$_GET['id']?>'></td><td><input type=submit value='РїРѕСЃРјРѕС‚СЂРµС‚СЊ'></td></tr>
 		</table>
 	</fieldset>
 </form>
@@ -16,7 +16,7 @@ $battle=mysql_fetch_array(mysql_query("SELECT * from `battle` where `id`='".$_GE
 
 If (!empty($battle)){
 	$t1=explode(';',$battle['t1']);
-	echo "Первая команда:<br/>";
+	echo "РџРµСЂРІР°СЏ РєРѕРјР°РЅРґР°:<br/>";
 	for ($i=0;$i<count($t1);$i++){
 		If ($t2[$i]>=10000000){
 			$bot=mysql_fetch_array(mysql_query("SELECT * from `bots` where `id`='".$t1[$i]."'  "));
@@ -24,12 +24,12 @@ If (!empty($battle)){
 		}else{
 			$user=mysql_fetch_array(mysql_query("SELECT `login` from `users` where `id`='".$t1[$i]."' "));
 		}
-		echo '&bull; '.(!empty($user['login'])?$user['login'].' - '.$t1[$i]:'<i>персонаж не найден</i>').'<br/>';
+		echo '&bull; '.(!empty($user['login'])?$user['login'].' - '.$t1[$i]:'<i>РїРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ</i>').'<br/>';
 	}
 	
 	
 	$t2=explode(';',$battle['t2']);
-	echo "<br/>Вторая команда:<br/>";
+	echo "<br/>Р’С‚РѕСЂР°СЏ РєРѕРјР°РЅРґР°:<br/>";
 	for ($i=0;$i<count($t2);$i++){
 		If ($t2[$i]>=10000000){
 			$bot=mysql_fetch_array(mysql_query("SELECT * from `bots` where `id`='".$t2[$i]."'  "));
@@ -37,7 +37,7 @@ If (!empty($battle)){
 		}else{
 			$user=mysql_fetch_array(mysql_query("SELECT `login` from `users` where `id`='".$t2[$i]."' "));
 		}
-		echo '&bull; '.(!empty($user['login'])?$user['login'].' - '.$t2[$i]:'<i>персонаж не найден</i>').'<br/>';
+		echo '&bull; '.(!empty($user['login'])?$user['login'].' - '.$t2[$i]:'<i>РїРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ</i>').'<br/>';
 	}
 	
 	

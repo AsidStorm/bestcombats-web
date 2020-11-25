@@ -6,12 +6,12 @@ $ins_time = floor($magic['time']*60);
 
 global $nodrink;
 if (in_array($user["room"],$nodrink)) {
-  echo "Çäåñü çàïðåùåíî ïèòü ýëèêñèðû!";
+  echo "Ð—Ð´ÐµÑÑŒ Ð·Ð°Ð¿Ñ€ÐµÑ‰ÐµÐ½Ð¾ Ð¿Ð¸Ñ‚ÑŒ ÑÐ»Ð¸ÐºÑÐ¸Ñ€Ñ‹!";
 } elseif ($user['battle'] > 0) {
-  echo "Íå â áîþ...";               
+  echo "ÐÐµ Ð² Ð±Ð¾ÑŽ...";               
 //} elseif($uses_zel && $row['name']!=$uses_zel['name']) {
 } elseif($uses_zel) {
-    echo "Åùå íå ïðîøëî äåéñòâèå ñòàðîãî ýëèêñèðà.";
+    echo "Ð•Ñ‰Ðµ Ð½Ðµ Ð¿Ñ€Ð¾ÑˆÐ»Ð¾ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ ÑÑ‚Ð°Ñ€Ð¾Ð³Ð¾ ÑÐ»Ð¸ÐºÑÐ¸Ñ€Ð°.";
 } else {
   if(!$uses_zel){
     getadditdata($user);
@@ -31,7 +31,7 @@ if (in_array($user["room"],$nodrink)) {
   } else {
     updeffect($user["id"], $uses_zel, $ins_time, $row, 1);
   }
-  echo "Âûïèò ýëèêñèð &quot;".$row['name']."&quot;.";
+  echo "Ð’Ñ‹Ð¿Ð¸Ñ‚ ÑÐ»Ð¸ÐºÑÐ¸Ñ€ &quot;".$row['name']."&quot;.";
   $bet=1;
 }
 ?>

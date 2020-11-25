@@ -3,7 +3,7 @@
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "../connect.php";	
 	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
-	if ($user['login']=="Ðåàëèçàòîð") {
+	if ($user['login']=="Ð ÐµÐ°Ð»Ð¸Ð·Ð°Ñ‚Ð¾Ñ€") {
 
 ?>
 <table width="100%" border="1" cellspacing="0" cellpadding="0"><tr>
@@ -24,7 +24,7 @@ print"<a href='edit_podzem.php?name=".$sc['name']."'>".$sc['name']."</a><br />";
 	
 <form action="" method="get">
 <? if(!$_GET['new']){ ?>
-<input name="new" type="submit" value="Ñîçäàòü íîâóþ" />
+<input name="new" type="submit" value="Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð½Ð¾Ð²ÑƒÑŽ" />
 <?
 if($_GET['new']){
 print "<script>location.href='main.php?act=none'</script>";
@@ -35,8 +35,8 @@ print "<script>location.href='edit.php'</script>";
 exit;}
 
  }else{ ?>
-<input style="font-size:12px;" name="name" type="text" size="10" value="Íàçâàíèå" />
-<input name="news" type="submit" value="Ñîçäàòü" />
+<input style="font-size:12px;" name="name" type="text" size="10" value="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ" />
+<input name="news" type="submit" value="Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ" />
 <?
  } ?>
 

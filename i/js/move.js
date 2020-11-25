@@ -1,7 +1,7 @@
 function findlogin(title, script, name){
   document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: pointer" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
   '<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><form action="'+script+'" method=POST><INPUT TYPE=hidden name=sd4 value="6"><td colspan=2>'+
-  'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" >> "></TD></TR></FORM></TABLE></td></tr></table>';
+  'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" >> "></TD></TR></FORM></TABLE></td></tr></table>';
   document.all("hint3").style.visibility = "visible";
   document.all("hint3").style.left = 200;
   document.all("hint3").style.top = 100;
@@ -23,7 +23,7 @@ function solo(n, name, instant) {
     solo_store = n;
     var add_text = (document.getElementById('add_text') || document.createElement('div'));
     add_text.id = 'add_text';
-    add_text.innerHTML = 'Вы перейдете в: <strong>' + name +'</strong> (<a href="#" onclick="return clear_solo();">отмена</a>)';
+    add_text.innerHTML = 'Р’С‹ РїРµСЂРµР№РґРµС‚Рµ РІ: <strong>' + name +'</strong> (<a href="#" onclick="return clear_solo();">РѕС‚РјРµРЅР°</a>)';
     document.getElementById('ione').parentNode.parentNode.appendChild(add_text);
   }
   return false;

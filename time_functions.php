@@ -2,31 +2,31 @@
 
 function getDateInterval_($pointDate)
 {
-   $pointNow = time(); // ïîëó÷èëè ìåòêó òåêóùåãî âðåìåíè
+   $pointNow = time(); // Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ð»Ð¸ Ð¼ÐµÑ‚ÐºÑƒ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸
 
    $times = array('year' => 60*60*24*365, 'month' =>60*60*24*31, 'week' =>60*60*24*7, 'day' => 60*60*24, 'hour' => 60*60, 'minute' => 60);
 
-   $pointInterval = $pointDate > $pointNow ? $pointDate - $pointNow : $pointNow - $pointDate; // ïîëó÷èëè ìåòêó ðàçíîñòè äâóõ äàò
+   $pointInterval = $pointDate > $pointNow ? $pointDate - $pointNow : $pointNow - $pointDate; // Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ð»Ð¸ Ð¼ÐµÑ‚ÐºÑƒ Ñ€Ð°Ð·Ð½Ð¾ÑÑ‚Ð¸ Ð´Ð²ÑƒÑ… Ð´Ð°Ñ‚
 
-   $returnDate = array(); // ñîçäà¸ì ïîêà ïóñòîé ìàññèâ âîçâðàùàåìîé äàòû
+   $returnDate = array(); // ÑÐ¾Ð·Ð´Ð°Ñ‘Ð¼ Ð¿Ð¾ÐºÐ° Ð¿ÑƒÑÑ‚Ð¾Ð¹ Ð¼Ð°ÑÑÐ¸Ð² Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÐ¼Ð¾Ð¹ Ð´Ð°Ñ‚Ñ‹
 
-   $returnDate['year'] = floor($pointInterval / $times['year']); // âûñ÷èòûâàåì ãîäû
-   $pointInterval = $pointInterval % $times['year']; // íàõîäèì îñòàòîê
+   $returnDate['year'] = floor($pointInterval / $times['year']); // Ð²Ñ‹ÑÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°ÐµÐ¼ Ð³Ð¾Ð´Ñ‹
+   $pointInterval = $pointInterval % $times['year']; // Ð½Ð°Ñ…Ð¾Ð´Ð¸Ð¼ Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ðº
 
-   $returnDate['month'] = floor($pointInterval / $times['month']); // âûñ÷èòûâàåì ìåñÿöû
-   $pointInterval = $pointInterval % $times['month']; // íàõîäèì îñòàòîê
+   $returnDate['month'] = floor($pointInterval / $times['month']); // Ð²Ñ‹ÑÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°ÐµÐ¼ Ð¼ÐµÑÑÑ†Ñ‹
+   $pointInterval = $pointInterval % $times['month']; // Ð½Ð°Ñ…Ð¾Ð´Ð¸Ð¼ Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ðº
 
-   $returnDate['week'] = floor($pointInterval / $times['week']); // âûñ÷èòûâàåì íåäåëè
-   $pointInterval = $pointInterval % $times['week']; // íàõîäèì îñòàòîê
+   $returnDate['week'] = floor($pointInterval / $times['week']); // Ð²Ñ‹ÑÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°ÐµÐ¼ Ð½ÐµÐ´ÐµÐ»Ð¸
+   $pointInterval = $pointInterval % $times['week']; // Ð½Ð°Ñ…Ð¾Ð´Ð¸Ð¼ Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ðº
 
-   $returnDate['day'] = floor($pointInterval / $times['day']); // âûñ÷èòûâàåì äíè
-   $pointInterval = $pointInterval % $times['day']; // íàõîäèì îñòàòîê
+   $returnDate['day'] = floor($pointInterval / $times['day']); // Ð²Ñ‹ÑÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°ÐµÐ¼ Ð´Ð½Ð¸
+   $pointInterval = $pointInterval % $times['day']; // Ð½Ð°Ñ…Ð¾Ð´Ð¸Ð¼ Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ðº
 
-   $returnDate['hour'] = floor($pointInterval / $times['hour']); // âûñ÷èòûâàåì ÷àñû
-   $pointInterval = $pointInterval % $times['hour']; // íàõîäèì îñòàòîê
+   $returnDate['hour'] = floor($pointInterval / $times['hour']); // Ð²Ñ‹ÑÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°ÐµÐ¼ Ñ‡Ð°ÑÑ‹
+   $pointInterval = $pointInterval % $times['hour']; // Ð½Ð°Ñ…Ð¾Ð´Ð¸Ð¼ Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ðº
 
-   $returnDate['minute'] = floor($pointInterval / $times['minute']); // âûñ÷èòûâàåì ìèíóòû
-   $pointInterval = $pointInterval % $times['minute']; // íàõîäèì îñòàòîê
+   $returnDate['minute'] = floor($pointInterval / $times['minute']); // Ð²Ñ‹ÑÑ‡Ð¸Ñ‚Ñ‹Ð²Ð°ÐµÐ¼ Ð¼Ð¸Ð½ÑƒÑ‚Ñ‹
+   $pointInterval = $pointInterval % $times['minute']; // Ð½Ð°Ñ…Ð¾Ð´Ð¸Ð¼ Ð¾ÑÑ‚Ð°Ñ‚Ð¾Ðº
 
    return $returnDate;
 }
@@ -35,81 +35,81 @@ function getDateInterval_($pointDate)
 function date_time_left($_date) {
 	$date = getDateInterval_($_date);
 	
-	function year_text_($days) { # ñêëîíåíèå ñëîâà "ãîä"
+	function year_text_($days) { # ÑÐºÐ»Ð¾Ð½ÐµÐ½Ð¸Ðµ ÑÐ»Ð¾Ð²Ð° "Ð³Ð¾Ð´"
 		$s=substr($days,strlen($days)-1,1);
 		if (strlen($days)>=2) {
-			if (substr($days,strlen($days)-2,1)=='1') {return $days." ëåò ";$ok=true;}
+			if (substr($days,strlen($days)-2,1)=='1') {return $days." Ð»ÐµÑ‚ ";$ok=true;}
 		}if (!$ok) {
 			if ($days==0){return "";}
-		elseif ($s==0 or $s>=5) {return $days." ëåò ";}
-		elseif ($s==1) {return $days." ãîä ";}
-		elseif ($s>=2 && $s<=4) {return $days." ãîäà ";}
+		elseif ($s==0 or $s>=5) {return $days." Ð»ÐµÑ‚ ";}
+		elseif ($s==1) {return $days." Ð³Ð¾Ð´ ";}
+		elseif ($s>=2 && $s<=4) {return $days." Ð³Ð¾Ð´Ð° ";}
 		}
 	}
-	function month_text_($days) { # ñêëîíåíèå ñëîâà "ìåñÿö"
+	function month_text_($days) { # ÑÐºÐ»Ð¾Ð½ÐµÐ½Ð¸Ðµ ÑÐ»Ð¾Ð²Ð° "Ð¼ÐµÑÑÑ†"
 		$s=substr($days,strlen($days)-1,1);
 		if (strlen($days)>=2) {
-			if (substr($days,strlen($days)-2,1)=='1') {return $days." ìåñÿöåâ ";$ok=true;}
+			if (substr($days,strlen($days)-2,1)=='1') {return $days." Ð¼ÐµÑÑÑ†ÐµÐ² ";$ok=true;}
 		}if (!$ok) {
 			if ($days==0){return "";}
-		elseif ($s==0 or $s>=5) {return $days." ìåñÿöåâ ";}
-		elseif ($s==1) {return $days." ìåñÿö ";}
-		elseif ($s>=2 && $s<=4) {return $days." ìåñÿöà ";}
+		elseif ($s==0 or $s>=5) {return $days." Ð¼ÐµÑÑÑ†ÐµÐ² ";}
+		elseif ($s==1) {return $days." Ð¼ÐµÑÑÑ† ";}
+		elseif ($s>=2 && $s<=4) {return $days." Ð¼ÐµÑÑÑ†Ð° ";}
 		}
 	}
-	function week_text_($days) { # ñêëîíåíèå ñëîâà "íåäåëÿ"
+	function week_text_($days) { # ÑÐºÐ»Ð¾Ð½ÐµÐ½Ð¸Ðµ ÑÐ»Ð¾Ð²Ð° "Ð½ÐµÐ´ÐµÐ»Ñ"
 		$s=substr($days,strlen($days)-1,1);
 		if (strlen($days)>=2) {
-			if (substr($days,strlen($days)-2,1)=='1') {return $days." íåäåëü ";$ok=true;}
+			if (substr($days,strlen($days)-2,1)=='1') {return $days." Ð½ÐµÐ´ÐµÐ»ÑŒ ";$ok=true;}
 		}if (!$ok) {
 			if ($days==0){return "";}
-		elseif ($s==0 or $s>=5) {return $days." íåäåëü ";}
-		elseif ($s==1) {return $days." íåäåëþ ";}
-		elseif ($s>=2 && $s<=4) {return $days." íåäåëè ";}
+		elseif ($s==0 or $s>=5) {return $days." Ð½ÐµÐ´ÐµÐ»ÑŒ ";}
+		elseif ($s==1) {return $days." Ð½ÐµÐ´ÐµÐ»ÑŽ ";}
+		elseif ($s>=2 && $s<=4) {return $days." Ð½ÐµÐ´ÐµÐ»Ð¸ ";}
 		}
 	}
-	function days_text_($days) { # ñêëîíåíèå ñëîâà "äíåé"
+	function days_text_($days) { # ÑÐºÐ»Ð¾Ð½ÐµÐ½Ð¸Ðµ ÑÐ»Ð¾Ð²Ð° "Ð´Ð½ÐµÐ¹"
 		$s=substr($days,strlen($days)-1,1);
 		if (strlen($days)>=2) {
-			if (substr($days,strlen($days)-2,1)=='1') {return $days." äíåé ";$ok=true;}
+			if (substr($days,strlen($days)-2,1)=='1') {return $days." Ð´Ð½ÐµÐ¹ ";$ok=true;}
 		}if (!$ok) {
 			if ($days==0){return "";}
-		elseif ($s==0 or $s>=5) {return $days." äíåé ";}
-		elseif ($s==1) {return $days." äåíü ";}
-		elseif ($s>=2 && $s<=4) {return $days." äíÿ ";}
+		elseif ($s==0 or $s>=5) {return $days." Ð´Ð½ÐµÐ¹ ";}
+		elseif ($s==1) {return $days." Ð´ÐµÐ½ÑŒ ";}
+		elseif ($s>=2 && $s<=4) {return $days." Ð´Ð½Ñ ";}
 		}
 	}
-	function hour_text_($days) { # ñêëîíåíèå ñëîâà "÷àñ"
+	function hour_text_($days) { # ÑÐºÐ»Ð¾Ð½ÐµÐ½Ð¸Ðµ ÑÐ»Ð¾Ð²Ð° "Ñ‡Ð°Ñ"
 		$s=substr($days,strlen($days)-1,1);
 		if (strlen($days)>=2) {
-			if (substr($days,strlen($days)-2,1)=='1') {return $days." ÷àñîâ ";$ok=true;}
+			if (substr($days,strlen($days)-2,1)=='1') {return $days." Ñ‡Ð°ÑÐ¾Ð² ";$ok=true;}
 		}if (!$ok) {
 			if ($days==0){return "";}
-		elseif ($s==0 or $s>=5) {return $days." ÷àñîâ ";}
-		elseif ($s==1) {return $days." ÷àñ ";}
-		elseif ($s>=2 && $s<=4) {return $days." ÷àñà ";}
+		elseif ($s==0 or $s>=5) {return $days." Ñ‡Ð°ÑÐ¾Ð² ";}
+		elseif ($s==1) {return $days." Ñ‡Ð°Ñ ";}
+		elseif ($s>=2 && $s<=4) {return $days." Ñ‡Ð°ÑÐ° ";}
 		}
 	}
-	function minute_text_($days) { # ñêëîíåíèå ñëîâà "ìèíóòà"
+	function minute_text_($days) { # ÑÐºÐ»Ð¾Ð½ÐµÐ½Ð¸Ðµ ÑÐ»Ð¾Ð²Ð° "Ð¼Ð¸Ð½ÑƒÑ‚Ð°"
 		$s=substr($days,strlen($days)-1,1);
 		if (strlen($days)>=2) {
-			if (substr($days,strlen($days)-2,1)=='1') {return $days." ìèíóò ";$ok=true;}
+			if (substr($days,strlen($days)-2,1)=='1') {return $days." Ð¼Ð¸Ð½ÑƒÑ‚ ";$ok=true;}
 		}if (!$ok) {
-			if ($days==0){return "1 ìèíóòó";}
-		elseif ($s==0 or $s>=5) {return $days." ìèíóò ";}
-		elseif ($s==1) {return $days." ìèíóòó ";}
-		elseif ($s>=2 && $s<=4) {return $days." ìèíóòû ";}
+			if ($days==0){return "1 Ð¼Ð¸Ð½ÑƒÑ‚Ñƒ";}
+		elseif ($s==0 or $s>=5) {return $days." Ð¼Ð¸Ð½ÑƒÑ‚ ";}
+		elseif ($s==1) {return $days." Ð¼Ð¸Ð½ÑƒÑ‚Ñƒ ";}
+		elseif ($s>=2 && $s<=4) {return $days." Ð¼Ð¸Ð½ÑƒÑ‚Ñ‹ ";}
 		}
 	}
-	function sec_text_($days) { # ñêëîíåíèå ñëîâà "ñåêóíäà"
+	function sec_text_($days) { # ÑÐºÐ»Ð¾Ð½ÐµÐ½Ð¸Ðµ ÑÐ»Ð¾Ð²Ð° "ÑÐµÐºÑƒÐ½Ð´Ð°"
 		$s=substr($days,strlen($days)-1,1);
 		if (strlen($days)>=2) {
-			if (substr($days,strlen($days)-2,1)=='1') {return $days." ìèíóò ";$ok=true;}
+			if (substr($days,strlen($days)-2,1)=='1') {return $days." Ð¼Ð¸Ð½ÑƒÑ‚ ";$ok=true;}
 		}if (!$ok) {
-			if ($days==0){return "1 ñåêóíäó";}
-		elseif ($s==0 or $s>=5) {return $days." ñåêóíä ";}
-		elseif ($s==1) {return $days." ñåêóíäó ";}
-		elseif ($s>=2 && $s<=4) {return $days." ñåêóíäû ";}
+			if ($days==0){return "1 ÑÐµÐºÑƒÐ½Ð´Ñƒ";}
+		elseif ($s==0 or $s>=5) {return $days." ÑÐµÐºÑƒÐ½Ð´ ";}
+		elseif ($s==1) {return $days." ÑÐµÐºÑƒÐ½Ð´Ñƒ ";}
+		elseif ($s>=2 && $s<=4) {return $days." ÑÐµÐºÑƒÐ½Ð´Ñ‹ ";}
 		}
 	}
 

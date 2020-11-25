@@ -2,18 +2,18 @@
  if ($_SESSION['uid'] == null) header("Location: index.php");
 $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 if ($user['battle']>0) {
-if ($user['sex'] == 1) {$action="пытался";}	else {$action="пыталась";}
-addlog($user['battle'],'<span class=sysdate>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' '.$action.' считерить но у него ничего не вышло))<BR>');
-echo'<font color=red><b>Нельзя использовать в бою</b></font>';
+if ($user['sex'] == 1) {$action="РїС‹С‚Р°Р»СЃСЏ";}	else {$action="РїС‹С‚Р°Р»Р°СЃСЊ";}
+addlog($user['battle'],'<span class=sysdate>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' '.$action.' СЃС‡РёС‚РµСЂРёС‚СЊ РЅРѕ Сѓ РЅРµРіРѕ РЅРёС‡РµРіРѕ РЅРµ РІС‹С€Р»Рѕ))<BR>');
+echo'<font color=red><b>РќРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РІ Р±РѕСЋ</b></font>';
 } elseif ($user[login]!=$_POST['target']) {
-echo"<font color=red><b>Можно юзать только на себя :)<b></font>";
+echo"<font color=red><b>РњРѕР¶РЅРѕ СЋР·Р°С‚СЊ С‚РѕР»СЊРєРѕ РЅР° СЃРµР±СЏ :)<b></font>";
 } elseif (((int)date("H") < 6) || ((int)date("H") >= 22)) { 
-  echo "Восстановление доступно только днём."; 
+  echo "Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РґРѕСЃС‚СѓРїРЅРѕ С‚РѕР»СЊРєРѕ РґРЅС‘Рј."; 
 } elseif (!canmakequest(5)) {
-  echo "Вы ещё не восстановили силы после прошлого раза!";
+  echo "Р’С‹ РµС‰С‘ РЅРµ РІРѕСЃСЃС‚Р°РЅРѕРІРёР»Рё СЃРёР»С‹ РїРѕСЃР»Рµ РїСЂРѕС€Р»РѕРіРѕ СЂР°Р·Р°!";
 }else{
 mysql_query("UPDATE `users` SET `hp`=`maxhp` WHERE `login` = '{$user['login']}' LIMIT 1;");
 makequest(5);
- echo "<font color=red><b>Успешно</b></font>";
+ echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ</b></font>";
  }
 ?>

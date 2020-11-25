@@ -92,7 +92,7 @@
       if($est>'600'){mysql_query("UPDATE podzem3 SET n$nomer='$est' WHERE glava='$glava' and name='".$hokke["name"]."'");}
       else{mysql_query("UPDATE podzem3 SET n$nomer='' WHERE glava='$glava' and name='".$hokke["name"]."'");}
 
-      }//////////Чистая гайка/////////////////
+      }//////////Р§РёСЃС‚Р°СЏ РіР°Р№РєР°/////////////////
       if($bot=='13' or $bot=='13.13' or $bot=='13.13.13'){
 
       if($bot=='13'){if($shans1<'99'){$d1=1;} }
@@ -102,7 +102,7 @@
       if($est>'603'){mysql_query("UPDATE podzem3 SET n$nomer='$est' WHERE glava='$glava' and name='".$hokke["name"]."'");}
       else{mysql_query("UPDATE podzem3 SET n$nomer='' WHERE glava='$glava' and name='".$hokke["name"]."'");}
 
-      }//////////Гайка с резьбой/////////////////
+      }//////////Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№/////////////////
       if($bot=='10' or $bot=='10.10' or $bot=='10.10.10'){
 
       if($bot=='10'){if($shans1<'99'){$d1=1;} }
@@ -112,7 +112,7 @@
       if($est>'606'){mysql_query("UPDATE podzem3 SET n$nomer='$est' WHERE glava='$glava' and name='".$hokke["name"]."'");}
       else{mysql_query("UPDATE podzem3 SET n$nomer='' WHERE glava='$glava' and name='".$hokke["name"]."'");}
 
-      }//////////длинный болт/////////////////
+      }//////////РґР»РёРЅРЅС‹Р№ Р±РѕР»С‚/////////////////
       if($bot=='12' or $bot=='12.12' or $bot=='12.12.12' or $bot=='15' or $bot=='15.15' or $bot=='15.15.15' or $bot=='16' or $bot=='16.16' or $bot=='16.16.16'){
 
       if($bot=='12' or $bot=='15' or $bot=='16'){if($shans1<'99'){$d1=1;} }
@@ -122,7 +122,7 @@
       if($est>'609'){mysql_query("UPDATE podzem3 SET n$nomer='$est' WHERE glava='$glava' and name='".$hokke["name"]."'");}
       else{mysql_query("UPDATE podzem3 SET n$nomer='' WHERE glava='$glava' and name='".$hokke["name"]."'");}
 
-      }//////////Нужный болт/////////////////
+      }//////////РќСѓР¶РЅС‹Р№ Р±РѕР»С‚/////////////////
       if($bot=='14' or $bot=='14.14' or $bot=='14.14.14' or $bot=='17' or $bot=='17.17' or $bot=='17.17.17' or $bot=='18' or $bot=='18.18' or $bot=='18.18.18'){
         if($bot=='14' or $bot=='17' or $bot=='18'){if($shans1<'99'){$d1=1;} }
         if($bot=='14.14' or $bot=='17.17' or $bot=='18.18'){if($shans1<'99'){$d1=1;} if($shans2<'99'){$d2=1;} }
@@ -130,7 +130,7 @@
         $est = $d1+$d2+$d3+612;
         if($est>'612'){mysql_query("UPDATE podzem3 SET n$nomer='$est' WHERE glava='$glava' and name='".$hokke["name"]."'");}
         else{mysql_query("UPDATE podzem3 SET n$nomer='' WHERE glava='$glava' and name='".$hokke["name"]."'");}
-      }//////////Рабочий винтель/////////////////
+      }//////////Р Р°Р±РѕС‡РёР№ РІРёРЅС‚РµР»СЊ/////////////////
     } elseif ($this->user["room"]==48) {
       if ($bot=="29") {
         if (rand(0,100)<=50) mysql_query("UPDATE podzem3 SET n$nomer='511' WHERE glava='$glava' and name='".$hokke["name"]."'");

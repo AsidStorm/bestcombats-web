@@ -1,16 +1,16 @@
 <?php
-// магия невидимости
+// РјР°РіРёСЏ РЅРµРІРёРґРёРјРѕСЃС‚Рё
  $zaderj=mqfa("select * from `zaderjka` where `owner`='$user[id]' and `type`=1022");
 if ($zaderj) {
-  echo "<font color=red><b>У вас задержка на использование данного свитка ещё ".secs2hrs($zaderj["time"]-time())."<b></font>";
+  echo "<font color=red><b>РЈ РІР°СЃ Р·Р°РґРµСЂР¶РєР° РЅР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РґР°РЅРЅРѕРіРѕ СЃРІРёС‚РєР° РµС‰С‘ ".secs2hrs($zaderj["time"]-time())."<b></font>";
 } elseif ($user["battle"]) {
-  echo "<font color=red><b>Не в бою<b></font>";
+  echo "<font color=red><b>РќРµ РІ Р±РѕСЋ<b></font>";
 } elseif ($user["level"]<8) {
-  echo "<font color=red>Вашего уровня недостаточно для использования данного заклинания.</font>";
+  echo "<font color=red>Р’Р°С€РµРіРѕ СѓСЂРѕРІРЅСЏ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РґР°РЅРЅРѕРіРѕ Р·Р°РєР»РёРЅР°РЅРёСЏ.</font>";
 } elseif (!$user["in_tower"]) {
   $s=getvar("siege");
   if (incastle($user["room"]) && !$s) {
-    echo "<font color=red><b>В битве за замок нельзя использовать свиток невидимости!<b></font>";
+    echo "<font color=red><b>Р’ Р±РёС‚РІРµ Р·Р° Р·Р°РјРѕРє РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРІРёС‚РѕРє РЅРµРІРёРґРёРјРѕСЃС‚Рё!<b></font>";
   } else {
         if ($_SESSION['uid'] == null) header("Location: index.php");
         if ($user["align"]==2.5) $magictime=time()+(60*240);
@@ -21,13 +21,13 @@ if ($zaderj) {
         if ($eff) {
           mq("update effects set time='$magictime' where id='$eff'");
         } elseif ($user['id']) {
-          mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','Заклятие невидимости','{$magictime}',1022);");
-          mq("INSERT INTO `zaderjka` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','Заклятие невидимости','{$zadtime}',1022);");
+          mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','Р—Р°РєР»СЏС‚РёРµ РЅРµРІРёРґРёРјРѕСЃС‚Рё','{$magictime}',1022);");
+          mq("INSERT INTO `zaderjka` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','Р—Р°РєР»СЏС‚РёРµ РЅРµРІРёРґРёРјРѕСЃС‚Рё','{$zadtime}',1022);");
           mq("UPDATE `users` SET `invis` = '1' WHERE `id` = '{$user['id']}';");
         } else {
-          echo "<font color=red><b>Персонаж \"$target\" не существует!<b></font>";
+          echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!<b></font>";
         }
         $bet=1;
   }
-} else echo "<font color=red><b>В Башне Смерти нельзя использовать свиток невидимости!<b></font>";
+} else echo "<font color=red><b>Р’ Р‘Р°С€РЅРµ РЎРјРµСЂС‚Рё РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРІРёС‚РѕРє РЅРµРІРёРґРёРјРѕСЃС‚Рё!<b></font>";
 ?>

@@ -12,7 +12,7 @@
             header('location: city.php');
   }
   if($user['invis']==1){
-  $kto = '<i>Невидимка</i>';
+  $kto = '<i>РќРµРІРёРґРёРјРєР°</i>';
   }else{
   $kto = $user['login'];
   }
@@ -21,21 +21,21 @@
                 case 'abandonedplain':
                     mysql_query("UPDATE `users` SET `money`=`money`-0, `incity`='dungeon' where `id`='".$_SESSION['uid']."'");
                     mysql_query("UPDATE `online` SET `city`='dungeon' where `id`='".$_SESSION['uid']."'");
-                    $messab="<b>".$kto."</b> отправился в <img src=http://img.bestcombats.net/city/micro/dungeon.gif> Abandoned Plain через <b>Портал</b>";					
+                    $messab="<b>".$kto."</b> РѕС‚РїСЂР°РІРёР»СЃСЏ РІ <img src=http://img.bestcombats.net/city/micro/dungeon.gif> Abandoned Plain С‡РµСЂРµР· <b>РџРѕСЂС‚Р°Р»</b>";					
 					addch('<img src=i/magic/teleport.gif width="25"> '.$messab.'');
                     die("<script>top.window.location='/battle.php';</script>");
                     break;
                     case 'capital':
                     mysql_query("UPDATE `users` SET `money`=`money`-0, `incity`='virtcity' where `id`='".$_SESSION['uid']."'");
                     mysql_query("UPDATE `online` SET `city`='virtcity' where `id`='".$_SESSION['uid']."'");
-                    $messcp="<b>".$kto."</b> отправился в <img src=http://img.bestcombats.net/city/micro/virtcity.gif> Devils City через <b>Портал</b>";					
+                    $messcp="<b>".$kto."</b> РѕС‚РїСЂР°РІРёР»СЃСЏ РІ <img src=http://img.bestcombats.net/city/micro/virtcity.gif> Devils City С‡РµСЂРµР· <b>РџРѕСЂС‚Р°Р»</b>";					
 					addch('<img src=i/magic/teleport.gif width="25"> '.$messcp.'');
                     die("<script>top.window.location='/battle.php';</script>");
                     break;
                     case 'angel':
                     mysql_query("UPDATE `users` SET `money`=`money`-0, `incity`='suburb' where `id`='".$_SESSION['uid']."'");
                     mysql_query("UPDATE `online` SET `city`='suburb' where `id`='".$_SESSION['uid']."'");
-                    $messan="<b>".$kto."</b> отправился в <img src=http://img.bestcombats.net/city/micro/suburb.gif> Angels City через <b>Портал</b>";					
+                    $messan="<b>".$kto."</b> РѕС‚РїСЂР°РІРёР»СЃСЏ РІ <img src=http://img.bestcombats.net/city/micro/suburb.gif> Angels City С‡РµСЂРµР· <b>РџРѕСЂС‚Р°Р»</b>";					
 					addch('<img src=i/magic/teleport.gif width="25"> '.$messan.'');
                     die("<script>top.window.location='/battle.php';</script>");
                     break;
@@ -55,11 +55,11 @@
 	<HTML><HEAD>
 <script LANGUAGE='JavaScript'>
 document.ondragstart = test;
-//запрет на перетаскивание
+//Р·Р°РїСЂРµС‚ РЅР° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ
 document.onselectstart = test;
-//запрет на выделение элементов страницы
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂР°РЅРёС†С‹
 document.oncontextmenu = test;
-//запрет на выведение контекстного меню
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РІРµРґРµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 function test() {
  return false
 }
@@ -77,48 +77,48 @@ function test() {
 
 
 <TABLE width=100%>
-<TR><TD valign=top width=100%><center><H4>Городской портал.</H4></center>
+<TR><TD valign=top width=100%><center><H4>Р“РѕСЂРѕРґСЃРєРѕР№ РїРѕСЂС‚Р°Р».</H4></center>
 
 
 
 
 <TD nowrap valign=top>
-<BR><DIV align=right><INPUT style="font-size:12px;" type='button' onClick="location='station.php'" value=Обновить>
-<INPUT style="font-size:12px;" type='button' onClick="location='station.php?voz=1'" value=Вернуться></DIV></TD>
+<BR><DIV align=right><INPUT style="font-size:12px;" type='button' onClick="location='station.php'" value=РћР±РЅРѕРІРёС‚СЊ>
+<INPUT style="font-size:12px;" type='button' onClick="location='station.php?voz=1'" value=Р’РµСЂРЅСѓС‚СЊСЃСЏ></DIV></TD>
 </TR>
 <?if ($user['incity']=='virtcity'){?>
 <tr>
 <td align="left">
-<b>Abandoned Plain</b> Цена перемещения: 0 кр.
- <small>(без задержки) </small>  <INPUT style="font-size:12px;" type='button' onclick=" window.location='station.php?get=abandonedplain'"  value="Войти в портал"></td>
+<b>Abandoned Plain</b> Р¦РµРЅР° РїРµСЂРµРјРµС‰РµРЅРёСЏ: 0 РєСЂ.
+ <small>(Р±РµР· Р·Р°РґРµСЂР¶РєРё) </small>  <INPUT style="font-size:12px;" type='button' onclick=" window.location='station.php?get=abandonedplain'"  value="Р’РѕР№С‚Рё РІ РїРѕСЂС‚Р°Р»"></td>
 </tr>
 <tr>
 <td align="left">
-<b>Angels City</b> Цена перемещения: 0 кр. 
- <small>(без задержки) </small>   <INPUT style="font-size:12px;" type='button' onclick=" window.location='station.php?get=angel'"  value="Войти в портал"></td>
+<b>Angels City</b> Р¦РµРЅР° РїРµСЂРµРјРµС‰РµРЅРёСЏ: 0 РєСЂ. 
+ <small>(Р±РµР· Р·Р°РґРµСЂР¶РєРё) </small>   <INPUT style="font-size:12px;" type='button' onclick=" window.location='station.php?get=angel'"  value="Р’РѕР№С‚Рё РІ РїРѕСЂС‚Р°Р»"></td>
 </tr>
 <td align="left">
-<b>Sun City</b> Цена перемещения: 0 кр. 
- <small>(без задержки) </small>   <INPUT style="font-size:12px;" type='button' onclick=" window.location='station.php?get=sun'"  value="Войти в портал"></td>
+<b>Sun City</b> Р¦РµРЅР° РїРµСЂРµРјРµС‰РµРЅРёСЏ: 0 РєСЂ. 
+ <small>(Р±РµР· Р·Р°РґРµСЂР¶РєРё) </small>   <INPUT style="font-size:12px;" type='button' onclick=" window.location='station.php?get=sun'"  value="Р’РѕР№С‚Рё РІ РїРѕСЂС‚Р°Р»"></td>
 </tr>
  <?}?>
  <?if ($user['incity']=='dungeon'){?>
 <tr>
-<td align="left"><b>Devils City (Возврат)</b> Цена перемещения: 0 кр. 
- <small>(без задержки) </small>   <INPUT style="font-size:12px;" type='button' onclick=" window.location='station.php?get=capital'"  value="Войти в портал"></td>
+<td align="left"><b>Devils City (Р’РѕР·РІСЂР°С‚)</b> Р¦РµРЅР° РїРµСЂРµРјРµС‰РµРЅРёСЏ: 0 РєСЂ. 
+ <small>(Р±РµР· Р·Р°РґРµСЂР¶РєРё) </small>   <INPUT style="font-size:12px;" type='button' onclick=" window.location='station.php?get=capital'"  value="Р’РѕР№С‚Рё РІ РїРѕСЂС‚Р°Р»"></td>
 </tr>
 <?}?>
 </TR>
 <?if ($user['incity']=='suburb'){?>
 <tr>
-<td align="left"><b>Devils City (Возврат)</b> Цена перемещения: 0 кр. 
- <small>(без задержки) </small>   <INPUT style="font-size:12px;" type='button' onclick=" window.location='station.php?get=capital'"  value="Войти в портал"></td>
+<td align="left"><b>Devils City (Р’РѕР·РІСЂР°С‚)</b> Р¦РµРЅР° РїРµСЂРµРјРµС‰РµРЅРёСЏ: 0 РєСЂ. 
+ <small>(Р±РµР· Р·Р°РґРµСЂР¶РєРё) </small>   <INPUT style="font-size:12px;" type='button' onclick=" window.location='station.php?get=capital'"  value="Р’РѕР№С‚Рё РІ РїРѕСЂС‚Р°Р»"></td>
 </tr>
 <?}?>
  <?if ($user['incity']=='suncity'){?>
 <tr>
-<td align="left"><b>Devils City (Возврат)</b> Цена перемещения: 0 кр. 
- <small>(без задержки) </small>   <INPUT style="font-size:12px;" type='button' onclick=" window.location='station.php?get=capital'"  value="Войти в портал"></td>
+<td align="left"><b>Devils City (Р’РѕР·РІСЂР°С‚)</b> Р¦РµРЅР° РїРµСЂРµРјРµС‰РµРЅРёСЏ: 0 РєСЂ. 
+ <small>(Р±РµР· Р·Р°РґРµСЂР¶РєРё) </small>   <INPUT style="font-size:12px;" type='button' onclick=" window.location='station.php?get=capital'"  value="Р’РѕР№С‚Рё РІ РїРѕСЂС‚Р°Р»"></td>
 </tr>
 <?}?>
 </TR>

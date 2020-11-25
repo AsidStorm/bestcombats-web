@@ -71,15 +71,15 @@ showtable('4');
 <td width="31" height="14"><img height="14" src="<?=IMGBASE;?>/i/<?=$now?>/mennu112_06_lite.gif" width="31" /></td>
 <td align="center"><table height="14" cellspacing="0" cellpadding="0" width="100%" background="<?=IMGBASE;?>/i/move/mennu112_06.gif" border="0">
 <tr align="middle">
-<td id="el1" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('1');">Знания</td>
+<td id="el1" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('1');">Р—РЅР°РЅРёСЏ</td>
 <td width="1"><img height="11" src="<?=IMGBASE;?>/i/move/mennu112_09.gif" width="1" /></td>
-<td id="el2" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('2');">Общение</td>
+<td id="el2" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('2');">РћР±С‰РµРЅРёРµ</td>
 <td width="1"><img height="11" src="<?=IMGBASE;?>/i/move/mennu112_09.gif" width="1" /></td>
-<td id="el3" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('3');">Безопасность</td>
+<td id="el3" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('3');">Р‘РµР·РѕРїР°СЃРЅРѕСЃС‚СЊ</td>
 <td width="1"><img height="11" src="<?=IMGBASE;?>/i/move/mennu112_09.gif" width="1" /></td>
-<td id="el4" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('4');">Персонаж</td>
+<td id="el4" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('4');">РџРµСЂСЃРѕРЅР°Р¶</td>
 <td width="1"><img height="11" src="<?=IMGBASE;?>/i/move/mennu112_09.gif" width="1" /></td>
-<td id="el5" class="main_text" onclick="if (confirm('Выйти из игры?')) top.location.href='index.php?exit=0.560057875997465';">Выход&nbsp;</td>
+<td id="el5" class="main_text" onclick="if (confirm('Р’С‹Р№С‚Рё РёР· РёРіСЂС‹?')) top.location.href='index.php?exit=0.560057875997465';">Р’С‹С…РѕРґ&nbsp;</td>
 </tr>
 </table></td>
 <td width="38"><img height="14" src="<?=IMGBASE;?>/i/<?=$now?>/mennu112_04_lite.gif" width="37" /></td>
@@ -93,13 +93,13 @@ showtable('4');
 <td align="left"><img height="17" src="<?=IMGBASE;?>/i/<?=$now?>/top_lite_dream_13.gif" width="20" /></td>
 <td valign="top"><table cellspacing="0" cellpadding="0" width="100%" border="0">
 <tr>
-<td align="right" nowrap="nowrap" class="menutop"><span id="menu1" style="display:none; width:0px; overflow:hidden"> <a class="menutop" onclick="this.blur();" href="encicl" target="_blank">Библиотека</a> | <a class="menutop" onclick="this.blur();" href="/encicl/index.php?section=0&page=error" target="_blank">FAQ</a> | <a class="menutop" onclick="this.blur();" href="/encicl/law.html" target="_blank">Законы</a> | <a class="menutop" onclick="this.blur();" href="/encicl/law.html" target="_blank">Соглашения</a> | <a class="menutop" onclick="this.blur();" href="/encicl/law.html" target="_blank">Правила безопасности</a></span> 
-<span id="menu2" style="display:none; width:0px; overflow:hidden"><a class="menutop" onclick="this.blur(); jumptopath('/radio.html'); return false;" href="#" http://stream0.radiostyle.ru:8000/CombatS-2.m3u" target="_blank">Радио</a> | <a class="menutop" onclick="this.blur();" href="forum.php" target="_blank">sms-история</a> | <a class="menutop" onclick="this.blur();" href="forum.php" target="_blank">Телеграммы</a> | <a class="menutop" onclick="this.blur();" href="forum.php" target="_blank">События</a> | <a class="menutop" onclick="this.blur();" href="forum.php" target="_blank">Скроллы</a> | <a class="menutop" onclick="this.blur();" href="/forum.php" target="_blank">Форум</a> | <a class="menutop" onclick="this.blur();" href="reit_pers.php" target="_blank">Рейтинг</a> | <a class="menutop" onclick="this.blur();" href="reit_refer.php" target="_blank">Рейтинг реф</a></span> 
-<span id="menu3" style="display:none; width:0px; overflow:hidden"><a class="menutop" onclick="this.blur(); jumptopath('/main.php?changepsw=1'); return false;" href="#">Поддержка</a> | <a class="menutop" onclick="this.blur(); jumptopath('/main.php?changepsw=1'); return false;" href="#">Отчеты</a> | <a class="menutop" onclick="this.blur(); jumptopath('/main.php?changepsw=1'); return false;" href="#">Правила</a> | <a class="menutop" onclick="this.blur(); jumptopath('/main.php?changepsw=1'); return false;" href="#">Настройки</a> | <a class="menutop" onclick="this.blur(); jumptopath('/main.php?changepsw=1'); return false;" href="#">Смена пароля</a></span> 
-<span id="menu4" style="display:none; width:0px; overflow:hidden"><a class="menutop" onclick="this.blur(); jumptopath('/ref.php'); return false;" href="#"><font color=\"red\">Реферальная система</font></a>
-<!--| <a class="menutop" onclick="this.blur(); jumptopath('/ferma.php'); return false;" href="#"><font color=gray>Ферма</font></a>  -->
-| <a class="menutop" onclick="this.blur(); jumptopath('/main.php?edit=1'); return false;" href="#">Новости</B></A>
-<!--| <A class=menutop onclick="this.blur(); jumptopath('/vzarab.php'); return false;" href="#"><B style="COLOR: gray">ВЗаработке</B></A>-->
+<td align="right" nowrap="nowrap" class="menutop"><span id="menu1" style="display:none; width:0px; overflow:hidden"> <a class="menutop" onclick="this.blur();" href="encicl" target="_blank">Р‘РёР±Р»РёРѕС‚РµРєР°</a> | <a class="menutop" onclick="this.blur();" href="/encicl/index.php?section=0&page=error" target="_blank">FAQ</a> | <a class="menutop" onclick="this.blur();" href="/encicl/law.html" target="_blank">Р—Р°РєРѕРЅС‹</a> | <a class="menutop" onclick="this.blur();" href="/encicl/law.html" target="_blank">РЎРѕРіР»Р°С€РµРЅРёСЏ</a> | <a class="menutop" onclick="this.blur();" href="/encicl/law.html" target="_blank">РџСЂР°РІРёР»Р° Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё</a></span> 
+<span id="menu2" style="display:none; width:0px; overflow:hidden"><a class="menutop" onclick="this.blur(); jumptopath('/radio.html'); return false;" href="#" http://stream0.radiostyle.ru:8000/CombatS-2.m3u" target="_blank">Р Р°РґРёРѕ</a> | <a class="menutop" onclick="this.blur();" href="forum.php" target="_blank">sms-РёСЃС‚РѕСЂРёСЏ</a> | <a class="menutop" onclick="this.blur();" href="forum.php" target="_blank">РўРµР»РµРіСЂР°РјРјС‹</a> | <a class="menutop" onclick="this.blur();" href="forum.php" target="_blank">РЎРѕР±С‹С‚РёСЏ</a> | <a class="menutop" onclick="this.blur();" href="forum.php" target="_blank">РЎРєСЂРѕР»Р»С‹</a> | <a class="menutop" onclick="this.blur();" href="/forum.php" target="_blank">Р¤РѕСЂСѓРј</a> | <a class="menutop" onclick="this.blur();" href="reit_pers.php" target="_blank">Р РµР№С‚РёРЅРі</a> | <a class="menutop" onclick="this.blur();" href="reit_refer.php" target="_blank">Р РµР№С‚РёРЅРі СЂРµС„</a></span> 
+<span id="menu3" style="display:none; width:0px; overflow:hidden"><a class="menutop" onclick="this.blur(); jumptopath('/main.php?changepsw=1'); return false;" href="#">РџРѕРґРґРµСЂР¶РєР°</a> | <a class="menutop" onclick="this.blur(); jumptopath('/main.php?changepsw=1'); return false;" href="#">РћС‚С‡РµС‚С‹</a> | <a class="menutop" onclick="this.blur(); jumptopath('/main.php?changepsw=1'); return false;" href="#">РџСЂР°РІРёР»Р°</a> | <a class="menutop" onclick="this.blur(); jumptopath('/main.php?changepsw=1'); return false;" href="#">РќР°СЃС‚СЂРѕР№РєРё</a> | <a class="menutop" onclick="this.blur(); jumptopath('/main.php?changepsw=1'); return false;" href="#">РЎРјРµРЅР° РїР°СЂРѕР»СЏ</a></span> 
+<span id="menu4" style="display:none; width:0px; overflow:hidden"><a class="menutop" onclick="this.blur(); jumptopath('/ref.php'); return false;" href="#"><font color=\"red\">Р РµС„РµСЂР°Р»СЊРЅР°СЏ СЃРёСЃС‚РµРјР°</font></a>
+<!--| <a class="menutop" onclick="this.blur(); jumptopath('/ferma.php'); return false;" href="#"><font color=gray>Р¤РµСЂРјР°</font></a>  -->
+| <a class="menutop" onclick="this.blur(); jumptopath('/main.php?edit=1'); return false;" href="#">РќРѕРІРѕСЃС‚Рё</B></A>
+<!--| <A class=menutop onclick="this.blur(); jumptopath('/vzarab.php'); return false;" href="#"><B style="COLOR: gray">Р’Р—Р°СЂР°Р±РѕС‚РєРµ</B></A>-->
 </span>&nbsp;</td>
 </tr>
 </table></td>

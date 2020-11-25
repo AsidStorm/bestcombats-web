@@ -6,11 +6,11 @@ $ins_time = floor(60*60*2);
 
 global $nodrink;
 if ($user['battle'] > 0) {
-  echo "Не в бою...";
+  echo "РќРµ РІ Р±РѕСЋ...";
 } elseif (in_array($user["room"],$nodrink)) {
-  echo "Здесь запрещено пить эликсиры!";
+  echo "Р—РґРµСЃСЊ Р·Р°РїСЂРµС‰РµРЅРѕ РїРёС‚СЊ СЌР»РёРєСЃРёСЂС‹!";
 } elseif($uses_zel && $row['name']!=$uses_zel['name']) {
-  echo "Еще не прошло действие старого эликсира/заклятия.";
+  echo "Р•С‰Рµ РЅРµ РїСЂРѕС€Р»Рѕ РґРµР№СЃС‚РІРёРµ СЃС‚Р°СЂРѕРіРѕ СЌР»РёРєСЃРёСЂР°/Р·Р°РєР»СЏС‚РёСЏ.";
 } else {
   if(!$uses_zel){
     mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`,`sila`,`lovk`,`inta`,`intel`) values ('".$user['id']."','".$row['name']."',".(time()+$ins_time).",188,$row[gsila],".$row['glovk'].",".$row['ginta'].",".$row['gintel'].");");
@@ -22,18 +22,18 @@ if ($user['battle'] > 0) {
   } else {
     mysql_query("UPDATE `effects` set `time` = '".(time()+$ins_time)."' WHERE id='$uses_zel[id]'");
   }
-  echo "Успешно использован свиток &quot;".$row['name']."&quot;.";
+  echo "РЈСЃРїРµС€РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅ СЃРІРёС‚РѕРє &quot;".$row['name']."&quot;.";
   $bet=1;
 
 }
 // if ($_SESSION['uid'] == null) header("Location: index.php");
 //$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 
-//echo"Нельзя дважды юзать бля :)";
+//echo"РќРµР»СЊР·СЏ РґРІР°Р¶РґС‹ СЋР·Р°С‚СЊ Р±Р»СЏ :)";
 //}else{
 //mysql_query("UPDATE `users` SET `sila`=`sila`+'100' WHERE `login` = '{$user['login']}' LIMIT 1;");
 
-// echo "<font color=red><b>Свиток Великана был успешно использован<b></font>";
+// echo "<font color=red><b>РЎРІРёС‚РѕРє Р’РµР»РёРєР°РЅР° Р±С‹Р» СѓСЃРїРµС€РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅ<b></font>";
 // $bet=1;
 // }
 ?>

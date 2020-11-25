@@ -29,12 +29,12 @@ function fixspaces(s)
   return(s);
 }
 
-// Заголовок, название скрипта, имя поля с логином
+// Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РёРјСЏ РїРѕР»СЏ СЃ Р»РѕРіРёРЅРѕРј
 function findlogin(title, script, name, defaultlogin)
 {
     document.getElementById("hint3").innerHTML = '<form style="margin:0px;padding:0px" action="'+script+'" method=post name=slform><table border=0 width=100% cellspacing="1" cellpadding="0" bgcolor="#CCC3AA"><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: pointer" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
     '<table border=0 width=100% cellspacing="0" cellpadding="2" bgcolor="#FFF6DD"><tr><td colspan=2>'+
-    'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE="text" NAME="'+name+'" id="'+name+'" value="'+defaultlogin+'"></TD><TD width=50%><INPUT type=image SRC="/i/b__ok.gif" WIDTH="25" HEIGHT="18" BORDER=0 ALT="" onclick="document.slform.'+name+'.value=fixspaces(slform.'+name+'.value);"></TD></TR></TABLE></td></tr></table></form>';
+    'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE="text" NAME="'+name+'" id="'+name+'" value="'+defaultlogin+'"></TD><TD width=50%><INPUT type=image SRC="/i/b__ok.gif" WIDTH="25" HEIGHT="18" BORDER=0 ALT="" onclick="document.slform.'+name+'.value=fixspaces(slform.'+name+'.value);"></TD></TR></TABLE></td></tr></table></form>';
     document.getElementById("hint3").style.visibility = "visible";
     document.getElementById("hint3").style.left = 200;
     document.getElementById("hint3").style.top = 60;
@@ -43,7 +43,7 @@ function findlogin(title, script, name, defaultlogin)
 
 }
 
-// Заголовок, название скрипта, имя поля с логином
+// Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РёРјСЏ РїРѕР»СЏ СЃ Р»РѕРіРёРЅРѕРј
 function tricklogin(title, script, magickname, n, defaultlogin, extparam)
 {
     s='<form action="'+script+'" method=POST name=slform><table border=0 width=100% cellspacing="1" cellpadding="0" bgcolor="#CCC3AA"><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: pointer" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
@@ -52,7 +52,7 @@ function tricklogin(title, script, magickname, n, defaultlogin, extparam)
         s = s + extparam;
     }
     s=s+'<td colspan=2>'+
-    'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><input type="text" name="'+name+'" value="'+defaultlogin+'"></TD><TD width=50%><INPUT type=image SRC="/i/b__ok.gif" WIDTH="25" HEIGHT="18" BORDER=0 ALT="" onclick="document.slform.'+name+'.value=fixspaces(document.slform.'+name+'.value);"></TD></TR></TABLE></td></tr></table></form>';
+    'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><input type="text" name="'+name+'" value="'+defaultlogin+'"></TD><TD width=50%><INPUT type=image SRC="/i/b__ok.gif" WIDTH="25" HEIGHT="18" BORDER=0 ALT="" onclick="document.slform.'+name+'.value=fixspaces(document.slform.'+name+'.value);"></TD></TR></TABLE></td></tr></table></form>';
     document.getElementById("hint3").innerHTML = s;
     document.getElementById("hint3").style.visibility = "visible";
     document.getElementById("hint3").style.left = 200;
@@ -62,12 +62,12 @@ function tricklogin(title, script, magickname, n, defaultlogin, extparam)
 }
 
 
-// Для магии. Заголовок, название скрипта, название магии, номер вещицы в рюкзаке, логин по умолчанию, описание доп. поля
+// Р”Р»СЏ РјР°РіРёРё. Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РЅР°Р·РІР°РЅРёРµ РјР°РіРёРё, РЅРѕРјРµСЂ РІРµС‰РёС†С‹ РІ СЂСЋРєР·Р°РєРµ, Р»РѕРіРёРЅ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ, РѕРїРёСЃР°РЅРёРµ РґРѕРї. РїРѕР»СЏ
 function magicklogin(title, script, magickname, n, defaultlogin, extparam)
 {
     var s = '<table border=0 width=100% cellspacing="1" cellpadding="0" bgcolor="#CCC3AA"><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: pointer" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
     '<table border=0 width=100% cellspacing="0" cellpadding="2" bgcolor="#FFF6DD"><tr><form action="'+script+'" method=POST name=slform><input type=hidden name="use" value="'+magickname+'"><input type=hidden name="n" value="'+n+'"><td colspan=2>'+
-    'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE="text" NAME="param" value="'+defaultlogin+'"></TD><TD width=50%><INPUT type=image SRC="/i/b__ok.gif" WIDTH="25" HEIGHT="18" BORDER=0 ALT="" onclick="slform.param.value=fixspaces(slform.param.value);"></TD></TR>';
+    'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE="text" NAME="param" value="'+defaultlogin+'"></TD><TD width=50%><INPUT type=image SRC="/i/b__ok.gif" WIDTH="25" HEIGHT="18" BORDER=0 ALT="" onclick="slform.param.value=fixspaces(slform.param.value);"></TD></TR>';
     if (extparam != null && extparam != '') {
         s = s + '<TR><td colspan=2>'+extparam+'<BR><INPUT TYPE="text" NAME="param2" size=20></TD></TR>';
     }
@@ -81,7 +81,7 @@ function magicklogin(title, script, magickname, n, defaultlogin, extparam)
     Hint3Name = 'param';
 }
 
-// Магия
+// РњР°РіРёСЏ
 function UseMagick(title, script, name, extparam, n, extparam2) {
    if ((extparam != null)&&(extparam != '')) {
 
@@ -111,29 +111,29 @@ function UseMagick(title, script, name, extparam, n, extparam2) {
     document.all("param").focus();
     Hint3Name = 'param';
    } else {
-     if (confirm('Использовать сейчас?')) { location=script+'?use='+name+'&n='+n; }
+     if (confirm('РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРµР№С‡Р°СЃ?')) { location=script+'?use='+name+'&n='+n; }
    }
 }
 
-// Закрывает окно ввода логина
+// Р—Р°РєСЂС‹РІР°РµС‚ РѕРєРЅРѕ РІРІРѕРґР° Р»РѕРіРёРЅР°
 function closehint3()
 {
     document.all("hint3").style.visibility="hidden";
     Hint3Name='';
 }
 
-// Для боевой магии. Заголовок, название магии, номер вещицы в рюкзаке
+// Р”Р»СЏ Р±РѕРµРІРѕР№ РјР°РіРёРё. Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ РјР°РіРёРё, РЅРѕРјРµСЂ РІРµС‰РёС†С‹ РІ СЂСЋРєР·Р°РєРµ
 function Bmagicklogin(title, magickname, n)
 {
    if (defend==false)
    {
-      errmess("Блок не выбран.");
+      errmess("Р‘Р»РѕРє РЅРµ РІС‹Р±СЂР°РЅ.");
       return false;
    }
 
     document.all("hint3").innerHTML = '<table border=0 width=100% cellspacing="1" cellpadding="0" bgcolor="#CCC3AA"><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: pointer" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
     '<table border=0 width=100% cellspacing="0" cellpadding="2" bgcolor="#FFF6DD"><tr><form name="bmagic" action="/battle.pl" method=POST onsubmit="bmagic.mdefend.value=defend;"><input type=hidden name="use" value="'+magickname+'"><input type=hidden name="n" value="'+n+'"><input type=hidden name="mdefend" value="'+defend+'"><input type=hidden name="enemy" value="'+enemy+'"><input type=hidden name="myid" value="'+myid+'"><td colspan=2>'+
-    'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE="text" NAME="param"></TD><TD width=50%><INPUT type=image SRC="/i/b__ok.gif" WIDTH="25" HEIGHT="18" BORDER=0 ALT="" onclick="bmagic.param.value=fixspaces(bmagic.param.value);"></TD></TR></FORM></TABLE></td></tr></table>';
+    'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE="text" NAME="param"></TD><TD width=50%><INPUT type=image SRC="/i/b__ok.gif" WIDTH="25" HEIGHT="18" BORDER=0 ALT="" onclick="bmagic.param.value=fixspaces(bmagic.param.value);"></TD></TR></FORM></TABLE></td></tr></table>';
     document.all("hint3").style.visibility = "visible";
     document.all("hint3").style.left = 100;
     document.all("hint3").style.top = 60;
@@ -141,12 +141,12 @@ function Bmagicklogin(title, magickname, n)
     Hint3Name = 'param';
 }
 
-// Магия
+// РњР°РіРёСЏ
 function BUseMagick(name, extparam, n) {
 
    if (defend==false)
    {
-      errmess("Блок не выбран.");
+      errmess("Р‘Р»РѕРє РЅРµ РІС‹Р±СЂР°РЅ.");
       return false;
    }
 
@@ -162,6 +162,6 @@ function BUseMagick(name, extparam, n) {
 
      }
    } else {
-     if (confirm('Использовать сейчас?')) { location='/battle.pl?use='+name+'&n='+n+'&mdefend='+defend+'&enemy='+enemy+'&myid='+myid;}
+     if (confirm('РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРµР№С‡Р°СЃ?')) { location='/battle.pl?use='+name+'&n='+n+'&mdefend='+defend+'&enemy='+enemy+'&myid='+myid;}
    }
 }

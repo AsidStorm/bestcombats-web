@@ -31,11 +31,11 @@ ob_start("ob_gzhandler");
   }
 
 var Hint3Name = '';
-// Заголовок, название скрипта, имя поля с логином
+// Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РёРјСЏ РїРѕР»СЏ СЃ Р»РѕРіРёРЅРѕРј
 function findlogin(title, script, name){
 	document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
 	'<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><form action="'+script+'" method=POST><INPUT TYPE=hidden name=sd4 value="6"><td colspan=2>'+
-	'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" »» "></TD></TR></FORM></TABLE></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" В»В» "></TD></TR></FORM></TABLE></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 100;
@@ -56,13 +56,13 @@ function closehint3(){
 <table width=100%>
 <tr>
 	<td align=right>
-		<INPUT TYPE="button" onclick="location.href='main.php';" value="Вернуться" title="Вернуться">
+		<INPUT TYPE="button" onclick="location.href='main.php';" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" title="Р’РµСЂРЅСѓС‚СЊСЃСЏ">
 	</td>
 </tr>
 <tr>
 	<td valign=top>
 		<center>
-			<h3><A HREF="javascript:top.AddToPrivate('tar', top.CtrlPress)" target=refreshed><img src="i/lock.gif" width=20 height=15></A>Орден Тьмы</h3>		
+			<h3><A HREF="javascript:top.AddToPrivate('tar', top.CtrlPress)" target=refreshed><img src="i/lock.gif" width=20 height=15></A>РћСЂРґРµРЅ РўСЊРјС‹</h3>		
 		<table>
 			<tr>
 			<td>
@@ -73,7 +73,7 @@ function closehint3(){
 							echo '<A HREF="javascript:top.AddToPrivate(\'',$row['login'],'\', top.CtrlPress)" target=refreshed><img src="i/lock.gif" width=20 height=15></A>';
 							nick2($row['id']);
 							if($row['room'] > 500 && $row['room'] < 561) {
-								$rrm = 'Башня смерти, участвует в турнире';
+								$rrm = 'Р‘Р°С€РЅСЏ СЃРјРµСЂС‚Рё, СѓС‡Р°СЃС‚РІСѓРµС‚ РІ С‚СѓСЂРЅРёСЂРµ';
 							}
 							else {
 								$rrm = $rooms[$row['room']];
@@ -86,7 +86,7 @@ function closehint3(){
 						if ($row['online']<1) {
 							echo '<img src="i/lock1.gif" width=20 height=15>';
 							nick2($row['id']);
-							echo ' - ',$row['status'],' - <i><small><font color=gray>персонаж не в клубе</font></small></i><BR>';
+							echo ' - ',$row['status'],' - <i><small><font color=gray>РїРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РєР»СѓР±Рµ</font></small></i><BR>';
 						}
 					}
 				?>

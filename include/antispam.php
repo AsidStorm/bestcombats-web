@@ -44,8 +44,8 @@ function haslinks($txt) {
   $txt=str_replace("www.starw.fo.ru","",$txt);
   $txt=str_replace("netexchange.ru","",$txt);
   $txt=str_replace("sprypay.ru","",$txt);
-  $txt=str_replace("ðåàë-êîìáàòñ","real-combats.com",$txt);
-  $txt=str_replace("áêâàð","bkwar.com",$txt);
+  $txt=str_replace("Ñ€ÐµÐ°Ð»-ÐºÐ¾Ð¼Ð±Ð°Ñ‚Ñ","real-combats.com",$txt);
+  $txt=str_replace("Ð±ÐºÐ²Ð°Ñ€","bkwar.com",$txt);
   $txt=str_replace("empireofgods net","empireofgods.net",$txt);
   $txt=str_replace("@",".",$txt);
   $txt=str_replace("_",".",$txt);
@@ -69,7 +69,7 @@ function haslinks($txt) {
 
   $txt=str_replace("c o m","com",$txt);
   $txt=str_replace("r u","ru",$txt);
-  $txt=str_replace(" ðy ",".ru",$txt);
+  $txt=str_replace(" Ñ€y ",".ru",$txt);
   $txt=str_replace(" com ",".com ",$txt);
   $txt=str_replace(" net ",".net ",$txt);
   $txt=str_replace("combats ru","combats.ru",$txt);
@@ -80,7 +80,7 @@ function haslinks($txt) {
   $txt=str_replace("]"," ] ",$txt);
   $txt=str_replace("..",".",$txt);
   $txt=str_replace("..",".",$txt);
-  $txt=str_replace("öîì","com",$txt);
+  $txt=str_replace("Ñ†Ð¾Ð¼","com",$txt);
   $txt=str_replace("ur.stabmoc","combats.ru",$txt);
   $txt=" $txt ";
     if (strpos($txt,".com") !== false) return true;
@@ -104,7 +104,7 @@ function haslinks($txt) {
   if (strpos($txt,"b iz") !== false) return true;
   if (strpos($txt,"(.)") !== false) return true;
   if (strpos($txt,"legendarybk") !== false) return true;
-  if (strpos($txt,"Íüþêîìáâèðò") !== false) return true;
+  if (strpos($txt,"ÐÑŒÑŽÐºÐ¾Ð¼Ð±Ð²Ð¸Ñ€Ñ‚") !== false) return true;
   if (strpos($txt,"l a s t c a r n a g e . o r g") !== false) return true;
   if (strpos($txt,"goo_gl") !== false) return true;
   if (strpos($txt,"vst") !== false) return true;
@@ -115,34 +115,34 @@ function haslinks($txt) {
   if (strpos($txt,"legendworld") !== false) return true;
   if (strpos($txt,"{to}") !== false) return true; 
   if (strpos($txt,"worldofchaos") !== false) return true; 
-  if (strpos($txt,"æàðcàç") !== false) return true;
+  if (strpos($txt,"Ð¶Ð°Ñ€cÐ°Ð·") !== false) return true;
   if (strpos($txt,"urls") !== false) return true;
-  if (strpos($txt,"êàçâàðñ") !== false) return true;
+  if (strpos($txt,"ÐºÐ°Ð·Ð²Ð°Ñ€Ñ") !== false) return true;
   if (strpos($txt,"cazbc") !== false) return true;
   if (strpos($txt,"u+r+l+s") !== false) return true;
   if (strpos($txt,"u+r+l+5") !== false) return true;
-  if (strpos($txt,"ó õ ó") !== false) return true;
-  if (strpos($txt,"òî÷càkz") !== false) return true;
-  if (strpos($txt,"î á ê 2") !== false) return true;
+  if (strpos($txt,"Ñƒ Ñ… Ñƒ") !== false) return true;
+  if (strpos($txt,"Ñ‚Ð¾Ñ‡cÐ°kz") !== false) return true;
+  if (strpos($txt,"Ð¾ Ð± Ðº 2") !== false) return true;
   if (strpos($txt,"sbk2") !== false) return true;
   if (strpos($txt,"s b k 2") !== false) return true;
   if (strpos($txt,"obk") !== false) return true;
-  if (strpos($txt,"ÍüþÊîìáâèðò") !== false) return true;
+  if (strpos($txt,"ÐÑŒÑŽÐšÐ¾Ð¼Ð±Ð²Ð¸Ñ€Ñ‚") !== false) return true;
   if (strpos($txt,"u+r+1") !== false) return true;
-  if (strpos($txt,"àñãàðäáê") !== false) return true;
+  if (strpos($txt,"Ð°ÑÐ³Ð°Ñ€Ð´Ð±Ðº") !== false) return true;
   if (strpos($txt,"b+2+3") !== false) return true;
   if (strpos($txt,"a+s+g+a+r+d") !== false) return true;
   if (strpos($txt,"l/o/s/t/b/k/./r/u") !== false) return true;
-  if (strpos($txt,"Îbestcombats") !== false) return true;
+  if (strpos($txt,"Ðžbestcombats") !== false) return true;
   if (strpos($txt,"bget") !== false) return true;
   if (strpos($txt,"gd") !== false) return true;
-  if (strpos($txt,"òo÷càcom")  !== false) return true;
+  if (strpos($txt,"Ñ‚oÑ‡cÐ°com")  !== false) return true;
   if (strpos($txt,"virt")  !== false) return true;
   if (strpos($txt,"newcombvirt")  !== false) return true;
   if (strpos($txt,"t`i`m`e`s`o`f`d`i`s`c`o`r`d")  !== false) return true;
-  if (strpos($txt,"êîìáàòñ2002ðó")  !== false) return true;
+  if (strpos($txt,"ÐºÐ¾Ð¼Ð±Ð°Ñ‚Ñ2002Ñ€Ñƒ")  !== false) return true;
   if (strpos($txt,"lcombats") !== false) return true;
-  if (strpos($txt,"óáèðàåì+") !== false) return true;
+  if (strpos($txt,"ÑƒÐ±Ð¸Ñ€Ð°ÐµÐ¼+") !== false) return true;
   if (strpos($txt,"kg") !== false) return true;
   if (strpos($txt,"c o m b a t s") !== false) return true;
   if (strpos($txt,"o+u+r+c+o+m+b+a+t+s") !== false) return true;
@@ -157,16 +157,16 @@ function haslinks($txt) {
   if (strpos($txt,"goo.gl/p8rk8") !== false) return true;
   if (strpos($txt,"goo.gl/lr") !== false) return true;
   if (strpos($txt,"goo.gl/pzh1") !== false) return true;
-  if (strpos($txt,"*êîì") !== false) return true;
-  if (strpos($txt,"ðó-ëîë") !== false) return true;
-  if (strpos($txt,"oasis(òî÷êà)evolutions(òî÷êà)ru") !== false) return true;
+  if (strpos($txt,"*ÐºÐ¾Ð¼") !== false) return true;
+  if (strpos($txt,"Ñ€Ñƒ-Ð»Ð¾Ð»") !== false) return true;
+  if (strpos($txt,"oasis(Ñ‚Ð¾Ñ‡ÐºÐ°)evolutions(Ñ‚Ð¾Ñ‡ÐºÐ°)ru") !== false) return true;
 
   if (preg_match('/combat[sc].*2/ie', " $txt ")) return 1;    
-  if (preg_match('/(s2\.)([cñ][oî][mì])(\/\S*)?/ie', " $txt ")) return 1;
-  return preg_match('/(([a-zA-Zà-ÿÀ-ß0-9\-_\.]+\.)(c.o.m|com|ru|org|co.cc|net|ua|do\.am|su[^p]|us|tk|us|kz|az|biz|ðô|info|lv|in|org)(\/|\s|-|_|\.|:))/ie', " $txt ")+strpos($txt,"register.php");
-  return preg_match('/(([a-zA-Zà-ÿÀ-ß0-9\-_\.]+\.)(com)\S)/ie', " $txt ")+strpos($txt,"register.php");
+  if (preg_match('/(s2\.)([cÑ][oÐ¾][mÐ¼])(\/\S*)?/ie', " $txt ")) return 1;
+  return preg_match('/(([a-zA-ZÐ°-ÑÐ-Ð¯0-9\-_\.]+\.)(c.o.m|com|ru|org|co.cc|net|ua|do\.am|su[^p]|us|tk|us|kz|az|biz|Ñ€Ñ„|info|lv|in|org)(\/|\s|-|_|\.|:))/ie', " $txt ")+strpos($txt,"register.php");
+  return preg_match('/(([a-zA-ZÐ°-ÑÐ-Ð¯0-9\-_\.]+\.)(com)\S)/ie', " $txt ")+strpos($txt,"register.php");
   return preg_match("/meydan\\.in^[a-zA-Z]+/i", " $txt ")+strpos($txt,"register.php");
-  return preg_match('/(([a-zA-Zà-ÿÀ-ß0-9\-_\.]+\.)(c.?o.?m|ru|org|co.cc|net|ua|do\.am|su[^p]|us|tk|us|kz|az|biz|ðô|info|lv|in)[a-z])/ie', " $txt ")+strpos($txt,"register.php");
-  return preg_match('/(([a-zA-Zà-ÿÀ-ß0-9\-_\.]+\.)(c.?o.?m|com|ru|org|co.cc|net|ua|do\.am|su[^p]|us|tk|us|kz|az|biz|ðô|info)(\/|\S))/ie', " $txt ")+strpos($txt,"register.php");
+  return preg_match('/(([a-zA-ZÐ°-ÑÐ-Ð¯0-9\-_\.]+\.)(c.?o.?m|ru|org|co.cc|net|ua|do\.am|su[^p]|us|tk|us|kz|az|biz|Ñ€Ñ„|info|lv|in)[a-z])/ie', " $txt ")+strpos($txt,"register.php");
+  return preg_match('/(([a-zA-ZÐ°-ÑÐ-Ð¯0-9\-_\.]+\.)(c.?o.?m|com|ru|org|co.cc|net|ua|do\.am|su[^p]|us|tk|us|kz|az|biz|Ñ€Ñ„|info)(\/|\S))/ie', " $txt ")+strpos($txt,"register.php");
 }                                                        
 ?>

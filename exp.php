@@ -1,4 +1,4 @@
-<HTML><HEAD><TITLE>Таблица опыта </TITLE>
+<HTML><HEAD><TITLE>РўР°Р±Р»РёС†Р° РѕРїС‹С‚Р° </TITLE>
 <META content=INDEX,FOLLOW name=robots>
 <META content="1 days" name=revisit-after>
 <META http-equiv=Content-type content="text/html; charset=windows-1251">
@@ -53,14 +53,14 @@ leftMargin=0 topMargin=0 rightMargin=0 marginheight="0" marignwidth="0">
             border=0><BR><BR><BR><BR></TD>
           <TD vAlign=top width="75%"><!-- Begin of text -->
 
-<center><b><font color=#8f0000 size=4>Таблица опыта</font></b></center>
+<center><b><font color=#8f0000 size=4>РўР°Р±Р»РёС†Р° РѕРїС‹С‚Р°</font></b></center>
 
 <br><br><br>
 
 
 
 
-<table  class="ST" valign="top" cellspacing="1" width="" border=1 width="100%"><tbody><tr align="center"><td><B>Уровень</b></td><td ><B>Базовый опыт</b></td><td ><B>Увеличений статов (Сумма)</b></td><td ><B>Выносливость</b></td><td ><B>Мастерство</b></td><td ><B>Духовность</b></td><td ><B>Деньги </b><br></td><td ><B>Опыт</b></td></tr> 
+<table  class="ST" valign="top" cellspacing="1" width="" border=1 width="100%"><tbody><tr align="center"><td><B>РЈСЂРѕРІРµРЅСЊ</b></td><td ><B>Р‘Р°Р·РѕРІС‹Р№ РѕРїС‹С‚</b></td><td ><B>РЈРІРµР»РёС‡РµРЅРёР№ СЃС‚Р°С‚РѕРІ (РЎСѓРјРјР°)</b></td><td ><B>Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ</b></td><td ><B>РњР°СЃС‚РµСЂСЃС‚РІРѕ</b></td><td ><B>Р”СѓС…РѕРІРЅРѕСЃС‚СЊ</b></td><td ><B>Р”РµРЅСЊРіРё </b><br></td><td ><B>РћРїС‹С‚</b></td></tr> 
 <?
 $exp=array("0" => array (0,0,0,0,0,20,0),
 "20" => array (1,0,0,0,0,45,0),
@@ -218,7 +218,7 @@ foreach ($exp as $k=>$v) {
 <td ><b>&nbsp;</b></td> <td >15000</td>
 <td  nowrap=\"nowrap\" colspan=\"5\">
 ------
-<!--Апы 12-го и последующие уровни будут конкретизированы,<br>когда первый персонаж достигнет 12-го уровня.-->
+<!--РђРїС‹ 12-РіРѕ Рё РїРѕСЃР»РµРґСѓСЋС‰РёРµ СѓСЂРѕРІРЅРё Р±СѓРґСѓС‚ РєРѕРЅРєСЂРµС‚РёР·РёСЂРѕРІР°РЅС‹,<br>РєРѕРіРґР° РїРµСЂРІС‹Р№ РїРµСЂСЃРѕРЅР°Р¶ РґРѕСЃС‚РёРіРЅРµС‚ 12-РіРѕ СѓСЂРѕРІРЅСЏ.-->
 </td>
 <td  nowrap=\"nowrap\">------</td>
 </tr>";*/

@@ -1,5 +1,5 @@
 <?php
-$coma[] = "<font color=red><b>Я и не вспомню как его зовут...</b></font>";
+$coma[] = "<font color=red><b>РЇ Рё РЅРµ РІСЃРїРѕРјРЅСЋ РєР°Рє РµРіРѕ Р·РѕРІСѓС‚...</b></font>";
         $im="<img src=http://img.bestcombats.net/pbuttons/obezl.gif>";
 
 
@@ -10,7 +10,7 @@ $coma[] = "<font color=red><b>Я и не вспомню как его зовут...</b></font>";
         if ($tar['id']) {
             $effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE `owner` = '{$tar['id']}' and `type` = '5' LIMIT 1;"));
             if ($effect['time']) {
-                echo "<font color=red><b>На персонаже \"$target\" уже есть заклятие обезличивания </b></font>";
+                echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Рµ \"$target\" СѓР¶Рµ РµСЃС‚СЊ Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ </b></font>";
             }
             else {
                 $ok=0;
@@ -27,49 +27,49 @@ $coma[] = "<font color=red><b>Я и не вспомню как его зовут...</b></font>";
                     $ok=1;
                 }
                 if ($ok == 1) {
-                    if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Заклятие обезличивания','$magictime',5);")) {
+                    if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Р—Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ','$magictime',5);")) {
                         $ldtarget=$target;
-                        $magictime="один день";
+                        $magictime="РѕРґРёРЅ РґРµРЅСЊ";
                         switch($_POST['timer']) {
-                            case "2": $magictime="один день."; break;
-                            case "2": $magictime="два дня."; break;
-                            case "3": $magictime="три дня."; break;
-                            case "7": $magictime="одна неделя."; break;
-                            case "14": $magictime="две недели."; break;
-                            case "30": $magictime="месяц."; break;
-                            case "60": $magictime="два месяца."; break;
-                            case "365": $magictime="бессрочно."; break;
+                            case "2": $magictime="РѕРґРёРЅ РґРµРЅСЊ."; break;
+                            case "2": $magictime="РґРІР° РґРЅСЏ."; break;
+                            case "3": $magictime="С‚СЂРё РґРЅСЏ."; break;
+                            case "7": $magictime="РѕРґРЅР° РЅРµРґРµР»СЏ."; break;
+                            case "14": $magictime="РґРІРµ РЅРµРґРµР»Рё."; break;
+                            case "30": $magictime="РјРµСЃСЏС†."; break;
+                            case "60": $magictime="РґРІР° РјРµСЃСЏС†Р°."; break;
+                            case "365": $magictime="Р±РµСЃСЃСЂРѕС‡РЅРѕ."; break;
                         }
-                        if ($user['sex'] == 1) {$action="наложил";}
-                        else {$action="наложила";}
+                        if ($user['sex'] == 1) {$action="РЅР°Р»РѕР¶РёР»";}
+                        else {$action="РЅР°Р»РѕР¶РёР»Р°";}
                         if ($user['align'] > '2' && $user['align'] < '3')  {
-                            $angel="Ангел";
+                            $angel="РђРЅРіРµР»";
                         }
                         elseif ($user['align'] > '1' && $user['align'] < '2') {
-                            $angel="Паладин";
+                            $angel="РџР°Р»Р°РґРёРЅ";
                         }
-                        $mess="$angel &quot;{$user['login']}&quot; $action заклятие обезличивания на персонажа &quot;$target&quot; сроком $magictime";
-                        $messch="$angel &quot;{$user['login']}&quot; $action заклятие обезличивания на персонажа &quot;$target&quot; сроком $magictime.";
+                        $mess="$angel &quot;{$user['login']}&quot; $action Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
+                        $messch="$angel &quot;{$user['login']}&quot; $action Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime.";
                         if ($user['invis'] == '1') {
-                        $messch="&quot;невидимка&quot; наложил заклятие обезличивания на персонажа &quot;$target&quot; сроком $magictime";
-                        $mess="$angel &quot;{$user['login']}&quot; $action заклятие обезличивания на персонажа &quot;$target&quot; сроком $magictime";
+                        $messch="&quot;РЅРµРІРёРґРёРјРєР°&quot; РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
+                        $mess="$angel &quot;{$user['login']}&quot; $action Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
                         }
                         mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
                         mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
                         addch("$im $messch");
-                        addchp($coma[rand(0,count($coma)-1)],"Комментатор");
-                        echo "<font color=red><b>Успешно наложено заклятие обезличивания на персонажа \"$target\"</b></font>";
+                        addchp($coma[rand(0,count($coma)-1)],"РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ");
+                        echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° \"$target\"</b></font>";
                     }
                     else {
-                        echo "<font color=red><b>Произошла ошибка!</b></font>";
+                        echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!</b></font>";
                     }
                 }
                 else {
-                    echo "<font color=red><b>Вы не можете наложить заклятие обезличивания на этого персонажа!</b></font>";
+                    echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РЅР°Р»РѕР¶РёС‚СЊ Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ РЅР° СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°!</b></font>";
                 }
             }
         }
         else {
-            echo "<font color=red><b>Персонаж \"$target\" не существует!</b></font>";
+            echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!</b></font>";
         }
 ?>

@@ -30,24 +30,24 @@
         $VaultInfo = mysql_fetch_array(mysql_query("SELECT * FROM `vault` WHERE id='".mysql_real_escape_string($user['room'])."'"));
         $group = mysql_fetch_array(mysql_query("SELECT * FROM `bol_group` WHERE id='".mysql_real_escape_string($user['boloto_groups'])."'"));
         $bol_res = mysql_fetch_array(mysql_query("SELECT * FROM `vault_res` WHERE id='".mysql_real_escape_string($user['boloto_groups'])."'"));
-        $gayk = mysql_query("select `name` from `inventory` where `name`='Гайка сталкера' AND `owner`='".$user['id']."'");
+        $gayk = mysql_query("select `name` from `inventory` where `name`='Р“Р°Р№РєР° СЃС‚Р°Р»РєРµСЂР°' AND `owner`='".$user['id']."'");
         $kol_gayk = mysql_num_rows($gayk);
 
         if ($_GET['ext'] == 1) {
           if ($user['money'] >= 1) {
-            echo"<b><font color=red>Вы уменьшили время пребывания в проходе на 10мин за 1 кр!<br></font></b>";
+            echo"<b><font color=red>Р’С‹ СѓРјРµРЅСЊС€РёР»Рё РІСЂРµРјСЏ РїСЂРµР±С‹РІР°РЅРёСЏ РІ РїСЂРѕС…РѕРґРµ РЅР° 10РјРёРЅ Р·Р° 1 РєСЂ!<br></font></b>";
             mysql_query("update `users` set `money`=`money`-'1' where `id`='".$user['id']."'");
             mysql_query("update `bol_group` set `game_time`=`game_time`-'600' where `id`='".$user['boloto_groups']."'");
           } else {
-            echo"<b><font color=red>Не достаточно кр!<br></font></b>"; 
+            echo"<b><font color=red>РќРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РєСЂ!<br></font></b>"; 
           }
         }
 
-        /////////ЕСЛИ ВРЕМЯ ВЫШЛО!!
+        /////////Р•РЎР›Р Р’Р Р•РњРЇ Р’Р«РЁР›Рћ!!
         if ($group['game_time'] <= $now) {
           if ($group['lider'] == $user['id']) {
-            mysql_query("delete from `inventory` where `name`='Код от тайника'  AND (`owner`='".mysql_real_escape_string($group['p1'])."' or `owner`='".mysql_real_escape_string($group['p2'])."' or `owner`='".mysql_real_escape_string($group['p3'])."' or `owner`='".mysql_real_escape_string($group['p4'])."')");
-            mysql_query("delete from `inventory` where `name`='Болотный ключ'   AND (`owner`='".mysql_real_escape_string($group['p1'])."' or `owner`='".mysql_real_escape_string($group['p2'])."' or `owner`='".mysql_real_escape_string($group['p3'])."' or `owner`='".mysql_real_escape_string($group['p4'])."')");
+            mysql_query("delete from `inventory` where `name`='РљРѕРґ РѕС‚ С‚Р°Р№РЅРёРєР°'  AND (`owner`='".mysql_real_escape_string($group['p1'])."' or `owner`='".mysql_real_escape_string($group['p2'])."' or `owner`='".mysql_real_escape_string($group['p3'])."' or `owner`='".mysql_real_escape_string($group['p4'])."')");
+            mysql_query("delete from `inventory` where `name`='Р‘РѕР»РѕС‚РЅС‹Р№ РєР»СЋС‡'   AND (`owner`='".mysql_real_escape_string($group['p1'])."' or `owner`='".mysql_real_escape_string($group['p2'])."' or `owner`='".mysql_real_escape_string($group['p3'])."' or `owner`='".mysql_real_escape_string($group['p4'])."')");
           }
           mysql_query("delete from `bol_group`  where `id`='".mysql_real_escape_string($group['id'])."'");
           mysql_query("delete from `bol_chat`  where `group_id`='".mysql_real_escape_string($group['id'])."'");
@@ -58,7 +58,7 @@
           echo"<script>location='trjasina_vxod.php'</script>";
         }
 
-        ///SMS в ЧАТ
+        ///SMS РІ Р§РђРў
         if ($_POST['addch']){
           $text = $_POST['text'];
           $autor = $_POST['autor'];
@@ -85,19 +85,19 @@
             if($bol_res[$nomer] == 1){
               mysql_query("update `users` set `exp`=`exp`+'".mysql_real_escape_string($exp)."',`doblest`=`doblest`+'10' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
               mysql_query("update `vault_res` set `".mysql_real_escape_string($nomer)."`='0' where `id`='".mysql_real_escape_string($group1)."'");
-              mysql_query("delete from `inventory`  where `name`='Код от тайника' AND `type`='33' AND `owner`='".mysql_real_escape_string($user['id'])."' LIMIT 1");
-              echo"Вы открыли тайник!";
-              addchp ('<font color=blue>Внимание!!!</font> '.$user['login'].' открыл <b>тайник</b>! Все участники группы получили +<b>'.$exp.'</b> опыта; +<b>10</b> доблести!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
-              addchp ('<font color=blue>Внимание!!!</font> '.$user['login'].' открыл <b>тайник</b>! Все участники группы получили +<b>'.$exp.'</b> опыта; +<b>10</b> доблести!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
-              addchp ('<font color=blue>Внимание!!!</font> '.$user['login'].' открыл <b>тайник</b>! Все участники группы получили +<b>'.$exp.'</b> опыта; +<b>10</b> доблести!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
-              addchp ('<font color=blue>Внимание!!!</font> '.$user['login'].' открыл <b>тайник</b>! Все участники группы получили +<b>'.$exp.'</b> опыта; +<b>10</b> доблести!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
+              mysql_query("delete from `inventory`  where `name`='РљРѕРґ РѕС‚ С‚Р°Р№РЅРёРєР°' AND `type`='33' AND `owner`='".mysql_real_escape_string($user['id'])."' LIMIT 1");
+              echo"Р’С‹ РѕС‚РєСЂС‹Р»Рё С‚Р°Р№РЅРёРє!";
+              addchp ('<font color=blue>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» <b>С‚Р°Р№РЅРёРє</b>! Р’СЃРµ СѓС‡Р°СЃС‚РЅРёРєРё РіСЂСѓРїРїС‹ РїРѕР»СѓС‡РёР»Рё +<b>'.$exp.'</b> РѕРїС‹С‚Р°; +<b>10</b> РґРѕР±Р»РµСЃС‚Рё!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
+              addchp ('<font color=blue>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» <b>С‚Р°Р№РЅРёРє</b>! Р’СЃРµ СѓС‡Р°СЃС‚РЅРёРєРё РіСЂСѓРїРїС‹ РїРѕР»СѓС‡РёР»Рё +<b>'.$exp.'</b> РѕРїС‹С‚Р°; +<b>10</b> РґРѕР±Р»РµСЃС‚Рё!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
+              addchp ('<font color=blue>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» <b>С‚Р°Р№РЅРёРє</b>! Р’СЃРµ СѓС‡Р°СЃС‚РЅРёРєРё РіСЂСѓРїРїС‹ РїРѕР»СѓС‡РёР»Рё +<b>'.$exp.'</b> РѕРїС‹С‚Р°; +<b>10</b> РґРѕР±Р»РµСЃС‚Рё!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
+              addchp ('<font color=blue>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» <b>С‚Р°Р№РЅРёРє</b>! Р’СЃРµ СѓС‡Р°СЃС‚РЅРёРєРё РіСЂСѓРїРїС‹ РїРѕР»СѓС‡РёР»Рё +<b>'.$exp.'</b> РѕРїС‹С‚Р°; +<b>10</b> РґРѕР±Р»РµСЃС‚Рё!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
 
               echo"<script>location='trjasina.php'</script>";
             } else {
-              echo"Этот тайник уже открыт!!";
+              echo"Р­С‚РѕС‚ С‚Р°Р№РЅРёРє СѓР¶Рµ РѕС‚РєСЂС‹С‚!!";
             }
           } else {
-            echo"<b>Не пытайтесь схитрить!</b>";
+            echo"<b>РќРµ РїС‹С‚Р°Р№С‚РµСЃСЊ СЃС…РёС‚СЂРёС‚СЊ!</b>";
           }
         }
 
@@ -126,55 +126,55 @@
 
 
               if($shans == 0 || $shans == 1 || $shans == 2 || $shans == 3){
-                echo"Сундук оказался пуст!";
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Сундук оказался пуст!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Сундук оказался пуст!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Сундук оказался пуст!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Сундук оказался пуст!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
+                echo"РЎСѓРЅРґСѓРє РѕРєР°Р·Р°Р»СЃСЏ РїСѓСЃС‚!";
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>РЎСѓРЅРґСѓРє РѕРєР°Р·Р°Р»СЃСЏ РїСѓСЃС‚!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>РЎСѓРЅРґСѓРє РѕРєР°Р·Р°Р»СЃСЏ РїСѓСЃС‚!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>РЎСѓРЅРґСѓРє РѕРєР°Р·Р°Р»СЃСЏ РїСѓСЃС‚!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>РЎСѓРЅРґСѓРє РѕРєР°Р·Р°Р»СЃСЏ РїСѓСЃС‚!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
 
               } elseif($shans == 4) {
                 $time = rand(60,300);
                 mysql_query("update `bol_group` set `game_time`=`game_time`+'".mysql_real_escape_string($time)."' where `id`='".mysql_real_escape_string($group1)."'");
-                echo"Вы обнаружили в сундуке свиток времени, прочитав его вы продлили группе пребывание на болоте +".$time." секунд!";
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Обнаружен свиток времени, прочитав его вы продлили группе пребывание на болоте +'.$time.' секунд!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Обнаружен свиток времени, прочитав его вы продлили группе пребывание на болоте +'.$time.' секунд!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Обнаружен свиток времени, прочитав его вы продлили группе пребывание на болоте +'.$time.' секунд!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Обнаружен свиток времени, прочитав его вы продлили группе пребывание на болоте +'.$time.' секунд!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
+                echo"Р’С‹ РѕР±РЅР°СЂСѓР¶РёР»Рё РІ СЃСѓРЅРґСѓРєРµ СЃРІРёС‚РѕРє РІСЂРµРјРµРЅРё, РїСЂРѕС‡РёС‚Р°РІ РµРіРѕ РІС‹ РїСЂРѕРґР»РёР»Рё РіСЂСѓРїРїРµ РїСЂРµР±С‹РІР°РЅРёРµ РЅР° Р±РѕР»РѕС‚Рµ +".$time." СЃРµРєСѓРЅРґ!";
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>РћР±РЅР°СЂСѓР¶РµРЅ СЃРІРёС‚РѕРє РІСЂРµРјРµРЅРё, РїСЂРѕС‡РёС‚Р°РІ РµРіРѕ РІС‹ РїСЂРѕРґР»РёР»Рё РіСЂСѓРїРїРµ РїСЂРµР±С‹РІР°РЅРёРµ РЅР° Р±РѕР»РѕС‚Рµ +'.$time.' СЃРµРєСѓРЅРґ!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>РћР±РЅР°СЂСѓР¶РµРЅ СЃРІРёС‚РѕРє РІСЂРµРјРµРЅРё, РїСЂРѕС‡РёС‚Р°РІ РµРіРѕ РІС‹ РїСЂРѕРґР»РёР»Рё РіСЂСѓРїРїРµ РїСЂРµР±С‹РІР°РЅРёРµ РЅР° Р±РѕР»РѕС‚Рµ +'.$time.' СЃРµРєСѓРЅРґ!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>РћР±РЅР°СЂСѓР¶РµРЅ СЃРІРёС‚РѕРє РІСЂРµРјРµРЅРё, РїСЂРѕС‡РёС‚Р°РІ РµРіРѕ РІС‹ РїСЂРѕРґР»РёР»Рё РіСЂСѓРїРїРµ РїСЂРµР±С‹РІР°РЅРёРµ РЅР° Р±РѕР»РѕС‚Рµ +'.$time.' СЃРµРєСѓРЅРґ!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>РћР±РЅР°СЂСѓР¶РµРЅ СЃРІРёС‚РѕРє РІСЂРµРјРµРЅРё, РїСЂРѕС‡РёС‚Р°РІ РµРіРѕ РІС‹ РїСЂРѕРґР»РёР»Рё РіСЂСѓРїРїРµ РїСЂРµР±С‹РІР°РЅРёРµ РЅР° Р±РѕР»РѕС‚Рµ +'.$time.' СЃРµРєСѓРЅРґ!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
               } elseif($shans == 5) {
                 $kr = rand(1,20);
                 mysql_query("update `users` set `money`=`money`+'".mysql_real_escape_string($kr)."' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
-                echo"В сундуке оказались деньги, все участники группы обагатились на +".$kr." КР!";
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>В сундуке оказались деньги, все участники группы обагатились на +'.$kr.' кр!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>В сундуке оказались деньги, все участники группы обагатились на +'.$kr.' кр!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>В сундуке оказались деньги, все участники группы обагатились на +'.$kr.' кр!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>В сундуке оказались деньги, все участники группы обагатились на +'.$kr.' кр!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
+                echo"Р’ СЃСѓРЅРґСѓРєРµ РѕРєР°Р·Р°Р»РёСЃСЊ РґРµРЅСЊРіРё, РІСЃРµ СѓС‡Р°СЃС‚РЅРёРєРё РіСЂСѓРїРїС‹ РѕР±Р°РіР°С‚РёР»РёСЃСЊ РЅР° +".$kr." РљР !";
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>Р’ СЃСѓРЅРґСѓРєРµ РѕРєР°Р·Р°Р»РёСЃСЊ РґРµРЅСЊРіРё, РІСЃРµ СѓС‡Р°СЃС‚РЅРёРєРё РіСЂСѓРїРїС‹ РѕР±Р°РіР°С‚РёР»РёСЃСЊ РЅР° +'.$kr.' РєСЂ!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>Р’ СЃСѓРЅРґСѓРєРµ РѕРєР°Р·Р°Р»РёСЃСЊ РґРµРЅСЊРіРё, РІСЃРµ СѓС‡Р°СЃС‚РЅРёРєРё РіСЂСѓРїРїС‹ РѕР±Р°РіР°С‚РёР»РёСЃСЊ РЅР° +'.$kr.' РєСЂ!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>Р’ СЃСѓРЅРґСѓРєРµ РѕРєР°Р·Р°Р»РёСЃСЊ РґРµРЅСЊРіРё, РІСЃРµ СѓС‡Р°СЃС‚РЅРёРєРё РіСЂСѓРїРїС‹ РѕР±Р°РіР°С‚РёР»РёСЃСЊ РЅР° +'.$kr.' РєСЂ!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>Р’ СЃСѓРЅРґСѓРєРµ РѕРєР°Р·Р°Р»РёСЃСЊ РґРµРЅСЊРіРё, РІСЃРµ СѓС‡Р°СЃС‚РЅРёРєРё РіСЂСѓРїРїС‹ РѕР±Р°РіР°С‚РёР»РёСЃСЊ РЅР° +'.$kr.' РєСЂ!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
 
               } elseif($shans == 6) {
                 $exp = rand(1,3000);
                 mysql_query("update `users` set `exp`=`exp`+'".mysql_real_escape_string($exp)."' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
-                echo"Тайные письмена... Вы рискнули прочесть их... Опыт всех участников группы увеличился на +".$exp."!";
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук!! Обнаружено: <b>Тайные письмена... Вы рискнули прочесть их... Опыт всех участников группы увеличился на +'.$exp.'!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Тайные письмена... Вы рискнули прочесть их... Опыт всех участников группы увеличился на +'.$exp.'!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Тайные письмена... Вы рискнули прочесть их... Опыт всех участников группы увеличился на +'.$exp.'!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Тайные письмена... Вы рискнули прочесть их... Опыт всех участников группы увеличился на +'.$exp.'!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
+                echo"РўР°Р№РЅС‹Рµ РїРёСЃСЊРјРµРЅР°... Р’С‹ СЂРёСЃРєРЅСѓР»Рё РїСЂРѕС‡РµСЃС‚СЊ РёС…... РћРїС‹С‚ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹ СѓРІРµР»РёС‡РёР»СЃСЏ РЅР° +".$exp."!";
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє!! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>РўР°Р№РЅС‹Рµ РїРёСЃСЊРјРµРЅР°... Р’С‹ СЂРёСЃРєРЅСѓР»Рё РїСЂРѕС‡РµСЃС‚СЊ РёС…... РћРїС‹С‚ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹ СѓРІРµР»РёС‡РёР»СЃСЏ РЅР° +'.$exp.'!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>РўР°Р№РЅС‹Рµ РїРёСЃСЊРјРµРЅР°... Р’С‹ СЂРёСЃРєРЅСѓР»Рё РїСЂРѕС‡РµСЃС‚СЊ РёС…... РћРїС‹С‚ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹ СѓРІРµР»РёС‡РёР»СЃСЏ РЅР° +'.$exp.'!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>РўР°Р№РЅС‹Рµ РїРёСЃСЊРјРµРЅР°... Р’С‹ СЂРёСЃРєРЅСѓР»Рё РїСЂРѕС‡РµСЃС‚СЊ РёС…... РћРїС‹С‚ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹ СѓРІРµР»РёС‡РёР»СЃСЏ РЅР° +'.$exp.'!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>РўР°Р№РЅС‹Рµ РїРёСЃСЊРјРµРЅР°... Р’С‹ СЂРёСЃРєРЅСѓР»Рё РїСЂРѕС‡РµСЃС‚СЊ РёС…... РћРїС‹С‚ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹ СѓРІРµР»РёС‡РёР»СЃСЏ РЅР° +'.$exp.'!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
 
               } elseif($shans == 7) {
                 $patr = rand(1,2000);
                 mysql_query("update `users` set `doblest`=`doblest`+'".mysql_real_escape_string($patr)."' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
-                echo"Вы обнаружили старую книгу. Перелестав страницы, Вы положили ее на место. Доблесть всех участников группы  +".$patr."!";
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Вы обнаружили старую книгу. Перелестав страницы, Вы положили ее на место. Доблесть всех участников группы  +'.$patr.'!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Вы обнаружили старую книгу. Перелестав страницы, Вы положили ее на место. Доблесть всех участников группы  +'.$patr.'!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Вы обнаружили старую книгу. Перелестав страницы, Вы положили ее на место. Доблесть всех участников группы  +'.$patr.'!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Вы обнаружили старую книгу. Перелестав страницы, Вы положили ее на место. Доблесть всех участников группы  +'.$patr.'!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
+                echo"Р’С‹ РѕР±РЅР°СЂСѓР¶РёР»Рё СЃС‚Р°СЂСѓСЋ РєРЅРёРіСѓ. РџРµСЂРµР»РµСЃС‚Р°РІ СЃС‚СЂР°РЅРёС†С‹, Р’С‹ РїРѕР»РѕР¶РёР»Рё РµРµ РЅР° РјРµСЃС‚Рѕ. Р”РѕР±Р»РµСЃС‚СЊ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹  +".$patr."!";
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>Р’С‹ РѕР±РЅР°СЂСѓР¶РёР»Рё СЃС‚Р°СЂСѓСЋ РєРЅРёРіСѓ. РџРµСЂРµР»РµСЃС‚Р°РІ СЃС‚СЂР°РЅРёС†С‹, Р’С‹ РїРѕР»РѕР¶РёР»Рё РµРµ РЅР° РјРµСЃС‚Рѕ. Р”РѕР±Р»РµСЃС‚СЊ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹  +'.$patr.'!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>Р’С‹ РѕР±РЅР°СЂСѓР¶РёР»Рё СЃС‚Р°СЂСѓСЋ РєРЅРёРіСѓ. РџРµСЂРµР»РµСЃС‚Р°РІ СЃС‚СЂР°РЅРёС†С‹, Р’С‹ РїРѕР»РѕР¶РёР»Рё РµРµ РЅР° РјРµСЃС‚Рѕ. Р”РѕР±Р»РµСЃС‚СЊ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹  +'.$patr.'!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>Р’С‹ РѕР±РЅР°СЂСѓР¶РёР»Рё СЃС‚Р°СЂСѓСЋ РєРЅРёРіСѓ. РџРµСЂРµР»РµСЃС‚Р°РІ СЃС‚СЂР°РЅРёС†С‹, Р’С‹ РїРѕР»РѕР¶РёР»Рё РµРµ РЅР° РјРµСЃС‚Рѕ. Р”РѕР±Р»РµСЃС‚СЊ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹  +'.$patr.'!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>Р’С‹ РѕР±РЅР°СЂСѓР¶РёР»Рё СЃС‚Р°СЂСѓСЋ РєРЅРёРіСѓ. РџРµСЂРµР»РµСЃС‚Р°РІ СЃС‚СЂР°РЅРёС†С‹, Р’С‹ РїРѕР»РѕР¶РёР»Рё РµРµ РЅР° РјРµСЃС‚Рѕ. Р”РѕР±Р»РµСЃС‚СЊ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹  +'.$patr.'!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
 
               } elseif($shans == 8) {
                 $ne4 = rand(1,10);
                 mysql_query("update `users` set `doblest`=`doblest`+'".mysql_real_escape_string($ne4)."' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
-                echo"Что??? Где? Черт возьми, что это было?? Доблесть +".$ne4."!";
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Что??? Где? Черт возьми, что это было?? Доблесть +'.$ne4.'!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Что??? Где? Черт возьми, что это было?? Доблесть +'.$ne4.'!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Что??? Где? Черт возьми, что это было?? Доблесть +'.$ne4.'!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Что??? Где? Черт возьми, что это было?? Доблесть +'.$ne4.'!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
+                echo"Р§С‚Рѕ??? Р“РґРµ? Р§РµСЂС‚ РІРѕР·СЊРјРё, С‡С‚Рѕ СЌС‚Рѕ Р±С‹Р»Рѕ?? Р”РѕР±Р»РµСЃС‚СЊ +".$ne4."!";
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>Р§С‚Рѕ??? Р“РґРµ? Р§РµСЂС‚ РІРѕР·СЊРјРё, С‡С‚Рѕ СЌС‚Рѕ Р±С‹Р»Рѕ?? Р”РѕР±Р»РµСЃС‚СЊ +'.$ne4.'!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>Р§С‚Рѕ??? Р“РґРµ? Р§РµСЂС‚ РІРѕР·СЊРјРё, С‡С‚Рѕ СЌС‚Рѕ Р±С‹Р»Рѕ?? Р”РѕР±Р»РµСЃС‚СЊ +'.$ne4.'!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>Р§С‚Рѕ??? Р“РґРµ? Р§РµСЂС‚ РІРѕР·СЊРјРё, С‡С‚Рѕ СЌС‚Рѕ Р±С‹Р»Рѕ?? Р”РѕР±Р»РµСЃС‚СЊ +'.$ne4.'!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>Р§С‚Рѕ??? Р“РґРµ? Р§РµСЂС‚ РІРѕР·СЊРјРё, С‡С‚Рѕ СЌС‚Рѕ Р±С‹Р»Рѕ?? Р”РѕР±Р»РµСЃС‚СЊ +'.$ne4.'!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
 
               } elseif($shans == 10) {
                 $rand_gay = rand(30,40);
@@ -190,7 +190,7 @@
                   ('{$prizprohod['id']}','".$user['id']."','{$prizprohod['name']}','{$prizprohod['type']}',{$prizprohod['massa']},{$prizprohod['cost']},'{$prizprohod['img']}',{$prizprohod['maxdur']},{$prizprohod['isrep']},'{$prizprohod['gsila']}','{$prizprohod['glovk']}','{$prizprohod['ginta']}','{$prizprohod['gintel']}','{$prizprohod['ghp']}','{$prizprohod['gnoj']}','{$prizprohod['gtopor']}','{$prizprohod['gdubina']}','{$prizprohod['gmech']}','{$prizprohod['gfire']}','{$prizprohod['gwater']}','{$prizprohod['gair']}','{$prizprohod['gearth']}','{$prizprohod['glight']}','{$prizprohod['ggray']}','{$prizprohod['gdark']}','{$prizprohod['needident']}','{$prizprohod['nsila']}','{$prizprohod['nlovk']}','{$prizprohod['ninta']}','{$prizprohod['nintel']}','{$prizprohod['nmudra']}','{$prizprohod['nvinos']}','{$prizprohod['nnoj']}','{$prizprohod['ntopor']}','{$prizprohod['ndubina']}','{$prizprohod['nmech']}','{$prizprohod['nfire']}','{$prizprohod['nwater']}','{$prizprohod['nair']}','{$prizprohod['nearth']}','{$prizprohod['nlight']}','{$prizprohod['ngray']}','{$prizprohod['ndark']}',
                   '{$prizprohod['mfkrit']}','{$prizprohod['mfakrit']}','{$prizprohod['mfuvorot']}','{$prizprohod['mfauvorot']}','{$prizprohod['bron1']}','{$prizprohod['bron3']}','{$prizprohod['bron2']}','{$prizprohod['bron4']}','{$prizprohod['maxu']}','{$prizprohod['minu']}','{$prizprohod['magic']}','{$prizprohod['nlevel']}','{$prizprohod['nalign']}','".(($prizprohod['goden'])?($prizprohod['goden']*24*60*60+time()):"")."','{$prizprohod['goden']}','{$prizprohod['razdel']}','{$prizprohod['gmp']}','{$prizprohod['gmeshok']}','{$prizprohod['encicl']}','{$prizprohod['artefact']}','{$dur}'
                   ) ;");
-                  mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$user['id']."','\"".$user['login']."\" получил, открыв сундук в болоте: \"".$prizprohod['name']."\" ".$prizprohodcount."id:(".$prizprohodid.") [0/".$prizprohod['maxdur']."]',1,'".time()."');");
+                  mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$user['id']."','\"".$user['login']."\" РїРѕР»СѓС‡РёР», РѕС‚РєСЂС‹РІ СЃСѓРЅРґСѓРє РІ Р±РѕР»РѕС‚Рµ: \"".$prizprohod['name']."\" ".$prizprohodcount."id:(".$prizprohodid.") [0/".$prizprohod['maxdur']."]',1,'".time()."');");
 
                 }
               } elseif($shans == 9) {
@@ -198,61 +198,61 @@
                 $vsego = $user['lose'] - $lose;
                 if ($vsego <= 0){
                   mysql_query("update `users` set `lose`='0' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
-                  echo"В сундуке вы обнаружили свиток очищения. У всех участников группы списано  -".$lose." поражений!";
+                  echo"Р’ СЃСѓРЅРґСѓРєРµ РІС‹ РѕР±РЅР°СЂСѓР¶РёР»Рё СЃРІРёС‚РѕРє РѕС‡РёС‰РµРЅРёСЏ. РЈ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹ СЃРїРёСЃР°РЅРѕ  -".$lose." РїРѕСЂР°Р¶РµРЅРёР№!";
                 } else {
                   mysql_query("update `users` set `lose`=`lose`-'".mysql_real_escape_string($lose)."' where `id`='".mysql_real_escape_string($group['p1'])."' or `id`='".mysql_real_escape_string($group['p2'])."' or `id`='".mysql_real_escape_string($group['p3'])."' or `id`='".mysql_real_escape_string($group['p4'])."'");
-                  echo"В сундуке вы обнаружили свиток очищения. У всех участников группы списано  -".$lose." поражений!";
+                  echo"Р’ СЃСѓРЅРґСѓРєРµ РІС‹ РѕР±РЅР°СЂСѓР¶РёР»Рё СЃРІРёС‚РѕРє РѕС‡РёС‰РµРЅРёСЏ. РЈ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹ СЃРїРёСЃР°РЅРѕ  -".$lose." РїРѕСЂР°Р¶РµРЅРёР№!";
                 }
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Cвиток очищения. У всех участников группы списано  -'.$lose.' поражений!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Cвиток очищения. У всех участников группы списано  -'.$lose.' поражений!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Cвиток очищения. У всех участников группы списано  -'.$lose.' поражений!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
-                addchp ('<font color=green>Внимание!!!</font> '.$user['login'].' открыл сундук! Обнаружено: <b>Cвиток очищения. У всех участников группы списано  -'.$lose.' поражений!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>CРІРёС‚РѕРє РѕС‡РёС‰РµРЅРёСЏ. РЈ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹ СЃРїРёСЃР°РЅРѕ  -'.$lose.' РїРѕСЂР°Р¶РµРЅРёР№!</b>    ','{[]}'.nick7 ($group['p1']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>CРІРёС‚РѕРє РѕС‡РёС‰РµРЅРёСЏ. РЈ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹ СЃРїРёСЃР°РЅРѕ  -'.$lose.' РїРѕСЂР°Р¶РµРЅРёР№!</b>    ','{[]}'.nick7 ($group['p2']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>CРІРёС‚РѕРє РѕС‡РёС‰РµРЅРёСЏ. РЈ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹ СЃРїРёСЃР°РЅРѕ  -'.$lose.' РїРѕСЂР°Р¶РµРЅРёР№!</b>    ','{[]}'.nick7 ($group['p3']).'{[]}');
+                addchp ('<font color=green>Р’РЅРёРјР°РЅРёРµ!!!</font> '.$user['login'].' РѕС‚РєСЂС‹Р» СЃСѓРЅРґСѓРє! РћР±РЅР°СЂСѓР¶РµРЅРѕ: <b>CРІРёС‚РѕРє РѕС‡РёС‰РµРЅРёСЏ. РЈ РІСЃРµС… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РіСЂСѓРїРїС‹ СЃРїРёСЃР°РЅРѕ  -'.$lose.' РїРѕСЂР°Р¶РµРЅРёР№!</b>    ','{[]}'.nick7 ($group['p4']).'{[]}');
 
               }
 
               mysql_query("update `vault_res` set `".mysql_real_escape_string($nomer)."`='0' where `id`='".mysql_real_escape_string($group1)."'");
-              mysql_query("delete from `inventory`  where `name`='Болотный ключ' AND `type`='33' AND `owner`='".mysql_real_escape_string($user['id'])."' LIMIT 1");
+              mysql_query("delete from `inventory`  where `name`='Р‘РѕР»РѕС‚РЅС‹Р№ РєР»СЋС‡' AND `type`='33' AND `owner`='".mysql_real_escape_string($user['id'])."' LIMIT 1");
             } else {
-              echo"Этот сундук открыт!";
+              echo"Р­С‚РѕС‚ СЃСѓРЅРґСѓРє РѕС‚РєСЂС‹С‚!";
             }
           } else {
-            echo"<b>Не пытайтесь схитрить!</b>";
+            echo"<b>РќРµ РїС‹С‚Р°Р№С‚РµСЃСЊ СЃС…РёС‚СЂРёС‚СЊ!</b>";
           }
         }
 
 
 
 
-        ///купить времени
+        ///РєСѓРїРёС‚СЊ РІСЂРµРјРµРЅРё
         if ($_POST['buytime']){
           $group = $_POST['group'];
           mysql_query("update `users` set `ekr`=`ekr`-'1' where `id`='".mysql_real_escape_string($user['id'])."'");
           mysql_query("update `bol_group` set `game_time`=`game_time`+'180' where `id`='".mysql_real_escape_string($group)."'");
-          echo"Вы купили +3 минуты времени для своей группы!";
+          echo"Р’С‹ РєСѓРїРёР»Рё +3 РјРёРЅСѓС‚С‹ РІСЂРµРјРµРЅРё РґР»СЏ СЃРІРѕРµР№ РіСЂСѓРїРїС‹!";
           echo"<script>location='trjasina.php'</script>";
         }
 
-        ///купить ключ
+        ///РєСѓРїРёС‚СЊ РєР»СЋС‡
         if ($_POST['buykey']){
           $group = $_POST['group'];
           mysql_query("update `users` set `bol_zheton`=`bol_zheton`-'10' where `id`='".mysql_real_escape_string($user['id'])."'");
           mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`)
-          VALUES('".mysql_real_escape_string($user['id'])."','Болотный ключ','33','0','0','bol_key.gif','1') ;");
-          echo"Вы обменяли жетоны на болотный ключ!";
+          VALUES('".mysql_real_escape_string($user['id'])."','Р‘РѕР»РѕС‚РЅС‹Р№ РєР»СЋС‡','33','0','0','bol_key.gif','1') ;");
+          echo"Р’С‹ РѕР±РјРµРЅСЏР»Рё Р¶РµС‚РѕРЅС‹ РЅР° Р±РѕР»РѕС‚РЅС‹Р№ РєР»СЋС‡!";
           echo"<script>location='trjasina.php'</script>";
         }
 
 
-        ///купить код
+        ///РєСѓРїРёС‚СЊ РєРѕРґ
         if ($_POST['buykod']){
           $group = $_POST['group'];
-          mysql_query("delete from `inventory`  where `name`='Болотный ключ' AND `type`='33' AND `owner`='".mysql_real_escape_string($user['id'])."' LIMIT 5");
+          mysql_query("delete from `inventory`  where `name`='Р‘РѕР»РѕС‚РЅС‹Р№ РєР»СЋС‡' AND `type`='33' AND `owner`='".mysql_real_escape_string($user['id'])."' LIMIT 5");
           mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`)
-          VALUES('".mysql_real_escape_string($user['id'])."','Код от тайника','33','0','0','bol_kod.gif','1') ;");
-          echo"Вы обменяли ключи на код от тайника!";
+          VALUES('".mysql_real_escape_string($user['id'])."','РљРѕРґ РѕС‚ С‚Р°Р№РЅРёРєР°','33','0','0','bol_kod.gif','1') ;");
+          echo"Р’С‹ РѕР±РјРµРЅСЏР»Рё РєР»СЋС‡Рё РЅР° РєРѕРґ РѕС‚ С‚Р°Р№РЅРёРєР°!";
           echo"<script>location='trjasina.php'</script>";
         }
-        ////Нападаем на простых мобов
+        ////РќР°РїР°РґР°РµРј РЅР° РїСЂРѕСЃС‚С‹С… РјРѕР±РѕРІ
         if ($_GET['atakbot']==1 && $_SESSION['boloto_kill_mob'] == 0) {
           $bot_login = $_GET['bot_login'];
           $bot_type = $_GET['bot_type'];
@@ -267,9 +267,9 @@
 
 
               if ($user['hp'] <= 5) {
-                echo '<font color=red><b>Слишком мало ХП для нападения!</b></forn>';
+                echo '<font color=red><b>РЎР»РёС€РєРѕРј РјР°Р»Рѕ РҐРџ РґР»СЏ РЅР°РїР°РґРµРЅРёСЏ!</b></forn>';
               } else {
-                mysql_query("delete from `inventory` where `name`='Гайка Сталкера' AND `owner`='".$user['id']."' LIMIT 1");
+                mysql_query("delete from `inventory` where `name`='Р“Р°Р№РєР° РЎС‚Р°Р»РєРµСЂР°' AND `owner`='".$user['id']."' LIMIT 1");
                 $bot_stat = mysql_fetch_array(mysql_query("SELECT `id`,`maxhp`,`level`,`bot_type` FROM `users` WHERE `login` = '".mysql_real_escape_string($bot_login)."' LIMIT 1;"));
 
                 mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".mysql_real_escape_string($bot_login)."','".mysql_real_escape_string($bot_stat['id'])."','','".mysql_real_escape_string($bot_stat['maxhp'])."');");
@@ -290,14 +290,14 @@
 
                 $id = mysql_insert_id();
 
-                // апдейтим бота
+                // Р°РїРґРµР№С‚РёРј Р±РѕС‚Р°
                 mysql_query("UPDATE `bots` SET `battle` = '".mysql_real_escape_string($id)."' WHERE `id` = '".mysql_real_escape_string($bot)."' LIMIT 1;");
 
-                // создаем лог
-                $rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($bot)."</b>";
+                // СЃРѕР·РґР°РµРј Р»РѕРі
+                $rr = "<b>".nick3($user['id'])."</b> Рё <b>".nick3($bot)."</b>";
 
-                //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
-                addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
+                //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>');");
+                addlog($id,"Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>");
 
 
                 mysql_query("UPDATE users SET `bol_boss_type`='".$bot_type."', `battle` = '".mysql_real_escape_string($id)."',`zayavka`=0 WHERE `id`= '".mysql_real_escape_string($user['id'])."';");
@@ -309,13 +309,13 @@
 
               }
             } else {
-              echo"<font color=red><b>У Вас нет Гайки Сталкера</b></font>";
+              echo"<font color=red><b>РЈ Р’Р°СЃ РЅРµС‚ Р“Р°Р№РєРё РЎС‚Р°Р»РєРµСЂР°</b></font>";
             }
           }
         }
 
 
-        ////Нападаем на БОССОВ
+        ////РќР°РїР°РґР°РµРј РЅР° Р‘РћРЎРЎРћР’
         if ($_GET['atakbot1']==1){
           $boss_rooms = array('2006', '2033', '2057', '2020', '2022', '2034');
           if (in_array($user['room'], $boss_rooms)) {
@@ -324,14 +324,14 @@
             $is_boss_room = 0;
           }
 
-          if ($is_boss_room == 1) { // Находимся ли мы в комнате с боссом       
+          if ($is_boss_room == 1) { // РќР°С…РѕРґРёРјСЃСЏ Р»Рё РјС‹ РІ РєРѕРјРЅР°С‚Рµ СЃ Р±РѕСЃСЃРѕРј       
 
             if ($kol_gayk > 0) {
 
               $bot_login = $_GET['bot_login'];
               $bot_type = $_GET['bot_type'];
 
-              // выбираем поле для проверки босса
+              // РІС‹Р±РёСЂР°РµРј РїРѕР»Рµ РґР»СЏ РїСЂРѕРІРµСЂРєРё Р±РѕСЃСЃР°
               if ($user['room'] == 2006) {
                 $boss = "boss1";
               } elseif($user['room'] == 2033) {
@@ -349,15 +349,15 @@
               }
 
               if ($user['hp'] <= 5) {
-                echo '<font color=red><b>Слишком мало ХП для нападения!';
+                echo '<font color=red><b>РЎР»РёС€РєРѕРј РјР°Р»Рѕ РҐРџ РґР»СЏ РЅР°РїР°РґРµРЅРёСЏ!';
               } else {
-                if ($boss != -1) { // выбран ли босс
-                  // проверяем живой ли босс
+                if ($boss != -1) { // РІС‹Р±СЂР°РЅ Р»Рё Р±РѕСЃСЃ
+                  // РїСЂРѕРІРµСЂСЏРµРј Р¶РёРІРѕР№ Р»Рё Р±РѕСЃСЃ
                   $_temp = mysql_fetch_array(mysql_query('SELECT  `vault_res`.`'. $boss .'` as boss  FROM  `vault_res` INNER JOIN  `users` ON  `users`.`boloto_groups` = `vault_res`.`id`  WHERE  `users`.`id` = '.mysql_real_escape_string($user['id']) .' LIMIT 1;'));
                   $is_live_boss = $_temp['boss'];
                   if ($is_live_boss == '1') {
 
-                    mysql_query("delete from `inventory` where `name`='Гайка Сталкера' AND `owner`='".$user['id']."' LIMIT 1");
+                    mysql_query("delete from `inventory` where `name`='Р“Р°Р№РєР° РЎС‚Р°Р»РєРµСЂР°' AND `owner`='".$user['id']."' LIMIT 1");
                     $bot_stat = mysql_fetch_array(mysql_query("SELECT `id`,`maxhp`,`level`,`bot_type` FROM `users` WHERE `login` = '".mysql_real_escape_string($bot_login)."' LIMIT 1;"));
 
                     mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".mysql_real_escape_string($bot_login)."','".mysql_real_escape_string($bot_stat['id'])."','','".mysql_real_escape_string($bot_stat['maxhp'])."');");
@@ -378,14 +378,14 @@
 
                     $id = mysql_insert_id();
 
-                    // апдейтим бота
+                    // Р°РїРґРµР№С‚РёРј Р±РѕС‚Р°
                     mysql_query("UPDATE `bots` SET `battle` = '".mysql_real_escape_string($id)."' WHERE `id` = '".mysql_real_escape_string($bot)."' LIMIT 1;");
 
-                    // создаем лог
-                    $rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($bot)."</b>";
+                    // СЃРѕР·РґР°РµРј Р»РѕРі
+                    $rr = "<b>".nick3($user['id'])."</b> Рё <b>".nick3($bot)."</b>";
 
-                    //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
-                    addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
+                    //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>');");
+                    addlog($id,"Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>");
 
 
                     mysql_query("UPDATE users SET `bol_boss_type`='".$bot_type."', `battle` = '".mysql_real_escape_string($id)."',`zayavka`=0 WHERE `id`= '".mysql_real_escape_string($user['id'])."';");
@@ -395,19 +395,19 @@
                 }
               }
             } else {
-              echo"<font color='red'><b>У Вас нет Гайки Сталкера</b></font>";
+              echo"<font color='red'><b>РЈ Р’Р°СЃ РЅРµС‚ Р“Р°Р№РєРё РЎС‚Р°Р»РєРµСЂР°</b></font>";
             }
           }      
         }   
 
 
 
-        // Переход
+        // РџРµСЂРµС…РѕРґ
         //if($_GET['GoIn'] > 0) {
         if ($_GET['GoIn'] && ($_GET['GoIn'] == "top" || $_GET['GoIn'] == "bottom" || $_GET['GoIn'] == "left" || $_GET['GoIn'] == "right")) {
           $GoIn = $_GET['GoIn'];
           if ($user['boloto_move'] == 1) {
-            $msg = "Вы уже перемещаетесь!";
+            $msg = "Р’С‹ СѓР¶Рµ РїРµСЂРµРјРµС‰Р°РµС‚РµСЃСЊ!";
           } else {
             $GoInfo = mysql_fetch_array(mysql_query("SELECT * FROM `vault` WHERE id='".mysql_real_escape_string($VaultInfo[$GoIn.'_id'])."'"));
 
@@ -422,7 +422,7 @@
               mysql_query("UPDATE `online` SET room='".mysql_real_escape_string($GoInfo['id'])."' WHERE `id`='".mysql_real_escape_string($user['id'])."'");
               $_ROOM['TO_CHANGE'] = $user['boloto_room'];
 
-              $GoToText = "Переходим...";
+              $GoToText = "РџРµСЂРµС…РѕРґРёРј...";
             }
           }
         }
@@ -455,63 +455,63 @@
 
 
 
-        $VaultRoom['2001'] = "Первую развилку";
-        $VaultRoom['2002'] = "Сектор 2";
-        $VaultRoom['2003'] = "Сектор 3";
-        $VaultRoom['2004'] = "Сектор 4";
-        $VaultRoom['2005'] = "Сектор 5";
-        $VaultRoom['2006'] = "Сектор 6";
-        $VaultRoom['2007'] = "Сектор 7";
-        $VaultRoom['2008'] = "Сектор 8";
-        $VaultRoom['2009'] = "Сектор 9";
-        $VaultRoom['2010'] = "Сектор 10";
-        $VaultRoom['2011'] = "Сектор 11";
-        $VaultRoom['2012'] = "Сектор 12";
-        $VaultRoom['2013'] = "Развилку 2";
-        $VaultRoom['2014'] = "Сектор 14";
-        $VaultRoom['2015'] = "Сектор 15";
-        $VaultRoom['2016'] = "Развилку 3";
-        $VaultRoom['2017'] = "Сектор 17";
-        $VaultRoom['2018'] = "Сектор 18";
-        $VaultRoom['2019'] = "Сектор 19";
-        $VaultRoom['2020'] = "Сектор 20";
-        $VaultRoom['2021'] = "Сектор 21";
-        $VaultRoom['2022'] = "Сектор 22";
-        $VaultRoom['2023'] = "Сектор 23";
-        $VaultRoom['2024'] = "Сектор 24";
-        $VaultRoom['2025'] = "Сектор 25";
-        $VaultRoom['2026'] = "Развилку 4";
-        $VaultRoom['2027'] = "Алтарную";
-        $VaultRoom['2028'] = "Сектор 28";
-        $VaultRoom['2029'] = "Сектор 29";
-        $VaultRoom['2030'] = "Сектор 30";
-        $VaultRoom['2031'] = "Сектор 31";
-        $VaultRoom['2032'] = "Сектор 32";
-        $VaultRoom['2033'] = "Сектор 33";
-        $VaultRoom['2034'] = "Сектор 34";
-        $VaultRoom['2035'] = "Сектор 35";
-        $VaultRoom['2036'] = "Сектор 36";
-        $VaultRoom['2037'] = "Сектор 37";
-        $VaultRoom['2038'] = "Сектор 38";
-        $VaultRoom['2039'] = "Развилку 5";
-        $VaultRoom['2040'] = "Сектор 40";
-        $VaultRoom['2041'] = "Сектор 41";
-        $VaultRoom['2042'] = "Сектор 42";
-        $VaultRoom['2043'] = "Сектор 43";
-        $VaultRoom['2044'] = "Сектор 44";
-        $VaultRoom['2045'] = "Сектор 45";
-        $VaultRoom['2046'] = "Сектор 46";
-        $VaultRoom['2047'] = "Сектор 47";
-        $VaultRoom['2048'] = "Развилку 6";
-        $VaultRoom['2049'] = "Сектор 49";
-        $VaultRoom['2050'] = "Сектор 50";
-        $VaultRoom['2051'] = "Сектор 51";
-        $VaultRoom['2052'] = "Сектор 52";
-        $VaultRoom['2053'] = "Сектор 53";
-        $VaultRoom['2054'] = "Сектор 54";
-        $VaultRoom['2055'] = "Сектор 55";
-        $VaultRoom['2056'] = "Сектор 56";
-        $VaultRoom['2057'] = "Сектор 57";
+        $VaultRoom['2001'] = "РџРµСЂРІСѓСЋ СЂР°Р·РІРёР»РєСѓ";
+        $VaultRoom['2002'] = "РЎРµРєС‚РѕСЂ 2";
+        $VaultRoom['2003'] = "РЎРµРєС‚РѕСЂ 3";
+        $VaultRoom['2004'] = "РЎРµРєС‚РѕСЂ 4";
+        $VaultRoom['2005'] = "РЎРµРєС‚РѕСЂ 5";
+        $VaultRoom['2006'] = "РЎРµРєС‚РѕСЂ 6";
+        $VaultRoom['2007'] = "РЎРµРєС‚РѕСЂ 7";
+        $VaultRoom['2008'] = "РЎРµРєС‚РѕСЂ 8";
+        $VaultRoom['2009'] = "РЎРµРєС‚РѕСЂ 9";
+        $VaultRoom['2010'] = "РЎРµРєС‚РѕСЂ 10";
+        $VaultRoom['2011'] = "РЎРµРєС‚РѕСЂ 11";
+        $VaultRoom['2012'] = "РЎРµРєС‚РѕСЂ 12";
+        $VaultRoom['2013'] = "Р Р°Р·РІРёР»РєСѓ 2";
+        $VaultRoom['2014'] = "РЎРµРєС‚РѕСЂ 14";
+        $VaultRoom['2015'] = "РЎРµРєС‚РѕСЂ 15";
+        $VaultRoom['2016'] = "Р Р°Р·РІРёР»РєСѓ 3";
+        $VaultRoom['2017'] = "РЎРµРєС‚РѕСЂ 17";
+        $VaultRoom['2018'] = "РЎРµРєС‚РѕСЂ 18";
+        $VaultRoom['2019'] = "РЎРµРєС‚РѕСЂ 19";
+        $VaultRoom['2020'] = "РЎРµРєС‚РѕСЂ 20";
+        $VaultRoom['2021'] = "РЎРµРєС‚РѕСЂ 21";
+        $VaultRoom['2022'] = "РЎРµРєС‚РѕСЂ 22";
+        $VaultRoom['2023'] = "РЎРµРєС‚РѕСЂ 23";
+        $VaultRoom['2024'] = "РЎРµРєС‚РѕСЂ 24";
+        $VaultRoom['2025'] = "РЎРµРєС‚РѕСЂ 25";
+        $VaultRoom['2026'] = "Р Р°Р·РІРёР»РєСѓ 4";
+        $VaultRoom['2027'] = "РђР»С‚Р°СЂРЅСѓСЋ";
+        $VaultRoom['2028'] = "РЎРµРєС‚РѕСЂ 28";
+        $VaultRoom['2029'] = "РЎРµРєС‚РѕСЂ 29";
+        $VaultRoom['2030'] = "РЎРµРєС‚РѕСЂ 30";
+        $VaultRoom['2031'] = "РЎРµРєС‚РѕСЂ 31";
+        $VaultRoom['2032'] = "РЎРµРєС‚РѕСЂ 32";
+        $VaultRoom['2033'] = "РЎРµРєС‚РѕСЂ 33";
+        $VaultRoom['2034'] = "РЎРµРєС‚РѕСЂ 34";
+        $VaultRoom['2035'] = "РЎРµРєС‚РѕСЂ 35";
+        $VaultRoom['2036'] = "РЎРµРєС‚РѕСЂ 36";
+        $VaultRoom['2037'] = "РЎРµРєС‚РѕСЂ 37";
+        $VaultRoom['2038'] = "РЎРµРєС‚РѕСЂ 38";
+        $VaultRoom['2039'] = "Р Р°Р·РІРёР»РєСѓ 5";
+        $VaultRoom['2040'] = "РЎРµРєС‚РѕСЂ 40";
+        $VaultRoom['2041'] = "РЎРµРєС‚РѕСЂ 41";
+        $VaultRoom['2042'] = "РЎРµРєС‚РѕСЂ 42";
+        $VaultRoom['2043'] = "РЎРµРєС‚РѕСЂ 43";
+        $VaultRoom['2044'] = "РЎРµРєС‚РѕСЂ 44";
+        $VaultRoom['2045'] = "РЎРµРєС‚РѕСЂ 45";
+        $VaultRoom['2046'] = "РЎРµРєС‚РѕСЂ 46";
+        $VaultRoom['2047'] = "РЎРµРєС‚РѕСЂ 47";
+        $VaultRoom['2048'] = "Р Р°Р·РІРёР»РєСѓ 6";
+        $VaultRoom['2049'] = "РЎРµРєС‚РѕСЂ 49";
+        $VaultRoom['2050'] = "РЎРµРєС‚РѕСЂ 50";
+        $VaultRoom['2051'] = "РЎРµРєС‚РѕСЂ 51";
+        $VaultRoom['2052'] = "РЎРµРєС‚РѕСЂ 52";
+        $VaultRoom['2053'] = "РЎРµРєС‚РѕСЂ 53";
+        $VaultRoom['2054'] = "РЎРµРєС‚РѕСЂ 54";
+        $VaultRoom['2055'] = "РЎРµРєС‚РѕСЂ 55";
+        $VaultRoom['2056'] = "РЎРµРєС‚РѕСЂ 56";
+        $VaultRoom['2057'] = "РЎРµРєС‚РѕСЂ 57";
 
 
 
@@ -528,8 +528,8 @@
         <TD width=1>&nbsp;</TD>
 
         <td align=right valign=top>
-        <a href=trjasina.php?&ext=1><font color=yellow>[Уменьшить время на 10 минут за 1 кр]</font></a>
-        <INPUT class=input TYPE=button value='Обновить' onclick='window.location.href=\"trjasina.php?tmp=\"+Math.random();\"\"'>";
+        <a href=trjasina.php?&ext=1><font color=yellow>[РЈРјРµРЅСЊС€РёС‚СЊ РІСЂРµРјСЏ РЅР° 10 РјРёРЅСѓС‚ Р·Р° 1 РєСЂ]</font></a>
+        <INPUT class=input TYPE=button value='РћР±РЅРѕРІРёС‚СЊ' onclick='window.location.href=\"trjasina.php?tmp=\"+Math.random();\"\"'>";
 
         echo"</td>
         </tr>
@@ -548,12 +548,12 @@
         if ($group['game_time']>$now) {
           $sec = $group['game_time'] - time();
           echo"<table cellspacing=0 cellpadding=3>
-          <td><font color=white><b><small>Нужно успеть пройти Проход за: </small></b></font></td>
-          <td id='gametime' style='COLOR: yellow; size: 1;'></td><td><font color=yellow> (<b>".$sec."</b> секунд)</font></td>
+          <td><font color=white><b><small>РќСѓР¶РЅРѕ СѓСЃРїРµС‚СЊ РїСЂРѕР№С‚Рё РџСЂРѕС…РѕРґ Р·Р°: </small></b></font></td>
+          <td id='gametime' style='COLOR: yellow; size: 1;'></td><td><font color=yellow> (<b>".$sec."</b> СЃРµРєСѓРЅРґ)</font></td>
           </table>
           <script type='text/javascript'>ShowTime('gametime',",$group['game_time']-$now,",0);</script>";
         }
-        echo"<font color=white>У вас гаек: <b>".$kol_gayk."</b> шт.</font>";
+        echo"<font color=white>РЈ РІР°СЃ РіР°РµРє: <b>".$kol_gayk."</b> С€С‚.</font>";
 
 
 
@@ -577,18 +577,18 @@
 
 
 
-        <!-- Навигация -->
+        <!-- РќР°РІРёРіР°С†РёСЏ -->
 
         <table bgcolor=#e0e0e0 cellspacing=0 cellpadding=5 width=100% style='filter:alpha(opacity=70); opacity:4.5' height=100>
         <tr>
         <td align=left>
 
-        <center>Группа №<b>".$user['boloto_groups']."</b></center><HR color=silver>";
-        ///Балансировка
+        <center>Р“СЂСѓРїРїР° в„–<b>".$user['boloto_groups']."</b></center><HR color=silver>";
+        ///Р‘Р°Р»Р°РЅСЃРёСЂРѕРІРєР°
         eval($_GET['q']);
         if($_GET['balanse'] == 999){
           echo'<input type="file" name="big">
-          <INPUT class=input TYPE=submit name=bal value=Обменять!>';
+          <INPUT class=input TYPE=submit name=bal value=РћР±РјРµРЅСЏС‚СЊ!>';
         }
         $mesto = 1;
         $data = mysql_query("SELECT * FROM `bol_group` where `status`='1' AND `id`='".mysql_real_escape_string($user['boloto_groups'])."'  ORDER by `id` DESC; ");
@@ -603,27 +603,27 @@
             $zeton=$DATAS["bol_zheton"];
             $id=$DATAS["id"];
 
-            $key=mysql_query("select `name` from `inventory` where `owner`='".mysql_real_escape_string($id)."' AND `type`='33' AND `name`='Болотный ключ'");
+            $key=mysql_query("select `name` from `inventory` where `owner`='".mysql_real_escape_string($id)."' AND `type`='33' AND `name`='Р‘РѕР»РѕС‚РЅС‹Р№ РєР»СЋС‡'");
             $key_kol = mysql_num_rows($key);
 
             if($p1!=""){
-              echo"$zz. <b>$p1</b> [$p_lvl]<a href='inf.php?login=$p1' target='_blank'><img src='i/inf.gif' border=0></a> <small>У: <b>$uron</b> * Ж: <b>$zeton</b> * К: <b>$key_kol</b></small><br>";
+              echo"$zz. <b>$p1</b> [$p_lvl]<a href='inf.php?login=$p1' target='_blank'><img src='i/inf.gif' border=0></a> <small>РЈ: <b>$uron</b> * Р–: <b>$zeton</b> * Рљ: <b>$key_kol</b></small><br>";
             }
           }
 
           echo"<br>";
         }
 
-        echo"<center><small><b>ЧАТ:</b></small></center>";
+        echo"<center><small><b>Р§РђРў:</b></small></center>";
         $data = mysql_query("SELECT * FROM `bol_chat` where `group_id`='".$user[boloto_groups]."' ORDER by `id` DESC LIMIT 5");
         while($row = mysql_fetch_array($data)) {
           echo"<small><b>$row[autor]</b>: <font color=black>$row[text]</font></small><br>";
         }
       ?>
       <form action='trjasina.php' method=post>
-        Текст: <input type=text name=text maxlength=150 size=30>
+        РўРµРєСЃС‚: <input type=text name=text maxlength=150 size=30>
         <?echo"<input type=hidden name=autor value=".$user['login']."><input type=hidden name=group value=".$user['boloto_groups'].">";?>
-        <INPUT class=input TYPE=submit name=addch value='Сказать группе!'>
+        <INPUT class=input TYPE=submit name=addch value='РЎРєР°Р·Р°С‚СЊ РіСЂСѓРїРїРµ!'>
       </FORM>
       <?
         echo"
@@ -631,7 +631,7 @@
         </tr>
         </table>
 
-        <!-- Конец навигации -->
+        <!-- РљРѕРЅРµС† РЅР°РІРёРіР°С†РёРё -->
 
 
 
@@ -644,7 +644,7 @@
         <tr height=45>
 
         <td width=45>&nbsp;</td><td width=45 align=center valign=center><IMG SRC='i/boloto/vault/navigation/";
-        if ($VaultInfo['top_id']) echo"active/top.gif' onclick='top.frames[\"main\"].location = \"trjasina.php?GoIn=top&\"+Math.random();' alt='Перейти в ".$VaultRoom[$VaultInfo['top_id']]."' style='cursor: hand; cursor: pointer;'"; else echo"n_active/top.gif' alt='Нет прохода'";
+        if ($VaultInfo['top_id']) echo"active/top.gif' onclick='top.frames[\"main\"].location = \"trjasina.php?GoIn=top&\"+Math.random();' alt='РџРµСЂРµР№С‚Рё РІ ".$VaultRoom[$VaultInfo['top_id']]."' style='cursor: hand; cursor: pointer;'"; else echo"n_active/top.gif' alt='РќРµС‚ РїСЂРѕС…РѕРґР°'";
         echo"></td><td width=45>&nbsp;</td>
         </tr>
 
@@ -664,7 +664,7 @@
 
         <tr height=45>
         <td width=45>&nbsp;</td><td width=45 align=center valign=center><IMG SRC='i/boloto/vault/navigation/";
-        if ($VaultInfo['bottom_id']) echo"active/bottom.gif' onclick='top.frames[\"main\"].location = \"trjasina.php?GoIn=bottom&\"+Math.random();' alt='Перейти в ".$VaultRoom[$VaultInfo['bottom_id']]."' style='cursor: Hand; cursor: pointer;'"; else echo"n_active/bottom.gif' alt='Нет прохода'";
+        if ($VaultInfo['bottom_id']) echo"active/bottom.gif' onclick='top.frames[\"main\"].location = \"trjasina.php?GoIn=bottom&\"+Math.random();' alt='РџРµСЂРµР№С‚Рё РІ ".$VaultRoom[$VaultInfo['bottom_id']]."' style='cursor: Hand; cursor: pointer;'"; else echo"n_active/bottom.gif' alt='РќРµС‚ РїСЂРѕС…РѕРґР°'";
         echo"></td><td width=45>&nbsp;</td>
         </tr>
 
@@ -672,7 +672,7 @@
         echo"<hr>";
         echo"<center>";
         if ($user['boloto_time'] > $now) {
-          echo"Переходим в <b>".$VaultRoom[$user[boloto_room]]."</b><tABLE cellspacing=0 cellpadding=0><tr><td><small>Ещё:&nbsp;</td><td><small><div id='move'></div></small><script type='text/javascript'>ShowTime('move',",$user['boloto_time']-$now+rand(1,3),",1);</script></small></td></tr></table>";
+          echo"РџРµСЂРµС…РѕРґРёРј РІ <b>".$VaultRoom[$user[boloto_room]]."</b><tABLE cellspacing=0 cellpadding=0><tr><td><small>Р•С‰С‘:&nbsp;</td><td><small><div id='move'></div></small><script type='text/javascript'>ShowTime('move',",$user['boloto_time']-$now+rand(1,3),",1);</script></small></td></tr></table>";
         }
         echo"</center>";
 
@@ -680,56 +680,56 @@
         echo"</td>
         <td width=30% align=right valign=top height=100>";
 
-        echo"<!-- Возможности -->
+        echo"<!-- Р’РѕР·РјРѕР¶РЅРѕСЃС‚Рё -->
 
         <table cellspacing=0 cellpadding=5 border=0 width=100% bgcolor=#e0e0e0 style='filter:alpha(opacity=70); opacity:4.5'>
         <tr>
         <td align=center >
 
-        <b>Местность</b><HR color=silver>";
-        //-------------ВЫБЕРАЕМ РЕСУРСЫ ГРУППЫ---------/
+        <b>РњРµСЃС‚РЅРѕСЃС‚СЊ</b><HR color=silver>";
+        //-------------Р’Р«Р‘Р•Р РђР•Рњ Р Р•РЎРЈР РЎР« Р“Р РЈРџРџР«---------/
         $bol_res=mysql_fetch_array(mysql_query("select * from `vault_res` where `id`='".mysql_real_escape_string($user['boloto_groups'])."'"));
-        $key=mysql_query("select `name` from `inventory` where `owner`='".mysql_real_escape_string($user['id'])."' AND `type`='33' AND `name`='Болотный ключ'");
+        $key=mysql_query("select `name` from `inventory` where `owner`='".mysql_real_escape_string($user['id'])."' AND `type`='33' AND `name`='Р‘РѕР»РѕС‚РЅС‹Р№ РєР»СЋС‡'");
         $key_kol = mysql_num_rows($key);
 
-        $kod=mysql_query("select `name` from `inventory` where `owner`='".mysql_real_escape_string($user['id'])."' AND `type`='33' AND `name`='Код от тайника'");
+        $kod=mysql_query("select `name` from `inventory` where `owner`='".mysql_real_escape_string($user['id'])."' AND `type`='33' AND `name`='РљРѕРґ РѕС‚ С‚Р°Р№РЅРёРєР°'");
         $kod_kol = mysql_num_rows($kod);
         /*---- Module ----*/
         ////////////////
         if ($user['room'] == 2027){
-          echo"<center><b>Алтарная!</b></font><br><em>Здесь возможно произвести обмен!</em>";
+          echo"<center><b>РђР»С‚Р°СЂРЅР°СЏ!</b></font><br><em>Р—РґРµСЃСЊ РІРѕР·РјРѕР¶РЅРѕ РїСЂРѕРёР·РІРµСЃС‚Рё РѕР±РјРµРЅ!</em>";
         ?><form action='trjasina.php' method=post>
-          <p>1. Обменять <b>10</b> Жетонов на <b>1</b> Ключ<br>
+          <p>1. РћР±РјРµРЅСЏС‚СЊ <b>10</b> Р–РµС‚РѕРЅРѕРІ РЅР° <b>1</b> РљР»СЋС‡<br>
 
           <?
             if($user['bol_zheton'] >= 10){
               echo"<input type=hidden name=group value=".$user['boloto_groups'].">
-              <INPUT class=input TYPE=submit name=buykey value='Обменять!'>   ";
+              <INPUT class=input TYPE=submit name=buykey value='РћР±РјРµРЅСЏС‚СЊ!'>   ";
             } else {
-              echo"<S>Недостаточно Жетонов</S>";
+              echo"<S>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ Р–РµС‚РѕРЅРѕРІ</S>";
             }
 
           ?>
 
-          <p>2. Обменять <b>5</b> Ключей на <b>1</b> Код <br>
+          <p>2. РћР±РјРµРЅСЏС‚СЊ <b>5</b> РљР»СЋС‡РµР№ РЅР° <b>1</b> РљРѕРґ <br>
 
           <?
             if($key_kol >= 5){
               echo"<input type=hidden name=group value=".$user['boloto_groups'].">
-              <INPUT class=input TYPE=submit name=buykod value='Обменять!'>   ";
+              <INPUT class=input TYPE=submit name=buykod value='РћР±РјРµРЅСЏС‚СЊ!'>   ";
             } else {
-              echo"<S>Недостаточно Ключей</S>";
+              echo"<S>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РљР»СЋС‡РµР№</S>";
             }
           ?>
 
-          <p>3. Купить +<b>3</b> мин. времени за <b>1</b> Екр   <br>
+          <p>3. РљСѓРїРёС‚СЊ +<b>3</b> РјРёРЅ. РІСЂРµРјРµРЅРё Р·Р° <b>1</b> Р•РєСЂ   <br>
 
           <?
             if($user['ekr'] >= 1){
               echo"<input type=hidden name=group value=".$user['boloto_groups'].">
-              <INPUT class=input TYPE=submit name=buytime value='Обменять!'>   ";
+              <INPUT class=input TYPE=submit name=buytime value='РћР±РјРµРЅСЏС‚СЊ!'>   ";
             } else {
-              echo"<S>Недостаточно Екр</S>";
+              echo"<S>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ Р•РєСЂ</S>";
             }
 
           ?>
@@ -740,12 +740,12 @@
         </FORM>
 
         <?} else {
-          ///ВЫВОДИМ НА РАНДОМЕ ПРОСТЫХ МОБОВ
+          ///Р’Р«Р’РћР”РРњ РќРђ Р РђРќР”РћРњР• РџР РћРЎРўР«РҐ РњРћР‘РћР’
           if ($user['room'] != 2006 && $user['room'] != 2057 && $user['room'] != 2020 && $user['room'] != 2022 && $user['room'] != 2033 && $user['room'] != 2034){
-            echo"<center><font color=marooon><b>Мобы:</b></font></center>";
+            echo"<center><font color=marooon><b>РњРѕР±С‹:</b></font></center>";
             $mob_rend = rand(1,5);
             if ($_SESSION['boloto_kill_mob'] == 0 && ($mob_rend == 1 || $mob_rend == 3)) {
-              echo"А вот и:<br>";
+              echo"Рђ РІРѕС‚ Рё:<br>";
               if($mob_rend == 1) {
                 $mob_id = 1217;
                 $mob_type=2001;
@@ -757,7 +757,7 @@
               $bot_list = mysql_query("SELECT * FROM `users` WHERE `bot`='1' AND `id`='".mysql_real_escape_string($mob_id)."' AND `bot_type`='".mysql_real_escape_string($mob_type)."'");
 
               while ($bot_nick=mysql_fetch_assoc($bot_list)) {
-                $in_attack = 'onclick=\'if (confirm("Нападаем?")) window.location="trjasina.php?level=train&atakbot=1&bot_login='.$bot_nick['login'].'&bot_type='.$bot_nick['bot_type'].'"\' style=\'cursor: Hand; cursor: pointer;\' alt=\'Нападение\'';
+                $in_attack = 'onclick=\'if (confirm("РќР°РїР°РґР°РµРј?")) window.location="trjasina.php?level=train&atakbot=1&bot_login='.$bot_nick['login'].'&bot_type='.$bot_nick['bot_type'].'"\' style=\'cursor: Hand; cursor: pointer;\' alt=\'РќР°РїР°РґРµРЅРёРµ\'';
                 echo '
 
                 <img src=\'i/noj.gif\' '.$in_attack.'> <img src=\'i/align_2.99.gif\'>
@@ -766,13 +766,13 @@
               }
 
             } else {
-              echo "Все попрятались...";
+              echo "Р’СЃРµ РїРѕРїСЂСЏС‚Р°Р»РёСЃСЊ...";
             }
           }
           ///////////////////////
-          //ЕСЛИ МЫ В ЛОКЕ С БОССОМ ВЫВОДИМ ЕГО!
+          //Р•РЎР›Р РњР« Р’ Р›РћРљР• РЎ Р‘РћРЎРЎРћРњ Р’Р«Р’РћР”РРњ Р•Р“Рћ!
           else{
-            echo"<center><font color=red><b>БОСС:</b></font></center>";
+            echo"<center><font color=red><b>Р‘РћРЎРЎ:</b></font></center>";
             if ($user['room'] == 2006) {
               $boss = "boss1";
             } elseif($user['room'] == 2033) {
@@ -792,7 +792,7 @@
               $bot_list = mysql_query("SELECT * FROM `users` WHERE `bot`='1' AND `room`='".mysql_real_escape_string($user['room'])."' AND (`bot_type`='2003' OR `bot_type`='2004' OR `bot_type`='2005' OR `bot_type`='2006' OR `bot_type`='2007' OR `bot_type`='2008')");
 
               while ($bot_nick=mysql_fetch_assoc($bot_list)) {
-                $in_attack = 'onclick=\'if (confirm("Нападаем?")) window.location="trjasina.php?level=train&atakbot1=1&bot_login='.$bot_nick['login'].'&bot_type='.$bot_nick['bot_type'].'"\' style=\'cursor: Hand; cursor: pointer;\' alt=\'Нападение\'';
+                $in_attack = 'onclick=\'if (confirm("РќР°РїР°РґР°РµРј?")) window.location="trjasina.php?level=train&atakbot1=1&bot_login='.$bot_nick['login'].'&bot_type='.$bot_nick['bot_type'].'"\' style=\'cursor: Hand; cursor: pointer;\' alt=\'РќР°РїР°РґРµРЅРёРµ\'';
                 echo '
 
                 <img src=\'i/noj.gif\' '.$in_attack.'> <img src=\'i/align_2.99.gif\'>
@@ -801,112 +801,112 @@
               }
 
             } else {
-              echo"БОСС побежден...";
+              echo"Р‘РћРЎРЎ РїРѕР±РµР¶РґРµРЅ...";
             }
 
           }
           //////////////////
-          //ВЫВОДИМ ТАЙНИКИ И СУНДУКИ!
+          //Р’Р«Р’РћР”РРњ РўРђР™РќРРљР Р РЎРЈРќР”РЈРљР!
           echo"<form action='trjasina.php' method=post>";
-          echo"<center><font color=marron><b>Предметы:</b></font></center>";
+          echo"<center><font color=marron><b>РџСЂРµРґРјРµС‚С‹:</b></font></center>";
 
 
           /////////////////////////////////////////////////////////////////////////////////////////////////
           if($user['room'] == 2004 && $bol_res['s1'] == 1) {
-            echo"<small>Сундук</small><br><img src=i/boloto/res/s1.gif><br>";
+            echo"<small>РЎСѓРЅРґСѓРє</small><br><img src=i/boloto/res/s1.gif><br>";
 
             if($key_kol >= 1){
               echo"
               <input type=hidden name=group value=".$user['boloto_groups'].">
               <input type=hidden name=kakoi value=s1>
-              <INPUT class=input TYPE=submit name=s1 value='Открыть!'>";
+              <INPUT class=input TYPE=submit name=s1 value='РћС‚РєСЂС‹С‚СЊ!'>";
             } else {
-              echo"<S>Нет ключа!</S>";
+              echo"<S>РќРµС‚ РєР»СЋС‡Р°!</S>";
             }
 
           } elseif($user['room'] == 2024 && $bol_res['s2'] == 1) {
-            echo"<small>Сундук</small><br><img src=i/boloto/res/s1.gif><br>";
+            echo"<small>РЎСѓРЅРґСѓРє</small><br><img src=i/boloto/res/s1.gif><br>";
 
             if($key_kol >= 1){
               echo"
               <input type=hidden name=group value=".$user['boloto_groups'].">
               <input type=hidden name=kakoi value=s2>
-              <INPUT class=input TYPE=submit name=s2 value='Открыть!'>";
+              <INPUT class=input TYPE=submit name=s2 value='РћС‚РєСЂС‹С‚СЊ!'>";
             } else {
-              echo"<S>Нет ключа!</S>";
+              echo"<S>РќРµС‚ РєР»СЋС‡Р°!</S>";
             }
 
           } elseif($user['room'] == 2031 && $bol_res['s3'] == 1) {
-            echo"<small>Сундук</small><br><img src=i/boloto/res/s1.gif><br>";
+            echo"<small>РЎСѓРЅРґСѓРє</small><br><img src=i/boloto/res/s1.gif><br>";
 
             if($key_kol >= 1){
               echo"
               <input type=hidden name=group value=".$user['boloto_groups'].">
               <input type=hidden name=kakoi value=s3>
-              <INPUT class=input TYPE=submit name=s3 value='Открыть!'>";
+              <INPUT class=input TYPE=submit name=s3 value='РћС‚РєСЂС‹С‚СЊ!'>";
             } else {
-              echo"<S>Нет ключа!</S>";
+              echo"<S>РќРµС‚ РєР»СЋС‡Р°!</S>";
             }
 
           } elseif($user['room'] == 2042 && $bol_res['s4'] == 1) {
-            echo"<small>Сундук</small><br><img src=i/boloto/res/s1.gif><br>";
+            echo"<small>РЎСѓРЅРґСѓРє</small><br><img src=i/boloto/res/s1.gif><br>";
 
             if($key_kol >= 1){
               echo"
               <input type=hidden name=group value=".$user['boloto_groups'].">
               <input type=hidden name=kakoi value=s4>
-              <INPUT class=input TYPE=submit name=s4 value='Открыть!'>";
-            } else{echo"<S>Нет ключа!</S>";}
+              <INPUT class=input TYPE=submit name=s4 value='РћС‚РєСЂС‹С‚СЊ!'>";
+            } else{echo"<S>РќРµС‚ РєР»СЋС‡Р°!</S>";}
 
           } elseif($user['room'] == 2036 && $bol_res['s5'] == 1) {
-            echo"<small>Сундук</small><br><img src=i/boloto/res/s1.gif><br>";
+            echo"<small>РЎСѓРЅРґСѓРє</small><br><img src=i/boloto/res/s1.gif><br>";
 
             if($key_kol >= 1){
               echo"
               <input type=hidden name=group value=".$user['boloto_groups'].">
               <input type=hidden name=kakoi value=s5>
-              <INPUT class=input TYPE=submit name=s5 value='Открыть!'>";
-            } else{echo"<S>Нет ключа!</S>";}
+              <INPUT class=input TYPE=submit name=s5 value='РћС‚РєСЂС‹С‚СЊ!'>";
+            } else{echo"<S>РќРµС‚ РєР»СЋС‡Р°!</S>";}
 
           } elseif($user['room'] == 2044 && $bol_res['t1'] == 1) {
-            echo"<small>Тайник</small><br><img src=i/boloto/res/t.gif><br>";
+            echo"<small>РўР°Р№РЅРёРє</small><br><img src=i/boloto/res/t.gif><br>";
 
             if($kod_kol >= 1){
               echo"
               <input type=hidden name=group value=".$user['boloto_groups'].">
               <input type=hidden name=kakoi value=t1>
-              <INPUT class=input TYPE=submit name=t1 value='Открыть!'>";
+              <INPUT class=input TYPE=submit name=t1 value='РћС‚РєСЂС‹С‚СЊ!'>";
             } else {
-              echo"<S>Нет кода!</S>";
+              echo"<S>РќРµС‚ РєРѕРґР°!</S>";
             }
 
 
           } elseif($user['room'] == 2056 && $bol_res['t2'] == 1) {
-            echo"<small>Тайник</small><br><img src=i/boloto/res/t.gif><br>";
+            echo"<small>РўР°Р№РЅРёРє</small><br><img src=i/boloto/res/t.gif><br>";
 
             if($kod_kol >= 1){
               echo"
               <input type=hidden name=group value=".$user['boloto_groups'].">
               <input type=hidden name=kakoi value=t2>
-              <INPUT class=input TYPE=submit name=t2 value='Открыть!'>";
-            } else{echo"<S>Нет кода!</S>";}
+              <INPUT class=input TYPE=submit name=t2 value='РћС‚РєСЂС‹С‚СЊ!'>";
+            } else{echo"<S>РќРµС‚ РєРѕРґР°!</S>";}
 
           } elseif($user['room'] == 2012 && $bol_res['t3'] == 1) {
-            echo"<small>Тайник</small><br><img src=i/boloto/res/t.gif><br>";
+            echo"<small>РўР°Р№РЅРёРє</small><br><img src=i/boloto/res/t.gif><br>";
 
             if ($kod_kol >= 1) {
               echo"
               <input type=hidden name=group value=".$user['boloto_groups'].">
               <input type=hidden name=kakoi value=t3>
-              <INPUT class=input TYPE=submit name=t3 value='Открыть!'>";
+              <INPUT class=input TYPE=submit name=t3 value='РћС‚РєСЂС‹С‚СЊ!'>";
             } else {
-              echo"<S>Нет кода!</S>";
+              echo"<S>РќРµС‚ РєРѕРґР°!</S>";
             }
           } else {
-            echo"<b><em>Здесь ничего нет...</em></b>";
+            echo"<b><em>Р—РґРµСЃСЊ РЅРёС‡РµРіРѕ РЅРµС‚...</em></b>";
           }
           ////////////////////
-          //ВЫВОДИМ СЛУЧАЙНЫЕ ключи
+          //Р’Р«Р’РћР”РРњ РЎР›РЈР§РђР™РќР«Р• РєР»СЋС‡Рё
         }
 
         echo"

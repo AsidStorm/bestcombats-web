@@ -35,31 +35,31 @@ td {padding-top:2px}
 <body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 bgcolor=e2e0e0>
     <div id=hint4 class=ahint></div><br>
 <table width=100%><tr><td width=100>&nbsp;</td>
-<td><center><h4>Алхимики</h4></center></td><td width=100>
-<!--<INPUT TYPE=button value="Вернуться" style='width: 75px' onclick="location.href='/main.php'">-->&nbsp;</TD>
+<td><center><h4>РђР»С…РёРјРёРєРё</h4></center></td><td width=100>
+<!--<INPUT TYPE=button value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" style='width: 75px' onclick="location.href='/main.php'">-->&nbsp;</TD>
 </td></tr></table>
 <div style="padding:10px 20px 10px 20px">
-Для совершения платежа введите сумму, которую вы хотите заплатить, в долларах США (если вы платите в другой валюте, то пересчёт 
-будет совершён в соответствии с курсом вашей системы). После этого вы сразу же получите квитанцию об оплате на соответствующую
-сумму екр (из рассчёта 1$ = 3,5 екр). Эту квитанцию вы можете предъявить в банке и сразу получить екр или же можете передать
-алхимику для получения другой платной услуги (например, персонального образа, VIP-статуса и т. д.). ВНИМАНИЕ! Реальная сумма, которая
-будет снята с вашего счёта может отличаться от введённой суммы, т. к. к ней может быть добавлена комиссия за перевод (зависит от
-выбранной системы оплаты).
+Р”Р»СЏ СЃРѕРІРµСЂС€РµРЅРёСЏ РїР»Р°С‚РµР¶Р° РІРІРµРґРёС‚Рµ СЃСѓРјРјСѓ, РєРѕС‚РѕСЂСѓСЋ РІС‹ С…РѕС‚РёС‚Рµ Р·Р°РїР»Р°С‚РёС‚СЊ, РІ РґРѕР»Р»Р°СЂР°С… РЎРЁРђ (РµСЃР»Рё РІС‹ РїР»Р°С‚РёС‚Рµ РІ РґСЂСѓРіРѕР№ РІР°Р»СЋС‚Рµ, С‚Рѕ РїРµСЂРµСЃС‡С‘С‚ 
+Р±СѓРґРµС‚ СЃРѕРІРµСЂС€С‘РЅ РІ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРё СЃ РєСѓСЂСЃРѕРј РІР°С€РµР№ СЃРёСЃС‚РµРјС‹). РџРѕСЃР»Рµ СЌС‚РѕРіРѕ РІС‹ СЃСЂР°Р·Сѓ Р¶Рµ РїРѕР»СѓС‡РёС‚Рµ РєРІРёС‚Р°РЅС†РёСЋ РѕР± РѕРїР»Р°С‚Рµ РЅР° СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰СѓСЋ
+СЃСѓРјРјСѓ РµРєСЂ (РёР· СЂР°СЃСЃС‡С‘С‚Р° 1$ = 3,5 РµРєСЂ). Р­С‚Сѓ РєРІРёС‚Р°РЅС†РёСЋ РІС‹ РјРѕР¶РµС‚Рµ РїСЂРµРґСЉСЏРІРёС‚СЊ РІ Р±Р°РЅРєРµ Рё СЃСЂР°Р·Сѓ РїРѕР»СѓС‡РёС‚СЊ РµРєСЂ РёР»Рё Р¶Рµ РјРѕР¶РµС‚Рµ РїРµСЂРµРґР°С‚СЊ
+Р°Р»С…РёРјРёРєСѓ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РґСЂСѓРіРѕР№ РїР»Р°С‚РЅРѕР№ СѓСЃР»СѓРіРё (РЅР°РїСЂРёРјРµСЂ, РїРµСЂСЃРѕРЅР°Р»СЊРЅРѕРіРѕ РѕР±СЂР°Р·Р°, VIP-СЃС‚Р°С‚СѓСЃР° Рё С‚. Рґ.). Р’РќРРњРђРќРР•! Р РµР°Р»СЊРЅР°СЏ СЃСѓРјРјР°, РєРѕС‚РѕСЂР°СЏ
+Р±СѓРґРµС‚ СЃРЅСЏС‚Р° СЃ РІР°С€РµРіРѕ СЃС‡С‘С‚Р° РјРѕР¶РµС‚ РѕС‚Р»РёС‡Р°С‚СЊСЃСЏ РѕС‚ РІРІРµРґС‘РЅРЅРѕР№ СЃСѓРјРјС‹, С‚. Рє. Рє РЅРµР№ РјРѕР¶РµС‚ Р±С‹С‚СЊ РґРѕР±Р°РІР»РµРЅР° РєРѕРјРёСЃСЃРёСЏ Р·Р° РїРµСЂРµРІРѕРґ (Р·Р°РІРёСЃРёС‚ РѕС‚
+РІС‹Р±СЂР°РЅРЅРѕР№ СЃРёСЃС‚РµРјС‹ РѕРїР»Р°С‚С‹).
 <form action="http://sprypay.ru/sppi/" method="post">
 <input type="hidden" name="spShopId" value="7183">
 <input type="hidden" name="spShopPaymentId" value="<?
-  mq("insert into payments (user, dat, purpose, ip) values ('$user[id]', now(), 'Покупка платных услуг персонажу $user[login]', '$_SERVER[REMOTE_ADDR]')");
+  mq("insert into payments (user, dat, purpose, ip) values ('$user[id]', now(), 'РџРѕРєСѓРїРєР° РїР»Р°С‚РЅС‹С… СѓСЃР»СѓРі РїРµСЂСЃРѕРЅР°Р¶Сѓ $user[login]', '$_SERVER[REMOTE_ADDR]')");
   echo mysql_insert_id();
 ?>">
-Сумма (USD): <input type="text" name="spAmount" value="1" style="width:30px">
+РЎСѓРјРјР° (USD): <input type="text" name="spAmount" value="1" style="width:30px">
 <input type="hidden" name="spCurrency" value="usd">
-<input type="hidden" name="spPurpose" value="Покупка платных услуг персонажу <?=$user["login"]?>">
+<input type="hidden" name="spPurpose" value="РџРѕРєСѓРїРєР° РїР»Р°С‚РЅС‹С… СѓСЃР»СѓРі РїРµСЂСЃРѕРЅР°Р¶Сѓ <?=$user["login"]?>">
 <input type="hidden" name="lang" value="ru">
 <input type="hidden" name="tabNum" value="1">
-<input type="submit" value="Перейти к оплате">
+<input type="submit" value="РџРµСЂРµР№С‚Рё Рє РѕРїР»Р°С‚Рµ">
 <input type="hidden" name="spUserEmail" value="<?=$user["email"]?>">
 </form>
-Произвести оплату можно с помощью любой из следующих систем:<div>&nbsp;</div>
+РџСЂРѕРёР·РІРµСЃС‚Рё РѕРїР»Р°С‚Сѓ РјРѕР¶РЅРѕ СЃ РїРѕРјРѕС‰СЊСЋ Р»СЋР±РѕР№ РёР· СЃР»РµРґСѓСЋС‰РёС… СЃРёСЃС‚РµРј:<div>&nbsp;</div>
                       <table cellspacing=0 cellpadding=0><tr>
                           <td><img src='<?=IMGBASE?>/i/payments/sprypay.gif'></td>
                           <td class=td style='padding-left: 7px;'>SpryPay</td>
@@ -102,13 +102,13 @@ td {padding-top:2px}
 
                           <td style='width: 20px;'></td></tr><tr><td colspan=4 height='3px'></td></tr><tr>
                           <td><img src='<?=IMGBASE?>/i/payments/mmail.gif'></td>
-                          <td class=td style='padding-left: 7px;'>Деньги@Mail.Ru</td>
+                          <td class=td style='padding-left: 7px;'>Р”РµРЅСЊРіРё@Mail.Ru</td>
                           <td style='width: 20px;'></td>
                           <td><img src='<?=IMGBASE?>/i/payments/bank.gif'></td>
-                          <td class=td style='padding-left: 7px;'>Банковский перевод</td>
+                          <td class=td style='padding-left: 7px;'>Р‘Р°РЅРєРѕРІСЃРєРёР№ РїРµСЂРµРІРѕРґ</td>
                           <td style='width: 20px;'></td>
                           <td><img src='<?=IMGBASE?>/i/payments/rpost.gif'></td>
-                          <td class=td style='padding-left: 7px;'>Почта России</td>
+                          <td class=td style='padding-left: 7px;'>РџРѕС‡С‚Р° Р РѕСЃСЃРёРё</td>
                           <td style='width: 20px;'></td>
                           <td><img src='<?=IMGBASE?>/i/payments/contact.gif'></td>
                           <td class=td style='padding-left: 7px;'>Contact</td>
@@ -127,19 +127,19 @@ td {padding-top:2px}
                           <td class=td style='padding-left: 7px;'>MoneyGram</td>
                           <td style='width: 20px;'></td>
                           <td><img src='<?=IMGBASE?>/i/payments/korona.gif'></td>
-                          <td class=td style='padding-left: 7px;'>Золотая Корона</td>
+                          <td class=td style='padding-left: 7px;'>Р—РѕР»РѕС‚Р°СЏ РљРѕСЂРѕРЅР°</td>
                           <td style='width: 20px;'></td>
                           <td><img src='<?=IMGBASE?>/i/payments/alfabank.gif'></td>
-                          <td class=td style='padding-left: 7px;'>Альфа-Клик [ Альфа.Банк ]</td>
+                          <td class=td style='padding-left: 7px;'>РђР»СЊС„Р°-РљР»РёРє [ РђР»СЊС„Р°.Р‘Р°РЅРє ]</td>
                           <td style='width: 20px;'></td>
                           <td><img src='<?=IMGBASE?>/i/payments/osmp.gif'></td>
-                          <td class=td style='padding-left: 7px;'>Терминалы QIWI (КИВИ)</td>
+                          <td class=td style='padding-left: 7px;'>РўРµСЂРјРёРЅР°Р»С‹ QIWI (РљРР’Р)</td>
                           <td style='width: 20px;'></td>
                           <td><img src='<?=IMGBASE?>/i/payments/handybank.gif'></td>
                           <td class=td style='padding-left: 7px;'>HandyBank</td>
                           <td style='width: 20px;'></td></tr><tr><td colspan=4 height='3px'></td></tr><tr>
                           <td><img src='<?=IMGBASE?>/i/payments/elecsnet.gif'></td>
-                          <td class=td style='padding-left: 7px;'>Терминалы Элекснет</td>
+                          <td class=td style='padding-left: 7px;'>РўРµСЂРјРёРЅР°Р»С‹ Р­Р»РµРєСЃРЅРµС‚</td>
                           <td style='width: 20px;'></td>
                           <td><img src='<?=IMGBASE?>/i/payments/smscoin.gif'></td>
                           <td class=td style='padding-left: 7px;'>SMScoin</td>
@@ -148,4 +148,4 @@ td {padding-top:2px}
                           <td class=td style='padding-left: 7px;'>Beeline SMS</td>
                           <td style='width: 20px;'></td></tr><tr><td colspan=4 height='3px'></td></tr>-->
                       </table><br>
-<b><font color=red>ВНИМАНИЕ!!! Платежи через системы MoneyGram и Western Union обрабатываются вручную, и они могут занять около недели.</font></b>
+<b><font color=red>Р’РќРРњРђРќРР•!!! РџР»Р°С‚РµР¶Рё С‡РµСЂРµР· СЃРёСЃС‚РµРјС‹ MoneyGram Рё Western Union РѕР±СЂР°Р±Р°С‚С‹РІР°СЋС‚СЃСЏ РІСЂСѓС‡РЅСѓСЋ, Рё РѕРЅРё РјРѕРіСѓС‚ Р·Р°РЅСЏС‚СЊ РѕРєРѕР»Рѕ РЅРµРґРµР»Рё.</font></b>

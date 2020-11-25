@@ -1,14 +1,14 @@
 <?php
-$coma[] = "А может того... сразу в хаос? ";
-$coma[] = "А будешь еще флудить на форуме - несчастный случай приключится... или авария какая...";
-$coma[] = "Неграмотные могут поставить крестик вместо подписи";
-$coma[] = "Отмодерили? Расслабься и получай удовольствие";
-$coma[] = "Позор флудерастам!";
-$coma[] = "Согласные с приговором - могут опустить руки и отойти от стенки";
-$coma[] = "Флуд есть зло!";
-$coma[] = "Тебе повезло, что не навсегда";
-$coma[] = "Иди и напиши 5000 раз: 'Я больше не буду флудить на форуме' ";
-$coma[] = "Повышаем, повышаем уровень грамотности";
+$coma[] = "Рђ РјРѕР¶РµС‚ С‚РѕРіРѕ... СЃСЂР°Р·Сѓ РІ С…Р°РѕСЃ? ";
+$coma[] = "Рђ Р±СѓРґРµС€СЊ РµС‰Рµ С„Р»СѓРґРёС‚СЊ РЅР° С„РѕСЂСѓРјРµ - РЅРµСЃС‡Р°СЃС‚РЅС‹Р№ СЃР»СѓС‡Р°Р№ РїСЂРёРєР»СЋС‡РёС‚СЃСЏ... РёР»Рё Р°РІР°СЂРёСЏ РєР°РєР°СЏ...";
+$coma[] = "РќРµРіСЂР°РјРѕС‚РЅС‹Рµ РјРѕРіСѓС‚ РїРѕСЃС‚Р°РІРёС‚СЊ РєСЂРµСЃС‚РёРє РІРјРµСЃС‚Рѕ РїРѕРґРїРёСЃРё";
+$coma[] = "РћС‚РјРѕРґРµСЂРёР»Рё? Р Р°СЃСЃР»Р°Р±СЊСЃСЏ Рё РїРѕР»СѓС‡Р°Р№ СѓРґРѕРІРѕР»СЊСЃС‚РІРёРµ";
+$coma[] = "РџРѕР·РѕСЂ С„Р»СѓРґРµСЂР°СЃС‚Р°Рј!";
+$coma[] = "РЎРѕРіР»Р°СЃРЅС‹Рµ СЃ РїСЂРёРіРѕРІРѕСЂРѕРј - РјРѕРіСѓС‚ РѕРїСѓСЃС‚РёС‚СЊ СЂСѓРєРё Рё РѕС‚РѕР№С‚Рё РѕС‚ СЃС‚РµРЅРєРё";
+$coma[] = "Р¤Р»СѓРґ РµСЃС‚СЊ Р·Р»Рѕ!";
+$coma[] = "РўРµР±Рµ РїРѕРІРµР·Р»Рѕ, С‡С‚Рѕ РЅРµ РЅР°РІСЃРµРіРґР°";
+$coma[] = "РРґРё Рё РЅР°РїРёС€Рё 5000 СЂР°Р·: 'РЇ Р±РѕР»СЊС€Рµ РЅРµ Р±СѓРґСѓ С„Р»СѓРґРёС‚СЊ РЅР° С„РѕСЂСѓРјРµ' ";
+$coma[] = "РџРѕРІС‹С€Р°РµРј, РїРѕРІС‹С€Р°РµРј СѓСЂРѕРІРµРЅСЊ РіСЂР°РјРѕС‚РЅРѕСЃС‚Рё";
 
 	
 		if ($_SESSION['uid'] == null) header("Location: index.php");
@@ -19,7 +19,7 @@ $coma[] = "Повышаем, повышаем уровень грамотности";
 		if ($tar['id']) {
 			$effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE `owner` = '{$tar['id']}' and `type` = '3' LIMIT 1;")); 
 			if ($effect['time']) {
-				echo "<font color=red><b>На персонаже \"$target\" уже есть заклятие форумного молчания </b></font>";
+				echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Рµ \"$target\" СѓР¶Рµ РµСЃС‚СЊ Р·Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ </b></font>";
 			}
 			else {
 				$ok=0;
@@ -36,53 +36,53 @@ $coma[] = "Повышаем, повышаем уровень грамотности";
 					$ok=1;
 				}
 				if ($ok == 1) {
-					if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Заклятие форумного молчания','$magictime',3);")) {
+					if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Р—Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ','$magictime',3);")) {
 						$ldtarget=$target;
 						
 						switch($_POST['timer']) {
-							case "15": $magictime="15 мин."; break;
-							case "30": $magictime="30 мин."; break;
-							case "60": $magictime="1 час."; break;
-							case "180": $magictime="3 часа."; break;
-							case "360": $magictime="6 часов."; break;
-							case "720": $magictime="12 часов."; break;
-							case "1440": $magictime="1 сутки."; break;
-							case "4320": $magictime="3 суток."; break;
-							case "10080": $magictime="1 неделя."; break;
+							case "15": $magictime="15 РјРёРЅ."; break;
+							case "30": $magictime="30 РјРёРЅ."; break;
+							case "60": $magictime="1 С‡Р°СЃ."; break;
+							case "180": $magictime="3 С‡Р°СЃР°."; break;
+							case "360": $magictime="6 С‡Р°СЃРѕРІ."; break;
+							case "720": $magictime="12 С‡Р°СЃРѕРІ."; break;
+							case "1440": $magictime="1 СЃСѓС‚РєРё."; break;
+							case "4320": $magictime="3 СЃСѓС‚РѕРє."; break;
+							case "10080": $magictime="1 РЅРµРґРµР»СЏ."; break;
 						}
-						if ($user['sex'] == 1) {$action="наложил";}
-						else {$action="наложила";}
+						if ($user['sex'] == 1) {$action="РЅР°Р»РѕР¶РёР»";}
+						else {$action="РЅР°Р»РѕР¶РёР»Р°";}
 						if ($user['align'] > '2' && $user['align'] < '3')  {
-                        $angel="Гвардеец";
+                        $angel="Р“РІР°СЂРґРµРµС†";
                         }
                         elseif ($user['align'] > '1' && $user['align'] < '2') {
-                        $angel="Паладин";
+                        $angel="РџР°Р»Р°РґРёРЅ";
                         }
 						elseif ($user['align'] > '3' && $user['align'] <'4') {
-						$angel="Тарман";
+						$angel="РўР°СЂРјР°РЅ";
 						}
-						$mess="$angel &quot;{$user['login']}&quot; $action заклятие форумного молчания на персонажа &quot;$target&quot; сроком $magictime";
-						$messch="$angel &quot;{$user['login']}&quot; $action заклятие форумного молчания на персонажа &quot;$target&quot; сроком $magictime";
+						$mess="$angel &quot;{$user['login']}&quot; $action Р·Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
+						$messch="$angel &quot;{$user['login']}&quot; $action Р·Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
 						if ($user['invis'] == '1') {
-						$mess="$angel &quot;{$user['login']}&quot; $action заклятие форумного молчания на персонажа &quot;$target&quot; сроком $magictime";
-				        $messch="<i><b>невидимка</b></i> наложил заклятие форумного молчания на персонажа &quot;$target&quot; сроком $magictime";
+						$mess="$angel &quot;{$user['login']}&quot; $action Р·Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
+				        $messch="<i><b>РЅРµРІРёРґРёРјРєР°</b></i> РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
 						}
 						mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
 						mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
-						addch("<font color=red><b>Внимание!</b> </font><img src=http://img.bestcombats.net/pbuttons/sleepf.gif> $messch");
-						addchp($coma[rand(0,count($coma)-1)],"Комментатор");
-						echo "<font color=red><b>Успешно наложено заклятие форумного молчания на персонажа \"$target\"</b></font>";			
+						addch("<font color=red><b>Р’РЅРёРјР°РЅРёРµ!</b> </font><img src=http://img.bestcombats.net/pbuttons/sleepf.gif> $messch");
+						addchp($coma[rand(0,count($coma)-1)],"РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ");
+						echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° \"$target\"</b></font>";			
 					} 
 					else {
-						echo "<font color=red><b>Произошла ошибка!<b></font>";
+						echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
 					}
 				}
 				else {
-					echo "<font color=red><b>Вы не можете наложить заклятие форумного молчания на этого персонажа!<b></font>";
+					echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РЅР°Р»РѕР¶РёС‚СЊ Р·Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ РЅР° СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°!<b></font>";
 				}
 			}
 		}
 		else {
-			echo "<font color=red><b>Персонаж \"$target\" не существует!<b></font>";
+			echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!<b></font>";
 		}
 ?>

@@ -1,5 +1,5 @@
 <?php
-if ($user['align']==4){ echo "Хаосникам запрещено колдовать!";}	
+if ($user['align']==4){ echo "РҐР°РѕСЃРЅРёРєР°Рј Р·Р°РїСЂРµС‰РµРЅРѕ РєРѕР»РґРѕРІР°С‚СЊ!";}	
 else{
  if ($_SESSION['uid'] == null) header("Location: index.php");
  if(!$_POST){$targeted=0;}
@@ -20,33 +20,33 @@ if ($user['intel'] >= 0) {
   }
 else {$int=0;}
 
-if ($user['battle'] > 0) {echo "Не в бою...";}
-elseif ($effect['time']) {echo "У вас уже есть заклятие Предчувствие..."; }
-elseif ($us['bot']==1) {echo "Заклятие может быть наложено только на персонажей";}
-elseif ($us['vip']==1) {echo "Заклятие может быть наложено только на себя ";}
+if ($user['battle'] > 0) {echo "РќРµ РІ Р±РѕСЋ...";}
+elseif ($effect['time']) {echo "РЈ РІР°СЃ СѓР¶Рµ РµСЃС‚СЊ Р·Р°РєР»СЏС‚РёРµ РџСЂРµРґС‡СѓРІСЃС‚РІРёРµ..."; }
+elseif ($us['bot']==1) {echo "Р—Р°РєР»СЏС‚РёРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅР°Р»РѕР¶РµРЅРѕ С‚РѕР»СЊРєРѕ РЅР° РїРµСЂСЃРѕРЅР°Р¶РµР№";}
+elseif ($us['vip']==1) {echo "Р—Р°РєР»СЏС‚РёРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅР°Р»РѕР¶РµРЅРѕ С‚РѕР»СЊРєРѕ РЅР° СЃРµР±СЏ ";}
 elseif (1==1) {
 if($_POST['target']!=""){
-      addch("<font color=red>внимание! </font><img src=http://img.vr-bk.net/i/magic/invoke_spell_godintel100.gif>Персонаж &quot;{$user['login']}&quot; наложил заклятие \"Ледяной Интеллект\" на &quot;{$_POST['target']}&quot;, сроком 2 часа.");
+      addch("<font color=red>РІРЅРёРјР°РЅРёРµ! </font><img src=http://img.vr-bk.net/i/magic/invoke_spell_godintel100.gif>РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot; РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ \"Р›РµРґСЏРЅРѕР№ РРЅС‚РµР»Р»РµРєС‚\" РЅР° &quot;{$_POST['target']}&quot;, СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");
     
       $user = mysql_fetch_array(mysql_query("SELECT `id` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;")); 
        if ($effect['time']){mysql_query("UPDATE `effects` SET `time`=".(time()+7200)." WHERE `login` = '{$_POST['target']}' LIMIT 1;");}
-	  else{mysql_query("INSERT INTO `effects` (`owner`,`intel`,`name`,`time`,`type`) values ('".$user['id']."','100','Ледяной Интеллект',".(time()+7200).",99999);");}
+	  else{mysql_query("INSERT INTO `effects` (`owner`,`intel`,`name`,`time`,`type`) values ('".$user['id']."','100','Р›РµРґСЏРЅРѕР№ РРЅС‚РµР»Р»РµРєС‚',".(time()+7200).",99999);");}
 	  mysql_query("UPDATE `users` SET `intel`=`intel`+'100' WHERE `login` = '{$_POST['target']}' LIMIT 1;");
-      echo "<font color=red><b>На персонажа \"{$_POST['target']}\" наложено заклятие \"Ледяной Интеллект\" </b></font>";      
+      echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° \"{$_POST['target']}\" РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ \"Р›РµРґСЏРЅРѕР№ РРЅС‚РµР»Р»РµРєС‚\" </b></font>";      
       $bet=1;
 	  }
 	  else
 	  {
-	  addch("<font color=red>внимание! </font> <img src=http://img.vr-bk.net/i/magic/invoke_spell_godintel100.gif> Персонаж &quot;{$user['login']}&quot; использовал заклятие \"Ледяной Интеллект\" сроком 2 часа.");
+	  addch("<font color=red>РІРЅРёРјР°РЅРёРµ! </font> <img src=http://img.vr-bk.net/i/magic/invoke_spell_godintel100.gif> РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot; РёСЃРїРѕР»СЊР·РѕРІР°Р» Р·Р°РєР»СЏС‚РёРµ \"Р›РµРґСЏРЅРѕР№ РРЅС‚РµР»Р»РµРєС‚\" СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");
           if ($effect['time']){mysql_query("UPDATE `effects` SET `time`=".(time()+7200)." WHERE `owner` = '{$_SESSION['uid']}' LIMIT 1;");}
-	  else{mysql_query("INSERT INTO `effects` (`owner`,`intel`,`name`,`time`,`type`) values ('".$ptarget['id']."','".floor($ptarget['login']+100)."','Ледяной Интеллект',".(time()+7200).",99999);");}
+	  else{mysql_query("INSERT INTO `effects` (`owner`,`intel`,`name`,`time`,`type`) values ('".$ptarget['id']."','".floor($ptarget['login']+100)."','Р›РµРґСЏРЅРѕР№ РРЅС‚РµР»Р»РµРєС‚',".(time()+7200).",99999);");}
 	  mysql_query("UPDATE `users` SET `intel`=`intel`+'".floor($ptarget['login']+100)."' WHERE `id` = '".$ptarget['id']."' LIMIT 1;");
 	  	 
 
-      echo "<font color=red><b>На персонажа \"{$user['login']}\" наложено заклятие \"Ледяной Интеллект\" </b></font>";      
+      echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° \"{$user['login']}\" РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ \"Р›РµРґСЏРЅРѕР№ РРЅС‚РµР»Р»РµРєС‚\" </b></font>";      
       $bet=1;}
       } else {
-        echo "Свиток рассыпался в ваших руках...";
+        echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
         $bet=1;
       }  
 	  }

@@ -13,40 +13,40 @@
       //$user["zayavka"]=0;
     //}
 
-    // ставим блокировку на таблицу
+    // СЃС‚Р°РІРёРј Р±Р»РѕРєРёСЂРѕРІРєСѓ РЅР° С‚Р°Р±Р»РёС†Сѓ
     mysql_query("LOCK TABLES `bots` WRITE, `battle` WRITE, `logs` WRITE, `users` WRITE, `inventory` WRITE, `zayavka` WRITE, `effects` WRITE, `online` WRITE, invisbattles write, chaosstats write;");
 
     //===================================================================================================================
-    // стираем коммент
+    // СЃС‚РёСЂР°РµРј РєРѕРјРјРµРЅС‚
 
     if (($_GET['do'] == "clear") && (($user['align']>1.4 && $user['align']<2) || ($user['align']>2 && $user['align']<3))) {
-        if ($user['align']>1.1 && $user['align']<2) {$angel="паладином";}
-        if ($user['align']>2 && $user['align']<3) {$angel="Ангелом";}
-        mysql_query("UPDATE `zayavka` SET `coment`='Удалено $angel <b>".$user['login']."</b>' where `id`='{$_GET['zid']}' LIMIT 1;");
+        if ($user['align']>1.1 && $user['align']<2) {$angel="РїР°Р»Р°РґРёРЅРѕРј";}
+        if ($user['align']>2 && $user['align']<3) {$angel="РђРЅРіРµР»РѕРј";}
+        mysql_query("UPDATE `zayavka` SET `coment`='РЈРґР°Р»РµРЅРѕ $angel <b>".$user['login']."</b>' where `id`='{$_GET['zid']}' LIMIT 1;");
     }
     if(isset($_REQUEST['view'])) {
         $_SESSION['view'] = $_REQUEST['view'];
     }
     //echo $_SESSION['view'];
     //===================================================================================================================
-    // работа с заявками
+    // СЂР°Р±РѕС‚Р° СЃ Р·Р°СЏРІРєР°РјРё
     class zayavka {
         var $mysql;
 
-        // создаем класс, подключаем базу данных
+        // СЃРѕР·РґР°РµРј РєР»Р°СЃСЃ, РїРѕРґРєР»СЋС‡Р°РµРј Р±Р°Р·Сѓ РґР°РЅРЅС‹С…
         function zayavka () {
             global $mysql;
             $this->mysql = $mysql;
         }
 
-        // функция парсинга тимы
+        // С„СѓРЅРєС†РёСЏ РїР°СЂСЃРёРЅРіР° С‚РёРјС‹
         function fteam ( $team ) {
             $team = explode(";",$team);
             unset($team[count($team)-1]);
             return $team;
         }
 
-        // функция получения списка заявок
+        // С„СѓРЅРєС†РёСЏ РїРѕР»СѓС‡РµРЅРёСЏ СЃРїРёСЃРєР° Р·Р°СЏРІРѕРє
         function getlist ($razdel = 1, $level = null, $id = null ) {
             $fict = mysql_query("SELECT * FROM `zayavka` WHERE ".
                 (( $level != null )? " ((`t1min` <= '{$level}' OR `t1min` = '99') AND (`t1max` >= '{$level}' OR `t1max` = '99') ".(($razdel==4)?"AND (`t2min` <= '{$level}' OR `t2min` = '99') AND (`t2max` >= '{$level}' OR `t2max` = '99')":"").") AND " : "" ).
@@ -96,7 +96,7 @@
             return $zay;
         }
 
-        // добавление в тиму перса
+        // РґРѕР±Р°РІР»РµРЅРёРµ РІ С‚РёРјСѓ РїРµСЂСЃР°
         function addteam ( $team = 1, $id, $zay , $r) {
             $owntravma = mysql_fetch_array(mysql_query("SELECT `type`,`id`,`sila`,`lovk`,`inta` FROM `effects` WHERE `owner` = ".$id." AND (type=12 OR type=13 OR type=14);"));
             $z = @$this->getlist($r,null,$zay);
@@ -104,24 +104,24 @@
             if ($owntravma) {
                 switch($owntravma['type']) {
                     case ($owntravma['type']==12 && ($z[$zay]['type']!=4 AND $z[$zay]['type']!=5)):
-                        return "У вас средняя травма, поединки с оружием слишком тяжелы для вас...";
+                        return "РЈ РІР°СЃ СЃСЂРµРґРЅСЏСЏ С‚СЂР°РІРјР°, РїРѕРµРґРёРЅРєРё СЃ РѕСЂСѓР¶РёРµРј СЃР»РёС€РєРѕРј С‚СЏР¶РµР»С‹ РґР»СЏ РІР°СЃ...";
                     break;
                     case 13:
-                        return "У вас тяжелая травма, вы не сможете драться...";
+                        return "РЈ РІР°СЃ С‚СЏР¶РµР»Р°СЏ С‚СЂР°РІРјР°, РІС‹ РЅРµ СЃРјРѕР¶РµС‚Рµ РґСЂР°С‚СЊСЃСЏ...";
                     break;
                     case 14:
-                        return "У вас тяжелая травма, вы не сможете драться...";
+                        return "РЈ РІР°СЃ С‚СЏР¶РµР»Р°СЏ С‚СЂР°РІРјР°, РІС‹ РЅРµ СЃРјРѕР¶РµС‚Рµ РґСЂР°С‚СЊСЃСЏ...";
                     break;
                 }
 
             }
             if ($user['hp'] < $user['maxhp']*0.33) {
-                return "Вы слишком ослаблены для боя, восстановитесь.";
+                return "Р’С‹ СЃР»РёС€РєРѕРј РѕСЃР»Р°Р±Р»РµРЅС‹ РґР»СЏ Р±РѕСЏ, РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚РµСЃСЊ.";
             }
-            if ( !$z ) { return "Эта заявка не может быть принята вами."; }
-            if ( $this->ustatus($id) != 0) { return "Эта заявка не может быть принята вами."; }
+            if ( !$z ) { return "Р­С‚Р° Р·Р°СЏРІРєР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСЂРёРЅСЏС‚Р° РІР°РјРё."; }
+            if ( $this->ustatus($id) != 0) { return "Р­С‚Р° Р·Р°СЏРІРєР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСЂРёРЅСЏС‚Р° РІР°РјРё."; }
 
-            // палы кланы))
+            // РїР°Р»С‹ РєР»Р°РЅС‹))
             if ($z[$zay]['type'] == 3 OR $z[$zay]['type'] == 5) { } else {
 
             if ($team == 1) { $teamz = 2; } else { $teamz = 1; }
@@ -129,12 +129,12 @@
                 $toper = mysql_fetch_array(mysql_query("SELECT `klan`,`align` FROM `users` WHERE `id`='{$v}' LIMIT 1;"));
                 if($toper['klan']!='') {
                     if($user['klan']==$toper['klan']) {
-                        return "Чтите честь ваших сокланов.";
+                        return "Р§С‚РёС‚Рµ С‡РµСЃС‚СЊ РІР°С€РёС… СЃРѕРєР»Р°РЅРѕРІ.";
                     }
                 }
                 if((int)$user['align']==1) {
                     if((int)$toper['align']==1) {
-                        return "Чтите честь братьев.";
+                        return "Р§С‚РёС‚Рµ С‡РµСЃС‚СЊ Р±СЂР°С‚СЊРµРІ.";
                     }
                 }
                 //echo "111";
@@ -143,7 +143,7 @@
                 $toper = mysql_fetch_array(mysql_query("SELECT `align` FROM `users` WHERE `id`='{$v}' LIMIT 1;"));
                 if((int)$user['align']==1) {
                     if($toper['align']==3) {
-                        return "Не предавайте свет.";
+                        return "РќРµ РїСЂРµРґР°РІР°Р№С‚Рµ СЃРІРµС‚.";
                     }
                 }
                 //echo "111";
@@ -151,19 +151,19 @@
 
             }
 
-            // кланы
+            // РєР»Р°РЅС‹
             if($z[$zay]['t'.$team.'min'] == 99) {
                 $toper = $z[$zay]['team'.$team][0];
                 $toper = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id`='{$toper}' LIMIT 1;"));
                 //echo $user['klan'];
                 if($toper['klan']!='') {
                     if($user['klan']!=$toper['klan'])
-                    { return "Эта заявка не может быть принята вами."; }
+                    { return "Р­С‚Р° Р·Р°СЏРІРєР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСЂРёРЅСЏС‚Р° РІР°РјРё."; }
                 }
             } else {
-                if ($user['level'] > 0  &&!($z[$zay]['t'.$team.'min'] <= $user['level'] && $z[$zay]['t'.$team.'max'] >= $user['level'])) { return "Эта заявка не может быть принята вами."; }
+                if ($user['level'] > 0  &&!($z[$zay]['t'.$team.'min'] <= $user['level'] && $z[$zay]['t'.$team.'max'] >= $user['level'])) { return "Р­С‚Р° Р·Р°СЏРІРєР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСЂРёРЅСЏС‚Р° РІР°РјРё."; }
             }
-            if ( count($z[$zay]['team'.$team]) >= $z[$zay]['t'.$team.'c'] ) { return "Группа уже набрана."; }
+            if ( count($z[$zay]['team'.$team]) >= $z[$zay]['t'.$team.'c'] ) { return "Р“СЂСѓРїРїР° СѓР¶Рµ РЅР°Р±СЂР°РЅР°."; }
             $z[$zay]['team'.$team][]='';
             if (mysql_query("UPDATE `users`, `zayavka` SET
                             `users`.zayavka = {$zay},
@@ -172,10 +172,10 @@
                             `users`.id = {$id} AND
                             `users`.zayavka = 0 AND
                             `zayavka`.id = {$zay};
-                        ")) { return "Вы приняли заявку на бой."; }
+                        ")) { return "Р’С‹ РїСЂРёРЅСЏР»Рё Р·Р°СЏРІРєСѓ РЅР° Р±РѕР№."; }
         }
 
-        // отозвать запрос ;)
+        // РѕС‚РѕР·РІР°С‚СЊ Р·Р°РїСЂРѕСЃ ;)
         function delteam ( $team = 2, $id, $zay, $r ) {
             $z = $this->getlist($r,null,$zay);
             //$z[$zay]['team'.$team][]='';
@@ -184,7 +184,7 @@
             //$teams = str_replace(";".$id.";","",";".implode(";",$z[$zay]['team'.$team]));
             if($z[$zay]['level'] > 3 OR $z[$zay]['level'] == null)
             {
-                return "Ай-ай-ай!";
+                return "РђР№-Р°Р№-Р°Р№!";
             }
 
             foreach($z[$zay]['team'.$team] as $v) {
@@ -201,14 +201,14 @@
                                 `users`.id = {$id} AND
                                 `zayavka`.id = {$zay};"))
             {
-                return "Вы отозвали запрос";
+                return "Р’С‹ РѕС‚РѕР·РІР°Р»Рё Р·Р°РїСЂРѕСЃ";
             }
         }
 
-        // подача заявки
+        // РїРѕРґР°С‡Р° Р·Р°СЏРІРєРё
         function addzayavka ( $start = 10, $timeout = 3, $t1c, $t2c, $type, $t1min, $t2min, $t1max, $t2max, $coment, $creator, $level = 1, $stavka, $blood=0, $closed=0) {
             global $user;
-            if ((int)$level<1 || (int)$level>5) return "Ошибка...";
+            if ((int)$level<1 || (int)$level>5) return "РћС€РёР±РєР°...";
             if ($level==1 && ($type!=1 && $type!=4)) $type=1;
             if ($level==2 && ($type!=1 && $type!=4 && $type!=6)) $type=1;
             if ($level==4 && ($type!=2 && $type!=4)) $type=2;
@@ -220,30 +220,30 @@
             if($timeout==1 || $timeout==3 || $timeout==4 || $timeout==5 || $timeout==7 || $timeout==10) {
             } else { $timeout = 3; }
 
-            // время начала заявки
+            // РІСЂРµРјСЏ РЅР°С‡Р°Р»Р° Р·Р°СЏРІРєРё
             if ( $this->ustatus($creator) != 0) { exit;}
             $owntravma = mysql_fetch_array(mysql_query("SELECT `type`,`id`,`sila`,`lovk`,`inta` FROM `effects` WHERE `owner` = ".$creator." AND (type=12 OR type=13 OR type=14);"));
             if ($owntravma) {
                 switch($owntravma['type']) {
                     case ($owntravma['type']==12 && ($type!=4 AND $type!=5)):
-                        return "У вас средняя травма, поединки с оружием слишком тяжелы для вас...";
+                        return "РЈ РІР°СЃ СЃСЂРµРґРЅСЏСЏ С‚СЂР°РІРјР°, РїРѕРµРґРёРЅРєРё СЃ РѕСЂСѓР¶РёРµРј СЃР»РёС€РєРѕРј С‚СЏР¶РµР»С‹ РґР»СЏ РІР°СЃ...";
                     break;
                     case 13:
-                        return "У вас тяжелая травма, вы не сможети драться...";
+                        return "РЈ РІР°СЃ С‚СЏР¶РµР»Р°СЏ С‚СЂР°РІРјР°, РІС‹ РЅРµ СЃРјРѕР¶РµС‚Рё РґСЂР°С‚СЊСЃСЏ...";
                     break;
                     case 14:
-                        return "У вас тяжелая травма, вы не сможети драться...";
+                        return "РЈ РІР°СЃ С‚СЏР¶РµР»Р°СЏ С‚СЂР°РІРјР°, РІС‹ РЅРµ СЃРјРѕР¶РµС‚Рё РґСЂР°С‚СЊСЃСЏ...";
                     break;
                 }
 
             }
             if (!$user['klan'] && $t1min == 99) {
-                return "Вы не состоите в клане.";
+                return "Р’С‹ РЅРµ СЃРѕСЃС‚РѕРёС‚Рµ РІ РєР»Р°РЅРµ.";
             }
-            // хп
+            // С…Рї
             //$user = mysql_fetch_array(mysql_query("SELECT `hp`,`maxhp` FROM `users` WHERE `id` = '{$creator}' LIMIT 1;"));
             if ($user['hp'] < $user['maxhp']*0.33) {
-                return "Вы слишком ослаблены для боя, восстановитесь.";
+                return "Р’С‹ СЃР»РёС€РєРѕРј РѕСЃР»Р°Р±Р»РµРЅС‹ РґР»СЏ Р±РѕСЏ, РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚РµСЃСЊ.";
             }
             $start = time()+$start*60;
             $stavka = round($stavka,2);
@@ -253,12 +253,12 @@
             mysql_query("UPDATE `users` SET `zayavka` = ".mysql_insert_id()." WHERE `id` = {$creator};");
         }
 
-        // отзыв заявки
+        // РѕС‚Р·С‹РІ Р·Р°СЏРІРєРё
         function delzayavka ($id, $zay,$r,$f=1) {
             $z = $this->getlist($r,null,$zay);
             if($f!=1) {
                 if ($z[$zay]['level'] > 3) {
-                    return 'Ай-ай-ай!';
+                    return 'РђР№-Р°Р№-Р°Р№!';
                 }
             }
             if (mysql_query("DELETE FROM `zayavka` WHERE `id` = {$zay} AND `team1` LIKE '{$id};%';")) {
@@ -270,11 +270,11 @@
                 foreach ($z[$zay]['team2'] as $k => $v) {
                     mysql_query("UPDATE `users` SET `zayavka` = 0 WHERE `id` = {$v} LIMIT 1;");
                 }
-                return 'Вы отозвали заявку.';
+                return 'Р’С‹ РѕС‚РѕР·РІР°Р»Рё Р·Р°СЏРІРєСѓ.';
             }
         }
 
-        // показать физическую заявку
+        // РїРѕРєР°Р·Р°С‚СЊ С„РёР·РёС‡РµСЃРєСѓСЋ Р·Р°СЏРІРєСѓ
         function showfiz ( $row ) {
             global $user;
             $rr = "<INPUT TYPE=radio ".((in_array($user['id'],$row['team1']) OR in_array($user['id'],$row['team2']) OR $row['team2'])?"disabled ":"")." NAME='gocombat' value={$row['id']}><font class=date>{$row['podan']}</font> ";
@@ -282,35 +282,35 @@
                     $rr .= nick3($v);
             }
             if($row['team2']) {
-                $rr .= " <i>против</i> ";
+                $rr .= " <i>РїСЂРѕС‚РёРІ</i> ";
                 foreach( $row['team2'] as $k=>$v ) {
                     $rr .= nick3($v);
                 }
             }
-            $rr .= "&nbsp; тип боя: ";
+            $rr .= "&nbsp; С‚РёРї Р±РѕСЏ: ";
             if ($row['type'] == 4) {
-                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный бой\"> ";
+                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"РєСѓР»Р°С‡РЅС‹Р№ Р±РѕР№\"> ";
             }
             elseif ($row['type'] == 6) {
-                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"кровавый бой\"> ";
+                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"РєСЂРѕРІР°РІС‹Р№ Р±РѕР№\"> ";
             }
             elseif ($row['type'] == 1) {
-                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype1.gif\" WIDTH=20 HEIGHT=20 ALT=\"физический бой\"> ";
+                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype1.gif\" WIDTH=20 HEIGHT=20 ALT=\"С„РёР·РёС‡РµСЃРєРёР№ Р±РѕР№\"> ";
             }
-            $rr .= " (таймаут {$row['timeout']} мин.) <BR>";
+            $rr .= " (С‚Р°Р№РјР°СѓС‚ {$row['timeout']} РјРёРЅ.) <BR>";
             return $rr;
         }
 
-        // показать групповую заявку
+        // РїРѕРєР°Р·Р°С‚СЊ РіСЂСѓРїРїРѕРІСѓСЋ Р·Р°СЏРІРєСѓ
         function showgroup ( $row ) {
             if($row['t1min']==99) {
-                $range1 = "<i>клан</i>";
+                $range1 = "<i>РєР»Р°РЅ</i>";
             }
             else {
                 $range1 = "{$row['t1min']}-{$row['t1max']}";
             }
             if($row['t2min']==99) {
-                $range2 = "<i>клан</i>";
+                $range2 = "<i>РєР»Р°РЅ</i>";
             }
             else {
                 $range2 = "{$row['t2min']}-{$row['t2max']}";
@@ -320,31 +320,31 @@
                     if ($k!=0) $rr.=", ";
                     $rr .= nick3($v);
             }
-            $rr .= ") <i>против</i> <b>{$row['t2c']}</b>({$range2})(";
+            $rr .= ") <i>РїСЂРѕС‚РёРІ</i> <b>{$row['t2c']}</b>({$range2})(";
             foreach( $row['team2'] as $k=>$v ) {
                 if ($k!=0) $rr.=", ";
                 $rr .= nick3($v);
             }
-            if (count($row['team2']) ==0) { $rr.= "<i>группа не набрана</i>"; }
+            if (count($row['team2']) ==0) { $rr.= "<i>РіСЂСѓРїРїР° РЅРµ РЅР°Р±СЂР°РЅР°</i>"; }
 
             if ($row['blood'] && $row['type'] == 5) {
                 $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"\">";
             }
             $ali = mysql_fetch_array(mysql_query("SELECT align FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
-            $rr .= ")&nbsp; тип боя: ";
+            $rr .= ")&nbsp; С‚РёРї Р±РѕСЏ: ";
             if ($row['blood'] && $row['type'] == 4) {
-                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный бой\"><IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\">";
+                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"РєСѓР»Р°С‡РЅС‹Р№ Р±РѕР№\"><IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"РљСЂРѕРІР°РІС‹Р№ РїРѕРµРґРёРЅРѕРє\">";
             }
             elseif ($row['blood'] && $row['type'] == 2) {
-                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\">";
+                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"РљСЂРѕРІР°РІС‹Р№ РїРѕРµРґРёРЅРѕРє\">";
             }
             elseif ($row['type'] == 2) {
-                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype2.gif\" WIDTH=20 HEIGHT=20 ALT=\"групповой бой\">";
+                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype2.gif\" WIDTH=20 HEIGHT=20 ALT=\"РіСЂСѓРїРїРѕРІРѕР№ Р±РѕР№\">";
             }
             elseif ($row['type'] == 4) {
-                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный групповой бой\">";
+                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"РєСѓР»Р°С‡РЅС‹Р№ РіСЂСѓРїРїРѕРІРѕР№ Р±РѕР№\">";
             }
-            $rr .= "(таймаут {$row['timeout']} мин.) <span style='color:gray;'><i >бой начнется через ".round(($row['start']-time())/60,1)." мин. ".(($row['coment'])?"(".$row['coment'].")":"")."</i></span>";
+            $rr .= "(С‚Р°Р№РјР°СѓС‚ {$row['timeout']} РјРёРЅ.) <span style='color:gray;'><i >Р±РѕР№ РЅР°С‡РЅРµС‚СЃСЏ С‡РµСЂРµР· ".round(($row['start']-time())/60,1)." РјРёРЅ. ".(($row['coment'])?"(".$row['coment'].")":"")."</i></span>";
 
 
             if (($ali['align']>1.4 && $ali['align']<2) || ($ali['align']>2 && $ali['align']<3)) {
@@ -356,7 +356,7 @@
             return $rr;
         }
 
-        // показать хаотическую заявку
+        // РїРѕРєР°Р·Р°С‚СЊ С…Р°РѕС‚РёС‡РµСЃРєСѓСЋ Р·Р°СЏРІРєСѓ
         function showhaos ($row, $radio=1) {
             if ($radio) $rr="<INPUT TYPE=radio ".((in_array($user['id'],$row['team1']) OR in_array($user['id'],$row['team2']))?"disabled ":"")." NAME=gocombat value={$row['id']}>";
             else $rr="";
@@ -366,25 +366,25 @@
                     $rr .= nick3($v);
             }
             $rr .= "";
-            if (count($row['team1']) ==0) { $rr.= "<i>группа не набрана</i>"; }
+            if (count($row['team1']) ==0) { $rr.= "<i>РіСЂСѓРїРїР° РЅРµ РЅР°Р±СЂР°РЅР°</i>"; }
 
             $ali = mysql_fetch_array(mysql_query("SELECT align FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 
-            $rr .= ") (".($row["t1max"]==99?"общий хаотичный бой":"$row[t1min]-$row[t1max]").") &nbsp; тип боя: ";
+            $rr .= ") (".($row["t1max"]==99?"РѕР±С‰РёР№ С…Р°РѕС‚РёС‡РЅС‹Р№ Р±РѕР№":"$row[t1min]-$row[t1max]").") &nbsp; С‚РёРї Р±РѕСЏ: ";
             if ($row['blood'] && $row['type'] == 5) {
-                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype5.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный бой\"><IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\">";
+                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype5.gif\" WIDTH=20 HEIGHT=20 ALT=\"РєСѓР»Р°С‡РЅС‹Р№ Р±РѕР№\"><IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"РљСЂРѕРІР°РІС‹Р№ РїРѕРµРґРёРЅРѕРє\">";
             }
             elseif ($row['blood'] && $row['type'] == 3) {
-                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\">";
+                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"РљСЂРѕРІР°РІС‹Р№ РїРѕРµРґРёРЅРѕРє\">";
             }
             elseif ($row['type'] == 3) {
-                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype3.gif\" WIDTH=20 HEIGHT=20 ALT=\"групповой бой\">";
+                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype3.gif\" WIDTH=20 HEIGHT=20 ALT=\"РіСЂСѓРїРїРѕРІРѕР№ Р±РѕР№\">";
             }
             elseif ($row['type'] == 5) {
-                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype5.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный групповой бой\">";
+                $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype5.gif\" WIDTH=20 HEIGHT=20 ALT=\"РєСѓР»Р°С‡РЅС‹Р№ РіСЂСѓРїРїРѕРІРѕР№ Р±РѕР№\">";
             }
-            if ($row["closed"]) $rr.=" <img src=\"/i/sh/closesphere.gif\" title=\"Закрытый бой\"> ";
-            $rr .= "(таймаут {$row['timeout']} мин.) <span style='color:gray;'><i >бой начнется через ".round(($row['start']-time())/60,1)." мин. ".(($row['coment'])?"(".$row['coment'].")":"")."</i></span>";
+            if ($row["closed"]) $rr.=" <img src=\"/i/sh/closesphere.gif\" title=\"Р—Р°РєСЂС‹С‚С‹Р№ Р±РѕР№\"> ";
+            $rr .= "(С‚Р°Р№РјР°СѓС‚ {$row['timeout']} РјРёРЅ.) <span style='color:gray;'><i >Р±РѕР№ РЅР°С‡РЅРµС‚СЃСЏ С‡РµСЂРµР· ".round(($row['start']-time())/60,1)." РјРёРЅ. ".(($row['coment'])?"(".$row['coment'].")":"")."</i></span>";
             if (($ali['align']>1.4 && $ali['align']<2) || ($ali['align']>2 && $ali['align']<3)) {
                 $rr .= "<a href='?zid={$row['id']}&do=clear'><img src='".IMGBASE."/i/clear.gif'></a><BR>";
             } else {
@@ -420,7 +420,7 @@
                                 u.id = {$id} AND
                                 z.id = {$zay} AND `level` < 4;"))
                 {
-                    return "Противник ушел в офлайн";
+                    return "РџСЂРѕС‚РёРІРЅРёРє СѓС€РµР» РІ РѕС„Р»Р°Р№РЅ";
                 }
                 return 0;
             }*/
@@ -429,7 +429,7 @@
             else { return 0; }
         }
 
-        // стартовать бой!
+        // СЃС‚Р°СЂС‚РѕРІР°С‚СЊ Р±РѕР№!
         function battlestart ( $id, $zay, $r) {
           global $user;
             $z = $this->getlist($r,null,$zay);
@@ -438,7 +438,7 @@
             $this->delzayavka ($id, $zay, $r);
 
             $z = $z[$zay];
-            // снимаем шмот, если кулачка
+            // СЃРЅРёРјР°РµРј С€РјРѕС‚, РµСЃР»Рё РєСѓР»Р°С‡РєР°
             if ($z['type'] == 4 OR $z['type'] == 5) {
                 foreach($z['team1'] as $k=>$v) {
                     undressall($v);
@@ -455,12 +455,12 @@
                 fwrite($btfl,'{[='.$z['team1'][0].'=]}');
                 fclose($btfl);
                 }
-            // генерим ТИМС
+            // РіРµРЅРµСЂРёРј РўРРњРЎ
             if ($z['type'] == 3 OR $z['type'] == 5) {
                 if(count($z['team1']) < 1) {
                     mysql_query("UPDATE `users` SET `zayavka`=0 WHERE `zayavka` = '".$zay."';");
                     foreach($z['team1'] as $k=>$v) {
-                        addchp ('<font color=red>Внимание!</font> Ваш бой не может начаться по причине "Группа не набрана".   ','{[]}'.nick7 ($v).'{[]}');
+                        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°С€ Р±РѕР№ РЅРµ РјРѕР¶РµС‚ РЅР°С‡Р°С‚СЊСЃСЏ РїРѕ РїСЂРёС‡РёРЅРµ "Р“СЂСѓРїРїР° РЅРµ РЅР°Р±СЂР°РЅР°".   ','{[]}'.nick7 ($v).'{[]}');
                     }
                     mysql_query("DELETE FROM `zayavka` WHERE `id`= '".$zay."';");
                     header("Location: zayavka.php");
@@ -471,7 +471,7 @@
 
                 $all = count($z['team1'])-1;
                 $power1 = 0; $power2 = 0;
-                // оцениваем игроков
+                // РѕС†РµРЅРёРІР°РµРј РёРіСЂРѕРєРѕРІ
                 define("CHAOSDEBUG",0);
 
                 function findstrongest($fighters) {
@@ -602,15 +602,15 @@
 
                 }*/
             }
-            $bot=0; // убираем до зимы
+            $bot=0; // СѓР±РёСЂР°РµРј РґРѕ Р·РёРјС‹
           /*  if (((count($z['team1'])>count($z['team2']) && count($z['team2'])>0) ||
                 (count($z['team2'])>count($z['team1']) && count($z['team1'])>0)) && $strongestfighter) {
-              $bot=createbot($strongestfighter, 0, "Отморозок");
+              $bot=createbot($strongestfighter, 0, "РћС‚РјРѕСЂРѕР·РѕРє");
               if (count($z['team1'])>count($z['team2'])) $z["team2"][]=$bot["id"];
               else $z["team1"][]=$bot["id"];
             }
 */
-                // остальные типы боев
+                // РѕСЃС‚Р°Р»СЊРЅС‹Рµ С‚РёРїС‹ Р±РѕРµРІ
                 $teams = array();
                 foreach($z['team1'] as $k=>$v) {
                     foreach($z['team2'] as $kk => $vv) {
@@ -626,7 +626,7 @@
                 if(count($z['team2']) ==0) {
                     mysql_query("UPDATE `users` SET `zayavka`=0 WHERE `zayavka` = '".$zay."';");
                     foreach($z['team1'] as $k=>$v) {
-                        addchp ('<font color=red>Внимание!</font> Ваш бой не может начаться по причине "Группа не набрана".   ','{[]}'.nick7 ($v).'{[]}');
+                        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°С€ Р±РѕР№ РЅРµ РјРѕР¶РµС‚ РЅР°С‡Р°С‚СЊСЃСЏ РїРѕ РїСЂРёС‡РёРЅРµ "Р“СЂСѓРїРїР° РЅРµ РЅР°Р±СЂР°РЅР°".   ','{[]}'.nick7 ($v).'{[]}');
                     }
                     mysql_query("DELETE FROM `zayavka` WHERE `id`= '".$zay."';");
                     header("Location: zayavka.php");
@@ -649,29 +649,29 @@
                         )");
                 $id = mysql_insert_id();
                 if ($bot) mq("update bots set battle='$id' where id='$bot[id]'");
-                // создаем лог
+                // СЃРѕР·РґР°РµРј Р»РѕРі
                 $rr = "<b>";
                 foreach( $z['team1'] as $k=>$v ) {
                     if ($k!=0) { $rr.=", "; $rrc.=", "; }
                     $rr .= nick3($v);
                     $rrc .= nick7($v);
-                    addchp ('<font color=red>Внимание!</font> Ваш бой начался!<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($v).'{[]}');
+                    addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°С€ Р±РѕР№ РЅР°С‡Р°Р»СЃСЏ!<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($v).'{[]}');
                 }
-                $rr .= "</b> и <b>"; $rrc .= "</b> и <b>";
+                $rr .= "</b> Рё <b>"; $rrc .= "</b> Рё <b>";
                 foreach( $z['team2'] as $k=>$v ) {
                     if ($k!=0) { $rr.=", "; $rrc.=", ";}
                     $rr .= nick3($v);
                     $rrc .= nick7($v);
-                    addchp ('<font color=red>Внимание!</font> Ваш бой начался!<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($v).'{[]}');
+                    addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°С€ Р±РѕР№ РЅР°С‡Р°Р»СЃСЏ!<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($v).'{[]}');
                 }
                 $rr .= "</b>";
-                addch ("<a href=logs.php?log=".$id." target=_blank>Поединок</a> между <B>".$rrc."</B> начался.   ",$user['room']);
-                mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
+                addch ("<a href=logs.php?log=".$id." target=_blank>РџРѕРµРґРёРЅРѕРє</a> РјРµР¶РґСѓ <B>".$rrc."</B> РЅР°С‡Р°Р»СЃСЏ.   ",$user['room']);
+                mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>');");
 
-                addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
+                addlog($id,"Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>");
 
 
-                // всех в БОЙ!!!
+                // РІСЃРµС… РІ Р‘РћР™!!!
                 $cond="";
                 foreach($z['team1'] as $k=>$v) {
                   if ($cond) $cond.=" or ";
@@ -726,21 +726,21 @@
 </TD>
 <TD colspan=4 align=right>
 
-<INPUT TYPE=button value="Карта миров" onclick="location.href='main.php?top=0.467837356797105';">
-<INPUT TYPE=button value="Подсказка" style="background-color:#A9AFC0" onclick="window.open('help/combats.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">
-<INPUT TYPE=button value="Вернуться" onclick="location.href='main.php?top=0.467837356797105';">
+<INPUT TYPE=button value="РљР°СЂС‚Р° РјРёСЂРѕРІ" onclick="location.href='main.php?top=0.467837356797105';">
+<INPUT TYPE=button value="РџРѕРґСЃРєР°Р·РєР°" style="background-color:#A9AFC0" onclick="window.open('help/combats.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">
+<INPUT TYPE=button value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" onclick="location.href='main.php?top=0.467837356797105';">
 </TD></TR>
 <TR>
-<TD class=m width=40>&nbsp;<B>Бои:</B></TD>
-<TD class=<?=($_REQUEST['level']=='begin')?"s":"m"?>><A HREF="zayavka.php?level=begin&0.467837356797105">1 на 1</A></TD>
-<TD class=<?=($_REQUEST['level']=='fiz')?"s":"m"?>><A HREF="zayavka.php?level=fiz&0.467837356797105">Договорные</A></TD>
+<TD class=m width=40>&nbsp;<B>Р‘РѕРё:</B></TD>
+<TD class=<?=($_REQUEST['level']=='begin')?"s":"m"?>><A HREF="zayavka.php?level=begin&0.467837356797105">1 РЅР° 1</A></TD>
+<TD class=<?=($_REQUEST['level']=='fiz')?"s":"m"?>><A HREF="zayavka.php?level=fiz&0.467837356797105">Р”РѕРіРѕРІРѕСЂРЅС‹Рµ</A></TD>
 <?
-/*<TD class=<?=($_REQUEST['level']=='train')?"s":"m"?>><A HREF="zayavka.php?level=train&0.467837356797105&view=<?=$user['level']?>">Тренировочные</A></TD>*/
+/*<TD class=<?=($_REQUEST['level']=='train')?"s":"m"?>><A HREF="zayavka.php?level=train&0.467837356797105&view=<?=$user['level']?>">РўСЂРµРЅРёСЂРѕРІРѕС‡РЅС‹Рµ</A></TD>*/
 ?>
-<TD class=<?=($_REQUEST['level']=='group')?"s":"m"?>><A HREF="zayavka.php?level=group&0.467837356797105">Групповые</A></TD>
-<TD class=<?=($_REQUEST['level']=='haos')?"s":"m"?>><A HREF="zayavka.php?level=haos&0.467837356797105">Хаотичные</A></TD>
-<TD class=<?=($_REQUEST['tklogs']=='1')?"s":"m"?>><A HREF="zayavka.php?tklogs=1&0.467837356797105">Текущие</A></TD>
-<TD class=<?=($_REQUEST['logs']!=null)?"s":"m"?>><A HREF="zayavka.php?logs=<?=date("d.m.y")?>&0.467837356797105">Завершенные</A></TD>
+<TD class=<?=($_REQUEST['level']=='group')?"s":"m"?>><A HREF="zayavka.php?level=group&0.467837356797105">Р“СЂСѓРїРїРѕРІС‹Рµ</A></TD>
+<TD class=<?=($_REQUEST['level']=='haos')?"s":"m"?>><A HREF="zayavka.php?level=haos&0.467837356797105">РҐР°РѕС‚РёС‡РЅС‹Рµ</A></TD>
+<TD class=<?=($_REQUEST['tklogs']=='1')?"s":"m"?>><A HREF="zayavka.php?tklogs=1&0.467837356797105">РўРµРєСѓС‰РёРµ</A></TD>
+<TD class=<?=($_REQUEST['logs']!=null)?"s":"m"?>><A HREF="zayavka.php?logs=<?=date("d.m.y")?>&0.467837356797105">Р—Р°РІРµСЂС€РµРЅРЅС‹Рµ</A></TD>
 </TR></TR></TABLE>
 <TABLE width=100% cellspacing=0 cellpadding=0><TR><TD valign=top>
 <?
@@ -748,19 +748,19 @@
 
 if($user['room'] != 1 && $user['room'] != 5 && $user['room'] != 6 && $user['room'] != 7 && $user['room'] != 9 && $user['room'] != 10 && $user['room'] != 15 && $user['room'] != 16 && $user['room'] != 19 && $user['room'] != 8 && $user['room'] != 201  && $user['room'] != 0 && !$_REQUEST['tklogs'] && !$_REQUEST['logs']){
   if ($_REQUEST['level']=="haos") {
-    echo "<br><br><center><b>В этой комнате можно только смотреть текущие заявки на хаотичные бои</b></center><br>";
+    echo "<br><br><center><b>Р’ СЌС‚РѕР№ РєРѕРјРЅР°С‚Рµ РјРѕР¶РЅРѕ С‚РѕР»СЊРєРѕ СЃРјРѕС‚СЂРµС‚СЊ С‚РµРєСѓС‰РёРµ Р·Р°СЏРІРєРё РЅР° С…Р°РѕС‚РёС‡РЅС‹Рµ Р±РѕРё</b></center><br>";
     if ($z = $zay->getlist(5,$_SESSION['view']))
     foreach ($z as $k=>$v) {
       echo $zay->showhaos($v, 0);
     }
   } else {
-    echo "<BR><BR><BR><CENTER><B>В этой комнате невозможно подавать заявки</b></CENTER>";
+    echo "<BR><BR><BR><CENTER><B>Р’ СЌС‚РѕР№ РєРѕРјРЅР°С‚Рµ РЅРµРІРѕР·РјРѕР¶РЅРѕ РїРѕРґР°РІР°С‚СЊ Р·Р°СЏРІРєРё</b></CENTER>";
   }
   die();
 }
 
 if(!$_REQUEST['level'] && !$_REQUEST['tklogs'] && !$_REQUEST['logs']){
-    echo "<BR><BR><BR><CENTER><B>Выберите раздел</b><br><img width=100 height=100 src=".IMGBASE."/i/16.gif></CENTER>";
+    echo "<BR><BR><BR><CENTER><B>Р’С‹Р±РµСЂРёС‚Рµ СЂР°Р·РґРµР»</b><br><img width=100 height=100 src=".IMGBASE."/i/16.gif></CENTER>";
     }
 
 
@@ -768,12 +768,12 @@ if(!$_REQUEST['level'] && !$_REQUEST['tklogs'] && !$_REQUEST['logs']){
 
 include "config/extrausers.php";
 if (in_array($user["id"], $noattack)) {
-  echo "<BR><BR><BR><CENTER><B>Для вас бои запрещены</b></CENTER>";
+  echo "<BR><BR><BR><CENTER><B>Р”Р»СЏ РІР°СЃ Р±РѕРё Р·Р°РїСЂРµС‰РµРЅС‹</b></CENTER>";
   die();
 }
 if ($_REQUEST['level'] == 'begin') {
     if($user['level']>0 && $user["id"]<>7) {
-        echo "<BR><BR><BR><CENTER><B>Вы уже выросли из ползунков ;)</b></CENTER>";
+        echo "<BR><BR><BR><CENTER><B>Р’С‹ СѓР¶Рµ РІС‹СЂРѕСЃР»Рё РёР· РїРѕР»Р·СѓРЅРєРѕРІ ;)</b></CENTER>";
         die();
     }
     echo "<font color=red><b>";
@@ -788,17 +788,17 @@ if ($_REQUEST['level'] == 'begin') {
     }
     if($_POST['back2']) {
         $z =  $zay->getlist(1,null,$user['zayavka']);
-        addchp ('<font color=red>Внимание!</font> '.nick7($user['id']).' отозвал заявку.   ','{[]}'.nick7 ($z[$user['zayavka']]['team1'][0]).'{[]}');
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> '.nick7($user['id']).' РѕС‚РѕР·РІР°Р» Р·Р°СЏРІРєСѓ.   ','{[]}'.nick7 ($z[$user['zayavka']]['team1'][0]).'{[]}');
         echo $zay->delteam (2,$user['id'], $user['zayavka'], 1);
     }
     if($_POST['cansel']) {
         $z =  $zay->getlist(1,null,$user['zayavka']);
         echo $zay->delteam (2,$z[$user['zayavka']]['team2'][0], $user['zayavka'], 1);
-        addchp ('<font color=red>Внимание!</font> '.nick3($user['id']).' отказался от поединка.  ','{[]}'.nick7 ($z[$user['zayavka']]['team2'][0]).'{[]}');
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> '.nick3($user['id']).' РѕС‚РєР°Р·Р°Р»СЃСЏ РѕС‚ РїРѕРµРґРёРЅРєР°.  ','{[]}'.nick7 ($z[$user['zayavka']]['team2'][0]).'{[]}');
     }
     if($_POST['confirm2']) {
         $z =  $zay->getlist(1,null,$_REQUEST['gocombat']);
-        addchp ('<font color=red>Внимание!</font> '.nick3($user['id']).' принял заявку, нужно принять вызов или отказать.  ','{[]}'.nick7 ($z[$_REQUEST['gocombat']]['team1'][0]).'{[]}');
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> '.nick3($user['id']).' РїСЂРёРЅСЏР» Р·Р°СЏРІРєСѓ, РЅСѓР¶РЅРѕ РїСЂРёРЅСЏС‚СЊ РІС‹Р·РѕРІ РёР»Рё РѕС‚РєР°Р·Р°С‚СЊ.  ','{[]}'.nick7 ($z[$_REQUEST['gocombat']]['team1'][0]).'{[]}');
         echo $zay->addteam (2,$user['id'], $_REQUEST['gocombat'], 1);
         die("<script>document.location='zayavka.php?level=begin';</script>");
     }
@@ -811,15 +811,15 @@ if ($_REQUEST['level'] == 'begin') {
     $z =  $zay->getlist(1,null,$user['zayavka']);
     if( $zay->ustatus($user['id'])==0 || $user["id"]==7) {
         //if ($z[$user['zayavka']]['level'] == 1)
-        echo '<FIELDSET><LEGEND><B>Подать заявку на бой</B> </LEGEND>Таймаут <SELECT NAME=timeout><OPTION value=1>1 мин.<OPTION value=3>3 мин.<OPTION value=4>4 мин.<OPTION value=5>5 мин.<OPTION value=7>7 мин.<OPTION value=10 selected>10 мин.</SELECT> Тип боя <SELECT NAME=k><OPTION value=1>с оружием<OPTION value=4>кулачный</SELECT><INPUT TYPE=submit name=open value="Подать заявку">&nbsp;</FIELDSET>';
+        echo '<FIELDSET><LEGEND><B>РџРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ РЅР° Р±РѕР№</B> </LEGEND>РўР°Р№РјР°СѓС‚ <SELECT NAME=timeout><OPTION value=1>1 РјРёРЅ.<OPTION value=3>3 РјРёРЅ.<OPTION value=4>4 РјРёРЅ.<OPTION value=5>5 РјРёРЅ.<OPTION value=7>7 РјРёРЅ.<OPTION value=10 selected>10 РјРёРЅ.</SELECT> РўРёРї Р±РѕСЏ <SELECT NAME=k><OPTION value=1>СЃ РѕСЂСѓР¶РёРµРј<OPTION value=4>РєСѓР»Р°С‡РЅС‹Р№</SELECT><INPUT TYPE=submit name=open value="РџРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ">&nbsp;</FIELDSET>';
     }
     if( $zay->ustatus($user['id'])==1 ) {
         if(count($z[$user['zayavka']]['team2'])>0){
-            echo "<B><font color=red>Внимание! ".nick3($z[$user['zayavka']]['team2'][0])." принял заявку на бой, нужно отказать или принять вызов.</font></b> <input type=submit value='Битва!' name=gofi> <input type=submit value='Отказать' name=cansel>";
+            echo "<B><font color=red>Р’РЅРёРјР°РЅРёРµ! ".nick3($z[$user['zayavka']]['team2'][0])." РїСЂРёРЅСЏР» Р·Р°СЏРІРєСѓ РЅР° Р±РѕР№, РЅСѓР¶РЅРѕ РѕС‚РєР°Р·Р°С‚СЊ РёР»Рё РїСЂРёРЅСЏС‚СЊ РІС‹Р·РѕРІ.</font></b> <input type=submit value='Р‘РёС‚РІР°!' name=gofi> <input type=submit value='РћС‚РєР°Р·Р°С‚СЊ' name=cansel>";
         }
         else {
             if ($z[$user['zayavka']]['level'] == 1)
-            echo "Заявка на бой подана, ожидаем противника. <input type=submit name=back value='Отозвать заявку'>";
+            echo "Р—Р°СЏРІРєР° РЅР° Р±РѕР№ РїРѕРґР°РЅР°, РѕР¶РёРґР°РµРј РїСЂРѕС‚РёРІРЅРёРєР°. <input type=submit name=back value='РћС‚РѕР·РІР°С‚СЊ Р·Р°СЏРІРєСѓ'>";
             /*if (file_exists("tmp/zayavka/".$user['id'].".txt")) {
             $Path="tmp/zayavka/".$user['id'].".txt";
             $f=fopen($Path,"r");
@@ -828,11 +828,11 @@ if ($_REQUEST['level'] == 'begin') {
             if($user['level'] == 0 || $_SESSION['uid']==22004) {
 
                 if($_GET['trainstart']==1 && $user['hp'] > $user['maxhp']*0.33) {
-                    //здесь удаляем файл
+                    //Р·РґРµСЃСЊ СѓРґР°Р»СЏРµРј С„Р°Р№Р»
                     unlink("tmp/zayavka/".$user['id'].".txt");
                     $zay->delzayavka ($user['id'], $user['zayavka'], 1,0);
-                    if ($user["id"]==7) mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$user['login']." (клон 1)','".$user['id']."','','".$user['maxhp']."');");
-                    else mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('Клон','11121','','48');");
+                    if ($user["id"]==7) mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$user['login']." (РєР»РѕРЅ 1)','".$user['id']."','','".$user['maxhp']."');");
+                    else mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('РљР»РѕРЅ','11121','','48');");
                     $bot = mysql_insert_id();
                     $teams = array();
 
@@ -849,47 +849,47 @@ if ($_REQUEST['level'] == 'begin') {
 
                     $id = mysql_insert_id();
 
-                    // апдейтим бота
+                    // Р°РїРґРµР№С‚РёРј Р±РѕС‚Р°
                     mysql_query("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$bot} LIMIT 1;");
 
-                    // создаем лог
-                    $rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($bot)."</b>";
+                    // СЃРѕР·РґР°РµРј Р»РѕРі
+                    $rr = "<b>".nick3($user['id'])."</b> Рё <b>".nick3($bot)."</b>";
 
-                    //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
-                    addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
+                    //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>');");
+                    addlog($id,"Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>");
 
                     mysql_query("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']};");
 
-                    addch ("Начался <a href=logs.php?log=$id target=_blank>поединок</a> между <B>$user[login]</B> и <b>$user[login] (клон 1)</b>.",$user['room']);
+                    addch ("РќР°С‡Р°Р»СЃСЏ <a href=logs.php?log=$id target=_blank>РїРѕРµРґРёРЅРѕРє</a> РјРµР¶РґСѓ <B>$user[login]</B> Рё <b>$user[login] (РєР»РѕРЅ 1)</b>.",$user['room']);
                     die("<script>location.href='fbattle.php';</script>");
                     ///=======================================================================================
                 }
-                //addchp ('<font color=red>Внимание!</font> Вам предлагается начать тренировочный бой.   ','{[]}'.$user['login'].'{[]}');
-                echo " или <input type=button onclick=\"location.href='zayavka.php?level=begin&trainstart=1';\" value=\"Начать тренировочный бой\">.";
+                //addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°Рј РїСЂРµРґР»Р°РіР°РµС‚СЃСЏ РЅР°С‡Р°С‚СЊ С‚СЂРµРЅРёСЂРѕРІРѕС‡РЅС‹Р№ Р±РѕР№.   ','{[]}'.$user['login'].'{[]}');
+                echo " РёР»Рё <input type=button onclick=\"location.href='zayavka.php?level=begin&trainstart=1';\" value=\"РќР°С‡Р°С‚СЊ С‚СЂРµРЅРёСЂРѕРІРѕС‡РЅС‹Р№ Р±РѕР№\">.";
 
             }
         }
     }
     if( $zay->ustatus($user['id'])==2 ) {
         if ($z[$user['zayavka']]['level'] == 1)
-        echo "Ожидаем подтверждения боя. <input type=submit name=back2 value='Отозвать заявку'>";
+        echo "РћР¶РёРґР°РµРј РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ Р±РѕСЏ. <input type=submit name=back2 value='РћС‚РѕР·РІР°С‚СЊ Р·Р°СЏРІРєСѓ'>";
     }
-    echo '</td></tr></table></TD><TD align=right valign=top rowspan=2><INPUT TYPE=submit name=tmp value="Обновить">';
-    echo '<tr><td><INPUT TYPE=hidden name=level value=begin><INPUT TYPE=submit value="Принять вызов" NAME=confirm2><BR>';
+    echo '</td></tr></table></TD><TD align=right valign=top rowspan=2><INPUT TYPE=submit name=tmp value="РћР±РЅРѕРІРёС‚СЊ">';
+    echo '<tr><td><INPUT TYPE=hidden name=level value=begin><INPUT TYPE=submit value="РџСЂРёРЅСЏС‚СЊ РІС‹Р·РѕРІ" NAME=confirm2><BR>';
     if ($z = $zay->getlist(1))
     foreach ($z as $k=>$v) {
         echo $zay->showfiz( $v );
     }
-    echo '<INPUT TYPE=submit value="Принять вызов" NAME=confirm2></TD></TR></TABLE>';
+    echo '<INPUT TYPE=submit value="РџСЂРёРЅСЏС‚СЊ РІС‹Р·РѕРІ" NAME=confirm2></TD></TR></TABLE>';
 }
 
 if ($_REQUEST['level'] == 'fiz') {
     if($user['level']==0) {
-        echo "<BR><BR><BR><CENTER><B>Договорные бои доступны с 1 уровня.</b></CENTER>";
+        echo "<BR><BR><BR><CENTER><B>Р”РѕРіРѕРІРѕСЂРЅС‹Рµ Р±РѕРё РґРѕСЃС‚СѓРїРЅС‹ СЃ 1 СѓСЂРѕРІРЅСЏ.</b></CENTER>";
         die();
     }
 //  if($user['level']>3 && $user['id']!=9534 && $user['id']!=9577 && $user['id']!=2) {//&& $user['id']!=7200
-//      echo "<BR><BR><BR><CENTER><B>Физические бои временно не работают для персонажей выше 3го уровня.</b></CENTER>";
+//      echo "<BR><BR><BR><CENTER><B>Р¤РёР·РёС‡РµСЃРєРёРµ Р±РѕРё РІСЂРµРјРµРЅРЅРѕ РЅРµ СЂР°Р±РѕС‚Р°СЋС‚ РґР»СЏ РїРµСЂСЃРѕРЅР°Р¶РµР№ РІС‹С€Рµ 3РіРѕ СѓСЂРѕРІРЅСЏ.</b></CENTER>";
 //      die();
 //  }
     echo "<font color=red><b>";
@@ -910,13 +910,13 @@ if ($_REQUEST['level'] == 'fiz') {
     }
     if($_POST['back2']) {
         $z =  $zay->getlist(2,null,$user['zayavka']);
-        addchp ('<font color=red>Внимание!</font> '.nick3($user['id']).' отозвал заявку.   ','{[]}'.nick7 ($z[$user['zayavka']]['team1'][0]).'{[]}');
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> '.nick3($user['id']).' РѕС‚РѕР·РІР°Р» Р·Р°СЏРІРєСѓ.   ','{[]}'.nick7 ($z[$user['zayavka']]['team1'][0]).'{[]}');
         echo $zay->delteam (2,$user['id'], $user['zayavka'], 2);
     }
     if($_POST['cansel']) {
         $z =  $zay->getlist(2,null,$user['zayavka']);
         echo $zay->delteam (2,$z[$user['zayavka']]['team2'][0], $user['zayavka'], 2);
-        addchp ('<font color=red>Внимание!</font> '.nick3($user['id']).' отказался от поединка.  ','{[]}'.nick7 ($z[$user['zayavka']]['team2'][0]).'{[]}');
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> '.nick3($user['id']).' РѕС‚РєР°Р·Р°Р»СЃСЏ РѕС‚ РїРѕРµРґРёРЅРєР°.  ','{[]}'.nick7 ($z[$user['zayavka']]['team2'][0]).'{[]}');
     }
     if($_POST['confirm2'] && !$user['zayavka']) {
         $z =  $zay->getlist(2,null,$_REQUEST['gocombat']);
@@ -924,11 +924,11 @@ if ($_REQUEST['level'] == 'fiz') {
         $toper = mysql_fetch_array(mysql_query("SELECT `klan` FROM `users` WHERE `id`='{$toper}' LIMIT 1;"));
         //echo $user['klan'] . " " . $toper['klan'];
         if($user['klan'] != $toper['klan'] OR $user['klan']==''){
-            addchp ('<font color=red>Внимание!</font> '.nick3($user['id']).' принял заявку, нужно принять вызов или отказать.  ','{[]}'.nick7 ($z[$_REQUEST['gocombat']]['team1'][0]).'{[]}');
+            addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> '.nick3($user['id']).' РїСЂРёРЅСЏР» Р·Р°СЏРІРєСѓ, РЅСѓР¶РЅРѕ РїСЂРёРЅСЏС‚СЊ РІС‹Р·РѕРІ РёР»Рё РѕС‚РєР°Р·Р°С‚СЊ.  ','{[]}'.nick7 ($z[$_REQUEST['gocombat']]['team1'][0]).'{[]}');
         }
         echo $zay->addteam (2,$user['id'], $_REQUEST['gocombat'], 2);
         //die("<script>document.location='zayavka.php?level=fiz';</script>");
-        echo "</b></font><BR>Ожидаем подтверждения боя. <input type=submit name=back2 value='Отозвать заявку'>";
+        echo "</b></font><BR>РћР¶РёРґР°РµРј РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ Р±РѕСЏ. <input type=submit name=back2 value='РћС‚РѕР·РІР°С‚СЊ Р·Р°СЏРІРєСѓ'>";
     }
     if($_POST['gofi']) {
         $zay->battlestart( $user['id'], $user['zayavka'], 2 );
@@ -936,34 +936,34 @@ if ($_REQUEST['level'] == 'fiz') {
     echo "</b></font>";
     echo '<table cellspacing=0 cellpadding=0><tr><td>';
     if( $zay->ustatus($user['id'])==0 ) {
-        echo '<FIELDSET><LEGEND><B>Подать заявку на бой</B> </LEGEND>Таймаут <SELECT NAME=timeout><OPTION value=1>1 мин.<OPTION value=3>3 мин.<OPTION value=4>4 мин.<OPTION value=5>5 мин.<OPTION value=7>7 мин.<OPTION value=10 selected>10 мин.</SELECT> Тип боя <SELECT NAME=k><OPTION value=1>с оружием<OPTION value=4>кулачный<OPTION value=6>кровавый</SELECT><INPUT TYPE=submit name=open value="Подать заявку">&nbsp;</FIELDSET>';
+        echo '<FIELDSET><LEGEND><B>РџРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ РЅР° Р±РѕР№</B> </LEGEND>РўР°Р№РјР°СѓС‚ <SELECT NAME=timeout><OPTION value=1>1 РјРёРЅ.<OPTION value=3>3 РјРёРЅ.<OPTION value=4>4 РјРёРЅ.<OPTION value=5>5 РјРёРЅ.<OPTION value=7>7 РјРёРЅ.<OPTION value=10 selected>10 РјРёРЅ.</SELECT> РўРёРї Р±РѕСЏ <SELECT NAME=k><OPTION value=1>СЃ РѕСЂСѓР¶РёРµРј<OPTION value=4>РєСѓР»Р°С‡РЅС‹Р№<OPTION value=6>РєСЂРѕРІР°РІС‹Р№</SELECT><INPUT TYPE=submit name=open value="РџРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ">&nbsp;</FIELDSET>';
     }
     $z =  $zay->getlist(2,null,$user['zayavka']);
     if( $zay->ustatus($user['id'])==1 ) {
         if(count($z[$user['zayavka']]['team2'])>0){
-            echo "<B><font color=red>Внимание! ".nick3($z[$user['zayavka']]['team2'][0])." принял заявку на бой, нужно отказать или принять вызов.</font></b> <input type=submit value='Битва!' name=gofi> <input type=submit value='Отказать' name=cansel>";
+            echo "<B><font color=red>Р’РЅРёРјР°РЅРёРµ! ".nick3($z[$user['zayavka']]['team2'][0])." РїСЂРёРЅСЏР» Р·Р°СЏРІРєСѓ РЅР° Р±РѕР№, РЅСѓР¶РЅРѕ РѕС‚РєР°Р·Р°С‚СЊ РёР»Рё РїСЂРёРЅСЏС‚СЊ РІС‹Р·РѕРІ.</font></b> <input type=submit value='Р‘РёС‚РІР°!' name=gofi> <input type=submit value='РћС‚РєР°Р·Р°С‚СЊ' name=cansel>";
         }
         else {
             if ($z[$user['zayavka']]['level'] == 2) {
-            echo "Заявка на бой подана, ожидаем противника. <input type=submit name=back value='Отозвать заявку'>";
+            echo "Р—Р°СЏРІРєР° РЅР° Р±РѕР№ РїРѕРґР°РЅР°, РѕР¶РёРґР°РµРј РїСЂРѕС‚РёРІРЅРёРєР°. <input type=submit name=back value='РћС‚РѕР·РІР°С‚СЊ Р·Р°СЏРІРєСѓ'>";
             $Path="tmp/zayavka/".$user['id'].".txt";
             $f=fopen($Path,"r");
             $timeFigth=fread($f, filesize($Path));
             fclose($f);
             if ($user["level"]==1 || $user["level"]==2 || $user["level"]==3) $timeFigth-=61;
             if ($timeFigth+0 < time() && $user['level'] <= 7) {
-              $trainers[1]=array(1=>array("login"=>"Клон x1", "id"=>"5080", "sila"=>5, "lovk"=>5, "inta"=>5, "vinos"=>7),
-              2=>array("login"=>"Сильный клон x1", "id"=>"11122", "sila"=>8, "lovk"=>3, "inta"=>3, "vinos"=>8),
-              3=>array("login"=>"Ловкий клон x1", "id"=>"11123", "sila"=>3, "lovk"=>10, "inta"=>3, "vinos"=>5),
-              4=>array("login"=>"Чуткий клон x1", "id"=>"11124", "sila"=>6, "lovk"=>3, "inta"=>9, "vinos"=>5));
-              $trainers[2]=array(1=>array("login"=>"Клон x2", "id"=>"22536", "sila"=>7, "lovk"=>7, "inta"=>7, "vinos"=>9),
-              2=>array("login"=>"Сильный клон x2", "id"=>"11126", "sila"=>11, "lovk"=>6, "inta"=>6, "vinos"=>10),
-              3=>array("login"=>"Ловкий клон x2", "id"=>"22537", "sila"=>8, "lovk"=>13, "inta"=>3, "vinos"=>8),
-              4=>array("login"=>"Чуткий клон x2", "id"=>"11128", "sila"=>8, "lovk"=>5, "inta"=>12, "vinos"=>6));
-              $trainers[3]=array(1=>array("login"=>"Клон x3", "id"=>"22503", "sila"=>9, "lovk"=>10, "inta"=>10, "vinos"=>10),
-              2=>array("login"=>"Сильный клон x3", "id"=>"11130", "sila"=>18, "lovk"=>6, "inta"=>6, "vinos"=>15),
-              3=>array("login"=>"Ловкий клон x3", "id"=>"11131", "sila"=>11, "lovk"=>20, "inta"=>4, "vinos"=>9),
-              4=>array("login"=>"Чуткий клон x3", "id"=>"11132", "sila"=>10, "lovk"=>5, "inta"=>19, "vinos"=>10));
+              $trainers[1]=array(1=>array("login"=>"РљР»РѕРЅ x1", "id"=>"5080", "sila"=>5, "lovk"=>5, "inta"=>5, "vinos"=>7),
+              2=>array("login"=>"РЎРёР»СЊРЅС‹Р№ РєР»РѕРЅ x1", "id"=>"11122", "sila"=>8, "lovk"=>3, "inta"=>3, "vinos"=>8),
+              3=>array("login"=>"Р›РѕРІРєРёР№ РєР»РѕРЅ x1", "id"=>"11123", "sila"=>3, "lovk"=>10, "inta"=>3, "vinos"=>5),
+              4=>array("login"=>"Р§СѓС‚РєРёР№ РєР»РѕРЅ x1", "id"=>"11124", "sila"=>6, "lovk"=>3, "inta"=>9, "vinos"=>5));
+              $trainers[2]=array(1=>array("login"=>"РљР»РѕРЅ x2", "id"=>"22536", "sila"=>7, "lovk"=>7, "inta"=>7, "vinos"=>9),
+              2=>array("login"=>"РЎРёР»СЊРЅС‹Р№ РєР»РѕРЅ x2", "id"=>"11126", "sila"=>11, "lovk"=>6, "inta"=>6, "vinos"=>10),
+              3=>array("login"=>"Р›РѕРІРєРёР№ РєР»РѕРЅ x2", "id"=>"22537", "sila"=>8, "lovk"=>13, "inta"=>3, "vinos"=>8),
+              4=>array("login"=>"Р§СѓС‚РєРёР№ РєР»РѕРЅ x2", "id"=>"11128", "sila"=>8, "lovk"=>5, "inta"=>12, "vinos"=>6));
+              $trainers[3]=array(1=>array("login"=>"РљР»РѕРЅ x3", "id"=>"22503", "sila"=>9, "lovk"=>10, "inta"=>10, "vinos"=>10),
+              2=>array("login"=>"РЎРёР»СЊРЅС‹Р№ РєР»РѕРЅ x3", "id"=>"11130", "sila"=>18, "lovk"=>6, "inta"=>6, "vinos"=>15),
+              3=>array("login"=>"Р›РѕРІРєРёР№ РєР»РѕРЅ x3", "id"=>"11131", "sila"=>11, "lovk"=>20, "inta"=>4, "vinos"=>9),
+              4=>array("login"=>"Р§СѓС‚РєРёР№ РєР»РѕРЅ x3", "id"=>"11132", "sila"=>10, "lovk"=>5, "inta"=>19, "vinos"=>10));
 
                 if(($_GET['trainstart']==1 || $_POST['trainstart']==1) && $user['hp'] > $user['maxhp']*0.33) {
                     unlink("tmp/zayavka/".$user['id'].".txt");
@@ -983,7 +983,7 @@ if ($_REQUEST['level'] == 'fiz') {
                         $bot=mysql_insert_id();
                       }
                     } else {
-                      mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$user['login']." (клон 1)','".$user['id']."','','".$user['maxhp']."');");
+                      mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$user['login']." (РєР»РѕРЅ 1)','".$user['id']."','','".$user['maxhp']."');");
                       $bot = mysql_insert_id();
                     }
                     if (!$joined) {
@@ -1002,14 +1002,14 @@ if ($_REQUEST['level'] == 'fiz') {
 
                       $id = mysql_insert_id();
 
-                      // апдейтим бота
+                      // Р°РїРґРµР№С‚РёРј Р±РѕС‚Р°
                       mysql_query("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$bot} LIMIT 1;");
 
-                      // создаем лог
-                      $rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($bot)."</b>";
+                      // СЃРѕР·РґР°РµРј Р»РѕРі
+                      $rr = "<b>".nick3($user['id'])."</b> Рё <b>".nick3($bot)."</b>";
 
-                      //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
-                      addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
+                      //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>');");
+                      addlog($id,"Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>");
 
 
                       mysql_query("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']};");
@@ -1018,128 +1018,128 @@ if ($_REQUEST['level'] == 'fiz') {
                     die("<script>location.href='fbattle.php';</script>");
                     ///=======================================================================================
                 }
-                addchp ('<font color=red>Внимание!</font> Вам предлагается начать тренировочный бой.   ','{[]}'.$user['login'].'{[]}');
+                addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°Рј РїСЂРµРґР»Р°РіР°РµС‚СЃСЏ РЅР°С‡Р°С‚СЊ С‚СЂРµРЅРёСЂРѕРІРѕС‡РЅС‹Р№ Р±РѕР№.   ','{[]}'.$user['login'].'{[]}');
                 if ($user["level"]==1 || $user["level"]==2 || $user["level"]==3) {
                   echo "
                   <input type=\"hidden\" name=\"trainstart\" value=\"0\">
-                  <br>Так же вы можете провести бой с тренером. Если ещё кто-то вашего уровня сейчас дерётся с тренером, то вы присоединитесь к его бою.
-                  Для этого выберите соперника и нажмите кнопку \"начать тренировочный бой\":<br>
-                  <table><tr><td><input checked id=\"trainer1\" value=\"1\" type=radio title=\"Самый слабый, мало опыта\" name=opponent value=1>
-                  <label for=\"trainer1\" title=\"Самый слабый, мало опыта\"><b>".$trainers[$user["level"]][1]["login"]."</b> [$user[level]]</label> <a target=\"_blank\" href=\"/inf.php?".$trainers[$user["level"]][1]["id"]."\"><img border=\"0\" src=\"".IMGBASE."/i/inf.gif\"></a>
+                  <br>РўР°Рє Р¶Рµ РІС‹ РјРѕР¶РµС‚Рµ РїСЂРѕРІРµСЃС‚Рё Р±РѕР№ СЃ С‚СЂРµРЅРµСЂРѕРј. Р•СЃР»Рё РµС‰С‘ РєС‚Рѕ-С‚Рѕ РІР°С€РµРіРѕ СѓСЂРѕРІРЅСЏ СЃРµР№С‡Р°СЃ РґРµСЂС‘С‚СЃСЏ СЃ С‚СЂРµРЅРµСЂРѕРј, С‚Рѕ РІС‹ РїСЂРёСЃРѕРµРґРёРЅРёС‚РµСЃСЊ Рє РµРіРѕ Р±РѕСЋ.
+                  Р”Р»СЏ СЌС‚РѕРіРѕ РІС‹Р±РµСЂРёС‚Рµ СЃРѕРїРµСЂРЅРёРєР° Рё РЅР°Р¶РјРёС‚Рµ РєРЅРѕРїРєСѓ \"РЅР°С‡Р°С‚СЊ С‚СЂРµРЅРёСЂРѕРІРѕС‡РЅС‹Р№ Р±РѕР№\":<br>
+                  <table><tr><td><input checked id=\"trainer1\" value=\"1\" type=radio title=\"РЎР°РјС‹Р№ СЃР»Р°Р±С‹Р№, РјР°Р»Рѕ РѕРїС‹С‚Р°\" name=opponent value=1>
+                  <label for=\"trainer1\" title=\"РЎР°РјС‹Р№ СЃР»Р°Р±С‹Р№, РјР°Р»Рѕ РѕРїС‹С‚Р°\"><b>".$trainers[$user["level"]][1]["login"]."</b> [$user[level]]</label> <a target=\"_blank\" href=\"/inf.php?".$trainers[$user["level"]][1]["id"]."\"><img border=\"0\" src=\"".IMGBASE."/i/inf.gif\"></a>
                   &nbsp;&nbsp;&nbsp;&nbsp;
                   <table>
-                  <tr><td>Сила</td><td>".$trainers[$user["level"]][1]["sila"]."</td></tr>
-                  <tr><td>Ловкость</td><td>".$trainers[$user["level"]][1]["lovk"]."</td></tr>
-                  <tr><td>Интуиция</td><td>".$trainers[$user["level"]][1]["inta"]."</td></tr>
-                  <tr><td>Выносливость</td><td>".$trainers[$user["level"]][1]["vinos"]."</td></tr>
-                  <tr><td colspan=2>безоружный</td></tr>
+                  <tr><td>РЎРёР»Р°</td><td>".$trainers[$user["level"]][1]["sila"]."</td></tr>
+                  <tr><td>Р›РѕРІРєРѕСЃС‚СЊ</td><td>".$trainers[$user["level"]][1]["lovk"]."</td></tr>
+                  <tr><td>РРЅС‚СѓРёС†РёСЏ</td><td>".$trainers[$user["level"]][1]["inta"]."</td></tr>
+                  <tr><td>Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ</td><td>".$trainers[$user["level"]][1]["vinos"]."</td></tr>
+                  <tr><td colspan=2>Р±РµР·РѕСЂСѓР¶РЅС‹Р№</td></tr>
                   </table>
                   </td><td>
                   <input id=\"trainer2\" type=radio name=opponent value=2> <label for=\"trainer2\"><b>".$trainers[$user["level"]][2]["login"]."</b> [$user[level]]</label> <a target=\"_blank\" href=\"/inf.php?".$trainers[$user["level"]][2]["id"]."\"><img border=\"0\" src=\"".IMGBASE."/i/inf.gif\"></a>
                   &nbsp;&nbsp;&nbsp;&nbsp;
                   <table>
-                  <tr><td>Сила</td><td>".$trainers[$user["level"]][2]["sila"]."</td></tr>
-                  <tr><td>Ловкость</td><td>".$trainers[$user["level"]][2]["lovk"]."</td></tr>
-                  <tr><td>Интуиция</td><td>".$trainers[$user["level"]][2]["inta"]."</td></tr>
-                  <tr><td>Выносливость</td><td>".$trainers[$user["level"]][2]["vinos"]."</td></tr>
-                  <tr><td colspan=2>оружие: 2 меча</td></tr>
+                  <tr><td>РЎРёР»Р°</td><td>".$trainers[$user["level"]][2]["sila"]."</td></tr>
+                  <tr><td>Р›РѕРІРєРѕСЃС‚СЊ</td><td>".$trainers[$user["level"]][2]["lovk"]."</td></tr>
+                  <tr><td>РРЅС‚СѓРёС†РёСЏ</td><td>".$trainers[$user["level"]][2]["inta"]."</td></tr>
+                  <tr><td>Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ</td><td>".$trainers[$user["level"]][2]["vinos"]."</td></tr>
+                  <tr><td colspan=2>РѕСЂСѓР¶РёРµ: 2 РјРµС‡Р°</td></tr>
                   </table>
                   </td><td>
                   <input id=\"trainer3\" type=radio name=opponent value=3> <label for=\"trainer3\"><b>".$trainers[$user["level"]][3]["login"]."</b> [$user[level]]</label> <a target=\"_blank\" href=\"/inf.php?".$trainers[$user["level"]][3]["id"]."\"><img border=\"0\" src=\"".IMGBASE."/i/inf.gif\"></a>
                   &nbsp;&nbsp;&nbsp;&nbsp;
                   <table>
-                  <tr><td>Сила</td><td>".$trainers[$user["level"]][3]["sila"]."</td></tr>
-                  <tr><td>Ловкость</td><td>".$trainers[$user["level"]][3]["lovk"]."</td></tr>
-                  <tr><td>Интуиция</td><td>".$trainers[$user["level"]][3]["inta"]."</td></tr>
-                  <tr><td>Выносливость</td><td>".$trainers[$user["level"]][3]["vinos"]."</td></tr>
-                  <tr><td colspan=2>оружие: 2 кинжала</td></tr>
+                  <tr><td>РЎРёР»Р°</td><td>".$trainers[$user["level"]][3]["sila"]."</td></tr>
+                  <tr><td>Р›РѕРІРєРѕСЃС‚СЊ</td><td>".$trainers[$user["level"]][3]["lovk"]."</td></tr>
+                  <tr><td>РРЅС‚СѓРёС†РёСЏ</td><td>".$trainers[$user["level"]][3]["inta"]."</td></tr>
+                  <tr><td>Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ</td><td>".$trainers[$user["level"]][3]["vinos"]."</td></tr>
+                  <tr><td colspan=2>РѕСЂСѓР¶РёРµ: 2 РєРёРЅР¶Р°Р»Р°</td></tr>
                   </table>
                   </td><td>
                   <input id=\"trainer4\" type=radio name=opponent value=4> <label for=\"trainer4\"><b>".$trainers[$user["level"]][4]["login"]."</b> [$user[level]]</label> <a target=\"_blank\" href=\"/inf.php?".$trainers[$user["level"]][4]["id"]."\"><img border=\"0\" src=\"".IMGBASE."/i/inf.gif\"></a>
                   <table>
-                  <tr><td>Сила</td><td>".$trainers[$user["level"]][4]["sila"]."</td></tr>
-                  <tr><td>Ловкость</td><td>".$trainers[$user["level"]][4]["lovk"]."</td></tr>
-                  <tr><td>Интуиция</td><td>".$trainers[$user["level"]][4]["inta"]."</td></tr>
-                  <tr><td>Выносливость</td><td>".$trainers[$user["level"]][4]["vinos"]."</td></tr>
-                  <tr><td colspan=2>оружие: 2 меча</td></tr>
+                  <tr><td>РЎРёР»Р°</td><td>".$trainers[$user["level"]][4]["sila"]."</td></tr>
+                  <tr><td>Р›РѕРІРєРѕСЃС‚СЊ</td><td>".$trainers[$user["level"]][4]["lovk"]."</td></tr>
+                  <tr><td>РРЅС‚СѓРёС†РёСЏ</td><td>".$trainers[$user["level"]][4]["inta"]."</td></tr>
+                  <tr><td>Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ</td><td>".$trainers[$user["level"]][4]["vinos"]."</td></tr>
+                  <tr><td colspan=2>РѕСЂСѓР¶РёРµ: 2 РјРµС‡Р°</td></tr>
                   </table>
                   </td></tr></table>
                   <div style=\"padding-left:260px;padding-top:10px\">
-                    <input onclick=\"document.F1.trainstart.value=1\" type=\"submit\" value=\"Начать тренировочный бой\">
+                    <input onclick=\"document.F1.trainstart.value=1\" type=\"submit\" value=\"РќР°С‡Р°С‚СЊ С‚СЂРµРЅРёСЂРѕРІРѕС‡РЅС‹Р№ Р±РѕР№\">
                   </div>
                   ";
                 } else {
-                  echo " или <input type=button onclick=\"location.href='zayavka.php?level=fiz&trainstart=1';\" value=\"Начать тренировочный бой\">";
+                  echo " РёР»Рё <input type=button onclick=\"location.href='zayavka.php?level=fiz&trainstart=1';\" value=\"РќР°С‡Р°С‚СЊ С‚СЂРµРЅРёСЂРѕРІРѕС‡РЅС‹Р№ Р±РѕР№\">";
                 }
 
-            }elseif($user['level'] <= 3) {echo " <small>Через минуту после подачи заявки вы можете начать бой с клоном.</small>";}
+            }elseif($user['level'] <= 3) {echo " <small>Р§РµСЂРµР· РјРёРЅСѓС‚Сѓ РїРѕСЃР»Рµ РїРѕРґР°С‡Рё Р·Р°СЏРІРєРё РІС‹ РјРѕР¶РµС‚Рµ РЅР°С‡Р°С‚СЊ Р±РѕР№ СЃ РєР»РѕРЅРѕРј.</small>";}
             }
         }
     }
     if( $zay->ustatus($user['id'])==2 ) {
         if ($z[$user['zayavka']]['level'] == 2)
-        echo "Ожидаем подтверждения боя. <input type=submit name=back2 value='Отозвать заявку'>";
+        echo "РћР¶РёРґР°РµРј РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ Р±РѕСЏ. <input type=submit name=back2 value='РћС‚РѕР·РІР°С‚СЊ Р·Р°СЏРІРєСѓ'>";
     }
-    echo '</td></tr></table></TD><TD align=right valign=top rowspan=2><INPUT TYPE=submit name=tmp value="Обновить"><BR><FIELDSET style="width:150px;"><LEGEND>Показывать заявки</LEGEND><table cellspacing=0 cellpadding=0 ><tr><td width=1%><input type=radio name=view value="'.$user['level'].'" '.(($_SESSION['view'] != null)?"checked":"").'></td><td>моего уровня</td></tr><tr><td><input type=radio name=view value="" '.(($_SESSION['view'] == null)?"checked":"").'></td><td>все</td></tr></table></FIELDSET>';
-    echo '<tr><td><INPUT TYPE=hidden name=level value=fiz><INPUT TYPE=submit value="Принять вызов" NAME=confirm2><BR>';
+    echo '</td></tr></table></TD><TD align=right valign=top rowspan=2><INPUT TYPE=submit name=tmp value="РћР±РЅРѕРІРёС‚СЊ"><BR><FIELDSET style="width:150px;"><LEGEND>РџРѕРєР°Р·С‹РІР°С‚СЊ Р·Р°СЏРІРєРё</LEGEND><table cellspacing=0 cellpadding=0 ><tr><td width=1%><input type=radio name=view value="'.$user['level'].'" '.(($_SESSION['view'] != null)?"checked":"").'></td><td>РјРѕРµРіРѕ СѓСЂРѕРІРЅСЏ</td></tr><tr><td><input type=radio name=view value="" '.(($_SESSION['view'] == null)?"checked":"").'></td><td>РІСЃРµ</td></tr></table></FIELDSET>';
+    echo '<tr><td><INPUT TYPE=hidden name=level value=fiz><INPUT TYPE=submit value="РџСЂРёРЅСЏС‚СЊ РІС‹Р·РѕРІ" NAME=confirm2><BR>';
     if ($z = $zay->getlist(2,$_SESSION['view']))
     foreach ($z as $k=>$v) {
         echo $zay->showfiz( $v );
     }
-    echo '<INPUT TYPE=submit value="Принять вызов" NAME=confirm2></TD></TR></TABLE>';
+    echo '<INPUT TYPE=submit value="РџСЂРёРЅСЏС‚СЊ РІС‹Р·РѕРІ" NAME=confirm2></TD></TR></TABLE>';
 }
 
 if ($_REQUEST['level'] == 'group') {
     if($user['level']<2) {
-        echo "<BR><BR><BR><CENTER><B>Групповые бои доступны с 2 уровня.</b></CENTER>";
+        echo "<BR><BR><BR><CENTER><B>Р“СЂСѓРїРїРѕРІС‹Рµ Р±РѕРё РґРѕСЃС‚СѓРїРЅС‹ СЃ 2 СѓСЂРѕРІРЅСЏ.</b></CENTER>";
         die();
     }
 
     if($_POST['open1'] && !$user['zayavka']) {
         echo '<TABLE><TR><TD>
-            <H3>Подать заявку на групповой бой</H3>
-            Начало боя через <SELECT NAME=startime>
-            <option value=300>5 минут
-            <option value=600>10 минут
-            <option value=900 selected>15 минут
-            <option value=1800>30 минут
-            <option value=2700>45 минут
-            <option value=3600>1 час
+            <H3>РџРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ РЅР° РіСЂСѓРїРїРѕРІРѕР№ Р±РѕР№</H3>
+            РќР°С‡Р°Р»Рѕ Р±РѕСЏ С‡РµСЂРµР· <SELECT NAME=startime>
+            <option value=300>5 РјРёРЅСѓС‚
+            <option value=600>10 РјРёРЅСѓС‚
+            <option value=900 selected>15 РјРёРЅСѓС‚
+            <option value=1800>30 РјРёРЅСѓС‚
+            <option value=2700>45 РјРёРЅСѓС‚
+            <option value=3600>1 С‡Р°СЃ
             </SELECT>
-            &nbsp;&nbsp;&nbsp;&nbsp;Таймаут <SELECT NAME=timeout><OPTION value=1>1 мин.<OPTION value=3>3 мин.<OPTION value=4>4 мин.<OPTION value=5 selected>5 мин.<OPTION value=7>7 мин.<OPTION value=10>10 мин.</SELECT>
+            &nbsp;&nbsp;&nbsp;&nbsp;РўР°Р№РјР°СѓС‚ <SELECT NAME=timeout><OPTION value=1>1 РјРёРЅ.<OPTION value=3>3 РјРёРЅ.<OPTION value=4>4 РјРёРЅ.<OPTION value=5 selected>5 РјРёРЅ.<OPTION value=7>7 РјРёРЅ.<OPTION value=10>10 РјРёРЅ.</SELECT>
             <BR><BR>
-            Ваша команда <INPUT TYPE=text NAME=nlogin1 size=3 maxlength=2> бойцов<BR>
-            Уровни союзников &nbsp;&nbsp;<SELECT NAME=levellogin1>
-            <option value=0>любой
-            <option value=1>только моего и ниже
-            <option value=2>только ниже моего уровня
-            <option value=3>только моего уровня
-            <option value=4>не старше меня более чем на уровень
-            <option value=5>не младше меня более чем на уровень
-            <option value=6>мой уровень +/- 1
-            <option value=99>мой клан
+            Р’Р°С€Р° РєРѕРјР°РЅРґР° <INPUT TYPE=text NAME=nlogin1 size=3 maxlength=2> Р±РѕР№С†РѕРІ<BR>
+            РЈСЂРѕРІРЅРё СЃРѕСЋР·РЅРёРєРѕРІ &nbsp;&nbsp;<SELECT NAME=levellogin1>
+            <option value=0>Р»СЋР±РѕР№
+            <option value=1>С‚РѕР»СЊРєРѕ РјРѕРµРіРѕ Рё РЅРёР¶Рµ
+            <option value=2>С‚РѕР»СЊРєРѕ РЅРёР¶Рµ РјРѕРµРіРѕ СѓСЂРѕРІРЅСЏ
+            <option value=3>С‚РѕР»СЊРєРѕ РјРѕРµРіРѕ СѓСЂРѕРІРЅСЏ
+            <option value=4>РЅРµ СЃС‚Р°СЂС€Рµ РјРµРЅСЏ Р±РѕР»РµРµ С‡РµРј РЅР° СѓСЂРѕРІРµРЅСЊ
+            <option value=5>РЅРµ РјР»Р°РґС€Рµ РјРµРЅСЏ Р±РѕР»РµРµ С‡РµРј РЅР° СѓСЂРѕРІРµРЅСЊ
+            <option value=6>РјРѕР№ СѓСЂРѕРІРµРЅСЊ +/- 1
+            <option value=99>РјРѕР№ РєР»Р°РЅ
             </SELECT><BR><BR>
-            Противники &nbsp;&nbsp;<INPUT TYPE=text NAME=nlogin2 size=3 maxlength=2> бойцов<BR>
-            Уровни противников <SELECT NAME=levellogin2>
-            <option value=0>любой
-            <option value=1>только моего и ниже
-            <option value=2>только ниже моего уровня
-            <option value=3>только моего уровня
-            <option value=4>не старше меня более чем на уровень
-            <option value=5>не младше меня более чем на уровень
-            <option value=6>мой уровень +/- 1
-            <option value=99>только клан
+            РџСЂРѕС‚РёРІРЅРёРєРё &nbsp;&nbsp;<INPUT TYPE=text NAME=nlogin2 size=3 maxlength=2> Р±РѕР№С†РѕРІ<BR>
+            РЈСЂРѕРІРЅРё РїСЂРѕС‚РёРІРЅРёРєРѕРІ <SELECT NAME=levellogin2>
+            <option value=0>Р»СЋР±РѕР№
+            <option value=1>С‚РѕР»СЊРєРѕ РјРѕРµРіРѕ Рё РЅРёР¶Рµ
+            <option value=2>С‚РѕР»СЊРєРѕ РЅРёР¶Рµ РјРѕРµРіРѕ СѓСЂРѕРІРЅСЏ
+            <option value=3>С‚РѕР»СЊРєРѕ РјРѕРµРіРѕ СѓСЂРѕРІРЅСЏ
+            <option value=4>РЅРµ СЃС‚Р°СЂС€Рµ РјРµРЅСЏ Р±РѕР»РµРµ С‡РµРј РЅР° СѓСЂРѕРІРµРЅСЊ
+            <option value=5>РЅРµ РјР»Р°РґС€Рµ РјРµРЅСЏ Р±РѕР»РµРµ С‡РµРј РЅР° СѓСЂРѕРІРµРЅСЊ
+            <option value=6>РјРѕР№ СѓСЂРѕРІРµРЅСЊ +/- 1
+            <option value=99>С‚РѕР»СЊРєРѕ РєР»Р°РЅ
             </SELECT><BR>
-            <INPUT TYPE=checkbox NAME=k> Кулачный бой<BR>
-            <INPUT TYPE=checkbox NAME=travma> Бой без правил (<font class=dsc>проигравшая сторона получает инвалидность</font>)<BR>
-            Комментарий к бою <INPUT TYPE=text NAME=cmt maxlength=40 size=40>
+            <INPUT TYPE=checkbox NAME=k> РљСѓР»Р°С‡РЅС‹Р№ Р±РѕР№<BR>
+            <INPUT TYPE=checkbox NAME=travma> Р‘РѕР№ Р±РµР· РїСЂР°РІРёР» (<font class=dsc>РїСЂРѕРёРіСЂР°РІС€Р°СЏ СЃС‚РѕСЂРѕРЅР° РїРѕР»СѓС‡Р°РµС‚ РёРЅРІР°Р»РёРґРЅРѕСЃС‚СЊ</font>)<BR>
+            РљРѕРјРјРµРЅС‚Р°СЂРёР№ Рє Р±РѕСЋ <INPUT TYPE=text NAME=cmt maxlength=40 size=40>
             </TD></TR>
             <TR><TD align=center>
-            <INPUT TYPE=submit value="Начнем месилово! :)" name=open>
+            <INPUT TYPE=submit value="РќР°С‡РЅРµРј РјРµСЃРёР»РѕРІРѕ! :)" name=open>
             </TD></TR>
             </TABLE>
             </TD><TD align=right valign=top>
-            <INPUT TYPE=submit value="Вернуться">
+            <INPUT TYPE=submit value="Р’РµСЂРЅСѓС‚СЊСЃСЏ">
             </TD></TR></TABLE><INPUT TYPE=hidden name=level value=group>';
             die();
     }
@@ -1147,14 +1147,14 @@ if ($_REQUEST['level'] == 'group') {
     if($_POST['goconfirm'] && !$user['zayavka']) {
         echo '<TABLE width=100%><TR><TD>';
         $z =  $zay->getlist(4,null,$_POST['gocombat']);
-        echo "<B>Ожидаем начала группового боя...</B><BR>Бой начнется через: ".round(($z[$_POST['gocombat']]['start']-time())/60,1)." мин.";
-        echo '</TD><TD align=right><INPUT TYPE=submit value="Вернуться"></TD></TR></TABLE><H3>На чьей стороне будете сражаться?</H3>
-                <TABLE align=center cellspacing=4 cellpadding=1><TR><TD bgcolor=99CCCC><B>Группа 1:</B><BR>
-                Максимальное кол-во: '.$z[$_POST['gocombat']]['t1c'].'<BR>
-                Ограничения по уровню: '.($z[$_POST['gocombat']]['t1min']==99?'клан':$z[$_POST['gocombat']]['t1min']." - ".$z[$_POST['gocombat']]['t1max']).'
-                </TD><TD bgcolor=99CCCC><B>Группа 2:</B><BR>
-                Максимальное кол-во: '.$z[$_POST['gocombat']]['t2c'].'<BR>
-                Ограничения по уровню: '.($z[$_POST['gocombat']]['t2min']==99?'клан':$z[$_POST['gocombat']]['t2min']." - ".$z[$_POST['gocombat']]['t2max']).'
+        echo "<B>РћР¶РёРґР°РµРј РЅР°С‡Р°Р»Р° РіСЂСѓРїРїРѕРІРѕРіРѕ Р±РѕСЏ...</B><BR>Р‘РѕР№ РЅР°С‡РЅРµС‚СЃСЏ С‡РµСЂРµР·: ".round(($z[$_POST['gocombat']]['start']-time())/60,1)." РјРёРЅ.";
+        echo '</TD><TD align=right><INPUT TYPE=submit value="Р’РµСЂРЅСѓС‚СЊСЃСЏ"></TD></TR></TABLE><H3>РќР° С‡СЊРµР№ СЃС‚РѕСЂРѕРЅРµ Р±СѓРґРµС‚Рµ СЃСЂР°Р¶Р°С‚СЊСЃСЏ?</H3>
+                <TABLE align=center cellspacing=4 cellpadding=1><TR><TD bgcolor=99CCCC><B>Р“СЂСѓРїРїР° 1:</B><BR>
+                РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»-РІРѕ: '.$z[$_POST['gocombat']]['t1c'].'<BR>
+                РћРіСЂР°РЅРёС‡РµРЅРёСЏ РїРѕ СѓСЂРѕРІРЅСЋ: '.($z[$_POST['gocombat']]['t1min']==99?'РєР»Р°РЅ':$z[$_POST['gocombat']]['t1min']." - ".$z[$_POST['gocombat']]['t1max']).'
+                </TD><TD bgcolor=99CCCC><B>Р“СЂСѓРїРїР° 2:</B><BR>
+                РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»-РІРѕ: '.$z[$_POST['gocombat']]['t2c'].'<BR>
+                РћРіСЂР°РЅРёС‡РµРЅРёСЏ РїРѕ СѓСЂРѕРІРЅСЋ: '.($z[$_POST['gocombat']]['t2min']==99?'РєР»Р°РЅ':$z[$_POST['gocombat']]['t2min']." - ".$z[$_POST['gocombat']]['t2max']).'
                 </TD></TR><TR>
                 <TD align=center>';
         foreach( $z[$_POST['gocombat']]['team1'] as $k=>$v ) {
@@ -1166,7 +1166,7 @@ if ($_REQUEST['level'] == 'group') {
                     if ($k!=0) $rr.="<BR>";
                     echo nick3($v);
         }
-        echo '</TD></TR><TR><TD align=center><INPUT TYPE=submit name=confirm1 value="Я за этих!"></TD><TD align=center><INPUT TYPE=submit name=confirm2 value="Я за этих!"></TD></TR></TABLE>
+        echo '</TD></TR><TR><TD align=center><INPUT TYPE=submit name=confirm1 value="РЇ Р·Р° СЌС‚РёС…!"></TD><TD align=center><INPUT TYPE=submit name=confirm2 value="РЇ Р·Р° СЌС‚РёС…!"></TD></TR></TABLE>
                 <INPUT TYPE=hidden name=gocombat value="'.$_POST['gocombat'].'"><INPUT TYPE=hidden name=level value=group>';
         die();
     }
@@ -1179,7 +1179,7 @@ if ($_REQUEST['level'] == 'group') {
         echo $zay->addteam (2,$user['id'], $_REQUEST['gocombat'], 4);
     }
     /////////////////////////////////
-    /////// Подача груп заявки ///////
+    /////// РџРѕРґР°С‡Р° РіСЂСѓРї Р·Р°СЏРІРєРё ///////
     /////////////////////////////////
     if($_POST['open'] && !$user['zayavka']) {
         //print_r($_REQUEST);
@@ -1264,7 +1264,7 @@ if ($_REQUEST['level'] == 'group') {
             $blood = 0;
         }
         if ($_POST['nlogin1'] == 1 && $_POST['nlogin2'] == 1) {
-        echo "Не надо превращать групповой бой в физический поединок";
+        echo "РќРµ РЅР°РґРѕ РїСЂРµРІСЂР°С‰Р°С‚СЊ РіСЂСѓРїРїРѕРІРѕР№ Р±РѕР№ РІ С„РёР·РёС‡РµСЃРєРёР№ РїРѕРµРґРёРЅРѕРє";
         }
         else {
         echo $zay->addzayavka ($_POST['startime']/60,$_POST['timeout'], $_POST['nlogin1'], $_POST['nlogin2'], $_POST['k'], $min1, $min2, $max1, $max2, $_POST['cmt'], $user['id'], 4, 0, $blood);
@@ -1274,17 +1274,17 @@ if ($_REQUEST['level'] == 'group') {
     echo "</font></b><INPUT TYPE=hidden name=level value=group>";
     echo '<table cellspacing=0 cellpadding=0><tr><td>';
     if( $zay->ustatus($user['id'])==0 ) {
-        echo '<INPUT TYPE=hidden name=level value=group><INPUT TYPE=submit value="Подать новую заявку" name=open1>';
+        echo '<INPUT TYPE=hidden name=level value=group><INPUT TYPE=submit value="РџРѕРґР°С‚СЊ РЅРѕРІСѓСЋ Р·Р°СЏРІРєСѓ" name=open1>';
     }
     if( $zay->ustatus($user['id'])!=0) {
         $z =  $zay->getlist(4,null,$user['zayavka']);
         if ($z[$user['zayavka']]['level'] == 4) {
-            echo "<B>Ожидаем начала группового боя...</B><BR>Бой начнется через: ".round(($z[$user['zayavka']]['start']-time())/60,1)." мин.";
+            echo "<B>РћР¶РёРґР°РµРј РЅР°С‡Р°Р»Р° РіСЂСѓРїРїРѕРІРѕРіРѕ Р±РѕСЏ...</B><BR>Р‘РѕР№ РЅР°С‡РЅРµС‚СЃСЏ С‡РµСЂРµР·: ".round(($z[$user['zayavka']]['start']-time())/60,1)." РјРёРЅ.";
         }
     }
-    echo '</td></tr></table></TD><TD align=right valign=top rowspan=2><INPUT TYPE=submit name=tmp value="Обновить"><BR><FIELDSET style="width:150px;"><LEGEND>Показывать заявки</LEGEND><table cellspacing=0 cellpadding=0 ><tr><td width=1%><input type=radio name=view value="'.$user['level'].'" '.(($_SESSION['view'] != null)?"checked":"").'></td><td>моего уровня</td></tr><tr><td><input type=radio name=view value="" '.(($_SESSION['view'] == null)?"checked":"").'></td><td>все</td></tr></table></FIELDSET>';
+    echo '</td></tr></table></TD><TD align=right valign=top rowspan=2><INPUT TYPE=submit name=tmp value="РћР±РЅРѕРІРёС‚СЊ"><BR><FIELDSET style="width:150px;"><LEGEND>РџРѕРєР°Р·С‹РІР°С‚СЊ Р·Р°СЏРІРєРё</LEGEND><table cellspacing=0 cellpadding=0 ><tr><td width=1%><input type=radio name=view value="'.$user['level'].'" '.(($_SESSION['view'] != null)?"checked":"").'></td><td>РјРѕРµРіРѕ СѓСЂРѕРІРЅСЏ</td></tr><tr><td><input type=radio name=view value="" '.(($_SESSION['view'] == null)?"checked":"").'></td><td>РІСЃРµ</td></tr></table></FIELDSET>';
     echo '<tr><td width=85%>';
-    echo '<BR><INPUT TYPE=submit value="Принять участие в мясорубке" NAME=goconfirm><BR>';
+    echo '<BR><INPUT TYPE=submit value="РџСЂРёРЅСЏС‚СЊ СѓС‡Р°СЃС‚РёРµ РІ РјСЏСЃРѕСЂСѓР±РєРµ" NAME=goconfirm><BR>';
     if ($z = $zay->getlist(4,$_SESSION['view']))
     foreach ($z as $k=>$v) {
         if ((($z[$k]['start']-time()) < 0) OR (($z[$k]['t1c'] == count($z[$k]['team1'])) && ($z[$k]['t2c'] == count($z[$k]['team2'])))) {
@@ -1292,13 +1292,13 @@ if ($_REQUEST['level'] == 'group') {
         }
         echo $zay->showgroup( $v );
     }
-    echo '<INPUT TYPE=submit value="Принять участие в мясорубке" NAME=goconfirm></td></tr></table>';
+    echo '<INPUT TYPE=submit value="РџСЂРёРЅСЏС‚СЊ СѓС‡Р°СЃС‚РёРµ РІ РјСЏСЃРѕСЂСѓР±РєРµ" NAME=goconfirm></td></tr></table>';
 }
 
 
 if ($_REQUEST['level'] == 'haos') {
     if($user['level']<2 && !APR1) {
-        echo "<BR><BR><BR><CENTER><B>Хаотичные бои доступны с 2 уровня.</b></CENTER>";
+        echo "<BR><BR><BR><CENTER><B>РҐР°РѕС‚РёС‡РЅС‹Рµ Р±РѕРё РґРѕСЃС‚СѓРїРЅС‹ СЃ 2 СѓСЂРѕРІРЅСЏ.</b></CENTER>";
         die();
     }
     echo "<font color=red><b>";
@@ -1360,27 +1360,27 @@ if ($_REQUEST['level'] == 'haos') {
 
     echo '<table cellspacing=0 cellpadding=0><tr><td>';
     if( $zay->ustatus($user['id'])==0 ) {
-        echo 'Хаотичный бой - разновидность группового, где группы формируются автоматически. Бой не начнется, если собралось меньше 4-х человек. <DIV id="dv2" style="display:"><A href="#" onclick="clearTimeout(timerID); dv1.style.display=\'\'; dv2.style.display=\'none\'; return false">Подать заявку на хаотичный бой</A></DIV><DIV id="dv1" style="display: none"><FIELDSET><LEGEND><B>Подать заявку на хаотичный бой</B> </LEGEND>Начало боя через <SELECT NAME=startime2><option value=300>5 минут<option value=600>10 минут<option value=900 selected>15 минут<option value=1800>30 минут<option value=2700>45 минут<option value=3600>1 час</SELECT>&nbsp;&nbsp;&nbsp;&nbsp;Таймаут <SELECT NAME=timeout><OPTION value=1>1 мин.<OPTION value=3 SELECTED>3 мин.<OPTION value=5>5 мин.<OPTION value=10>10 мин.</SELECT><BR>Уровни бойцов &nbsp;&nbsp;<SELECT NAME=levellogin1>
-        <option value=0>любой</option>
-        <option value=1>только моего и ниже</option>
-        <!--<option value=2>только ниже моего уровня-->
-        <option value=3>только моего уровня</option>
-        <option value=4>не старше меня более чем на уровень</option>
-        <option value=5>не младше меня более чем на уровень</option>
-        <option value=6 selected>мой уровень +/- 1</option>
-        <option value=7>Общий хаотичный бой (любой уровень)</option>
-        </SELECT><BR><BR>Тип боя <SELECT NAME=k><OPTION value=3>с оружием<OPTION value=5>кулачный</SELECT><BR><INPUT TYPE=checkbox NAME=travma> Бой без правил (<font class=dsc>проигравшая сторона получает инвалидность</font>)<BR>
-        <INPUT TYPE=checkbox NAME=closed value=1> Закрытый бой (<font class=dsc>в этот бой нельзя вмешаться магией нападения</font>)<BR>
+        echo 'РҐР°РѕС‚РёС‡РЅС‹Р№ Р±РѕР№ - СЂР°Р·РЅРѕРІРёРґРЅРѕСЃС‚СЊ РіСЂСѓРїРїРѕРІРѕРіРѕ, РіРґРµ РіСЂСѓРїРїС‹ С„РѕСЂРјРёСЂСѓСЋС‚СЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё. Р‘РѕР№ РЅРµ РЅР°С‡РЅРµС‚СЃСЏ, РµСЃР»Рё СЃРѕР±СЂР°Р»РѕСЃСЊ РјРµРЅСЊС€Рµ 4-С… С‡РµР»РѕРІРµРє. <DIV id="dv2" style="display:"><A href="#" onclick="clearTimeout(timerID); dv1.style.display=\'\'; dv2.style.display=\'none\'; return false">РџРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ РЅР° С…Р°РѕС‚РёС‡РЅС‹Р№ Р±РѕР№</A></DIV><DIV id="dv1" style="display: none"><FIELDSET><LEGEND><B>РџРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ РЅР° С…Р°РѕС‚РёС‡РЅС‹Р№ Р±РѕР№</B> </LEGEND>РќР°С‡Р°Р»Рѕ Р±РѕСЏ С‡РµСЂРµР· <SELECT NAME=startime2><option value=300>5 РјРёРЅСѓС‚<option value=600>10 РјРёРЅСѓС‚<option value=900 selected>15 РјРёРЅСѓС‚<option value=1800>30 РјРёРЅСѓС‚<option value=2700>45 РјРёРЅСѓС‚<option value=3600>1 С‡Р°СЃ</SELECT>&nbsp;&nbsp;&nbsp;&nbsp;РўР°Р№РјР°СѓС‚ <SELECT NAME=timeout><OPTION value=1>1 РјРёРЅ.<OPTION value=3 SELECTED>3 РјРёРЅ.<OPTION value=5>5 РјРёРЅ.<OPTION value=10>10 РјРёРЅ.</SELECT><BR>РЈСЂРѕРІРЅРё Р±РѕР№С†РѕРІ &nbsp;&nbsp;<SELECT NAME=levellogin1>
+        <option value=0>Р»СЋР±РѕР№</option>
+        <option value=1>С‚РѕР»СЊРєРѕ РјРѕРµРіРѕ Рё РЅРёР¶Рµ</option>
+        <!--<option value=2>С‚РѕР»СЊРєРѕ РЅРёР¶Рµ РјРѕРµРіРѕ СѓСЂРѕРІРЅСЏ-->
+        <option value=3>С‚РѕР»СЊРєРѕ РјРѕРµРіРѕ СѓСЂРѕРІРЅСЏ</option>
+        <option value=4>РЅРµ СЃС‚Р°СЂС€Рµ РјРµРЅСЏ Р±РѕР»РµРµ С‡РµРј РЅР° СѓСЂРѕРІРµРЅСЊ</option>
+        <option value=5>РЅРµ РјР»Р°РґС€Рµ РјРµРЅСЏ Р±РѕР»РµРµ С‡РµРј РЅР° СѓСЂРѕРІРµРЅСЊ</option>
+        <option value=6 selected>РјРѕР№ СѓСЂРѕРІРµРЅСЊ +/- 1</option>
+        <option value=7>РћР±С‰РёР№ С…Р°РѕС‚РёС‡РЅС‹Р№ Р±РѕР№ (Р»СЋР±РѕР№ СѓСЂРѕРІРµРЅСЊ)</option>
+        </SELECT><BR><BR>РўРёРї Р±РѕСЏ <SELECT NAME=k><OPTION value=3>СЃ РѕСЂСѓР¶РёРµРј<OPTION value=5>РєСѓР»Р°С‡РЅС‹Р№</SELECT><BR><INPUT TYPE=checkbox NAME=travma> Р‘РѕР№ Р±РµР· РїСЂР°РІРёР» (<font class=dsc>РїСЂРѕРёРіСЂР°РІС€Р°СЏ СЃС‚РѕСЂРѕРЅР° РїРѕР»СѓС‡Р°РµС‚ РёРЅРІР°Р»РёРґРЅРѕСЃС‚СЊ</font>)<BR>
+        <INPUT TYPE=checkbox NAME=closed value=1> Р—Р°РєСЂС‹С‚С‹Р№ Р±РѕР№ (<font class=dsc>РІ СЌС‚РѕС‚ Р±РѕР№ РЅРµР»СЊР·СЏ РІРјРµС€Р°С‚СЊСЃСЏ РјР°РіРёРµР№ РЅР°РїР°РґРµРЅРёСЏ</font>)<BR>
 
-        <INPUT TYPE=submit name=open value="Подать заявку">&nbsp;<BR>Комментарий к бою <INPUT TYPE=text NAME=cmt maxlength=40 size=40></FIELDSET><BR></DIV>';
+        <INPUT TYPE=submit name=open value="РџРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ">&nbsp;<BR>РљРѕРјРјРµРЅС‚Р°СЂРёР№ Рє Р±РѕСЋ <INPUT TYPE=text NAME=cmt maxlength=40 size=40></FIELDSET><BR></DIV>';
     }
     if( $zay->ustatus($user['id'])!=0) {
         $z =  $zay->getlist(5,null,$user['zayavka']);
         if ($z[$user['zayavka']]['level'] == 5)
-        echo "<B>Ожидаем начала группового боя...</B><BR>Бой начнется через: ".round(($z[$user['zayavka']]['start']-time())/60,1)." мин.";
+        echo "<B>РћР¶РёРґР°РµРј РЅР°С‡Р°Р»Р° РіСЂСѓРїРїРѕРІРѕРіРѕ Р±РѕСЏ...</B><BR>Р‘РѕР№ РЅР°С‡РЅРµС‚СЃСЏ С‡РµСЂРµР·: ".round(($z[$user['zayavka']]['start']-time())/60,1)." РјРёРЅ.";
     }
-    echo '</td></tr></table></TD><TD align=right valign=top rowspan=2><INPUT TYPE=submit name=tmp value="Обновить"><BR><FIELDSET style="width:150px;"><LEGEND>Показывать заявки</LEGEND><table cellspacing=0 cellpadding=0 ><tr><td width=1%><input type=radio name=view value="'.$user['level'].'" '.(($_SESSION['view'] != null)?"checked":"").'></td><td>моего уровня</td></tr><tr><td><input type=radio name=view value="" '.(($_SESSION['view'] == null)?"checked":"").'></td><td>все</td></tr></table></FIELDSET>';
-    echo '<tr><td width=85%><INPUT TYPE=hidden name=level value=haos><INPUT TYPE=submit value="Принять участие в мясорубке" NAME=confirm2><BR>';
+    echo '</td></tr></table></TD><TD align=right valign=top rowspan=2><INPUT TYPE=submit name=tmp value="РћР±РЅРѕРІРёС‚СЊ"><BR><FIELDSET style="width:150px;"><LEGEND>РџРѕРєР°Р·С‹РІР°С‚СЊ Р·Р°СЏРІРєРё</LEGEND><table cellspacing=0 cellpadding=0 ><tr><td width=1%><input type=radio name=view value="'.$user['level'].'" '.(($_SESSION['view'] != null)?"checked":"").'></td><td>РјРѕРµРіРѕ СѓСЂРѕРІРЅСЏ</td></tr><tr><td><input type=radio name=view value="" '.(($_SESSION['view'] == null)?"checked":"").'></td><td>РІСЃРµ</td></tr></table></FIELDSET>';
+    echo '<tr><td width=85%><INPUT TYPE=hidden name=level value=haos><INPUT TYPE=submit value="РџСЂРёРЅСЏС‚СЊ СѓС‡Р°СЃС‚РёРµ РІ РјСЏСЃРѕСЂСѓР±РєРµ" NAME=confirm2><BR>';
     if ($z = $zay->getlist(5,$_SESSION['view']))
     foreach ($z as $k=>$v) {
         if (($z[$k]['start']-time()) < 0) {
@@ -1388,7 +1388,7 @@ if ($_REQUEST['level'] == 'haos') {
         }
         echo $zay->showhaos( $v );
     }
-    echo '<INPUT TYPE=submit value="Принять участие в мясорубке" NAME=confirm2></TD></TR></TABLE>';
+    echo '<INPUT TYPE=submit value="РџСЂРёРЅСЏС‚СЊ СѓС‡Р°СЃС‚РёРµ РІ РјСЏСЃРѕСЂСѓР±РєРµ" NAME=confirm2></TD></TR></TABLE>';
     //print_r($_POST);
 }
 // teku4ki
@@ -1407,14 +1407,14 @@ $t1=floor(time()-900);
             nick2($v);
         }
 
-        echo " <font color=red><b>против</b></font> ";
+        echo " <font color=red><b>РїСЂРѕС‚РёРІ</b></font> ";
         $z = split(";",$row['t2']);
         foreach($z as $k=>$v) {
             if ($k > 0) {  echo ","; }
             nick2($v);
         }
 
-        echo "<img src='".IMGBASE."/i/fighttype{$row['type']}.gif'> <a href='logs.php?log={$row['id']}' target=_blank>»»</a><BR>";
+        echo "<img src='".IMGBASE."/i/fighttype{$row['type']}.gif'> <a href='logs.php?log={$row['id']}' target=_blank>В»В»</a><BR>";
     }
 }
 // zavershonki
@@ -1422,12 +1422,12 @@ if ($_REQUEST['logs'] != null) {
     echo '<TABLE width=100% cellspacing=0 cellpadding=0><TR>
             <TD valign=top>&nbsp;<A HREF="zayavka.php?logs='.
             date("d.m.y",mktime(0, 0, 0, substr($_REQUEST['logs'],3,2), substr($_REQUEST['logs'],0,2)-1, "20".substr($_REQUEST['logs'],6,2)))
-            .'&filter='.(($_REQUEST['filter'])?$_REQUEST['filter']:$user['login']).'">« Предыдущий день</A></TD>
-            <TD valign=top align=center><H3>Записи о завершенных боях за '.(($_REQUEST['logs']!=1)?"{$_REQUEST['logs']}":"".date("d.m.y")).'</H3></TD>
+            .'&filter='.(($_REQUEST['filter'])?$_REQUEST['filter']:$user['login']).'">В« РџСЂРµРґС‹РґСѓС‰РёР№ РґРµРЅСЊ</A></TD>
+            <TD valign=top align=center><H3>Р—Р°РїРёСЃРё Рѕ Р·Р°РІРµСЂС€РµРЅРЅС‹С… Р±РѕСЏС… Р·Р° '.(($_REQUEST['logs']!=1)?"{$_REQUEST['logs']}":"".date("d.m.y")).'</H3></TD>
             <TD  valign=top align=right><A HREF="zayavka.php?logs='.
             date("d.m.y",mktime(0, 0, 0, substr($_REQUEST['logs'],3,2), substr($_REQUEST['logs'],0,2)+1, "20".substr($_REQUEST['logs'],6,2)))
-            .'&filter='.(($_REQUEST['filter'])?$_REQUEST['filter']:$user['login']).'">Следующий день »</A>&nbsp;</TD>
-            </TR><TR><TD colspan=3 align=center>Показать только бои персонажа: <INPUT TYPE=text NAME=filter value="'.(($_REQUEST['filter'])?$_REQUEST['filter']:$user['login']).'"> за <INPUT TYPE=text NAME=logs size=12 value="'.(($_REQUEST['logs']!=1)?"{$_REQUEST['logs']}":"".date("d.m.y")).'"> <INPUT TYPE=submit value="фильтр!"></TD>
+            .'&filter='.(($_REQUEST['filter'])?$_REQUEST['filter']:$user['login']).'">РЎР»РµРґСѓСЋС‰РёР№ РґРµРЅСЊ В»</A>&nbsp;</TD>
+            </TR><TR><TD colspan=3 align=center>РџРѕРєР°Р·Р°С‚СЊ С‚РѕР»СЊРєРѕ Р±РѕРё РїРµСЂСЃРѕРЅР°Р¶Р°: <INPUT TYPE=text NAME=filter value="'.(($_REQUEST['filter'])?$_REQUEST['filter']:$user['login']).'"> Р·Р° <INPUT TYPE=text NAME=logs size=12 value="'.(($_REQUEST['logs']!=1)?"{$_REQUEST['logs']}":"".date("d.m.y")).'"> <INPUT TYPE=submit value="С„РёР»СЊС‚СЂ!"></TD>
             </TR></TABLE>';
 
     $u = mysql_fetch_array(mysql_query("SELECT `id` FROM `users` WHERE `login` = '".(($_REQUEST['filter'])?"{$_REQUEST['filter']}":"{$user['login']}")."' LIMIT 1;"));
@@ -1446,7 +1446,7 @@ if ($_REQUEST['logs'] != null) {
         }*/
         echo $row['t1hist'];
         if ($row['win'] == 1) { echo '<img src='.IMGBASE.'/i/flag.gif>'; }
-        echo " против ";
+        echo " РїСЂРѕС‚РёРІ ";
         //$z = split(";",$row['t2']);
         /*foreach($z as $k=>$v) {
             if ($k > 0) {  echo ","; }
@@ -1455,28 +1455,28 @@ if ($_REQUEST['logs'] != null) {
         echo $row['t2hist'];
         if ($row['win'] == 2) { echo '<img src='.IMGBASE.'/i/flag.gif>'; }
         if ($row['type'] == 10) {
-                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\"> ";
+                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"РљСЂРѕРІР°РІС‹Р№ РїРѕРµРґРёРЅРѕРє\"> ";
             }
             elseif ($row['blood'] && ($row['type'] == 5 OR $row['type'] == 4)) {
-                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype5.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный бой\"><IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\"> ";
+                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype5.gif\" WIDTH=20 HEIGHT=20 ALT=\"РєСѓР»Р°С‡РЅС‹Р№ Р±РѕР№\"><IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"РљСЂРѕРІР°РІС‹Р№ РїРѕРµРґРёРЅРѕРє\"> ";
             }
             elseif ($row['blood'] && ($row['type'] == 2 OR $row['type'] == 3 OR $row['type'] == 6)) {
-                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\"> ";
+                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"РљСЂРѕРІР°РІС‹Р№ РїРѕРµРґРёРЅРѕРє\"> ";
             }
             elseif ($row['type'] == 5 OR $row['type'] == 4) {
-                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный бой\"> ";
+                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"РєСѓР»Р°С‡РЅС‹Р№ Р±РѕР№\"> ";
             }
             elseif ($row['type'] == 3 OR $row['type'] == 2) {
-                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype3.gif\" WIDTH=20 HEIGHT=20 ALT=\"групповой бой\"> ";
+                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype3.gif\" WIDTH=20 HEIGHT=20 ALT=\"РіСЂСѓРїРїРѕРІРѕР№ Р±РѕР№\"> ";
             }
             elseif ($row['type'] == 1) {
-                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype1.gif\" WIDTH=20 HEIGHT=20 ALT=\"физический бой\"> ";
+                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype1.gif\" WIDTH=20 HEIGHT=20 ALT=\"С„РёР·РёС‡РµСЃРєРёР№ Р±РѕР№\"> ";
             } echo $rr;
-        echo " <a href='logs.php?log={$row['id']}' target=_blank>»»</a><BR>";
+        echo " <a href='logs.php?log={$row['id']}' target=_blank>В»В»</a><BR>";
         $i++;
     }
     if($i==0) {
-        echo '<CENTER><BR><BR><B>В этот день не было боев, или же, летописец опять потерял свитки...</B><BR><BR><BR></CENTER>';
+        echo '<CENTER><BR><BR><B>Р’ СЌС‚РѕС‚ РґРµРЅСЊ РЅРµ Р±С‹Р»Рѕ Р±РѕРµРІ, РёР»Рё Р¶Рµ, Р»РµС‚РѕРїРёСЃРµС† РѕРїСЏС‚СЊ РїРѕС‚РµСЂСЏР» СЃРІРёС‚РєРё...</B><BR><BR><BR></CENTER>';
     }
     echo '<HR><BR>';
 }

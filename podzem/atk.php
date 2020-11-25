@@ -21,7 +21,7 @@ $jert = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '".
 if($jert['id']!=$user['id']) {
 
 				$bet=1;
-				//арх
+				//Р°СЂС…
 				if($jert['id'] > _BOTSEPARATOR_) {
 					$arha = mysql_fetch_array(mysql_query ('SELECT * FROM `bots` WHERE `prototype` = '.$jert['id'].' LIMIT 1;'));
 					$jert['battle'] = $arha['battle'];
@@ -29,7 +29,7 @@ if($jert['id']!=$user['id']) {
 					$bot=1;
 				}
 				if($jert['battle'] > 0) {
-					//вмешиваемся
+					//РІРјРµС€РёРІР°РµРјСЃСЏ
 					$bd = mysql_fetch_array(mysql_query ('SELECT * FROM `battle` WHERE `id` = '.$jert['battle'].' LIMIT 1;'));
 					$battle = unserialize($bd['teams']);
                     $battle[$user['id']] = $battle[$jert['id']];
@@ -38,18 +38,18 @@ if($jert['id']!=$user['id']) {
                     }
                     $t1 = explode(";",$bd['t1']);
 						
-					// проставляем кто-где
+					// РїСЂРѕСЃС‚Р°РІР»СЏРµРј РєС‚Рѕ-РіРґРµ
 					if (in_array ($jert['id'],$t1)) {
 						$ttt = 1;
 					} else {
 						$ttt = 2;
 					}
 
-//addch ("<b>".nick7($user['id'])."</b> вмешался в <a href=logs.php?log=".$id." target=_blank>поединок »»</a>.  ",$user['room']);
+//addch ("<b>".nick7($user['id'])."</b> РІРјРµС€Р°Р»СЃСЏ РІ <a href=logs.php?log=".$id." target=_blank>РїРѕРµРґРёРЅРѕРє В»В»</a>.  ",$user['room']);
 
 
 
-addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' вмешался в поединок!<BR>');
+addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' РІРјРµС€Р°Р»СЃСЏ РІ РїРѕРµРґРёРЅРѕРє!<BR>');
 
 mysql_query('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t'.$ttt.'`=CONCAT(`t'.$ttt.'`,\';'.$user['id'].'\')  WHERE `id` = '.$jert['battle'].' ;');
 

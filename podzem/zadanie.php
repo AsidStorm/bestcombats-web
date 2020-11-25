@@ -9,18 +9,18 @@
 <form action="" method="post">
 <textarea name="zadanie" cols="50" rows="10"></textarea><br />
 
-для какого лвл<br />
+РґР»СЏ РєР°РєРѕРіРѕ Р»РІР»<br />
 
 <input name="lvl" type="text" /><br />
 
-Награда за выполнение в ед.<br />
+РќР°РіСЂР°РґР° Р·Р° РІС‹РїРѕР»РЅРµРЅРёРµ РІ РµРґ.<br />
 
 <input name="ed" type="text" /><br />
 
-Убить коллич. ботов<br />
+РЈР±РёС‚СЊ РєРѕР»Р»РёС‡. Р±РѕС‚РѕРІ<br />
 
 <input name="ubit" type="text" /><br />
-<input name="ok" type="submit" value="Создать" />
+<input name="ok" type="submit" value="РЎРѕР·РґР°С‚СЊ" />
 </form>
 
 <?

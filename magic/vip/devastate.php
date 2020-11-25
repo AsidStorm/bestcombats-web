@@ -7,19 +7,19 @@ $int=$magic['chanse'] + ($user['intel'] - 0);
 if ($int>98){$int=99;}
 }
 else {$int=0;}
-if ($user['battle'] > 0) {echo "Не в бою...";}
-elseif ($us['battle']) { echo "Персонаж в бою."; }
-elseif ($effect['time']) {echo "На персонаже уже есть заклятие Сокрушение"; }
-elseif ($us['login'] != $user['married'] && $us["login"]!=$user['login']) { echo "Возможно использовать на себя либо супругу/супруга!"; }
-elseif ($user['room'] != $us['room'] && $user["id"]!=7) { echo "Персонаж в другой комнате!"; }
-elseif (!$us['online']) {echo "Персонаж не в игре!";}
+if ($user['battle'] > 0) {echo "РќРµ РІ Р±РѕСЋ...";}
+elseif ($us['battle']) { echo "РџРµСЂСЃРѕРЅР°Р¶ РІ Р±РѕСЋ."; }
+elseif ($effect['time']) {echo "РќР° РїРµСЂСЃРѕРЅР°Р¶Рµ СѓР¶Рµ РµСЃС‚СЊ Р·Р°РєР»СЏС‚РёРµ РЎРѕРєСЂСѓС€РµРЅРёРµ"; }
+elseif ($us['login'] != $user['married'] && $us["login"]!=$user['login']) { echo "Р’РѕР·РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅР° СЃРµР±СЏ Р»РёР±Рѕ СЃСѓРїСЂСѓРіСѓ/СЃСѓРїСЂСѓРіР°!"; }
+elseif ($user['room'] != $us['room'] && $user["id"]!=7) { echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!"; }
+elseif (!$us['online']) {echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РёРіСЂРµ!";}
 elseif (rand(1,100) < $int) {
-addch("<img src=i/magic/spell_powerup10.gif>".($user["invis"]?"Невидимка":"Персонаж &quot;{$user['login']}&quot;")." наложил заклятие \"Сокрушение\" на &quot;".($user["invis"] && $user["login"]==$_POST['target']?"Невидимка":"$_POST[target]")."&quot;, сроком 2 часа.");
-mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`,caster) values ('$us[id]','Сокрушение',".(time()+7200).",202,'$user[id]');");
-echo "<font color=red><b>На персонажа \"{$_POST['target']}\" наложено заклятие \"Сокрушение\" </b></font>";
+addch("<img src=i/magic/spell_powerup10.gif>".($user["invis"]?"РќРµРІРёРґРёРјРєР°":"РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot;")." РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ \"РЎРѕРєСЂСѓС€РµРЅРёРµ\" РЅР° &quot;".($user["invis"] && $user["login"]==$_POST['target']?"РќРµРІРёРґРёРјРєР°":"$_POST[target]")."&quot;, СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");
+mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`,caster) values ('$us[id]','РЎРѕРєСЂСѓС€РµРЅРёРµ',".(time()+7200).",202,'$user[id]');");
+echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° \"{$_POST['target']}\" РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ \"РЎРѕРєСЂСѓС€РµРЅРёРµ\" </b></font>";
 $bet=1;
 } else {
-echo "Свиток рассыпался в ваших руках...";
+echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
 $bet=1;
 }
 ?>

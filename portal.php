@@ -47,11 +47,11 @@
 	<HTML><HEAD>
 <script LANGUAGE='JavaScript'>
 document.ondragstart = test;
-//запрет на перетаскивание
+//Р·Р°РїСЂРµС‚ РЅР° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ
 document.onselectstart = test;
-//запрет на выделение элементов страницы
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂР°РЅРёС†С‹
 document.oncontextmenu = test;
-//запрет на выведение контекстного меню
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РІРµРґРµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 function test() {
  return false
 }
@@ -69,18 +69,18 @@ function test() {
 
 
 <TABLE width=100%>
-<TR><TD valign=top width=100%><left><H4> Портал </H4></left>
+<TR><TD valign=top width=100%><left><H4> РџРѕСЂС‚Р°Р» </H4></left>
 
 
 
 
 <TD nowrap valign=top>
-<BR><DIV align=right><INPUT style="font-size:12px;" type='button' onClick="location='portal.php'" value=Обновить>
+<BR><DIV align=right><INPUT style="font-size:12px;" type='button' onClick="location='portal.php'" value=РћР±РЅРѕРІРёС‚СЊ>
 <?if ($user['incity']=='virtcity'){?>
-<INPUT style="font-size:12px;" type='button' onClick="location='portal.php?cap=1'" value=Вернуться></DIV></TD>
+<INPUT style="font-size:12px;" type='button' onClick="location='portal.php?cap=1'" value=Р’РµСЂРЅСѓС‚СЊСЃСЏ></DIV></TD>
 <?}?>
 <?if ($user['incity']=='dungeon'){?>
-<INPUT style="font-size:12px;" type='button' onClick="location='portal.php?weed=1'" value=Вернуться></DIV></TD>
+<INPUT style="font-size:12px;" type='button' onClick="location='portal.php?weed=1'" value=Р’РµСЂРЅСѓС‚СЊСЃСЏ></DIV></TD>
 <?}?>
 </TR>
 
@@ -88,11 +88,11 @@ function test() {
       
 
 <?if ($user['incity']=='virtcity'){?>
-  <td align="left"><b>Abandoned Plain</b>  <INPUT style="font-size:12px;" type='button' onclick=" window.location='portal.php?get=dungeon'"  value="Войти в портал"></td>
+  <td align="left"><b>Abandoned Plain</b>  <INPUT style="font-size:12px;" type='button' onclick=" window.location='portal.php?get=dungeon'"  value="Р’РѕР№С‚Рё РІ РїРѕСЂС‚Р°Р»"></td>
  <?}?>
  <?if ($user['incity']=='dungeon'){?>
 <tr>
-<td align="left"><b>Capital City (Возврат)</b>   <INPUT style="font-size:12px;" type='button' onclick=" window.location='portal.php?get=virtcity'"  value="Войти в портал"></td>
+<td align="left"><b>Capital City (Р’РѕР·РІСЂР°С‚)</b>   <INPUT style="font-size:12px;" type='button' onclick=" window.location='portal.php?get=virtcity'"  value="Р’РѕР№С‚Рё РІ РїРѕСЂС‚Р°Р»"></td>
 </tr>
 <?}?>
 

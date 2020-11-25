@@ -33,7 +33,7 @@
     <div id=hint4 class=ahint></div>
     <TABLE cellspacing=0 cellpadding=2 width=100%>
 <TD style="width: 40%; vertical-align: top; "><TABLE cellspacing=0 cellpadding=2 style="width: 100%; ">
-<TD align=center><h4>Алхимики</h4></TD>
+<TD align=center><h4>РђР»С…РёРјРёРєРё</h4></TD>
 </TR>
 <TR>
 </head>
@@ -51,20 +51,20 @@
                             echo ' - <i>',$rrm,'</i><BR>';
                         }
                         if ($row['online']<1) {
-                            echo '<font color=gray><img src="i/offline.gif" width=20 height=15 alt="Нет в клубе">';
+                            echo '<font color=gray><img src="i/offline.gif" width=20 height=15 alt="РќРµС‚ РІ РєР»СѓР±Рµ">';
                             nick2($row['id']);
                             if ($row['id'] == $user['deal']) {
                                 echo ' - ',$row['status'],'';
                             }
-                            echo ' - нет в клубе</font><BR>';
+                            echo ' - РЅРµС‚ РІ РєР»СѓР±Рµ</font><BR>';
                         }
                     }
 ?>
-<TR><TD style="text-align: left; "><Font color="#2b7bc5"><b>Продажа ЕвроКредитов и прочих платных услуг.</b></font><BR>
+<TR><TD style="text-align: left; "><Font color="#2b7bc5"><b>РџСЂРѕРґР°Р¶Р° Р•РІСЂРѕРљСЂРµРґРёС‚РѕРІ Рё РїСЂРѕС‡РёС… РїР»Р°С‚РЅС‹С… СѓСЃР»СѓРі.</b></font><BR>
 
-<b>Информация:</b><br><br>
-<img src="i/info.png" width=45 height=45 style="float: left; clear: none;" /><b><font color="#f33104">ВНИМАНИЕ!!! Переводы алхимику действительны ТОЛЬКО на указанные кошельки в информации <img src="i/inf1.gif"> у каждого Алхимика.</font></b><br>
-<small>(Вы можете отправить личное сообщение, даже если Вы и Алхимик находитесь в разных городах)</small><p>
+<b>РРЅС„РѕСЂРјР°С†РёСЏ:</b><br><br>
+<img src="i/info.png" width=45 height=45 style="float: left; clear: none;" /><b><font color="#f33104">Р’РќРРњРђРќРР•!!! РџРµСЂРµРІРѕРґС‹ Р°Р»С…РёРјРёРєСѓ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅС‹ РўРћР›Р¬РљРћ РЅР° СѓРєР°Р·Р°РЅРЅС‹Рµ РєРѕС€РµР»СЊРєРё РІ РёРЅС„РѕСЂРјР°С†РёРё <img src="i/inf1.gif"> Сѓ РєР°Р¶РґРѕРіРѕ РђР»С…РёРјРёРєР°.</font></b><br>
+<small>(Р’С‹ РјРѕР¶РµС‚Рµ РѕС‚РїСЂР°РІРёС‚СЊ Р»РёС‡РЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ, РґР°Р¶Рµ РµСЃР»Рё Р’С‹ Рё РђР»С…РёРјРёРє РЅР°С…РѕРґРёС‚РµСЃСЊ РІ СЂР°Р·РЅС‹С… РіРѕСЂРѕРґР°С…)</small><p>
 
 ------------------------------------------------------------<br>
 
@@ -74,66 +74,66 @@
 #convertor p, #convertor td { font: normal 11px Helvetica, Georgia, Arial; padding: 2px; margin: 0px; }
 #convertor input { border: 1px solid #E9851D; background: #FFFFFF; font: normal 11px Arial, Helvetica, sans-serif; color: #5D781D; width: 65px; }
 </style>
-<div id="convertor"><p><a href="http://finance.blr.cc/converter/" target="_blank">Калькулятор валют ЦБ</a><br /><span id="dateru"></span></p><span id="bodyru"></span></div>
+<div id="convertor"><p><a href="http://finance.blr.cc/converter/" target="_blank">РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ РІР°Р»СЋС‚ Р¦Р‘</a><br /><span id="dateru"></span></p><span id="bodyru"></span></div>
 <script type="text/javascript" src="http://finance.blr.cc/xml/currency_ru.js"></script>
 
 <img src="i/moneta.png" width=45 height=45 style="float: left; clear: none;" />
-7.5 € = 100 екр.<br>
-10 $ = 100 екр.<br>
-300 руб. = 100 екр.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80 UAH = 100 екр.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;85000 BLR = 100 екр.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1000кр. = 1екр.
+7.5 в‚¬ = 100 РµРєСЂ.<br>
+10 $ = 100 РµРєСЂ.<br>
+300 СЂСѓР±. = 100 РµРєСЂ.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80 UAH = 100 РµРєСЂ.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;85000 BLR = 100 РµРєСЂ.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1000РєСЂ. = 1РµРєСЂ.
 
 <br>
 ------------------------------------------------------------<br><br>
-<b>Бонусная система:</b><p>
+<b>Р‘РѕРЅСѓСЃРЅР°СЏ СЃРёСЃС‚РµРјР°:</b><p>
 <img src="i/bonus.png" width=102 height=74 style="float: left; clear: none;" />
-При покупке:<br> 
-более 300 екр. Вы получаете дополнительно - 5%<br> 
-более 1000екр. Вы получаете дополнительно - 10%<br> 
-более 3000екр. Вы получаете дополнительно - 15%<br>
-более 5000екр. Вы получаете дополнительно - 20%<br>
+РџСЂРё РїРѕРєСѓРїРєРµ:<br> 
+Р±РѕР»РµРµ 300 РµРєСЂ. Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ - 5%<br> 
+Р±РѕР»РµРµ 1000РµРєСЂ. Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ - 10%<br> 
+Р±РѕР»РµРµ 3000РµРєСЂ. Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ - 15%<br>
+Р±РѕР»РµРµ 5000РµРєСЂ. Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕ - 20%<br>
 ------------------------------------------------------------<br><br>
-<b>Platinum аккаунт:</b><p>
+<b>Platinum Р°РєРєР°СѓРЅС‚:</b><p>
 <img src="i/vip3.gif" width=60 height=30 style="float: left; clear: none;" /><br> 
-Стоимость:<br> 
-На неделю - 15$ (150 екр)<br> 
-На месяц - 35$ (350 екр)<br> 
-Бессрочно - 100$ (1000 екр)<br> 
+РЎС‚РѕРёРјРѕСЃС‚СЊ:<br> 
+РќР° РЅРµРґРµР»СЋ - 15$ (150 РµРєСЂ)<br> 
+РќР° РјРµСЃСЏС† - 35$ (350 РµРєСЂ)<br> 
+Р‘РµСЃСЃСЂРѕС‡РЅРѕ - 100$ (1000 РµРєСЂ)<br> 
 ------------------------------------------------------------<br><br>
-<b>Gold аккаунт:</b><p>
+<b>Gold Р°РєРєР°СѓРЅС‚:</b><p>
 <img src="i/vip2.gif" width=60 height=30 style="float: left; clear: none;" /><br> 
-Стоимость:<br> 
-На неделю - 10$ (100 екр)<br> 
-На месяц - 25$ (250 екр)<br> 
-Бессрочно - 80$ (800 екр)<br> 
+РЎС‚РѕРёРјРѕСЃС‚СЊ:<br> 
+РќР° РЅРµРґРµР»СЋ - 10$ (100 РµРєСЂ)<br> 
+РќР° РјРµСЃСЏС† - 25$ (250 РµРєСЂ)<br> 
+Р‘РµСЃСЃСЂРѕС‡РЅРѕ - 80$ (800 РµРєСЂ)<br> 
 ------------------------------------------------------------<br><br>
-<b>Silver аккаунт:</b><p>
+<b>Silver Р°РєРєР°СѓРЅС‚:</b><p>
 <img src="i/vip1.gif" width=60 height=30 style="float: left; clear: none;" /><br> 
-Стоимость:<br> 
-На неделю - 5$ (50 екр)<br> 
-На месяц - 15$ (150 екр)<br> 
-Бессрочно - 60$ (600 екр)<br> 
+РЎС‚РѕРёРјРѕСЃС‚СЊ:<br> 
+РќР° РЅРµРґРµР»СЋ - 5$ (50 РµРєСЂ)<br> 
+РќР° РјРµСЃСЏС† - 15$ (150 РµРєСЂ)<br> 
+Р‘РµСЃСЃСЂРѕС‡РЅРѕ - 60$ (600 РµРєСЂ)<br> 
 ------------------------------------------------------------<br><br>
-<b>Смена регистрационных данных:</b><p>
-Стоимость: 100 рублей<br> 
+<b>РЎРјРµРЅР° СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅС‹С… РґР°РЅРЅС‹С…:</b><p>
+РЎС‚РѕРёРјРѕСЃС‚СЊ: 100 СЂСѓР±Р»РµР№<br> 
 ------------------------------------------------------------<br><br>
-<b>Индивидуальный образ:</b><p>
-Стоимость: 300 рублей<br> 
+<b>РРЅРґРёРІРёРґСѓР°Р»СЊРЅС‹Р№ РѕР±СЂР°Р·:</b><p>
+РЎС‚РѕРёРјРѕСЃС‚СЊ: 300 СЂСѓР±Р»РµР№<br> 
 ------------------------------------------------------------<br><br>
-<b>Склонность<img src="i/align_0.99.gif" width=13 height=15 style="float: left; clear: none;" /> <img src="i/align_0.98.gif" width=13 height=15 style="float: left; clear: none;" /> <img src="i/align_7.gif" width=13 height=15 style="float: left; clear: none;" />:</b><p>
-Стоимость: 100 рублей<br> 
-<b>Сменить склонность:</b><p>
-Стоимость: 100 рублей<br> 
-<b>Сменить склонность клану:</b><p>
-Стоимость: 300 рублей<br> 
+<b>РЎРєР»РѕРЅРЅРѕСЃС‚СЊ<img src="i/align_0.99.gif" width=13 height=15 style="float: left; clear: none;" /> <img src="i/align_0.98.gif" width=13 height=15 style="float: left; clear: none;" /> <img src="i/align_7.gif" width=13 height=15 style="float: left; clear: none;" />:</b><p>
+РЎС‚РѕРёРјРѕСЃС‚СЊ: 100 СЂСѓР±Р»РµР№<br> 
+<b>РЎРјРµРЅРёС‚СЊ СЃРєР»РѕРЅРЅРѕСЃС‚СЊ:</b><p>
+РЎС‚РѕРёРјРѕСЃС‚СЊ: 100 СЂСѓР±Р»РµР№<br> 
+<b>РЎРјРµРЅРёС‚СЊ СЃРєР»РѕРЅРЅРѕСЃС‚СЊ РєР»Р°РЅСѓ:</b><p>
+РЎС‚РѕРёРјРѕСЃС‚СЊ: 300 СЂСѓР±Р»РµР№<br> 
 ------------------------------------------------------------<br><br>
 
 
 <TD style="width: 5%; vertical-align: top; ">&nbsp;</TD>
-<TD style="width: 25%; vertical-align: top; text-align: right; "><INPUT type='button' value='Обновить' style='width: 75px' onclick='location="/dealer.php"'>
-&nbsp;<INPUT TYPE=button value="Вернутся" style='width: 75px' onclick="location.href='main.php'"></TD>
+<TD style="width: 25%; vertical-align: top; text-align: right; "><INPUT type='button' value='РћР±РЅРѕРІРёС‚СЊ' style='width: 75px' onclick='location="/dealer.php"'>
+&nbsp;<INPUT TYPE=button value="Р’РµСЂРЅСѓС‚СЃСЏ" style='width: 75px' onclick="location.href='main.php'"></TD>
 </TR>
 </TABLE>
 <br><div align=left>

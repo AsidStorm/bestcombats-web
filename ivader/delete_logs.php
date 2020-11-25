@@ -49,7 +49,7 @@ for ($i=2; $i < count($files_array);$i++){
 	}
 }
   
-// ÀÁÀÄÎÍ
+// ÐÐ‘ÐÐ”ÐžÐ
 
 $dir = '../../dungeon.old-bk.ru/backup/battle_stat/'; 
 $files_array = scandir($dir);
@@ -99,5 +99,5 @@ for ($i=2; $i < count($files_array);$i++){
 	}
 }
 
-//echo "Óäàëåíî ".$j." ôàéëà!";
+//echo "Ð£Ð´Ð°Ð»ÐµÐ½Ð¾ ".$j." Ñ„Ð°Ð¹Ð»Ð°!";
 ?>

@@ -26,11 +26,11 @@
   $ins_time = floor($magic['time']*60);
   global $nodrink;
   if (in_array($user["room"],$nodrink)) {
-    echo "Здесь запрещено пить эликсиры!";
+    echo "Р—РґРµСЃСЊ Р·Р°РїСЂРµС‰РµРЅРѕ РїРёС‚СЊ СЌР»РёРєСЃРёСЂС‹!";
   } elseif ($user['battle'] > 0) {
-      echo "Не в бою...";
+      echo "РќРµ РІ Р±РѕСЋ...";
   } elseif($uses_zel && $row['name']!=$uses_zel['name'] && $eqname) {
-    echo "Еще не прошло действие старого эликсира.";
+    echo "Р•С‰Рµ РЅРµ РїСЂРѕС€Р»Рѕ РґРµР№СЃС‚РІРёРµ СЃС‚Р°СЂРѕРіРѕ СЌР»РёРєСЃРёСЂР°.";
   } else {
     if(!$uses_zel){
       mq("insert into effects set owner='$user[id]', name='$row[name]' , time=".(time()+$ins_time).", type=188 $insmfs");
@@ -40,7 +40,7 @@
       }
       updeffect($user["id"], $uses_zel, $ins_time, $row, 1);
     }
-    echo "Выпит эликсир &quot;".$row['name']."&quot;.";
+    echo "Р’С‹РїРёС‚ СЌР»РёРєСЃРёСЂ &quot;".$row['name']."&quot;.";
     if ($at) mq("delete from effects where owner='$user[id]' and type=".ADDICTIONEFFECT." and mfd$at<0");
     updeffects($user["id"]);
     $bet=1;

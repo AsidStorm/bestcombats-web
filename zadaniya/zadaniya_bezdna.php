@@ -14,11 +14,11 @@
 <?php if ($user['align'] != 2.5) { ?>
 <script LANGUAGE='JavaScript'>
 document.ondragstart = test;
-//запрет на перетаскивание
+//Р·Р°РїСЂРµС‚ РЅР° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ
 document.onselectstart = test;
-//запрет на выделение элементов страницы
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂР°РЅРёС†С‹
 document.oncontextmenu = test;
-//запрет на выведение контекстного меню
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РІРµРґРµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 function test() {
  return false
 }
@@ -40,35 +40,35 @@ if($_GET['getquest']){
       mysql_query('insert into `podzem_zad_login` (owner,ubit,ed,text,bot)values("'.$user['id'].'","'.$ests['ubit'].'","'.$ests['ed'].'","'.$ests["zadanie"].'","'.$ests["bot"].'")');
       $zadantime=time()+86400;
       mysql_query("UPDATE `users` SET `zadantime` = '$zadantime' WHERE `id` = '{$user['id']}'");
-      print"<b style='color:red'>Вы получили задание.</b><br><br>";
+      print"<b style='color:red'>Р’С‹ РїРѕР»СѓС‡РёР»Рё Р·Р°РґР°РЅРёРµ.</b><br><br>";
       makequest(3);
     }
-  } else echo "<b>Сейчас для вас нет заданий. Приходите через ".secs2hrs($questtime)."</b>";
+  } else echo "<b>РЎРµР№С‡Р°СЃ РґР»СЏ РІР°СЃ РЅРµС‚ Р·Р°РґР°РЅРёР№. РџСЂРёС…РѕРґРёС‚Рµ С‡РµСЂРµР· ".secs2hrs($questtime)."</b>";
 }
 if($_GET['del']){
 mysql_query("DELETE FROM `podzem_zad_login` WHERE id='".mysql_real_escape_string($_GET['del'])."' AND owner='".mysql_real_escape_string($user['id'])."'");
-print"<b style='color:red'>Вы удалили свое задание.</b>";
+print"<b style='color:red'>Р’С‹ СѓРґР°Р»РёР»Рё СЃРІРѕРµ Р·Р°РґР°РЅРёРµ.</b>";
 }
-if($_GET['warning']==1){print"<br><b style='color:red'>Вы сдали задание и получили ".mysql_real_escape_string($_GET['ed'])." очков благородства.</b>";}
+if($_GET['warning']==1){print"<br><b style='color:red'>Р’С‹ СЃРґР°Р»Рё Р·Р°РґР°РЅРёРµ Рё РїРѕР»СѓС‡РёР»Рё ".mysql_real_escape_string($_GET['ed'])." РѕС‡РєРѕРІ Р±Р»Р°РіРѕСЂРѕРґСЃС‚РІР°.</b>";}
 $rt=mysql_query("select * from `podzem_zad_login` where owner='".$user['id']."'");
 if(!$est=mysql_fetch_array($rt)){
 ?>
 <FORM action='zadaniya_bezdna.php?zadanie=1' method=GET name=F1>
 <INPUT type=hidden name=ql value=1>
 <INPUT type=hidden name=quest_name value=''>
-&bull; <i>Нет заданий</i><BR>
+&bull; <i>РќРµС‚ Р·Р°РґР°РЅРёР№</i><BR>
  <?
 
-print"<BR><INPUT type=submit name='getquest' value='Получить задание'>";
+print"<BR><INPUT type=submit name='getquest' value='РџРѕР»СѓС‡РёС‚СЊ Р·Р°РґР°РЅРёРµ'>";
 ?></FORM>
 <?
 }else{
 
 ?>
 <form action="" method="post">
-<IMG style='cursor: hand' src='http://img.bestcombats.net/vxod/clear.gif' width=13 height=13 alt='Отказаться от задания' onclick='if (confirm("Вы уверены, что хотите отказаться от этого задания?")) {location="zadaniya_bezdna.php?del=<?=$est['id']?>"}'> <?=$est['text']?> <span onmouseout='hideshow();' onmouseover='fastshow("0.00/1")'><?=$est['ubil']?>/<?=$est['ubit']?></span>.<br>Награда: <?=$est["ed"]?> благородства.
+<IMG style='cursor: hand' src='http://img.bestcombats.net/vxod/clear.gif' width=13 height=13 alt='РћС‚РєР°Р·Р°С‚СЊСЃСЏ РѕС‚ Р·Р°РґР°РЅРёСЏ' onclick='if (confirm("Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ РѕС‚РєР°Р·Р°С‚СЊСЃСЏ РѕС‚ СЌС‚РѕРіРѕ Р·Р°РґР°РЅРёСЏ?")) {location="zadaniya_bezdna.php?del=<?=$est['id']?>"}'> <?=$est['text']?> <span onmouseout='hideshow();' onmouseover='fastshow("0.00/1")'><?=$est['ubil']?>/<?=$est['ubit']?></span>.<br>РќР°РіСЂР°РґР°: <?=$est["ed"]?> Р±Р»Р°РіРѕСЂРѕРґСЃС‚РІР°.
 <?
-if($est['ubil']>=$est['ubit']){print'<input name="ok" type="submit" value="Выполнил">';}
+if($est['ubil']>=$est['ubit']){print'<input name="ok" type="submit" value="Р’С‹РїРѕР»РЅРёР»">';}
 if($_POST['ok'] and $est['ubil']>=$est['ubit']){
 mysql_query("DELETE FROM `podzem_zad_login` WHERE id='".$est['id']."' AND owner='".$user['id']."'");
 mysql_query("UPDATE `users` SET honorpoints=honorpoints+".$est['ed']." WHERE id='".$user['id']."'");
@@ -83,61 +83,61 @@ exit;}
  <?
 if($_GET['buy']=='stats' and $user['ed']>='3000'){
 mysql_query("UPDATE `users` SET `stats`=`stats`+3,`ed`=`ed`-3000 WHERE `id`='".mysql_real_escape_string($_SESSION['uid'])."'");
-print"<b style='color=red'>Вы приобрели +3 стата.</b>";
+print"<b style='color=red'>Р’С‹ РїСЂРёРѕР±СЂРµР»Рё +3 СЃС‚Р°С‚Р°.</b>";
 }
 if($_GET['buy']=='master' and $user['ed']>='5000'){
 mysql_query("UPDATE `users` SET `master`=`master`+3,`ed`=`ed`-5000 WHERE `id`='".mysql_real_escape_string($_SESSION['uid'])."'");
-print"<b style='color=red'>Вы приобрели +3 Умения.</b>";
+print"<b style='color=red'>Р’С‹ РїСЂРёРѕР±СЂРµР»Рё +3 РЈРјРµРЅРёСЏ.</b>";
 }
 if($_GET['buy']=='kr' and $user['ed']>='100'){
 mysql_query("UPDATE `users` SET `money`=`money`+10,`ed`=`ed`-100 WHERE `id`='".mysql_real_escape_string($_SESSION['uid'])."'");
-print"<b style='color=red'>Вы приобрели +10 кр.</b>";
+print"<b style='color=red'>Р’С‹ РїСЂРёРѕР±СЂРµР»Рё +10 РєСЂ.</b>";
 }
 if($_GET['buy']=='exp' and $user['ed']>='3000'){
 mysql_query("UPDATE `users` SET `exp`=`exp`+3000,`ed`=`ed`-3000 WHERE `id`='".mysql_real_escape_string($_SESSION['uid'])."'");
-print"<b style='color=red'>Вы приобрели +3000 опыта.</b>";
+print"<b style='color=red'>Р’С‹ РїСЂРёРѕР±СЂРµР»Рё +3000 РѕРїС‹С‚Р°.</b>";
 }
  ?>
 <BR>
-<FIELDSET style='padding: 5,5,5,5'><LEGEND> Очки благородства: <B><?=$user['honorpoints']?> ед.</B> </LEGEND>
+<FIELDSET style='padding: 5,5,5,5'><LEGEND> РћС‡РєРё Р±Р»Р°РіРѕСЂРѕРґСЃС‚РІР°: <B><?=$user['honorpoints']?> РµРґ.</B> </LEGEND>
 <TABLE>
  
-<TR><TD>Статы (еще 3)</TD><TD style='padding-left: 10'>за 3000 ед.</TD><TD style='padding-left: 10'>
+<TR><TD>РЎС‚Р°С‚С‹ (РµС‰Рµ 3)</TD><TD style='padding-left: 10'>Р·Р° 3000 РµРґ.</TD><TD style='padding-left: 10'>
 <? if($user['ed']>='3000'){?>
-<INPUT type='button' value='Купить' onClick="if (confirm('Купить: Статы?\n\nКупив статы, Вы сможете увеличить характеристики персонажа.\nНапример, можно увеличить силу.')) {location='zadaniya_bezdna.php?buy=stats'}">
+<INPUT type='button' value='РљСѓРїРёС‚СЊ' onClick="if (confirm('РљСѓРїРёС‚СЊ: РЎС‚Р°С‚С‹?\n\nРљСѓРїРёРІ СЃС‚Р°С‚С‹, Р’С‹ СЃРјРѕР¶РµС‚Рµ СѓРІРµР»РёС‡РёС‚СЊ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РїРµСЂСЃРѕРЅР°Р¶Р°.\nРќР°РїСЂРёРјРµСЂ, РјРѕР¶РЅРѕ СѓРІРµР»РёС‡РёС‚СЊ СЃРёР»Сѓ.')) {location='zadaniya_bezdna.php?buy=stats'}">
 <? }else{ ?>
-<INPUT type='button' disabled value='Купить' onClick="if (confirm('Купить: Способность?\n\nКупив статы, Вы сможете увеличить характеристики персонажа.\nНапример, можно увеличить силу.')) {location=''}">
+<INPUT type='button' disabled value='РљСѓРїРёС‚СЊ' onClick="if (confirm('РљСѓРїРёС‚СЊ: РЎРїРѕСЃРѕР±РЅРѕСЃС‚СЊ?\n\nРљСѓРїРёРІ СЃС‚Р°С‚С‹, Р’С‹ СЃРјРѕР¶РµС‚Рµ СѓРІРµР»РёС‡РёС‚СЊ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РїРµСЂСЃРѕРЅР°Р¶Р°.\nРќР°РїСЂРёРјРµСЂ, РјРѕР¶РЅРѕ СѓРІРµР»РёС‡РёС‚СЊ СЃРёР»Сѓ.')) {location=''}">
 <? }?>
 </TD></TR>
  
-<TR><TD>Умение (еще 3)</TD><TD style='padding-left: 10'>за 5000 ед.</TD><TD style='padding-left: 10'>
+<TR><TD>РЈРјРµРЅРёРµ (РµС‰Рµ 3)</TD><TD style='padding-left: 10'>Р·Р° 5000 РµРґ.</TD><TD style='padding-left: 10'>
 <? if($user['ed']>='5000'){?>
-<INPUT type='button' value='Купить' onClick="if (confirm('Купить: Умение?\n\nУмение даёт возможность почуствовать себя мастером меча, топора, магии и т.п.')) {location='zadaniya_bezdna.php?buy=master'}">
+<INPUT type='button' value='РљСѓРїРёС‚СЊ' onClick="if (confirm('РљСѓРїРёС‚СЊ: РЈРјРµРЅРёРµ?\n\nРЈРјРµРЅРёРµ РґР°С‘С‚ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕС‡СѓСЃС‚РІРѕРІР°С‚СЊ СЃРµР±СЏ РјР°СЃС‚РµСЂРѕРј РјРµС‡Р°, С‚РѕРїРѕСЂР°, РјР°РіРёРё Рё С‚.Рї.')) {location='zadaniya_bezdna.php?buy=master'}">
 <? }else{ ?>
-<INPUT type='button' disabled value='Купить' onClick="if (confirm('Купить: Умение?\n\nУмение даёт возможность почуствовать себя мастером меча, топора, магии и т.п.')) {location=''}">
+<INPUT type='button' disabled value='РљСѓРїРёС‚СЊ' onClick="if (confirm('РљСѓРїРёС‚СЊ: РЈРјРµРЅРёРµ?\n\nРЈРјРµРЅРёРµ РґР°С‘С‚ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РїРѕС‡СѓСЃС‚РІРѕРІР°С‚СЊ СЃРµР±СЏ РјР°СЃС‚РµСЂРѕРј РјРµС‡Р°, С‚РѕРїРѕСЂР°, РјР°РіРёРё Рё С‚.Рї.')) {location=''}">
 <? }?>
 </TD></TR>
  
-<TR><TD>Деньги (10 кр.)</TD><TD style='padding-left: 10'>за 100 ед.</TD><TD style='padding-left: 10'>
+<TR><TD>Р”РµРЅСЊРіРё (10 РєСЂ.)</TD><TD style='padding-left: 10'>Р·Р° 100 РµРґ.</TD><TD style='padding-left: 10'>
 <? if($user['ed']>='100'){?>
-<INPUT type='button' value='Купить' onClick="if (confirm('Купить: Деньги (10 кр.)?\n\nНаграду можно получить полновесными кредитами.')) {location='zadaniya_bezdna.php?buy=kr'}">
+<INPUT type='button' value='РљСѓРїРёС‚СЊ' onClick="if (confirm('РљСѓРїРёС‚СЊ: Р”РµРЅСЊРіРё (10 РєСЂ.)?\n\nРќР°РіСЂР°РґСѓ РјРѕР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ РїРѕР»РЅРѕРІРµСЃРЅС‹РјРё РєСЂРµРґРёС‚Р°РјРё.')) {location='zadaniya_bezdna.php?buy=kr'}">
 <? }else{ ?>
-<INPUT type='button' disabled value='Купить' onClick="if (confirm('Купить: Деньги (10 кр.)?\n\nНаграду можно получить полновесными кредитами.')) {location=''}">
+<INPUT type='button' disabled value='РљСѓРїРёС‚СЊ' onClick="if (confirm('РљСѓРїРёС‚СЊ: Р”РµРЅСЊРіРё (10 РєСЂ.)?\n\nРќР°РіСЂР°РґСѓ РјРѕР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ РїРѕР»РЅРѕРІРµСЃРЅС‹РјРё РєСЂРµРґРёС‚Р°РјРё.')) {location=''}">
 <? }?>
 </TD></TR>
  
-<TR><TD>Опыт (1000)</TD><TD style='padding-left: 10'>за 3000 ед.</TD><TD style='padding-left: 10'>
+<TR><TD>РћРїС‹С‚ (1000)</TD><TD style='padding-left: 10'>Р·Р° 3000 РµРґ.</TD><TD style='padding-left: 10'>
 <? if($user['ed']>='3000'){?>
-<INPUT type='button' value='Купить'onclick="if (confirm('Купить: Опыт?\n\nОсобенность - это дополнительные опыт для персонажа.')) {location='zadaniya_bezdna.php?buy=opit'}">
+<INPUT type='button' value='РљСѓРїРёС‚СЊ'onclick="if (confirm('РљСѓРїРёС‚СЊ: РћРїС‹С‚?\n\nРћСЃРѕР±РµРЅРЅРѕСЃС‚СЊ - СЌС‚Рѕ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РѕРїС‹С‚ РґР»СЏ РїРµСЂСЃРѕРЅР°Р¶Р°.')) {location='zadaniya_bezdna.php?buy=opit'}">
 <? }else{ ?>
-<INPUT type='button' disabled value='Купить'onclick="if (confirm('Купить: Опыт?\n\nОсобенность - это дополнительный опыт для персонажа.')) {location=''}">
+<INPUT type='button' disabled value='РљСѓРїРёС‚СЊ'onclick="if (confirm('РљСѓРїРёС‚СЊ: РћРїС‹С‚?\n\nРћСЃРѕР±РµРЅРЅРѕСЃС‚СЊ - СЌС‚Рѕ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ РѕРїС‹С‚ РґР»СЏ РїРµСЂСЃРѕРЅР°Р¶Р°.')) {location=''}">
 <? }?>
 </TD></TR>
 </TABLE>
 </FIELDSET>
 <BR>
-<!--Репутация: <?=$user['reput']?><BR>-->
-<TD nowrap valign=top><BR><DIV align=right><INPUT type='button' onclick='location="zadaniya_bezdna.php"' value=Обновить> <INPUT type='button' onclick='location="/vxod.php"' value="Вернуться"></DIV></TD>
+<!--Р РµРїСѓС‚Р°С†РёСЏ: <?=$user['reput']?><BR>-->
+<TD nowrap valign=top><BR><DIV align=right><INPUT type='button' onclick='location="zadaniya_bezdna.php"' value=РћР±РЅРѕРІРёС‚СЊ> <INPUT type='button' onclick='location="/vxod.php"' value="Р’РµСЂРЅСѓС‚СЊСЃСЏ"></DIV></TD>
 </TR>
 </TABLE>
 

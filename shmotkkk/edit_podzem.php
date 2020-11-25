@@ -1610,37 +1610,37 @@ print "<script>location.href='?n=".$_GET['l']."&name=".$_GET['name']."'</script>
 <?
 print'<form action="" method="get">
 <select style="background-color:#996633; font-size:12px;" size="1" name="botd">
-  <option  value="36">Рубака Глубин</option>
-  <option  value="37">Надзиратель Глубин</option>
-  <option  value="38">Литейщик</option>
-  <option  value="39">Служитель Глубин</option>
-  <option  value="40">Служитель Бездны</option>
+  <option  value="36">Р СѓР±Р°РєР° Р“Р»СѓР±РёРЅ</option>
+  <option  value="37">РќР°РґР·РёСЂР°С‚РµР»СЊ Р“Р»СѓР±РёРЅ</option>
+  <option  value="38">Р›РёС‚РµР№С‰РёРє</option>
+  <option  value="39">РЎР»СѓР¶РёС‚РµР»СЊ Р“Р»СѓР±РёРЅ</option>
+  <option  value="40">РЎР»СѓР¶РёС‚РµР»СЊ Р‘РµР·РґРЅС‹</option>
   
-    <option  value="36.37">Рубака Глубин и Надзиратель Глубин</option>
-   <option  value="36.36">Рубака Глубин2</option>
-  <option  value="37.37">Надзиратель Глубин2</option>
-  <option  value="38.38">Литейщик2</option>
-  <option  value="39.39">Служитель Глубин2</option>
-  <option  value="40.40">Служитель Бездны2</option>
+    <option  value="36.37">Р СѓР±Р°РєР° Р“Р»СѓР±РёРЅ Рё РќР°РґР·РёСЂР°С‚РµР»СЊ Р“Р»СѓР±РёРЅ</option>
+   <option  value="36.36">Р СѓР±Р°РєР° Р“Р»СѓР±РёРЅ2</option>
+  <option  value="37.37">РќР°РґР·РёСЂР°С‚РµР»СЊ Р“Р»СѓР±РёРЅ2</option>
+  <option  value="38.38">Р›РёС‚РµР№С‰РёРє2</option>
+  <option  value="39.39">РЎР»СѓР¶РёС‚РµР»СЊ Р“Р»СѓР±РёРЅ2</option>
+  <option  value="40.40">РЎР»СѓР¶РёС‚РµР»СЊ Р‘РµР·РґРЅС‹2</option>
   
-   <option  value="36.36.36">Рубака Глубин3</option>
-  <option  value="37.37.37">Надзиратель Глубин3</option>
-  <option  value="38.38.38">Литейщик3</option>
-  <option  value="39.39.39">Служитель Глубин3</option>
-  <option  value="40.40.40">Служитель Бездны3</option>
+   <option  value="36.36.36">Р СѓР±Р°РєР° Р“Р»СѓР±РёРЅ3</option>
+  <option  value="37.37.37">РќР°РґР·РёСЂР°С‚РµР»СЊ Р“Р»СѓР±РёРЅ3</option>
+  <option  value="38.38.38">Р›РёС‚РµР№С‰РёРє3</option>
+  <option  value="39.39.39">РЎР»СѓР¶РёС‚РµР»СЊ Р“Р»СѓР±РёРЅ3</option>
+  <option  value="40.40.40">РЎР»СѓР¶РёС‚РµР»СЊ Р‘РµР·РґРЅС‹3</option>
 
   
 </select>
 <input name="n" type="hidden" value="'.$_GET['n'].'" />
 <input name="nas" type="hidden" value="'.$_GET['name'].'" />
-&nbsp;<input style="background-color:#996633; font-size:12px;" name="sozdat" type="submit" value="Поставить">
-&nbsp;<input style="background-color:#996633; font-size:12px;" name="delite" type="submit" value="Убрать">
+&nbsp;<input style="background-color:#996633; font-size:12px;" name="sozdat" type="submit" value="РџРѕСЃС‚Р°РІРёС‚СЊ">
+&nbsp;<input style="background-color:#996633; font-size:12px;" name="delite" type="submit" value="РЈР±СЂР°С‚СЊ">
 </form>';
 
-if($_GET['open']){print"<font>Вы добавили бота на клетку ".$_GET['n']."</font>";}
+if($_GET['open']){print"<font>Р’С‹ РґРѕР±Р°РІРёР»Рё Р±РѕС‚Р° РЅР° РєР»РµС‚РєСѓ ".$_GET['n']."</font>";}
 
-if($_GET['w']==1){print"<font>Вы добавили бота на клетку ".$_GET['n']."</font>";}
-if($_GET['w']==2){print"<font>Вы удалили бота с клетки ".$_GET['n']."</font>";}
+if($_GET['w']==1){print"<font>Р’С‹ РґРѕР±Р°РІРёР»Рё Р±РѕС‚Р° РЅР° РєР»РµС‚РєСѓ ".$_GET['n']."</font>";}
+if($_GET['w']==2){print"<font>Р’С‹ СѓРґР°Р»РёР»Рё Р±РѕС‚Р° СЃ РєР»РµС‚РєРё ".$_GET['n']."</font>";}
 
 if($_GET['sozdat']){
 mysql_query("UPDATE podzem3 SET `n".mysql_real_escape_string($_GET['n'])."`='".mysql_real_escape_string($_GET['botd'])."' WHERE glava='default' and name='".mysql_real_escape_string($_GET['nas'])."'");

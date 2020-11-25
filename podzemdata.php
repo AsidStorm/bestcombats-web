@@ -1,12 +1,12 @@
 <?
-  $podzemdata["403"]=array("delay"=>75, "location"=>16, "vector"=>0, "t"=>226, "l"=>453, "name1"=>"ïîäçåìåëüå", "name2"=>"ïîäçåìåëüÿ","minlevel"=>4);
-  $podzemdata["48"]=array("delay"=>90, "location"=>16, "vector"=>0, "t"=>226, "l"=>453, "name1"=>"ïåùåðó", "name2"=>"ïåùåðû","minlevel"=>4);
-  $podzemdata["52"]=array("delay"=>1440, "location"=>"04", "vector"=>90, "t"=>237, "l"=>428, "name1"=>"ïåùåðó", "name2"=>"ïåùåðû", "passprice"=>500,"minlevel"=>8);
-  $podzemdata["302"]=array("delay"=>180, "x"=>2, "y"=>1, "dir"=>3, "name1"=>"ïîäçåìåëüå", "name2"=>"ïîäçåìåëüÿ","minlevel"=>4);
-  $podzemdata["72"]=array("delay"=>180, "x"=>1, "y"=>1, "dir"=>2, "name1"=>"áàøíþ", "name2"=>"áàøíè","minlevel"=>4);
-  $podzemdata["74"]=array("delay"=>240, "x"=>1, "y"=>1, "dir"=>2, "name1"=>"êàòàêîìáû", "name2"=>"êàòàêîìá","minlevel"=>4);
-  $podzemdata["76"]=array("delay"=>180, "x"=>1, "y"=>1, "dir"=>2, "name1"=>"Ïîòåðÿííûé Âõîä", "name2"=>"Ïîòåðÿííûé Âõîä","minlevel"=>8);
-  $podzemdata["78"]=array("delay"=>180, "x"=>1, "y"=>1, "dir"=>2, "name1"=>"Ñòîðîæåâàÿ Áàøíÿ", "name2"=>"Ñòîðîæåâàÿ Áàøíÿ","minlevel"=>4);
-  $podzemdata["83"]=array("delay"=>180, "x"=>4, "y"=>10, "dir"=>1, "name1"=>"Áåçäíà", "name2"=>"Áåçäíà","minlevel"=>4);
-  $podzemdata["91"]=array("delay"=>180, "x"=>1, "y"=>2, "dir"=>2, "name1"=>"ïåùåðó", "name2"=>"ïåùåðû","minlevel"=>4);
+  $podzemdata["403"]=array("delay"=>75, "location"=>16, "vector"=>0, "t"=>226, "l"=>453, "name1"=>"Ð¿Ð¾Ð´Ð·ÐµÐ¼ÐµÐ»ÑŒÐµ", "name2"=>"Ð¿Ð¾Ð´Ð·ÐµÐ¼ÐµÐ»ÑŒÑ","minlevel"=>4);
+  $podzemdata["48"]=array("delay"=>90, "location"=>16, "vector"=>0, "t"=>226, "l"=>453, "name1"=>"Ð¿ÐµÑ‰ÐµÑ€Ñƒ", "name2"=>"Ð¿ÐµÑ‰ÐµÑ€Ñ‹","minlevel"=>4);
+  $podzemdata["52"]=array("delay"=>1440, "location"=>"04", "vector"=>90, "t"=>237, "l"=>428, "name1"=>"Ð¿ÐµÑ‰ÐµÑ€Ñƒ", "name2"=>"Ð¿ÐµÑ‰ÐµÑ€Ñ‹", "passprice"=>500,"minlevel"=>8);
+  $podzemdata["302"]=array("delay"=>180, "x"=>2, "y"=>1, "dir"=>3, "name1"=>"Ð¿Ð¾Ð´Ð·ÐµÐ¼ÐµÐ»ÑŒÐµ", "name2"=>"Ð¿Ð¾Ð´Ð·ÐµÐ¼ÐµÐ»ÑŒÑ","minlevel"=>4);
+  $podzemdata["72"]=array("delay"=>180, "x"=>1, "y"=>1, "dir"=>2, "name1"=>"Ð±Ð°ÑˆÐ½ÑŽ", "name2"=>"Ð±Ð°ÑˆÐ½Ð¸","minlevel"=>4);
+  $podzemdata["74"]=array("delay"=>240, "x"=>1, "y"=>1, "dir"=>2, "name1"=>"ÐºÐ°Ñ‚Ð°ÐºÐ¾Ð¼Ð±Ñ‹", "name2"=>"ÐºÐ°Ñ‚Ð°ÐºÐ¾Ð¼Ð±","minlevel"=>4);
+  $podzemdata["76"]=array("delay"=>180, "x"=>1, "y"=>1, "dir"=>2, "name1"=>"ÐŸÐ¾Ñ‚ÐµÑ€ÑÐ½Ð½Ñ‹Ð¹ Ð’Ñ…Ð¾Ð´", "name2"=>"ÐŸÐ¾Ñ‚ÐµÑ€ÑÐ½Ð½Ñ‹Ð¹ Ð’Ñ…Ð¾Ð´","minlevel"=>8);
+  $podzemdata["78"]=array("delay"=>180, "x"=>1, "y"=>1, "dir"=>2, "name1"=>"Ð¡Ñ‚Ð¾Ñ€Ð¾Ð¶ÐµÐ²Ð°Ñ Ð‘Ð°ÑˆÐ½Ñ", "name2"=>"Ð¡Ñ‚Ð¾Ñ€Ð¾Ð¶ÐµÐ²Ð°Ñ Ð‘Ð°ÑˆÐ½Ñ","minlevel"=>4);
+  $podzemdata["83"]=array("delay"=>180, "x"=>4, "y"=>10, "dir"=>1, "name1"=>"Ð‘ÐµÐ·Ð´Ð½Ð°", "name2"=>"Ð‘ÐµÐ·Ð´Ð½Ð°","minlevel"=>4);
+  $podzemdata["91"]=array("delay"=>180, "x"=>1, "y"=>2, "dir"=>2, "name1"=>"Ð¿ÐµÑ‰ÐµÑ€Ñƒ", "name2"=>"Ð¿ÐµÑ‰ÐµÑ€Ñ‹","minlevel"=>4);
 ?>

@@ -17,7 +17,7 @@ function smallshowpersout($id,$pas = 0,$battle = 0,$me = 0,$show_pr = 0) {
 
     echo "<CENTER>";
    ?>
-    <A HREF="javascript:top.AddToPrivate('<?=$user['login']?>', top.CtrlPress)" target=refreshed><img src="<?=IMGBASE?>/i/lock.gif" width=20 height=15></A><?if($user['align']>0){echo"<img src=\"".IMGBASE."/i/align_".$user['align'].".gif\">";} if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="http://img.bestcombats.net/klan/'.$user['klan'].'.gif">'; } ?><B><?=$user['login']?></B> [<?=$user['level']?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
+    <A HREF="javascript:top.AddToPrivate('<?=$user['login']?>', top.CtrlPress)" target=refreshed><img src="<?=IMGBASE?>/i/lock.gif" width=20 height=15></A><?if($user['align']>0){echo"<img src=\"".IMGBASE."/i/align_".$user['align'].".gif\">";} if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="http://img.bestcombats.net/klan/'.$user['klan'].'.gif">'; } ?><B><?=$user['login']?></B> [<?=$user['level']?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="РРЅС„. Рѕ <?=$user['login']?>"></a>
     <TABLE cellspacing=0 cellpadding=0 style="  border-top-width: 1px;border-right-width: 1px;border-bottom-width: 1px;border-left-width: 1px;border-top-style: solid;border-right-style: solid;border-bottom-style: solid;border-left-style: solid;border-top-color: #FFFFFF;border-right-color: #666666;border-bottom-color: #666666;border-left-color: #FFFFFF;padding: 2px;">
 <TR>
 <TD>
@@ -35,9 +35,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=60 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа шлеме выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа шлеме выгравировано '{$dress['text']}'":"").'" >';
+echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=60 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° С€Р»РµРјРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° С€Р»РµРјРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
 }}else{
-echo '<img src="'.IMGBASE.'/i/w9.gif" width=60 height=60 alt="Пустой слот шлем" >';
+echo '<img src="'.IMGBASE.'/i/w9.gif" width=60 height=60 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ С€Р»РµРј" >';
 }
 ?>
 </TD></TR>
@@ -49,12 +49,12 @@ echo '<img src="'.IMGBASE.'/i/w9.gif" width=60 height=60 alt="Пустой слот шлем" 
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=40 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа наручах выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа наручах выгравировано '{$dress['text']}'":"").'" >';
+                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=40 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РЅР°СЂСѓС‡Р°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РЅР°СЂСѓС‡Р°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w18.gif" width=60 height=40 alt="Пустой слот наручи" >';
+            echo '<img src="'.IMGBASE.'/i/w18.gif" width=60 height=40 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РЅР°СЂСѓС‡Рё" >';
         }
 
 ?></TD></TR>
@@ -66,12 +66,12 @@ echo '<img src="'.IMGBASE.'/i/w9.gif" width=60 height=60 alt="Пустой слот шлем" 
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=60 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['minu']>0)?"\nУрон {$dress['minu']}-{$dress['maxu']}":"").(($dress['text']!=null)?"\nНа оружии выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['minu']>0)?"\nУрон {$dress['minu']}-{$dress['maxu']}":"").(($dress['text']!=null)?"\nНа оружии выгравировано '{$dress['text']}'":"").'" >';
+                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=60 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['minu']>0)?"\nРЈСЂРѕРЅ {$dress['minu']}-{$dress['maxu']}":"").(($dress['text']!=null)?"\nРќР° РѕСЂСѓР¶РёРё РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['minu']>0)?"\nРЈСЂРѕРЅ {$dress['minu']}-{$dress['maxu']}":"").(($dress['text']!=null)?"\nРќР° РѕСЂСѓР¶РёРё РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w3.gif" width=60 height=60 alt="Пустой слот оружие" >';
+            echo '<img src="'.IMGBASE.'/i/w3.gif" width=60 height=60 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РѕСЂСѓР¶РёРµ" >';
         }
     ?></TD></TR>
 
@@ -89,12 +89,12 @@ echo '<img src="'.IMGBASE.'/i/w9.gif" width=60 height=60 alt="Пустой слот шлем" 
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=80 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа одежде вышито '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа одежде вышито '{$dress['text']}'":"").'" >';
+                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=80 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РѕРґРµР¶РґРµ РІС‹С€РёС‚Рѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РѕРґРµР¶РґРµ РІС‹С€РёС‚Рѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w4.gif" width=60 height=80 alt="Пустой слот броня" >';
+            echo '<img src="'.IMGBASE.'/i/w4.gif" width=60 height=80 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ Р±СЂРѕРЅСЏ" >';
         }
     ?></TD></TR>
 
@@ -105,12 +105,12 @@ echo '<img src="'.IMGBASE.'/i/w9.gif" width=60 height=60 alt="Пустой слот шлем" 
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=40 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа поясе выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа поясе выгравировано '{$dress['text']}'":"").'" >';
+                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=40 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РїРѕСЏСЃРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РїРѕСЏСЃРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w5.gif" width=60 height=40 alt="Пустой слот пояс" >';
+            echo '<img src="'.IMGBASE.'/i/w5.gif" width=60 height=40 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РїРѕСЏСЃ" >';
         }
     ?></TD></TR>
 </TBODY></TABLE>
@@ -122,7 +122,7 @@ echo '<img src="'.IMGBASE.'/i/w9.gif" width=60 height=60 alt="Пустой слот шлем" 
 <TD height=20 vAlign=middle>
 <table cellspacing="0" cellpadding="0" style='line-height: 1'>
 <tr><td nowrap style="font-size:9px" style="position: relative">
-<table cellspacing="0" cellpadding="0" style='line-height: 1'><td nowrap style="font-size:9px"><div style="position: relative"><SPAN id="HP" style='position: absolute; left: 5; z-index: 1; font-weight: bold; color: #FFFFFF'></SPAN><img src="<?=IMGBASE?>/i/misc/bk_life_loose.gif" alt="Уровень жизни" name="HP1" width="1" height="9" id="HP1"><img src="<?=IMGBASE?>/i/misc/bk_life_loose.gif" alt="Уровень жизни" name="HP2" width="1" height="9" id="HP2"></div></td></table>
+<table cellspacing="0" cellpadding="0" style='line-height: 1'><td nowrap style="font-size:9px"><div style="position: relative"><SPAN id="HP" style='position: absolute; left: 5; z-index: 1; font-weight: bold; color: #FFFFFF'></SPAN><img src="<?=IMGBASE?>/i/misc/bk_life_loose.gif" alt="РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё" name="HP1" width="1" height="9" id="HP1"><img src="<?=IMGBASE?>/i/misc/bk_life_loose.gif" alt="РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё" name="HP2" width="1" height="9" id="HP2"></div></td></table>
 </td>
 </tr>
 
@@ -144,39 +144,39 @@ $zver=mysql_fetch_array(mysql_query("SELECT shadow,login,level, vid FROM `users`
 <DIV style="Z-INDEX: 1; POSITION: relative; WIDTH: 120px; HEIGHT: 220px" bgcolor="black">
 <?
 $strtxt = "<b>".$user['login']."</b><br>";
-$strtxt .= "Сила: ".$user['sila']."<BR>";
-$strtxt .= "Ловкость: ".$user['lovk']."<BR>";
-$strtxt .= "Интуиция: ".$user['inta']."<BR>";
-$strtxt .= "Выносливость: ".$user['vinos']."<BR>";
+$strtxt .= "РЎРёР»Р°: ".$user['sila']."<BR>";
+$strtxt .= "Р›РѕРІРєРѕСЃС‚СЊ: ".$user['lovk']."<BR>";
+$strtxt .= "РРЅС‚СѓРёС†РёСЏ: ".$user['inta']."<BR>";
+$strtxt .= "Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: ".$user['vinos']."<BR>";
 if ($user['level'] > 3) {
-$strtxt .= "Интеллект: ".$user['intel']."<BR>";
+$strtxt .= "РРЅС‚РµР»Р»РµРєС‚: ".$user['intel']."<BR>";
 }
 if ($user['level'] > 6) {
-$strtxt .= "Мудрость: ".$user['mudra']."<BR>";
+$strtxt .= "РњСѓРґСЂРѕСЃС‚СЊ: ".$user['mudra']."<BR>";
 }
 if ($user['level'] > 9) {
-$strtxt .= "Духовность: ".$user['spirit']."<BR>";
+$strtxt .= "Р”СѓС…РѕРІРЅРѕСЃС‚СЊ: ".$user['spirit']."<BR>";
 }
 if ($user['level'] > 12) {
-$strtxt .= "Воля: ".$user['will']."<BR>";
+$strtxt .= "Р’РѕР»СЏ: ".$user['will']."<BR>";
 }
 if ($user['level'] > 15) {
-$strtxt .= "Свобода духа: ".$user['freedom']."<BR>";
+$strtxt .= "РЎРІРѕР±РѕРґР° РґСѓС…Р°: ".$user['freedom']."<BR>";
 }
 if ($user['level'] > 18) {
-$strtxt .= "Божественность: ".$user['god']."<BR>";
+$strtxt .= "Р‘РѕР¶РµСЃС‚РІРµРЅРЅРѕСЃС‚СЊ: ".$user['god']."<BR>";
 }
-$strtxt .= "Сексуальность: ".$user['sexy']."<BR>";
+$strtxt .= "РЎРµРєСЃСѓР°Р»СЊРЅРѕСЃС‚СЊ: ".$user['sexy']."<BR>";
 
 if(!$pas && !$battle){
 if($zver && $zver["vid"]){
 ?>
 <div style="position:absolute; left:80px; top:145px; width:40px; height:73px; z-index:2">
 <a href="zver_inv.php">
-<IMG width=40 height=73 src='<?=IMGBASE?>/i/shadow/<?print"".$zver['shadow']."";?>' onmouseout='ghideshow();'  onmouseover='gfastshow("<?=$zver['login']?> [<?=$zver['level']?>] (Перейти к настройкам)");'>
+<IMG width=40 height=73 src='<?=IMGBASE?>/i/shadow/<?print"".$zver['shadow']."";?>' onmouseout='ghideshow();'  onmouseover='gfastshow("<?=$zver['login']?> [<?=$zver['level']?>] (РџРµСЂРµР№С‚Рё Рє РЅР°СЃС‚СЂРѕР№РєР°Рј)");'>
 </a></div>
 <? }?>
-<a href="/main.php?edit=1"><IMG border=0 src="<?=IMGBASE?>/i/shadow/<?=$user['sex']?>/<?print"".$user['shadow']."";?>" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow("<?=$user['login']?> (Перейти в \"Инвентарь\")");' ></a>
+<a href="/main.php?edit=1"><IMG border=0 src="<?=IMGBASE?>/i/shadow/<?=$user['sex']?>/<?print"".$user['shadow']."";?>" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow("<?=$user['login']?> (РџРµСЂРµР№С‚Рё РІ \"РРЅРІРµРЅС‚Р°СЂСЊ\")");' ></a>
 <?
   echo showeffects($user["id"]);
 }elseif($show_pr){
@@ -184,7 +184,7 @@ if($zver){
 ?>
 <div style="position:absolute; left:80px; top:145px; width:40px; height:73px; z-index:2">
 <a href="zver_inv.php">
-<IMG width=40 height=73 src='<?=IMGBASE?>/i/shadow/<?print"".$zver['shadow']."";?>' onmouseout='ghideshow();'  onmouseover='gfastshow("<?=$zver['login']?> [<?=$zver['level']?>] (Перейти к настройкам)");'>
+<IMG width=40 height=73 src='<?=IMGBASE?>/i/shadow/<?print"".$zver['shadow']."";?>' onmouseout='ghideshow();'  onmouseover='gfastshow("<?=$zver['login']?> [<?=$zver['level']?>] (РџРµСЂРµР№С‚Рё Рє РЅР°СЃС‚СЂРѕР№РєР°Рј)");'>
 </a></div>
 <? }?>
 <IMG border=0 src="<?=IMGBASE?>/i/shadow/<?=$user['sex']?>/<?print"".$user['shadow']."";?>" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow("<?=$strtxt?>");'>
@@ -208,8 +208,8 @@ $i++;
                     case '12':$left=80;$top=75;break;
                 }
 $inf_el = mysql_fetch_array(mysql_query ('SELECT img FROM `shop` WHERE `name` = \''.$ch_eff['name'].'\';'));
-if($ch_eff['type']==395){$inf_el['img']='defender.gif'; $opp='награда'; $chas=60; $chastxt="час.";}elseif($ch_eff['type']==201){$inf_el['img']='spell_protect10.gif'; $opp='заклятие'; $chas=1; $chastxt="мин.";}elseif($ch_eff['type']==202){$inf_el['img']='spell_powerup10.gif'; $opp='заклятие'; $chas=1; $chastxt="мин.";}elseif($ch_eff['type']==1022){$inf_el['img']='hidden.gif'; $opp='заклятие'; $chas=1; $chastxt="мин.";}else{$opp='эликсир'; $chas=1; $chastxt="мин.";}
- ?> <div style="position:absolute; left:<?=$left?>px; top:<?=$top?>px; width:120px; height:220px; z-index:2"><IMG width=40 height=25 src='<?=IMGBASE?>/i/misc/icon_<?=$inf_el['img']?>' onmouseout='ghideshow();' onmouseover='gfastshow("<B><? echo $ch_eff['name'];?></B> (<?=$opp?>)<BR> еще <? echo ceil(($ch_eff['time']-time())/60/$chas);?> <?=$chastxt?>")';> </div>
+if($ch_eff['type']==395){$inf_el['img']='defender.gif'; $opp='РЅР°РіСЂР°РґР°'; $chas=60; $chastxt="С‡Р°СЃ.";}elseif($ch_eff['type']==201){$inf_el['img']='spell_protect10.gif'; $opp='Р·Р°РєР»СЏС‚РёРµ'; $chas=1; $chastxt="РјРёРЅ.";}elseif($ch_eff['type']==202){$inf_el['img']='spell_powerup10.gif'; $opp='Р·Р°РєР»СЏС‚РёРµ'; $chas=1; $chastxt="РјРёРЅ.";}elseif($ch_eff['type']==1022){$inf_el['img']='hidden.gif'; $opp='Р·Р°РєР»СЏС‚РёРµ'; $chas=1; $chastxt="РјРёРЅ.";}else{$opp='СЌР»РёРєСЃРёСЂ'; $chas=1; $chastxt="РјРёРЅ.";}
+ ?> <div style="position:absolute; left:<?=$left?>px; top:<?=$top?>px; width:120px; height:220px; z-index:2"><IMG width=40 height=25 src='<?=IMGBASE?>/i/misc/icon_<?=$inf_el['img']?>' onmouseout='ghideshow();' onmouseover='gfastshow("<B><? echo $ch_eff['name'];?></B> (<?=$opp?>)<BR> РµС‰Рµ <? echo ceil(($ch_eff['time']-time())/60/$chas);?> <?=$chastxt?>")';> </div>
 <?}
 $ch_priem1 = mysql_query ('SELECT pr_name FROM `person_on` WHERE `id_person` = '.$_SESSION['uid'].' and `pr_active`=2');
 
@@ -232,7 +232,7 @@ $i++;
 $inf_priem = mysql_fetch_array(mysql_query ('SELECT name,opisan FROM `priem` WHERE `priem` = \''.$ch_priem['pr_name'].'\';'));
 
  ?>
-<div style="position:absolute; left:<?=$left?>px; top:<?=$top?>px; width:120px; height:220px; z-index:2">       <IMG width=40 height=25 src='<?=IMGBASE?>/i/priem/<?=$ch_priem['pr_name']?>.gif' onmouseout='hideshow();' onmouseover='fastshow("<B><? echo $inf_priem['name'];?></B> (прием)<BR><BR> <? echo $inf_priem['opisan'];?>")';> </div>
+<div style="position:absolute; left:<?=$left?>px; top:<?=$top?>px; width:120px; height:220px; z-index:2">       <IMG width=40 height=25 src='<?=IMGBASE?>/i/priem/<?=$ch_priem['pr_name']?>.gif' onmouseout='hideshow();' onmouseover='fastshow("<B><? echo $inf_priem['name'];?></B> (РїСЂРёРµРј)<BR><BR> <? echo $inf_priem['opisan'];?>")';> </div>
 <?}
 }elseif($zver){
 ?>
@@ -247,7 +247,7 @@ if($zver){
 ?>
 <div style="position:absolute; left:60px; top:118px; width:120px; height:220px; z-index:2">
 <a href="zver_inv.php">
-<IMG width=40 height=73 src='<?=IMGBASE?>/i/shadow/<?print"".$zver['shadow']."";?>' alt="alt="<?print"".$zver['login']."";?> [<?print"".$zver['level']."";?>] (Перейтик настройкам)">
+<IMG width=40 height=73 src='<?=IMGBASE?>/i/shadow/<?print"".$zver['shadow']."";?>' alt="alt="<?print"".$zver['login']."";?> [<?print"".$zver['level']."";?>] (РџРµСЂРµР№С‚РёРє РЅР°СЃС‚СЂРѕР№РєР°Рј)">
 </a></div>
 <? }?>
 <IMG border=0 src="<?=IMGBASE?>/i/shadow/<?=$user['sex']?>/<?print"".$user['shadow']."";?>" width=120 height=218 onmouseout='ghideshow();'  onmouseover='gfastshow("<?=$strtxt?>");'>
@@ -342,12 +342,12 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=20 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа серьгах выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа серьгах выгравировано '{$dress['text']}'":"").'" >';
+                echo '<img '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=20 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° СЃРµСЂСЊРіР°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° СЃРµСЂСЊРіР°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w1.gif" width=60 height=20 alt="Пустой слот серьги" >';
+            echo '<img src="'.IMGBASE.'/i/w1.gif" width=60 height=20 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ СЃРµСЂСЊРіРё" >';
         }
     ?></TD></TR>
 <TR><TD style="BACKGROUND-IMAGE: none">
@@ -357,12 +357,12 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img  '.((($dress['maxdur']-2)==$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=20 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа ожерелье выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа ожерелье выгравировано '{$dress['text']}'":"").'" >';
+                echo '<img  '.((($dress['maxdur']-2)==$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=20 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РѕР¶РµСЂРµР»СЊРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РѕР¶РµСЂРµР»СЊРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w2.gif" width=60 height=20 alt="Пустой слот ожерелье" >';
+            echo '<img src="'.IMGBASE.'/i/w2.gif" width=60 height=20 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РѕР¶РµСЂРµР»СЊРµ" >';
         }
     ?></TD></TR>
 
@@ -374,12 +374,12 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=20 height=20 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа кольце выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа кольце выгравировано '{$dress['text']}'":"").'" >';
+                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=20 height=20 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РєРѕР»СЊС†Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РєРѕР»СЊС†Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w6.gif" width=20 height=20 alt="Пустой слот кольцо" >';
+            echo '<img src="'.IMGBASE.'/i/w6.gif" width=20 height=20 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РєРѕР»СЊС†Рѕ" >';
         }
     ?></td>
 <TD style="BACKGROUND-IMAGE: none"><?php
@@ -388,12 +388,12 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=20 height=20 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа кольце выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа кольце выгравировано '{$dress['text']}'":"").'" >';
+                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=20 height=20 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РєРѕР»СЊС†Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РєРѕР»СЊС†Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w6.gif" width=20 height=20 alt="Пустой слот кольцо" >';
+            echo '<img src="'.IMGBASE.'/i/w6.gif" width=20 height=20 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РєРѕР»СЊС†Рѕ" >';
         }
     ?></td>
 <TD style="BACKGROUND-IMAGE: none"><?php
@@ -402,12 +402,12 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=20 height=20 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа кольце выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа кольце выгравировано '{$dress['text']}'":"").'" >';
+                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=20 height=20 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РєРѕР»СЊС†Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РєРѕР»СЊС†Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w6.gif" width=20 height=20 alt="Пустой слот кольцо" >';
+            echo '<img src="'.IMGBASE.'/i/w6.gif" width=20 height=20 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РєРѕР»СЊС†Рѕ" >';
         }
     ?></td>
 </TR></TBODY></TABLE></TD></TR>
@@ -418,12 +418,12 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=40 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа перчатках выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа перчатках выгравировано '{$dress['text']}'":"").'" >';
+                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=40 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РїРµСЂС‡Р°С‚РєР°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РїРµСЂС‡Р°С‚РєР°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w11.gif" width=60 height=40 alt="Пустой слот перчатки" >';
+            echo '<img src="'.IMGBASE.'/i/w11.gif" width=60 height=40 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РїРµСЂС‡Р°С‚РєРё" >';
         }
     ?></TD></TR>
 <TR><TD style="BACKGROUND-IMAGE: none">
@@ -433,12 +433,12 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=60 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['minu']>0)?"\nУрон {$dress['minu']}-{$dress['maxu']}":"").(($dress['text']!=null)?"\nНа щите выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа щите выгравировано '{$dress['text']}'":"").'" >';
+                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=60 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['minu']>0)?"\nРЈСЂРѕРЅ {$dress['minu']}-{$dress['maxu']}":"").(($dress['text']!=null)?"\nРќР° С‰РёС‚Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° С‰РёС‚Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w10.gif" width=60 height=60 alt="Пустой слот щит" >';
+            echo '<img src="'.IMGBASE.'/i/w10.gif" width=60 height=60 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ С‰РёС‚" >';
         }
     ?></TD></TR>
 <TR><TD style="BACKGROUND-IMAGE: none">
@@ -448,12 +448,12 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=80 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа поножах выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа поножах выгравировано '{$dress['text']}'":"").'" >';
+                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=80 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РїРѕРЅРѕР¶Р°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° РїРѕРЅРѕР¶Р°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w19.gif" width=60 height=80 alt="Пустой слот поножи" >';
+            echo '<img src="'.IMGBASE.'/i/w19.gif" width=60 height=80 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РїРѕРЅРѕР¶Рё" >';
         }
     ?></TD></TR>
 <TR><TD style="BACKGROUND-IMAGE: none">
@@ -463,12 +463,12 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
             if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
                 showhrefmagic($dress);
             } else {
-                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=40 title="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа ботинках выгравировано '{$dress['text']}'":"").'" alt="'.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nУровень жизни +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['text']!=null)?"\nНа ботинках выгравировано '{$dress['text']}'":"").'" >';
+                echo '<img  '.((($dress['maxdur']-2)<=$dress['duration'] && $dress['duration'] > 2 && !$pas)?" style='background-image:url(".IMGBASE."/i/blink.gif);' ":"").' src="'.IMGBASE.'/i/sh/'.$dress['img'].'" width=60 height=40 title="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° Р±РѕС‚РёРЅРєР°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" alt="'.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"\nРЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё +{$dress['ghp']}":"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['text']!=null)?"\nРќР° Р±РѕС‚РёРЅРєР°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"").'" >';
             }
         }
         else
         {
-            echo '<img src="'.IMGBASE.'/i/w12.gif" width=60 height=40 alt="Пустой слот обувь" >';
+            echo '<img src="'.IMGBASE.'/i/w12.gif" width=60 height=40 alt="РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РѕР±СѓРІСЊ" >';
         }}
         ?></TD></TR>
 </TBODY></TABLE></TD></TR>
@@ -500,10 +500,10 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
         $data = mysql_fetch_array(mysql_query("select * from `online` WHERE `date` >= ".(time()-60)." AND `id` = ".$user['id'].";"));
 /*      $dd = mysql_query("SELECT * FROM `effects` WHERE `owner` = ".$user['id'].";");
         $ddtravma = mysql_fetch_array(mysql_query("SELECT * FROM `effects` WHERE `owner` = ".$user['id']." and (`type`=11 or `type`=12 or `type`=13 or `type`=14) order by `type` desc limit 1;"));
-        if ($ddtravma['type'] == 14) {$trt="неизлечимая";}
-        elseif ($ddtravma['type'] == 13) {$trt="тяжелая";}
-        elseif ($ddtravma['type'] == 12) {$trt="средняя";}
-        elseif ($ddtravma['type'] == 11) {$trt="легкая";}
+        if ($ddtravma['type'] == 14) {$trt="РЅРµРёР·Р»РµС‡РёРјР°СЏ";}
+        elseif ($ddtravma['type'] == 13) {$trt="С‚СЏР¶РµР»Р°СЏ";}
+        elseif ($ddtravma['type'] == 12) {$trt="СЃСЂРµРґРЅСЏСЏ";}
+        elseif ($ddtravma['type'] == 11) {$trt="Р»РµРіРєР°СЏ";}
         else {$trt=0;} */
 
     ?></A>
@@ -524,47 +524,47 @@ echo'<IMG border=0 alt="" src="'.IMGBASE.'/i/slot_bottom0.gif" width=120 height=
 $online = mysql_fetch_array(mysql_query('SELECT u.* ,o.date,u.* ,o.real_time FROM `users` as u, `online` as o WHERE u.`id` = o.`id` AND u.`id` = \''.$user['id'].'\' LIMIT 1;'));
             if ($data['id'] != null or ($user['id'] == 99 && vrag=="on")) {
                 if($data['room'] > 500 && $data['room'] < 561) {
-                    $rrm = 'Башня смерти, участвует в турнире';
+                    $rrm = 'Р‘Р°С€РЅСЏ СЃРјРµСЂС‚Рё, СѓС‡Р°СЃС‚РІСѓРµС‚ РІ С‚СѓСЂРЅРёСЂРµ';
                 }
                 elseif($user['id'] == 99) {
-                    $rrm = "Центральная площадь";
+                    $rrm = "Р¦РµРЅС‚СЂР°Р»СЊРЅР°СЏ РїР»РѕС‰Р°РґСЊ";
                 $vrag_b = mysql_fetch_array(mysql_query("SELECT `battle` FROM `bots` WHERE  `prototype` = 99 LIMIT 1 ;"));
                                 $user['battle']=$vrag_b['battle'];
                 }
                 else {
                     $rrm = $rooms[$data['room']];
                 }
-                echo '<center>Персонаж сейчас находится в клубе.</center><center>Локация : <B>"'.$rrm.'"</B></center>';
+                echo '<center>РџРµСЂСЃРѕРЅР°Р¶ СЃРµР№С‡Р°СЃ РЅР°С…РѕРґРёС‚СЃСЏ РІ РєР»СѓР±Рµ.</center><center>Р›РѕРєР°С†РёСЏ : <B>"'.$rrm.'"</B></center>';
             } else
             {
 
 function getDateInterval($pointDate)
 {
-   $pointNow = time(); // получили метку текущего времени
+   $pointNow = time(); // РїРѕР»СѓС‡РёР»Рё РјРµС‚РєСѓ С‚РµРєСѓС‰РµРіРѕ РІСЂРµРјРµРЅРё
 
    $times = array('year' => 60*60*24*365, 'month' =>60*60*24*31, 'week' =>60*60*24*7, 'day' => 60*60*24, 'hour' => 60*60, 'minute' => 60);
 
-   $pointInterval = $pointDate > $pointNow ? $pointDate - $pointNow : $pointNow - $pointDate; // получили метку разности двух дат
+   $pointInterval = $pointDate > $pointNow ? $pointDate - $pointNow : $pointNow - $pointDate; // РїРѕР»СѓС‡РёР»Рё РјРµС‚РєСѓ СЂР°Р·РЅРѕСЃС‚Рё РґРІСѓС… РґР°С‚
 
-   $returnDate = array(); // создаём пока пустой массив возвращаемой даты
+   $returnDate = array(); // СЃРѕР·РґР°С‘Рј РїРѕРєР° РїСѓСЃС‚РѕР№ РјР°СЃСЃРёРІ РІРѕР·РІСЂР°С‰Р°РµРјРѕР№ РґР°С‚С‹
 
-   $returnDate['year'] = floor($pointInterval / $times['year']); // высчитываем годы
-   $pointInterval = $pointInterval % $times['year']; // находим остаток
+   $returnDate['year'] = floor($pointInterval / $times['year']); // РІС‹СЃС‡РёС‚С‹РІР°РµРј РіРѕРґС‹
+   $pointInterval = $pointInterval % $times['year']; // РЅР°С…РѕРґРёРј РѕСЃС‚Р°С‚РѕРє
 
-   $returnDate['month'] = floor($pointInterval / $times['month']); // высчитываем месяцы
-   $pointInterval = $pointInterval % $times['month']; // находим остаток
+   $returnDate['month'] = floor($pointInterval / $times['month']); // РІС‹СЃС‡РёС‚С‹РІР°РµРј РјРµСЃСЏС†С‹
+   $pointInterval = $pointInterval % $times['month']; // РЅР°С…РѕРґРёРј РѕСЃС‚Р°С‚РѕРє
 
-   $returnDate['week'] = floor($pointInterval / $times['week']); // высчитываем недели
-   $pointInterval = $pointInterval % $times['week']; // находим остаток
+   $returnDate['week'] = floor($pointInterval / $times['week']); // РІС‹СЃС‡РёС‚С‹РІР°РµРј РЅРµРґРµР»Рё
+   $pointInterval = $pointInterval % $times['week']; // РЅР°С…РѕРґРёРј РѕСЃС‚Р°С‚РѕРє
 
-   $returnDate['day'] = floor($pointInterval / $times['day']); // высчитываем дни
-   $pointInterval = $pointInterval % $times['day']; // находим остаток
+   $returnDate['day'] = floor($pointInterval / $times['day']); // РІС‹СЃС‡РёС‚С‹РІР°РµРј РґРЅРё
+   $pointInterval = $pointInterval % $times['day']; // РЅР°С…РѕРґРёРј РѕСЃС‚Р°С‚РѕРє
 
-   $returnDate['hour'] = floor($pointInterval / $times['hour']); // высчитываем часы
-   $pointInterval = $pointInterval % $times['hour']; // находим остаток
+   $returnDate['hour'] = floor($pointInterval / $times['hour']); // РІС‹СЃС‡РёС‚С‹РІР°РµРј С‡Р°СЃС‹
+   $pointInterval = $pointInterval % $times['hour']; // РЅР°С…РѕРґРёРј РѕСЃС‚Р°С‚РѕРє
 
-   $returnDate['minute'] = floor($pointInterval / $times['minute']); // высчитываем минуты
-   $pointInterval = $pointInterval % $times['minute']; // находим остаток
+   $returnDate['minute'] = floor($pointInterval / $times['minute']); // РІС‹СЃС‡РёС‚С‹РІР°РµРј РјРёРЅСѓС‚С‹
+   $pointInterval = $pointInterval % $times['minute']; // РЅР°С…РѕРґРёРј РѕСЃС‚Р°С‚РѕРє
 
 
    return $returnDate;
@@ -573,70 +573,70 @@ function getDateInterval($pointDate)
 
 $date = getDateInterval($online['date']);
 
-function year_text($days) { # склонение слова "год"
+function year_text($days) { # СЃРєР»РѕРЅРµРЅРёРµ СЃР»РѕРІР° "РіРѕРґ"
     $s=substr($days,strlen($days)-1,1);
     if (strlen($days)>=2) {
-        if (substr($days,strlen($days)-2,1)=='1') {return $days." лет ";$ok=true;}
+        if (substr($days,strlen($days)-2,1)=='1') {return $days." Р»РµС‚ ";$ok=true;}
     }if (!$ok) {
         if ($days==0){return "";}
-    elseif ($s==0 or $s>=5) {return $days." лет ";}
-    elseif ($s==1) {return $days." год ";}
-    elseif ($s>=2 && $s<=4) {return $days." года ";}
+    elseif ($s==0 or $s>=5) {return $days." Р»РµС‚ ";}
+    elseif ($s==1) {return $days." РіРѕРґ ";}
+    elseif ($s>=2 && $s<=4) {return $days." РіРѕРґР° ";}
     }
 }
-function month_text($days) { # склонение слова "месяц"
+function month_text($days) { # СЃРєР»РѕРЅРµРЅРёРµ СЃР»РѕРІР° "РјРµСЃСЏС†"
     $s=substr($days,strlen($days)-1,1);
     if (strlen($days)>=2) {
-        if (substr($days,strlen($days)-2,1)=='1') {return $days." месяцев ";$ok=true;}
+        if (substr($days,strlen($days)-2,1)=='1') {return $days." РјРµСЃСЏС†РµРІ ";$ok=true;}
     }if (!$ok) {
         if ($days==0){return "";}
-    elseif ($s==0 or $s>=5) {return $days." месяцев ";}
-    elseif ($s==1) {return $days." месяц ";}
-    elseif ($s>=2 && $s<=4) {return $days." месяца ";}
+    elseif ($s==0 or $s>=5) {return $days." РјРµСЃСЏС†РµРІ ";}
+    elseif ($s==1) {return $days." РјРµСЃСЏС† ";}
+    elseif ($s>=2 && $s<=4) {return $days." РјРµСЃСЏС†Р° ";}
     }
 }
-function week_text($days) { # склонение слова "неделя"
+function week_text($days) { # СЃРєР»РѕРЅРµРЅРёРµ СЃР»РѕРІР° "РЅРµРґРµР»СЏ"
     $s=substr($days,strlen($days)-1,1);
     if (strlen($days)>=2) {
-        if (substr($days,strlen($days)-2,1)=='1') {return $days." недель ";$ok=true;}
+        if (substr($days,strlen($days)-2,1)=='1') {return $days." РЅРµРґРµР»СЊ ";$ok=true;}
     }if (!$ok) {
         if ($days==0){return "";}
-    elseif ($s==0 or $s>=5) {return $days." недель ";}
-    elseif ($s==1) {return $days." неделю ";}
-    elseif ($s>=2 && $s<=4) {return $days." недели ";}
+    elseif ($s==0 or $s>=5) {return $days." РЅРµРґРµР»СЊ ";}
+    elseif ($s==1) {return $days." РЅРµРґРµР»СЋ ";}
+    elseif ($s>=2 && $s<=4) {return $days." РЅРµРґРµР»Рё ";}
     }
 }
-function days_text($days) { # склонение слова "дней"
+function days_text($days) { # СЃРєР»РѕРЅРµРЅРёРµ СЃР»РѕРІР° "РґРЅРµР№"
     $s=substr($days,strlen($days)-1,1);
     if (strlen($days)>=2) {
-        if (substr($days,strlen($days)-2,1)=='1') {return $days." дней ";$ok=true;}
+        if (substr($days,strlen($days)-2,1)=='1') {return $days." РґРЅРµР№ ";$ok=true;}
     }if (!$ok) {
         if ($days==0){return "";}
-    elseif ($s==0 or $s>=5) {return $days." дней ";}
-    elseif ($s==1) {return $days." день ";}
-    elseif ($s>=2 && $s<=4) {return $days." дня ";}
+    elseif ($s==0 or $s>=5) {return $days." РґРЅРµР№ ";}
+    elseif ($s==1) {return $days." РґРµРЅСЊ ";}
+    elseif ($s>=2 && $s<=4) {return $days." РґРЅСЏ ";}
     }
 }
-function hour_text($days) { # склонение слова "час"
+function hour_text($days) { # СЃРєР»РѕРЅРµРЅРёРµ СЃР»РѕРІР° "С‡Р°СЃ"
     $s=substr($days,strlen($days)-1,1);
     if (strlen($days)>=2) {
-        if (substr($days,strlen($days)-2,1)=='1') {return $days." часов ";$ok=true;}
+        if (substr($days,strlen($days)-2,1)=='1') {return $days." С‡Р°СЃРѕРІ ";$ok=true;}
     }if (!$ok) {
         if ($days==0){return "";}
-    elseif ($s==0 or $s>=5) {return $days." часов ";}
-    elseif ($s==1) {return $days." час ";}
-    elseif ($s>=2 && $s<=4) {return $days." часа ";}
+    elseif ($s==0 or $s>=5) {return $days." С‡Р°СЃРѕРІ ";}
+    elseif ($s==1) {return $days." С‡Р°СЃ ";}
+    elseif ($s>=2 && $s<=4) {return $days." С‡Р°СЃР° ";}
     }
 }
-function minute_text($days) { # склонение слова "минута"
+function minute_text($days) { # СЃРєР»РѕРЅРµРЅРёРµ СЃР»РѕРІР° "РјРёРЅСѓС‚Р°"
     $s=substr($days,strlen($days)-1,1);
     if (strlen($days)>=2) {
-        if (substr($days,strlen($days)-2,1)=='1') {return $days." минут ";$ok=true;}
+        if (substr($days,strlen($days)-2,1)=='1') {return $days." РјРёРЅСѓС‚ ";$ok=true;}
     }if (!$ok) {
-        if ($days==0){return "1 минуту";}
-    elseif ($s==0 or $s>=5) {return $days." минут ";}
-    elseif ($s==1) {return $days." минуту ";}
-    elseif ($s>=2 && $s<=4) {return $days." минуты ";}
+        if ($days==0){return "1 РјРёРЅСѓС‚Сѓ";}
+    elseif ($s==0 or $s>=5) {return $days." РјРёРЅСѓС‚ ";}
+    elseif ($s==1) {return $days." РјРёРЅСѓС‚Сѓ ";}
+    elseif ($s>=2 && $s<=4) {return $days." РјРёРЅСѓС‚С‹ ";}
     }
 }
 $year = year_text($date['year']);
@@ -654,34 +654,34 @@ if ($month>0 or $year>0){$week="";}
 
 
 
-                echo "<center>Персонаж не в клубе, но был тут:</center><center>".date("Y.m.d H:i", $online['date'])."<IMG src=\"".IMGBASE."/i/clok3_2.png\" alt=\"Время сервера\"></center>";
-echo"<center>(".$year.$month.$week.$days.$hour.$minute." назад)</center>";
+                echo "<center>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РєР»СѓР±Рµ, РЅРѕ Р±С‹Р» С‚СѓС‚:</center><center>".date("Y.m.d H:i", $online['date'])."<IMG src=\"".IMGBASE."/i/clok3_2.png\" alt=\"Р’СЂРµРјСЏ СЃРµСЂРІРµСЂР°\"></center>";
+echo"<center>(".$year.$month.$week.$days.$hour.$minute." РЅР°Р·Р°Рґ)</center>";
                 }
             ?><?
             if ($user['battle'] > 0) {
-                echo '<center>Персонаж сейчас в <a target=_blank href="logs.php?log=',$user['battle'],'"><IMG height=12 width=12 src="'.IMGBASE.'/i/fighttype1.gif"> поединке</a></center>';
+                echo '<center>РџРµСЂСЃРѕРЅР°Р¶ СЃРµР№С‡Р°СЃ РІ <a target=_blank href="logs.php?log=',$user['battle'],'"><IMG height=12 width=12 src="'.IMGBASE.'/i/fighttype1.gif"> РїРѕРµРґРёРЅРєРµ</a></center>';
             }
             ?></CENTER></SMALL></TD></TR><?  }
 /*          if ($trt) {
-                echo "<TR><TD><IMG height=25 src=\"i/travma.gif\" width=40></TD><TD><SMALL>У персонажа $trt травма.</SMALL></TD></TR>";
+                echo "<TR><TD><IMG height=25 src=\"i/travma.gif\" width=40></TD><TD><SMALL>РЈ РїРµСЂСЃРѕРЅР°Р¶Р° $trt С‚СЂР°РІРјР°.</SMALL></TD></TR>";
             }
             while($row = mysql_fetch_array($dd)) {
                 if ($row['time'] < time()) {
                     $row['time'] = time();
                 }
                 if ($row['type'] == 11 OR $row['type'] == 12 OR $row['type'] == 13 OR $row['type'] == 14) {
-                    if ($row['sila']) echo "<TR><TD><IMG height=25 src=\"i/travma.gif\" width=40></TD><TD><SMALL>\"{$row['name']}\" - Ослаблен параметр \"сила\", еще ".floor(($row['time']-time())/60/60)." ч. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." мин.</SMALL></TD></TR>";
-                    if ($row['lovk']) echo "<TR><TD><IMG height=25 src=\"i/travma.gif\" width=40></TD><TD><SMALL>\"{$row['name']}\" - Ослаблен параметр \"ловкость\", еще ".floor(($row['time']-time())/60/60)." ч. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." мин.</SMALL></TD></TR>";
-                    if ($row['inta']) echo "<TR><TD><IMG height=25 src=\"i/travma.gif\" width=40></TD><TD><SMALL>\"{$row['name']}\" - Ослаблен параметр \"интуиция\", еще ".floor(($row['time']-time())/60/60)." ч. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." мин.</SMALL></TD></TR>";
+                    if ($row['sila']) echo "<TR><TD><IMG height=25 src=\"i/travma.gif\" width=40></TD><TD><SMALL>\"{$row['name']}\" - РћСЃР»Р°Р±Р»РµРЅ РїР°СЂР°РјРµС‚СЂ \"СЃРёР»Р°\", РµС‰Рµ ".floor(($row['time']-time())/60/60)." С‡. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." РјРёРЅ.</SMALL></TD></TR>";
+                    if ($row['lovk']) echo "<TR><TD><IMG height=25 src=\"i/travma.gif\" width=40></TD><TD><SMALL>\"{$row['name']}\" - РћСЃР»Р°Р±Р»РµРЅ РїР°СЂР°РјРµС‚СЂ \"Р»РѕРІРєРѕСЃС‚СЊ\", РµС‰Рµ ".floor(($row['time']-time())/60/60)." С‡. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." РјРёРЅ.</SMALL></TD></TR>";
+                    if ($row['inta']) echo "<TR><TD><IMG height=25 src=\"i/travma.gif\" width=40></TD><TD><SMALL>\"{$row['name']}\" - РћСЃР»Р°Р±Р»РµРЅ РїР°СЂР°РјРµС‚СЂ \"РёРЅС‚СѓРёС†РёСЏ\", РµС‰Рµ ".floor(($row['time']-time())/60/60)." С‡. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." РјРёРЅ.</SMALL></TD></TR>";
                 }
                 if ($row['type'] == 2) {
-                    echo "<TR><TD><IMG height=25 src=\"i/magic/sleep.gif\" width=40></TD><TD><SMALL>На персонажа наложено заклятие молчания. Будет молчать еще ".floor(($row['time']-time())/60/60)." ч. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." мин.</SMALL></TD></TR>";
+                    echo "<TR><TD><IMG height=25 src=\"i/magic/sleep.gif\" width=40></TD><TD><SMALL>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ. Р‘СѓРґРµС‚ РјРѕР»С‡Р°С‚СЊ РµС‰Рµ ".floor(($row['time']-time())/60/60)." С‡. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." РјРёРЅ.</SMALL></TD></TR>";
                 }
                 if ($row['type'] == 10) {
-                    echo "<TR><TD><IMG height=25 src=\"i/magic/chains.gif\" width=40></TD><TD><SMALL>На персонажа наложены путы. Не может двигатся еще ".floor(($row['time']-time())/60/60)." ч. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." мин.</SMALL></TD></TR>";
+                    echo "<TR><TD><IMG height=25 src=\"i/magic/chains.gif\" width=40></TD><TD><SMALL>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° РЅР°Р»РѕР¶РµРЅС‹ РїСѓС‚С‹. РќРµ РјРѕР¶РµС‚ РґРІРёРіР°С‚СЃСЏ РµС‰Рµ ".floor(($row['time']-time())/60/60)." С‡. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." РјРёРЅ.</SMALL></TD></TR>";
                 }
                 if ($row['type'] == 3) {
-                    echo "<TR><TD><IMG height=25 src=\"i/magic/sleepf.gif\" width=40></TD><TD><SMALL>На персонажа наложено заклятие форумного молчания. Будет молчать еще ".floor(($row['time']-time())/60/60)." ч. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." мин.</SMALL></TD></TR>";
+                    echo "<TR><TD><IMG height=25 src=\"i/magic/sleepf.gif\" width=40></TD><TD><SMALL>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ. Р‘СѓРґРµС‚ РјРѕР»С‡Р°С‚СЊ РµС‰Рµ ".floor(($row['time']-time())/60/60)." С‡. ".round((($row['time']-time())/60)-(floor(($row['time']-time())/3600)*60))." РјРёРЅ.</SMALL></TD></TR>";
                 }
             }*/
 
@@ -722,7 +722,7 @@ echo"<center>(".$year.$month.$week.$days.$hour.$minute." назад)</center>";
     $user['room']=20;
   }
   
-// при выходе из Алтаря предметов запоминаем время выхода, в след. раз только через час
+// РїСЂРё РІС‹С…РѕРґРµ РёР· РђР»С‚Р°СЂСЏ РїСЂРµРґРјРµС‚РѕРІ Р·Р°РїРѕРјРёРЅР°РµРј РІСЂРµРјСЏ РІС‹С…РѕРґР°, РІ СЃР»РµРґ. СЂР°Р· С‚РѕР»СЊРєРѕ С‡РµСЂРµР· С‡Р°СЃ
 if (isset($_GET['level9000']) && $user['room'] == '9001') {
     $znlv = mysql_result(mysql_query("SELECT last_visit FROM zn_tower WHERE user_id = " . $_SESSION['uid']), 0, 0);
     if ((time()-$znlv) > 3600*6) {
@@ -764,8 +764,8 @@ $user['room']=26;
           $s=mqfa1("select value from variables where var='siege'");
           if ($s<10) {
             $gotoroom=0;
-            if ($user["room"]!=105) echo "<font color=red><b>Во время осады нельзя входить в замок.</b></font>";
-            $warning="Во время осады нельзя входить в замок.";
+            if ($user["room"]!=105) echo "<font color=red><b>Р’Рѕ РІСЂРµРјСЏ РѕСЃР°РґС‹ РЅРµР»СЊР·СЏ РІС…РѕРґРёС‚СЊ РІ Р·Р°РјРѕРє.</b></font>";
+            $warning="Р’Рѕ РІСЂРµРјСЏ РѕСЃР°РґС‹ РЅРµР»СЊР·СЏ РІС…РѕРґРёС‚СЊ РІ Р·Р°РјРѕРє.";
           }
         } 
         if ($gotoroom) {
@@ -846,10 +846,10 @@ $user['room']=26;
         }
         if ($_GET['got'] && $_GET['level3']) {
             if ($user['align'] == 4) {
-                print "<script>alert('Хаосникам вход в комиссионный магазин запрещен!')</script>";
+                print "<script>alert('РҐР°РѕСЃРЅРёРєР°Рј РІС…РѕРґ РІ РєРѕРјРёСЃСЃРёРѕРЅРЅС‹Р№ РјР°РіР°Р·РёРЅ Р·Р°РїСЂРµС‰РµРЅ!')</script>";
             }
             elseif ($user['level'] < 1) {
-                print "<script>alert('Вход в комиссионный магазин только с первого уровня!')</script>";
+                print "<script>alert('Р’С…РѕРґ РІ РєРѕРјРёСЃСЃРёРѕРЅРЅС‹Р№ РјР°РіР°Р·РёРЅ С‚РѕР»СЊРєРѕ СЃ РїРµСЂРІРѕРіРѕ СѓСЂРѕРІРЅСЏ!')</script>";
             }
             else {
                 mysql_query("UPDATE `users`,`online` SET `users`.`room` = '25',`online`.`room` = '25' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
@@ -858,7 +858,7 @@ $user['room']=26;
         }
         if ($_GET['got'] && $_GET['level6']) {
             if ($user['level'] < 1) {
-                print "<script>alert('Вход на почту только с первого уровня!')</script>";
+                print "<script>alert('Р’С…РѕРґ РЅР° РїРѕС‡С‚Сѓ С‚РѕР»СЊРєРѕ СЃ РїРµСЂРІРѕРіРѕ СѓСЂРѕРІРЅСЏ!')</script>";
             }
             else {
                 mysql_query("UPDATE `users`,`online` SET `users`.`room` = '27',`online`.`room` = '27' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
@@ -888,8 +888,8 @@ $user['room']=26;
             header('location: city.php?cp=1');
         }
         if ($_GET['got'] && $_GET['level5']) {
-            if (($user['login'] != 'Модератор' && $user['level'] < '4') OR ($user['level']>15 && $user["align"]!="2.5" && $user["align"]!="2.9")) {
-                print "<script>alert('Вход в водосток только с 4 лвл! Либо вы выросли для посещения данного места.')</script>";
+            if (($user['login'] != 'РњРѕРґРµСЂР°С‚РѕСЂ' && $user['level'] < '4') OR ($user['level']>15 && $user["align"]!="2.5" && $user["align"]!="2.9")) {
+                print "<script>alert('Р’С…РѕРґ РІ РІРѕРґРѕСЃС‚РѕРє С‚РѕР»СЊРєРѕ СЃ 4 Р»РІР»! Р›РёР±Рѕ РІС‹ РІС‹СЂРѕСЃР»Рё РґР»СЏ РїРѕСЃРµС‰РµРЅРёСЏ РґР°РЅРЅРѕРіРѕ РјРµСЃС‚Р°.')</script>";
             }
             else {
                 mysql_query("UPDATE `users`,`online` SET `users`.`room` = '402',`online`.`room` = '402' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
@@ -904,7 +904,7 @@ $user['room']=26;
             mysql_query("UPDATE `users`,`online` SET `users`.`room` = '28',`online`.`room` = '28' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
             header('location: klanedit.php');
         }
-if ($_GET['got'] && $_GET['level7']) {if ($user['align'] == 4) { print "<script>alert('Хаосникам вход в БС запрещен!')</script>";} else {
+if ($_GET['got'] && $_GET['level7']) {if ($user['align'] == 4) { print "<script>alert('РҐР°РѕСЃРЅРёРєР°Рј РІС…РѕРґ РІ Р‘РЎ Р·Р°РїСЂРµС‰РµРЅ!')</script>";} else {
 mysql_query("UPDATE `users`,`online` SET `users`.`room` = '31',`online`.`room` = '31' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
 header('location: tower.php'); } }
         if ($_GET['got'] && $_GET['level1']) {
@@ -973,7 +973,7 @@ var Hint3Name='';
 function findlogin(title, script, name){
     document.getElementById("hint3").innerHTML = '<form action="'+script+'" method=POST><table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: pointer" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
     '<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><INPUT TYPE=hidden name=sd4 value="6"><td colspan=2>'+
-    'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text id="'+name+'" id="'+name+'" NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" >> "></TD></TR></TABLE></td></tr></table></FORM>';
+    'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text id="'+name+'" id="'+name+'" NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" >> "></TD></TR></TABLE></td></tr></table></FORM>';
     document.getElementById("hint3").style.visibility = "visible";
     document.getElementById("hint3").style.left = 200;
     document.getElementById("hint3").style.top = 100;
@@ -994,7 +994,7 @@ window.location.href = '?got=1&level'+n+'=1&rnd='+Math.random();
 solo_store = n;
 var add_text = (document.getElementById('add_text') || document.createElement('div'));
 add_text.id = 'add_text';
-add_text.innerHTML = 'Вы перейдете в: <strong>' + name +'</strong> (<a href="#" onclick="return clear_solo();">отмена</a>)';
+add_text.innerHTML = 'Р’С‹ РїРµСЂРµР№РґРµС‚Рµ РІ: <strong>' + name +'</strong> (<a href="#" onclick="return clear_solo();">РѕС‚РјРµРЅР°</a>)';
 document.getElementById('ione').parentNode.parentNode.nextSibling.firstChild.appendChild(add_text);
 //ch_counter_color('red');
 }
@@ -1090,13 +1090,13 @@ if($_GET['nap']=="attack" && $user['room']==20){include "magic/cityattack.php";}
   include_once("questfuncs.php");
   if (0) {
     if (@$_GET["attackevil"]) {
-      battlewithbot(1796, "Горный демон", "Защита города", "20", 1);
+      battlewithbot(1796, "Р“РѕСЂРЅС‹Р№ РґРµРјРѕРЅ", "Р—Р°С‰РёС‚Р° РіРѕСЂРѕРґР°", "20", 1);
     }
     smallshowpersout($_SESSION['uid']);
     echo "</td><td width=\"230\" valign=\"top\"><img src=\"".IMGBASE."i/empty.gif\" width=\"230\" height=\"1\">
-    Настало время нанести ответный удар по демонам! Сколько ещё будем терпеть их нападения?!
-    Надо всем вместе напасть на их лагерь и убить всех до единого!<br><br>
-    <a href=\"main.php?got=1&room=44\">Смело мы в бой пойдём!</a>
+    РќР°СЃС‚Р°Р»Рѕ РІСЂРµРјСЏ РЅР°РЅРµСЃС‚Рё РѕС‚РІРµС‚РЅС‹Р№ СѓРґР°СЂ РїРѕ РґРµРјРѕРЅР°Рј! РЎРєРѕР»СЊРєРѕ РµС‰С‘ Р±СѓРґРµРј С‚РµСЂРїРµС‚СЊ РёС… РЅР°РїР°РґРµРЅРёСЏ?!
+    РќР°РґРѕ РІСЃРµРј РІРјРµСЃС‚Рµ РЅР°РїР°СЃС‚СЊ РЅР° РёС… Р»Р°РіРµСЂСЊ Рё СѓР±РёС‚СЊ РІСЃРµС… РґРѕ РµРґРёРЅРѕРіРѕ!<br><br>
+    <a href=\"main.php?got=1&room=44\">РЎРјРµР»Рѕ РјС‹ РІ Р±РѕР№ РїРѕР№РґС‘Рј!</a>
     </td>";
   } elseif ($user["room"]==45 && $_GET["findgrass"]) {
     smallshowpersout($_SESSION['uid']);
@@ -1112,18 +1112,18 @@ if($_GET['nap']=="attack" && $user['room']==20){include "magic/cityattack.php";}
   } elseif ($user["room"]==45 && $_GET["hunt"] && WINTER && 0) {
     smallshowpersout($_SESSION['uid']);
     if (canmakequest(10)) {
-      battlewithbot(4793, "Серый Волк", "Охота", 10, 0, 1, 0,0);
+      battlewithbot(4793, "РЎРµСЂС‹Р№ Р’РѕР»Рє", "РћС…РѕС‚Р°", 10, 0, 1, 0,0);
     } else {
       echo "<div style=\"padding:10px\">
-      Вы ещё недостаточно отдохнули после предыдущей охоты.
-      Отдохните ещё минимум ".ceil($questtime/60)." мин.
+      Р’С‹ РµС‰С‘ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РѕС‚РґРѕС…РЅСѓР»Рё РїРѕСЃР»Рµ РїСЂРµРґС‹РґСѓС‰РµР№ РѕС…РѕС‚С‹.
+      РћС‚РґРѕС…РЅРёС‚Рµ РµС‰С‘ РјРёРЅРёРјСѓРј ".ceil($questtime/60)." РјРёРЅ.
       </div>";
     }
   } elseif ($user['room'] == 20 && canmakequest(1) && $user["id"]!=4849) {
     smallshowpersout($_SESSION['uid']);
     if (@$_GET["openchest"]) {
       if (!placeinbackpack(1)) {
-        echo "<center><b><font color=red>У вас недостаточно места в рюкзаке.</font></b></center>";
+        echo "<center><b><font color=red>РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РјРµСЃС‚Р° РІ СЂСЋРєР·Р°РєРµ.</font></b></center>";
       } else {
         $rnd=rand(0,1);
         if (LETTERQUEST) {
@@ -1141,14 +1141,14 @@ if($_GET['nap']=="attack" && $user['room']==20){include "magic/cityattack.php";}
         $rand=rand(1,3);
         echo "</td><td width=\"230\" valign=\"top\"><br />
         <img src=\"".IMGBASE."/i/empty.gif\" width=\"230\" height=\"1\">";
-        echo "<div style=\"padding:10px\">В сундучке вы обнаружили $taken[name] и ".($rand*0.5)." кр.<br><br>
+        echo "<div style=\"padding:10px\">Р’ СЃСѓРЅРґСѓС‡РєРµ РІС‹ РѕР±РЅР°СЂСѓР¶РёР»Рё $taken[name] Рё ".($rand*0.5)." РєСЂ.<br><br>
         <center><img src=\"".IMGBASE."/i/sh/$taken[img]\"></center><br>
-        Приходите через 24 часа за новым подарком.
+        РџСЂРёС…РѕРґРёС‚Рµ С‡РµСЂРµР· 24 С‡Р°СЃР° Р·Р° РЅРѕРІС‹Рј РїРѕРґР°СЂРєРѕРј.
         </div>";
         mq("update users set money=money+".($rand*0.5)." where id='$_SESSION[uid]'");
       }
     } else {
-      echo "<div style=\"padding:10px\">Посередине площади расположен сундук мироздателя, в котором раз в день можно получить небольшой подарочек.</div>
+      echo "<div style=\"padding:10px\">РџРѕСЃРµСЂРµРґРёРЅРµ РїР»РѕС‰Р°РґРё СЂР°СЃРїРѕР»РѕР¶РµРЅ СЃСѓРЅРґСѓРє РјРёСЂРѕР·РґР°С‚РµР»СЏ, РІ РєРѕС‚РѕСЂРѕРј СЂР°Р· РІ РґРµРЅСЊ РјРѕР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ РЅРµР±РѕР»СЊС€РѕР№ РїРѕРґР°СЂРѕС‡РµРє.</div>
       <center><a href=\"$_SERVER[PHP_SELF]?openchest=1\"><img border=\"0\" src=\"".IMGBASE."/img/podzem/2.gif\"></a></center>";
     }
     echo "</td>";
@@ -1181,12 +1181,12 @@ if ($user['room']==20) {
     $hinttop=18;
     $hintright=113;
 	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer;\" id=\"ione\"><img src=\"http://img.bestcombats.net/city/abadon/fon/ap_bg1_1.jpg\" alt=\"\" border=\"0\"/>";
-    buildsetnew(0,"abadon/abp_tradehouse",142,74,"Торговый Пост");
-    buildsetnew(77,"abadon/ap_tower1",70,50,"Сторожевая Башня");
-	buildsetnew(2005,"abadon/ap_port",140,200,"Портал");
-    buildsetnew(9000,"abadon/ap_tower3",70,330,"Храм знаний");
-    buildsetnew(0,"abadon/dm_left1",200,10, "Арильские Копи");
-    buildsetnew(0,"abadon/dm_right",200,470, "Загадочное место");
+    buildsetnew(0,"abadon/abp_tradehouse",142,74,"РўРѕСЂРіРѕРІС‹Р№ РџРѕСЃС‚");
+    buildsetnew(77,"abadon/ap_tower1",70,50,"РЎС‚РѕСЂРѕР¶РµРІР°СЏ Р‘Р°С€РЅСЏ");
+	buildsetnew(2005,"abadon/ap_port",140,200,"РџРѕСЂС‚Р°Р»");
+    buildsetnew(9000,"abadon/ap_tower3",70,330,"РҐСЂР°Рј Р·РЅР°РЅРёР№");
+    buildsetnew(0,"abadon/dm_left1",200,10, "РђСЂРёР»СЊСЃРєРёРµ РљРѕРїРё");
+    buildsetnew(0,"abadon/dm_right",200,470, "Р—Р°РіР°РґРѕС‡РЅРѕРµ РјРµСЃС‚Рѕ");
   if (WINTER) echo "<div id=\"snow\"></div><script src=\"http://img.bestcombats.net/js/snow.js\"></script>";
 } elseif ($user['room']==21) {
     $hinttop=18;
@@ -1200,26 +1200,26 @@ if ($user['room']==20) {
     $st4 = 'strah-4' . TIME_OF_DAY . SEASON;
     $st5 = 'strah-5' . TIME_OF_DAY . SEASON;
 	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer;\" id=\"ione\"><img src=\"".IMGBASE."/i/city/",$fon,".gif\" alt=\"\" border=\"0\"/>";
-    buildset(82,"$z_podz",142,243,"Бездна");
-    buildset(9000,$st1,108,55,"Храм знаний");
-    buildset(7777,$st2,135,172,"Лотерея");
-    buildset(21,$st3,88,289,"Здание", "", "Здание \\n временно закрыто");
-    buildset(2222,$st4,49,429,"Церковь");
-    buildset(11111,$st5,172,243,"Фонтан");
-    buildset(20,"arrow-left",198,13, "Центральная площадь");
-    buildset(21,"arrow-right",186,511,"Проход закрыт", "","Проход закрыт");
-    buildset(1300,$z_pam,191,426,"Памятник");
+    buildset(82,"$z_podz",142,243,"Р‘РµР·РґРЅР°");
+    buildset(9000,$st1,108,55,"РҐСЂР°Рј Р·РЅР°РЅРёР№");
+    buildset(7777,$st2,135,172,"Р›РѕС‚РµСЂРµСЏ");
+    buildset(21,$st3,88,289,"Р—РґР°РЅРёРµ", "", "Р—РґР°РЅРёРµ \\n РІСЂРµРјРµРЅРЅРѕ Р·Р°РєСЂС‹С‚Рѕ");
+    buildset(2222,$st4,49,429,"Р¦РµСЂРєРѕРІСЊ");
+    buildset(11111,$st5,172,243,"Р¤РѕРЅС‚Р°РЅ");
+    buildset(20,"arrow-left",198,13, "Р¦РµРЅС‚СЂР°Р»СЊРЅР°СЏ РїР»РѕС‰Р°РґСЊ");
+    buildset(21,"arrow-right",186,511,"РџСЂРѕС…РѕРґ Р·Р°РєСЂС‹С‚", "","РџСЂРѕС…РѕРґ Р·Р°РєСЂС‹С‚");
+    buildset(1300,$z_pam,191,426,"РџР°РјСЏС‚РЅРёРє");
     if (WINTER) echo "<div id=\"snow\"></div><script src=\"i/js/snow.js\"></script>";
 } elseif ($user['room'] == 9000) {
     $hinttop=18;
     $hintright=10;
     $fon = 'hram-bg';
 	echo "<table width=1><tr><td><div style=\"position:relative; cursor: pointer; width: 550px; text-align: right;\" id=\"ione\"><img src=\"".IMGBASE."/i/city/",$fon,".gif\" alt=\"\" border=\"0\"/>";
-    buildset(9000,"hram-bot",38,270,"Хранитель Знаний", "dialog.php?char=20136");
+    buildset(9000,"hram-bot",38,270,"РҐСЂР°РЅРёС‚РµР»СЊ Р—РЅР°РЅРёР№", "dialog.php?char=20136");
     $isEnter = mysql_result(mysql_query("SELECT COUNT(*) FROM zn_tower WHERE user_id = $user[id] && reputation > 0"), 0, 0);
-    buildset(9001,"hram-altar-left",82,101,"Алтарь предметов", "", ($isEnter?"":"Сперва Вам следует обратиться к Хранителю Знаний")); 
-    buildset(9002,"hram-altar-right",94,361,"Алтарь рун", "", "Алтарь рун пока не работает");
-    buildset(21,"hram-exit",55,350,"Страшилкина улица");
+    buildset(9001,"hram-altar-left",82,101,"РђР»С‚Р°СЂСЊ РїСЂРµРґРјРµС‚РѕРІ", "", ($isEnter?"":"РЎРїРµСЂРІР° Р’Р°Рј СЃР»РµРґСѓРµС‚ РѕР±СЂР°С‚РёС‚СЊСЃСЏ Рє РҐСЂР°РЅРёС‚РµР»СЋ Р—РЅР°РЅРёР№")); 
+    buildset(9002,"hram-altar-right",94,361,"РђР»С‚Р°СЂСЊ СЂСѓРЅ", "", "РђР»С‚Р°СЂСЊ СЂСѓРЅ РїРѕРєР° РЅРµ СЂР°Р±РѕС‚Р°РµС‚");
+    buildset(21,"hram-exit",55,350,"РЎС‚СЂР°С€РёР»РєРёРЅР° СѓР»РёС†Р°");
 }
 
 $online = mysql_query("select real_time from `online`  WHERE `real_time` >= ".(time()-60).";");
@@ -1232,7 +1232,7 @@ $online = mysql_query("select real_time from `online`  WHERE `real_time` >= ".(t
 ?>px; top:0px; width:1px; height:1px; z-index:101; overflow:visible;">
 <TABLE height=15 border="0" cellspacing="0" cellpadding="0">
 <TR>
-<TD rowspan=3 valign="bottom"><a href="?rnd=0.604083970286585"><img src="<?=IMGBASE?>/i/move/rel_1.gif" width="15" height="16" alt="Обновить" border="0" /></a></TD>
+<TD rowspan=3 valign="bottom"><a href="?rnd=0.604083970286585"><img src="<?=IMGBASE?>/i/move/rel_1.gif" width="15" height="16" alt="РћР±РЅРѕРІРёС‚СЊ" border="0" /></a></TD>
 <TD colspan="3"><img src="<?=IMGBASE?>/i/move/navigatin_462s.gif" width="80" height="4" /></TD>
 </TR>
 <TR>
@@ -1250,42 +1250,42 @@ $online = mysql_query("select real_time from `online`  WHERE `real_time` >= ".(t
 <tr><td align="right"><div align="right" id="btransfers"><table cellpadding="0" cellspacing="0" border="0" id="bmoveto">
 <tr><td bgcolor="#D3D3D3">
 <? if ($user['room'] == 20 && 0) { ?>
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_1" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Бойцовский Клуб</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_1" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Р‘РѕР№С†РѕРІСЃРєРёР№ РљР»СѓР±</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_2" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Магазин</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_2" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">РњР°РіР°Р·РёРЅ</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_4" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Ремонтная мастерская</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_4" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Р РµРјРѕРЅС‚РЅР°СЏ РјР°СЃС‚РµСЂСЃРєР°СЏ</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_3" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Комиссионный магазин</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_3" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">РљРѕРјРёСЃСЃРёРѕРЅРЅС‹Р№ РјР°РіР°Р·РёРЅ</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_6" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Почтовое отделение</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_6" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">РџРѕС‡С‚РѕРІРѕРµ РѕС‚РґРµР»РµРЅРёРµ</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_21" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Страшилкина улица</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_21" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">РЎС‚СЂР°С€РёР»РєРёРЅР° СѓР»РёС†Р°</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_10" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Магазин Березка</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_10" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">РњР°РіР°Р·РёРЅ Р‘РµСЂРµР·РєР°</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_12" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Банк</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_12" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Р‘Р°РЅРє</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_11" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Зоомагазин</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_11" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Р—РѕРѕРјР°РіР°Р·РёРЅ</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_49" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Новая земля</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_49" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">РќРѕРІР°СЏ Р·РµРјР»СЏ</a></span>
 
-<? if (WINTER) { ?><span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_9" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Новогодняя елка</a></span><? } ?>
+<? if (WINTER) { ?><span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_9" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">РќРѕРІРѕРіРѕРґРЅСЏСЏ РµР»РєР°</a></span><? } ?>
 
 <?} elseif ($user['room'] == 21 && 0) { ?>
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_11" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Аукционный дом</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_11" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">РђСѓРєС†РёРѕРЅРЅС‹Р№ РґРѕРј</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_6" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Цветочный магазин</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_6" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Р¦РІРµС‚РѕС‡РЅС‹Р№ РјР°РіР°Р·РёРЅ</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_2" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Регистратура кланов</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_2" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Р РµРіРёСЃС‚СЂР°С‚СѓСЂР° РєР»Р°РЅРѕРІ</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_1" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Магазин Благородства</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_1" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">РњР°РіР°Р·РёРЅ Р‘Р»Р°РіРѕСЂРѕРґСЃС‚РІР°</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_5" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Вход в водосток</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_5" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Р’С…РѕРґ РІ РІРѕРґРѕСЃС‚РѕРє</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_7" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Башня Смерти</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_7" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Р‘Р°С€РЅСЏ РЎРјРµСЂС‚Рё</a></span>
 
-<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Время перехода: 10 сек." id="bmo_20" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Центральная площадь</a></span>
+<span style="white-space:nowrap; padding-left:3px; padding-right:3px; height:10px"><img src="<?=IMGBASE?>/i/move/links.gif" width="9" height="7" />&nbsp;<a href="#" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє." id="bmo_20" onmouseover="bimover(this);" onmouseout="bimout(this);" onclick="return bsolo(this);">Р¦РµРЅС‚СЂР°Р»СЊРЅР°СЏ РїР»РѕС‰Р°РґСЊ</a></span>
 
 <? } elseif ($user["room"]==45 && 0) {
   echo $loclinks;
@@ -1363,19 +1363,19 @@ progress_update();
 <HR>
 <div id="buttons_on_image" style="cursor:pointer; font-weight:bold; color:<? if (WINTER) echo "#000000"; else echo "#D8D8D8"; ?>; font-size:10px;">
 <? if ($user["room"]==45) { ?>
-  <? if (WINTER && 0) echo "<span onMouseMove=\"this.runtimeStyle.color = 'white';\" onMouseOut=\"this.runtimeStyle.color = this.parentElement.style.color;\" onclick=\"document.location.href='city.php?hunt=1';\">Охотиться</span> &nbsp;"; ?>
+  <? if (WINTER && 0) echo "<span onMouseMove=\"this.runtimeStyle.color = 'white';\" onMouseOut=\"this.runtimeStyle.color = this.parentElement.style.color;\" onclick=\"document.location.href='city.php?hunt=1';\">РћС…РѕС‚РёС‚СЊСЃСЏ</span> &nbsp;"; ?>
 
-  <!--<span onMouseMove="this.runtimeStyle.color = 'white';" onMouseOut="this.runtimeStyle.color = this.parentElement.style.color;" onclick="document.location.href='city.php?findgrass2=1';">Пойти за разрыв-травой</span> &nbsp;-->
+  <!--<span onMouseMove="this.runtimeStyle.color = 'white';" onMouseOut="this.runtimeStyle.color = this.parentElement.style.color;" onclick="document.location.href='city.php?findgrass2=1';">РџРѕР№С‚Рё Р·Р° СЂР°Р·СЂС‹РІ-С‚СЂР°РІРѕР№</span> &nbsp;-->
 
-  <!--span onMouseMove="this.runtimeStyle.color = '<? if (WINTER) echo "#aaaaaa"; else echo "white"; ?>';" onMouseOut="this.runtimeStyle.color = this.parentElement.style.color;" onclick="document.location.href='city.php?findgrass=1';">Искать алхимические травы</span-->
-  <span style="color: white;" onclick="document.location.href='city.php?findgrass=1';">Искать алхимические травы</span> &nbsp;
-  <!--<span onMouseMove="this.runtimeStyle.color = 'white';" onMouseOut="this.runtimeStyle.color = this.parentElement.style.color;" onclick="findlogin('Введите имя персонажа', 'city.php?nap=attack', 'target'); ">Напасть</span> &nbsp;-->
+  <!--span onMouseMove="this.runtimeStyle.color = '<? if (WINTER) echo "#aaaaaa"; else echo "white"; ?>';" onMouseOut="this.runtimeStyle.color = this.parentElement.style.color;" onclick="document.location.href='city.php?findgrass=1';">РСЃРєР°С‚СЊ Р°Р»С…РёРјРёС‡РµСЃРєРёРµ С‚СЂР°РІС‹</span-->
+  <span style="color: white;" onclick="document.location.href='city.php?findgrass=1';">РСЃРєР°С‚СЊ Р°Р»С…РёРјРёС‡РµСЃРєРёРµ С‚СЂР°РІС‹</span> &nbsp;
+  <!--<span onMouseMove="this.runtimeStyle.color = 'white';" onMouseOut="this.runtimeStyle.color = this.parentElement.style.color;" onclick="findlogin('Р’РІРµРґРёС‚Рµ РёРјСЏ РїРµСЂСЃРѕРЅР°Р¶Р°', 'city.php?nap=attack', 'target'); ">РќР°РїР°СЃС‚СЊ</span> &nbsp;-->
 <? } else { ?>
-  <span style="color:#A020F0"  onclick="window.open('/forum.php', 'forum', 'location=yes,menubar=yes,status=yes,resizable=yes,toolbar=yes,scrollbars=yes,scrollbars=yes')">Форум</span> &nbsp;
+  <span style="color:#A020F0"  onclick="window.open('/forum.php', 'forum', 'location=yes,menubar=yes,status=yes,resizable=yes,toolbar=yes,scrollbars=yes,scrollbars=yes')">Р¤РѕСЂСѓРј</span> &nbsp;
   <? if($user['room'] == 20){?>
-  <span style="color:#A020F0" onclick="findlogin('Введите имя персонажа', 'city.php?nap=attack', 'target'); ">Напасть</span> &nbsp;
+  <span style="color:#A020F0" onclick="findlogin('Р’РІРµРґРёС‚Рµ РёРјСЏ РїРµСЂСЃРѕРЅР°Р¶Р°', 'city.php?nap=attack', 'target'); ">РќР°РїР°СЃС‚СЊ</span> &nbsp;
   <?}?>
-  <!--span style="color:#A020F0"  onclick="window.open('help/city1.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">Подсказка</span--> &nbsp;
+  <!--span style="color:#A020F0"  onclick="window.open('help/city1.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">РџРѕРґСЃРєР°Р·РєР°</span--> &nbsp;
 <? } ?>
 </div>
 <script language="javascript" type="text/javascript">
@@ -1392,8 +1392,8 @@ document.getElementById('buttons_on_image').style.display = 'none';
 </script>
     <small>
 
-    <B>Внимание!</B> Никогда и никому не говорите пароль от своего персонажа. Не вводите пароль на других сайтах, типа "новый город", "лотерея", "там, где все дают на халяву". Пароль не нужен ни паладинам, ни кланам, ни администрации, <U>только взломщикам</U> для кражи вашего героя.<BR>
-    <I>Администрация.</I></small>
+    <B>Р’РЅРёРјР°РЅРёРµ!</B> РќРёРєРѕРіРґР° Рё РЅРёРєРѕРјСѓ РЅРµ РіРѕРІРѕСЂРёС‚Рµ РїР°СЂРѕР»СЊ РѕС‚ СЃРІРѕРµРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°. РќРµ РІРІРѕРґРёС‚Рµ РїР°СЂРѕР»СЊ РЅР° РґСЂСѓРіРёС… СЃР°Р№С‚Р°С…, С‚РёРїР° "РЅРѕРІС‹Р№ РіРѕСЂРѕРґ", "Р»РѕС‚РµСЂРµСЏ", "С‚Р°Рј, РіРґРµ РІСЃРµ РґР°СЋС‚ РЅР° С…Р°Р»СЏРІСѓ". РџР°СЂРѕР»СЊ РЅРµ РЅСѓР¶РµРЅ РЅРё РїР°Р»Р°РґРёРЅР°Рј, РЅРё РєР»Р°РЅР°Рј, РЅРё Р°РґРјРёРЅРёСЃС‚СЂР°С†РёРё, <U>С‚РѕР»СЊРєРѕ РІР·Р»РѕРјС‰РёРєР°Рј</U> РґР»СЏ РєСЂР°Р¶Рё РІР°С€РµРіРѕ РіРµСЂРѕСЏ.<BR>
+    <I>РђРґРјРёРЅРёСЃС‚СЂР°С†РёСЏ.</I></small>
     <BR><br>
         
         <?php
@@ -1402,10 +1402,10 @@ document.getElementById('buttons_on_image').style.display = 'none';
         $onlineSVC = mysql_num_rows(mysql_query("select real_time from `online`  WHERE `city`='virtcity' AND `real_time` >= ".(time()-60).";"));
         ?>
         
-         <u>Cейчас в клубе</u>: <?=$onlineS+$onlineSVC+$onlined?> чел.<BR>
-         <img src="http://img.bestcombats.net/city/micro/virtcity.gif"><b>Capital City</b>: <?=$onlineSVC?> чел.<br>
-         <img src="http://img.bestcombats.net/city/micro/suburb.gif"><b>Angels City</b>: <?=$onlineS?> чел.<br>
-         <img src="http://img.bestcombats.net/city/micro/dungeon.gif"><b>Abandoned Plain</b>: <?=$onlined?> чел.<br>
+         <u>CРµР№С‡Р°СЃ РІ РєР»СѓР±Рµ</u>: <?=$onlineS+$onlineSVC+$onlined?> С‡РµР».<BR>
+         <img src="http://img.bestcombats.net/city/micro/virtcity.gif"><b>Capital City</b>: <?=$onlineSVC?> С‡РµР».<br>
+         <img src="http://img.bestcombats.net/city/micro/suburb.gif"><b>Angels City</b>: <?=$onlineS?> С‡РµР».<br>
+         <img src="http://img.bestcombats.net/city/micro/dungeon.gif"><b>Abandoned Plain</b>: <?=$onlined?> С‡РµР».<br>
 
 
     <?php

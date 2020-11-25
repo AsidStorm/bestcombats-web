@@ -10,24 +10,24 @@ if ($user['hp'] >= 0) {
   }
 else {$int=0;}
 
-if ($user['battle'] > 0) {echo "Не в бою...";}
-elseif ($user['level'] < 4) { echo "Вашего уровня не достаточно для использования этого заклинания!"; }
-elseif ($user['room'] != $us['room']) { echo "Персонаж в другой комнате!"; }
-elseif (!$us['online']) {echo "Персонаж не в игре!";}
+if ($user['battle'] > 0) {echo "РќРµ РІ Р±РѕСЋ...";}
+elseif ($user['level'] < 4) { echo "Р’Р°С€РµРіРѕ СѓСЂРѕРІРЅСЏ РЅРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РѕРіРѕ Р·Р°РєР»РёРЅР°РЅРёСЏ!"; }
+elseif ($user['room'] != $us['room']) { echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!"; }
+elseif (!$us['online']) {echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РёРіСЂРµ!";}
 elseif (rand(1,100) < $int) {    
 		if ($user['invis']==1) {
-		addch("<img src=i/magic/1x1.gif><font color=red>Внимание!</font> &quot;невидимка&quot; наложил заклятие Астрал стихий на &quot;{$_POST['target']}&quot;, сроком 2 часа.");
+		addch("<img src=i/magic/1x1.gif><font color=red>Р’РЅРёРјР°РЅРёРµ!</font> &quot;РЅРµРІРёРґРёРјРєР°&quot; РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ РђСЃС‚СЂР°Р» СЃС‚РёС…РёР№ РЅР° &quot;{$_POST['target']}&quot;, СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");
 		}else
-		addch("<img src=i/magic/1x1.gif><font color=red>Внимание!</font> &quot;{$user['login']}&quot; наложил заклятие Астрал стихий на &quot;{$_POST['target']}&quot;, сроком 2 часа.");
+		addch("<img src=i/magic/1x1.gif><font color=red>Р’РЅРёРјР°РЅРёРµ!</font> &quot;{$user['login']}&quot; РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ РђСЃС‚СЂР°Р» СЃС‚РёС…РёР№ РЅР° &quot;{$_POST['target']}&quot;, СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");
     
       $user = mysql_fetch_array(mysql_query("SELECT `id` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;")); 
-      mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`,`stihiya`) values ('".$user['id']."','Астрал стихий (вода)',".(time()+7200).",'400','voda');");    
-      echo "<font color=red><b>На персонажа \"{$_POST['target']}\" наложено заклятие \"Астрал стихий (вода)\" </b></font>";      
+      mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`,`stihiya`) values ('".$user['id']."','РђСЃС‚СЂР°Р» СЃС‚РёС…РёР№ (РІРѕРґР°)',".(time()+7200).",'400','voda');");    
+      echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° \"{$_POST['target']}\" РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ \"РђСЃС‚СЂР°Р» СЃС‚РёС…РёР№ (РІРѕРґР°)\" </b></font>";      
       $bet=1;
       
 
 } else {
-        echo "Свиток рассыпался в ваших руках...";
+        echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
         $bet=1;
       }  
 ?>

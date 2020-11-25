@@ -11,10 +11,10 @@
 	if ($user['level'] < 4) { header("Location: main.php");  die(); } 
 	if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 
-    // блокировка на повторный вход (3600 сек)
+    // Р±Р»РѕРєРёСЂРѕРІРєР° РЅР° РїРѕРІС‚РѕСЂРЅС‹Р№ РІС…РѕРґ (3600 СЃРµРє)
     if ($user['id'] != 22004) {
         if (!isset($_SESSION['pole_kopka_access'])) {
-            if ($user['pole_kopka_last_visit']) { // если только зашел и раньше бывал
+            if ($user['pole_kopka_last_visit']) { // РµСЃР»Рё С‚РѕР»СЊРєРѕ Р·Р°С€РµР» Рё СЂР°РЅСЊС€Рµ Р±С‹РІР°Р»
                 if ((time() - $user['pole_kopka_last_visit']) < 3600) {
                     $_SESSION['pole_kopka_access'] = false;
                     header("Location: city.php?got=1&level49=1");
@@ -23,24 +23,24 @@
             }
             $_SESSION['pole_kopka_access'] = true;
         }
-        // обновляем при каждой перезагрузке, чтобы были данные в случае, если закроет браузер
+        // РѕР±РЅРѕРІР»СЏРµРј РїСЂРё РєР°Р¶РґРѕР№ РїРµСЂРµР·Р°РіСЂСѓР·РєРµ, С‡С‚РѕР±С‹ Р±С‹Р»Рё РґР°РЅРЅС‹Рµ РІ СЃР»СѓС‡Р°Рµ, РµСЃР»Рё Р·Р°РєСЂРѕРµС‚ Р±СЂР°СѓР·РµСЂ
         mysql_query("UPDATE users SET pole_kopka_last_visit = " . time() . " WHERE id = " . $user['id']);
     }
     
     //if ($user['id'] == 7) {
-        // бонусы
+        // Р±РѕРЅСѓСЃС‹
         if ($user['pole_kopka_kol_bonus']) {
-            // за каждые 100 в рюкзак лопату новичка
+            // Р·Р° РєР°Р¶РґС‹Рµ 100 РІ СЂСЋРєР·Р°Рє Р»РѕРїР°С‚Сѓ РЅРѕРІРёС‡РєР°
             if ($user['pole_kopka_present'] != $user['pole_kopka_kol_bonus']) {
                 if (is_integer($user['pole_kopka_kol_bonus'] / 100)) {
-                    mysql_query("INSERT INTO `inventory` (`name`,`type`,`duration`,`maxdur`,`owner`,`img`,`present`,`isrep`) VALUES ('Копалка новичка','3','0','20','".$user['id']."','kopalka1.gif','Мусорщик','0')");
-                    addchp("<font color=\"Black\">private [" . $user['login'] . "]  Внимание! За 100 бонусных копок, Вы получили копалку. Осмотрите Ваш инвентарь.</font>", "Комментатор");
-                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" получил Копалку новичка за 100 бонусных копок',1,'".time()."');") or die(mysql_error());
+                    mysql_query("INSERT INTO `inventory` (`name`,`type`,`duration`,`maxdur`,`owner`,`img`,`present`,`isrep`) VALUES ('РљРѕРїР°Р»РєР° РЅРѕРІРёС‡РєР°','3','0','20','".$user['id']."','kopalka1.gif','РњСѓСЃРѕСЂС‰РёРє','0')");
+                    addchp("<font color=\"Black\">private [" . $user['login'] . "]  Р’РЅРёРјР°РЅРёРµ! Р—Р° 100 Р±РѕРЅСѓСЃРЅС‹С… РєРѕРїРѕРє, Р’С‹ РїРѕР»СѓС‡РёР»Рё РєРѕРїР°Р»РєСѓ. РћСЃРјРѕС‚СЂРёС‚Рµ Р’Р°С€ РёРЅРІРµРЅС‚Р°СЂСЊ.</font>", "РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ");
+                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" РїРѕР»СѓС‡РёР» РљРѕРїР°Р»РєСѓ РЅРѕРІРёС‡РєР° Р·Р° 100 Р±РѕРЅСѓСЃРЅС‹С… РєРѕРїРѕРє',1,'".time()."');") or die(mysql_error());
                 }
                 if (is_integer($user['pole_kopka_kol_bonus'] / 200)) {
                     mysql_query("update `bank` set `ekr`=`ekr`+'2' where `owner`='" . $user['id'] . "' LIMIT 1;");
-                    addchp("<font color=\"Black\">private [" . $user['login'] . "]  Внимание! За 200 бонусных копок, Вы получили бонус в размере 2 екр, которые зачисленны на Ваш счет в банке.</font>", "Комментатор");
-                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" получил 2 екр за 200 бонусных копок',1,'".time()."');") or die(mysql_error());
+                    addchp("<font color=\"Black\">private [" . $user['login'] . "]  Р’РЅРёРјР°РЅРёРµ! Р—Р° 200 Р±РѕРЅСѓСЃРЅС‹С… РєРѕРїРѕРє, Р’С‹ РїРѕР»СѓС‡РёР»Рё Р±РѕРЅСѓСЃ РІ СЂР°Р·РјРµСЂРµ 2 РµРєСЂ, РєРѕС‚РѕСЂС‹Рµ Р·Р°С‡РёСЃР»РµРЅРЅС‹ РЅР° Р’Р°С€ СЃС‡РµС‚ РІ Р±Р°РЅРєРµ.</font>", "РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ");
+                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" РїРѕР»СѓС‡РёР» 2 РµРєСЂ Р·Р° 200 Р±РѕРЅСѓСЃРЅС‹С… РєРѕРїРѕРє',1,'".time()."');") or die(mysql_error());
                 }
                 mysql_query('UPDATE users SET pole_kopka_present = ' . $user['pole_kopka_kol_bonus'] . ' WHERE id = ' . $user['id']) or die(mysql_error());
             } 
@@ -63,11 +63,11 @@ if ($user['id'] != 7) {
     echo "
     <script LANGUAGE='JavaScript'>   
     document.ondragstart = test;
-    //запрет на перетаскивание
+    //Р·Р°РїСЂРµС‚ РЅР° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ
     document.onselectstart = test;
-    //запрет на выделение элементов страницы
+    //Р·Р°РїСЂРµС‚ РЅР° РІС‹РґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂР°РЅРёС†С‹
     document.oncontextmenu = test;
-    //запрет на выведение контекстного меню
+    //Р·Р°РїСЂРµС‚ РЅР° РІС‹РІРµРґРµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ
     function test() {
      return false
     }
@@ -92,53 +92,53 @@ if($_POST['bonuskopka']){
  if($user['money'] >= 2){
 mysql_query("update `users` set `pole_kopka_kol_bonus`=`pole_kopka_kol_bonus`+'1',`pole_kopka_kol_now`=`pole_kopka_kol_now`+'1',`pole_kopka_kol_all`=`pole_kopka_kol_all`+'1',`money`=`money`-'2' where `id`='".$user['id']."'");
 $user['pole_kopka_kol_now'] += 1;
-echo"Вы купили +1 доп. копку!";
-}else{echo"Не достаточно кр!";}
+echo"Р’С‹ РєСѓРїРёР»Рё +1 РґРѕРї. РєРѕРїРєСѓ!";
+}else{echo"РќРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РєСЂ!";}
 }
 
 if($_POST['x3']){
  if($user['money'] >= 45){
 mysql_query("update `users` set `pole_kopka_update`='3',`pole_kopka_min`=`pole_kopka_min`*'3',`pole_kopka_max`=`pole_kopka_max`*'3',`money`=`money`-'45' where `id`='".$user['id']."'");
-echo"Вы улучшили глубину х3!";
-}else{echo"Не достаточно кр!";}
+echo"Р’С‹ СѓР»СѓС‡С€РёР»Рё РіР»СѓР±РёРЅСѓ С…3!";
+}else{echo"РќРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РєСЂ!";}
 }
 
 if($_POST['x5']){
  if($user['money'] >= 110){
 mysql_query("update `users` set `pole_kopka_update`='5',`pole_kopka_min`=`pole_kopka_min`*'5',`pole_kopka_max`=`pole_kopka_max`*'5',`money`=`money`-'110' where `id`='".$user['id']."'");
-echo"Вы улучшили глубину х5!";
-}else{echo"Не достаточно кр!";}
+echo"Р’С‹ СѓР»СѓС‡С€РёР»Рё РіР»СѓР±РёРЅСѓ С…5!";
+}else{echo"РќРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РєСЂ!";}
 }
 
 if($_POST['x2']){
  if($user['money'] >= 20){
 mysql_query("update `users` set `pole_kopka_update`='2',`pole_kopka_min`=`pole_kopka_min`*'2',`pole_kopka_max`=`pole_kopka_max`*'2',`money`=`money`-'20' where `id`='".$user['id']."'");
-echo"Вы улучшили глубину х2!";
-}else{echo"Не достаточно кр!";}
+echo"Р’С‹ СѓР»СѓС‡С€РёР»Рё РіР»СѓР±РёРЅСѓ С…2!";
+}else{echo"РќРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РєСЂ!";}
 }
 
 if($_POST['buy1']){
     if($user['money'] >= 5){
-           $lopata = mysql_fetch_array(mysql_query("select `name` from `inventory` where `owner`='".$user['id']."' AND (`name`='Копалка новичка' OR `name`='Копалка мастера')"));
+           $lopata = mysql_fetch_array(mysql_query("select `name` from `inventory` where `owner`='".$user['id']."' AND (`name`='РљРѕРїР°Р»РєР° РЅРѕРІРёС‡РєР°' OR `name`='РљРѕРїР°Р»РєР° РјР°СЃС‚РµСЂР°')"));
  if(!$lopata){
-mysql_query("INSERT INTO `inventory` (`name`,`type`,`duration`,`maxdur`,`owner`,`img`,`present`,`isrep`) VALUES ('Копалка новичка','3','0','20','".$user['id']."','kopalka1.gif','Мусорщик','0')");
+mysql_query("INSERT INTO `inventory` (`name`,`type`,`duration`,`maxdur`,`owner`,`img`,`present`,`isrep`) VALUES ('РљРѕРїР°Р»РєР° РЅРѕРІРёС‡РєР°','3','0','20','".$user['id']."','kopalka1.gif','РњСѓСЃРѕСЂС‰РёРє','0')");
 mysql_query("UPDATE `users` set `money`=`money`-'5',`pole_kopka_kol_now`='7',`pole_kopka_kol_all`='7',`pole_kopka_min`='5',`pole_kopka_max`='14',`pole_kopka_kol_bonus`='0',`pole_kopka_update`='0' where `id`='".$user['id']."'");
-echo"Вы купили копалку новичка!";
-mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" купил Копалку новичка за 5 кр',1,'".time()."');");
-}else{echo"У Вас уже есть копалка! Для начала необходимо выбросить старую!";}
-}else{echo"У вас не хватает кр!";}
+echo"Р’С‹ РєСѓРїРёР»Рё РєРѕРїР°Р»РєСѓ РЅРѕРІРёС‡РєР°!";
+mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" РєСѓРїРёР» РљРѕРїР°Р»РєСѓ РЅРѕРІРёС‡РєР° Р·Р° 5 РєСЂ',1,'".time()."');");
+}else{echo"РЈ Р’Р°СЃ СѓР¶Рµ РµСЃС‚СЊ РєРѕРїР°Р»РєР°! Р”Р»СЏ РЅР°С‡Р°Р»Р° РЅРµРѕР±С…РѕРґРёРјРѕ РІС‹Р±СЂРѕСЃРёС‚СЊ СЃС‚Р°СЂСѓСЋ!";}
+}else{echo"РЈ РІР°СЃ РЅРµ С…РІР°С‚Р°РµС‚ РєСЂ!";}
 }
 
 if($_POST['buy2']){
     if($user['money'] >= 10){
-           $lopata = mysql_fetch_array(mysql_query("select `name` from `inventory` where `owner`='".$user['id']."' AND (`name`='Копалка новичка' OR `name`='Копалка мастера')"));
+           $lopata = mysql_fetch_array(mysql_query("select `name` from `inventory` where `owner`='".$user['id']."' AND (`name`='РљРѕРїР°Р»РєР° РЅРѕРІРёС‡РєР°' OR `name`='РљРѕРїР°Р»РєР° РјР°СЃС‚РµСЂР°')"));
  if(!$lopata){
-mysql_query("INSERT INTO `inventory` (`name`,`type`,`duration`,`maxdur`,`owner`,`img`,`present`,`isrep`) VALUES ('Копалка мастера','3','0','40','".$user['id']."','kopalka2.gif','Мусорщик','0')");
+mysql_query("INSERT INTO `inventory` (`name`,`type`,`duration`,`maxdur`,`owner`,`img`,`present`,`isrep`) VALUES ('РљРѕРїР°Р»РєР° РјР°СЃС‚РµСЂР°','3','0','40','".$user['id']."','kopalka2.gif','РњСѓСЃРѕСЂС‰РёРє','0')");
 mysql_query("UPDATE `users` set `money`=`money`-'10',`pole_kopka_kol_now`='9',`pole_kopka_kol_all`='9',`pole_kopka_min`='8',`pole_kopka_max`='19',`pole_kopka_kol_bonus`='0',`pole_kopka_update`='0' where `id`='".$user['id']."'");
-echo"Вы купили копалку мастера!";
-mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" купил Копалку мастера за 10 кр',1,'".time()."');");
-}else{echo"У Вас уже есть копалка! Для начала необходимо выбросить старую!";}
-}else{echo"У вас не хватает кр!";}
+echo"Р’С‹ РєСѓРїРёР»Рё РєРѕРїР°Р»РєСѓ РјР°СЃС‚РµСЂР°!";
+mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" РєСѓРїРёР» РљРѕРїР°Р»РєСѓ РјР°СЃС‚РµСЂР° Р·Р° 10 РєСЂ',1,'".time()."');");
+}else{echo"РЈ Р’Р°СЃ СѓР¶Рµ РµСЃС‚СЊ РєРѕРїР°Р»РєР°! Р”Р»СЏ РЅР°С‡Р°Р»Р° РЅРµРѕР±С…РѕРґРёРјРѕ РІС‹Р±СЂРѕСЃРёС‚СЊ СЃС‚Р°СЂСѓСЋ!";}
+}else{echo"РЈ РІР°СЃ РЅРµ С…РІР°С‚Р°РµС‚ РєСЂ!";}
 }
 
 
@@ -172,7 +172,7 @@ if($_POST['view']){
       $now_water = mysql_fetch_array(mysql_query("select `type` from `pole` where `id`='".$id."'"));
       if($now_water['type'] != 0){
       
-     $lopata = mysql_fetch_array(mysql_query("select `name` from `inventory` where `owner`='".$user['id']."' AND `dressed`='1' AND (`name`='Копалка новичка' OR `name`='Копалка мастера')"));
+     $lopata = mysql_fetch_array(mysql_query("select `name` from `inventory` where `owner`='".$user['id']."' AND `dressed`='1' AND (`name`='РљРѕРїР°Р»РєР° РЅРѕРІРёС‡РєР°' OR `name`='РљРѕРїР°Р»РєР° РјР°СЃС‚РµСЂР°')"));
      if($lopata['name']){
 mysql_query("update `pole` set `type`='0' where `id`='".$id."'");
 $randview = rand(1,5);
@@ -180,21 +180,21 @@ $randkr = rand(1,150)/10;
 $randizn = rand(1,4);
 if($randview == 1 || $randview == 2 || $randview == 3){
 mysql_query("update `users` set `money`=`money`+'".$randkr."' where `id`='".$user['id']."'");
-echo"Вы достали из воды ".$randkr." кр!";
-mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" достал из воды на Поле Кладоискателей ".$randkr." кр',1,'".time()."');");
+echo"Р’С‹ РґРѕСЃС‚Р°Р»Рё РёР· РІРѕРґС‹ ".$randkr." РєСЂ!";
+mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" РґРѕСЃС‚Р°Р» РёР· РІРѕРґС‹ РЅР° РџРѕР»Рµ РљР»Р°РґРѕРёСЃРєР°С‚РµР»РµР№ ".$randkr." РєСЂ',1,'".time()."');");
 }
 else{
 $randizn = rand(1,4);
 $lopatas = mysql_fetch_array(mysql_query("SELECT `prototype`,`duration`,`id` FROM `inventory` WHERE `id`='".$user['weap']."' AND `owner` = '".$user['id']."' AND `dressed` = '1'"));
 mysql_query("UPDATE `inventory` set `duration`=`duration`+'".$randizn."' where `id`='".$lopatas['id']."'");
-echo"Вы наткнулись на камень! Ваша копалка поломалась на ".$randizn." ед.";
+echo"Р’С‹ РЅР°С‚РєРЅСѓР»РёСЃСЊ РЅР° РєР°РјРµРЅСЊ! Р’Р°С€Р° РєРѕРїР°Р»РєР° РїРѕР»РѕРјР°Р»Р°СЃСЊ РЅР° ".$randizn." РµРґ.";
 }
-}else{echo"Возьмите копалку в руки, либо купите ее!";}
-}else{echo"Здесь уже черпали!";}
+}else{echo"Р’РѕР·СЊРјРёС‚Рµ РєРѕРїР°Р»РєСѓ РІ СЂСѓРєРё, Р»РёР±Рѕ РєСѓРїРёС‚Рµ РµРµ!";}
+}else{echo"Р—РґРµСЃСЊ СѓР¶Рµ С‡РµСЂРїР°Р»Рё!";}
 }
 
 if($_POST['tik']){
-     $lopata = mysql_fetch_array(mysql_query("select `name` from `inventory` where `owner`='".$user['id']."' AND `dressed`='1' AND (`name`='Копалка новичка' OR `name`='Копалка мастера')"));
+     $lopata = mysql_fetch_array(mysql_query("select `name` from `inventory` where `owner`='".$user['id']."' AND `dressed`='1' AND (`name`='РљРѕРїР°Р»РєР° РЅРѕРІРёС‡РєР°' OR `name`='РљРѕРїР°Р»РєР° РјР°СЃС‚РµСЂР°')"));
      if($lopata['name']){
 
          if($user['pole_kopka_kol_now'] > 0){
@@ -207,7 +207,7 @@ if($pole['type'] != 0){
 if($iznos == 1){
 $lopatas = mysql_fetch_array(mysql_query("SELECT `prototype`,`duration`,`id` FROM `inventory` WHERE `id`='".$user['weap']."' AND `owner` = '".$user['id']."' AND `dressed` = '1'"));
 mysql_query("UPDATE `inventory` set `duration`=`duration`+'1' where `id`='".$lopatas['id']."'");
-echo"Ваша копалка поломалась на 1 ед!<br>";
+echo"Р’Р°С€Р° РєРѕРїР°Р»РєР° РїРѕР»РѕРјР°Р»Р°СЃСЊ РЅР° 1 РµРґ!<br>";
 }
 
 
@@ -218,52 +218,52 @@ if($hp > 0){
 mysql_query("update `pole` set `heals`=`heals`-'".$randhp."' where `id`='".$id."'");
 mysql_query("update `users` set `pole_kopka_kol_now`=`pole_kopka_kol_now`-'1' where `id`='".$user['id']."'");
 $user['pole_kopka_kol_now'] -= 1;
-echo"Вы уменьшили глубину сектора на ".$randhp." единиц!";
+echo"Р’С‹ СѓРјРµРЅСЊС€РёР»Рё РіР»СѓР±РёРЅСѓ СЃРµРєС‚РѕСЂР° РЅР° ".$randhp." РµРґРёРЅРёС†!";
 }
 else{
 mysql_query("update `pole` set `heals`='0',`type`='0' where `id`='".$id."'");
 mysql_query("update `users` set `pole_kopka_kol_now`=`pole_kopka_kol_now`-'1' where `id`='".$user['id']."'");
 mysql_query("update `bank` set `ekr`=`ekr`+'".$bon."' where `owner`='".$user['id']."' LIMIT 1;");
 $user['pole_kopka_kol_now'] -= 1;
-echo"Вы выкопали ".$bon." екр! Ищите в Банке, если у Вас есть счет. Если счета нету, срочно откройте его. :)";
-mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" выкопал на Поле Кладоискателей ".$bon." екр',1,'".time()."');");
+echo"Р’С‹ РІС‹РєРѕРїР°Р»Рё ".$bon." РµРєСЂ! РС‰РёС‚Рµ РІ Р‘Р°РЅРєРµ, РµСЃР»Рё Сѓ Р’Р°СЃ РµСЃС‚СЊ СЃС‡РµС‚. Р•СЃР»Рё СЃС‡РµС‚Р° РЅРµС‚Сѓ, СЃСЂРѕС‡РЅРѕ РѕС‚РєСЂРѕР№С‚Рµ РµРіРѕ. :)";
+mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$user['id']}','\"".$user['login']."\" РІС‹РєРѕРїР°Р» РЅР° РџРѕР»Рµ РљР»Р°РґРѕРёСЃРєР°С‚РµР»РµР№ ".$bon." РµРєСЂ',1,'".time()."');");
 }
-}else{echo"Этот сектор уже был вскопан!";}
-}else{echo"У Вас больше не осталось свободных копок!";}
-}else{echo"<font color=red><b>Необходимо купить и взять в руки копалку!</b></font>";}
+}else{echo"Р­С‚РѕС‚ СЃРµРєС‚РѕСЂ СѓР¶Рµ Р±С‹Р» РІСЃРєРѕРїР°РЅ!";}
+}else{echo"РЈ Р’Р°СЃ Р±РѕР»СЊС€Рµ РЅРµ РѕСЃС‚Р°Р»РѕСЃСЊ СЃРІРѕР±РѕРґРЅС‹С… РєРѕРїРѕРє!";}
+}else{echo"<font color=red><b>РќРµРѕР±С…РѕРґРёРјРѕ РєСѓРїРёС‚СЊ Рё РІР·СЏС‚СЊ РІ СЂСѓРєРё РєРѕРїР°Р»РєСѓ!</b></font>";}
 }
 
 
-print "<center><font style='font-size: 16px; color: maroon; font-weight: bold;'>Поле Кладоискателей</font></br /><font size=-2>Правила Поля Кладоискателей:<br> 1. Купите копалку, нажав кнопку 'Инструменты' 2. Купив инструмент, Вы можете начать копать екр. 3. Если  написано 'Поле выкопано', значит более шустрые игроки до Вас уже все выкопали.  Но не расстраивайтесь ! Ждите, когда на Поле прорастут следующие кредиты и еврокредиты, а скорость роста зависит от активности игроков в проекте . 4. Обращаем Ваше внимание, что Поле Кладоискателей в процессе работ, будет подвергаться измененениям.</font><br />";
+print "<center><font style='font-size: 16px; color: maroon; font-weight: bold;'>РџРѕР»Рµ РљР»Р°РґРѕРёСЃРєР°С‚РµР»РµР№</font></br /><font size=-2>РџСЂР°РІРёР»Р° РџРѕР»СЏ РљР»Р°РґРѕРёСЃРєР°С‚РµР»РµР№:<br> 1. РљСѓРїРёС‚Рµ РєРѕРїР°Р»РєСѓ, РЅР°Р¶Р°РІ РєРЅРѕРїРєСѓ 'РРЅСЃС‚СЂСѓРјРµРЅС‚С‹' 2. РљСѓРїРёРІ РёРЅСЃС‚СЂСѓРјРµРЅС‚, Р’С‹ РјРѕР¶РµС‚Рµ РЅР°С‡Р°С‚СЊ РєРѕРїР°С‚СЊ РµРєСЂ. 3. Р•СЃР»Рё  РЅР°РїРёСЃР°РЅРѕ 'РџРѕР»Рµ РІС‹РєРѕРїР°РЅРѕ', Р·РЅР°С‡РёС‚ Р±РѕР»РµРµ С€СѓСЃС‚СЂС‹Рµ РёРіСЂРѕРєРё РґРѕ Р’Р°СЃ СѓР¶Рµ РІСЃРµ РІС‹РєРѕРїР°Р»Рё.  РќРѕ РЅРµ СЂР°СЃСЃС‚СЂР°РёРІР°Р№С‚РµСЃСЊ ! Р–РґРёС‚Рµ, РєРѕРіРґР° РЅР° РџРѕР»Рµ РїСЂРѕСЂР°СЃС‚СѓС‚ СЃР»РµРґСѓСЋС‰РёРµ РєСЂРµРґРёС‚С‹ Рё РµРІСЂРѕРєСЂРµРґРёС‚С‹, Р° СЃРєРѕСЂРѕСЃС‚СЊ СЂРѕСЃС‚Р° Р·Р°РІРёСЃРёС‚ РѕС‚ Р°РєС‚РёРІРЅРѕСЃС‚Рё РёРіСЂРѕРєРѕРІ РІ РїСЂРѕРµРєС‚Рµ . 4. РћР±СЂР°С‰Р°РµРј Р’Р°С€Рµ РІРЅРёРјР°РЅРёРµ, С‡С‚Рѕ РџРѕР»Рµ РљР»Р°РґРѕРёСЃРєР°С‚РµР»РµР№ РІ РїСЂРѕС†РµСЃСЃРµ СЂР°Р±РѕС‚, Р±СѓРґРµС‚ РїРѕРґРІРµСЂРіР°С‚СЊСЃСЏ РёР·РјРµРЅРµРЅРµРЅРёСЏРј.</font><br />";
 
 if($user['id'] == '50'){ if($tp<=$pole_time['value'])
 {
     $p_wait=round((($pole_time['value']-$tp)/60),1);
     if($p_wait<=480)
-    echo '<center><font color=red size=-2>Заходите снова через '.$p_wait.' минут</font></center>';
+    echo '<center><font color=red size=-2>Р—Р°С…РѕРґРёС‚Рµ СЃРЅРѕРІР° С‡РµСЂРµР· '.$p_wait.' РјРёРЅСѓС‚</font></center>';
 }}
 
 ?>
 
 <FORM action="city.php" method=GET>
 <? if ($user["room"] ==58) echo "<input type=hidden name=got value=\"1\"><input type=hidden name=level49 value=\"1\">"; ?>
-<INPUT TYPE="submit" value="Обратно к Новой земле" name=""> <INPUT type='button' value='Обновить' style='width: 75px' onclick='location="/pklad.php"'></FORM>
+<INPUT TYPE="submit" value="РћР±СЂР°С‚РЅРѕ Рє РќРѕРІРѕР№ Р·РµРјР»Рµ" name=""> <INPUT type='button' value='РћР±РЅРѕРІРёС‚СЊ' style='width: 75px' onclick='location="/pklad.php"'></FORM>
  <TABLE border=0 width=30% cellspacing="0" cellpadding="1" bgcolor=#d4d2d2 align=center><TR>
-			<TD width=15%  align=center bgcolor="<?=($_GET['razdel']==0)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?razdel=0">Поле</A></TD>
-			<TD width=15%  align=center bgcolor="<?=($_GET['razdel']==1)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?razdel=1">Инструменты</A></TD>
+			<TD width=15%  align=center bgcolor="<?=($_GET['razdel']==0)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?razdel=0">РџРѕР»Рµ</A></TD>
+			<TD width=15%  align=center bgcolor="<?=($_GET['razdel']==1)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?razdel=1">РРЅСЃС‚СЂСѓРјРµРЅС‚С‹</A></TD>
 	</TR>
 	</TABLE>
 <?echo"</font>";
 if ($_GET['razdel']==0) {
-         $lopata = mysql_fetch_array(mysql_query("select `name`,`img`,`duration`,`maxdur` from `inventory` where `owner`='".$user['id']."' AND `name`='Копалка новичка' OR `name`='Копалка мастера' AND `dressed`='1'"));
+         $lopata = mysql_fetch_array(mysql_query("select `name`,`img`,`duration`,`maxdur` from `inventory` where `owner`='".$user['id']."' AND `name`='РљРѕРїР°Р»РєР° РЅРѕРІРёС‡РєР°' OR `name`='РљРѕРїР°Р»РєР° РјР°СЃС‚РµСЂР°' AND `dressed`='1'"));
 if($lopata){
-    echo"<center><small>Кол-во копок: <b>".$user['pole_kopka_kol_now']."</b>";
-    if($user['pole_kopka_kol_bonus'] > 0){echo" (<font color=green><b>".$user['pole_kopka_kol_bonus']."</b> бонусные</font>)";}
-    echo" | Глубина копки: <b>-".$user['pole_kopka_min']."</b> .. <b>-".$user['pole_kopka_max']."</b>";
+    echo"<center><small>РљРѕР»-РІРѕ РєРѕРїРѕРє: <b>".$user['pole_kopka_kol_now']."</b>";
+    if($user['pole_kopka_kol_bonus'] > 0){echo" (<font color=green><b>".$user['pole_kopka_kol_bonus']."</b> Р±РѕРЅСѓСЃРЅС‹Рµ</font>)";}
+    echo" | Р“Р»СѓР±РёРЅР° РєРѕРїРєРё: <b>-".$user['pole_kopka_min']."</b> .. <b>-".$user['pole_kopka_max']."</b>";
     if($user['pole_kopka_update'] > 0){echo" (<font color=green><b>x".$user['pole_kopka_update']."</b></font>)";}
     echo"</small></center>";
 }
-else{echo"<center><small>У вас нет копалки!</small></center>";}
+else{echo"<center><small>РЈ РІР°СЃ РЅРµС‚ РєРѕРїР°Р»РєРё!</small></center>";}
 echo"<table width=100% align=center border=0>
 <td valign=top align=center>";
           echo"<table width=1000 height=400 border=1 cellspacing=0 cellpadding=0 valign=top>";
@@ -287,10 +287,10 @@ for($i=0; $i<mysql_num_rows($pole); $i++) {
       echo "<td valign='top' bgcolor='".$col."' width='90' height='90'>";
 echo"<font color=white>B - ".$poles['id']."";
 if($poles['type'] >= 1 && $poles['type'] <= 6){
-echo"<FORM action=pklad.php method=POST><INPUT TYPE=hidden value=".$poles['name']." name=id><input type=submit class=input name=tik value='Вскопать'><br><img src=i/pklad/ucon.gif></FORM>";
+echo"<FORM action=pklad.php method=POST><INPUT TYPE=hidden value=".$poles['name']." name=id><input type=submit class=input name=tik value='Р’СЃРєРѕРїР°С‚СЊ'><br><img src=i/pklad/ucon.gif></FORM>";
 }
-elseif($poles['type'] == 7 || $poles['type'] == 8 || $poles['type'] == 9){echo"<FORM action=pklad.php method=POST><INPUT TYPE=hidden value=".$poles['name']." name=id><input type=submit class=input name=view value='Зачерпнуть'><br><img src=http://theimba.ru/img/smiles/1_14.gif></FORM>";}
-elseif($poles['type'] == 0){echo"<p><font color=white>Поле выкопано</font><br><img src=i/pklad/1_14.gif><p>";}
+elseif($poles['type'] == 7 || $poles['type'] == 8 || $poles['type'] == 9){echo"<FORM action=pklad.php method=POST><INPUT TYPE=hidden value=".$poles['name']." name=id><input type=submit class=input name=view value='Р—Р°С‡РµСЂРїРЅСѓС‚СЊ'><br><img src=http://theimba.ru/img/smiles/1_14.gif></FORM>";}
+elseif($poles['type'] == 0){echo"<p><font color=white>РџРѕР»Рµ РІС‹РєРѕРїР°РЅРѕ</font><br><img src=i/pklad/1_14.gif><p>";}
 echo"<img src=i/pklad/bott.png>".$poles['heals']."</font>";
 
 echo "</td>";
@@ -305,27 +305,27 @@ echo"</td>
 <FORM action=pklad.php method=POST>
 <?
 if($user['id'] == '50' OR $user['id'] == '2735'){
-echo" <input type=submit class=input name=sufle value='Перемешать'>";
+echo" <input type=submit class=input name=sufle value='РџРµСЂРµРјРµС€Р°С‚СЊ'>";
 }
 }
 if ($_GET['razdel']==1) {
-echo"<FORM action=pklad.php method=POST><center>Внимание для копания вам необходима копалка!</center><br>";
-     $lopata = mysql_fetch_array(mysql_query("select `name`,`img`,`duration`,`maxdur` from `inventory` where `owner`='".$user['id']."' AND (`name`='Копалка новичка' OR `name`='Копалка мастера') AND `dressed`='1'"));
-echo"У Вас в руках:<br>";
+echo"<FORM action=pklad.php method=POST><center>Р’РЅРёРјР°РЅРёРµ РґР»СЏ РєРѕРїР°РЅРёСЏ РІР°Рј РЅРµРѕР±С…РѕРґРёРјР° РєРѕРїР°Р»РєР°!</center><br>";
+     $lopata = mysql_fetch_array(mysql_query("select `name`,`img`,`duration`,`maxdur` from `inventory` where `owner`='".$user['id']."' AND (`name`='РљРѕРїР°Р»РєР° РЅРѕРІРёС‡РєР°' OR `name`='РљРѕРїР°Р»РєР° РјР°СЃС‚РµСЂР°') AND `dressed`='1'"));
+echo"РЈ Р’Р°СЃ РІ СЂСѓРєР°С…:<br>";
 if($lopata){
 echo"<small>".$lopata['name']." [".$lopata['duration']."/".$lopata['maxdur']."]</small><br><img src=i/sh/".$lopata['img']."><hr>
-<input type=submit class=input name=bonuskopka value='Купить +1 копку'> <small>Позволяет копнуть на 1 раз больше. Цена: <b>2</b> Кр</small><hr>";
+<input type=submit class=input name=bonuskopka value='РљСѓРїРёС‚СЊ +1 РєРѕРїРєСѓ'> <small>РџРѕР·РІРѕР»СЏРµС‚ РєРѕРїРЅСѓС‚СЊ РЅР° 1 СЂР°Р· Р±РѕР»СЊС€Рµ. Р¦РµРЅР°: <b>2</b> РљСЂ</small><hr>";
 if($user['pole_kopka_update'] == 0){
-echo"<center><small><b>ВНИМАНИЕ! Улучшить глубину копалки можно лиш один раз, выбирайте сразу насколько сильно вы хотите ее улучшить!</b></small></center>
-<input type=submit class=input name=x2 value='Улучшить глубину х2'> <small>Увеличивает глубину копания копалкой в 2 раза! Цена: <b>20</b> Кр</small><br>
-<input type=submit class=input name=x3 value='Улучшить глубину х3'> <small>Увеличивает глубину копания копалкой в 3 раза! Цена: <b>45</b> Кр</small><br>
-<input type=submit class=input name=x5 value='Улучшить глубину х5'> <small>Увеличивает глубину копания копалкой в 5 раза! Цена: <b>110</b> Кр</small>";
-}else{echo"Вы уже улучшили глубину для этой копалки! Ваше улучшение <b>x".$user['pole_kopka_update']."</b>";}
+echo"<center><small><b>Р’РќРРњРђРќРР•! РЈР»СѓС‡С€РёС‚СЊ РіР»СѓР±РёРЅСѓ РєРѕРїР°Р»РєРё РјРѕР¶РЅРѕ Р»РёС€ РѕРґРёРЅ СЂР°Р·, РІС‹Р±РёСЂР°Р№С‚Рµ СЃСЂР°Р·Сѓ РЅР°СЃРєРѕР»СЊРєРѕ СЃРёР»СЊРЅРѕ РІС‹ С…РѕС‚РёС‚Рµ РµРµ СѓР»СѓС‡С€РёС‚СЊ!</b></small></center>
+<input type=submit class=input name=x2 value='РЈР»СѓС‡С€РёС‚СЊ РіР»СѓР±РёРЅСѓ С…2'> <small>РЈРІРµР»РёС‡РёРІР°РµС‚ РіР»СѓР±РёРЅСѓ РєРѕРїР°РЅРёСЏ РєРѕРїР°Р»РєРѕР№ РІ 2 СЂР°Р·Р°! Р¦РµРЅР°: <b>20</b> РљСЂ</small><br>
+<input type=submit class=input name=x3 value='РЈР»СѓС‡С€РёС‚СЊ РіР»СѓР±РёРЅСѓ С…3'> <small>РЈРІРµР»РёС‡РёРІР°РµС‚ РіР»СѓР±РёРЅСѓ РєРѕРїР°РЅРёСЏ РєРѕРїР°Р»РєРѕР№ РІ 3 СЂР°Р·Р°! Р¦РµРЅР°: <b>45</b> РљСЂ</small><br>
+<input type=submit class=input name=x5 value='РЈР»СѓС‡С€РёС‚СЊ РіР»СѓР±РёРЅСѓ С…5'> <small>РЈРІРµР»РёС‡РёРІР°РµС‚ РіР»СѓР±РёРЅСѓ РєРѕРїР°РЅРёСЏ РєРѕРїР°Р»РєРѕР№ РІ 5 СЂР°Р·Р°! Р¦РµРЅР°: <b>110</b> РљСЂ</small>";
+}else{echo"Р’С‹ СѓР¶Рµ СѓР»СѓС‡С€РёР»Рё РіР»СѓР±РёРЅСѓ РґР»СЏ СЌС‚РѕР№ РєРѕРїР°Р»РєРё! Р’Р°С€Рµ СѓР»СѓС‡С€РµРЅРёРµ <b>x".$user['pole_kopka_update']."</b>";}
 echo"<hr>";
 }
-else{echo"<font color=red><b>нет копалки!</b></font><p>";}
-echo"<b>Вы можете купить:</b><br><small>ВНИМАНИЕ! Купив новую копалку вы теряете все доп. копки и улучшенную глубину прежней копалки!</small>";
-echo"<table width=400 valign=top><tr valign=top><td width=200 align=left><center><small>Копалка новичка<br><img src=i/sh/kopalka1.gif></center>Кол-во копаний: <b>7</b><br>Глубина копки: <b>-5</b> .. <b>-14</b><br>Стоимость: <b>5</b> Кр</small><center><input type=submit class=input name=buy1 value='Купить'></center></td><td width=200 align=left><center><small>Копалка мастера<br><img src=i/sh/kopalka2.gif></center>Кол-во копаний: <b>9</b><br>Глубина копки: <b>-8</b> .. <b>-19</b><br>Стоимость: <b>10</b> Кр</small><center><input type=submit class=input name=buy2 value='Купить'></td></tr></table>";
+else{echo"<font color=red><b>РЅРµС‚ РєРѕРїР°Р»РєРё!</b></font><p>";}
+echo"<b>Р’С‹ РјРѕР¶РµС‚Рµ РєСѓРїРёС‚СЊ:</b><br><small>Р’РќРРњРђРќРР•! РљСѓРїРёРІ РЅРѕРІСѓСЋ РєРѕРїР°Р»РєСѓ РІС‹ С‚РµСЂСЏРµС‚Рµ РІСЃРµ РґРѕРї. РєРѕРїРєРё Рё СѓР»СѓС‡С€РµРЅРЅСѓСЋ РіР»СѓР±РёРЅСѓ РїСЂРµР¶РЅРµР№ РєРѕРїР°Р»РєРё!</small>";
+echo"<table width=400 valign=top><tr valign=top><td width=200 align=left><center><small>РљРѕРїР°Р»РєР° РЅРѕРІРёС‡РєР°<br><img src=i/sh/kopalka1.gif></center>РљРѕР»-РІРѕ РєРѕРїР°РЅРёР№: <b>7</b><br>Р“Р»СѓР±РёРЅР° РєРѕРїРєРё: <b>-5</b> .. <b>-14</b><br>РЎС‚РѕРёРјРѕСЃС‚СЊ: <b>5</b> РљСЂ</small><center><input type=submit class=input name=buy1 value='РљСѓРїРёС‚СЊ'></center></td><td width=200 align=left><center><small>РљРѕРїР°Р»РєР° РјР°СЃС‚РµСЂР°<br><img src=i/sh/kopalka2.gif></center>РљРѕР»-РІРѕ РєРѕРїР°РЅРёР№: <b>9</b><br>Р“Р»СѓР±РёРЅР° РєРѕРїРєРё: <b>-8</b> .. <b>-19</b><br>РЎС‚РѕРёРјРѕСЃС‚СЊ: <b>10</b> РљСЂ</small><center><input type=submit class=input name=buy2 value='РљСѓРїРёС‚СЊ'></td></tr></table>";
 }
 
 echo '<FONT style="FONT-SIZE: 10pt; COLOR: red"><B><div id="rezultat"></div></B></FONT>';

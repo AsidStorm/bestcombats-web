@@ -1,5 +1,5 @@
 <?php
-//Сокрушение для випки
+//РЎРѕРєСЂСѓС€РµРЅРёРµ РґР»СЏ РІРёРїРєРё
 $us = mysql_fetch_array(mysql_query("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".mysql_escape_string($_POST['target'])."' LIMIT 1;"));
 $magic = mysql_fetch_array(mysql_query("SELECT `chanse` FROM `magic` WHERE `id` = '14' ;"));
 $effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE `owner` = '{$us['id']}' and `type` = '201' LIMIT 1;"));
@@ -10,23 +10,23 @@ if ($user['intel'] >= 15) {
   }
 else {$int=0;}
 
-if ($user['battle'] > 0) {echo "Не в бою...";}
-elseif ($us['battle']) { echo "Персонаж в бою."; }
-elseif ($user['level'] < 7) { echo "Вашего уровня не достаточно для использования этого заклинания!"; }
-elseif ($effect['time']) {echo "На персонаже уже есть заклятие Защита от Оружия"; }
-elseif ($user['room'] != $us['room']) { echo "Персонаж в другой комнате!"; }
-elseif ($us['login'] != $user['married'] && $us["login"]!=$user['login']) { echo "Возможно использовать на себя либо супругу/супруга!"; }
-elseif (!$us['online']) {echo "Персонаж не в игре!";}
+if ($user['battle'] > 0) {echo "РќРµ РІ Р±РѕСЋ...";}
+elseif ($us['battle']) { echo "РџРµСЂСЃРѕРЅР°Р¶ РІ Р±РѕСЋ."; }
+elseif ($user['level'] < 7) { echo "Р’Р°С€РµРіРѕ СѓСЂРѕРІРЅСЏ РЅРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РѕРіРѕ Р·Р°РєР»РёРЅР°РЅРёСЏ!"; }
+elseif ($effect['time']) {echo "РќР° РїРµСЂСЃРѕРЅР°Р¶Рµ СѓР¶Рµ РµСЃС‚СЊ Р·Р°РєР»СЏС‚РёРµ Р—Р°С‰РёС‚Р° РѕС‚ РћСЂСѓР¶РёСЏ"; }
+elseif ($user['room'] != $us['room']) { echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!"; }
+elseif ($us['login'] != $user['married'] && $us["login"]!=$user['login']) { echo "Р’РѕР·РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅР° СЃРµР±СЏ Р»РёР±Рѕ СЃСѓРїСЂСѓРіСѓ/СЃСѓРїСЂСѓРіР°!"; }
+elseif (!$us['online']) {echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РёРіСЂРµ!";}
 elseif (rand(1,100) < $int) {
 
-      addch("<img src=i/magic/spell_protect10.gif>".($user["invis"]?"Невидимка":"Персонаж &quot;{$user['login']}&quot;")." наложил заклятие \"Защита от оружия\" на &quot;".($user["invis"] && $user["login"]==$_POST['target']?"Невидимка":"$_POST[target]")."&quot;, сроком 2 часа.");
-      mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`,caster) values ('$us[id]','Защита от оружия',".(time()+7200).",201,'$user[id]');");
-      echo "<font color=red><b>На персонажа \"{$_POST['target']}\" наложено заклятие \"Защита от оружия\" </b></font>";
+      addch("<img src=i/magic/spell_protect10.gif>".($user["invis"]?"РќРµРІРёРґРёРјРєР°":"РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot;")." РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ \"Р—Р°С‰РёС‚Р° РѕС‚ РѕСЂСѓР¶РёСЏ\" РЅР° &quot;".($user["invis"] && $user["login"]==$_POST['target']?"РќРµРІРёРґРёРјРєР°":"$_POST[target]")."&quot;, СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");
+      mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`,caster) values ('$us[id]','Р—Р°С‰РёС‚Р° РѕС‚ РѕСЂСѓР¶РёСЏ',".(time()+7200).",201,'$user[id]');");
+      echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° \"{$_POST['target']}\" РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ \"Р—Р°С‰РёС‚Р° РѕС‚ РѕСЂСѓР¶РёСЏ\" </b></font>";
       $bet=1;
 
 
 } else {
-        echo "Свиток рассыпался в ваших руках...";
+        echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
         $bet=1;
       }
 ?>

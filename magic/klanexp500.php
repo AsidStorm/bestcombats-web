@@ -1,14 +1,14 @@
 <?php
-//Клан опыт 500
+//РљР»Р°РЅ РѕРїС‹С‚ 500
 if ($_SESSION['uid'] == null) header("Location: index.php");
 if ($klan['clanlevel']>5) {
-echo"Только кланы до 5 уровня могут использовать этот свиток";
+echo"РўРѕР»СЊРєРѕ РєР»Р°РЅС‹ РґРѕ 5 СѓСЂРѕРІРЅСЏ РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЌС‚РѕС‚ СЃРІРёС‚РѕРє";
 }else{
 $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
 $klan = mysql_fetch_array(mysql_query("SELECT * FROM `clans` WHERE `name` = '{$user['klan']}' LIMIT 1;"));
 mysql_query("UPDATE `clans` SET `clanexp`=`clanexp`+'500' WHERE `name` = '{$user['klan']}' LIMIT 1;");
 
-echo "<font color=red><b>Ваш кланопыт был увеличен на 500<b></font>";
+echo "<font color=red><b>Р’Р°С€ РєР»Р°РЅРѕРїС‹С‚ Р±С‹Р» СѓРІРµР»РёС‡РµРЅ РЅР° 500<b></font>";
 $bet=1;
 }
 ?>

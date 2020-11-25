@@ -24,9 +24,9 @@ var Hint3Name = '';
 function runmagic4(title, magic, name, name1, n){
 	document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</b></BIG></td></tr><tr><td colspan=2>'+
 	'<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><td><form action="cerkov.php?n='+n+'" method=POST><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
-	'Укажите логин жениха: <INPUT TYPE=text NAME="'+name+'">'+
-	'<br>Укажите логин невесты: <INPUT TYPE=text NAME="'+name1+'">'+
-	'<br><center><INPUT TYPE="submit" value=" »» "></center></TD></TR></FORM></TABLE></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ Р¶РµРЅРёС…Р°: <INPUT TYPE=text NAME="'+name+'">'+
+	'<br>РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РЅРµРІРµСЃС‚С‹: <INPUT TYPE=text NAME="'+name1+'">'+
+	'<br><center><INPUT TYPE="submit" value=" В»В» "></center></TD></TR></FORM></TABLE></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 100;
@@ -43,7 +43,7 @@ function closehint3(){
 							<table border='0' cellspacing='0' cellpadding='0' width="100%">
 										<tr height='22'>
 										
-											<td align='center' class='tbl-usi_label-center'>Подача заявок на чистоту</td>
+											<td align='center' class='tbl-usi_label-center'>РџРѕРґР°С‡Р° Р·Р°СЏРІРѕРє РЅР° С‡РёСЃС‚РѕС‚Сѓ</td>
 										</tr>
 								</table>
 								<table border='0' cellspacing='0' cellpadding='0' width="100%">
@@ -51,8 +51,8 @@ function closehint3(){
 										
 											<td align='center' class='tbl-usi_label-center'>
 <BR><TD style="width: 5%; vertical-align: top; ">&nbsp;</TD>
-<TD style="width: 25%; vertical-align: top; text-align: right; "><INPUT type='button' value='Обновить' style='width: 75px' onclick='location="/chist.php"'>
-&nbsp;<INPUT TYPE=button value="Вернутся" style='width: 75px' onclick="location.href='main.php'"></TD>
+<TD style="width: 25%; vertical-align: top; text-align: right; "><INPUT type='button' value='РћР±РЅРѕРІРёС‚СЊ' style='width: 75px' onclick='location="/chist.php"'>
+&nbsp;<INPUT TYPE=button value="Р’РµСЂРЅСѓС‚СЃСЏ" style='width: 75px' onclick="location.href='main.php'"></TD>
 										</td>
 										</tr>
 								</table>
@@ -67,66 +67,66 @@ $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".mys
 
 
 ?>
-<td align=left>У Вас на счету: <b><?=$user['money']?></b> кр.</td>
+<td align=left>РЈ Р’Р°СЃ РЅР° СЃС‡РµС‚Сѓ: <b><?=$user['money']?></b> РєСЂ.</td>
 <td align=right valign=top>&nbsp;</td>
 </tr>
 </table><table width=100% cellspacing=0 cellpadding=3 border=0>
         <tr>
 <td align=center style='padding-left: 20px'><br>
 <center>
-Здесь вы можите подать заявку на чистоту. Стоимость этой услуги:<br>
+Р—РґРµСЃСЊ РІС‹ РјРѕР¶РёС‚Рµ РїРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ РЅР° С‡РёСЃС‚РѕС‚Сѓ. РЎС‚РѕРёРјРѕСЃС‚СЊ СЌС‚РѕР№ СѓСЃР»СѓРіРё:<br>
 <table border="3" bordercolor="#000000" style="background-color:#FFFFFF" width="70%" cellpadding="3" cellspacing="5">
 	<tr>
-		<td><b>Обычная проверка (Проверяеться по очереди)</b></td>
-		<td><b>VIP Проверка (Проверяеться вне очереди)</b></td>
+		<td><b>РћР±С‹С‡РЅР°СЏ РїСЂРѕРІРµСЂРєР° (РџСЂРѕРІРµСЂСЏРµС‚СЊСЃСЏ РїРѕ РѕС‡РµСЂРµРґРё)</b></td>
+		<td><b>VIP РџСЂРѕРІРµСЂРєР° (РџСЂРѕРІРµСЂСЏРµС‚СЊСЃСЏ РІРЅРµ РѕС‡РµСЂРµРґРё)</b></td>
 	</tr>
 	<tr>
-		<td>8 уровень - 200кр.</td>
-		<td>8 уровень - 300кр.</td>
+		<td>8 СѓСЂРѕРІРµРЅСЊ - 200РєСЂ.</td>
+		<td>8 СѓСЂРѕРІРµРЅСЊ - 300РєСЂ.</td>
 	</tr>
 	<tr>
-		<td>9 уровень - 400кр.</td>
-		<td>9 уровень - 500кр.</td>
+		<td>9 СѓСЂРѕРІРµРЅСЊ - 400РєСЂ.</td>
+		<td>9 СѓСЂРѕРІРµРЅСЊ - 500РєСЂ.</td>
 	</tr>
 	<tr>
-		<td>10 уровень - 600кр.</td>
-		<td>10 уровень - 700кр.</td>
+		<td>10 СѓСЂРѕРІРµРЅСЊ - 600РєСЂ.</td>
+		<td>10 СѓСЂРѕРІРµРЅСЊ - 700РєСЂ.</td>
 	</tr>
 	<tr>
-		<td>11 уровень - 800кр.</td>
-		<td>11 уровень - 900кр.</td>
+		<td>11 СѓСЂРѕРІРµРЅСЊ - 800РєСЂ.</td>
+		<td>11 СѓСЂРѕРІРµРЅСЊ - 900РєСЂ.</td>
 	</tr>
 	<tr>
-		<td>12 уровень - 1000кр.</td>
-		<td>12 уровень - 1100кр.</td>
+		<td>12 СѓСЂРѕРІРµРЅСЊ - 1000РєСЂ.</td>
+		<td>12 СѓСЂРѕРІРµРЅСЊ - 1100РєСЂ.</td>
 	</tr>
 	<tr>
-		<td>13 уровень - 1200кр.</td>
-		<td>13 уровень - 1300кр.</td>
+		<td>13 СѓСЂРѕРІРµРЅСЊ - 1200РєСЂ.</td>
+		<td>13 СѓСЂРѕРІРµРЅСЊ - 1300РєСЂ.</td>
 	</tr>
 	<tr>
-		<td>14 уровень - 1400кр.</td>
-		<td>14 уровень - 1500кр.</td>
+		<td>14 СѓСЂРѕРІРµРЅСЊ - 1400РєСЂ.</td>
+		<td>14 СѓСЂРѕРІРµРЅСЊ - 1500РєСЂ.</td>
 	</tr>
 	<tr>
-		<td>15 уровень - 1600кр.</td>
-		<td>15 уровень - 1700кр.</td>
+		<td>15 СѓСЂРѕРІРµРЅСЊ - 1600РєСЂ.</td>
+		<td>15 СѓСЂРѕРІРµРЅСЊ - 1700РєСЂ.</td>
 	</tr>
 </table>
 <br>
 <?if(!$restr){
 echo'<form action="" method="post">
-<input name="gg" type="submit" value="Подать заявку"> или 
-<input name="ggVIP" type="submit" value="Подать VIP заявку">
+<input name="gg" type="submit" value="РџРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ"> РёР»Рё 
+<input name="ggVIP" type="submit" value="РџРѕРґР°С‚СЊ VIP Р·Р°СЏРІРєСѓ">
 </form>';
 } else {
-echo "<font color=red><b>Вы не можете подать заявку, У вас запрет на вступление в кланы ещё ".secs2hrs($restr-time())."!</b></font>";
+echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РїРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ, РЈ РІР°СЃ Р·Р°РїСЂРµС‚ РЅР° РІСЃС‚СѓРїР»РµРЅРёРµ РІ РєР»Р°РЅС‹ РµС‰С‘ ".secs2hrs($restr-time())."!</b></font>";
 }
 ?>
 <?
-//Цены на обычные проверки
+//Р¦РµРЅС‹ РЅР° РѕР±С‹С‡РЅС‹Рµ РїСЂРѕРІРµСЂРєРё
 $tsena = array(8=>200,9=>400,10=>600,11=>800,12=>1000,13=>1200,14=>1400,15=>1600);
-//Цены на вип ПРоверки 
+//Р¦РµРЅС‹ РЅР° РІРёРї РџР РѕРІРµСЂРєРё 
 $tsenavip = array(8=>300,9=>500,10=>700,11=>900,12=>1100,13=>1300,14=>1500,15=>1700);
 
 
@@ -134,18 +134,18 @@ if(isset($_POST['gg'])){
  if($vv['login'] == 0 and $user['level']>='8' and $user['money']>=$tsena[$user['level']] and empty($user['klan'])){
   mysql_query("INSERT INTO `chist` (owner,login)values('".$user['id']."','".$user['login']."')");
   mysql_query("UPDATE `users` SET `money`=`money`-{$tsena[$user['level']]} WHERE `id`='".$user['id']."'");
-  print "У вас снято {$tsena[$user['level']]} кр. Ваша заявка принята!";
+  print "РЈ РІР°СЃ СЃРЅСЏС‚Рѕ {$tsena[$user['level']]} РєСЂ. Р’Р°С€Р° Р·Р°СЏРІРєР° РїСЂРёРЅСЏС‚Р°!";
  }else{
-	print"<font color=red>Вам нельзя подать заявку! Вы состоите в клане,Ваш уровень меньше 8 либо у вас недостаточно средств для оплаты данной услуги.</font>";
+	print"<font color=red>Р’Р°Рј РЅРµР»СЊР·СЏ РїРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ! Р’С‹ СЃРѕСЃС‚РѕРёС‚Рµ РІ РєР»Р°РЅРµ,Р’Р°С€ СѓСЂРѕРІРµРЅСЊ РјРµРЅСЊС€Рµ 8 Р»РёР±Рѕ Сѓ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃСЂРµРґСЃС‚РІ РґР»СЏ РѕРїР»Р°С‚С‹ РґР°РЅРЅРѕР№ СѓСЃР»СѓРіРё.</font>";
  }
 }
 if(isset($_POST['ggVIP'])){
 	if($vv['login'] == 0 and $user['level']>='8' and $user['money']>=$tsenavip[$user['level']] and empty($user['klan'])){
 	mysql_query("INSERT INTO `chist` (owner,login,status)values('".$user['id']."','".$user['login']."','VIP')");
 	mysql_query("UPDATE `users` SET `money`=`money`-{$tsena[$user['level']]} WHERE `id`='".$user['id']."'");
-	print"У вас снято {$tsenavip[$user['level']]} кр. Ваша заявка принята!";
+	print"РЈ РІР°СЃ СЃРЅСЏС‚Рѕ {$tsenavip[$user['level']]} РєСЂ. Р’Р°С€Р° Р·Р°СЏРІРєР° РїСЂРёРЅСЏС‚Р°!";
 	}else{
-	print"<font color=red>Вам нельзя подать заявку! Вы состоите в клане,Ваш уровень меньше 8 либо у вас недостаточно средств для оплаты данной услуги.</font>";
+	print"<font color=red>Р’Р°Рј РЅРµР»СЊР·СЏ РїРѕРґР°С‚СЊ Р·Р°СЏРІРєСѓ! Р’С‹ СЃРѕСЃС‚РѕРёС‚Рµ РІ РєР»Р°РЅРµ,Р’Р°С€ СѓСЂРѕРІРµРЅСЊ РјРµРЅСЊС€Рµ 8 Р»РёР±Рѕ Сѓ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃСЂРµРґСЃС‚РІ РґР»СЏ РѕРїР»Р°С‚С‹ РґР°РЅРЅРѕР№ СѓСЃР»СѓРіРё.</font>";
 	}
 }
 ?>
@@ -153,7 +153,7 @@ if(isset($_POST['ggVIP'])){
 <br>
 <br>
 <br>
-В Ожидании.<br>
+Р’ РћР¶РёРґР°РЅРёРё.<br>
 <br>
 
 <?
@@ -164,13 +164,13 @@ if(!empty($_GET['da'])){
 	if($dd and $user['align']>=1 and $user['align']<=3){
 		mysql_query('DELETE FROM `chist` WHERE `owner`="'.$dd['owner'].'"');
 		$magictime=time()+259200;
-		mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$dd['owner']."','Паладинская проверка','".$magictime."','20');");
-		$messtel="Помечено, что персонаж чист перед законом";
-		$mess="".$user['login']." сделал пометку что ".$dd['login']." чист перед законом";
+		mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$dd['owner']."','РџР°Р»Р°РґРёРЅСЃРєР°СЏ РїСЂРѕРІРµСЂРєР°','".$magictime."','20');");
+		$messtel="РџРѕРјРµС‡РµРЅРѕ, С‡С‚Рѕ РїРµСЂСЃРѕРЅР°Р¶ С‡РёСЃС‚ РїРµСЂРµРґ Р·Р°РєРѕРЅРѕРј";
+		$mess="".$user['login']." СЃРґРµР»Р°Р» РїРѕРјРµС‚РєСѓ С‡С‚Рѕ ".$dd['login']." С‡РёСЃС‚ РїРµСЂРµРґ Р·Р°РєРѕРЅРѕРј";
 		mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$dd['owner']."','$mess','".time()."');");
 		mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 		tele_check($dd['login'],$messtel);					
-		echo "<font color=red><b>Успешно поставлена проверка персонажу '".$dd['login']."'</b></font>";
+		echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ РїРѕСЃС‚Р°РІР»РµРЅР° РїСЂРѕРІРµСЂРєР° РїРµСЂСЃРѕРЅР°Р¶Сѓ '".$dd['login']."'</b></font>";
 		print "<script>location.href='chist.php'</script>";
 
 	}
@@ -180,9 +180,9 @@ if(!empty($_GET['net'])){
 	$dd = mysql_fetch_array(mysql_query("SELECT * FROM `chist` WHERE `login`='".$_GET['login']."' "));
 	if($dd and $user['align']>=1 and $user['align']<=3){
 		mysql_query('DELETE FROM `chist` WHERE `owner`="'.$dd['owner'].'"');
-		$messnet="Вы не прошли проверку";
+		$messnet="Р’С‹ РЅРµ РїСЂРѕС€Р»Рё РїСЂРѕРІРµСЂРєСѓ";
 		tele_check($dd['login'],$messnet);					
-		print"<font color=red><b>'".$dd['login']."'</b> не прошел чистку.</font>";
+		print"<font color=red><b>'".$dd['login']."'</b> РЅРµ РїСЂРѕС€РµР» С‡РёСЃС‚РєСѓ.</font>";
 		print "<script>location.href='chist.php'</script>";
 
 	}
@@ -207,16 +207,16 @@ while($chi=mysql_fetch_array($nn)){
 		
 		';
 		if($user['align']>=1 and $user['align']<=3){
-			print" <a href='?da=1&login=".$chi['login']."'><input type='submit' value='Одобрить'></a>&nbsp;&nbsp;<a href='?net=1&login=".$chi['login']."'><input type='submit' value='Отказать'></a>";
+			print" <a href='?da=1&login=".$chi['login']."'><input type='submit' value='РћРґРѕР±СЂРёС‚СЊ'></a>&nbsp;&nbsp;<a href='?net=1&login=".$chi['login']."'><input type='submit' value='РћС‚РєР°Р·Р°С‚СЊ'></a>";
 		}else{
-			print"У вас нет прав.";
+			print"РЈ РІР°СЃ РЅРµС‚ РїСЂР°РІ.";
 		}
 		print'
 		</nobr></td>
 		<td width=300><nobr>&nbsp;'.$chi['date'].'&nbsp;</nobr></td>	
 		<td width=300>&nbsp;'.$chi['status'].'&nbsp;</td>';
 		if($user['align']>=1 and $user['align']<=3){
-			echo "<FORM id='REQUEST'><td><nobr><INPUT style=\"font-size:12px;\" TYPE=text NAME=cmt maxlength=40 size=40 value='".$chi['comment']."'>&nbsp;<INPUT style='font-size:12px;' TYPE=submit name=open value='Оставить Комментарий'><input name='login' type='hidden' value='".$chi['login']."'></FORM></nobr></td>";
+			echo "<FORM id='REQUEST'><td><nobr><INPUT style=\"font-size:12px;\" TYPE=text NAME=cmt maxlength=40 size=40 value='".$chi['comment']."'>&nbsp;<INPUT style='font-size:12px;' TYPE=submit name=open value='РћСЃС‚Р°РІРёС‚СЊ РљРѕРјРјРµРЅС‚Р°СЂРёР№'><input name='login' type='hidden' value='".$chi['login']."'></FORM></nobr></td>";
 		}
 	  
 	  print'</tr>';

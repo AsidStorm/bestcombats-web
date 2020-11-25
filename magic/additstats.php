@@ -14,11 +14,11 @@ if ($uses_zel) {
 }
 global $nodrink;
 if (in_array($user["room"],$nodrink)) {
-  echo "Çäåñü çàïðåùåíî ïèòü ýëèêñèðû!";
+  echo "Ð—Ð´ÐµÑÑŒ Ð·Ð°Ð¿Ñ€ÐµÑ‰ÐµÐ½Ð¾ Ð¿Ð¸Ñ‚ÑŒ ÑÐ»Ð¸ÐºÑÐ¸Ñ€Ñ‹!";
 } elseif ($user['battle'] > 0) {
-    echo "Íå â áîþ...";
+    echo "ÐÐµ Ð² Ð±Ð¾ÑŽ...";
 } elseif(!$rightel || $row["name"]==$uses_zel["name"]) {
-    echo "Åùå íå ïðîøëî äåéñòâèå ñòàðîãî ýëèêñèðà.";
+    echo "Ð•Ñ‰Ðµ Ð½Ðµ Ð¿Ñ€Ð¾ÑˆÐ»Ð¾ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ ÑÑ‚Ð°Ñ€Ð¾Ð³Ð¾ ÑÐ»Ð¸ÐºÑÐ¸Ñ€Ð°.";
 } else {
   if($row['gsila']>0){mysql_query("UPDATE `users` set `sila` =`sila`+ ".$row['gsila']." WHERE `id` = ".$user['id']."");}
   if($row['glovk']>0){mysql_query("UPDATE `users` set `lovk` =`lovk`+ ".$row['glovk']." WHERE `id` = ".$user['id']."");}
@@ -29,7 +29,7 @@ if (in_array($user["room"],$nodrink)) {
   } else {
     mq("UPDATE `effects` set name='$row[name]', `time` = '".(time()+$ins_time)."', sila=sila+'$row[gsila]', lovk=lovk+'$row[glovk]', inta=inta+'$row[ginta]', intel=intel+'$row[gintel]' WHERE `owner` = ".$user['id']." AND `type`=188 and id='$uses_zel[id]'");
   }
-  echo "Âûïèò ýëèêñèð &quot;".$row['name']."&quot;.";
+  echo "Ð’Ñ‹Ð¿Ð¸Ñ‚ ÑÐ»Ð¸ÐºÑÐ¸Ñ€ &quot;".$row['name']."&quot;.";
   $bet=1;
 }
 ?>

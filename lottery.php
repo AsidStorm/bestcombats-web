@@ -1,7 +1,7 @@
 <?php
  	
 session_start();
-if (isset($_GET['cronstartlotery'])) { // только cron
+if (isset($_GET['cronstartlotery'])) { // С‚РѕР»СЊРєРѕ cron
     $_SESSION['uid'] = 7;
 }
 if ($_SESSION['uid'] == null) {
@@ -61,11 +61,11 @@ if ($user['battle'] != 0) {
 <table border=0 width=100% cellspacing="0" cellpadding="0">
     <form action="city.php" method=GET>
         <tr>
-            <td><h3>Лотерея  5 из 30</h3></td>
+            <td><h3>Р›РѕС‚РµСЂРµСЏ  5 РёР· 30</h3></td>
             <td align=right>
-                <!--input style="font-size:12px;" type="button" value="Подсказка" style="background-color:#A9AFC0" onclick="window.open('help/lottery.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')"-->
-                <input style="font-size:12px;" type='button' onClick="location='lottery.php'" value="Обновить">
-                <input style="font-size:12px;" type='button' onClick="location='city.php?cp=1'" value="Вернуться">
+                <!--input style="font-size:12px;" type="button" value="РџРѕРґСЃРєР°Р·РєР°" style="background-color:#A9AFC0" onclick="window.open('help/lottery.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')"-->
+                <input style="font-size:12px;" type='button' onClick="location='lottery.php'" value="РћР±РЅРѕРІРёС‚СЊ">
+                <input style="font-size:12px;" type='button' onClick="location='city.php?cp=1'" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ">
             </td>
         </tr>
     </FORM>
@@ -77,42 +77,42 @@ if ($user['battle'] != 0) {
 
 class Lottery {
 	function get_this_user_id() {
-		// определеить id пользователя
+		// РѕРїСЂРµРґРµР»РµРёС‚СЊ id РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 		global $user;
 		return $user['id'];
 	}
 
 	function buy($txt = '', $lottery_id) {
-		// списать сумму билета
+		// СЃРїРёСЃР°С‚СЊ СЃСѓРјРјСѓ Р±РёР»РµС‚Р°
 		global $user;
 		if ($user['money'] < 1) {
-			$this->mess = 'Не хватает денег<BR>';
+			$this->mess = 'РќРµ С…РІР°С‚Р°РµС‚ РґРµРЅРµРі<BR>';
 		} else {
 			mysql_query("update users set money = money - 1 where id = '".mysql_real_escape_string($user['id'])."';");
-			mysql_query("insert into inventory (`owner`,`name`,`maxdur`,`img`,`letter`,`type`) values ('".mysql_real_escape_string($user['id'])."','Лотерейный билет Nr. $lottery_id','1','loto.gif','".mysql_real_escape_string($txt)."','210');");
+			mysql_query("insert into inventory (`owner`,`name`,`maxdur`,`img`,`letter`,`type`) values ('".mysql_real_escape_string($user['id'])."','Р›РѕС‚РµСЂРµР№РЅС‹Р№ Р±РёР»РµС‚ Nr. $lottery_id','1','loto.gif','".mysql_real_escape_string($txt)."','210');");
 		}
 	}
 
 	function pay_for_5($summ) {
-		// оплата если 5 из 5 угадано
+		// РѕРїР»Р°С‚Р° РµСЃР»Рё 5 РёР· 5 СѓРіР°РґР°РЅРѕ
 		global $user;
         mysql_query("update users set money = money + '".mysql_real_escape_string($summ)."' where id = '".mysql_real_escape_string($user['id'])."';");
 	}
 
 	function pay_for_4($summ) {
-		// оплата если 4 из 5 угадано
+		// РѕРїР»Р°С‚Р° РµСЃР»Рё 4 РёР· 5 СѓРіР°РґР°РЅРѕ
 		global $user;
         mysql_query("update users set money = money + '".mysql_real_escape_string($summ)."' where id = '".mysql_real_escape_string($user['id'])."';");
 	}
 
 	function pay_for_3($summ) {
-		// оплата если 3 из 5 угадано
+		// РѕРїР»Р°С‚Р° РµСЃР»Рё 3 РёР· 5 СѓРіР°РґР°РЅРѕ
 		global $user;
 		mysql_query("update users set money = money + '".mysql_real_escape_string($summ)."' where id = '".mysql_real_escape_string($user['id'])."';");
 	}
 
 	function pay_for_klan($summ) {
-		// 10% клану
+		// 10% РєР»Р°РЅСѓ
 		global $user;
 		//mysql_query("update users set money = money + '".mysql_real_escape_string($summ)."' where id = 7014;");
 	}
@@ -146,11 +146,11 @@ class Lottery {
 		$sql = "insert into lottery_log(`id_user`,`values`,`date`,`id_lottery`) values('".mysql_real_escape_string($id_user)."','".mysql_real_escape_string($values)."','".mysql_real_escape_string($date)."','".mysql_real_escape_string($id_lottery)."')";
 		$res = mysql_query($sql);
         
-		$this->buy("Тираж № ".$id_lottery."<BR>Выбраные номера: ".$values, mysql_insert_id());
+		$this->buy("РўРёСЂР°Р¶ в„– ".$id_lottery."<BR>Р’С‹Р±СЂР°РЅС‹Рµ РЅРѕРјРµСЂР°: ".$values, mysql_insert_id());
         if($this->mess != null) {
         	return "<font color=red><B>".$this->mess."</font></b>";
         }
-        echo "<font color=red><B>Билет куплен.<BR></font></b>";
+        echo "<font color=red><B>Р‘РёР»РµС‚ РєСѓРїР»РµРЅ.<BR></font></b>";
 
 		$jackpot = 0;
 		$sql = "select * from `lottery` where end=0 limit 1";
@@ -302,17 +302,17 @@ class Lottery {
 
 			if ($count == 5){
 				$this->pay_for_5($summ_5);
-				echo "Билет <B>№ ".$result['id']."</B> выиграл <b>".($summ_5)." кр.</b> Выбраные номера: ".$result['values']."<BR>";
+				echo "Р‘РёР»РµС‚ <B>в„– ".$result['id']."</B> РІС‹РёРіСЂР°Р» <b>".($summ_5)." РєСЂ.</b> Р’С‹Р±СЂР°РЅС‹Рµ РЅРѕРјРµСЂР°: ".$result['values']."<BR>";
 				$zz = 1;
 			}
 			if ($count == 4){
 				$this->pay_for_4($summ_4);
-				echo "Билет <B>№ ".$result['id']."</B> выиграл <b>".$summ_4." кр.</b> Выбраные номера: ".$result['values']."<BR>";
+				echo "Р‘РёР»РµС‚ <B>в„– ".$result['id']."</B> РІС‹РёРіСЂР°Р» <b>".$summ_4." РєСЂ.</b> Р’С‹Р±СЂР°РЅС‹Рµ РЅРѕРјРµСЂР°: ".$result['values']."<BR>";
 				$zz = 1;
 			}
 			if ($count == 3){
 				$this->pay_for_3($summ_3);
-				echo "Билет <B>№ ".$result['id']."</B> выиграл <b>".$summ_3." кр.</b> Выбраные номера: ".$result['values']."<BR>";
+				echo "Р‘РёР»РµС‚ <B>в„– ".$result['id']."</B> РІС‹РёРіСЂР°Р» <b>".$summ_3." РєСЂ.</b> Р’С‹Р±СЂР°РЅС‹Рµ РЅРѕРјРµСЂР°: ".$result['values']."<BR>";
 				$zz = 1;
 			}
 
@@ -320,7 +320,7 @@ class Lottery {
 			mysql_query($sql_upd);
 		}
 		if (!$zz) {
-			echo "<p style=\"color: red;\"><b>У Вас нет выигрышных билетов</b></p>";
+			echo "<p style=\"color: red;\"><b>РЈ Р’Р°СЃ РЅРµС‚ РІС‹РёРіСЂС‹С€РЅС‹С… Р±РёР»РµС‚РѕРІ</b></p>";
 		}
 	}
 
@@ -360,24 +360,24 @@ class Lottery {
 		$res = mysql_query($sql);
         $allbillets = mysql_num_rows($res);
 
-		$str .= '<form method="post" style="margin:0px;"><h4>Итоги тиража номер <input style="text-align: center;" type="text" value="'.$id_lottery.'" size=4 name="tiraj"> <input type=submit value="посмотреть"></h4></form>';
+		$str .= '<form method="post" style="margin:0px;"><h4>РС‚РѕРіРё С‚РёСЂР°Р¶Р° РЅРѕРјРµСЂ <input style="text-align: center;" type="text" value="'.$id_lottery.'" size=4 name="tiraj"> <input type=submit value="РїРѕСЃРјРѕС‚СЂРµС‚СЊ"></h4></form>';
 		if (!$date) {
-        	 return $str.'<p>Лотерея не проводилась.</p>';
+        	 return $str.'<p>Р›РѕС‚РµСЂРµСЏ РЅРµ РїСЂРѕРІРѕРґРёР»Р°СЃСЊ.</p>';
         }
 		$str .= '
             <p>
-                Тираж номер: <B>'.$id_lottery.'</B> <br />
-                Дата: <span class=date>'.$date.'</span> <br />
-                Призовой фонд: <b>'.$fond.' кр.</b> <br />
-                Джекпот: <b>'.$jackpot.' кр.</b> <br />
-                Всего было продано билетов: <B>'.$allbillets.'</B><br />
-                Выпала комбинация : <span style="FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #8f0000; FONT-FAMILY: Arial;">'.substr($combination,0,strlen($combination)-1).'</span>
+                РўРёСЂР°Р¶ РЅРѕРјРµСЂ: <B>'.$id_lottery.'</B> <br />
+                Р”Р°С‚Р°: <span class=date>'.$date.'</span> <br />
+                РџСЂРёР·РѕРІРѕР№ С„РѕРЅРґ: <b>'.$fond.' РєСЂ.</b> <br />
+                Р”Р¶РµРєРїРѕС‚: <b>'.$jackpot.' РєСЂ.</b> <br />
+                Р’СЃРµРіРѕ Р±С‹Р»Рѕ РїСЂРѕРґР°РЅРѕ Р±РёР»РµС‚РѕРІ: <B>'.$allbillets.'</B><br />
+                Р’С‹РїР°Р»Р° РєРѕРјР±РёРЅР°С†РёСЏ : <span style="FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #8f0000; FONT-FAMILY: Arial;">'.substr($combination,0,strlen($combination)-1).'</span>
             </p>
                 <table id="table" cellspacing=0>
                 <tr>
-                    <td align=center style="width:150px;"><b>Угадано номеров</b></td>
-                    <td align=center style="width:150px;"><b>Выиграно билетов</b></td>
-                    <td align=center style="width:150px;"><b>Сумма выигрыша</b></td>
+                    <td align=center style="width:150px;"><b>РЈРіР°РґР°РЅРѕ РЅРѕРјРµСЂРѕРІ</b></td>
+                    <td align=center style="width:150px;"><b>Р’С‹РёРіСЂР°РЅРѕ Р±РёР»РµС‚РѕРІ</b></td>
+                    <td align=center style="width:150px;"><b>РЎСѓРјРјР° РІС‹РёРіСЂС‹С€Р°</b></td>
                 </tr>
                 <tr>
                     <td align=center>5</td>
@@ -386,10 +386,10 @@ class Lottery {
         ';
 
 		if ($count_5 == 0){
-			$str .= 'Не выиграл ни один билет <BR>'.$summ_5.' кр. идут в джекпот';
+			$str .= 'РќРµ РІС‹РёРіСЂР°Р» РЅРё РѕРґРёРЅ Р±РёР»РµС‚ <BR>'.$summ_5.' РєСЂ. РёРґСѓС‚ РІ РґР¶РµРєРїРѕС‚';
 		}
 		else{
-			$str .= $summ_5.' кр.';
+			$str .= $summ_5.' РєСЂ.';
 		}
 
 		$str .= '
@@ -402,10 +402,10 @@ class Lottery {
 				';
 
 		if ($count_4 == 0){
-			$str .= 'Не выиграл ни один билет <BR>'.$summ_4.' кр. идут в джекпот';
+			$str .= 'РќРµ РІС‹РёРіСЂР°Р» РЅРё РѕРґРёРЅ Р±РёР»РµС‚ <BR>'.$summ_4.' РєСЂ. РёРґСѓС‚ РІ РґР¶РµРєРїРѕС‚';
 		}
 		else{
-			$str .= $summ_4.' кр.';
+			$str .= $summ_4.' РєСЂ.';
 		}
 
 		$str .= '
@@ -418,10 +418,10 @@ class Lottery {
 				';
 
 		if ($count_3 == 0){
-			$str .= 'Не выиграл ни один билет <BR>'.$summ_3.' кр. идут в джекпот';
+			$str .= 'РќРµ РІС‹РёРіСЂР°Р» РЅРё РѕРґРёРЅ Р±РёР»РµС‚ <BR>'.$summ_3.' РєСЂ. РёРґСѓС‚ РІ РґР¶РµРєРїРѕС‚';
 		}
 		else{
-			$str .= $summ_3.' кр.';
+			$str .= $summ_3.' РєСЂ.';
 		}
 
 		$str .= '
@@ -430,8 +430,8 @@ class Lottery {
             </table>
 
             <p>
-                Всего победителей: <b>'.$count.'</b>
-                <!--br />Всего выиграно: <b>'.$summ.' кр.</b-->
+                Р’СЃРµРіРѕ РїРѕР±РµРґРёС‚РµР»РµР№: <b>'.$count.'</b>
+                <!--br />Р’СЃРµРіРѕ РІС‹РёРіСЂР°РЅРѕ: <b>'.$summ.' РєСЂ.</b-->
             </p>
 		';
 		return $str;
@@ -462,7 +462,7 @@ class Lottery {
 					document.getElementById(\'value\').value = test;
 				}
 				else{
-					alert(\'Вы выбрали уже 5 номеров. Снимите выделение с любого номера.\');
+					alert(\'Р’С‹ РІС‹Р±СЂР°Р»Рё СѓР¶Рµ 5 РЅРѕРјРµСЂРѕРІ. РЎРЅРёРјРёС‚Рµ РІС‹РґРµР»РµРЅРёРµ СЃ Р»СЋР±РѕРіРѕ РЅРѕРјРµСЂР°.\');
 
 				}
 			}
@@ -529,7 +529,7 @@ class Lottery {
 			</tr>
 		</table>
 
-		<p>Выбраные Вами номера: <input style="border: 0px solid #000; background:transparent;" type="text" readonly="true" id="value" name="value" /></p>
+		<p>Р’С‹Р±СЂР°РЅС‹Рµ Р’Р°РјРё РЅРѕРјРµСЂР°: <input style="border: 0px solid #000; background:transparent;" type="text" readonly="true" id="value" name="value" /></p>
 		';
 
 		return $str;
@@ -567,22 +567,22 @@ if ($_POST['value']) {
 ?>
 
 <p>
-    Следующий тираж <b>№ <?=$id_lottery?></b> состоится <span class=date><?=$date?></span> <BR>
-    Призовой фонд: <b><?=$fond?> кр.</b> <br />
-    Джекпот: <b><?=$jackpot?> кр.</b> <br />
-    Стоимость лотерейного билета: <b>1.00 кр.</b><br>
+    РЎР»РµРґСѓСЋС‰РёР№ С‚РёСЂР°Р¶ <b>в„– <?=$id_lottery?></b> СЃРѕСЃС‚РѕРёС‚СЃСЏ <span class=date><?=$date?></span> <BR>
+    РџСЂРёР·РѕРІРѕР№ С„РѕРЅРґ: <b><?=$fond?> РєСЂ.</b> <br />
+    Р”Р¶РµРєРїРѕС‚: <b><?=$jackpot?> РєСЂ.</b> <br />
+    РЎС‚РѕРёРјРѕСЃС‚СЊ Р»РѕС‚РµСЂРµР№РЅРѕРіРѕ Р±РёР»РµС‚Р°: <b>1.00 РєСЂ.</b><br>
 </p>
 
-<p><input type="button" value="Участвовать в лотерее" onClick="document.all['adde'].style.visibility='visible';document.all['adde'].style.display='block';"></p>
+<p><input type="button" value="РЈС‡Р°СЃС‚РІРѕРІР°С‚СЊ РІ Р»РѕС‚РµСЂРµРµ" onClick="document.all['adde'].style.visibility='visible';document.all['adde'].style.display='block';"></p>
 <div style="display:none;visivility:hidden;" id="adde">
-    <h4>Выберите 5 номеров</h4>
+    <h4>Р’С‹Р±РµСЂРёС‚Рµ 5 РЅРѕРјРµСЂРѕРІ</h4>
     <form method='post' style="margin:0px;">
         <p><? echo $Lottery->view_buy_ticket(); ?></p>
-        <p><input type=submit value='Купить билет'></p>
+        <p><input type=submit value='РљСѓРїРёС‚СЊ Р±РёР»РµС‚'></p>
     </form>
 </div>
 <hr />    
-<p><input type="button" value="Проверить свои лотерейные билеты" onClick="location.href='lottery.php?check=1';"></p>
+<p><input type="button" value="РџСЂРѕРІРµСЂРёС‚СЊ СЃРІРѕРё Р»РѕС‚РµСЂРµР№РЅС‹Рµ Р±РёР»РµС‚С‹" onClick="location.href='lottery.php?check=1';"></p>
 
 <?
 if($_GET['check']) {

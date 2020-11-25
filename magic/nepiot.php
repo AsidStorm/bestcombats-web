@@ -1,5 +1,5 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
 	//if (rand(1,2)==1) {
 
 		if ($_SESSION['uid'] == null) header("Location: index.php");
@@ -26,31 +26,31 @@
 				if ($ok == 1) {
 					if (mysql_query("UPDATE `users` SET `bar`='0',`room`='20' WHERE `id` = {$tar['id']} LIMIT 1;")) {
 						mysql_query("UPDATE `online` SET `room`='20' WHERE `id` = {$tar['id']} LIMIT 1;");
-						if ($user['sex'] == 1) {$action="выгнал";}
-						else {$action="выгнала";}
+						if ($user['sex'] == 1) {$action="РІС‹РіРЅР°Р»";}
+						else {$action="РІС‹РіРЅР°Р»Р°";}
 						if ($user['align'] > '2' && $user['align'] < '3')  {
-							$angel="Ангел";
+							$angel="РђРЅРіРµР»";
 						}
 						elseif ($user['align'] > '1' && $user['align'] < '2') {
-							$angel="Паладин";
+							$angel="РџР°Р»Р°РґРёРЅ";
 						}
-						$mess="$angel &quot;{$user['login']}&quot; $action из Бара &quot;$target&quot;..";
+						$mess="$angel &quot;{$user['login']}&quot; $action РёР· Р‘Р°СЂР° &quot;$target&quot;..";
 						addch("<img src=i/magic/nepiot.gif> $mess");
-						echo "<font color=red><b>Вы выгнали из бара  \"$target\"</b></font>";			
+						echo "<font color=red><b>Р’С‹ РІС‹РіРЅР°Р»Рё РёР· Р±Р°СЂР°  \"$target\"</b></font>";			
 					}
 					else {
-						echo "<font color=red><b>Произошла ошибка!<b></font>";
+						echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
 					}
 				}
 				else {
-					echo "<font color=red><b>Вы не можете выгнать из бара этого персонажа!<b></font>";
+					echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РІС‹РіРЅР°С‚СЊ РёР· Р±Р°СЂР° СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°!<b></font>";
 				}
 			}
 			else {
-				echo "<font color=red><b>Персонаж \"$target\" не в баре </b></font>";
+				echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ РІ Р±Р°СЂРµ </b></font>";
 			}
 		}
 		else {
-			echo "<font color=red><b>Персонаж \"$target\" не существует!<b></font>";
+			echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!<b></font>";
 		}
 ?>

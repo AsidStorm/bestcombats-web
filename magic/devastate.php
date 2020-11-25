@@ -10,24 +10,24 @@ if ($user['intel'] >= 0) {
   }
 else {$int=0;}
 
-if ($user['battle'] > 0) {echo "Не в бою...";}
-elseif ($us['battle']) { echo "Персонаж в бою."; }
-elseif ($user['level'] < 5) { echo "Вашего уровня не достаточно для использования этого заклинания!"; }
-elseif ($effect['time']) {echo "На персонаже уже есть заклятие Сокрушение"; }
-elseif ($user['room'] != $us['room'] && $user["id"]!=7) { echo "Персонаж в другой комнате!"; }
-elseif (!$us['online']) {echo "Персонаж не в игре!";}
+if ($user['battle'] > 0) {echo "РќРµ РІ Р±РѕСЋ...";}
+elseif ($us['battle']) { echo "РџРµСЂСЃРѕРЅР°Р¶ РІ Р±РѕСЋ."; }
+elseif ($user['level'] < 5) { echo "Р’Р°С€РµРіРѕ СѓСЂРѕРІРЅСЏ РЅРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЌС‚РѕРіРѕ Р·Р°РєР»РёРЅР°РЅРёСЏ!"; }
+elseif ($effect['time']) {echo "РќР° РїРµСЂСЃРѕРЅР°Р¶Рµ СѓР¶Рµ РµСЃС‚СЊ Р·Р°РєР»СЏС‚РёРµ РЎРѕРєСЂСѓС€РµРЅРёРµ"; }
+elseif ($user['room'] != $us['room'] && $user["id"]!=7) { echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!"; }
+elseif (!$us['online']) {echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РёРіСЂРµ!";}
 elseif (rand(1,100) < $int) {
 
-      addch("<img src=i/magic/spell_powerup10.gif>".($user["invis"]?"Невидимка":"Персонаж &quot;{$user['login']}&quot;")." наложил заклятие \"Сокрушение\" на &quot;".($user["invis"] && $user["login"]==$_POST['target']?"Невидимка":"$_POST[target]")."&quot;, сроком 2 часа.");
+      addch("<img src=i/magic/spell_powerup10.gif>".($user["invis"]?"РќРµРІРёРґРёРјРєР°":"РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot;")." РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ \"РЎРѕРєСЂСѓС€РµРЅРёРµ\" РЅР° &quot;".($user["invis"] && $user["login"]==$_POST['target']?"РќРµРІРёРґРёРјРєР°":"$_POST[target]")."&quot;, СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");
 
       //$user1 = mysql_fetch_array(mysql_query("SELECT `id` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
-      mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`,caster) values ('$us[id]','Сокрушение',".(time()+7200).",202,'$user[id]');");
-      echo "<font color=red><b>На персонажа \"{$_POST['target']}\" наложено заклятие \"Сокрушение\" </b></font>";
+      mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`,caster) values ('$us[id]','РЎРѕРєСЂСѓС€РµРЅРёРµ',".(time()+7200).",202,'$user[id]');");
+      echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° \"{$_POST['target']}\" РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ \"РЎРѕРєСЂСѓС€РµРЅРёРµ\" </b></font>";
       $bet=1;
 
 
 } else {
-        echo "Свиток рассыпался в ваших руках...";
+        echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
         $bet=1;
       }
 ?>

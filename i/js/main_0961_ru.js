@@ -6,9 +6,9 @@ function DrawBar(title, id, flags, link_text, link){
   var rnd = Math.random();
   s += '<a name="bar__'+id+'" href="?edit='+rnd+'&bar='+id+'&a=explore&is_open='+(1-(flags & 1))+'#bar_'+id+'">';
   if (flags & 1) {
-    s+= '<img width='+sz+' height=9 alt="Скрыть" border=0 src="/i/icon/'+num+'minus.gif">';
+    s+= '<img width='+sz+' height=9 alt="РЎРєСЂС‹С‚СЊ" border=0 src="/i/icon/'+num+'minus.gif">';
   } else {
-    s+= '<img width='+sz+' height=9 alt="Показать" border=0 src="/i/icon/'+num+'plus.gif">';
+    s+= '<img width='+sz+' height=9 alt="РџРѕРєР°Р·Р°С‚СЊ" border=0 src="/i/icon/'+num+'plus.gif">';
   }
   s += '</a> </td>';
   s += '<td>&nbsp;</td><td bgcolor="#e2e0e0"><small>&nbsp;<b>'+title+':<b>&nbsp;</small></td>';
@@ -17,12 +17,12 @@ function DrawBar(title, id, flags, link_text, link){
   }
   s += '<td align=right valign=top width="100%">';
   if (!(flags&2)){
-     s += '<a href="?edit='+rnd+'&bar='+id+'&a=up#bar_'+id+'"><img border=0 width='+sz+' height=9 alt="Поднять блок наверх" src="/i/icon/'+num+'up.gif"></a>';
+     s += '<a href="?edit='+rnd+'&bar='+id+'&a=up#bar_'+id+'"><img border=0 width='+sz+' height=9 alt="РџРѕРґРЅСЏС‚СЊ Р±Р»РѕРє РЅР°РІРµСЂС…" src="/i/icon/'+num+'up.gif"></a>';
   } else {
     s+= '<img border=0 width='+sz+' height=9 alt="" src="/i/icon/'+num+'up-grey.gif">';
   }
   if (!(flags&4)){
-    s += '<a href="?edit='+rnd+'&bar='+id+'&a=down#bar_'+id+'"><img border=0 width='+sz+' height=9 alt="Опустить блок вниз" src="/i/icon/'+num+'down.gif"></a>';
+    s += '<a href="?edit='+rnd+'&bar='+id+'&a=down#bar_'+id+'"><img border=0 width='+sz+' height=9 alt="РћРїСѓСЃС‚РёС‚СЊ Р±Р»РѕРє РІРЅРёР·" src="/i/icon/'+num+'down.gif"></a>';
   } else {
     s+= '<img border=0 width='+sz+' height=9 alt="" src="/i/icon/'+num+'down-grey.gif">';
   }
@@ -66,7 +66,7 @@ function UseMagick(title, script, name, extparam, n, extparam2, mtype) {
     document.all("param").focus();
     Hint3Name = 'param';
    } else {
-        dialogconfirm('Подтверждение', script, '<TABLE width=100%><TD><IMG src="/i/sh/'+image+'"></TD><TD>Использовать сейчас?</TABLE>'+
+        dialogconfirm('РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', script, '<TABLE width=100%><TD><IMG src="/i/sh/'+image+'"></TD><TD>РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРµР№С‡Р°СЃ?</TABLE>'+
         '<input type=hidden name="use" id="use" value="'+name+'"><input type=hidden name="n" value="'+n+'">', mtype);
    }
 }
@@ -74,7 +74,7 @@ function UseMagick(title, script, name, extparam, n, extparam2, mtype) {
 function dialogconfirm(title, script, text, mtype) {
     var s;
     s='<table border=0 width=100% cellspacing="0" cellpadding="2"><tr><form action="'+script+'" method=POST name=slform><td colspan=2>'+
-    text+'</TD></TR><TR><TD width=50% align=left><INPUT TYPE="button" name="tmpname423" value="Да" style="width:70%" onclick="if (!top.is_qlaunch) { slform.submit(); } else { top.QLaunchQuery(slform.use.value); closehint3(); } "></TD><TD width=50% align=right><INPUT type=button style="width:70%" value="Нет" onclick="closehint3();"></TD></TR></FORM></TABLE>';
+    text+'</TD></TR><TR><TD width=50% align=left><INPUT TYPE="button" name="tmpname423" value="Р”Р°" style="width:70%" onclick="if (!top.is_qlaunch) { slform.submit(); } else { top.QLaunchQuery(slform.use.value); closehint3(); } "></TD><TD width=50% align=right><INPUT type=button style="width:70%" value="РќРµС‚" onclick="closehint3();"></TD></TR></FORM></TABLE>';
 
     s = crtmagic(mtype, title, s);
     document.all("hint3").innerHTML = s;

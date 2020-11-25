@@ -3,7 +3,7 @@
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	include "../connect.php";	
 	$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
-	if (($user['login']=="Реализатор")) {
+	if (($user['login']=="Р РµР°Р»РёР·Р°С‚РѕСЂ")) {
 
 ?>
 <table width="100%" border="1" cellspacing="0" cellpadding="0"><tr>
@@ -1610,63 +1610,63 @@ print "<script>location.href='?n=".$_GET['l']."&name=".$_GET['name']."'</script>
 <?
 print'<form action="" method="get">
 <select style="background-color:#996633; font-size:12px;" size="1" name="botd">
-<option>--2 Этаж---------------------------------</option>
-  <option  value="1">Проклятье Глубин I</option>
-  <option  value="2">Кровавый Сантехник II</option>
-  <option  value="3">Душа Кроггентайла III</option>
+<option>--2 Р­С‚Р°Р¶---------------------------------</option>
+  <option  value="1">РџСЂРѕРєР»СЏС‚СЊРµ Р“Р»СѓР±РёРЅ I</option>
+  <option  value="2">РљСЂРѕРІР°РІС‹Р№ РЎР°РЅС‚РµС…РЅРёРє II</option>
+  <option  value="3">Р”СѓС€Р° РљСЂРѕРіРіРµРЅС‚Р°Р№Р»Р° III</option>
   <option>-----------------------------------</option>
   
-  <option  value="4">Командир I</option>
-  <option  value="5">Командир II</option>
-  <option  value="6">Командир III</option>
+  <option  value="4">РљРѕРјР°РЅРґРёСЂ I</option>
+  <option  value="5">РљРѕРјР°РЅРґРёСЂ II</option>
+  <option  value="6">РљРѕРјР°РЅРґРёСЂ III</option>
   <option>-----------------------------------</option>
   
-  <option  value="1.1">Проклятье Глубин I,Проклятье Глубин I</option>
-  <option  value="2.2">Кровавый Сантехник II,Кровавый Сантехник II</option>
-  <option  value="3.3">Душа Кроггентайла III,Душа Кроггентайла III</option>
+  <option  value="1.1">РџСЂРѕРєР»СЏС‚СЊРµ Р“Р»СѓР±РёРЅ I,РџСЂРѕРєР»СЏС‚СЊРµ Р“Р»СѓР±РёРЅ I</option>
+  <option  value="2.2">РљСЂРѕРІР°РІС‹Р№ РЎР°РЅС‚РµС…РЅРёРє II,РљСЂРѕРІР°РІС‹Р№ РЎР°РЅС‚РµС…РЅРёРє II</option>
+  <option  value="3.3">Р”СѓС€Р° РљСЂРѕРіРіРµРЅС‚Р°Р№Р»Р° III,Р”СѓС€Р° РљСЂРѕРіРіРµРЅС‚Р°Р№Р»Р° III</option>
   <option>-----------------------------------</option>  
   
-  <option  value="1.1.1">Проклятье Глубин I,Проклятье Глубин I,Проклятье Глубин I</option>
-  <option  value="2.2.2">Кровавый Сантехник II,Кровавый Сантехник II,Кровавый Сантехник II</option>
-  <option  value="3.3.3">Душа Кроггентайла III,Душа Кроггентайла III,Душа Кроггентайла III</option> 
+  <option  value="1.1.1">РџСЂРѕРєР»СЏС‚СЊРµ Р“Р»СѓР±РёРЅ I,РџСЂРѕРєР»СЏС‚СЊРµ Р“Р»СѓР±РёРЅ I,РџСЂРѕРєР»СЏС‚СЊРµ Р“Р»СѓР±РёРЅ I</option>
+  <option  value="2.2.2">РљСЂРѕРІР°РІС‹Р№ РЎР°РЅС‚РµС…РЅРёРє II,РљСЂРѕРІР°РІС‹Р№ РЎР°РЅС‚РµС…РЅРёРє II,РљСЂРѕРІР°РІС‹Р№ РЎР°РЅС‚РµС…РЅРёРє II</option>
+  <option  value="3.3.3">Р”СѓС€Р° РљСЂРѕРіРіРµРЅС‚Р°Р№Р»Р° III,Р”СѓС€Р° РљСЂРѕРіРіРµРЅС‚Р°Р№Р»Р° III,Р”СѓС€Р° РљСЂРѕРіРіРµРЅС‚Р°Р№Р»Р° III</option> 
   
-<option>--3 Этаж---------------------------------</option>
-  <option  value="7">Тень</option>
-  <option  value="8">Ассасин</option>
-  <option  value="9">Ночной Охотник</option>
+<option>--3 Р­С‚Р°Р¶---------------------------------</option>
+  <option  value="7">РўРµРЅСЊ</option>
+  <option  value="8">РђСЃСЃР°СЃРёРЅ</option>
+  <option  value="9">РќРѕС‡РЅРѕР№ РћС…РѕС‚РЅРёРє</option>
   <option>-----------------------------------</option>  
-  <option  value="10">Страж Теней</option>
-  <option  value="11">Чародейка</option>
+  <option  value="10">РЎС‚СЂР°Р¶ РўРµРЅРµР№</option>
+  <option  value="11">Р§Р°СЂРѕРґРµР№РєР°</option>
   <option>-----------------------------------</option>    
-  <option  value="7.7">Тень,Тень</option>
-  <option  value="8.8">Ассасин,Ассасин</option>
-  <option  value="9.9">Ночной Охотник,Ночной Охотник</option>
+  <option  value="7.7">РўРµРЅСЊ,РўРµРЅСЊ</option>
+  <option  value="8.8">РђСЃСЃР°СЃРёРЅ,РђСЃСЃР°СЃРёРЅ</option>
+  <option  value="9.9">РќРѕС‡РЅРѕР№ РћС…РѕС‚РЅРёРє,РќРѕС‡РЅРѕР№ РћС…РѕС‚РЅРёРє</option>
   <option>-----------------------------------</option>
-  <option  value="7.7.7">Тень,Тень,Тень</option>
-  <option  value="8.8.8">Ассасин,Ассасин,Ассасин</option>
-  <option  value="9.9.9">Ночной Охотник,Ночной Охотник,Ночной Охотник</option>  
-<option>--4 Этаж---------------------------------</option> 
-  <option  value="12">Подмастерье</option>
-  <option  value="13">Живоглот</option>
-  <option  value="14">Оковалок</option>
-  <option  value="15">Алый Лейтенант</option>
+  <option  value="7.7.7">РўРµРЅСЊ,РўРµРЅСЊ,РўРµРЅСЊ</option>
+  <option  value="8.8.8">РђСЃСЃР°СЃРёРЅ,РђСЃСЃР°СЃРёРЅ,РђСЃСЃР°СЃРёРЅ</option>
+  <option  value="9.9.9">РќРѕС‡РЅРѕР№ РћС…РѕС‚РЅРёРє,РќРѕС‡РЅРѕР№ РћС…РѕС‚РЅРёРє,РќРѕС‡РЅРѕР№ РћС…РѕС‚РЅРёРє</option>  
+<option>--4 Р­С‚Р°Р¶---------------------------------</option> 
+  <option  value="12">РџРѕРґРјР°СЃС‚РµСЂСЊРµ</option>
+  <option  value="13">Р–РёРІРѕРіР»РѕС‚</option>
+  <option  value="14">РћРєРѕРІР°Р»РѕРє</option>
+  <option  value="15">РђР»С‹Р№ Р›РµР№С‚РµРЅР°РЅС‚</option>
 <option>-----------------------------------</option>
-  <option  value="12.12">Подмастерье,Подмастерье</option>
-  <option  value="13.13">Живоглот,Живоглот</option>
+  <option  value="12.12">РџРѕРґРјР°СЃС‚РµСЂСЊРµ,РџРѕРґРјР°СЃС‚РµСЂСЊРµ</option>
+  <option  value="13.13">Р–РёРІРѕРіР»РѕС‚,Р–РёРІРѕРіР»РѕС‚</option>
 <option>-----------------------------------</option>  
-  <option  value="12.12.12">Подмастерье,Подмастерье,Подмастерье</option>
-  <option  value="13.13.13">Живоглот,Живоглот,Живоглот</option>
+  <option  value="12.12.12">РџРѕРґРјР°СЃС‚РµСЂСЊРµ,РџРѕРґРјР°СЃС‚РµСЂСЊРµ,РџРѕРґРјР°СЃС‚РµСЂСЊРµ</option>
+  <option  value="13.13.13">Р–РёРІРѕРіР»РѕС‚,Р–РёРІРѕРіР»РѕС‚,Р–РёРІРѕРіР»РѕС‚</option>
 </select>
 <input name="n" type="hidden" value="'.$_GET['n'].'" />
 <input name="nas" type="hidden" value="'.$_GET['name'].'" />
-&nbsp;<input style="background-color:#996633; font-size:12px;" name="sozdat" type="submit" value="Поставить">
-&nbsp;<input style="background-color:#996633; font-size:12px;" name="delite" type="submit" value="Убрать">
+&nbsp;<input style="background-color:#996633; font-size:12px;" name="sozdat" type="submit" value="РџРѕСЃС‚Р°РІРёС‚СЊ">
+&nbsp;<input style="background-color:#996633; font-size:12px;" name="delite" type="submit" value="РЈР±СЂР°С‚СЊ">
 </form>';
 
-if($_GET['open']){print"<font>Вы добавили бота на клетку ".$_GET['n']."</font>";}
+if($_GET['open']){print"<font>Р’С‹ РґРѕР±Р°РІРёР»Рё Р±РѕС‚Р° РЅР° РєР»РµС‚РєСѓ ".$_GET['n']."</font>";}
 
-if($_GET['w']==1){print"<font>Вы добавили бота на клетку ".$_GET['n']."</font>";}
-if($_GET['w']==2){print"<font>Вы удалили бота с клетки ".$_GET['n']."</font>";}
+if($_GET['w']==1){print"<font>Р’С‹ РґРѕР±Р°РІРёР»Рё Р±РѕС‚Р° РЅР° РєР»РµС‚РєСѓ ".$_GET['n']."</font>";}
+if($_GET['w']==2){print"<font>Р’С‹ СѓРґР°Р»РёР»Рё Р±РѕС‚Р° СЃ РєР»РµС‚РєРё ".$_GET['n']."</font>";}
 
 if($_GET['sozdat']){
 mysql_query("UPDATE podzem3 SET n".$_GET['n']."='".$_GET['botd']."' WHERE glava='default' and name='".$_GET['nas']."'");

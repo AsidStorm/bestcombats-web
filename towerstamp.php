@@ -2,23 +2,23 @@
     session_start();
     if ($_SESSION['uid'] == null) header("Location: index.php");
     function otdelname($otdel) {
-      if ($otdel==1) return "Ножи, кастеты";
-      if ($otdel==11) return "Топоры";
-      if ($otdel==12) return "Дубины,булавы";
-      if ($otdel==13) return "Мечи";
-      if ($otdel==30) return "Магические посохи";
-      if ($otdel==2) return "Сапоги";
-      if ($otdel==21) return "Перчатки";
-      if ($otdel==22) return "Легкая броня";
-      if ($otdel==23) return "Тяжёлая броня";
-      if ($otdel==24) return "Шлемы";
-      if ($otdel==25) return "Наручи";
-      if ($otdel==26) return "Пояса";
-      if ($otdel==27) return "Поножи";
-      if ($otdel==3) return "Щиты";
-      if ($otdel==4) return "Серьги";
-      if ($otdel==41) return "Ожерелья";
-      if ($otdel==42) return "Кольца";
+      if ($otdel==1) return "РќРѕР¶Рё, РєР°СЃС‚РµС‚С‹";
+      if ($otdel==11) return "РўРѕРїРѕСЂС‹";
+      if ($otdel==12) return "Р”СѓР±РёРЅС‹,Р±СѓР»Р°РІС‹";
+      if ($otdel==13) return "РњРµС‡Рё";
+      if ($otdel==30) return "РњР°РіРёС‡РµСЃРєРёРµ РїРѕСЃРѕС…Рё";
+      if ($otdel==2) return "РЎР°РїРѕРіРё";
+      if ($otdel==21) return "РџРµСЂС‡Р°С‚РєРё";
+      if ($otdel==22) return "Р›РµРіРєР°СЏ Р±СЂРѕРЅСЏ";
+      if ($otdel==23) return "РўСЏР¶С‘Р»Р°СЏ Р±СЂРѕРЅСЏ";
+      if ($otdel==24) return "РЁР»РµРјС‹";
+      if ($otdel==25) return "РќР°СЂСѓС‡Рё";
+      if ($otdel==26) return "РџРѕСЏСЃР°";
+      if ($otdel==27) return "РџРѕРЅРѕР¶Рё";
+      if ($otdel==3) return "Р©РёС‚С‹";
+      if ($otdel==4) return "РЎРµСЂСЊРіРё";
+      if ($otdel==41) return "РћР¶РµСЂРµР»СЊСЏ";
+      if ($otdel==42) return "РљРѕР»СЊС†Р°";
     }
 
     $_GET["type"]=(int)@$_GET["type"];
@@ -27,7 +27,7 @@
     include './functions.php';
     if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 
-    if ($user['room']!='31' && $user['room']!='56' && $user['room']!='71') die('Для распределения статов небоходимо находиться в прихожей "Башни смерти"');
+    if ($user['room']!='31' && $user['room']!='56' && $user['room']!='71') die('Р”Р»СЏ СЂР°СЃРїСЂРµРґРµР»РµРЅРёСЏ СЃС‚Р°С‚РѕРІ РЅРµР±РѕС…РѕРґРёРјРѕ РЅР°С…РѕРґРёС‚СЊСЃСЏ РІ РїСЂРёС…РѕР¶РµР№ "Р‘Р°С€РЅРё СЃРјРµСЂС‚Рё"');
 
     if ($user["room"]==31) {
       $statsroom=0;
@@ -101,9 +101,9 @@
         mgray='$_POST[mgray]', mdark='$_POST[mdark]'");
       } else {
         $err=1;
-        echo "<font color=red><b>Что-то не то со статами... сумму проверьте. Необходимо использовать все статы ".($maxmaster>0?", владение оружием не мжет превышать 5 единиц и владение магией - 10":"")."!</b></font><br>";
+        echo "<font color=red><b>Р§С‚Рѕ-С‚Рѕ РЅРµ С‚Рѕ СЃРѕ СЃС‚Р°С‚Р°РјРё... СЃСѓРјРјСѓ РїСЂРѕРІРµСЂСЊС‚Рµ. РќРµРѕР±С…РѕРґРёРјРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РІСЃРµ СЃС‚Р°С‚С‹ ".($maxmaster>0?", РІР»Р°РґРµРЅРёРµ РѕСЂСѓР¶РёРµРј РЅРµ РјР¶РµС‚ РїСЂРµРІС‹С€Р°С‚СЊ 5 РµРґРёРЅРёС† Рё РІР»Р°РґРµРЅРёРµ РјР°РіРёРµР№ - 10":"")."!</b></font><br>";
       }
-      if (!$err) echo "<font color=red><b>Сохранено.</b></font>";
+      if (!$err) echo "<font color=red><b>РЎРѕС…СЂР°РЅРµРЅРѕ.</b></font>";
     }
     $tec=mqfa("SELECT * FROM `deztow_charstams` WHERE `owner` = '{$_SESSION['uid']}' AND `id`='".$_GET['id']."' and room='$statsroom'");
     if (isset($_GET["undressitem"])) {
@@ -154,10 +154,10 @@
       maketec1();
     }
     if($_GET['setdef']){
-      //$tec = mysql_fetch_array(mysql_query("SELECT * FROM `deztow_charstams` WHERE `owner` = '{я.$_SESSION['uid']}' AND `id`='".$_POST['setdef']."';"));
+      //$tec = mysql_fetch_array(mysql_query("SELECT * FROM `deztow_charstams` WHERE `owner` = '{СЏ.$_SESSION['uid']}' AND `id`='".$_POST['setdef']."';"));
       mq("UPDATE `deztow_charstams` SET `def` = 1 WHERE `owner` = '{$_SESSION['uid']}' AND  `id` = ".$_GET['setdef'].";");
       mq("UPDATE `deztow_charstams` SET `def` = 0 WHERE `owner` = '{$_SESSION['uid']}' AND  `id` <> ".$_GET['setdef']." and room='$statsroom';");
-      echo "<font color=red><b>Сохранено.</b></font>".mysql_error();
+      echo "<font color=red><b>РЎРѕС…СЂР°РЅРµРЅРѕ.</b></font>".mysql_error();
     }
 ?>
 <HTML><HEAD>
@@ -169,35 +169,35 @@
 </HEAD>
 <body bgcolor=e2e0e0>
 <div style="text-align:right;margin-bottom:-30px">
-<input type="button" value="Вернуться" onclick="document.location.href='battleenter.php';">
+<input type="button" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" onclick="document.location.href='battleenter.php';">
 </div>
-<h3>Профили характеристик</h3>
-<!--Статы не позволяют сходить в БС? -->
+<h3>РџСЂРѕС„РёР»Рё С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє</h3>
+<!--РЎС‚Р°С‚С‹ РЅРµ РїРѕР·РІРѕР»СЏСЋС‚ СЃС…РѕРґРёС‚СЊ РІ Р‘РЎ? -->
 <? if ($user["room"]==31) {
-  echo "В общей битве Башни смерти все участвуют со статами 8-го уровня.";
+  echo "Р’ РѕР±С‰РµР№ Р±РёС‚РІРµ Р‘Р°С€РЅРё СЃРјРµСЂС‚Рё РІСЃРµ СѓС‡Р°СЃС‚РІСѓСЋС‚ СЃРѕ СЃС‚Р°С‚Р°РјРё 8-РіРѕ СѓСЂРѕРІРЅСЏ.";
 } elseif ($user["room"]==71) {
-  echo "В Подгорной Башне смерти все участвуют со статами 8-го уровня.";
+  echo "Р’ РџРѕРґРіРѕСЂРЅРѕР№ Р‘Р°С€РЅРµ СЃРјРµСЂС‚Рё РІСЃРµ СѓС‡Р°СЃС‚РІСѓСЋС‚ СЃРѕ СЃС‚Р°С‚Р°РјРё 8-РіРѕ СѓСЂРѕРІРЅСЏ.";
 } else {
-  echo "В пещере кристаллов все участвуют со статами 9-го уровня.";
+  echo "Р’ РїРµС‰РµСЂРµ РєСЂРёСЃС‚Р°Р»Р»РѕРІ РІСЃРµ СѓС‡Р°СЃС‚РІСѓСЋС‚ СЃРѕ СЃС‚Р°С‚Р°РјРё 9-РіРѕ СѓСЂРѕРІРЅСЏ.";
 }
 ?>
-Раскиньте ваши статы так, как вы хотите, и участвуйте в турнире!
-Выбранный по умолчанию профиль, загрузится сам.
-Вы можете создавать неограниченное число профилей, и менять их за секунды до турнира!
+Р Р°СЃРєРёРЅСЊС‚Рµ РІР°С€Рё СЃС‚Р°С‚С‹ С‚Р°Рє, РєР°Рє РІС‹ С…РѕС‚РёС‚Рµ, Рё СѓС‡Р°СЃС‚РІСѓР№С‚Рµ РІ С‚СѓСЂРЅРёСЂРµ!
+Р’С‹Р±СЂР°РЅРЅС‹Р№ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РїСЂРѕС„РёР»СЊ, Р·Р°РіСЂСѓР·РёС‚СЃСЏ СЃР°Рј.
+Р’С‹ РјРѕР¶РµС‚Рµ СЃРѕР·РґР°РІР°С‚СЊ РЅРµРѕРіСЂР°РЅРёС‡РµРЅРЅРѕРµ С‡РёСЃР»Рѕ РїСЂРѕС„РёР»РµР№, Рё РјРµРЅСЏС‚СЊ РёС… Р·Р° СЃРµРєСѓРЅРґС‹ РґРѕ С‚СѓСЂРЅРёСЂР°!
 <BR><BR>
 <table width=100% bordercolor=silver border=1 cellpadding=0 cellspacing=0>
     <tr bgcolor=silver>
-        <td>Название</td><td width=25%>По ум.</td><td>Удалить</td>
+        <td>РќР°Р·РІР°РЅРёРµ</td><td width=25%>РџРѕ СѓРј.</td><td>РЈРґР°Р»РёС‚СЊ</td>
     </tr>
     <?php
      $data = mysql_query("SELECT * FROM `deztow_charstams` WHERE `owner` = '{$_SESSION['uid']}' and room='$statsroom';");
      while($row = mysql_fetch_array($data)) {
-        echo "<tr onclick='location.href=\"towerstamp.php?id={$row['id']}\";' style='cursor:pointer;'><td><B>{$row['name']}</B></td><td><a href='?setdef=$row[id]'>".($row['def']?"<font color=red>По умолчанию</font>":"Установить")."</a></td>
+        echo "<tr onclick='location.href=\"towerstamp.php?id={$row['id']}\";' style='cursor:pointer;'><td><B>{$row['name']}</B></td><td><a href='?setdef=$row[id]'>".($row['def']?"<font color=red>РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ</font>":"РЈСЃС‚Р°РЅРѕРІРёС‚СЊ")."</a></td>
         <td><a href='?delsn=".$row['id']."&ddname=".$row['name']."'>X</a></td></tr>\n";
      }
     ?>
 </table><BR>
-<INPUT TYPE=button value="Обновить" onclick="window.location.href='towerstamp.php';">
+<INPUT TYPE=button value="РћР±РЅРѕРІРёС‚СЊ" onclick="window.location.href='towerstamp.php';">
 <script>
     function countall() {
       if (parseInt(document.getElementById('sila').value)<3) document.getElementById('sila').value=3;
@@ -212,51 +212,51 @@
 </script>
 <table><tr><td valign="top">
 <form method="POST" action="towerstamp.php?id=<? echo (int)$_GET["id"]; ?>">
-    Назв.: <input type="text" name="name" value="<?=$tec['name']?>">
+    РќР°Р·РІ.: <input type="text" name="name" value="<?=$tec['name']?>">
     <table cellpadding=0 cellspacing=0 >
         <tr bgcolor=silver>
-            <td>Характеристика &nbsp;</td><td>Знач.</td>
+            <td>РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєР° &nbsp;</td><td>Р—РЅР°С‡.</td>
         </tr>
         <tr>
-            <td>Сила</td><td><input type="text" id="sila" size=4 onblur="countall();" value="<?=$tec['sila']?>" name="sila"> <?=$tec["sila"]!=$tec1["sila"]?"($tec1[sila])":""?></td>
+            <td>РЎРёР»Р°</td><td><input type="text" id="sila" size=4 onblur="countall();" value="<?=$tec['sila']?>" name="sila"> <?=$tec["sila"]!=$tec1["sila"]?"($tec1[sila])":""?></td>
         </tr>
         <tr>
-            <td>Ловкость</td><td><input type="text" id="lovk" size=4 onblur="countall();" value="<?=$tec['lovk']?>" name="lovk"> <?=$tec["lovk"]!=$tec1["lovk"]?"($tec1[lovk])":""?></td>
+            <td>Р›РѕРІРєРѕСЃС‚СЊ</td><td><input type="text" id="lovk" size=4 onblur="countall();" value="<?=$tec['lovk']?>" name="lovk"> <?=$tec["lovk"]!=$tec1["lovk"]?"($tec1[lovk])":""?></td>
         </tr>
         <tr>
-            <td>Интуиция</td><td><input type="text" id="inta" size=4 onblur="countall();" value="<?=$tec['inta']?>" name="inta"> <?=$tec["inta"]!=$tec1["inta"]?"($tec1[inta])":""?></td>
+            <td>РРЅС‚СѓРёС†РёСЏ</td><td><input type="text" id="inta" size=4 onblur="countall();" value="<?=$tec['inta']?>" name="inta"> <?=$tec["inta"]!=$tec1["inta"]?"($tec1[inta])":""?></td>
         </tr>
         <tr>
-            <td>Выносливость</td><td><input type="text" id="vinos" size=4 onblur="countall();" value="<?=$tec['vinos']?>" name="vinos"></td>
+            <td>Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ</td><td><input type="text" id="vinos" size=4 onblur="countall();" value="<?=$tec['vinos']?>" name="vinos"></td>
         </tr>
         <tr>
-            <td>Интеллект</td><td><input type="text" id="intel" size=4 onblur="countall();" value="<?=$tec['intel']?>" name="intel"> <?=$tec["intel"]!=$tec1["intel"]?"($tec1[intel])":""?></td>
+            <td>РРЅС‚РµР»Р»РµРєС‚</td><td><input type="text" id="intel" size=4 onblur="countall();" value="<?=$tec['intel']?>" name="intel"> <?=$tec["intel"]!=$tec1["intel"]?"($tec1[intel])":""?></td>
         </tr>
         <tr>
-            <td>Мудрость</td><td><input type="text" id="mudra" size=4 onblur="countall();" value="<?=$tec['mudra']?>" name="mudra"></td>
+            <td>РњСѓРґСЂРѕСЃС‚СЊ</td><td><input type="text" id="mudra" size=4 onblur="countall();" value="<?=$tec['mudra']?>" name="mudra"></td>
         </tr>
         <tr>
-            <td>Свободных</td><td><input type="text" id="stats" name="stats" size=4 disabled value="<?
+            <td>РЎРІРѕР±РѕРґРЅС‹С…</td><td><input type="text" id="stats" name="stats" size=4 disabled value="<?
             echo $maxstats; //($user['sila']+$user['lovk']+$user['inta']+$user['vinos']+$user['intel']+$user['mudra']+$user['stats'])
             ?>"></td>
         </tr>
         <?
           if ($user["room"]!=31 && $user["room"]!=71) {
-            echo "<tr><td><b>Владение оружием:</b></td></tr>
-            <tr><td>Мечи</td><td><input type=\"text\" id=\"mec\" size=4 onblur=\"countmaster();\" value=\"$tec[mec]\" name=\"mec\"> ".($tec1["mec"]!=$tec["mec"]?"($tec1[mec])":"")."</td></tr>
-            <tr><td>Дубины, булавы</td><td><input type=\"text\" id=\"dubina\" size=4 onblur=\"countmaster();\" value=\"$tec[dubina]\" name=\"dubina\"></td></tr>
-            <tr><td>Ножи, кинжалы</td><td><input type=\"text\" id=\"noj\" size=4 onblur=\"countmaster();\" value=\"$tec[noj]\" name=\"noj\"></td></tr>
-            <tr><td>Топоры, секиры</td><td><input type=\"text\" id=\"topor\" size=4 onblur=\"countmaster();\" value=\"$tec[topor]\" name=\"topor\"></td></tr>
-            <tr><td>Магические посохи</td><td><input type=\"text\" id=\"posoh\" size=4 onblur=\"countmaster();\" value=\"$tec[posoh]\" name=\"posoh\"></td></tr>
-            <tr><td><b>Владение магией:</b></td></tr>
-            <tr><td>Магия огня</td><td><input type=\"text\" id=\"mfire\" size=4 onblur=\"countmaster();\" value=\"$tec[mfire]\" name=\"mfire\"></td></tr>
-            <tr><td>Магия воды</td><td><input type=\"text\" id=\"mwater\" size=4 onblur=\"countmaster();\" value=\"$tec[mwater]\" name=\"mwater\"></td></tr>
-            <tr><td>Магия воздуха</td><td><input type=\"text\" id=\"mair\" size=4 onblur=\"countmaster();\" value=\"$tec[mair]\" name=\"mair\"></td></tr>
-            <tr><td>Магия земли</td><td><input type=\"text\" id=\"mearth\" size=4 onblur=\"countmaster();\" value=\"$tec[mearth]\" name=\"mearth\"></td></tr>
-            <tr><td>Магия света</td><td><input type=\"text\" id=\"mlight\" size=4 onblur=\"countmaster();\" value=\"$tec[mlight]\" name=\"mlight\"></td></tr>
-            <tr><td>Серая магия</td><td><input type=\"text\" id=\"mgray\" size=4 onblur=\"countmaster();\" value=\"$tec[mgray]\" name=\"mgray\"></td></tr>
-            <tr><td>Магия тьмы</td><td><input type=\"text\" id=\"mdark\" size=4 onblur=\"countmaster();\" value=\"$tec[mdark]\" name=\"mdark\"></td></tr>
-            <tr><td>Свободных</td><td><input type=\"text\" id=\"master\" name=\"master\" size=4 disabled value=\"$maxmaster\"></td></tr>
+            echo "<tr><td><b>Р’Р»Р°РґРµРЅРёРµ РѕСЂСѓР¶РёРµРј:</b></td></tr>
+            <tr><td>РњРµС‡Рё</td><td><input type=\"text\" id=\"mec\" size=4 onblur=\"countmaster();\" value=\"$tec[mec]\" name=\"mec\"> ".($tec1["mec"]!=$tec["mec"]?"($tec1[mec])":"")."</td></tr>
+            <tr><td>Р”СѓР±РёРЅС‹, Р±СѓР»Р°РІС‹</td><td><input type=\"text\" id=\"dubina\" size=4 onblur=\"countmaster();\" value=\"$tec[dubina]\" name=\"dubina\"></td></tr>
+            <tr><td>РќРѕР¶Рё, РєРёРЅР¶Р°Р»С‹</td><td><input type=\"text\" id=\"noj\" size=4 onblur=\"countmaster();\" value=\"$tec[noj]\" name=\"noj\"></td></tr>
+            <tr><td>РўРѕРїРѕСЂС‹, СЃРµРєРёСЂС‹</td><td><input type=\"text\" id=\"topor\" size=4 onblur=\"countmaster();\" value=\"$tec[topor]\" name=\"topor\"></td></tr>
+            <tr><td>РњР°РіРёС‡РµСЃРєРёРµ РїРѕСЃРѕС…Рё</td><td><input type=\"text\" id=\"posoh\" size=4 onblur=\"countmaster();\" value=\"$tec[posoh]\" name=\"posoh\"></td></tr>
+            <tr><td><b>Р’Р»Р°РґРµРЅРёРµ РјР°РіРёРµР№:</b></td></tr>
+            <tr><td>РњР°РіРёСЏ РѕРіРЅСЏ</td><td><input type=\"text\" id=\"mfire\" size=4 onblur=\"countmaster();\" value=\"$tec[mfire]\" name=\"mfire\"></td></tr>
+            <tr><td>РњР°РіРёСЏ РІРѕРґС‹</td><td><input type=\"text\" id=\"mwater\" size=4 onblur=\"countmaster();\" value=\"$tec[mwater]\" name=\"mwater\"></td></tr>
+            <tr><td>РњР°РіРёСЏ РІРѕР·РґСѓС…Р°</td><td><input type=\"text\" id=\"mair\" size=4 onblur=\"countmaster();\" value=\"$tec[mair]\" name=\"mair\"></td></tr>
+            <tr><td>РњР°РіРёСЏ Р·РµРјР»Рё</td><td><input type=\"text\" id=\"mearth\" size=4 onblur=\"countmaster();\" value=\"$tec[mearth]\" name=\"mearth\"></td></tr>
+            <tr><td>РњР°РіРёСЏ СЃРІРµС‚Р°</td><td><input type=\"text\" id=\"mlight\" size=4 onblur=\"countmaster();\" value=\"$tec[mlight]\" name=\"mlight\"></td></tr>
+            <tr><td>РЎРµСЂР°СЏ РјР°РіРёСЏ</td><td><input type=\"text\" id=\"mgray\" size=4 onblur=\"countmaster();\" value=\"$tec[mgray]\" name=\"mgray\"></td></tr>
+            <tr><td>РњР°РіРёСЏ С‚СЊРјС‹</td><td><input type=\"text\" id=\"mdark\" size=4 onblur=\"countmaster();\" value=\"$tec[mdark]\" name=\"mdark\"></td></tr>
+            <tr><td>РЎРІРѕР±РѕРґРЅС‹С…</td><td><input type=\"text\" id=\"master\" name=\"master\" size=4 disabled value=\"$maxmaster\"></td></tr>
             <script>
             function countmaster() {
               if (document.getElementById('mec').value=='') document.getElementById('mec').value=0;
@@ -294,19 +294,19 @@
           }
         ?>
     </table>
-    <input type="submit" OnClick="countall(); if (document.getElementById('stats').value!=0) { alert('Ошибка распределения статов! '); return false; } <? if ($user["room"]!=31) echo "countmaster(); if (document.getElementById('master').value!=0) { alert('Ошибка распределения владений! '); return false; }"; ?>" value="Сохранить/изменить">
+    <input type="submit" OnClick="countall(); if (document.getElementById('stats').value!=0) { alert('РћС€РёР±РєР° СЂР°СЃРїСЂРµРґРµР»РµРЅРёСЏ СЃС‚Р°С‚РѕРІ! '); return false; } <? if ($user["room"]!=31) echo "countmaster(); if (document.getElementById('master').value!=0) { alert('РћС€РёР±РєР° СЂР°СЃРїСЂРµРґРµР»РµРЅРёСЏ РІР»Р°РґРµРЅРёР№! '); return false; }"; ?>" value="РЎРѕС…СЂР°РЅРёС‚СЊ/РёР·РјРµРЅРёС‚СЊ">
 </form>
 <br>
 <?
   if (@$_GET["id"] && $user["room"]!=31 && $user["room"]!=71) {
-    echo "<b>Посмотреть экипировку:</b><br><br>";
+    echo "<b>РџРѕСЃРјРѕС‚СЂРµС‚СЊ СЌРєРёРїРёСЂРѕРІРєСѓ:</b><br><br>";
     $i=0;
     $rzs=array(1,11,12,13,30,2,21,22,23,24,25,26,27,3,4,41,42);
     foreach ($rzs as $k=>$v) {
       $i++;
       echo "<a href=\"towerstamp.php?id=$_GET[id]&type=$v#equip\">".otdelname($v)."</a><br>";
     }
-    echo "<br><a href=\"towerstamp.php?id=$_GET[id]#equip\">Всё доступное</a><br>";
+    echo "<br><a href=\"towerstamp.php?id=$_GET[id]#equip\">Р’СЃС‘ РґРѕСЃС‚СѓРїРЅРѕРµ</a><br>";
     
 
   }
@@ -314,8 +314,8 @@
 </td><td valign="top" style="padding-left:40px">
 <?
   if ($tec && $user["room"]!=31 && $user["room"]!=71) {
-    echo "<a name=\"dressed\"></a><center><b>Экипировка:</b></center><br>
-    На персонаже надето:<br><br>";
+    echo "<a name=\"dressed\"></a><center><b>Р­РєРёРїРёСЂРѕРІРєР°:</b></center><br>
+    РќР° РїРµСЂСЃРѕРЅР°Р¶Рµ РЅР°РґРµС‚Рѕ:<br><br>";
     do {
       $dropped=0;
       $dress=array();
@@ -357,7 +357,7 @@
       return $ret;
     }
     echo showdressed($dressed, $user);
-    echo "<a name=\"equip\"></a><div>&nbsp;</div><h3>".(@$_GET["type"]?otdelname($_GET["type"]):"Доступная экипировка").":</h3>";
+    echo "<a name=\"equip\"></a><div>&nbsp;</div><h3>".(@$_GET["type"]?otdelname($_GET["type"]):"Р”РѕСЃС‚СѓРїРЅР°СЏ СЌРєРёРїРёСЂРѕРІРєР°").":</h3>";
     $cond="";
     foreach ($dressslots as $k=>$v) {
       if ($v=="weap" || $v=="shit") $cond.=" and (id<>".$tec[$v]." or second=1) ";

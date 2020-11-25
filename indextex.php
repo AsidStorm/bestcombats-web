@@ -3,7 +3,7 @@
 
 <head>
 <link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
-<title>Bestcombats - Браузерная онлайн игра 2012-2013г.</title>
+<title>Bestcombats - Р‘СЂР°СѓР·РµСЂРЅР°СЏ РѕРЅР»Р°Р№РЅ РёРіСЂР° 2012-2013Рі.</title>
 
 </head>
 <body>

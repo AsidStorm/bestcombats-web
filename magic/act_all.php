@@ -1,34 +1,34 @@
 <?php
-if ($user['align']==4){ echo "Хаосникам запрещено колдовать!";}	
+if ($user['align']==4){ echo "РҐР°РѕСЃРЅРёРєР°Рј Р·Р°РїСЂРµС‰РµРЅРѕ РєРѕР»РґРѕРІР°С‚СЊ!";}	
 else{
 $us = mysql_fetch_array(mysql_query("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));		
 $travma = mysql_query("SELECT * FROM `effects` WHERE `owner` = '".$us['id']."' AND (`type`='11' OR `type`='12' OR `type`='13' OR `type`='14');");				
 if ($user['battle'] > 0) {
-	echo "Не в бою...";
+	echo "РќРµ РІ Р±РѕСЋ...";
 } elseif ($us['battle'] > 0) {
-	echo "Персонаж в бою...";
+	echo "РџРµСЂСЃРѕРЅР°Р¶ РІ Р±РѕСЋ...";
 } elseif (!$travma) {
-	echo "У персонажа нет травм...";
+	echo "РЈ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµС‚ С‚СЂР°РІРј...";
 } elseif ($user['room'] != $us['room']) {
-	echo "Персонаж в другой комнате!";
+	echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!";
 } elseif ($user['align'] >= 0) {		
 		
-			if ($user['sex'] == 1) {$action="исцелен";}
-			else {$action="исцелина";}		
+			if ($user['sex'] == 1) {$action="РёСЃС†РµР»РµРЅ";}
+			else {$action="РёСЃС†РµР»РёРЅР°";}		
 				if ($user['align'] >= '0') {
-				$angel="Персонаж ";
+				$angel="РџРµСЂСЃРѕРЅР°Р¶ ";
 			}
 					
 				if ($user['invis']==1) {
-				addch(" <font color=red>Внимание! </font><img src=i/magic/cure3.gif> <i><b>невидимка </i></b> {$_POST['target']}  ".$action." от травм ");
+				addch(" <font color=red>Р’РЅРёРјР°РЅРёРµ! </font><img src=i/magic/cure3.gif> <i><b>РЅРµРІРёРґРёРјРєР° </i></b> {$_POST['target']}  ".$action." РѕС‚ С‚СЂР°РІРј ");
 				}else
-				addch("<font color=red>Внимание! </font><img src=i/magic/align_2.5.gif>    {$_POST['target']}  ".$action." от травм ");
+				addch("<font color=red>Р’РЅРёРјР°РЅРёРµ! </font><img src=i/magic/align_2.5.gif>    {$_POST['target']}  ".$action." РѕС‚ С‚СЂР°РІРј ");
 				while ($owntravma=mysql_fetch_array($travma)) {
 					deltravma($owntravma['id']);
 				}
 
 } else {
-				echo "Что-то тут не то...";
+				echo "Р§С‚Рѕ-С‚Рѕ С‚СѓС‚ РЅРµ С‚Рѕ...";
 	}	
 	}
 ?>

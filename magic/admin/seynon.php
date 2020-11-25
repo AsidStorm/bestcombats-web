@@ -4,20 +4,20 @@ $us = mysql_fetch_array(mysql_query("SELECT honorpoints FROM `users` WHERE `id` 
 	
 
 if ($us['honorpoints'] > 0) {
-	echo "Зомби Шейн Уже вызван.";
+	echo "Р—РѕРјР±Рё РЁРµР№РЅ РЈР¶Рµ РІС‹Р·РІР°РЅ.";
 }  else{		
 		
-						if ($user['sex'] == 1) {$action="вызвал";}
-			else {$action="вызвала";}		
+						if ($user['sex'] == 1) {$action="РІС‹Р·РІР°Р»";}
+			else {$action="РІС‹Р·РІР°Р»Р°";}		
 			if ($user['align'] > '2' && $user['align'] < '3')  {
-				$angel="Ангел";
+				$angel="РђРЅРіРµР»";
 			}
 			elseif ($user['align'] > '1' && $user['align'] < '2') {
-				$angel="Персонаж";
+				$angel="РџРµСЂСЃРѕРЅР°Р¶";
 			}
                                 mysql_query("UPDATE `users` SET `honorpoints`=1 WHERE `id`='4475817'");
-				echo "Вы вызвали Зомби Шейна!";
-				addch("<img src=i/magic/1x1.gif> ".$angel." &quot;{$user['login']}&quot; ".$action." Зомби Шейна.");
+				echo "Р’С‹ РІС‹Р·РІР°Р»Рё Р—РѕРјР±Рё РЁРµР№РЅР°!";
+				addch("<img src=i/magic/1x1.gif> ".$angel." &quot;{$user['login']}&quot; ".$action." Р—РѕРјР±Рё РЁРµР№РЅР°.");
 				
 } 	
 ?>

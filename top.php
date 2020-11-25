@@ -71,15 +71,15 @@ showtable('4');
 <td width="31" height="14"><img height="14" src="<?=IMGBASE;?>/i/<?=$now?>/mennu112_06_lite.gif" width="31" /></td>
 <td align="center"><table height="14" cellspacing="0" cellpadding="0" width="100%" background="<?=IMGBASE;?>/i/move/mennu112_06.gif" border="0">
 <tr align="middle">
-<td id="el1" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('1');">Знания</td>
+<td id="el1" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('1');">Р—РЅР°РЅРёСЏ</td>
 <td width="1"><img height="11" src="<?=IMGBASE;?>/i/move/mennu112_09.gif" width="1" /></td>
-<td id="el2" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('2');">Общение</td>
+<td id="el2" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('2');">РћР±С‰РµРЅРёРµ</td>
 <td width="1"><img height="11" src="<?=IMGBASE;?>/i/move/mennu112_09.gif" width="1" /></td>
-<td id="el3" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('3');">Безопасность</td>
+<td id="el3" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('3');">Р‘РµР·РѕРїР°СЃРЅРѕСЃС‚СЊ</td>
 <td width="1"><img height="11" src="<?=IMGBASE;?>/i/move/mennu112_09.gif" width="1" /></td>
-<td id="el4" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('4');">Персонаж</td>
+<td id="el4" class="main_text" onclick="this.style.backgroundColor='#404040'; this.style.color='#FFFFFF'; showtable('4');">РџРµСЂСЃРѕРЅР°Р¶</td>
 <td width="1"><img height="11" src="<?=IMGBASE;?>/i/move/mennu112_09.gif" width="1" /></td>
-<td id="el5" class="main_text" onclick="if (confirm('Выйти из игры?')) top.location.href='index.php';">Выход&nbsp;</td>
+<td id="el5" class="main_text" onclick="if (confirm('Р’С‹Р№С‚Рё РёР· РёРіСЂС‹?')) top.location.href='index.php';">Р’С‹С…РѕРґ&nbsp;</td>
 </tr>
 </table></td>
 <td width="38"><img height="14" src="<?=IMGBASE;?>/i/<?=$now?>/mennu112_04_lite.gif" width="37" /></td>
@@ -93,12 +93,12 @@ showtable('4');
 <td align="left"><img height="17" src="<?=IMGBASE;?>/i/<?=$now?>/top_lite_dream_13.gif" width="20" /></td>
 <td valign="top"><table cellspacing="0" cellpadding="0" width="100%" border="0">
 <tr>
-<td align="right" nowrap="nowrap" class="menutop"><span id="menu1" style="display:none; width:0px; overflow:hidden"> <a class="menutop" onclick="this.blur();" href="http://lib.bestcombats.net/index.html" target="_blank"><font color=\"blue\">Библиотека</font></a></span> 
-<span id="menu2" style="display:none; width:0px; overflow:hidden"> <a class="menutop" onclick="this.blur(); jumptopath('/radio2.htm'); return false;" href="#"><font color=\"blue\">Радио</font></a> | <a class="menutop" onclick="this.blur();" href="/forum.php" target="_blank"><font color=\"blue\">Форум</font></a> | <a class="menutop" onclick="this.blur();" href="http://scrolls.bestcombats.net/" target="_blank"><font color=\"blue\">Скроллы</font></a> | <a class="menutop" onclick="this.blur();" href="http://top.bestcombats.net/#players" target="_blank"><font color=\"blue\">Рейтинг</font></a></span> 
-<span id="menu3" style="display:none; width:0px; overflow:hidden"><a class="menutop" onclick="this.blur(); jumptopath('/main.php?changepsw=1'); return false;" href="#"><font color=\"blue\">Смена пароля</font></a> | <a class="menutop" onclick="this.blur();" href="http://support.bestcombats.net/" target="_blank"><font color=\"blue\">Поддержка</font></a></span> 
-<span id="menu4" style="display:none; width:0px; overflow:hidden"><a class="menutop" onclick="this.blur(); jumptopath('/ref.php'); return false;" href="#"><font color="#f53526">Реферальная Система</font></a>
-| <a class="menutop" onclick="this.blur(); jumptopath('/main.php?edit=1'); return false;" href="#"><font color=\"blue\">Инвентарь</font></a> | <a class="menutop" onclick="this.blur(); jumptopath('/umenie.php'); return false;" href="#"><font color=\"blue\">Умения</font></a> | <a class="menutop" onclick="this.blur(); jumptopath('/main.php?edit=1&transreport=1'); return false;" href="#"><font color=\"blue\">Отчет о переводах</font></a> | <a class="menutop" onclick="this.blur(); jumptopath('/zayavka.php'); return false;" href="#"><font color=\"blue\">Поединки</font></a> | <a class="menutop" onclick="this.blur();" href="/register.php?edit=1" target="_blank"><font color=\"blue\">Анкета</font></a> | 
-<a class="menutop" onclick="this.blur();" href="http://events.bestcombats.net/" target="_blank"><font color=\"blue\">Новости</font></a>
+<td align="right" nowrap="nowrap" class="menutop"><span id="menu1" style="display:none; width:0px; overflow:hidden"> <a class="menutop" onclick="this.blur();" href="http://lib.bestcombats.net/index.html" target="_blank"><font color=\"blue\">Р‘РёР±Р»РёРѕС‚РµРєР°</font></a></span> 
+<span id="menu2" style="display:none; width:0px; overflow:hidden"> <a class="menutop" onclick="this.blur(); jumptopath('/radio2.htm'); return false;" href="#"><font color=\"blue\">Р Р°РґРёРѕ</font></a> | <a class="menutop" onclick="this.blur();" href="/forum.php" target="_blank"><font color=\"blue\">Р¤РѕСЂСѓРј</font></a> | <a class="menutop" onclick="this.blur();" href="http://scrolls.bestcombats.net/" target="_blank"><font color=\"blue\">РЎРєСЂРѕР»Р»С‹</font></a> | <a class="menutop" onclick="this.blur();" href="http://top.bestcombats.net/#players" target="_blank"><font color=\"blue\">Р РµР№С‚РёРЅРі</font></a></span> 
+<span id="menu3" style="display:none; width:0px; overflow:hidden"><a class="menutop" onclick="this.blur(); jumptopath('/main.php?changepsw=1'); return false;" href="#"><font color=\"blue\">РЎРјРµРЅР° РїР°СЂРѕР»СЏ</font></a> | <a class="menutop" onclick="this.blur();" href="http://support.bestcombats.net/" target="_blank"><font color=\"blue\">РџРѕРґРґРµСЂР¶РєР°</font></a></span> 
+<span id="menu4" style="display:none; width:0px; overflow:hidden"><a class="menutop" onclick="this.blur(); jumptopath('/ref.php'); return false;" href="#"><font color="#f53526">Р РµС„РµСЂР°Р»СЊРЅР°СЏ РЎРёСЃС‚РµРјР°</font></a>
+| <a class="menutop" onclick="this.blur(); jumptopath('/main.php?edit=1'); return false;" href="#"><font color=\"blue\">РРЅРІРµРЅС‚Р°СЂСЊ</font></a> | <a class="menutop" onclick="this.blur(); jumptopath('/umenie.php'); return false;" href="#"><font color=\"blue\">РЈРјРµРЅРёСЏ</font></a> | <a class="menutop" onclick="this.blur(); jumptopath('/main.php?edit=1&transreport=1'); return false;" href="#"><font color=\"blue\">РћС‚С‡РµС‚ Рѕ РїРµСЂРµРІРѕРґР°С…</font></a> | <a class="menutop" onclick="this.blur(); jumptopath('/zayavka.php'); return false;" href="#"><font color=\"blue\">РџРѕРµРґРёРЅРєРё</font></a> | <a class="menutop" onclick="this.blur();" href="/register.php?edit=1" target="_blank"><font color=\"blue\">РђРЅРєРµС‚Р°</font></a> | 
+<a class="menutop" onclick="this.blur();" href="http://events.bestcombats.net/" target="_blank"><font color=\"blue\">РќРѕРІРѕСЃС‚Рё</font></a>
 
 </span>&nbsp;</td>
 </tr>

@@ -1,10 +1,10 @@
 <?PHP
-// Íàñòðîéêè
+// ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸
 
-   $SECURITY_IMAGE_TYPE = 'GIF';     // Âîçìîæíûå ôîðìàòû: GIF, JPEG, PNG
-   $SECURITY_WIDTH = 130;            // Øèðèíà èçîáðàæåíèÿ
-   $SECURITY_HEIGHT = 30;            // Âûñîòà èçîáðàæåíèÿ
-   $SECURITY_NUM_GENSIGN = 5;        // Êîëè÷åñòâî ñèìâîëîâ, êîòîðûå íóæíî íàáðàòü
+   $SECURITY_IMAGE_TYPE = 'GIF';     // Ð’Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ñ‹Ðµ Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ñ‹: GIF, JPEG, PNG
+   $SECURITY_WIDTH = 130;            // Ð¨Ð¸Ñ€Ð¸Ð½Ð° Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ
+   $SECURITY_HEIGHT = 30;            // Ð’Ñ‹ÑÐ¾Ñ‚Ð° Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ
+   $SECURITY_NUM_GENSIGN = 5;        // ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ¸Ð¼Ð²Ð¾Ð»Ð¾Ð², ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð½ÑƒÐ¶Ð½Ð¾ Ð½Ð°Ð±Ñ€Ð°Ñ‚ÑŒ
 
    $EXT = strtoupper(@$_GET['ext']);
    if($EXT == 'GIF' || $EXT == 'JPEG' || $EXT == 'PNG') $SECURITY_IMAGE_TYPE = $EXT;
@@ -12,7 +12,7 @@
    if(is_numeric(@$_GET['height']) && $_GET['height']>100 && $_GET['height']<500) $SECURITY_HEIGHT = $_GET['height'];
    if(is_numeric(@$_GET['qty']) && $_GET['qty']>2 && $_GET['qty']<10) $SECURITY_NUM_GENSIGN = $_GET['qty'];
 
-// ßäðî
+// Ð¯Ð´Ñ€Ð¾
 
    session_register('securityCode');
    $SECURITY_FONT_SIZE = intval($SECURITY_HEIGHT/(($SECURITY_HEIGHT/$SECURITY_WIDTH)*7));
@@ -21,11 +21,11 @@
    $LETTERS = array('0','1','2','3','4','5','6','7','8','9');
    $FIGURES = array('50','70','90','110','130','150','170','190','210');
 
-// Ñîçäàåì ïîëîòíî
+// Ð¡Ð¾Ð·Ð´Ð°ÐµÐ¼ Ð¿Ð¾Ð»Ð¾Ñ‚Ð½Ð¾
 
    $src = imagecreatetruecolor($SECURITY_WIDTH,$SECURITY_HEIGHT);
 
-// Çàëèâàåì ôîí
+// Ð—Ð°Ð»Ð¸Ð²Ð°ÐµÐ¼ Ñ„Ð¾Ð½
 
    $fon = imagecolorallocate($src,255,255,255);
    imagefill($src,0,0,$fon);
@@ -33,37 +33,37 @@
 
 
 
-// Åñëè ïàïêà øðèôòîâ ïóñòà
+// Ð•ÑÐ»Ð¸ Ð¿Ð°Ð¿ÐºÐ° ÑˆÑ€Ð¸Ñ„Ñ‚Ð¾Ð² Ð¿ÑƒÑÑ‚Ð°
 
        for($i = 0; $i<$SECURITY_NUM_GENSIGN; $i++)
        {
 
-        // Îðèåíòèð
+        // ÐžÑ€Ð¸ÐµÐ½Ñ‚Ð¸Ñ€
 
            $h = 1;
 
-        // Ðèñóåì
+        // Ð Ð¸ÑÑƒÐµÐ¼
 
            $color = imagecolorallocatealpha($src,$FIGURES[rand(0,sizeof($FIGURES)-1)],$FIGURES[rand(0,sizeof($FIGURES)-1)],$FIGURES[rand(0,sizeof($FIGURES)-1)],rand(10,30));
            $letter = $LETTERS[rand(0,sizeof($LETTERS)-1)];
            $x = (empty($x)) ? $SECURITY_WIDTH*0.1 : $x + ($SECURITY_WIDTH*0.8)/$SECURITY_NUM_GENSIGN+rand(0,$SECURITY_WIDTH*0.01);
            $y = ($h == rand(1,2)) ? (($SECURITY_HEIGHT*1)/4) + rand(0,$SECURITY_HEIGHT*0.1) : (($SECURITY_HEIGHT*1)/4) - rand(0,$SECURITY_HEIGHT*0.1);
 
-        // Çàïîìèíàåì
+        // Ð—Ð°Ð¿Ð¾Ð¼Ð¸Ð½Ð°ÐµÐ¼
 
            $CODE[] = $letter;
            if($h == rand(0,10)) $letter = strtoupper($letter);
 
-        // Ïèøåì
+        // ÐŸÐ¸ÑˆÐµÐ¼
 
            imagestring($src,9,$x,$y,$letter,$color);
        }
 
-// Ïîëó÷àåì êîä
+// ÐŸÐ¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ ÐºÐ¾Ð´
 
    $_SESSION['securityCode'] = implode('',$CODE);
 
-// Ïå÷àòü
+// ÐŸÐµÑ‡Ð°Ñ‚ÑŒ
 
    if($SECURITY_IMAGE_TYPE == 'PNG')
    {

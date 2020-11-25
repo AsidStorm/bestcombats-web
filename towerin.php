@@ -207,7 +207,7 @@
             if($_SESSION['timei']-time()<=0) {
               if ($obj["iteam_id"]==1766) {
                 mq("update users set money=money+1 where id='$_SESSION[uid]'");
-                echo "<font color=red>Вы нашли 1 кр.</font>";
+                echo "<font color=red>Р’С‹ РЅР°С€Р»Рё 1 РєСЂ.</font>";
               } else {
                 $_SESSION['timei'] = time()+3;
                 $dress = mysql_fetch_array(mq("SELECT * FROM `shop` WHERE `id` = '".$obj['iteam_id']."' LIMIT 1;"));
@@ -221,10 +221,10 @@
               mq("DELETE FROM `deztow_items` WHERE `id` = '".$_GET['give']."' AND `room` = '".$user['room']."' LIMIT 1;");
             }
             else {
-                echo "<font color=red>Вы сможте поднять вещь через ".($_SESSION['timei']-time())." секунд...</font>";
+                echo "<font color=red>Р’С‹ СЃРјРѕР¶С‚Рµ РїРѕРґРЅСЏС‚СЊ РІРµС‰СЊ С‡РµСЂРµР· ".($_SESSION['timei']-time())." СЃРµРєСѓРЅРґ...</font>";
             }
         } else {
-            echo "<font color=red>Кто-то оказался быстрее...</font>";
+            echo "<font color=red>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ...</font>";
         }
 
     }
@@ -243,7 +243,7 @@
                 }
                 if($jert['battle'] > 0) {
                     $bd = mysql_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$jert['battle'].' LIMIT 1;'));
-                    if ($bd["coment"]=="Кулачный поединок") undressall($user['id']);
+                    if ($bd["coment"]=="РљСѓР»Р°С‡РЅС‹Р№ РїРѕРµРґРёРЅРѕРє") undressall($user['id']);
                     $battle = unserialize($bd['teams']);
                     $ak = array_keys($battle[$jert['id']]);
                     $battle[$user['id']] = $battle[$ak[0]];
@@ -259,13 +259,13 @@
                         $ttt = 1;
                         $ttt2 = 2;
                     }
-                    addch ("<b>".nick7($user['id'])."</b> вмешался в <a href=logs.php?log=".$id." target=_blank>поединок »»</a>.  ",$user['room']);
+                    addch ("<b>".nick7($user['id'])."</b> РІРјРµС€Р°Р»СЃСЏ РІ <a href=logs.php?log=".$id." target=_blank>РїРѕРµРґРёРЅРѕРє В»В»</a>.  ",$user['room']);
 
-                    addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' вмешался в поединок!<BR>');
+                    addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' РІРјРµС€Р°Р»СЃСЏ РІ РїРѕРµРґРёРЅРѕРє!<BR>');
 
                     mq('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t'.$ttt.'`=CONCAT(`t'.$ttt.'`,\';'.$user['id'].'\'), `to'.$ttt.'` = \''.time().'\', `to'.$ttt2.'` = \''.(time()-1).'\'  WHERE `id` = '.$jert['battle'].' ;');
                     mq("UPDATE users SET `battle` =".$jert['battle'].",`zayavka`=0 WHERE `id`= ".$user['id']);
-                    mq('UPDATE `deztow_turnir` SET `log` = CONCAT(`log`,\''."<span class=date>".date("d.m.y H:i")."</span>  ".nick3($user['id'])." вмешался в поединок против ".nick3($jert['id'])." <a href=\"logs.php?log={$jert['battle']}\" target=_blank>»»</a><BR>".'\') WHERE `active` = TRUE;');
+                    mq('UPDATE `deztow_turnir` SET `log` = CONCAT(`log`,\''."<span class=date>".date("d.m.y H:i")."</span>  ".nick3($user['id'])." РІРјРµС€Р°Р»СЃСЏ РІ РїРѕРµРґРёРЅРѕРє РїСЂРѕС‚РёРІ ".nick3($jert['id'])." <a href=\"logs.php?log={$jert['battle']}\" target=_blank>В»В»</a><BR>".'\') WHERE `active` = TRUE;');
 
                     header("Location:fbattle.php");
                     die("<script>location.href='fbattle.php';</script>");
@@ -273,7 +273,7 @@
                 else
                 {
                     if($bot) {
-                        mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('Архивариус','233','','".$jert['hp']."');");
+                        mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('РђСЂС…РёРІР°СЂРёСѓСЃ','233','','".$jert['hp']."');");
                         $jert['id'] = mysql_insert_id();
                     }
 
@@ -298,18 +298,18 @@
                     } else {
                         mq("UPDATE `users` SET `battle` = {$id} WHERE `id` = {$jert['id']} LIMIT 1;");
                     }
-                    $rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($jert['id'])."</b>";
-                    addch ("<B><b>".nick7($user['id'])."</b> , применив магию нападения, внезапно напал на <b>".nick7($jert['id'])."</b>.   ",$user['room']);
-                    addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
+                    $rr = "<b>".nick3($user['id'])."</b> Рё <b>".nick3($jert['id'])."</b>";
+                    addch ("<B><b>".nick7($user['id'])."</b> , РїСЂРёРјРµРЅРёРІ РјР°РіРёСЋ РЅР°РїР°РґРµРЅРёСЏ, РІРЅРµР·Р°РїРЅРѕ РЅР°РїР°Р» РЅР° <b>".nick7($jert['id'])."</b>.   ",$user['room']);
+                    addlog($id,"Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>");
 
 
                     mq("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']} OR `id` = {$jert['id']}");
-                    mq('UPDATE `deztow_turnir` SET `log` = CONCAT(`log`,\''."<span class=date>".date("d.m.y H:i")."</span>  ".nick3($user['id'])." напал на ".nick3($jert['id'])." завязался <a href=\"logs.php?log={$id}\" target=_blank>бой »»</a><BR>".'\') WHERE `active` = TRUE');
+                    mq('UPDATE `deztow_turnir` SET `log` = CONCAT(`log`,\''."<span class=date>".date("d.m.y H:i")."</span>  ".nick3($user['id'])." РЅР°РїР°Р» РЅР° ".nick3($jert['id'])." Р·Р°РІСЏР·Р°Р»СЃСЏ <a href=\"logs.php?log={$id}\" target=_blank>Р±РѕР№ В»В»</a><BR>".'\') WHERE `active` = TRUE');
                     header("Location:fbattle.php");
                     die("<script>location.href='fbattle.php';</script>");
                 }
             } else {
-                echo '<font color=red>Жертва ускользнула из комнаты...</font>';
+                echo '<font color=red>Р–РµСЂС‚РІР° СѓСЃРєРѕР»СЊР·РЅСѓР»Р° РёР· РєРѕРјРЅР°С‚С‹...</font>';
             }
     }
     $_GET['path'] = (int)$_GET['path'];
@@ -318,17 +318,17 @@
         if(!$rr) {
         $list = mq("SELECT `id`,`room`,`login` FROM `users` WHERE `room` = '".$user['room']."' AND `in_tower`='$deztowtype';");
         while($u = mysql_fetch_array($list)) {
-            if($u['id']!=$user['id']) addchp ('<font color=red>Внимание!</font> <B>'.$user['login'].'</B> отправился в <B>'.$rooms[$rhar[$user['room']][$_GET['path']]].'</B>.   ','{[]}'.$u['login'].'{[]}');
+            if($u['id']!=$user['id']) addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> <B>'.$user['login'].'</B> РѕС‚РїСЂР°РІРёР»СЃСЏ РІ <B>'.$rooms[$rhar[$user['room']][$_GET['path']]].'</B>.   ','{[]}'.$u['login'].'{[]}');
         }
         $list = mq("SELECT `id`,`room`,`login` FROM `users` WHERE `room` = '".$rhar[$user['room']][$_GET['path']]."' AND `in_tower`='$deztowtype';");
         while($u = mysql_fetch_array($list)) {
-            addchp ('<font color=red>Внимание!</font> <B>'.$user['login'].'</B> вошел в комнату.   ','{[]}'.$u['login'].'{[]}');
+            addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> <B>'.$user['login'].'</B> РІРѕС€РµР» РІ РєРѕРјРЅР°С‚Сѓ.   ','{[]}'.$u['login'].'{[]}');
         }
         mq("UPDATE `users`,`online` SET `users`.`room` = '".$rhar[$user['room']][$_GET['path']]."', users.movetime='".(time()+$rhar[$rhar[$user['room']][$_GET['path']]][0])."',`online`.`room` = '".$rhar[$user['room']][$_GET['path']]."' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
         header('Location:towerin.php');
         die("<script>location.href='towerin.php';</script>");
         } else {
-            err('Вы парализованы и не можете двигатся...');
+            err('Р’С‹ РїР°СЂР°Р»РёР·РѕРІР°РЅС‹ Рё РЅРµ РјРѕР¶РµС‚Рµ РґРІРёРіР°С‚СЃСЏ...');
         }
     }
 
@@ -356,8 +356,8 @@
         } else {
           mq("update users set room='31', in_tower=0 where id='$u[id]'");
         }
-        mq('UPDATE `deztow_turnir` SET `log` = CONCAT(`log`,\''."<span class=date>".date("d.m.y H:i")."</span> ".nick3($u['id'])." повержен и выбывает из турнира<BR>".'\') WHERE `active` = TRUE');
-        addchp ('<font color=red>Внимание!</font> Вы выбыли из турнира Башни Смерти.    ', '{[]}'.$u['login'].'{[]}');
+        mq('UPDATE `deztow_turnir` SET `log` = CONCAT(`log`,\''."<span class=date>".date("d.m.y H:i")."</span> ".nick3($u['id'])." РїРѕРІРµСЂР¶РµРЅ Рё РІС‹Р±С‹РІР°РµС‚ РёР· С‚СѓСЂРЅРёСЂР°<BR>".'\') WHERE `active` = TRUE');
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’С‹ РІС‹Р±С‹Р»Рё РёР· С‚СѓСЂРЅРёСЂР° Р‘Р°С€РЅРё РЎРјРµСЂС‚Рё.    ', '{[]}'.$u['login'].'{[]}');
         if ($u["id"]==$user["id"]) {
           header('Location:tower.php');
           die("<script>location.href='tower.php';</script>");
@@ -388,10 +388,10 @@
         mq("UPDATE `users` SET `money`=`money`+'".$tur['coin']."',`in_tower` = 0, `room` = '31' ".resetmax($user['id'],1)." WHERE `id` = '".$user['id']."';");
         mq("UPDATE `online` SET  `room` = '31' WHERE `id` = '".$user['id']."';");
 
-        mq('UPDATE `deztow_turnir` SET `winner` = \''.$user['id'].'\', `winnerlog`=\''.nick3($user['id']).'\',`endtime` = \''.time().'\',`active` = FALSE, `log` = CONCAT(`log`,\''."<span class=date>".date("d.m.y H:i")."</span> Турнир завершен. Победитель: ".nick3($user['id'])." Приз: <B>".$tur['coin']."</B> кр. <BR>".'\') WHERE `active` = TRUE');
-        addchp ('<font color=red>Внимание!</font> Поздравляем! Вы победитель турнира Башни смерти! Получаете <B>'.$tur['coin'].'</B> кр.     ', '{[]}'.$user['login'].'{[]}');
-        mq("insert into effects (type, name, time, owner) values ('396', 'Победитель Башни Смерти', ".(time()+(60*60*24)).", '$user[id]')");
-        sysmsg('Победитель турнира Башни смерти <B>'.$user['login'].'</B>.');
+        mq('UPDATE `deztow_turnir` SET `winner` = \''.$user['id'].'\', `winnerlog`=\''.nick3($user['id']).'\',`endtime` = \''.time().'\',`active` = FALSE, `log` = CONCAT(`log`,\''."<span class=date>".date("d.m.y H:i")."</span> РўСѓСЂРЅРёСЂ Р·Р°РІРµСЂС€РµРЅ. РџРѕР±РµРґРёС‚РµР»СЊ: ".nick3($user['id'])." РџСЂРёР·: <B>".$tur['coin']."</B> РєСЂ. <BR>".'\') WHERE `active` = TRUE');
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РџРѕР·РґСЂР°РІР»СЏРµРј! Р’С‹ РїРѕР±РµРґРёС‚РµР»СЊ С‚СѓСЂРЅРёСЂР° Р‘Р°С€РЅРё СЃРјРµСЂС‚Рё! РџРѕР»СѓС‡Р°РµС‚Рµ <B>'.$tur['coin'].'</B> РєСЂ.     ', '{[]}'.$user['login'].'{[]}');
+        mq("insert into effects (type, name, time, owner) values ('396', 'РџРѕР±РµРґРёС‚РµР»СЊ Р‘Р°С€РЅРё РЎРјРµСЂС‚Рё', ".(time()+(60*60*24)).", '$user[id]')");
+        sysmsg('РџРѕР±РµРґРёС‚РµР»СЊ С‚СѓСЂРЅРёСЂР° Р‘Р°С€РЅРё СЃРјРµСЂС‚Рё <B>'.$user['login'].'</B>.');
         if ($dtt==1) {
           $d=date('N');
           if ($d==5 || $d==6) {
@@ -412,7 +412,7 @@
         die("<script>location.href='tower.php';</script>");
     }
 
-    // cнимаем блокировку
+    // cРЅРёРјР°РµРј Р±Р»РѕРєРёСЂРѕРІРєСѓ
     mq("UNLOCK TABLES;");
     if ($user['hp'] <= 0) { header('Location: tower.php'); die(); }
 ?>
@@ -432,7 +432,7 @@ var Hint3Name = '';
 function findlogin(title, script, name){
     document.all("hint3").innerHTML = '<form action="'+script+'" method=POST><table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
     '<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"><td colspan=2>'+
-    'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" »» "></TD></TR></TABLE></td></tr></table></form>';
+    'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" В»В» "></TD></TR></TABLE></td></tr></table></form>';
     document.getElementById("hint3").style.visibility = "visible";
     document.getElementById("hint3").style.left = 100;
     document.getElementById("hint3").style.top = 100;
@@ -461,7 +461,7 @@ function closehint3(){
 
 <TR><TD><?nick($user);?></TD>
 <TD class='H3' align=right><?=$rooms[$user['room']];?>&nbsp; &nbsp;
-<IMG SRC=i/tower/attack.gif WIDTH=66 HEIGHT=24 ALT="Напасть на..." style="cursor:pointer" onclick="findlogin('Напасть на','towerin.php','attack')">
+<IMG SRC=i/tower/attack.gif WIDTH=66 HEIGHT=24 ALT="РќР°РїР°СЃС‚СЊ РЅР°..." style="cursor:pointer" onclick="findlogin('РќР°РїР°СЃС‚СЊ РЅР°','towerin.php','attack')">
 </TD>
 <TR>
 <TD valign=top>
@@ -471,10 +471,10 @@ function closehint3(){
 
     $its = mq("SELECT * FROM `deztow_items` WHERE `room` = '".$user['room']."';");
     if(mysql_num_rows($its)>0) {
-        echo '<H4>В комнате разбросаны вещи:</H4>';
+        echo '<H4>Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</H4>';
     }
     while($it = mysql_fetch_array($its)) {
-        echo ' <A HREF="towerin.php?give=',$it['id'],'"><IMG SRC="i/sh/',$it['img'],'" ALT="Подобрать предмет \'',$it['name'],'\'"></A>';
+        echo ' <A HREF="towerin.php?give=',$it['id'],'"><IMG SRC="i/sh/',$it['img'],'" ALT="РџРѕРґРѕР±СЂР°С‚СЊ РїСЂРµРґРјРµС‚ \'',$it['name'],'\'"></A>';
     }
 
 ?>
@@ -512,7 +512,7 @@ function solo(n, name) {
         solo_store = n;
         var add_text = (document.getElementById('add_text') || document.createElement('div'));
         add_text.id = 'add_text';
-        add_text.innerHTML = 'Вы перейдете в: <strong>' + name +'</strong> (<a href="#" onclick="return clear_solo();">отмена</a>)';
+        add_text.innerHTML = 'Р’С‹ РїРµСЂРµР№РґРµС‚Рµ РІ: <strong>' + name +'</strong> (<a href="#" onclick="return clear_solo();">РѕС‚РјРµРЅР°</a>)';
         document.getElementById('ione').parentNode.parentNode.nextSibling.firstChild.appendChild(add_text);
         ch_counter_color('red');
     }
@@ -659,7 +659,7 @@ function stop_fireworks (id) {
                     <td><a onclick="return check('m1');" <?if($rooms[$rhar[$user['room']][1]]) { echo 'id="m1"';}?> href="?rnd=0.817371946556865&path=1"><img src="i/move/navigatin_52<?if(!$rooms[$rhar[$user['room']][1]]) { echo 'i';}?>.gif" width="19" height="22" border="0" <?if(!$rooms[$rhar[$user['room']][1]]) { echo 'i';}?>onmousemove="fastshow2('<?=$rooms[$rhar[$user['room']][1]]?>');" onmouseout="hideshow();" /></a></td>
                 </tr>
                 <tr>
-                    <td><a href="?rnd=0.817371946556865"><img src="i/move/navigatin_58.gif" width="19" height="33" border="0" o nmousemove="fastshow2('<strong>Обновить</strong><br />Переходы:<br />Картинная галерея 1<br />Зал ораторов<br />Картинная галерея 3');" onmouseout="hideshow();" /></a></td>
+                    <td><a href="?rnd=0.817371946556865"><img src="i/move/navigatin_58.gif" width="19" height="33" border="0" o nmousemove="fastshow2('<strong>РћР±РЅРѕРІРёС‚СЊ</strong><br />РџРµСЂРµС…РѕРґС‹:<br />РљР°СЂС‚РёРЅРЅР°СЏ РіР°Р»РµСЂРµСЏ 1<br />Р—Р°Р» РѕСЂР°С‚РѕСЂРѕРІ<br />РљР°СЂС‚РёРЅРЅР°СЏ РіР°Р»РµСЂРµСЏ 3');" onmouseout="hideshow();" /></a></td>
                 </tr>
                 <tr>
                     <td><a onclick="return check('m5');" <?if($rooms[$rhar[$user['room']][3]]) { echo 'id="m5"';}?> href="?rnd=0.817371946556865&path=3"><img src="i/move/navigatin_67<?if(!$rooms[$rhar[$user['room']][3]]) { echo 'i';}?>.gif" width="19" height="22" border="0" <?if(!$rooms[$rhar[$user['room']][3]]) { echo 'i';}?>onmousemove="fastshow2('<?=$rooms[$rhar[$user['room']][3]]?>');" onmouseout="hideshow();" /></a></td>
@@ -789,7 +789,7 @@ if (mtime>0) {
 </TD>
 </TR>
 </TABLE>
-<BR>Всего живых участников на данный момент: <B><?
+<BR>Р’СЃРµРіРѕ Р¶РёРІС‹С… СѓС‡Р°СЃС‚РЅРёРєРѕРІ РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚: <B><?
     echo "<B>".($ls[0]-$ls[1])."</B> + <B>".$ls[1]."</B>";
 ?></B>...<BR>
 <div id=hint3 class=ahint></div>

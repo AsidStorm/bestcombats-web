@@ -7,9 +7,9 @@
 
 <form method=get>
 	<fieldset>
-		<legend>Бой</legend>
+		<legend>Р‘РѕР№</legend>
 		<table>
-			<tr><td colspan=7>Персонаж <input type='text' name='user' value='<?=$_GET['user']?>'><input type=submit value='Добавить ->'></td></tr>
+			<tr><td colspan=7>РџРµСЂСЃРѕРЅР°Р¶ <input type='text' name='user' value='<?=$_GET['user']?>'><input type=submit value='Р”РѕР±Р°РІРёС‚СЊ ->'></td></tr>
 			<tr>
 				<td><img src="http://img.combats.com/i/misc/micro/hit.gif"><input size=2 type='text' name='hit' ></td></td>
 				<td><img src="http://img.combats.com/i/misc/micro/krit.gif"><input size=2 type='text' name='krit' ></td></td>
@@ -34,6 +34,6 @@ If (isset($_GET['hit']) or isset($_GET['krit']) or isset($_GET['krit']) or isset
 		`hp2`=`hp2`+'".$_GET['hp2']."',
 		`s_duh`=`s_duh`+('".$_GET['s_duh']."'*100) 
 		where `login`='".$_GET['user']."' and `battle`>0 ");
-	echo "Добавлено!";
+	echo "Р”РѕР±Р°РІР»РµРЅРѕ!";
 }
 ?>

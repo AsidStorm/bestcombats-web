@@ -5,34 +5,34 @@ $travma2 = mysql_query("SELECT id FROM `effects` WHERE `owner` = '".$us['id']."'
 $owntravma2=mysql_fetch_array($travma);
 
 if ($user['battle'] > 0) {
-	echo "Не в бою...";}
+	echo "РќРµ РІ Р±РѕСЋ...";}
 elseif ($us['battle'] > 0) {
-	echo "Персонаж в бою...";} 
+	echo "РџРµСЂСЃРѕРЅР°Р¶ РІ Р±РѕСЋ...";} 
 elseif (!$travma) {
-	echo "У персонажа нет травм...";}
+	echo "РЈ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµС‚ С‚СЂР°РІРј...";}
 elseif ($user['room'] != $us['room']) {
-	echo "Персонаж в другой комнате!";}
+	echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!";}
 elseif ($owntravma2['type']==14) {
-	echo "Очень запущенный случай. Лечению не поддается...";}
+	echo "РћС‡РµРЅСЊ Р·Р°РїСѓС‰РµРЅРЅС‹Р№ СЃР»СѓС‡Р°Р№. Р›РµС‡РµРЅРёСЋ РЅРµ РїРѕРґРґР°РµС‚СЃСЏ...";}
 else{
               
-			if ($user['sex'] == 1) {$action="исцелил";}
-			else {$action="исцелила";}		
+			if ($user['sex'] == 1) {$action="РёСЃС†РµР»РёР»";}
+			else {$action="РёСЃС†РµР»РёР»Р°";}		
 			if ($user['align'] > '1' && $user['align'] < '2') {
-				$angel="Персонаж";
+				$angel="РџРµСЂСЃРѕРЅР°Р¶";
 			}
 
 			if ($owntravma2['type']>10 && $owntravma2['type']<14) {
 			if ($user['invis']==1) {
-				addch("<img src=i/magic/cure3.gif> &quot;невидимка&quot; ".$action." от травм &quot;{$_POST['target']}&quot;");
+				addch("<img src=i/magic/cure3.gif> &quot;РЅРµРІРёРґРёРјРєР°&quot; ".$action." РѕС‚ С‚СЂР°РІРј &quot;{$_POST['target']}&quot;");
 			}else
-				addch("<img src=i/magic/cure3.gif> $angel &quot;{$user['login']}&quot; ".$action." от травм &quot;{$_POST['target']}&quot;");
+				addch("<img src=i/magic/cure3.gif> $angel &quot;{$user['login']}&quot; ".$action." РѕС‚ С‚СЂР°РІРј &quot;{$_POST['target']}&quot;");
 
 				while ($owntravma = mysql_fetch_array($travma2)) {
 					deltravma($owntravma['id']);
 
 				}
-echo "Персонаж &quot;{$_POST['target']}&quot; исцелен!";
+echo "РџРµСЂСЃРѕРЅР°Р¶ &quot;{$_POST['target']}&quot; РёСЃС†РµР»РµРЅ!";
 }
 
 }

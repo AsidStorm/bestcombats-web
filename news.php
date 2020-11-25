@@ -9,7 +9,7 @@ while ($row = mysql_fetch_array($data)) {
 	<td class="news_title"><?echo"".$row['topic']."";?></td>
 </tr>
 <tr>
-	<td class="news_info"><b>Автор:</b> {AUTHOR} &nbsp; <b>Дата:</b> {DATE}</td>
+	<td class="news_info"><b>РђРІС‚РѕСЂ:</b> {AUTHOR} &nbsp; <b>Р”Р°С‚Р°:</b> {DATE}</td>
 </tr>
 <tr>
 	<td class="news_content" colspan="2">{CONTENT}</td>

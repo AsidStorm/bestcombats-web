@@ -10,46 +10,46 @@ if((int)date("n")!=0){
 	($rrr==3)?$rstat="ginta":"gsila";
 
 	
-	$ret=takeshopitem(101585,"berezka","Сундук", "", 0, array("maxdur"=>20));
+	$ret=takeshopitem(101585,"berezka","РЎСѓРЅРґСѓРє", "", 0, array("maxdur"=>20));
     echo " <img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\"> $ret[name] , ";
 	
-	$ret=takeshopitem(101618,"berezka","Сундук", "", 0, array("maxdur"=>20));
+	$ret=takeshopitem(101618,"berezka","РЎСѓРЅРґСѓРє", "", 0, array("maxdur"=>20));
     echo " <img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\"> $ret[name] , ";
 	
-	$ret=takeshopitem(101771,"berezka","Сундук", "", 0, array("maxdur"=>20));
+	$ret=takeshopitem(101771,"berezka","РЎСѓРЅРґСѓРє", "", 0, array("maxdur"=>20));
     echo " <img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\"> $ret[name] , ";
 	
-	$ret=takeshopitem(102501,"berezka","Сундук", "", 0, array("maxdur"=>20));
+	$ret=takeshopitem(102501,"berezka","РЎСѓРЅРґСѓРє", "", 0, array("maxdur"=>20));
     echo " <img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\"> $ret[name] , ";
 	
-	$ret=takeshopitem(100502,"berezka","Сундук", "", 0, array("maxdur"=>10));
+	$ret=takeshopitem(100502,"berezka","РЎСѓРЅРґСѓРє", "", 0, array("maxdur"=>10));
     echo " <img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\"> $ret[name] , ";
         
-    $ret=takeshopitem(100005,"berezka","Сундук", "", 0, array("maxdur"=>10));
+    $ret=takeshopitem(100005,"berezka","РЎСѓРЅРґСѓРє", "", 0, array("maxdur"=>10));
     echo " <img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\"> $ret[name] , ";
        
-    $ret=takeshopitem(101785,"berezka","Сундук", "", 0, array("maxdur"=>10));
+    $ret=takeshopitem(101785,"berezka","РЎСѓРЅРґСѓРє", "", 0, array("maxdur"=>10));
     echo " <img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\"> $ret[name] , ";
 		 
-    $ret=takeshopitem(2316,"shop","Сундук", "", 0, array("maxdur"=>5));
+    $ret=takeshopitem(2316,"shop","РЎСѓРЅРґСѓРє", "", 0, array("maxdur"=>5));
     echo " <img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\"> $ret[name] , ";
 	
-	$ret=takeshopitem(101708,"berezka","Сундук", "", 0, array("maxdur"=>20));
+	$ret=takeshopitem(101708,"berezka","РЎСѓРЅРґСѓРє", "", 0, array("maxdur"=>20));
     echo " <img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\"> $ret[name] , ";
 	
-	$ret=takeshopitem(101698,"berezka","Сундук", "", 0, array("maxdur"=>20));
+	$ret=takeshopitem(101698,"berezka","РЎСѓРЅРґСѓРє", "", 0, array("maxdur"=>20));
     echo " <img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\"> $ret[name] , ";
 	
-	$ret=takeshopitem(101703,"berezka","Сундук", "", 0, array("maxdur"=>20));
+	$ret=takeshopitem(101703,"berezka","РЎСѓРЅРґСѓРє", "", 0, array("maxdur"=>20));
     echo " <img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\"> $ret[name] , ";
 	
-	echo "Вы вскрыли Коллекционный Сундук Стихий..<br>$got";
+	echo "Р’С‹ РІСЃРєСЂС‹Р»Рё РљРѕР»Р»РµРєС†РёРѕРЅРЅС‹Р№ РЎСѓРЅРґСѓРє РЎС‚РёС…РёР№..<br>$got";
 	
 			destructitem($_GET['use']);
 }
 else
 {
-echo "<font color=red><b>Еще не время...<b></font>";
+echo "<font color=red><b>Р•С‰Рµ РЅРµ РІСЂРµРјСЏ...<b></font>";
 }
 
 ?>

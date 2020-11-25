@@ -4,7 +4,7 @@ include "../connect.php";
 $ban_users=mysql_query("SELECT * from users where block=1 order by id ASC;");
 
 echo "<table border=1>
-		<tr><td>¹</td> <td>ID</td> <td>Ligin</td> <td>inventory</td>  <td>delo</td> <td>effects</td> </tr>
+		<tr><td>â„–</td> <td>ID</td> <td>Ligin</td> <td>inventory</td>  <td>delo</td> <td>effects</td> </tr>
 ";
 $i=0; $inventory_all=0; $delo_all=0; $effects_all=0;
 

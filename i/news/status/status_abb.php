@@ -16,16 +16,16 @@
 $online = mysql_query("select * from `online`  WHERE `real_time` >= ".(time()-60)." and `city`='suburb';");
 ?>
 <br><br><b>Old City</b><br>
-Сейчас в городе: <?=mysql_num_rows($online)?> чел .
-<br><?//$num = mysql_num_rows(mysql_query("SELECT `id` FROM `users`"));echo"Всего жителей: ".$num." чел.";?>
+РЎРµР№С‡Р°СЃ РІ РіРѕСЂРѕРґРµ: <?=mysql_num_rows($online)?> С‡РµР» .
+<br><?//$num = mysql_num_rows(mysql_query("SELECT `id` FROM `users`"));echo"Р’СЃРµРіРѕ Р¶РёС‚РµР»РµР№: ".$num." С‡РµР».";?>
 <?
-	echo "Нагрузка на сервер: ";
+	echo "РќР°РіСЂСѓР·РєР° РЅР° СЃРµСЂРІРµСЂ: ";
 	if ($la[1] < 0.70) {
-		echo "<font color=green>низкая</font>";
+		echo "<font color=green>РЅРёР·РєР°СЏ</font>";
 	} elseif ($la[1] < 1.20) {
-		echo "<font color=orange>средняя</font>";
+		echo "<font color=orange>СЃСЂРµРґРЅСЏСЏ</font>";
 	} elseif ($la[1] > 1.20) {
-		echo "<font color=red>высокая</font>";
+		echo "<font color=red>РІС‹СЃРѕРєР°СЏ</font>";
 	}
 	//	$up=exec("uptime");
 //	echo "<br>".substr($up,0,strpos($up,','));

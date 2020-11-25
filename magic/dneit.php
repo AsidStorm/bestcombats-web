@@ -1,9 +1,9 @@
 <?php
 if ($_SESSION['uid'] == null) header("Location: index.php");
 $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
-if ($user['sex'] == 1) {$action="присвоил";}	else {$action="присвоила";}			
+if ($user['sex'] == 1) {$action="РїСЂРёСЃРІРѕРёР»";}	else {$action="РїСЂРёСЃРІРѕРёР»Р°";}			
 mysql_query("UPDATE `users` SET `align`='7' WHERE `login` = '{$_POST['target']}' LIMIT 1;");
-addch("<img src=i/magic/dneit.gif> Ангел &quot;{$user['login']}&quot; ".$action." нейтральную склонность персонажу &quot;{$_POST['target']}&quot;");
+addch("<img src=i/magic/dneit.gif> РђРЅРіРµР» &quot;{$user['login']}&quot; ".$action." РЅРµР№С‚СЂР°Р»СЊРЅСѓСЋ СЃРєР»РѕРЅРЅРѕСЃС‚СЊ РїРµСЂСЃРѕРЅР°Р¶Сѓ &quot;{$_POST['target']}&quot;");
 
- echo "<font color=red><b>Успешно присвоена Нейтральная Склонность<b></font>";
+ echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ РїСЂРёСЃРІРѕРµРЅР° РќРµР№С‚СЂР°Р»СЊРЅР°СЏ РЎРєР»РѕРЅРЅРѕСЃС‚СЊ<b></font>";
 ?>

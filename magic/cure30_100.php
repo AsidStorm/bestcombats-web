@@ -1,5 +1,5 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
 if ($_SESSION['uid'] == null) header("Location: index.php");
 echo "12";
 	
@@ -19,11 +19,11 @@ echo "12";
 		} 	
 		//echo 
 		echo "<font color=red><B>";
-		if ($bots) { echo "Нельзя лечить клонов!"; }
-		elseif ($us['battle'] != $user['battle']) { echo "Персонаж находится в поединке!"; }
-		elseif ($user['room'] != $us['room'] && !$us['battle']) { echo "Персонаж в другой комнате!"; }
-		elseif ($us['battle'] && !in_array($us['id'],$fbattle->team_mine)) { echo "Нельзя лечить противников!"; }
-                elseif ($us['battle'] && $us["hp"]<=0) { echo "Нельзя лечить мёртвых!"; }
+		if ($bots) { echo "РќРµР»СЊР·СЏ Р»РµС‡РёС‚СЊ РєР»РѕРЅРѕРІ!"; }
+		elseif ($us['battle'] != $user['battle']) { echo "РџРµСЂСЃРѕРЅР°Р¶ РЅР°С…РѕРґРёС‚СЃСЏ РІ РїРѕРµРґРёРЅРєРµ!"; }
+		elseif ($user['room'] != $us['room'] && !$us['battle']) { echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!"; }
+		elseif ($us['battle'] && !in_array($us['id'],$fbattle->team_mine)) { echo "РќРµР»СЊР·СЏ Р»РµС‡РёС‚СЊ РїСЂРѕС‚РёРІРЅРёРєРѕРІ!"; }
+                elseif ($us['battle'] && $us["hp"]<=0) { echo "РќРµР»СЊР·СЏ Р»РµС‡РёС‚СЊ РјС‘СЂС‚РІС‹С…!"; }
 		else {				
 		
 			if (rand(1,100) < $int) {				
@@ -31,7 +31,7 @@ echo "12";
 
 				
 				if ($user['sex'] == 1) {$action="";}
-				else {$action="а";}	
+				else {$action="Р°";}	
 				
 				if(($us['hp']+30) > $us['maxhp']) {			
 					$hp = $us['maxhp'];
@@ -39,8 +39,8 @@ echo "12";
 					$hp = $us['hp']+30;
 				}
 				if ($user['battle'] > 0) {
-					//mysql_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' использовал заклятие восстановления энергии '.(($us['id']!=$user['id'])?"на ".nick5($us['id'],$fbattle->my_class):"").' и восстановил уровень жизни <B>+60</B> ['.($hp).'/'.$us['maxhp'].']<BR>\') WHERE `id` = '.$us['battle'].'');
-					$fbattle->add_log('<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' использовал'.$action.' заклятие восстановления энергии '.(($us['id']!=$user['id'])?"на ".nick5($us['id'],$fbattle->my_class):"").' и восстановил'.$action.' уровень жизни <B>+30</B> ['.($hp).'/'.$us['maxhp'].']<BR>');
+					//mysql_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' РёСЃРїРѕР»СЊР·РѕРІР°Р» Р·Р°РєР»СЏС‚РёРµ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ СЌРЅРµСЂРіРёРё '.(($us['id']!=$user['id'])?"РЅР° ".nick5($us['id'],$fbattle->my_class):"").' Рё РІРѕСЃСЃС‚Р°РЅРѕРІРёР» СѓСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё <B>+60</B> ['.($hp).'/'.$us['maxhp'].']<BR>\') WHERE `id` = '.$us['battle'].'');
+					$fbattle->add_log('<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' РёСЃРїРѕР»СЊР·РѕРІР°Р»'.$action.' Р·Р°РєР»СЏС‚РёРµ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ СЌРЅРµСЂРіРёРё '.(($us['id']!=$user['id'])?"РЅР° ".nick5($us['id'],$fbattle->my_class):"").' Рё РІРѕСЃСЃС‚Р°РЅРѕРІРёР»'.$action.' СѓСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё <B>+30</B> ['.($hp).'/'.$us['maxhp'].']<BR>');
 					//$fbattle->add_log('');
 						mysql_query("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = ".$user['battle']." LIMIT 1;");							
 					
@@ -50,10 +50,10 @@ echo "12";
 				mysql_query("UPDATE `users` SET `hp` = ".$hp." WHERE `id` = ".$us['id'].";");
                                 global $updatebattleunit;
                                 $updatebattleunit=$us['id'];
-				echo "Вы восстановили 30 НР персонажу ".$us['login']."!";
+				echo "Р’С‹ РІРѕСЃСЃС‚Р°РЅРѕРІРёР»Рё 30 РќР  РїРµСЂСЃРѕРЅР°Р¶Сѓ ".$us['login']."!";
 				$bet=1;
 					} else {
-				echo "Свиток рассыпался в ваших руках...";
+				echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
 				$bet=1;
 			}	
 				

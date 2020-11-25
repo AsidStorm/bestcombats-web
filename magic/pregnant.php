@@ -7,27 +7,27 @@ $efftime=60*60*24*270;
 
 global $nodrink;
 if (in_array($user["room"],$nodrink)) {
-  echo "Здесь запрещено пользоваться магией!";
+  echo "Р—РґРµСЃСЊ Р·Р°РїСЂРµС‰РµРЅРѕ РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РјР°РіРёРµР№!";
 } elseif ($user["sex"]!=1) {
-  echo "Этот свиток могут использовать только персонажи мужского пола.";
+  echo "Р­С‚РѕС‚ СЃРІРёС‚РѕРє РјРѕРіСѓС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РїРµСЂСЃРѕРЅР°Р¶Рё РјСѓР¶СЃРєРѕРіРѕ РїРѕР»Р°.";
 } elseif ($user["battle"]>0) {
-  echo "Не в бою...";
+  echo "РќРµ РІ Р±РѕСЋ...";
 } elseif (!$target) {
-  echo "Персонаж $_POST[target] не найден.";
+  echo "РџРµСЂСЃРѕРЅР°Р¶ $_POST[target] РЅРµ РЅР°Р№РґРµРЅ.";
 } elseif (!$target["online"]) {
-  echo "Персонаж $_POST[target] не в игре.";
+  echo "РџРµСЂСЃРѕРЅР°Р¶ $_POST[target] РЅРµ РІ РёРіСЂРµ.";
 } elseif ($target["room"]!=$user["room"]) {
-  echo "Персонаж $_POST[target] вне пределов досягаемости.";
+  echo "РџРµСЂСЃРѕРЅР°Р¶ $_POST[target] РІРЅРµ РїСЂРµРґРµР»РѕРІ РґРѕСЃСЏРіР°РµРјРѕСЃС‚Рё.";
 } elseif ($target["sex"]!=0) {
-  echo "Этот свиток можно использовать только на персонажей женского пола.";
+  echo "Р­С‚РѕС‚ СЃРІРёС‚РѕРє РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РЅР° РїРµСЂСЃРѕРЅР°Р¶РµР№ Р¶РµРЅСЃРєРѕРіРѕ РїРѕР»Р°.";
 } elseif($elix) {
-  echo "$_POST[target] уже беременна.";
+  echo "$_POST[target] СѓР¶Рµ Р±РµСЂРµРјРµРЅРЅР°.";
 } elseif ($row["prototype"]==1715 && $user["married"]!=$target["login"]) {
-  echo "Этот свиток можно использовать только на свою супругу.";
+  echo "Р­С‚РѕС‚ СЃРІРёС‚РѕРє РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РЅР° СЃРІРѕСЋ СЃСѓРїСЂСѓРіСѓ.";
 } else {
-  mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$target[id]','$row[name] от $user[login]', ".(time()+$efftime).",30)");
-  echo "Персонаж &quot;$_POST[target]&quot; забеременела.";
-  addch("<img src=i/magic/$row[img]>".($user["invis"]?"Невидимка":"Персонаж &quot;{$user['login']}&quot;")." наложил заклятие \"$row[name]\" на &quot;".($user["invis"] && $user["login"]==$_POST['target']?"Невидимка":"$_POST[target]")."&quot;, сроком 9 месяцев.");
+  mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$target[id]','$row[name] РѕС‚ $user[login]', ".(time()+$efftime).",30)");
+  echo "РџРµСЂСЃРѕРЅР°Р¶ &quot;$_POST[target]&quot; Р·Р°Р±РµСЂРµРјРµРЅРµР»Р°.";
+  addch("<img src=i/magic/$row[img]>".($user["invis"]?"РќРµРІРёРґРёРјРєР°":"РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot;")." РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ \"$row[name]\" РЅР° &quot;".($user["invis"] && $user["login"]==$_POST['target']?"РќРµРІРёРґРёРјРєР°":"$_POST[target]")."&quot;, СЃСЂРѕРєРѕРј 9 РјРµСЃСЏС†РµРІ.");
   updeffects();
   $bet=1;
 }

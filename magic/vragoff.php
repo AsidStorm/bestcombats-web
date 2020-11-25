@@ -4,20 +4,20 @@ $us = mysql_fetch_array(mysql_query("SELECT honorpoints FROM `users` WHERE `id` 
 	
 
 if ($us['honorpoints'] == 0) {
-	echo "Общий Враг Уже отозван.";
+	echo "РћР±С‰РёР№ Р’СЂР°Рі РЈР¶Рµ РѕС‚РѕР·РІР°РЅ.";
 }  else{		
 		
-						if ($user['sex'] == 1) {$action="отозвал";}
-			else {$action="отозвала";}		
+						if ($user['sex'] == 1) {$action="РѕС‚РѕР·РІР°Р»";}
+			else {$action="РѕС‚РѕР·РІР°Р»Р°";}		
 			if ($user['align'] > '2' && $user['align'] < '3')  {
-				$angel="Ангел";
+				$angel="РђРЅРіРµР»";
 			}
 			elseif ($user['align'] > '1' && $user['align'] < '2') {
-				$angel="Персонаж";
+				$angel="РџРµСЂСЃРѕРЅР°Р¶";
 			}
                                 mysql_query("UPDATE `users` SET `honorpoints`=0 WHERE `id`='99'");
-				echo "Вы отозвали Общего Врага!";
-				addch("<img src=i/magic/1x1.gif> ".$angel." &quot;{$user['login']}&quot; ".$action." Общего Врага.");
+				echo "Р’С‹ РѕС‚РѕР·РІР°Р»Рё РћР±С‰РµРіРѕ Р’СЂР°РіР°!";
+				addch("<img src=i/magic/1x1.gif> ".$angel." &quot;{$user['login']}&quot; ".$action." РћР±С‰РµРіРѕ Р’СЂР°РіР°.");
 				
 } 	
 ?>

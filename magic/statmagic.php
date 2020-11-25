@@ -1,15 +1,15 @@
 <?php
 $us=mqfa("SELECT *,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '".mysql_escape_string($_POST['target'])."'");
 
-if ($row["name"]=="Холодный разум") {
+if ($row["name"]=="РҐРѕР»РѕРґРЅС‹Р№ СЂР°Р·СѓРј") {
   $row["gintel"]=10;
   if ($us["id"]!=$user["id"]) $row["gintel"]=6;               
 }
-if ($row["name"]=="Сила Великана") $row["gsila"]=100;
-if ($row["name"]=="Предвидение") $row["ginta"]=100;
-if ($row["name"]=="Скорость Змеи") $row["glovk"]=100;
-if ($row["name"]=="Мудрость Веков") $row["gmana"]=2000;
-if ($row["name"]=="Ледяной интеллект") $row["gintel"]=100;
+if ($row["name"]=="РЎРёР»Р° Р’РµР»РёРєР°РЅР°") $row["gsila"]=100;
+if ($row["name"]=="РџСЂРµРґРІРёРґРµРЅРёРµ") $row["ginta"]=100;
+if ($row["name"]=="РЎРєРѕСЂРѕСЃС‚СЊ Р—РјРµРё") $row["glovk"]=100;
+if ($row["name"]=="РњСѓРґСЂРѕСЃС‚СЊ Р’РµРєРѕРІ") $row["gmana"]=2000;
+if ($row["name"]=="Р›РµРґСЏРЅРѕР№ РёРЅС‚РµР»Р»РµРєС‚") $row["gintel"]=100;
 
 $cond="";
 if ($row["gsila"]==100 || $row["ginta"]==100 || $row["glovk"]==100 || $row["gintel"]==100 || $row["gmana"]==2000) {
@@ -20,23 +20,23 @@ $ins_time=floor($magic['time']*60);
 $castto=time()+$ins_time;
 global $nodrink;
 if (in_array($user["room"],$nodrink)) {
-  echo "Здесь запрещено пользоваться магией!";
+  echo "Р—РґРµСЃСЊ Р·Р°РїСЂРµС‰РµРЅРѕ РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РјР°РіРёРµР№!";
 } elseif ($row["present"] && $user["id"]!=$us["id"]) {
-  echo "Подарочные свитки можно использовать только на себя.";
+  echo "РџРѕРґР°СЂРѕС‡РЅС‹Рµ СЃРІРёС‚РєРё РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ РЅР° СЃРµР±СЏ.";
 } elseif ($us["level"]<$row["nlevel"]) {
-  echo "$us[login] недостаточно высокого уровня!";
+  echo "$us[login] РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РІС‹СЃРѕРєРѕРіРѕ СѓСЂРѕРІРЅСЏ!";
 } elseif ($user['battle'] > 0) {
-  echo "Не в бою...";
+  echo "РќРµ РІ Р±РѕСЋ...";
 } elseif ($user["align"]==4 && $user["id"]!=$us["id"]) {
-  echo "Персонажам со склонностью хаос запрещено использовать положительную магию на других персонажей.";
+  echo "РџРµСЂСЃРѕРЅР°Р¶Р°Рј СЃРѕ СЃРєР»РѕРЅРЅРѕСЃС‚СЊСЋ С…Р°РѕСЃ Р·Р°РїСЂРµС‰РµРЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїРѕР»РѕР¶РёС‚РµР»СЊРЅСѓСЋ РјР°РіРёСЋ РЅР° РґСЂСѓРіРёС… РїРµСЂСЃРѕРЅР°Р¶РµР№.";
 } elseif ($user['room'] != $us['room']) { 
-  echo "Персонаж в другой комнате!"; 
+  echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!"; 
 } elseif (!$us['online']) {
-  echo "Персонаж не в игре!";
+  echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РёРіСЂРµ!";
 } elseif ($uses_zel && $row['name']!=$uses_zel['name']) {
-  echo "Ещё не прошло действие старого заклятия.";
+  echo "Р•С‰С‘ РЅРµ РїСЂРѕС€Р»Рѕ РґРµР№СЃС‚РІРёРµ СЃС‚Р°СЂРѕРіРѕ Р·Р°РєР»СЏС‚РёСЏ.";
 } elseif($uses_zel && $castto-$users_zel["time"]<600) {
-  echo "На персонаже уже есть такое заклятие.";
+  echo "РќР° РїРµСЂСЃРѕРЅР°Р¶Рµ СѓР¶Рµ РµСЃС‚СЊ С‚Р°РєРѕРµ Р·Р°РєР»СЏС‚РёРµ.";
 } else {
   $caster=$user["id"];
   if(!$uses_zel){
@@ -56,9 +56,9 @@ if (in_array($user["room"],$nodrink)) {
   } else {
     mq("UPDATE `effects` set `time` = '".(time()+$ins_time)."', caster='$caster' WHERE id='$uses_zel[id]'");
   }
-  echo "<font color=red><b>На персонажа \"{$_POST['target']}\" наложено заклятие \"$row[name]\" </b></font>";
-  addch("<img src=i/magic/$row[img]>".($user["invis"]?"Невидимка":"Персонаж &quot;{$user['login']}&quot;")." наложил заклятие \"$row[name]\" на &quot;".($user["invis"] && $user["login"]==$_POST['target']?"Невидимка":"$_POST[target]")."&quot;, сроком 2 часа.");
-  if ($row["name"]=="Холодный разум" && 0) {
+  echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° \"{$_POST['target']}\" РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ \"$row[name]\" </b></font>";
+  addch("<img src=i/magic/$row[img]>".($user["invis"]?"РќРµРІРёРґРёРјРєР°":"РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot;")." РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ \"$row[name]\" РЅР° &quot;".($user["invis"] && $user["login"]==$_POST['target']?"РќРµРІРёРґРёРјРєР°":"$_POST[target]")."&quot;, СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");
+  if ($row["name"]=="РҐРѕР»РѕРґРЅС‹Р№ СЂР°Р·СѓРј" && 0) {
     mq("update users set mana=if(mana>1000, mana-1000,0), fullmptime=".time()." where id='$user[id]'");
     $user["mana"]-=1000;
     if ($user["mana"]<0) $user["mana"]=0;

@@ -1,7 +1,7 @@
 <?
 
   if ($tx*2==8 && $ty*2==12) {
-    $report="<div style=\"font-weight:normal\">Слепой богини символ укажет дальше путь.</div>";
+    $report="<div style=\"font-weight:normal\">РЎР»РµРїРѕР№ Р±РѕРіРёРЅРё СЃРёРјРІРѕР» СѓРєР°Р¶РµС‚ РґР°Р»СЊС€Рµ РїСѓС‚СЊ.</div>";
   }
   if ($tx*2==14 && $ty*2==8) {
     gotoxy(12, 2);
@@ -16,7 +16,7 @@
     $report="";
   }
   if ($tx*2==8 && $ty*2==30) {
-    $report="<div style=\"font-weight:normal\">Заморский град огромный зовут большим...</div>";
+    $report="<div style=\"font-weight:normal\">Р—Р°РјРѕСЂСЃРєРёР№ РіСЂР°Рґ РѕРіСЂРѕРјРЅС‹Р№ Р·РѕРІСѓС‚ Р±РѕР»СЊС€РёРј...</div>";
   }
   if ($tx*2==14 && $ty*2==26) {
     gotoxy(12, 20);
@@ -91,12 +91,12 @@
     $s=mqfa1("select id from quests where user='$user[id]' and quest=24");
     if (!$s) {
       mq("update users set money=money+10 where id='$user[id]'");
-      $report="Вы решили все задачи и получили 10 кр!";
+      $report="Р’С‹ СЂРµС€РёР»Рё РІСЃРµ Р·Р°РґР°С‡Рё Рё РїРѕР»СѓС‡РёР»Рё 10 РєСЂ!";
       $c=mqfa1("select count(id) from quests where quest=24");
       if ($c<10) {
-        sysmsg("Персонаж <b>$user[login]</b> нашёл ответы на все вопросы викторины!");
+        sysmsg("РџРµСЂСЃРѕРЅР°Р¶ <b>$user[login]</b> РЅР°С€С‘Р» РѕС‚РІРµС‚С‹ РЅР° РІСЃРµ РІРѕРїСЂРѕСЃС‹ РІРёРєС‚РѕСЂРёРЅС‹!");
       }
-    } else $report="Вы решили все задачи!";
+    } else $report="Р’С‹ СЂРµС€РёР»Рё РІСЃРµ Р·Р°РґР°С‡Рё!";
     addqueststep($user["id"], 24);
   }                           
   if ($tx*2==14 && $ty*2==192) {
@@ -160,33 +160,33 @@
     $report="";
   }
   if ($tx*2==8 && $ty*2==48) {
-    $report="<div style=\"font-weight:normal\">В стране далекой, древней заторы создает.</div>";
+    $report="<div style=\"font-weight:normal\">Р’ СЃС‚СЂР°РЅРµ РґР°Р»РµРєРѕР№, РґСЂРµРІРЅРµР№ Р·Р°С‚РѕСЂС‹ СЃРѕР·РґР°РµС‚.</div>";
   }
   if ($tx*2==8 && $ty*2==66) {
-    $report="<div style=\"font-weight:normal\">Мудрейших ты плавсредство, смелее выбирай.</div>";
+    $report="<div style=\"font-weight:normal\">РњСѓРґСЂРµР№С€РёС… С‚С‹ РїР»Р°РІСЃСЂРµРґСЃС‚РІРѕ, СЃРјРµР»РµРµ РІС‹Р±РёСЂР°Р№.</div>";
   }
   if ($tx*2==8 && $ty*2==84) {
-    $report="<div style=\"font-weight:normal\">За остров изумрудный не жаль отдать ее.</div>";
+    $report="<div style=\"font-weight:normal\">Р—Р° РѕСЃС‚СЂРѕРІ РёР·СѓРјСЂСѓРґРЅС‹Р№ РЅРµ Р¶Р°Р»СЊ РѕС‚РґР°С‚СЊ РµРµ.</div>";
   }
   if ($tx*2==8 && $ty*2==102) {
-    $report="<div style=\"font-weight:normal\">Коль умным быть ты хочешь, его придется есть.</div>";
+    $report="<div style=\"font-weight:normal\">РљРѕР»СЊ СѓРјРЅС‹Рј Р±С‹С‚СЊ С‚С‹ С…РѕС‡РµС€СЊ, РµРіРѕ РїСЂРёРґРµС‚СЃСЏ РµСЃС‚СЊ.</div>";
   }
   if ($tx*2==8 && $ty*2==120) {
-    $report="<div style=\"font-weight:normal\">Великий Александр его рубить решил.</div>";
+    $report="<div style=\"font-weight:normal\">Р’РµР»РёРєРёР№ РђР»РµРєСЃР°РЅРґСЂ РµРіРѕ СЂСѓР±РёС‚СЊ СЂРµС€РёР».</div>";
   }
   if ($tx*2==8 && $ty*2==138) {
-    $report="<div style=\"font-weight:normal\">Фрукт этот сочный, вкусный помог открыть закон.</div>";
+    $report="<div style=\"font-weight:normal\">Р¤СЂСѓРєС‚ СЌС‚РѕС‚ СЃРѕС‡РЅС‹Р№, РІРєСѓСЃРЅС‹Р№ РїРѕРјРѕРі РѕС‚РєСЂС‹С‚СЊ Р·Р°РєРѕРЅ.</div>";
   }
   if ($tx*2==8 && $ty*2==156) {
-    $report="<div style=\"font-weight:normal\">Привез её в Россию великий Петр, царь.</div>";
+    $report="<div style=\"font-weight:normal\">РџСЂРёРІРµР· РµС‘ РІ Р РѕСЃСЃРёСЋ РІРµР»РёРєРёР№ РџРµС‚СЂ, С†Р°СЂСЊ.</div>";
   }
   if ($tx*2==8 && $ty*2==174) {
-    $report="<div style=\"font-weight:normal\">Его на востоке хитрец говорить обещал научить.</div>";
+    $report="<div style=\"font-weight:normal\">Р•РіРѕ РЅР° РІРѕСЃС‚РѕРєРµ С…РёС‚СЂРµС† РіРѕРІРѕСЂРёС‚СЊ РѕР±РµС‰Р°Р» РЅР°СѓС‡РёС‚СЊ.</div>";
   }
   if ($tx*2==8 && $ty*2==192) {
-    $report="<div style=\"font-weight:normal\">Великий гений сыска не расставался с ней.</div>";
+    $report="<div style=\"font-weight:normal\">Р’РµР»РёРєРёР№ РіРµРЅРёР№ СЃС‹СЃРєР° РЅРµ СЂР°СЃСЃС‚Р°РІР°Р»СЃСЏ СЃ РЅРµР№.</div>";
   }
   if ($tx*2==8 && $ty*2==210) {
-    $report="<div style=\"font-weight:normal\">Один за плугом ходит а семеро с...</div>";
+    $report="<div style=\"font-weight:normal\">РћРґРёРЅ Р·Р° РїР»СѓРіРѕРј С…РѕРґРёС‚ Р° СЃРµРјРµСЂРѕ СЃ...</div>";
   }
 ?>

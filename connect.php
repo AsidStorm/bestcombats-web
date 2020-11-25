@@ -23,12 +23,12 @@ $smalladms=array();
 Error_Reporting(E_COMPILE_ERROR|E_ERROR|E_CORE_ERROR);
 date_default_timezone_set('Europe/Moscow');
 if($status == false){
-if($_SESSION['uid']!='241959'){die("Текнические работы.");}
+if($_SESSION['uid']!='241959'){die("РўРµРєРЅРёС‡РµСЃРєРёРµ СЂР°Р±РѕС‚С‹.");}
 }
-  #Коннект с БД#
+  #РљРѕРЅРЅРµРєС‚ СЃ Р‘Р”#
 include_once("nbm,jkl,ggbdfgdrgv.ini");
-If (!$mysql = mysql_connect($con_adr,$con_use,$con_pas)){echo "Нарушена связь с базой данных!";}
-If (!mysql_select_db ($con_bd, $mysql)){echo "Невозможно выбрать данную БД!";}
+If (!$mysql = mysql_connect($con_adr,$con_use,$con_pas)){echo "РќР°СЂСѓС€РµРЅР° СЃРІСЏР·СЊ СЃ Р±Р°Р·РѕР№ РґР°РЅРЅС‹С…!";}
+If (!mysql_select_db ($con_bd, $mysql)){echo "РќРµРІРѕР·РјРѕР¶РЅРѕ РІС‹Р±СЂР°С‚СЊ РґР°РЅРЅСѓСЋ Р‘Р”!";}
  
      mysql_query("SET NAMES CP1251");
 	mysql_query("SET time_zone = '+03:00'");

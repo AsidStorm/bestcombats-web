@@ -1,6 +1,6 @@
 <?php
 include "functions/attackb.php";
-//Кровавое нападение
+//РљСЂРѕРІР°РІРѕРµ РЅР°РїР°РґРµРЅРёРµ
 $us = mysql_fetch_array(mysql_query("SELECT *,(select `id` from `online` WHERE `real_time` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
 $bd = mysql_fetch_array(mysql_query("SELECT * FROM `battle` WHERE `id` = '{$us['battle']}' ;"));
 
@@ -20,27 +20,27 @@ if ($cant) {
   echo $cant2;
 } else {
   takefromzayavka($us["id"]);
-            if ($battle["coment"]=="Кулачный поединок") undressall($user['id']);
-            if ($user['sex'] == 1) {$action="напал";}   else {$action="напала";}
+            if ($battle["coment"]=="РљСѓР»Р°С‡РЅС‹Р№ РїРѕРµРґРёРЅРѕРє") undressall($user['id']);
+            if ($user['sex'] == 1) {$action="РЅР°РїР°Р»";}   else {$action="РЅР°РїР°Р»Р°";}
             if ($user['align'] > '2' && $user['align'] < '3')  {
-                $angel="Ангел";
+                $angel="РђРЅРіРµР»";
             } elseif ($user['align'] > '1' && $user['align'] < '2') {
-                $angel="Персонаж";
+                $angel="РџРµСЂСЃРѕРЅР°Р¶";
             }
 
 
             $jert = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
             if($jert['id']!=$user['id']) {
                 if ($user['invis']==1) {
-                addch("<img src=i/magic/attackb.gif> <B>невидимка</B>, применив магию кровавого нападения, внезапно ".$action." на &quot;{$_POST['target']}&quot;");
-                addchp ('<font color=red>Внимание!</font> На вас '.$action.' <B>невидимка</B>.<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($jert['id']).'{[]}');
+                addch("<img src=i/magic/attackb.gif> <B>РЅРµРІРёРґРёРјРєР°</B>, РїСЂРёРјРµРЅРёРІ РјР°РіРёСЋ РєСЂРѕРІР°РІРѕРіРѕ РЅР°РїР°РґРµРЅРёСЏ, РІРЅРµР·Р°РїРЅРѕ ".$action." РЅР° &quot;{$_POST['target']}&quot;");
+                addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РќР° РІР°СЃ '.$action.' <B>РЅРµРІРёРґРёРјРєР°</B>.<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($jert['id']).'{[]}');
                 }else{
-                addch("<img src=i/magic/attackb.gif> <B>{$user['login']}</B>, применив магию кровавого нападения, внезапно ".$action." на &quot;{$_POST['target']}&quot;");
-                addchp ('<font color=red>Внимание!</font> На вас '.$action.' <B>'.$user['login'].'</B>.<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($jert['id']).'{[]}');
+                addch("<img src=i/magic/attackb.gif> <B>{$user['login']}</B>, РїСЂРёРјРµРЅРёРІ РјР°РіРёСЋ РєСЂРѕРІР°РІРѕРіРѕ РЅР°РїР°РґРµРЅРёСЏ, РІРЅРµР·Р°РїРЅРѕ ".$action." РЅР° &quot;{$_POST['target']}&quot;");
+                addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РќР° РІР°СЃ '.$action.' <B>'.$user['login'].'</B>.<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($jert['id']).'{[]}');
                 }
                 //destructitem($row['id']);
                 $bet=1;
-                //арх
+                //Р°СЂС…
                 if($jert['id'] > _BOTSEPARATOR_) {
                     $arha = mysql_fetch_array(mysql_query ('SELECT * FROM `bots` WHERE `prototype` = '.$jert['id'].' LIMIT 1;'));
                     $jert['battle'] = $arha['battle'];
@@ -48,7 +48,7 @@ if ($cant) {
                     $bot=1;
                 }
                 if($jert['battle'] > 0) {
-                    //вмешиваемся
+                    //РІРјРµС€РёРІР°РµРјСЃСЏ
                     //$bd = mysql_fetch_array(mysql_query ('SELECT * FROM `battle` WHERE `id` = '.$jert['battle'].' LIMIT 1;'));
                     $battle = unserialize($bd['teams']);
                     $ak = array_keys($battle[$jert['id']]);
@@ -58,23 +58,23 @@ if ($cant) {
                         $battle[$k][$user['id']] = array(0,0,time());
                     }
                     $t1 = explode(";",$bd['t1']);
-                    // проставляем кто-где
+                    // РїСЂРѕСЃС‚Р°РІР»СЏРµРј РєС‚Рѕ-РіРґРµ
                     if (in_array ($jert['id'],$t1)) {
                         $ttt = 2;
                     } else {
                         $ttt = 1;
                     }
-                    if ($user['invis']) addch ("<b>Невидимка</b> вмешался в <a href=logs.php?log=".$id." target=_blank>поединок >></a>.  ",$user['room']);
-                    else addch ("<b>".nick7($user['id'])."</b> вмешался в <a href=logs.php?log=".$id." target=_blank>поединок »»</a>.  ",$user['room']);
+                    if ($user['invis']) addch ("<b>РќРµРІРёРґРёРјРєР°</b> РІРјРµС€Р°Р»СЃСЏ РІ <a href=logs.php?log=".$id." target=_blank>РїРѕРµРґРёРЅРѕРє >></a>.  ",$user['room']);
+                    else addch ("<b>".nick7($user['id'])."</b> РІРјРµС€Р°Р»СЃСЏ РІ <a href=logs.php?log=".$id." target=_blank>РїРѕРµРґРёРЅРѕРє В»В»</a>.  ",$user['room']);
 
-                    //mysql_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' вмешался в поединок!<BR>\') WHERE `id` = '.$jert['battle'].'');
+                    //mysql_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' РІРјРµС€Р°Р»СЃСЏ РІ РїРѕРµРґРёРЅРѕРє!<BR>\') WHERE `id` = '.$jert['battle'].'');
                     if ($user['id']=='111' OR $user['id']=='4717') {
-                    addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> Внезапно небо потемнело, засверкали молнии, в их сполохах стали видны приближающиеся тени с горяими глазами. Бойцы, забыв про свои обиды, в страхе прижались друг к другу...<BR>');
+                    addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> Р’РЅРµР·Р°РїРЅРѕ РЅРµР±Рѕ РїРѕС‚РµРјРЅРµР»Рѕ, Р·Р°СЃРІРµСЂРєР°Р»Рё РјРѕР»РЅРёРё, РІ РёС… СЃРїРѕР»РѕС…Р°С… СЃС‚Р°Р»Рё РІРёРґРЅС‹ РїСЂРёР±Р»РёР¶Р°СЋС‰РёРµСЃСЏ С‚РµРЅРё СЃ РіРѕСЂСЏРёРјРё РіР»Р°Р·Р°РјРё. Р‘РѕР№С†С‹, Р·Р°Р±С‹РІ РїСЂРѕ СЃРІРѕРё РѕР±РёРґС‹, РІ СЃС‚СЂР°С…Рµ РїСЂРёР¶Р°Р»РёСЃСЊ РґСЂСѓРі Рє РґСЂСѓРіСѓ...<BR>');
                     }
                     if ($user['invis']==1) {
-                    addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> <b>невидимка</b> вмешался в поединок!<BR>');
+                    addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> <b>РЅРµРІРёРґРёРјРєР°</b> РІРјРµС€Р°Р»СЃСЏ РІ РїРѕРµРґРёРЅРѕРє!<BR>');
                     }else
-                    addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' вмешался в поединок!<BR>');
+                    addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' РІРјРµС€Р°Р»СЃСЏ РІ РїРѕРµРґРёРЅРѕРє!<BR>');
 
                     mysql_query('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t'.$ttt.'`=CONCAT(`t'.$ttt.'`,\';'.$user['id'].'\')  WHERE `id` = '.$jert['battle'].' ;');
                     mysql_query("UPDATE users SET `battle` =".$jert['battle'].",`zayavka`=0 WHERE `id`= ".$user['id']);
@@ -84,9 +84,9 @@ if ($cant) {
                 }
                 else
                 {
-                    // начинаем бой
+                    // РЅР°С‡РёРЅР°РµРј Р±РѕР№
 
-                    // если чел в заявке, выбиваем его
+                    // РµСЃР»Рё С‡РµР» РІ Р·Р°СЏРІРєРµ, РІС‹Р±РёРІР°РµРј РµРіРѕ
                     if($jert['zayavka']) {
                         $fict1 = mysql_fetch_array(mysql_query("SELECT * FROM `zayavka` WHERE `team1` LIKE '{$jert['id']};%' OR `team1` LIKE '%;{$jert['id']};%' LIMIT 1;"));
                         $fict2 = mysql_fetch_array(mysql_query("SELECT * FROM `zayavka` WHERE `team2` LIKE '{$jert['id']};%' OR `team2` LIKE '%;{$jert['id']};%' LIMIT 1;"));
@@ -102,7 +102,7 @@ if ($cant) {
 
                     //arch
                     if($bot) {
-                        mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('Архивариус','83','','".$jert['hp']."');");
+                        mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('РђСЂС…РёРІР°СЂРёСѓСЃ','83','','".$jert['hp']."');");
                         $jert['id'] = mysql_insert_id();
                     }
 
@@ -122,26 +122,26 @@ if ($cant) {
 
                     $id = mysql_insert_id();
 
-                    // апдейтим врага
+                    // Р°РїРґРµР№С‚РёРј РІСЂР°РіР°
                     if($bot) {
                         mysql_query("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$jert['id']} LIMIT 1;");
                     } else {
                         mysql_query("UPDATE `users` SET `battle` = {$id} WHERE `id` = {$jert['id']} LIMIT 1;");
                     }
 
-                    // создаем лог
+                    // СЃРѕР·РґР°РµРј Р»РѕРі
 
                     if ($user['invis']==1) {
-                    $rr = "<b>невидимка</b> и <b>".nick3($jert['id'])."</b>";
+                    $rr = "<b>РЅРµРІРёРґРёРјРєР°</b> Рё <b>".nick3($jert['id'])."</b>";
                     }else
-                    $rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($jert['id'])."</b>";
-                    addch ("<a href=logs.php?log=".$id." target=_blank>Бой</a> между <B><b>".nick7($user['id'])."</b> и <b>".nick7($jert['id'])."</b> начался.   ",$user['room']);
+                    $rr = "<b>".nick3($user['id'])."</b> Рё <b>".nick3($jert['id'])."</b>";
+                    addch ("<a href=logs.php?log=".$id." target=_blank>Р‘РѕР№</a> РјРµР¶РґСѓ <B><b>".nick7($user['id'])."</b> Рё <b>".nick7($jert['id'])."</b> РЅР°С‡Р°Р»СЃСЏ.   ",$user['room']);
 
-                    //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
+                    //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>');");
                     if ($user['id']=='111' OR $user['id']=='4717') {
-                    addlog($id,"<span class=date>".date("Y.m.d H.i")."</span> Внезапно небо потемнело, засверкали молнии, в их сполохах стали видны приближающиеся тени с горяими глазами. Бойцы, забыв про свои обиды, в страхе прижались друг к другу...<BR>");
+                    addlog($id,"<span class=date>".date("Y.m.d H.i")."</span> Р’РЅРµР·Р°РїРЅРѕ РЅРµР±Рѕ РїРѕС‚РµРјРЅРµР»Рѕ, Р·Р°СЃРІРµСЂРєР°Р»Рё РјРѕР»РЅРёРё, РІ РёС… СЃРїРѕР»РѕС…Р°С… СЃС‚Р°Р»Рё РІРёРґРЅС‹ РїСЂРёР±Р»РёР¶Р°СЋС‰РёРµСЃСЏ С‚РµРЅРё СЃ РіРѕСЂСЏРёРјРё РіР»Р°Р·Р°РјРё. Р‘РѕР№С†С‹, Р·Р°Р±С‹РІ РїСЂРѕ СЃРІРѕРё РѕР±РёРґС‹, РІ СЃС‚СЂР°С…Рµ РїСЂРёР¶Р°Р»РёСЃСЊ РґСЂСѓРі Рє РґСЂСѓРіСѓ...<BR>");
                     }
-                    addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
+                    addlog($id,"Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>");
 
 
 
@@ -151,10 +151,10 @@ if ($cant) {
                 }
                 $bet=1;
             } else {
-                echo '<font color=red>Мазохист?...</font>';
+                echo '<font color=red>РњР°Р·РѕС…РёСЃС‚?...</font>';
             }
         //$bet=1;
 } //else {
-//      echo "Свиток рассыпался в ваших руках...";
+//      echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
 //  }
 ?>

@@ -11,11 +11,11 @@
 <?php if ($_SESSION['uid'] != 7) { ?>
 <script LANGUAGE='JavaScript'>
 document.ondragstart = test;
-//запрет на перетаскивание
+//Р·Р°РїСЂРµС‚ РЅР° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ
 document.onselectstart = test;
-//запрет на выделение элементов страницы
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂР°РЅРёС†С‹
 document.oncontextmenu = test;
-//запрет на выведение контекстного меню
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РІРµРґРµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 function test() {
  return false
 }
@@ -31,11 +31,11 @@ function test() {
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor="#CCCCCC">
 <TABLE border=0 width=100% cellspacing="0" cellpadding="0">
 <FORM action="city.php?cp=1" method=POST>
-<TR><TD valign=top width=100%><center><font style="font-size:24px; color:#000033"><h3>Памятник</h3></font></center>
+<TR><TD valign=top width=100%><center><font style="font-size:24px; color:#000033"><h3>РџР°РјСЏС‚РЅРёРє</h3></font></center>
 
 <TD nowrap valign=top>
-<BR><DIV align=right><INPUT style="font-size:12px;" type='button' onClick="location='/main.php?s=1'" value=Обновить>
-<INPUT style="font-size:12px;" type='button' onClick="location='city.php?cp=1'" value=Вернуться></DIV></TD>
+<BR><DIV align=right><INPUT style="font-size:12px;" type='button' onClick="location='/main.php?s=1'" value=РћР±РЅРѕРІРёС‚СЊ>
+<INPUT style="font-size:12px;" type='button' onClick="location='city.php?cp=1'" value=Р’РµСЂРЅСѓС‚СЊСЃСЏ></DIV></TD>
 
 
 
@@ -57,17 +57,17 @@ $left_min=floor($left_time/3600);
 $left_sec=floor(($left_time-$left_min*3600)/60);
 if($wait_sec>$new_t)
 {
-print" <font style='font-size:12px'><b style='color:#000000'> Вы можете взять очерядной чек через</b>
+print" <font style='font-size:12px'><b style='color:#000000'> Р’С‹ РјРѕР¶РµС‚Рµ РІР·СЏС‚СЊ РѕС‡РµСЂСЏРґРЅРѕР№ С‡РµРє С‡РµСЂРµР·</b>
 <font style='font-size:11px; color:#000;'> </font><b><font style='color:#FF0000'>$left_min</b></font>
-<font style='font-size:11px; color:#000;'> час. </font><b><font style='color:#FF0000'>$left_sec</b></font>
-<font style='font-size:11px; color:#000;'> мин. </font></font><br>";
+<font style='font-size:11px; color:#000;'> С‡Р°СЃ. </font><b><font style='color:#FF0000'>$left_sec</b></font>
+<font style='font-size:11px; color:#000;'> РјРёРЅ. </font></font><br>";
 }else{
 mysql_query("DELETE FROM `podarki` WHERE `owner`='".$user['id']."'");
 }
 
 }else{	
 
-echo '<font color=#FF0000><b>Вы взяли чек на продажу</b>'.($el['sneg']).'</font>';
+echo '<font color=#FF0000><b>Р’С‹ РІР·СЏР»Рё С‡РµРє РЅР° РїСЂРѕРґР°Р¶Сѓ</b>'.($el['sneg']).'</font>';
 $w = mysql_query("SELECT * FROM `shop` WHERE `id`='1773'"); 
 $dress = mysql_fetch_array($w);		
 		mysql_query("INSERT INTO `inventory`
@@ -88,8 +88,8 @@ mysql_query("INSERT INTO `podarki` (`owner`,`sneg`,`time`) VALUES ('".$user['id'
 }
 	}
 	if ($_GET['givepodarok'] && !$user['podarokAD']) {
-		echo '<font color=#FF0000><b>До 9 мая осталось ',(7-(int)date("d")),' день, поздравляю!</b></font>';
-		mysql_query("INSERT INTO `inventory` (`owner`,`img`,`maxdur`,`type`,`magic`,`present`,`name`) VALUES ('".$user['id']."','big_podarokNY_gold.gif','1','4','7','9 Мая','Подарок на 9 мая');");
+		echo '<font color=#FF0000><b>Р”Рѕ 9 РјР°СЏ РѕСЃС‚Р°Р»РѕСЃСЊ ',(7-(int)date("d")),' РґРµРЅСЊ, РїРѕР·РґСЂР°РІР»СЏСЋ!</b></font>';
+		mysql_query("INSERT INTO `inventory` (`owner`,`img`,`maxdur`,`type`,`magic`,`present`,`name`) VALUES ('".$user['id']."','big_podarokNY_gold.gif','1','4','7','9 РњР°СЏ','РџРѕРґР°СЂРѕРє РЅР° 9 РјР°СЏ');");
 		mysql_query("UPDATE `users` SET `podarokAD` = 1 WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;");
 	}
 */
@@ -115,10 +115,10 @@ mysql_query("INSERT INTO `podarki` (`owner`,`sneg`,`time`) VALUES ('".$user['id'
 </table>
 
 <BR>
-<u>Жители столицы оставили сообщение</u> <?
+<u>Р–РёС‚РµР»Рё СЃС‚РѕР»РёС†С‹ РѕСЃС‚Р°РІРёР»Рё СЃРѕРѕР±С‰РµРЅРёРµ</u> <?
 	$pgs = mysql_num_rows($data)/20;
 	for ($i=0;$i<=$pgs;++$i) {
-		echo ' <a href="?page='.$i.'">'.($i+1).' стр.</a> ';
+		echo ' <a href="?page='.$i.'">'.($i+1).' СЃС‚СЂ.</a> ';
 	}
 ?><BR>
 
@@ -129,8 +129,8 @@ mysql_query("INSERT INTO `podarki` (`owner`,`sneg`,`time`) VALUES ('".$user['id'
 // 21.12.2009 05:02
 ?>
 <form action='' method='post'>
-Оставить сообщение Мироздателю: <INPUT TYPE="text" name="comment" SIZE="50" VALUE="" maxlength=150>
-<input type="submit" name="" value="Добавить Сообщение">	
+РћСЃС‚Р°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ РњРёСЂРѕР·РґР°С‚РµР»СЋ: <INPUT TYPE="text" name="comment" SIZE="50" VALUE="" maxlength=150>
+<input type="submit" name="" value="Р”РѕР±Р°РІРёС‚СЊ РЎРѕРѕР±С‰РµРЅРёРµ">	
 </form>
 
 <div id="hint3" class="ahint"></div>

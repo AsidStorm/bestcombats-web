@@ -1,9 +1,9 @@
 <?php
 if ($_SESSION['uid'] == null) header("Location: index.php");
 // magic 
-// встраивание магии
+// РІСЃС‚СЂР°РёРІР°РЅРёРµ РјР°РіРёРё
 if ($user['battle'] > 0) {
-	echo "Не в бою...";
+	echo "РќРµ РІ Р±РѕСЋ...";
 } else	{
 	if ($user['hp'] >= 0) {
 		$int=80 + $user['hp'] - 0;
@@ -13,24 +13,24 @@ if ($user['battle'] > 0) {
 	if (rand(1,100) <= $int OR !$_SESSION['scroll']) {		
 		if(!$_SESSION['scroll']) {
 			$_SESSION['scroll'] = $_POST['target'];
-			?><body onload="okno('Название предмета, в который встраивается свиток', 'main.php?edit=1&use=<?=$_GET['use']?>','target')"><?			
+			?><body onload="okno('РќР°Р·РІР°РЅРёРµ РїСЂРµРґРјРµС‚Р°, РІ РєРѕС‚РѕСЂС‹Р№ РІСЃС‚СЂР°РёРІР°РµС‚СЃСЏ СЃРІРёС‚РѕРє', 'main.php?edit=1&use=<?=$_GET['use']?>','target')"><?			
 		} else {			
 			$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = '".$_SESSION['scroll']."' AND `owner` = '{$user['id']}' AND `dressed`=0 LIMIT 1;"));
 			$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$user['id']}' AND `name` LIKE '{$_POST['target']}' AND `includemagic` = 0 AND `dressed`=0  LIMIT 1;"));
 			//echo "SELECT * FROM `inventory` WHERE `owner` = '{$user['id']}' AND `name` LIKE '{$_REQUEST['target']}' AND `includemagic` = 0  LIMIT 1;";
 			$_SESSION['scroll'] = null;
 			if(!$svitok){
-				echo "<font color=red><b>У вас нет такого свитка!<b></font>";
+				echo "<font color=red><b>РЈ РІР°СЃ РЅРµС‚ С‚Р°РєРѕРіРѕ СЃРІРёС‚РєР°!<b></font>";
 			}elseif(!$dress OR $dress['type'] >= 12){
-				echo "<font color=red><b>У вас нет такого предмета!<b></font>";
+				echo "<font color=red><b>РЈ РІР°СЃ РЅРµС‚ С‚Р°РєРѕРіРѕ РїСЂРµРґРјРµС‚Р°!<b></font>";
 			}else {
 				$incmagic = mysql_fetch_array(mysql_query('SELECT * FROM `magic` WHERE `id` = \''.$svitok['magic'].'\' LIMIT 1;'));
 				if(!$incmagic['img']) {
-					echo "<font color=red><b>Этот свиток нельзя встраивать в предметы!<b></font>";
+					echo "<font color=red><b>Р­С‚РѕС‚ СЃРІРёС‚РѕРє РЅРµР»СЊР·СЏ РІСЃС‚СЂР°РёРІР°С‚СЊ РІ РїСЂРµРґРјРµС‚С‹!<b></font>";
 				} else {
-					// встраиваем
+					// РІСЃС‚СЂР°РёРІР°РµРј
 					destructitem($svitok['id']);
-					echo "<font color=red><b>Свиток \"".$svitok['name']."\" удачно встроен в \"".$dress['name']."\"<b></font>";					
+					echo "<font color=red><b>РЎРІРёС‚РѕРє \"".$svitok['name']."\" СѓРґР°С‡РЅРѕ РІСЃС‚СЂРѕРµРЅ РІ \"".$dress['name']."\"<b></font>";					
 					mysql_query("UPDATE `inventory` SET 
 						".($dress['nintel']<$svitok['nintel']?"`nintel`='".$svitok['nintel']."',":"")."
 						".($dress['nlevel']<$svitok['nlevel']?"`nlevel`='".$svitok['nlevel']."',":"")."
@@ -45,24 +45,24 @@ if ($user['battle'] > 0) {
 		}
 	
 	
-		//$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` LIKE '%Топор%' AND `owner` = '{$user['id']}' AND `name` = '{$_POST['target']}' AND `sharped` = 0 LIMIT 1;"));
-		//$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = 'Заточка на топоры +1' AND `owner` = '{$user['id']}' LIMIT 1;"));
+		//$dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` LIKE '%РўРѕРїРѕСЂ%' AND `owner` = '{$user['id']}' AND `name` = '{$_POST['target']}' AND `sharped` = 0 LIMIT 1;"));
+		//$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = 'Р—Р°С‚РѕС‡РєР° РЅР° С‚РѕРїРѕСЂС‹ +1' AND `owner` = '{$user['id']}' LIMIT 1;"));
 		
 		
 		/*if ($dress && $svitok) {
 			if (mysql_query("UPDATE `inventory` SET `sharped` = 1, `name` = CONCAT(`name`,'+1'), `minu` = `minu`+1, `maxu`=`maxu`+1, `cost` = `cost`+6, `ntopor` = `ntopor`+1, `nsila` = `nsila`+1 WHERE `id` = {$dress['id']} LIMIT 1;")) {
-				echo "<font color=red><b>Предмет \"{$_POST['target']}\" удачно заточен +1.<b></font> ";
+				echo "<font color=red><b>РџСЂРµРґРјРµС‚ \"{$_POST['target']}\" СѓРґР°С‡РЅРѕ Р·Р°С‚РѕС‡РµРЅ +1.<b></font> ";
 				$bet=1;
 			}
 			else {
-				echo "<font color=red><b>Произошла ошибка!<b></font>";
+				echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
 			}
 		} else {
-			echo "<font color=red><b>Неправильное имя предмета или неправильный свиток<b></font>";
+			echo "<font color=red><b>РќРµРїСЂР°РІРёР»СЊРЅРѕРµ РёРјСЏ РїСЂРµРґРјРµС‚Р° РёР»Рё РЅРµРїСЂР°РІРёР»СЊРЅС‹Р№ СЃРІРёС‚РѕРє<b></font>";
 		}*/
 	} else
 	{
-		echo "<font color=red><b>Cвиток рассыпался в ваших руках...<b></font>";
+		echo "<font color=red><b>CРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...<b></font>";
 		$bet=1;
 		$_SESSION['scroll'] = null;
 	}

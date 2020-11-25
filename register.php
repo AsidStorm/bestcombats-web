@@ -25,11 +25,11 @@ if ($_POST['end'] != null) header("Location: main.php");
 
 if ($_POST['add'] && $_GET['edit']) {
     if ($_POST['name']==null) {
-                    $err .= "Введите имя! ";
+                    $err .= "Р’РІРµРґРёС‚Рµ РёРјСЏ! ";
                     $stop =1;
     }
     elseif ( ! ($_POST['ChatColor'] == "Black" || $_POST['ChatColor'] == "Blue" || $_POST['ChatColor'] == "#8700e4" ||  $_POST['ChatColor'] == "Fuchsia" || $_POST['ChatColor'] == "Gray" || $_POST['ChatColor'] == "Green" || $_POST['ChatColor'] == "Maroon" || $_POST['ChatColor'] == "Navy" || $_POST['ChatColor'] == "Olive" || $_POST['ChatColor'] == "Purple" || $_POST['ChatColor'] == "Teal" ||  $_POST['ChatColor'] == "Orange" ||  $_POST['ChatColor'] == "Chocolate" || $_POST['ChatColor'] == "DarkKhaki")) {
-                    $err .= "Возможно использовать только цвета указанные в меню анкеты ! ";
+                    $err .= "Р’РѕР·РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ С†РІРµС‚Р° СѓРєР°Р·Р°РЅРЅС‹Рµ РІ РјРµРЅСЋ Р°РЅРєРµС‚С‹ ! ";
                     $_POST['ChatColor'] = "Black";
     }
       if($stop!=1) {
@@ -39,9 +39,9 @@ if ($_POST['add'] && $_GET['edit']) {
        fwrite($f, "$user[login]: $_POST[city2] $_POST[icq] $_POST[hobby] $_POST[about]\r\n");
        fclose($f);
 
-       mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$user[id]','Заклятие молчания',".(time()+3600).",2);");
-       reportadms("<br><b>$user[login]</b>: спам в инфе", "Комментатор");
-       addch("<img src=http://img.bestcombats.net/pbuttons/sleep.gif> Комментатор наложил заклятие молчания на &quot;$user[login]&quot;, сроком 60 мин. Причина: РВС.");
+       mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$user[id]','Р—Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ',".(time()+3600).",2);");
+       reportadms("<br><b>$user[login]</b>: СЃРїР°Рј РІ РёРЅС„Рµ", "РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ");
+       addch("<img src=http://img.bestcombats.net/pbuttons/sleep.gif> РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ РЅР° &quot;$user[login]&quot;, СЃСЂРѕРєРѕРј 60 РјРёРЅ. РџСЂРёС‡РёРЅР°: Р Р’РЎ.");
      }
      mq("UPDATE `users` SET  `city` = '".mysql_real_escape_string($_POST['city2'])."', `icq` = '".mysql_real_escape_string($_POST['icq'])."',
                  `http` = '".mysql_real_escape_string($_POST['homepage'])."', `info` = '".$_POST['hobby']."', `lozung` = '".mysql_real_escape_string($_POST['about'])."',
@@ -60,71 +60,71 @@ if ($_POST['add'] && !$_GET['edit']) {
 
 		if ($_COOKIE["mailru"] != null) {
 		    $stop =1;
-		   $err .= "Вы превысили число регистраций за сутки!";
+		   $err .= "Р’С‹ РїСЂРµРІС‹СЃРёР»Рё С‡РёСЃР»Рѕ СЂРµРіРёСЃС‚СЂР°С†РёР№ Р·Р° СЃСѓС‚РєРё!";
                 }elseif ($_POST['login']==null) {
-                    $err .= "Введите имя персонажа! ";
+                    $err .= "Р’РІРµРґРёС‚Рµ РёРјСЏ РїРµСЂСЃРѕРЅР°Р¶Р°! ";
                     $stop =1;
                 }
-                elseif ($res['id']!= null || hasbad($login) || strpos($login, "легия")!==false || strpos(strtolower($login), "ellegia")!==false) {
-                    $err .= "К сожалению персонаж с ником <B>$login</B> уже зарегистрирован.";
+                elseif ($res['id']!= null || hasbad($login) || strpos($login, "Р»РµРіРёСЏ")!==false || strpos(strtolower($login), "ellegia")!==false) {
+                    $err .= "Рљ СЃРѕР¶Р°Р»РµРЅРёСЋ РїРµСЂСЃРѕРЅР°Р¶ СЃ РЅРёРєРѕРј <B>$login</B> СѓР¶Рµ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ.";
                     $stop =1;
                 }
-                elseif (strtoupper($_POST['login'])==strtoupper("невидимка") ||  strtoupper($_POST['login'])==strtoupper("мусорщик") || strtoupper($_POST['login'])==strtoupper("мироздатель") || strtoupper($_POST['login'])==strtoupper("архивариус") || strtoupper($_POST['login'])==strtoupper("Благодать") || strtoupper($_POST['login'])==strtoupper("Merlin") || strtoupper($_POST['login'])==strtoupper("Коментатор")) {
-                    $err .= "Регистрация персонажа с ником <B>$login</B> запрещена! ";
+                elseif (strtoupper($_POST['login'])==strtoupper("РЅРµРІРёРґРёРјРєР°") ||  strtoupper($_POST['login'])==strtoupper("РјСѓСЃРѕСЂС‰РёРє") || strtoupper($_POST['login'])==strtoupper("РјРёСЂРѕР·РґР°С‚РµР»СЊ") || strtoupper($_POST['login'])==strtoupper("Р°СЂС…РёРІР°СЂРёСѓСЃ") || strtoupper($_POST['login'])==strtoupper("Р‘Р»Р°РіРѕРґР°С‚СЊ") || strtoupper($_POST['login'])==strtoupper("Merlin") || strtoupper($_POST['login'])==strtoupper("РљРѕРјРµРЅС‚Р°С‚РѕСЂ")) {
+                    $err .= "Р РµРіРёСЃС‚СЂР°С†РёСЏ РїРµСЂСЃРѕРЅР°Р¶Р° СЃ РЅРёРєРѕРј <B>$login</B> Р·Р°РїСЂРµС‰РµРЅР°! ";
                     $stop =1;
                 }
-                elseif (strlen($_POST['login'])<4 || strlen($_POST['login'])>20 || !ereg("^[a-zA-Zа-яА-Я0-9][a-zA-Zа-яА-Я0-9_ -]+[a-zA-Zа-яА-Я0-9]$",$_POST['login']) || preg_match("/__/",$_POST['login']) || preg_match("/--/",$_POST['login']) || preg_match("/  /",$_POST['login']) || preg_match("/(.)\\1\\1\\1/",$_POST['login']))
+                elseif (strlen($_POST['login'])<4 || strlen($_POST['login'])>20 || !ereg("^[a-zA-ZР°-СЏРђ-РЇ0-9][a-zA-ZР°-СЏРђ-РЇ0-9_ -]+[a-zA-ZР°-СЏРђ-РЇ0-9]$",$_POST['login']) || preg_match("/__/",$_POST['login']) || preg_match("/--/",$_POST['login']) || preg_match("/  /",$_POST['login']) || preg_match("/(.)\\1\\1\\1/",$_POST['login']))
                     {
-                    $err .= "Логин может содержать от 4 до 20 символов, и состоять только из букв русского или английского алфавита, цифр, символов '_',  '-' и пробела. <br>Логин не может начинаться или заканчиваться символами '_', '-' или пробелом<br>Также в логине не должно присутствовать подряд более 1 символа '_' или '-' и более 1 пробела, а также более 3-х других одинаковых символов.";
+                    $err .= "Р›РѕРіРёРЅ РјРѕР¶РµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ РѕС‚ 4 РґРѕ 20 СЃРёРјРІРѕР»РѕРІ, Рё СЃРѕСЃС‚РѕСЏС‚СЊ С‚РѕР»СЊРєРѕ РёР· Р±СѓРєРІ СЂСѓСЃСЃРєРѕРіРѕ РёР»Рё Р°РЅРіР»РёР№СЃРєРѕРіРѕ Р°Р»С„Р°РІРёС‚Р°, С†РёС„СЂ, СЃРёРјРІРѕР»РѕРІ '_',  '-' Рё РїСЂРѕР±РµР»Р°. <br>Р›РѕРіРёРЅ РЅРµ РјРѕР¶РµС‚ РЅР°С‡РёРЅР°С‚СЊСЃСЏ РёР»Рё Р·Р°РєР°РЅС‡РёРІР°С‚СЊСЃСЏ СЃРёРјРІРѕР»Р°РјРё '_', '-' РёР»Рё РїСЂРѕР±РµР»РѕРј<br>РўР°РєР¶Рµ РІ Р»РѕРіРёРЅРµ РЅРµ РґРѕР»Р¶РЅРѕ РїСЂРёСЃСѓС‚СЃС‚РІРѕРІР°С‚СЊ РїРѕРґСЂСЏРґ Р±РѕР»РµРµ 1 СЃРёРјРІРѕР»Р° '_' РёР»Рё '-' Рё Р±РѕР»РµРµ 1 РїСЂРѕР±РµР»Р°, Р° С‚Р°РєР¶Рµ Р±РѕР»РµРµ 3-С… РґСЂСѓРіРёС… РѕРґРёРЅР°РєРѕРІС‹С… СЃРёРјРІРѕР»РѕРІ.";
                     $stop =1;
                 }
-                elseif (ereg("[a-zA-Z]",$_POST['login']) && ereg("[а-яА-Я]",$_POST['login'])) {
-                    $err .= "Логин не может содержать одновременно буквы русского и латинского алфавитов!";
+                elseif (ereg("[a-zA-Z]",$_POST['login']) && ereg("[Р°-СЏРђ-РЇ]",$_POST['login'])) {
+                    $err .= "Р›РѕРіРёРЅ РЅРµ РјРѕР¶РµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ Р±СѓРєРІС‹ СЂСѓСЃСЃРєРѕРіРѕ Рё Р»Р°С‚РёРЅСЃРєРѕРіРѕ Р°Р»С„Р°РІРёС‚РѕРІ!";
                     $stop =1;
                 }
                 elseif (!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)+$",$_POST['email'])) {
-                    $err .= "Неверный формат почты! ";
+                    $err .= "РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚ РїРѕС‡С‚С‹! ";
                     $stop =1;
                 }
-### Проверяем пароль
+### РџСЂРѕРІРµСЂСЏРµРј РїР°СЂРѕР»СЊ
     if ($_POST['pass'] != $_POST['pass2']) {
-        $error .= '<li>Введенные пароли не совпадают</li>';
+        $error .= '<li>Р’РІРµРґРµРЅРЅС‹Рµ РїР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚</li>';
         $fail = 1;
     } elseif (strlen($_POST['pass']) < 6) {
-        $error .= '<li>Пароль не может быть короче 6 символов</li>';
+        $error .= '<li>РџР°СЂРѕР»СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РєРѕСЂРѕС‡Рµ 6 СЃРёРјРІРѕР»РѕРІ</li>';
         $fail = 1;
     } elseif (strlen($_POST['pass']) > 21) {
-        $error .= '<li>Пароль не может быть длиннее 21 символа</li>';
+        $error .= '<li>РџР°СЂРѕР»СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РґР»РёРЅРЅРµРµ 21 СЃРёРјРІРѕР»Р°</li>';
         $fail = 1;
     }
 
 ###
                 if ($_POST['name']==null || strlen($_POST['name']) > 30) {
-                    $err .= "Не указано ваше реальное имя, или оно больше 30 символов! ";
+                    $err .= "РќРµ СѓРєР°Р·Р°РЅРѕ РІР°С€Рµ СЂРµР°Р»СЊРЅРѕРµ РёРјСЏ, РёР»Рё РѕРЅРѕ Р±РѕР»СЊС€Рµ 30 СЃРёРјРІРѕР»РѕРІ! ";
                     $stop =1;
                 }
                 elseif ($_POST['birth_day']<1 || $_POST['birth_day']>31) {
-                    $err .= "Укажите дату рождения! ";
+                    $err .= "РЈРєР°Р¶РёС‚Рµ РґР°С‚Сѓ СЂРѕР¶РґРµРЅРёСЏ! ";
                     $stop =1;
                 }
                 elseif ($_POST['birth_month']<1 || $_POST['birth_month']>12) {
-                    $err .= "Укажите месяц рождения! ";
+                    $err .= "РЈРєР°Р¶РёС‚Рµ РјРµСЃСЏС† СЂРѕР¶РґРµРЅРёСЏ! ";
                     $stop =1;
                 }
                 elseif ($_POST['birth_year']<1940 || $_POST['birth_year']>2000) {
-                    $err .= "Укажите год рождения! ";
+                    $err .= "РЈРєР°Р¶РёС‚Рµ РіРѕРґ СЂРѕР¶РґРµРЅРёСЏ! ";
                     $stop =1;
                 }
                 elseif ($_POST['sex'] != "0" && $_POST['sex'] != "1") {
-                    $err .= "Укажите ваш пол! ";
+                    $err .= "РЈРєР°Р¶РёС‚Рµ РІР°С€ РїРѕР»! ";
                     $stop =1;
                 }
                 elseif ( ! ($_POST['ChatColor'] == "Black" || $_POST['ChatColor'] == "Blue" || $_POST['ChatColor'] == "#8700e4" || $_POST['ChatColor'] == "Fuchsia" || $_POST['ChatColor'] == "Gray" || $_POST['ChatColor'] == "Green" || $_POST['ChatColor'] == "Maroon" || $_POST['ChatColor'] == "Navy" || $_POST['ChatColor'] == "Olive" || $_POST['ChatColor'] == "Purple" || $_POST['ChatColor'] == "Teal" ||  $_POST['ChatColor'] == "Orange" ||  $_POST['ChatColor'] == "Chocolate" || $_POST['ChatColor'] == "DarkKhaki")) {
-                    $err .= "Возможно использовать только цвета указанные в меню анкеты ! ";
+                    $err .= "Р’РѕР·РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ С†РІРµС‚Р° СѓРєР°Р·Р°РЅРЅС‹Рµ РІ РјРµРЅСЋ Р°РЅРєРµС‚С‹ ! ";
                     $stop =1;
                 }
                 elseif ($_POST['Law']==null) {
-                    $err .= "Вы не указали ваше согласие с законами BK-2! ";
+                    $err .= "Р’С‹ РЅРµ СѓРєР°Р·Р°Р»Рё РІР°С€Рµ СЃРѕРіР»Р°СЃРёРµ СЃ Р·Р°РєРѕРЅР°РјРё BK-2! ";
                     $stop =1;
                 }
                 elseif (isset($_POST['securityCode']) && isset($_SESSION['securityCode'])) {
@@ -133,13 +133,13 @@ if ($_POST['add'] && !$_GET['edit']) {
 				}
 				else{
 					$stop =1;
-					$err .= "Неверный защитный код ! ";
+					$err .= "РќРµРІРµСЂРЅС‹Р№ Р·Р°С‰РёС‚РЅС‹Р№ РєРѕРґ ! ";
 				unset($_SESSION['securityCode']);
 					}
 				}
 				elseif (!isset($_POST['securityCode']) || !isset($_SESSION['securityCode'])) {
 					$stop =1;
-					$err .= "Вы не ввели защитный код ! ";
+					$err .= "Р’С‹ РЅРµ РІРІРµР»Рё Р·Р°С‰РёС‚РЅС‹Р№ РєРѕРґ ! ";
 				}
                 if($stop!=1) {
                     $_POST['hobby']=str_replace("&lt;BR&gt;","<BR>",$_POST['hobby']);
@@ -150,7 +150,7 @@ if ($_POST['add'] && !$_GET['edit']) {
                       $i = mysql_insert_id();
                       mq("insert into userdata (id) values($i)");
                       if ($_SESSION["spammer"]) {
-                        reportadms("Зарегистрирован новый возможно спамер: <b>$_POST[login]</b>");
+                        reportadms("Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ РЅРѕРІС‹Р№ РІРѕР·РјРѕР¶РЅРѕ СЃРїР°РјРµСЂ: <b>$_POST[login]</b>");
                       }
                         $f=fopen("chardata/$i.dat", "wb+");
                         fclose($f);
@@ -162,34 +162,34 @@ if ($_POST['add'] && !$_GET['edit']) {
                           fwrite($f, "$_POST[login]: $_POST[city2] $_POST[icq] $_POST[hobby] $_POST[about]\r\n");
                           fclose($f);
 
-                          mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$i','Заклятие молчания',".(time()+3600).",2);");
-                          reportadms("<br><b>$_POST[login]</b>: спам в инфе</font>", "Комментатор");
+                          mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$i','Р—Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ',".(time()+3600).",2);");
+                          reportadms("<br><b>$_POST[login]</b>: СЃРїР°Рј РІ РёРЅС„Рµ</font>", "РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ");
                         }
-//Ставим лимит на регистрацию
+//РЎС‚Р°РІРёРј Р»РёРјРёС‚ РЅР° СЂРµРіРёСЃС‚СЂР°С†РёСЋ
 setcookie("mailru", "enter", time()+86400);
-//добавляем вещи в инвентарь
+//РґРѕР±Р°РІР»СЏРµРј РІРµС‰Рё РІ РёРЅРІРµРЅС‚Р°СЂСЊ
 mq("INSERT INTO `inventory` (`owner`,`ghp`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`present`)
-VALUES('".$i."','3','Рубашка','6','0.5','1','roba1.gif','30','Мироздатель') ;");
+VALUES('".$i."','3','Р СѓР±Р°С€РєР°','6','0.5','1','roba1.gif','30','РњРёСЂРѕР·РґР°С‚РµР»СЊ') ;");
 mq("INSERT INTO `inventory` (`owner`,`bron3`,`bron4`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`present`)
-VALUES('".$i."','1','1','Штаны Падальщика','24','0.5','1','leg1.gif','30','Мироздатель') ;");
+VALUES('".$i."','1','1','РЁС‚Р°РЅС‹ РџР°РґР°Р»СЊС‰РёРєР°','24','0.5','1','leg1.gif','30','РњРёСЂРѕР·РґР°С‚РµР»СЊ') ;");
 mq("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`present`,`magic`,`otdel`,`isrep`)
-VALUES('".$i."','Зелье Жизни','188','1','0','pot_cureHP100_20.gif','20','Мироздатель','189','6','0') ;");
-///Надеваем приемы
+VALUES('".$i."','Р—РµР»СЊРµ Р–РёР·РЅРё','188','1','0','pot_cureHP100_20.gif','20','РњРёСЂРѕР·РґР°С‚РµР»СЊ','189','6','0') ;");
+///РќР°РґРµРІР°РµРј РїСЂРёРµРјС‹
 mq("INSERT INTO puton(id_person,id_thing,slot) VALUES ('".$i."','158','201');");
 mq("INSERT INTO puton(id_person,id_thing,slot) VALUES ('".$i."','159','202');");
 mq("INSERT INTO puton(id_person,id_thing,slot) VALUES ('".$i."','164','203');");
-//Форумка при регистрации
-mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$i','Заклятие форумного молчания',".(time()+86400).",3);");
-//Заносим эффект сильвер аккаунта
+//Р¤РѕСЂСѓРјРєР° РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё
+mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$i','Р—Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ',".(time()+86400).",3);");
+//Р—Р°РЅРѕСЃРёРј СЌС„С„РµРєС‚ СЃРёР»СЊРІРµСЂ Р°РєРєР°СѓРЅС‚Р°
 mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$i','Silver Account',".(time()+259200).",70);");
 //
 mq("INSERT INTO `online` (`id` ,`date` ,`room`)VALUES ('".$i."', '".time()."', '1');");
 if(!empty($ref)){
         $us = mysql_fetch_array(mq("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$ref}' LIMIT 1;"));
                 if($us[0]){
-        addchp ('<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$_POST['login'].'</B> зарегистрировался по Вашей ссылке. Вам будет перечислена премия за каждый набранный им уровень кроме первого.</font>   ','{[]}'.nick7 ($ref).'{[]}');
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> <font color=\"Black\">РџРµСЂСЃРѕРЅР°Р¶ <B>'.$_POST['login'].'</B> Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°Р»СЃСЏ РїРѕ Р’Р°С€РµР№ СЃСЃС‹Р»РєРµ. Р’Р°Рј Р±СѓРґРµС‚ РїРµСЂРµС‡РёСЃР»РµРЅР° РїСЂРµРјРёСЏ Р·Р° РєР°Р¶РґС‹Р№ РЅР°Р±СЂР°РЅРЅС‹Р№ РёРј СѓСЂРѕРІРµРЅСЊ РєСЂРѕРјРµ РїРµСЂРІРѕРіРѕ.</font>   ','{[]}'.nick7 ($ref).'{[]}');
             } else {
-        mq("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$ref."','','".'<font color=red>Внимание!</font> <font color=\"Black\">Персонаж <B>'.$_POST['login'].'</B> зарегистрировался по Вашей ссылке. Вам будет перечислена премия за каждый набранный им уровень кроме первого.</font> '."');");
+        mq("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$ref."','','".'<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> <font color=\"Black\">РџРµСЂСЃРѕРЅР°Р¶ <B>'.$_POST['login'].'</B> Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°Р»СЃСЏ РїРѕ Р’Р°С€РµР№ СЃСЃС‹Р»РєРµ. Р’Р°Рј Р±СѓРґРµС‚ РїРµСЂРµС‡РёСЃР»РµРЅР° РїСЂРµРјРёСЏ Р·Р° РєР°Р¶РґС‹Р№ РЅР°Р±СЂР°РЅРЅС‹Р№ РёРј СѓСЂРѕРІРµРЅСЊ РєСЂРѕРјРµ РїРµСЂРІРѕРіРѕ.</font> '."');");
             }
             echo mysql_error();
 
@@ -201,16 +201,16 @@ if(!empty($ref)){
                         session_start();
                         setcookie("battle", $i);
                         $_SESSION['uid'] = $i;
-                        //заносим данные текушего времени для получения екр за онлайн
+                        //Р·Р°РЅРѕСЃРёРј РґР°РЅРЅС‹Рµ С‚РµРєСѓС€РµРіРѕ РІСЂРµРјРµРЅРё РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РµРєСЂ Р·Р° РѕРЅР»Р°Р№РЅ
                         $_SESSION['ekr_online'] = time();
                         mq("UPDATE `users` SET `sid` = '".session_id()."', `browser` = '".$_SERVER['HTTP_USER_AGENT']."' WHERE `id` = {$i};");
                         $_SESSION['sid'] = session_id();
-                        //Системка Паладинам:))
-                        addchp ('private [pal] private [tar] Внимание! Замечен новый новобранец <a href=javascript:top.AddTo("'.$_POST["login"].'")><span oncontextmenu="OpenMenu()">'.$_POST["login"].'</span></a>!',"Комментатор", 1);
-                        //Системка в общий чат
-                        addchp ('Внимание! Замечен новый новобранец <a href=javascript:top.AddTo("'.$_POST["login"].'")><span oncontextmenu="OpenMenu()">'.$_POST["login"].'</span></a>! Администрация проекта и старшие уровни желают великих побед и приятного общения!',"Комментатор", 1);
-                        //Приват новичку
-                        addchp ('private ['.$_POST["login"].'] Поздравляем вас с успешной регистрацией на сайте BetscombatS в качестве бонуса мы подарили вам Silver Account на три дня. Приятной игры и великих побед. Спасибо что вы с нами !!',"Комментатор", 1);
+                        //РЎРёСЃС‚РµРјРєР° РџР°Р»Р°РґРёРЅР°Рј:))
+                        addchp ('private [pal] private [tar] Р’РЅРёРјР°РЅРёРµ! Р—Р°РјРµС‡РµРЅ РЅРѕРІС‹Р№ РЅРѕРІРѕР±СЂР°РЅРµС† <a href=javascript:top.AddTo("'.$_POST["login"].'")><span oncontextmenu="OpenMenu()">'.$_POST["login"].'</span></a>!',"РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ", 1);
+                        //РЎРёСЃС‚РµРјРєР° РІ РѕР±С‰РёР№ С‡Р°С‚
+                        addchp ('Р’РЅРёРјР°РЅРёРµ! Р—Р°РјРµС‡РµРЅ РЅРѕРІС‹Р№ РЅРѕРІРѕР±СЂР°РЅРµС† <a href=javascript:top.AddTo("'.$_POST["login"].'")><span oncontextmenu="OpenMenu()">'.$_POST["login"].'</span></a>! РђРґРјРёРЅРёСЃС‚СЂР°С†РёСЏ РїСЂРѕРµРєС‚Р° Рё СЃС‚Р°СЂС€РёРµ СѓСЂРѕРІРЅРё Р¶РµР»Р°СЋС‚ РІРµР»РёРєРёС… РїРѕР±РµРґ Рё РїСЂРёСЏС‚РЅРѕРіРѕ РѕР±С‰РµРЅРёСЏ!',"РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ", 1);
+                        //РџСЂРёРІР°С‚ РЅРѕРІРёС‡РєСѓ
+                        addchp ('private ['.$_POST["login"].'] РџРѕР·РґСЂР°РІР»СЏРµРј РІР°СЃ СЃ СѓСЃРїРµС€РЅРѕР№ СЂРµРіРёСЃС‚СЂР°С†РёРµР№ РЅР° СЃР°Р№С‚Рµ BetscombatS РІ РєР°С‡РµСЃС‚РІРµ Р±РѕРЅСѓСЃР° РјС‹ РїРѕРґР°СЂРёР»Рё РІР°Рј Silver Account РЅР° С‚СЂРё РґРЅСЏ. РџСЂРёСЏС‚РЅРѕР№ РёРіСЂС‹ Рё РІРµР»РёРєРёС… РїРѕР±РµРґ. РЎРїР°СЃРёР±Рѕ С‡С‚Рѕ РІС‹ СЃ РЅР°РјРё !!',"РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ", 1);
                         header("Location: battle.php");
                         die();
                     }
@@ -243,13 +243,13 @@ var login,
 	password2Stat;
 
 $(function() {
-	//Логин
+	//Р›РѕРіРёРЅ
 	$("#login").change(function(){
 		login = $("#login").val();
 		var expLogin = /^[a-zA-Z0-9_]+$/g;
 		var resLogin = login.search(expLogin);
 		if(resLogin == -1){
-			$("#login").next().hide().text("Неверный логин").css("color","red").fadeIn(400);
+			$("#login").next().hide().text("РќРµРІРµСЂРЅС‹Р№ Р»РѕРіРёРЅ").css("color","red").fadeIn(400);
 			$("#login").removeClass().addClass("inputRed");
 			loginStat = 0;
 			buttonOnAndOff();
@@ -261,7 +261,7 @@ $(function() {
 			cache: false,
 			success: function(response){
 				if(response == "no"){
-					$("#login").next().hide().text("Логин занят").css("color","red").fadeIn(400);
+					$("#login").next().hide().text("Р›РѕРіРёРЅ Р·Р°РЅСЏС‚").css("color","red").fadeIn(400);
 					$("#login").removeClass().addClass("inputRed");					
 				}else{					
 					$("#login").removeClass().addClass("inputGreen");
@@ -286,7 +286,7 @@ $(function() {
 		var expEmail = /[-0-9a-z_]+@[-0-9a-z_]+\.[a-z]{2,6}/i;
 		var resEmail = email.search(expEmail);
 		if(resEmail == -1){
-			$("#email").next().hide().text("Неверный формат Email").css("color","red").fadeIn(400);
+			$("#email").next().hide().text("РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚ Email").css("color","red").fadeIn(400);
 			$("#email").removeClass().addClass("inputRed");
 			emailStat = 0;
 			buttonOnAndOff();
@@ -299,7 +299,7 @@ $(function() {
 			cache: false,			
 			success: function(response){
 				if(response == "no"){
-					$("#email").next().hide().text("Email Занят").css("color","red").fadeIn(400);
+					$("#email").next().hide().text("Email Р—Р°РЅСЏС‚").css("color","red").fadeIn(400);
 					$("#email").removeClass().addClass("inputRed");					
 				}else{					
 					$("#email").removeClass().addClass("inputGreen");
@@ -318,11 +318,11 @@ $(function() {
 	});	
 	
 	
-	//Пароль
+	//РџР°СЂРѕР»СЊ
 	$("#password").change(function(){
 		password = $("#password").val();
 		if(password.length < 6){
-			$("#password").next().hide().text("Слишком короткий пароль").css("color","red").fadeIn(400);
+			$("#password").next().hide().text("РЎР»РёС€РєРѕРј РєРѕСЂРѕС‚РєРёР№ РїР°СЂРѕР»СЊ").css("color","red").fadeIn(400);
 			$("#password").removeClass().addClass("inputRed");
 			passwordStat = 0;
 			buttonOnAndOff();
@@ -338,10 +338,10 @@ $(function() {
 		$("#password").next().text("");
 	});
 	
-	//Проверка пароля
+	//РџСЂРѕРІРµСЂРєР° РїР°СЂРѕР»СЏ
 	$("#password2").change(function(){
 		if(password2 != password){
-			$("#password2").next().hide().text("Пароли не совпадают").css("color","red").fadeIn(400);
+			$("#password2").next().hide().text("РџР°СЂРѕР»Рё РЅРµ СЃРѕРІРїР°РґР°СЋС‚").css("color","red").fadeIn(400);
 			$("#password2").removeClass().addClass("inputRed");
 			password2Stat = 0;
 			buttonOnAndOff();
@@ -388,35 +388,35 @@ vLink=#333333 marginheight="0" marginwidth="0" 0>
                 <TD colSpan=2><FONT color=red><B><?=$err?><!--error--></FONT></B></TD></TR>
               <TR>
                 <TD vAlign=top><FONT color=red>*</FONT></TD>
-                <TD>Имя вашего персонажа (login): <INPUT maxLength=60
+                <TD>РРјСЏ РІР°С€РµРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р° (login): <INPUT maxLength=60
                   name=login maxLength=20 id=login size=20 <?=($_GET['edit'])?" disabled ":""?> value="<?=($_GET['edit'])?"{$user['login']}":"{$_POST['login']}"?>"><span></span><BR><SMALL><FONT color=<?
                   if ($badlogin) echo "#ff0000 style=\"font-weight:bold\""; else echo "#364875";
                   ?>>
-                  Логин может содержать от 4 до 20 символов, и состоять только из букв русского ИЛИ английского алфавита, цифр, символов '_',  '-' и пробела. <br>Логин не может начинаться или заканчиваться символами '_', '-' или пробелом<br>Также в логине не должно присутствовать подряд более 1 символа '_' или '-' и более 1 пробела, а также более 3-х других одинаковых символов
+                  Р›РѕРіРёРЅ РјРѕР¶РµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ РѕС‚ 4 РґРѕ 20 СЃРёРјРІРѕР»РѕРІ, Рё СЃРѕСЃС‚РѕСЏС‚СЊ С‚РѕР»СЊРєРѕ РёР· Р±СѓРєРІ СЂСѓСЃСЃРєРѕРіРѕ РР›Р Р°РЅРіР»РёР№СЃРєРѕРіРѕ Р°Р»С„Р°РІРёС‚Р°, С†РёС„СЂ, СЃРёРјРІРѕР»РѕРІ '_',  '-' Рё РїСЂРѕР±РµР»Р°. <br>Р›РѕРіРёРЅ РЅРµ РјРѕР¶РµС‚ РЅР°С‡РёРЅР°С‚СЊСЃСЏ РёР»Рё Р·Р°РєР°РЅС‡РёРІР°С‚СЊСЃСЏ СЃРёРјРІРѕР»Р°РјРё '_', '-' РёР»Рё РїСЂРѕР±РµР»РѕРј<br>РўР°РєР¶Рµ РІ Р»РѕРіРёРЅРµ РЅРµ РґРѕР»Р¶РЅРѕ РїСЂРёСЃСѓС‚СЃС‚РІРѕРІР°С‚СЊ РїРѕРґСЂСЏРґ Р±РѕР»РµРµ 1 СЃРёРјРІРѕР»Р° '_' РёР»Рё '-' Рё Р±РѕР»РµРµ 1 РїСЂРѕР±РµР»Р°, Р° С‚Р°РєР¶Рµ Р±РѕР»РµРµ 3-С… РґСЂСѓРіРёС… РѕРґРёРЅР°РєРѕРІС‹С… СЃРёРјРІРѕР»РѕРІ
 </FONT></SMALL></TD></TR><!--/email-->
               <TR>
                 <TD vAlign=top><FONT color=red>*</FONT></TD>
-                <TD>Ваш e-mail: <INPUT maxLength=50 size=50 id=email name=email value="<?=($_GET['edit'])?"{$user['email']}":"{$_POST['email']}"?>" <?=($_GET['edit'])?" disabled ":""?>>
-                  <span></span><BR><SMALL><FONT color=#364875>Используется <U>только</U> для
-                  напоминания пароля, нигде не отображается и не используется
-                  для рассылки "уведомлений/обновлений/..." и прочего
-                  спама.</FONT></SMALL></TD></TR><!--email/--><!--/psw-->
+                <TD>Р’Р°С€ e-mail: <INPUT maxLength=50 size=50 id=email name=email value="<?=($_GET['edit'])?"{$user['email']}":"{$_POST['email']}"?>" <?=($_GET['edit'])?" disabled ":""?>>
+                  <span></span><BR><SMALL><FONT color=#364875>РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ <U>С‚РѕР»СЊРєРѕ</U> РґР»СЏ
+                  РЅР°РїРѕРјРёРЅР°РЅРёСЏ РїР°СЂРѕР»СЏ, РЅРёРіРґРµ РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ Рё РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ
+                  РґР»СЏ СЂР°СЃСЃС‹Р»РєРё "СѓРІРµРґРѕРјР»РµРЅРёР№/РѕР±РЅРѕРІР»РµРЅРёР№/..." Рё РїСЂРѕС‡РµРіРѕ
+                  СЃРїР°РјР°.</FONT></SMALL></TD></TR><!--email/--><!--/psw-->
               <TR>
                 <TD vAlign=top><FONT color=red>*</FONT></TD>
-                <TD>Пароль: <INPUT maxLength=21 name=psw size=15 id=pass type=password
-                <?=($_GET['edit'])?" disabled ":""?> value="<?=($_GET['edit'])?"******":""?>"> &nbsp; <FONT color=red>*</FONT> Пароль
-                  повторно: <INPUT maxLength=21 name=psw2 size=15
+                <TD>РџР°СЂРѕР»СЊ: <INPUT maxLength=21 name=psw size=15 id=pass type=password
+                <?=($_GET['edit'])?" disabled ":""?> value="<?=($_GET['edit'])?"******":""?>"> &nbsp; <FONT color=red>*</FONT> РџР°СЂРѕР»СЊ
+                  РїРѕРІС‚РѕСЂРЅРѕ: <INPUT maxLength=21 name=psw2 size=15
                   type=password <?=($_GET['edit'])?" disabled ":""?> value="<?=($_GET['edit'])?"******":""?>"><BR>
                 </TD></TR><!--psw/-->
               <TR>
                 <TD vAlign=top><FONT color=red>*</FONT></TD>
-                <TD>Ваше реальное имя: <INPUT maxLength=90 name=name
+                <TD>Р’Р°С€Рµ СЂРµР°Р»СЊРЅРѕРµ РёРјСЏ: <INPUT maxLength=90 name=name
                 size=45 value="<?=($_GET['edit'])?"{$user['realname']}":"{$_POST['name']}"?>"></TD></TR>
 
                  <?if (!$_GET['edit']) { ?>
               <TR>
                 <TD vAlign=top><FONT color=red>*</FONT></TD>
- <TD>День рождения:
+ <TD>Р”РµРЅСЊ СЂРѕР¶РґРµРЅРёСЏ:
                 <SELECT NAME="birth_day" CLASS="field" STYLE="width=40;">
                 <OPTION VALUE="0"> </OPTION>
                 <? for($i=1;$i<=31;$i++){
@@ -427,18 +427,18 @@ vLink=#333333 marginheight="0" marginwidth="0" 0>
                  </SELECT>
                  <SELECT NAME="birth_month" CLASS="field" STYLE="width=95;">
                     <OPTION VALUE="0"> </OPTION>
-                    <OPTION VALUE="1" <? if (@$_POST["birth_month"]==1) echo "selected"; ?>>январь</OPTION>
-                    <OPTION VALUE="2" <? if (@$_POST["birth_month"]==2) echo "selected"; ?>>февраль</OPTION>
-                    <OPTION VALUE="3" <? if (@$_POST["birth_month"]==3) echo "selected"; ?>>март</OPTION>
-                    <OPTION VALUE="4" <? if (@$_POST["birth_month"]==4) echo "selected"; ?>>апрель</OPTION>
-                    <OPTION VALUE="5" <? if (@$_POST["birth_month"]==5) echo "selected"; ?>>май</OPTION>
-                    <OPTION VALUE="6" <? if (@$_POST["birth_month"]==6) echo "selected"; ?>>июнь</OPTION>
-                    <OPTION VALUE="7" <? if (@$_POST["birth_month"]==7) echo "selected"; ?>>июль</OPTION>
-                    <OPTION VALUE="8" <? if (@$_POST["birth_month"]==8) echo "selected"; ?>>август</OPTION>
-                    <OPTION VALUE="9" <? if (@$_POST["birth_month"]==9) echo "selected"; ?>>сентябрь</OPTION>
-                    <OPTION VALUE="10" <? if (@$_POST["birth_month"]==10) echo "selected"; ?>>октябрь</OPTION>
-                    <OPTION VALUE="11" <? if (@$_POST["birth_month"]==11) echo "selected"; ?>>ноябрь</OPTION>
-                    <OPTION VALUE="12" <? if (@$_POST["birth_month"]==12) echo "selected"; ?>>декабрь</OPTION>
+                    <OPTION VALUE="1" <? if (@$_POST["birth_month"]==1) echo "selected"; ?>>СЏРЅРІР°СЂСЊ</OPTION>
+                    <OPTION VALUE="2" <? if (@$_POST["birth_month"]==2) echo "selected"; ?>>С„РµРІСЂР°Р»СЊ</OPTION>
+                    <OPTION VALUE="3" <? if (@$_POST["birth_month"]==3) echo "selected"; ?>>РјР°СЂС‚</OPTION>
+                    <OPTION VALUE="4" <? if (@$_POST["birth_month"]==4) echo "selected"; ?>>Р°РїСЂРµР»СЊ</OPTION>
+                    <OPTION VALUE="5" <? if (@$_POST["birth_month"]==5) echo "selected"; ?>>РјР°Р№</OPTION>
+                    <OPTION VALUE="6" <? if (@$_POST["birth_month"]==6) echo "selected"; ?>>РёСЋРЅСЊ</OPTION>
+                    <OPTION VALUE="7" <? if (@$_POST["birth_month"]==7) echo "selected"; ?>>РёСЋР»СЊ</OPTION>
+                    <OPTION VALUE="8" <? if (@$_POST["birth_month"]==8) echo "selected"; ?>>Р°РІРіСѓСЃС‚</OPTION>
+                    <OPTION VALUE="9" <? if (@$_POST["birth_month"]==9) echo "selected"; ?>>СЃРµРЅС‚СЏР±СЂСЊ</OPTION>
+                    <OPTION VALUE="10" <? if (@$_POST["birth_month"]==10) echo "selected"; ?>>РѕРєС‚СЏР±СЂСЊ</OPTION>
+                    <OPTION VALUE="11" <? if (@$_POST["birth_month"]==11) echo "selected"; ?>>РЅРѕСЏР±СЂСЊ</OPTION>
+                    <OPTION VALUE="12" <? if (@$_POST["birth_month"]==12) echo "selected"; ?>>РґРµРєР°Р±СЂСЊ</OPTION>
                  </SELECT>
                  <SELECT NAME="birth_year" CLASS="field" STYLE="width=60;">
                  <OPTION VALUE="0"> </OPTION>
@@ -451,129 +451,129 @@ vLink=#333333 marginheight="0" marginwidth="0" 0>
 $user['info']=str_replace("<BR>","\n",$user['info']);
 ?>
                   <SMALL><FONT
-                  color=red><BR>Внимание!</FONT> <FONT color=#364875>Дата рождения
-                  должна быть правильной, она используется в игровом процессе.
-                  Анкеты с неправильной датой рождения являются нарушением законов BK-2.</FONT></SMALL></TD></TR>
+                  color=red><BR>Р’РЅРёРјР°РЅРёРµ!</FONT> <FONT color=#364875>Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ
+                  РґРѕР»Р¶РЅР° Р±С‹С‚СЊ РїСЂР°РІРёР»СЊРЅРѕР№, РѕРЅР° РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РёРіСЂРѕРІРѕРј РїСЂРѕС†РµСЃСЃРµ.
+                  РђРЅРєРµС‚С‹ СЃ РЅРµРїСЂР°РІРёР»СЊРЅРѕР№ РґР°С‚РѕР№ СЂРѕР¶РґРµРЅРёСЏ СЏРІР»СЏСЋС‚СЃСЏ РЅР°СЂСѓС€РµРЅРёРµРј Р·Р°РєРѕРЅРѕРІ BK-2.</FONT></SMALL></TD></TR>
               <TR>
                 <TD vAlign=top><FONT color=red>*</FONT></TD>
-                <TD>Ваш пол: <INPUT <? if ($_GET['edit'] && $user['sex']==1) {echo "CHECKED";} else if (!$_GET['edit']) {echo "CHECKED";} ?> id=A1 name=sex
+                <TD>Р’Р°С€ РїРѕР»: <INPUT <? if ($_GET['edit'] && $user['sex']==1) {echo "CHECKED";} else if (!$_GET['edit']) {echo "CHECKED";} ?> id=A1 name=sex
                   style="CURSOR: hand" type=radio value=1 ><LABEL for=A1>
-                  Мужской</LABEL> <INPUT id=A2 name=sex style="CURSOR: hand"
-                  type=radio <? if ($_GET['edit'] && $user['sex']==0) {echo "CHECKED";} ?> value=0 <?=($_GET['edit'])?" disabled ":""?>><LABEL for=A2> Женский</LABEL> </TD></TR>
+                  РњСѓР¶СЃРєРѕР№</LABEL> <INPUT id=A2 name=sex style="CURSOR: hand"
+                  type=radio <? if ($_GET['edit'] && $user['sex']==0) {echo "CHECKED";} ?> value=0 <?=($_GET['edit'])?" disabled ":""?>><LABEL for=A2> Р–РµРЅСЃРєРёР№</LABEL> </TD></TR>
               <TR>
                 <TD>&nbsp;</TD>
-                <TD>Город: <SELECT name=city> <OPTION
-                    selected><OPTION>Москва<OPTION>Санкт-Петербург<OPTION>Абакан
-                    (Хакасия)<OPTION>Азов<OPTION>Аксай (Ростовская
-                    обл.)<OPTION>Алания<OPTION>Альметьевск<OPTION>Амурск<OPTION>Анадырь<OPTION>Анапа<OPTION>Ангарск
-                    (Иркутская
-                    обл.)<OPTION>Апатиты<OPTION>Армавир<OPTION>Архангельск<OPTION>Асбест<OPTION>Астрахань<OPTION>Балашиха<OPTION>Барнаул<OPTION>Белгород<OPTION>Беломорск
-                    (Карелия)<OPTION>Березники (Пермская
-                    обл.)<OPTION>Бийск<OPTION>Биробиджан<OPTION>Благовещенск<OPTION>Большой
-                    камень<OPTION>Борисоглебск<OPTION>Братск<OPTION>Бронницы<OPTION>Брянск<OPTION>Ванино<OPTION>Великие
-                    Луки<OPTION>Великий Устюг<OPTION>Верхняя
-                    Салда<OPTION>Владивосток<OPTION>Владикавказ<OPTION>Владимир<OPTION>Волгоград<OPTION>Волгодонск<OPTION>Волжск<OPTION>Вологда<OPTION>Волхов
-                    (С.Птрбрг
-                    обл.)<OPTION>Воронеж<OPTION>Воскресенск<OPTION>Воткинск<OPTION>Выборг<OPTION>Вязьма
-                    (Смоленская обл.)<OPTION>Вятские
-                    Поляны<OPTION>Гаврилов-Ям<OPTION>Геленджик<OPTION>Георгиевск<OPTION>Голицино
-                    (Московская
-                    обл.)<OPTION>Губкин<OPTION>Гусь-Хрустальный<OPTION>Дзержинск
-                    (Нижгрдск
-                    обл.)<OPTION>Димитровград<OPTION>Долгопрудный<OPTION>Дубна<OPTION>Дудинка
-                    (Эвенкская
-                    АО)<OPTION>Ейск<OPTION>Екатеринбург<OPTION>Елабуга
-                    (Татарстан)<OPTION>Елец (Липецкая
-                    обл.)<OPTION>Елизово<OPTION>Железногорск<OPTION>Жуков
-                    (Калужской
-                    обл.)<OPTION>Жуковский<OPTION>Заречный<OPTION>Звенигород<OPTION>Зеленогорск<OPTION>Зеленоград<OPTION>Зеленодольск<OPTION>Златоуст<OPTION>Иваново<OPTION>Ивантеевка
-                    (Мсквск
-                    обл.)<OPTION>Ижевск<OPTION>Иркутск<OPTION>Ишим<OPTION>Йошкар-Ола<OPTION>Казань<OPTION>Калининград<OPTION>Калуга<OPTION>Каменск-Уральский<OPTION>Карталы<OPTION>Кемерово<OPTION>Кинешма
-                    (Ивановская обл.)<OPTION>Кириши ( С.Птрбрг
-                    обл.)<OPTION>Киров<OPTION>Кирово-Чепецк<OPTION>Кисловодск<OPTION>Ковров<OPTION>Когалым<OPTION>Коломна<OPTION>Комсомольск-на-Амуре<OPTION>Королев<OPTION>Костомукша<OPTION>Кострома<OPTION>Красногорск<OPTION>Краснодар<OPTION>Красноярск<OPTION>Кронштадт<OPTION>Кропоткин<OPTION>Кумертау
-                    (Башкортостан)<OPTION>Курган<OPTION>Курск<OPTION>Кустанай<OPTION>Кызыл<OPTION>Липецк<OPTION>Лыткарино
-                    (Московская
-                    обл.)<OPTION>Люберцы<OPTION>Магадан<OPTION>Магнитогорск<OPTION>Майкоп<OPTION>Малоярославец<OPTION>Махачкала<OPTION>Медвежьегорск<OPTION>Междуреченск
-                    (Кмрвск
-                    обл.)<OPTION>Менделеевск<OPTION>Миасс<OPTION>Миллерово
-                    (Ростовская обл.)<OPTION>Минеральные Воды<OPTION>Мичуринск
-                    (Тамбовская
-                    обл.)<OPTION>Мурманск<OPTION>Муром<OPTION>Мытищи<OPTION>Набережные
-                    Челны<OPTION>Надым<OPTION>Нальчик<OPTION>Находка<OPTION>Невинномысск<OPTION>Нефтекамск<OPTION>Нефтеюганск<OPTION>Нижневартовс<OPTION>Нижнекамск<OPTION>Нижний
-                    Новгород<OPTION>Нижний
-                    Тагил<OPTION>Николаевск-на-Амуре<OPTION>Николаевск<OPTION>Новгород<OPTION>Новокузнецк<OPTION>Новомосковск<OPTION>Новороссийск<OPTION>Новосибирск<OPTION>Новоуральск<OPTION>Новочеркасск<OPTION>Новый
-                    Уренгой<OPTION>Норильск<OPTION>Ноябрьск<OPTION>Нягань<OPTION>Обнинск<OPTION>Одинцово<OPTION>Омск<OPTION>Онега<OPTION>Орел<OPTION>Оренбург<OPTION>Орск<OPTION>Пенза<OPTION>Первоуральск<OPTION>Переславль-Залесский<OPTION>Пермь<OPTION>Петрозаводск<OPTION>Петропавловск-Камч.<OPTION>Пластун
-                    (Приморский
-                    край)<OPTION>Подольск<OPTION>Полевской<OPTION>Полярные
-                    Зори<OPTION>Протвино<OPTION>Псков<OPTION>Пущино<OPTION>Пятигорск<OPTION>Радужный
-                    (Тюменская
-                    обл.)<OPTION>Ревда<OPTION>Ржев<OPTION>Ростов-на-Дону<OPTION>Ростов-Ярославский<OPTION>Рубцовск<OPTION>Рязань<OPTION>Салехард<OPTION>Самара<OPTION>Саранск<OPTION>Саратов<OPTION>Саров<OPTION>Сасово<OPTION>Себеж
-                    (Псковская обл.)<OPTION>Северодвинск<OPTION>Северск (Томская
-                    обл.)<OPTION>Сегежа<OPTION>Семикаракорск<OPTION>Сергиев
-                    Посад<OPTION>Серов<OPTION>Серпухов<OPTION>Сестрорецк
-                    (С.Птрбрг
-                    обл.)<OPTION>Смоленск<OPTION>Снежинск<OPTION>Советская
-                    Гавань<OPTION>Советский (Тюменская
-                    обл.)<OPTION>Солнечногорск<OPTION>Сосновый
-                    Бор<OPTION>Сосновый Бор (С.Птрбрг
-                    обл.)<OPTION>Сочи<OPTION>Ставрополь<OPTION>Старая
-                    Русса<OPTION>Старый Оскол<OPTION>Стерлитамак
-                    (Башкортостан)<OPTION>Стрежевой (Томская
-                    обл.)<OPTION>Строгино<OPTION>Сургут<OPTION>Сызрань<OPTION>Сыктывкар<OPTION>Таганрог<OPTION>Тамбов<OPTION>Таруса<OPTION>Тверь<OPTION>Тольятти<OPTION>Томск<OPTION>Трехгорный<OPTION>Троицк<OPTION>Туапсе<OPTION>Тула<OPTION>Тюмень<OPTION>Удомля
-                    (Тверская
-                    обл.)<OPTION>Улан-Удэ<OPTION>Ульяновск<OPTION>Уссурийск<OPTION>Усть-Лабинск
-                    (Крсндрскй
-                    край)<OPTION>Уфа<OPTION>Ухта<OPTION>Фрязино<OPTION>Хабаровск<OPTION>Ханты-Мансийск<OPTION>Химки<OPTION>Холмск<OPTION>Чебаркуль<OPTION>Чебоксары<OPTION>Челябинск<OPTION>Череповец<OPTION>Черкесск<OPTION>Черноголовка<OPTION>Чернушка
-                    (Пермская обл.)<OPTION>Черняховск (Клннгрдск
-                    обл.)<OPTION>Чита<OPTION>Шадринск (Курганская
-                    обл.)<OPTION>Шатура<OPTION>Шахты<OPTION>Щелково (Московская
-                    обл.)<OPTION>Электросталь<OPTION>Элиста<OPTION>Энгельс<OPTION>Южно-Сахалинск<OPTION>Южноуральск<OPTION>Юрга<OPTION>Якутск<OPTION>Ярославль<OPTION>Азербайджан<OPTION>Армения<OPTION>Беларусь<OPTION>Грузия<OPTION>Казахстан<OPTION>Кыргызстан<OPTION>Латвия<OPTION>Литва<OPTION>Таджикистан<OPTION>Туркменистан<OPTION>Узбекистан<OPTION>Украина<OPTION>Эстония<OPTION>Германия/Germany<OPTION>Израиль/Israel<OPTION>Канада/Canada<OPTION>США/USA</OPTION></SELECT>
-                  другой <INPUT maxLength=40 name=city2 value="<?=($_GET['edit'])?"{$user['city']}":"{$_POST['city2']}"?>"></TD></TR>
+                <TD>Р“РѕСЂРѕРґ: <SELECT name=city> <OPTION
+                    selected><OPTION>РњРѕСЃРєРІР°<OPTION>РЎР°РЅРєС‚-РџРµС‚РµСЂР±СѓСЂРі<OPTION>РђР±Р°РєР°РЅ
+                    (РҐР°РєР°СЃРёСЏ)<OPTION>РђР·РѕРІ<OPTION>РђРєСЃР°Р№ (Р РѕСЃС‚РѕРІСЃРєР°СЏ
+                    РѕР±Р».)<OPTION>РђР»Р°РЅРёСЏ<OPTION>РђР»СЊРјРµС‚СЊРµРІСЃРє<OPTION>РђРјСѓСЂСЃРє<OPTION>РђРЅР°РґС‹СЂСЊ<OPTION>РђРЅР°РїР°<OPTION>РђРЅРіР°СЂСЃРє
+                    (РСЂРєСѓС‚СЃРєР°СЏ
+                    РѕР±Р».)<OPTION>РђРїР°С‚РёС‚С‹<OPTION>РђСЂРјР°РІРёСЂ<OPTION>РђСЂС…Р°РЅРіРµР»СЊСЃРє<OPTION>РђСЃР±РµСЃС‚<OPTION>РђСЃС‚СЂР°С…Р°РЅСЊ<OPTION>Р‘Р°Р»Р°С€РёС…Р°<OPTION>Р‘Р°СЂРЅР°СѓР»<OPTION>Р‘РµР»РіРѕСЂРѕРґ<OPTION>Р‘РµР»РѕРјРѕСЂСЃРє
+                    (РљР°СЂРµР»РёСЏ)<OPTION>Р‘РµСЂРµР·РЅРёРєРё (РџРµСЂРјСЃРєР°СЏ
+                    РѕР±Р».)<OPTION>Р‘РёР№СЃРє<OPTION>Р‘РёСЂРѕР±РёРґР¶Р°РЅ<OPTION>Р‘Р»Р°РіРѕРІРµС‰РµРЅСЃРє<OPTION>Р‘РѕР»СЊС€РѕР№
+                    РєР°РјРµРЅСЊ<OPTION>Р‘РѕСЂРёСЃРѕРіР»РµР±СЃРє<OPTION>Р‘СЂР°С‚СЃРє<OPTION>Р‘СЂРѕРЅРЅРёС†С‹<OPTION>Р‘СЂСЏРЅСЃРє<OPTION>Р’Р°РЅРёРЅРѕ<OPTION>Р’РµР»РёРєРёРµ
+                    Р›СѓРєРё<OPTION>Р’РµР»РёРєРёР№ РЈСЃС‚СЋРі<OPTION>Р’РµСЂС…РЅСЏСЏ
+                    РЎР°Р»РґР°<OPTION>Р’Р»Р°РґРёРІРѕСЃС‚РѕРє<OPTION>Р’Р»Р°РґРёРєР°РІРєР°Р·<OPTION>Р’Р»Р°РґРёРјРёСЂ<OPTION>Р’РѕР»РіРѕРіСЂР°Рґ<OPTION>Р’РѕР»РіРѕРґРѕРЅСЃРє<OPTION>Р’РѕР»Р¶СЃРє<OPTION>Р’РѕР»РѕРіРґР°<OPTION>Р’РѕР»С…РѕРІ
+                    (РЎ.РџС‚СЂР±СЂРі
+                    РѕР±Р».)<OPTION>Р’РѕСЂРѕРЅРµР¶<OPTION>Р’РѕСЃРєСЂРµСЃРµРЅСЃРє<OPTION>Р’РѕС‚РєРёРЅСЃРє<OPTION>Р’С‹Р±РѕСЂРі<OPTION>Р’СЏР·СЊРјР°
+                    (РЎРјРѕР»РµРЅСЃРєР°СЏ РѕР±Р».)<OPTION>Р’СЏС‚СЃРєРёРµ
+                    РџРѕР»СЏРЅС‹<OPTION>Р“Р°РІСЂРёР»РѕРІ-РЇРј<OPTION>Р“РµР»РµРЅРґР¶РёРє<OPTION>Р“РµРѕСЂРіРёРµРІСЃРє<OPTION>Р“РѕР»РёС†РёРЅРѕ
+                    (РњРѕСЃРєРѕРІСЃРєР°СЏ
+                    РѕР±Р».)<OPTION>Р“СѓР±РєРёРЅ<OPTION>Р“СѓСЃСЊ-РҐСЂСѓСЃС‚Р°Р»СЊРЅС‹Р№<OPTION>Р”Р·РµСЂР¶РёРЅСЃРє
+                    (РќРёР¶РіСЂРґСЃРє
+                    РѕР±Р».)<OPTION>Р”РёРјРёС‚СЂРѕРІРіСЂР°Рґ<OPTION>Р”РѕР»РіРѕРїСЂСѓРґРЅС‹Р№<OPTION>Р”СѓР±РЅР°<OPTION>Р”СѓРґРёРЅРєР°
+                    (Р­РІРµРЅРєСЃРєР°СЏ
+                    РђРћ)<OPTION>Р•Р№СЃРє<OPTION>Р•РєР°С‚РµСЂРёРЅР±СѓСЂРі<OPTION>Р•Р»Р°Р±СѓРіР°
+                    (РўР°С‚Р°СЂСЃС‚Р°РЅ)<OPTION>Р•Р»РµС† (Р›РёРїРµС†РєР°СЏ
+                    РѕР±Р».)<OPTION>Р•Р»РёР·РѕРІРѕ<OPTION>Р–РµР»РµР·РЅРѕРіРѕСЂСЃРє<OPTION>Р–СѓРєРѕРІ
+                    (РљР°Р»СѓР¶СЃРєРѕР№
+                    РѕР±Р».)<OPTION>Р–СѓРєРѕРІСЃРєРёР№<OPTION>Р—Р°СЂРµС‡РЅС‹Р№<OPTION>Р—РІРµРЅРёРіРѕСЂРѕРґ<OPTION>Р—РµР»РµРЅРѕРіРѕСЂСЃРє<OPTION>Р—РµР»РµРЅРѕРіСЂР°Рґ<OPTION>Р—РµР»РµРЅРѕРґРѕР»СЊСЃРє<OPTION>Р—Р»Р°С‚РѕСѓСЃС‚<OPTION>РРІР°РЅРѕРІРѕ<OPTION>РРІР°РЅС‚РµРµРІРєР°
+                    (РњСЃРєРІСЃРє
+                    РѕР±Р».)<OPTION>РР¶РµРІСЃРє<OPTION>РСЂРєСѓС‚СЃРє<OPTION>РС€РёРј<OPTION>Р™РѕС€РєР°СЂ-РћР»Р°<OPTION>РљР°Р·Р°РЅСЊ<OPTION>РљР°Р»РёРЅРёРЅРіСЂР°Рґ<OPTION>РљР°Р»СѓРіР°<OPTION>РљР°РјРµРЅСЃРє-РЈСЂР°Р»СЊСЃРєРёР№<OPTION>РљР°СЂС‚Р°Р»С‹<OPTION>РљРµРјРµСЂРѕРІРѕ<OPTION>РљРёРЅРµС€РјР°
+                    (РРІР°РЅРѕРІСЃРєР°СЏ РѕР±Р».)<OPTION>РљРёСЂРёС€Рё ( РЎ.РџС‚СЂР±СЂРі
+                    РѕР±Р».)<OPTION>РљРёСЂРѕРІ<OPTION>РљРёСЂРѕРІРѕ-Р§РµРїРµС†Рє<OPTION>РљРёСЃР»РѕРІРѕРґСЃРє<OPTION>РљРѕРІСЂРѕРІ<OPTION>РљРѕРіР°Р»С‹Рј<OPTION>РљРѕР»РѕРјРЅР°<OPTION>РљРѕРјСЃРѕРјРѕР»СЊСЃРє-РЅР°-РђРјСѓСЂРµ<OPTION>РљРѕСЂРѕР»РµРІ<OPTION>РљРѕСЃС‚РѕРјСѓРєС€Р°<OPTION>РљРѕСЃС‚СЂРѕРјР°<OPTION>РљСЂР°СЃРЅРѕРіРѕСЂСЃРє<OPTION>РљСЂР°СЃРЅРѕРґР°СЂ<OPTION>РљСЂР°СЃРЅРѕСЏСЂСЃРє<OPTION>РљСЂРѕРЅС€С‚Р°РґС‚<OPTION>РљСЂРѕРїРѕС‚РєРёРЅ<OPTION>РљСѓРјРµСЂС‚Р°Сѓ
+                    (Р‘Р°С€РєРѕСЂС‚РѕСЃС‚Р°РЅ)<OPTION>РљСѓСЂРіР°РЅ<OPTION>РљСѓСЂСЃРє<OPTION>РљСѓСЃС‚Р°РЅР°Р№<OPTION>РљС‹Р·С‹Р»<OPTION>Р›РёРїРµС†Рє<OPTION>Р›С‹С‚РєР°СЂРёРЅРѕ
+                    (РњРѕСЃРєРѕРІСЃРєР°СЏ
+                    РѕР±Р».)<OPTION>Р›СЋР±РµСЂС†С‹<OPTION>РњР°РіР°РґР°РЅ<OPTION>РњР°РіРЅРёС‚РѕРіРѕСЂСЃРє<OPTION>РњР°Р№РєРѕРї<OPTION>РњР°Р»РѕСЏСЂРѕСЃР»Р°РІРµС†<OPTION>РњР°С…Р°С‡РєР°Р»Р°<OPTION>РњРµРґРІРµР¶СЊРµРіРѕСЂСЃРє<OPTION>РњРµР¶РґСѓСЂРµС‡РµРЅСЃРє
+                    (РљРјСЂРІСЃРє
+                    РѕР±Р».)<OPTION>РњРµРЅРґРµР»РµРµРІСЃРє<OPTION>РњРёР°СЃСЃ<OPTION>РњРёР»Р»РµСЂРѕРІРѕ
+                    (Р РѕСЃС‚РѕРІСЃРєР°СЏ РѕР±Р».)<OPTION>РњРёРЅРµСЂР°Р»СЊРЅС‹Рµ Р’РѕРґС‹<OPTION>РњРёС‡СѓСЂРёРЅСЃРє
+                    (РўР°РјР±РѕРІСЃРєР°СЏ
+                    РѕР±Р».)<OPTION>РњСѓСЂРјР°РЅСЃРє<OPTION>РњСѓСЂРѕРј<OPTION>РњС‹С‚РёС‰Рё<OPTION>РќР°Р±РµСЂРµР¶РЅС‹Рµ
+                    Р§РµР»РЅС‹<OPTION>РќР°РґС‹Рј<OPTION>РќР°Р»СЊС‡РёРє<OPTION>РќР°С…РѕРґРєР°<OPTION>РќРµРІРёРЅРЅРѕРјС‹СЃСЃРє<OPTION>РќРµС„С‚РµРєР°РјСЃРє<OPTION>РќРµС„С‚РµСЋРіР°РЅСЃРє<OPTION>РќРёР¶РЅРµРІР°СЂС‚РѕРІСЃ<OPTION>РќРёР¶РЅРµРєР°РјСЃРє<OPTION>РќРёР¶РЅРёР№
+                    РќРѕРІРіРѕСЂРѕРґ<OPTION>РќРёР¶РЅРёР№
+                    РўР°РіРёР»<OPTION>РќРёРєРѕР»Р°РµРІСЃРє-РЅР°-РђРјСѓСЂРµ<OPTION>РќРёРєРѕР»Р°РµРІСЃРє<OPTION>РќРѕРІРіРѕСЂРѕРґ<OPTION>РќРѕРІРѕРєСѓР·РЅРµС†Рє<OPTION>РќРѕРІРѕРјРѕСЃРєРѕРІСЃРє<OPTION>РќРѕРІРѕСЂРѕСЃСЃРёР№СЃРє<OPTION>РќРѕРІРѕСЃРёР±РёСЂСЃРє<OPTION>РќРѕРІРѕСѓСЂР°Р»СЊСЃРє<OPTION>РќРѕРІРѕС‡РµСЂРєР°СЃСЃРє<OPTION>РќРѕРІС‹Р№
+                    РЈСЂРµРЅРіРѕР№<OPTION>РќРѕСЂРёР»СЊСЃРє<OPTION>РќРѕСЏР±СЂСЊСЃРє<OPTION>РќСЏРіР°РЅСЊ<OPTION>РћР±РЅРёРЅСЃРє<OPTION>РћРґРёРЅС†РѕРІРѕ<OPTION>РћРјСЃРє<OPTION>РћРЅРµРіР°<OPTION>РћСЂРµР»<OPTION>РћСЂРµРЅР±СѓСЂРі<OPTION>РћСЂСЃРє<OPTION>РџРµРЅР·Р°<OPTION>РџРµСЂРІРѕСѓСЂР°Р»СЊСЃРє<OPTION>РџРµСЂРµСЃР»Р°РІР»СЊ-Р—Р°Р»РµСЃСЃРєРёР№<OPTION>РџРµСЂРјСЊ<OPTION>РџРµС‚СЂРѕР·Р°РІРѕРґСЃРє<OPTION>РџРµС‚СЂРѕРїР°РІР»РѕРІСЃРє-РљР°РјС‡.<OPTION>РџР»Р°СЃС‚СѓРЅ
+                    (РџСЂРёРјРѕСЂСЃРєРёР№
+                    РєСЂР°Р№)<OPTION>РџРѕРґРѕР»СЊСЃРє<OPTION>РџРѕР»РµРІСЃРєРѕР№<OPTION>РџРѕР»СЏСЂРЅС‹Рµ
+                    Р—РѕСЂРё<OPTION>РџСЂРѕС‚РІРёРЅРѕ<OPTION>РџСЃРєРѕРІ<OPTION>РџСѓС‰РёРЅРѕ<OPTION>РџСЏС‚РёРіРѕСЂСЃРє<OPTION>Р Р°РґСѓР¶РЅС‹Р№
+                    (РўСЋРјРµРЅСЃРєР°СЏ
+                    РѕР±Р».)<OPTION>Р РµРІРґР°<OPTION>Р Р¶РµРІ<OPTION>Р РѕСЃС‚РѕРІ-РЅР°-Р”РѕРЅСѓ<OPTION>Р РѕСЃС‚РѕРІ-РЇСЂРѕСЃР»Р°РІСЃРєРёР№<OPTION>Р СѓР±С†РѕРІСЃРє<OPTION>Р СЏР·Р°РЅСЊ<OPTION>РЎР°Р»РµС…Р°СЂРґ<OPTION>РЎР°РјР°СЂР°<OPTION>РЎР°СЂР°РЅСЃРє<OPTION>РЎР°СЂР°С‚РѕРІ<OPTION>РЎР°СЂРѕРІ<OPTION>РЎР°СЃРѕРІРѕ<OPTION>РЎРµР±РµР¶
+                    (РџСЃРєРѕРІСЃРєР°СЏ РѕР±Р».)<OPTION>РЎРµРІРµСЂРѕРґРІРёРЅСЃРє<OPTION>РЎРµРІРµСЂСЃРє (РўРѕРјСЃРєР°СЏ
+                    РѕР±Р».)<OPTION>РЎРµРіРµР¶Р°<OPTION>РЎРµРјРёРєР°СЂР°РєРѕСЂСЃРє<OPTION>РЎРµСЂРіРёРµРІ
+                    РџРѕСЃР°Рґ<OPTION>РЎРµСЂРѕРІ<OPTION>РЎРµСЂРїСѓС…РѕРІ<OPTION>РЎРµСЃС‚СЂРѕСЂРµС†Рє
+                    (РЎ.РџС‚СЂР±СЂРі
+                    РѕР±Р».)<OPTION>РЎРјРѕР»РµРЅСЃРє<OPTION>РЎРЅРµР¶РёРЅСЃРє<OPTION>РЎРѕРІРµС‚СЃРєР°СЏ
+                    Р“Р°РІР°РЅСЊ<OPTION>РЎРѕРІРµС‚СЃРєРёР№ (РўСЋРјРµРЅСЃРєР°СЏ
+                    РѕР±Р».)<OPTION>РЎРѕР»РЅРµС‡РЅРѕРіРѕСЂСЃРє<OPTION>РЎРѕСЃРЅРѕРІС‹Р№
+                    Р‘РѕСЂ<OPTION>РЎРѕСЃРЅРѕРІС‹Р№ Р‘РѕСЂ (РЎ.РџС‚СЂР±СЂРі
+                    РѕР±Р».)<OPTION>РЎРѕС‡Рё<OPTION>РЎС‚Р°РІСЂРѕРїРѕР»СЊ<OPTION>РЎС‚Р°СЂР°СЏ
+                    Р СѓСЃСЃР°<OPTION>РЎС‚Р°СЂС‹Р№ РћСЃРєРѕР»<OPTION>РЎС‚РµСЂР»РёС‚Р°РјР°Рє
+                    (Р‘Р°С€РєРѕСЂС‚РѕСЃС‚Р°РЅ)<OPTION>РЎС‚СЂРµР¶РµРІРѕР№ (РўРѕРјСЃРєР°СЏ
+                    РѕР±Р».)<OPTION>РЎС‚СЂРѕРіРёРЅРѕ<OPTION>РЎСѓСЂРіСѓС‚<OPTION>РЎС‹Р·СЂР°РЅСЊ<OPTION>РЎС‹РєС‚С‹РІРєР°СЂ<OPTION>РўР°РіР°РЅСЂРѕРі<OPTION>РўР°РјР±РѕРІ<OPTION>РўР°СЂСѓСЃР°<OPTION>РўРІРµСЂСЊ<OPTION>РўРѕР»СЊСЏС‚С‚Рё<OPTION>РўРѕРјСЃРє<OPTION>РўСЂРµС…РіРѕСЂРЅС‹Р№<OPTION>РўСЂРѕРёС†Рє<OPTION>РўСѓР°РїСЃРµ<OPTION>РўСѓР»Р°<OPTION>РўСЋРјРµРЅСЊ<OPTION>РЈРґРѕРјР»СЏ
+                    (РўРІРµСЂСЃРєР°СЏ
+                    РѕР±Р».)<OPTION>РЈР»Р°РЅ-РЈРґСЌ<OPTION>РЈР»СЊСЏРЅРѕРІСЃРє<OPTION>РЈСЃСЃСѓСЂРёР№СЃРє<OPTION>РЈСЃС‚СЊ-Р›Р°Р±РёРЅСЃРє
+                    (РљСЂСЃРЅРґСЂСЃРєР№
+                    РєСЂР°Р№)<OPTION>РЈС„Р°<OPTION>РЈС…С‚Р°<OPTION>Р¤СЂСЏР·РёРЅРѕ<OPTION>РҐР°Р±Р°СЂРѕРІСЃРє<OPTION>РҐР°РЅС‚С‹-РњР°РЅСЃРёР№СЃРє<OPTION>РҐРёРјРєРё<OPTION>РҐРѕР»РјСЃРє<OPTION>Р§РµР±Р°СЂРєСѓР»СЊ<OPTION>Р§РµР±РѕРєСЃР°СЂС‹<OPTION>Р§РµР»СЏР±РёРЅСЃРє<OPTION>Р§РµСЂРµРїРѕРІРµС†<OPTION>Р§РµСЂРєРµСЃСЃРє<OPTION>Р§РµСЂРЅРѕРіРѕР»РѕРІРєР°<OPTION>Р§РµСЂРЅСѓС€РєР°
+                    (РџРµСЂРјСЃРєР°СЏ РѕР±Р».)<OPTION>Р§РµСЂРЅСЏС…РѕРІСЃРє (РљР»РЅРЅРіСЂРґСЃРє
+                    РѕР±Р».)<OPTION>Р§РёС‚Р°<OPTION>РЁР°РґСЂРёРЅСЃРє (РљСѓСЂРіР°РЅСЃРєР°СЏ
+                    РѕР±Р».)<OPTION>РЁР°С‚СѓСЂР°<OPTION>РЁР°С…С‚С‹<OPTION>Р©РµР»РєРѕРІРѕ (РњРѕСЃРєРѕРІСЃРєР°СЏ
+                    РѕР±Р».)<OPTION>Р­Р»РµРєС‚СЂРѕСЃС‚Р°Р»СЊ<OPTION>Р­Р»РёСЃС‚Р°<OPTION>Р­РЅРіРµР»СЊСЃ<OPTION>Р®Р¶РЅРѕ-РЎР°С…Р°Р»РёРЅСЃРє<OPTION>Р®Р¶РЅРѕСѓСЂР°Р»СЊСЃРє<OPTION>Р®СЂРіР°<OPTION>РЇРєСѓС‚СЃРє<OPTION>РЇСЂРѕСЃР»Р°РІР»СЊ<OPTION>РђР·РµСЂР±Р°Р№РґР¶Р°РЅ<OPTION>РђСЂРјРµРЅРёСЏ<OPTION>Р‘РµР»Р°СЂСѓСЃСЊ<OPTION>Р“СЂСѓР·РёСЏ<OPTION>РљР°Р·Р°С…СЃС‚Р°РЅ<OPTION>РљС‹СЂРіС‹Р·СЃС‚Р°РЅ<OPTION>Р›Р°С‚РІРёСЏ<OPTION>Р›РёС‚РІР°<OPTION>РўР°РґР¶РёРєРёСЃС‚Р°РЅ<OPTION>РўСѓСЂРєРјРµРЅРёСЃС‚Р°РЅ<OPTION>РЈР·Р±РµРєРёСЃС‚Р°РЅ<OPTION>РЈРєСЂР°РёРЅР°<OPTION>Р­СЃС‚РѕРЅРёСЏ<OPTION>Р“РµСЂРјР°РЅРёСЏ/Germany<OPTION>РР·СЂР°РёР»СЊ/Israel<OPTION>РљР°РЅР°РґР°/Canada<OPTION>РЎРЁРђ/USA</OPTION></SELECT>
+                  РґСЂСѓРіРѕР№ <INPUT maxLength=40 name=city2 value="<?=($_GET['edit'])?"{$user['city']}":"{$_POST['city2']}"?>"></TD></TR>
               <TR>
                 <TD>&nbsp;</TD>
                 <TD>ICQ: <INPUT maxLength=20 name=icq size=9 value="<?=($_GET['edit'])?"{$user['icq']}":"{$_POST['icq']}"?>">
-                Домашняя страница: <INPUT maxLength=60 name=homepage value="<?=($_GET['edit'])?"{$user['http']}":"{$_POST['homepage']}"?>"
+                Р”РѕРјР°С€РЅСЏСЏ СЃС‚СЂР°РЅРёС†Р°: <INPUT maxLength=60 name=homepage value="<?=($_GET['edit'])?"{$user['http']}":"{$_POST['homepage']}"?>"
                   size=35>
                 </TD></TR>
               <TR>
                 <TD>&nbsp;</TD>
-                <TD>Увлечения / хобби <SMALL>(не более 60 слов)</SMALL><BR><TEXTAREA cols=60 name=hobby rows=7 ><?=($_GET['edit'])?"{$user['info']}":"{$_POST['nobby']}"?></TEXTAREA></TD></TR>
+                <TD>РЈРІР»РµС‡РµРЅРёСЏ / С…РѕР±Р±Рё <SMALL>(РЅРµ Р±РѕР»РµРµ 60 СЃР»РѕРІ)</SMALL><BR><TEXTAREA cols=60 name=hobby rows=7 ><?=($_GET['edit'])?"{$user['info']}":"{$_POST['nobby']}"?></TEXTAREA></TD></TR>
               <TR>
                 <TD>&nbsp;</TD>
-                <TD>Девиз: <INPUT maxLength=160 name=about size=70 value="<?=($_GET['edit'])?"{$user['lozung']}":"{$_POST['about']}"?>"></TD></TR>
+                <TD>Р”РµРІРёР·: <INPUT maxLength=160 name=about size=70 value="<?=($_GET['edit'])?"{$user['lozung']}":"{$_POST['about']}"?>"></TD></TR>
               <TR>
                <TD>&nbsp;</TD>
-                <TD>Цвет сообщений в чате: <SELECT name=ChatColor> <OPTION
+                <TD>Р¦РІРµС‚ СЃРѕРѕР±С‰РµРЅРёР№ РІ С‡Р°С‚Рµ: <SELECT name=ChatColor> <OPTION
                     selected style="BACKGROUND: #f2f0f0; COLOR: black"
-                    value=Black>Черный<OPTION
+                    value=Black>Р§РµСЂРЅС‹Р№<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: blue"
-                    value=Blue>Синий<OPTION
+                    value=Blue>РЎРёРЅРёР№<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: fuchsia"
-                    value=Fuchsia>Розовый<OPTION
+                    value=Fuchsia>Р РѕР·РѕРІС‹Р№<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: gray"
-                    value=Gray>Серый<OPTION
+                    value=Gray>РЎРµСЂС‹Р№<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: green"
-                    value=Green>Зеленый<OPTION
+                    value=Green>Р—РµР»РµРЅС‹Р№<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: maroon"
-                    value=Maroon>Темнокрасный<OPTION
+                    value=Maroon>РўРµРјРЅРѕРєСЂР°СЃРЅС‹Р№<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: navy"
-                    value=Navy>Темносиний<OPTION
+                    value=Navy>РўРµРјРЅРѕСЃРёРЅРёР№<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: olive"
-                    value=Olive>Оливковый<OPTION
+                    value=Olive>РћР»РёРІРєРѕРІС‹Р№<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: purple"
-                    value=Purple>Фиолетовый<OPTION
+                    value=Purple>Р¤РёРѕР»РµС‚РѕРІС‹Р№<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: teal"
-                    value=Teal>Морской волны<OPTION
+                    value=Teal>РњРѕСЂСЃРєРѕР№ РІРѕР»РЅС‹<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: orange"
-                    value=Orange>Оранжевый<OPTION
+                    value=Orange>РћСЂР°РЅР¶РµРІС‹Р№<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: chocolate"
-                    value=Chocolate>Шоколадный<OPTION
+                    value=Chocolate>РЁРѕРєРѕР»Р°РґРЅС‹Р№<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: darkkhaki"
-                    value=DarkKhaki>Темный хаки<OPTION
+                    value=DarkKhaki>РўРµРјРЅС‹Р№ С…Р°РєРё<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: sandybrown"
-                    value=SandyBrown>Темнопесочный<OPTION
+                    value=SandyBrown>РўРµРјРЅРѕРїРµСЃРѕС‡РЅС‹Р№<OPTION
                     style="BACKGROUND: #f2f0f0; COLOR: #8700e4"
-                    value="#8700e4">Сиреневый</OPTION></SELECT>
+                    value="#8700e4">РЎРёСЂРµРЅРµРІС‹Р№</OPTION></SELECT>
 
 
                     <?
@@ -585,12 +585,12 @@ $user['info']=str_replace("<BR>","\n",$user['info']);
               <TR>
                 <TD vAlign=top><FONT color=red>*</FONT></TD>
                 <TD><INPUT id=A3 name=Law style="CURSOR: hand"
-                  type=checkbox <?=($_GET['edit'])?" disabled checked ":""?>><LABEL for=A3> Я ознакомился и обязуюсь соблюдать</LABEL> <A
+                  type=checkbox <?=($_GET['edit'])?" disabled checked ":""?>><LABEL for=A3> РЇ РѕР·РЅР°РєРѕРјРёР»СЃСЏ Рё РѕР±СЏР·СѓСЋСЃСЊ СЃРѕР±Р»СЋРґР°С‚СЊ</LABEL> <A
                   href="/forum.php?conf=13"
-                  target=_blank><B>Законы BestcombatS</B></A> <BR><BR>
+                  target=_blank><B>Р—Р°РєРѕРЅС‹ BestcombatS</B></A> <BR><BR>
                   <?if (!$_GET['edit']) {?>
 				  <img src="sec.php" border="1"><br><BR>
-                  Код подтверждения:
+                  РљРѕРґ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ:
 				<input type="text" name="securityCode" size="20" value="" maxlength=5 style="FONT-FAMILY: verdana;"> 
 				<?}?>           
                  </TD></TR>
@@ -599,9 +599,9 @@ $user['info']=str_replace("<BR>","\n",$user['info']);
                <input type="hidden" name="ref" value="<?if(!empty($ref)){echo $ref;}?>">
      <TD align=middle colSpan=2><br>
                 <? if($_GET['edit']) {
-                echo "<INPUT name=add type=submit value=Сохранить>";
+                echo "<INPUT name=add type=submit value=РЎРѕС…СЂР°РЅРёС‚СЊ>";
                 } else {
-                echo "<INPUT name=add type=submit value=Зарегистрироваться>";
+                echo "<INPUT name=add type=submit value=Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ>";
                 }
                 ?>
                 <div align=left>

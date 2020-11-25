@@ -1,6 +1,6 @@
 <?
 if(in_array($user['room'], $canalrooms)){
-print"<font style='font-size:14px; color:#8f0000'><b>".$mir['name']."</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<a style=\"cursor:pointer;\" onclick=\"if (confirm('Вы уверены что хотите выйти?')) window.location='canalizaciya.php?act=cexit'\">&nbsp;<b style='font-size:14px; color:#000066;'>Выйти</b></a>";
+print"<font style='font-size:14px; color:#8f0000'><b>".$mir['name']."</b></font>&nbsp;&nbsp;&nbsp;&nbsp;<a style=\"cursor:pointer;\" onclick=\"if (confirm('Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ РІС‹Р№С‚Рё?')) window.location='canalizaciya.php?act=cexit'\">&nbsp;<b style='font-size:14px; color:#000066;'>Р’С‹Р№С‚Рё</b></a>";
 print'<div style="position:relative; id="ione"><div align="left"><img src="'.IMGBASE.'/labirint3/'.$gefd['style'].'/podzem.jpg" width=530 height=260 border=1 galleryimg="no" /></div>';
 echo"<div style='position:absolute; left:374px; top:123px;'><img src='".IMGBASE."/labirint3/".$gefd['style']."/yo.gif' border='0' width='150' height='130'></div>";
 $fer = mysql_query("select * from `labirint` where `glav_id`='".$mir['glav_id']."' and name='$mir[name]'");
@@ -54,9 +54,9 @@ if($vektor == '270'){$p = '0';}
 ?>
 <div style='position:absolute; left:492px; top:48px;'><a onClick="return check('m3');" id="m3" href="?rnd=<?=time()?>&path=<? echo"$p";?>"><img src="<?=IMGBASE?>/img/podzem/right<? if(!$step1['right']) { echo 'i';}?>.gif" border="0" /></a></div>
 
-<div style='position:absolute; left:404px; top:37px;'><a href="?rnd=<?=time()?>&left=<?print"$dal";?>" title="Поворот на лево"><img src="<?=IMGBASE?>/img/podzem/vlevo.gif" width="22" height="20" border="0" /></a></div>
+<div style='position:absolute; left:404px; top:37px;'><a href="?rnd=<?=time()?>&left=<?print"$dal";?>" title="РџРѕРІРѕСЂРѕС‚ РЅР° Р»РµРІРѕ"><img src="<?=IMGBASE?>/img/podzem/vlevo.gif" width="22" height="20" border="0" /></a></div>
 
-<div style='position:absolute; left:475px; top:37px;'><a href="?rnd=<?=time()?>&right=<?print"$dals";?>" title="Поворот на право"><img src="<?=IMGBASE?>/img/podzem/vpravo.gif" width="21" height="20" border="0" /></a></div>
+<div style='position:absolute; left:475px; top:37px;'><a href="?rnd=<?=time()?>&right=<?print"$dals";?>" title="РџРѕРІРѕСЂРѕС‚ РЅР° РїСЂР°РІРѕ"><img src="<?=IMGBASE?>/img/podzem/vpravo.gif" width="21" height="20" border="0" /></a></div>
 
 <div style='position:absolute; left:433px; top:62px;'><a href="?rnd=<?=time()?>"><img src="<?=IMGBASE?>/img/podzem/ref.gif" border="0"/></a></div>
 

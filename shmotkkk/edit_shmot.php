@@ -7,8 +7,8 @@
 if ($user['room'] != 35) {$magaz='shop_old';}else{$magaz='berezka';}
 ?>
 <form action="" method="get">
-<input name="name" type="text" value="Назварие предмета" />
-<input name="next" type="submit" value="Вперед" />
+<input name="name" type="text" value="РќР°Р·РІР°СЂРёРµ РїСЂРµРґРјРµС‚Р°" />
+<input name="next" type="submit" value="Р’РїРµСЂРµРґ" />
 </form>
 <?
 if($_GET['next']){
@@ -17,199 +17,199 @@ if($sp){
 if($_GET['es']!=1){
 ?>
 <form method=post action="/shmotkkk/edit_shmot.php?name=<? print"".$sp['name']."";?>&next=1&es=1">
-<b>Вещи</b>
+<b>Р’РµС‰Рё</b>
 <table>
 
-<tr><td>Название </td><td><input type=text name=name value='<? print"".$sp['name']."";?>'> </td></tr>
-<tr><td>Картинка </td><td><input type=text name=img value='<? print"".$sp['img']."";?>'> </td></tr>
-<tr><td>Количество в магазине </td><td><input type=text name=count value="<? print"".$sp['count']."";?>"></td></tr>
-<tr><td>Тип предмета 
+<tr><td>РќР°Р·РІР°РЅРёРµ </td><td><input type=text name=name value='<? print"".$sp['name']."";?>'> </td></tr>
+<tr><td>РљР°СЂС‚РёРЅРєР° </td><td><input type=text name=img value='<? print"".$sp['img']."";?>'> </td></tr>
+<tr><td>РљРѕР»РёС‡РµСЃС‚РІРѕ РІ РјР°РіР°Р·РёРЅРµ </td><td><input type=text name=count value="<? print"".$sp['count']."";?>"></td></tr>
+<tr><td>РўРёРї РїСЂРµРґРјРµС‚Р° 
 	</td><td><select name="type">
-			<option value="<? print"".$sp['type']."";?>">Оставить такой какой есть!</option>
-			<option value="3">Оружие</option>
-			<option value="29">Стрелы</option>
-			<option value="11">сапоги</option>
-			<option value="9">перчатки</option>
-			<option value="4">Броня</option>
-			<option value="27">Рубашки/то что под бронь)</option>
-			<option value="8">шлемы</option>
-			<option value="10">Щиты</option>
-			<option value="1">серьги</option>
-			<option value="28">плащи</option>
-			<option value="2">ожерелья</option>
-			<option value="5">кольца</option>
-			<option value="22">Наручи</option>
-			<option value="23">Пояс</option>
-			<option value="24">штаны</option>
-			<option value="25">Заклинания</option>
-			<option value="50">Еда</option>
-			<option value="188">Эликсиры</option>
+			<option value="<? print"".$sp['type']."";?>">РћСЃС‚Р°РІРёС‚СЊ С‚Р°РєРѕР№ РєР°РєРѕР№ РµСЃС‚СЊ!</option>
+			<option value="3">РћСЂСѓР¶РёРµ</option>
+			<option value="29">РЎС‚СЂРµР»С‹</option>
+			<option value="11">СЃР°РїРѕРіРё</option>
+			<option value="9">РїРµСЂС‡Р°С‚РєРё</option>
+			<option value="4">Р‘СЂРѕРЅСЏ</option>
+			<option value="27">Р СѓР±Р°С€РєРё/С‚Рѕ С‡С‚Рѕ РїРѕРґ Р±СЂРѕРЅСЊ)</option>
+			<option value="8">С€Р»РµРјС‹</option>
+			<option value="10">Р©РёС‚С‹</option>
+			<option value="1">СЃРµСЂСЊРіРё</option>
+			<option value="28">РїР»Р°С‰Рё</option>
+			<option value="2">РѕР¶РµСЂРµР»СЊСЏ</option>
+			<option value="5">РєРѕР»СЊС†Р°</option>
+			<option value="22">РќР°СЂСѓС‡Рё</option>
+			<option value="23">РџРѕСЏСЃ</option>
+			<option value="24">С€С‚Р°РЅС‹</option>
+			<option value="25">Р—Р°РєР»РёРЅР°РЅРёСЏ</option>
+			<option value="50">Р•РґР°</option>
+			<option value="188">Р­Р»РёРєСЃРёСЂС‹</option>
 	</select> </td></tr>
 
-<tr><td>Масса </td><td><input type=text name=massa value="<? print"".$sp['massa']."";?>"> </td></tr>
-<tr><td>Нужна идентификация </td><td><input type=text name=needident value="<? print"".$sp['needident']."";?>"></td></tr>
-<tr><td>Количество знаков </td><td><input type=text name=letter value="<? print"".$sp['letter']."";?>"> </td></tr>
-<tr><td>Может чиниться </td><td><input type=text name=isrep value="<? print"".$sp['isrep']."";?>"> </td></tr>
-<tr><td>Раздел магазина 
+<tr><td>РњР°СЃСЃР° </td><td><input type=text name=massa value="<? print"".$sp['massa']."";?>"> </td></tr>
+<tr><td>РќСѓР¶РЅР° РёРґРµРЅС‚РёС„РёРєР°С†РёСЏ </td><td><input type=text name=needident value="<? print"".$sp['needident']."";?>"></td></tr>
+<tr><td>РљРѕР»РёС‡РµСЃС‚РІРѕ Р·РЅР°РєРѕРІ </td><td><input type=text name=letter value="<? print"".$sp['letter']."";?>"> </td></tr>
+<tr><td>РњРѕР¶РµС‚ С‡РёРЅРёС‚СЊСЃСЏ </td><td><input type=text name=isrep value="<? print"".$sp['isrep']."";?>"> </td></tr>
+<tr><td>Р Р°Р·РґРµР» РјР°РіР°Р·РёРЅР° 
 	</td><td><select name="razdel">
-			<option value="<? print"".$sp['razdel']."";?>">Оставить такой какой есть</option>
-			<option value="1">Оружие: кастеты,ножи</option>
-			<option value="11">Оружие: топоры</option>
-			<option value="12">Оружие: дубины,булавы</option>
-			<option value="13">Оружие: мечи</option>
-			<option value="14">Оружие: Луки и стрелы</option>
-			<option value="2">Одежда: сапоги</option>
-			<option value="21">Одежда: перчатки</option>
-			<option value="29">Одежда: Рубахи</option>
-			<option value="22">Одежда: легкая броня</option>
-			<option value="23">Одежда: тяжелая броня</option>
-			<option value="24">Одежда: шлемы</option>
-			<option value="25">Одежда: наручи</option>
-			<option value="26">Одежда: пояса</option>
-			<option value="27">Одежда: поножи</option>
-			<option value="28">Одежда: плащи</option>
-			<option value="3">Щиты</option>
-			<option value="4">Ювелирные товары: серьги</option>
-			<option value="41">Ювелирные товары: ожерелья</option>
-			<option value="42">Ювелирные товары: кольца</option>
-			<option value="5">Заклинания: нейтральные</option>
-			<option value="51">3аклинания: боевые и защитные</option>
-			<option value="6">Амуниция</option>
-			<option value="188">Эликсиры</option>
-			<option value="7">Сувениры: открытки</option>
-			<option value="71">Сувениры: подарки</option>
-			<option value="50">Еда</option>
+			<option value="<? print"".$sp['razdel']."";?>">РћСЃС‚Р°РІРёС‚СЊ С‚Р°РєРѕР№ РєР°РєРѕР№ РµСЃС‚СЊ</option>
+			<option value="1">РћСЂСѓР¶РёРµ: РєР°СЃС‚РµС‚С‹,РЅРѕР¶Рё</option>
+			<option value="11">РћСЂСѓР¶РёРµ: С‚РѕРїРѕСЂС‹</option>
+			<option value="12">РћСЂСѓР¶РёРµ: РґСѓР±РёРЅС‹,Р±СѓР»Р°РІС‹</option>
+			<option value="13">РћСЂСѓР¶РёРµ: РјРµС‡Рё</option>
+			<option value="14">РћСЂСѓР¶РёРµ: Р›СѓРєРё Рё СЃС‚СЂРµР»С‹</option>
+			<option value="2">РћРґРµР¶РґР°: СЃР°РїРѕРіРё</option>
+			<option value="21">РћРґРµР¶РґР°: РїРµСЂС‡Р°С‚РєРё</option>
+			<option value="29">РћРґРµР¶РґР°: Р СѓР±Р°С…Рё</option>
+			<option value="22">РћРґРµР¶РґР°: Р»РµРіРєР°СЏ Р±СЂРѕРЅСЏ</option>
+			<option value="23">РћРґРµР¶РґР°: С‚СЏР¶РµР»Р°СЏ Р±СЂРѕРЅСЏ</option>
+			<option value="24">РћРґРµР¶РґР°: С€Р»РµРјС‹</option>
+			<option value="25">РћРґРµР¶РґР°: РЅР°СЂСѓС‡Рё</option>
+			<option value="26">РћРґРµР¶РґР°: РїРѕСЏСЃР°</option>
+			<option value="27">РћРґРµР¶РґР°: РїРѕРЅРѕР¶Рё</option>
+			<option value="28">РћРґРµР¶РґР°: РїР»Р°С‰Рё</option>
+			<option value="3">Р©РёС‚С‹</option>
+			<option value="4">Р®РІРµР»РёСЂРЅС‹Рµ С‚РѕРІР°СЂС‹: СЃРµСЂСЊРіРё</option>
+			<option value="41">Р®РІРµР»РёСЂРЅС‹Рµ С‚РѕРІР°СЂС‹: РѕР¶РµСЂРµР»СЊСЏ</option>
+			<option value="42">Р®РІРµР»РёСЂРЅС‹Рµ С‚РѕРІР°СЂС‹: РєРѕР»СЊС†Р°</option>
+			<option value="5">Р—Р°РєР»РёРЅР°РЅРёСЏ: РЅРµР№С‚СЂР°Р»СЊРЅС‹Рµ</option>
+			<option value="51">3Р°РєР»РёРЅР°РЅРёСЏ: Р±РѕРµРІС‹Рµ Рё Р·Р°С‰РёС‚РЅС‹Рµ</option>
+			<option value="6">РђРјСѓРЅРёС†РёСЏ</option>
+			<option value="188">Р­Р»РёРєСЃРёСЂС‹</option>
+			<option value="7">РЎСѓРІРµРЅРёСЂС‹: РѕС‚РєСЂС‹С‚РєРё</option>
+			<option value="71">РЎСѓРІРµРЅРёСЂС‹: РїРѕРґР°СЂРєРё</option>
+			<option value="50">Р•РґР°</option>
 	</select> </td></tr>
-<tr><td>Второе оружие? только для оружия!
+<tr><td>Р’С‚РѕСЂРѕРµ РѕСЂСѓР¶РёРµ? С‚РѕР»СЊРєРѕ РґР»СЏ РѕСЂСѓР¶РёСЏ!
 	</td><td><select name="second">
-	<? if($sp['second']==0){print"<option value='0'>Нет</option>";}
-	else{print"<option value='1'>Да</option>";}?>
-			<option value="0">Нет</option>
-			<option value="1">ДА</option>
+	<? if($sp['second']==0){print"<option value='0'>РќРµС‚</option>";}
+	else{print"<option value='1'>Р”Р°</option>";}?>
+			<option value="0">РќРµС‚</option>
+			<option value="1">Р”Рђ</option>
 	</select> </td></tr>
 
-<tr><td>Мин.износ  </td><td><input type=text name=duration  value="<? print"".$sp['duration']."";?>"></td></tr>
-<tr><td>Макс.износ  </td><td><input type=text name=maxdur  value="<? print"".$sp['maxdur']."";?>"></td></tr>
-<tr><td>Цена  </td><td><input type=text name=cost  value="<? print"".$sp['cost']."";?>"></td></tr>
-<tr><td>Цена евр. </td><td><input type=text name=ecost  value="<? print"".$sp['ecost']."";?>"></td></tr>
+<tr><td>РњРёРЅ.РёР·РЅРѕСЃ  </td><td><input type=text name=duration  value="<? print"".$sp['duration']."";?>"></td></tr>
+<tr><td>РњР°РєСЃ.РёР·РЅРѕСЃ  </td><td><input type=text name=maxdur  value="<? print"".$sp['maxdur']."";?>"></td></tr>
+<tr><td>Р¦РµРЅР°  </td><td><input type=text name=cost  value="<? print"".$sp['cost']."";?>"></td></tr>
+<tr><td>Р¦РµРЅР° РµРІСЂ. </td><td><input type=text name=ecost  value="<? print"".$sp['ecost']."";?>"></td></tr>
 </table>
-<b>Требования:</b>
+<b>РўСЂРµР±РѕРІР°РЅРёСЏ:</b>
 <table>
-<tr><td>Уровень  </td><td><input type=text name=nlevel  value="<? print"".$sp['nlevel']."";?>"></td></tr>
-<tr><td>Сила  </td><td><input type=text name=nsila  value="<? print"".$sp['nsila']."";?>"></td></tr>
-<tr><td>Ловкость  </td><td><input type=text name=nlovk  value="<? print"".$sp['nlovk']."";?>"></td></tr>
-<tr><td>Интуиция  </td><td><input type=text name=ninta  value="<? print"".$sp['ninta']."";?>"></td></tr>
-<tr><td>Вынос  </td><td><input type=text name=nvinos  value="<? print"".$sp['nvinos']."";?>"></td></tr>
-<tr><td>Интеллект </td><td><input type=text name=nintel value="<? print"".$sp['nintel']."";?>"> </td></tr>
-<tr><td>Мудрость  </td><td><input type=text name=nmudra  value="<? print"".$sp['nmudra']."";?>"></td></tr>
-<tr><td>Ум.ножи  </td><td><input type=text name=nnoj  value="<? print"".$sp['nnoj']."";?>"></td></tr>
-<tr><td>Ум.топоры  </td><td><input type=text name=ntopor  value="<? print"".$sp['ntopor']."";?>"></td></tr>
-<tr><td>Ум.дубины  </td><td><input type=text name=ndubina  value="<? print"".$sp['ndubina']."";?>"></td></tr>
-<tr><td>Ум.мечи  </td><td><input type=text name=nmech  value="<? print"".$sp['nmech']."";?>"></td></tr>
-<tr><td>Склонность  </td><td><input type=text name=nalign  value="<? print"".$sp['nalign']."";?>"></td></tr>
-<tr><td>Мастерство огня  </td><td><input type=text name=nfire  value="<? print"".$sp['nfire']."";?>"></td></tr>
-<tr><td>Мастерство воды  </td><td><input type=text name=nwater  value="<? print"".$sp['nwater']."";?>"></td></tr>
-<tr><td>Мастерство воздуха  </td><td><input type=text name=nair  value="<? print"".$sp['nair']."";?>"></td></tr>
-<tr><td>Мастерство земли  </td><td><input type=text name=nearth value="<? print"".$sp['nearth']."";?>"> </td></tr>
-<tr><td>Светлая магия  </td><td><input type=text name=nlight  value="<? print"".$sp['nlight']."";?>"></td></tr>
-<tr><td>Серая магия  </td><td><input type=text name=ngray  value="<? print"".$sp['ngray']."";?>"></td></tr>
-<tr><td>Темная магия  </td><td><input type=text name=ndark  value="<? print"".$sp['ndark']."";?>"></td></tr>
+<tr><td>РЈСЂРѕРІРµРЅСЊ  </td><td><input type=text name=nlevel  value="<? print"".$sp['nlevel']."";?>"></td></tr>
+<tr><td>РЎРёР»Р°  </td><td><input type=text name=nsila  value="<? print"".$sp['nsila']."";?>"></td></tr>
+<tr><td>Р›РѕРІРєРѕСЃС‚СЊ  </td><td><input type=text name=nlovk  value="<? print"".$sp['nlovk']."";?>"></td></tr>
+<tr><td>РРЅС‚СѓРёС†РёСЏ  </td><td><input type=text name=ninta  value="<? print"".$sp['ninta']."";?>"></td></tr>
+<tr><td>Р’С‹РЅРѕСЃ  </td><td><input type=text name=nvinos  value="<? print"".$sp['nvinos']."";?>"></td></tr>
+<tr><td>РРЅС‚РµР»Р»РµРєС‚ </td><td><input type=text name=nintel value="<? print"".$sp['nintel']."";?>"> </td></tr>
+<tr><td>РњСѓРґСЂРѕСЃС‚СЊ  </td><td><input type=text name=nmudra  value="<? print"".$sp['nmudra']."";?>"></td></tr>
+<tr><td>РЈРј.РЅРѕР¶Рё  </td><td><input type=text name=nnoj  value="<? print"".$sp['nnoj']."";?>"></td></tr>
+<tr><td>РЈРј.С‚РѕРїРѕСЂС‹  </td><td><input type=text name=ntopor  value="<? print"".$sp['ntopor']."";?>"></td></tr>
+<tr><td>РЈРј.РґСѓР±РёРЅС‹  </td><td><input type=text name=ndubina  value="<? print"".$sp['ndubina']."";?>"></td></tr>
+<tr><td>РЈРј.РјРµС‡Рё  </td><td><input type=text name=nmech  value="<? print"".$sp['nmech']."";?>"></td></tr>
+<tr><td>РЎРєР»РѕРЅРЅРѕСЃС‚СЊ  </td><td><input type=text name=nalign  value="<? print"".$sp['nalign']."";?>"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РѕРіРЅСЏ  </td><td><input type=text name=nfire  value="<? print"".$sp['nfire']."";?>"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РІРѕРґС‹  </td><td><input type=text name=nwater  value="<? print"".$sp['nwater']."";?>"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РІРѕР·РґСѓС…Р°  </td><td><input type=text name=nair  value="<? print"".$sp['nair']."";?>"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ Р·РµРјР»Рё  </td><td><input type=text name=nearth value="<? print"".$sp['nearth']."";?>"> </td></tr>
+<tr><td>РЎРІРµС‚Р»Р°СЏ РјР°РіРёСЏ  </td><td><input type=text name=nlight  value="<? print"".$sp['nlight']."";?>"></td></tr>
+<tr><td>РЎРµСЂР°СЏ РјР°РіРёСЏ  </td><td><input type=text name=ngray  value="<? print"".$sp['ngray']."";?>"></td></tr>
+<tr><td>РўРµРјРЅР°СЏ РјР°РіРёСЏ  </td><td><input type=text name=ndark  value="<? print"".$sp['ndark']."";?>"></td></tr>
 </table>
-<b>Дает Параметры</b>
+<b>Р”Р°РµС‚ РџР°СЂР°РјРµС‚СЂС‹</b>
 <table>
-<tr><td>Мин.урон </td><td><input type=text name=minu  value="<? print"".$sp['minu']."";?>"></td></tr>
-<tr><td>Макс.урон </td><td><input type=text name=maxu  value="<? print"".$sp['maxu']."";?>"></td></tr>
-<tr><td>Сила </td><td><input type=text name=gsila  value="<? print"".$sp['gsila']."";?>"></td></tr>
-<tr><td>Ловкость </td><td><input type=text name=glovk  value="<? print"".$sp['glovk']."";?>"></td></tr>
-<tr><td>Инуиция </td><td><input type=text name=ginta  value="<? print"".$sp['ginta']."";?>"></td></tr>
-<tr><td>Интеллект </td><td><input type=text name=gintel  value="<? print"".$sp['gintel']."";?>"></td></tr>
-<tr><td>НР </td><td><input type=text name=ghp  value="<? print"".$sp['ghp']."";?>"></td></tr>
-<tr><td>Мана </td><td><input type=text name=gmana  value="<? print"".$sp['gmana']."";?>"></td></tr>
-<tr><td>Мф.крит </td><td><input type=text name=mfkrit  value="<? print"".$sp['mfkrit']."";?>"></td></tr>
-<tr><td>Мф.антикрит </td><td><input type=text name=mfakrit  value="<? print"".$sp['mfakrit']."";?>"></td></tr>
-<tr><td>Мф.уворот </td><td><input type=text name=mfuvorot  value="<? print"".$sp['mfuvorot']."";?>"></td></tr>
-<tr><td>Мф.антиуворот </td><td><input type=text name=mfauvorot  value="<? print"".$sp['mfauvorot']."";?>"></td></tr>
+<tr><td>РњРёРЅ.СѓСЂРѕРЅ </td><td><input type=text name=minu  value="<? print"".$sp['minu']."";?>"></td></tr>
+<tr><td>РњР°РєСЃ.СѓСЂРѕРЅ </td><td><input type=text name=maxu  value="<? print"".$sp['maxu']."";?>"></td></tr>
+<tr><td>РЎРёР»Р° </td><td><input type=text name=gsila  value="<? print"".$sp['gsila']."";?>"></td></tr>
+<tr><td>Р›РѕРІРєРѕСЃС‚СЊ </td><td><input type=text name=glovk  value="<? print"".$sp['glovk']."";?>"></td></tr>
+<tr><td>РРЅСѓРёС†РёСЏ </td><td><input type=text name=ginta  value="<? print"".$sp['ginta']."";?>"></td></tr>
+<tr><td>РРЅС‚РµР»Р»РµРєС‚ </td><td><input type=text name=gintel  value="<? print"".$sp['gintel']."";?>"></td></tr>
+<tr><td>РќР  </td><td><input type=text name=ghp  value="<? print"".$sp['ghp']."";?>"></td></tr>
+<tr><td>РњР°РЅР° </td><td><input type=text name=gmana  value="<? print"".$sp['gmana']."";?>"></td></tr>
+<tr><td>РњС„.РєСЂРёС‚ </td><td><input type=text name=mfkrit  value="<? print"".$sp['mfkrit']."";?>"></td></tr>
+<tr><td>РњС„.Р°РЅС‚РёРєСЂРёС‚ </td><td><input type=text name=mfakrit  value="<? print"".$sp['mfakrit']."";?>"></td></tr>
+<tr><td>РњС„.СѓРІРѕСЂРѕС‚ </td><td><input type=text name=mfuvorot  value="<? print"".$sp['mfuvorot']."";?>"></td></tr>
+<tr><td>РњС„.Р°РЅС‚РёСѓРІРѕСЂРѕС‚ </td><td><input type=text name=mfauvorot  value="<? print"".$sp['mfauvorot']."";?>"></td></tr>
 
-<tr><td>Мф.мощ.крит </td><td><input type=text name=mfkritpow  value="<? print"".$sp['mfkritpow']."";?>"></td></tr>
-<!--<tr><td>Мф.антимощ.крита </td><td><input type=text name=mfantikritpow  value="<? // print"".$sp['mfantikritpow']."";?>"></td></tr>-->
-<!--<tr><td>Мф.мощ.удара </td><td><input type=text name=mfudar  value="<? //print"".$sp['mfudar']."";?>"></td></tr>
-<tr><td>Мф.антимощ.удара </td><td><input type=text name=mfantiudar  value="<? //print"".$sp['mfantiudar']."";?>"></td></tr>-->
-<tr><td>Мф.контрудар </td><td><input type=text name=mfcontr  value="<? print"".$sp['mfcontr']."";?>"></td></tr>
-<tr><td>Мф.парирования </td><td><input type=text name=mfparir  value="<? print"".$sp['mfparir']."";?>"></td></tr>
-<tr><td>Мф.блока щитом </td><td><input type=text name=myshieldblock  value="<? print"".$sp['mfshieldblock']."";?>"></td></tr>
-<tr><td>Мощность магии стихий </td><td><input type=text name=mfmagp  value="<? print"".$sp['mfmagp']."";?>"></td></tr>
+<tr><td>РњС„.РјРѕС‰.РєСЂРёС‚ </td><td><input type=text name=mfkritpow  value="<? print"".$sp['mfkritpow']."";?>"></td></tr>
+<!--<tr><td>РњС„.Р°РЅС‚РёРјРѕС‰.РєСЂРёС‚Р° </td><td><input type=text name=mfantikritpow  value="<? // print"".$sp['mfantikritpow']."";?>"></td></tr>-->
+<!--<tr><td>РњС„.РјРѕС‰.СѓРґР°СЂР° </td><td><input type=text name=mfudar  value="<? //print"".$sp['mfudar']."";?>"></td></tr>
+<tr><td>РњС„.Р°РЅС‚РёРјРѕС‰.СѓРґР°СЂР° </td><td><input type=text name=mfantiudar  value="<? //print"".$sp['mfantiudar']."";?>"></td></tr>-->
+<tr><td>РњС„.РєРѕРЅС‚СЂСѓРґР°СЂ </td><td><input type=text name=mfcontr  value="<? print"".$sp['mfcontr']."";?>"></td></tr>
+<tr><td>РњС„.РїР°СЂРёСЂРѕРІР°РЅРёСЏ </td><td><input type=text name=mfparir  value="<? print"".$sp['mfparir']."";?>"></td></tr>
+<tr><td>РњС„.Р±Р»РѕРєР° С‰РёС‚РѕРј </td><td><input type=text name=myshieldblock  value="<? print"".$sp['mfshieldblock']."";?>"></td></tr>
+<tr><td>РњРѕС‰РЅРѕСЃС‚СЊ РјР°РіРёРё СЃС‚РёС…РёР№ </td><td><input type=text name=mfmagp  value="<? print"".$sp['mfmagp']."";?>"></td></tr>
 
-<tr><td>Ум.ножи </td><td><input type=text name=gnoj  value="<? print"".$sp['gnoj']."";?>"></td></tr>
-<tr><td>Ум.топоры </td><td><input type=text name=gtopor  value="<? print"".$sp['gtopor']."";?>"></td></tr>
-<tr><td>Ум.дубины </td><td><input type=text name=gdubina  value="<? print"".$sp['gdubina']."";?>"></td></tr>
-<tr><td>Ум.мечи </td><td><input type=text name=gmech   value="<? print"".$sp['gmech']."";?>"></td></tr>
-<tr><td>Броня головы </td><td><input type=text name=bron1  value="<? print"".$sp['bron1']."";?>"></td></tr>
-<tr><td>Броня груди </td><td><input type=text name=bron2  value="<? print"".$sp['bron2']."";?>"></td></tr>
-<tr><td>Броня живота </td><td><input type=text name=bron3  value="<? print"".$sp['bron3']."";?>"></td></tr>
-<!--<tr><td>Броня пояса </td><td><input type=text name=bron4  value="<? //print"".$sp['bron4']."";?>"></td></tr>-->
-<tr><td>Броня ног </td><td><input type=text name=bron4  value="<? print"".$sp['bron4']."";?>"></td></tr>
-<tr><td>Защита от урона </td><td><input type=text name=mfdhit  value="<? print"".$sp['mfdhit']."";?>"></td></tr>
-<tr><td>Защита от магии </td><td><input type=text name=mfdmag  value="<? print"".$sp['mfdmag']."";?>"></td></tr>
-<tr><td>Мастерство огня </td><td><input type=text name=gfire  value="<? print"".$sp['gfire']."";?>"></td></tr>
-<tr><td>Мастерство воды </td><td><input type=text name=gwater  value="<? print"".$sp['gwater']."";?>"></td></tr>
-<tr><td>Мастерство воздуха </td><td><input type=text name=gair  value="<? print"".$sp['gair']."";?>"></td></tr>
-<tr><td>Мастерство земли </td><td><input type=text name=gearth  value="<? print"".$sp['gearth']."";?>"></td></tr>
-<tr><td>Светлая магия </td><td><input type=text name=glight  value="<? print"".$sp['glight']."";?>"></td></tr>
-<tr><td>Серая магия </td><td><input type=text name=ggray  value="<? print"".$sp['ggray']."";?>"></td></tr>
-<tr><td>Темная магия </td><td><input type=text name=gdark  value="<? print"".$sp['gdark']."";?>"></td></tr>
-<!--<tr><td>Сытость </td><td><input type=text name=sitost  value="<? //print"".$sp['sitost']."";?>"></td></tr>-->
-<tr><td>Наложенно заклятие ID</td><td><input type=text name=magic  value="<? print"".$sp['magic']."";?>"></td></tr>
-<!--<tr><td>+ Хп для Эликов </td><td><input type=text name=plus_hp  value="<? //print"".$sp['plus_hp']."";?>"></td></tr>
-<tr><td>+ Мана для Эликов </td><td><input type=text name=plus_mana  value="<? //print"".$sp['plus_mana']."";?>"></td></tr>
-<tr><td>+ Опыт для Элисиров </td><td><input type=text name=plus_opit  value="<? //print"".$sp['plus_opit']."";?>"></td></tr>-->
-<tr><td>Срок годности в мин. </td><td><input type=text name=godenm  value="<? print"".$sp['godenm']."";?>"></td></tr>
-<!--<tr><td>Продолжительность действия магии: </td><td><input type=text name=timem  value="<? //print"".$sp['timem']."";?>"></td></tr>-->
-<tr><td>Доп.Атака</td><td>
-<tr><td>Колющий урон</td><td>
+<tr><td>РЈРј.РЅРѕР¶Рё </td><td><input type=text name=gnoj  value="<? print"".$sp['gnoj']."";?>"></td></tr>
+<tr><td>РЈРј.С‚РѕРїРѕСЂС‹ </td><td><input type=text name=gtopor  value="<? print"".$sp['gtopor']."";?>"></td></tr>
+<tr><td>РЈРј.РґСѓР±РёРЅС‹ </td><td><input type=text name=gdubina  value="<? print"".$sp['gdubina']."";?>"></td></tr>
+<tr><td>РЈРј.РјРµС‡Рё </td><td><input type=text name=gmech   value="<? print"".$sp['gmech']."";?>"></td></tr>
+<tr><td>Р‘СЂРѕРЅСЏ РіРѕР»РѕРІС‹ </td><td><input type=text name=bron1  value="<? print"".$sp['bron1']."";?>"></td></tr>
+<tr><td>Р‘СЂРѕРЅСЏ РіСЂСѓРґРё </td><td><input type=text name=bron2  value="<? print"".$sp['bron2']."";?>"></td></tr>
+<tr><td>Р‘СЂРѕРЅСЏ Р¶РёРІРѕС‚Р° </td><td><input type=text name=bron3  value="<? print"".$sp['bron3']."";?>"></td></tr>
+<!--<tr><td>Р‘СЂРѕРЅСЏ РїРѕСЏСЃР° </td><td><input type=text name=bron4  value="<? //print"".$sp['bron4']."";?>"></td></tr>-->
+<tr><td>Р‘СЂРѕРЅСЏ РЅРѕРі </td><td><input type=text name=bron4  value="<? print"".$sp['bron4']."";?>"></td></tr>
+<tr><td>Р—Р°С‰РёС‚Р° РѕС‚ СѓСЂРѕРЅР° </td><td><input type=text name=mfdhit  value="<? print"".$sp['mfdhit']."";?>"></td></tr>
+<tr><td>Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё </td><td><input type=text name=mfdmag  value="<? print"".$sp['mfdmag']."";?>"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РѕРіРЅСЏ </td><td><input type=text name=gfire  value="<? print"".$sp['gfire']."";?>"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РІРѕРґС‹ </td><td><input type=text name=gwater  value="<? print"".$sp['gwater']."";?>"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ РІРѕР·РґСѓС…Р° </td><td><input type=text name=gair  value="<? print"".$sp['gair']."";?>"></td></tr>
+<tr><td>РњР°СЃС‚РµСЂСЃС‚РІРѕ Р·РµРјР»Рё </td><td><input type=text name=gearth  value="<? print"".$sp['gearth']."";?>"></td></tr>
+<tr><td>РЎРІРµС‚Р»Р°СЏ РјР°РіРёСЏ </td><td><input type=text name=glight  value="<? print"".$sp['glight']."";?>"></td></tr>
+<tr><td>РЎРµСЂР°СЏ РјР°РіРёСЏ </td><td><input type=text name=ggray  value="<? print"".$sp['ggray']."";?>"></td></tr>
+<tr><td>РўРµРјРЅР°СЏ РјР°РіРёСЏ </td><td><input type=text name=gdark  value="<? print"".$sp['gdark']."";?>"></td></tr>
+<!--<tr><td>РЎС‹С‚РѕСЃС‚СЊ </td><td><input type=text name=sitost  value="<? //print"".$sp['sitost']."";?>"></td></tr>-->
+<tr><td>РќР°Р»РѕР¶РµРЅРЅРѕ Р·Р°РєР»СЏС‚РёРµ ID</td><td><input type=text name=magic  value="<? print"".$sp['magic']."";?>"></td></tr>
+<!--<tr><td>+ РҐРї РґР»СЏ Р­Р»РёРєРѕРІ </td><td><input type=text name=plus_hp  value="<? //print"".$sp['plus_hp']."";?>"></td></tr>
+<tr><td>+ РњР°РЅР° РґР»СЏ Р­Р»РёРєРѕРІ </td><td><input type=text name=plus_mana  value="<? //print"".$sp['plus_mana']."";?>"></td></tr>
+<tr><td>+ РћРїС‹С‚ РґР»СЏ Р­Р»РёСЃРёСЂРѕРІ </td><td><input type=text name=plus_opit  value="<? //print"".$sp['plus_opit']."";?>"></td></tr>-->
+<tr><td>РЎСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё РІ РјРёРЅ. </td><td><input type=text name=godenm  value="<? print"".$sp['godenm']."";?>"></td></tr>
+<!--<tr><td>РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РґРµР№СЃС‚РІРёСЏ РјР°РіРёРё: </td><td><input type=text name=timem  value="<? //print"".$sp['timem']."";?>"></td></tr>-->
+<tr><td>Р”РѕРї.РђС‚Р°РєР°</td><td>
+<tr><td>РљРѕР»СЋС‰РёР№ СѓСЂРѕРЅ</td><td>
 			<select name="k_kach">
 			<option value="<? print"".$sp['k_kach']."";?>"><? print"".$sp['k_kach']."";?></option>
-			<option value="0">Никакая</option>
-			<option value="10">Редки</option>
-			<option value="30">Малы</option>
-			<option value="50">Временами</option>
-			<option value="70">Часты</option>
+			<option value="0">РќРёРєР°РєР°СЏ</option>
+			<option value="10">Р РµРґРєРё</option>
+			<option value="30">РњР°Р»С‹</option>
+			<option value="50">Р’СЂРµРјРµРЅР°РјРё</option>
+			<option value="70">Р§Р°СЃС‚С‹</option>
 	        </select></td></tr>
-<tr><td>Рубящий урон</td><td>
+<tr><td>Р СѓР±СЏС‰РёР№ СѓСЂРѕРЅ</td><td>
 			<select name="r_kach">
 			<option value="<? print"".$sp['r_kach']."";?>"><? print"".$sp['r_kach']."";?></option>
-			<option value="0">Никакая</option>
-			<option value="10">Редки</option>
-			<option value="30">Малы</option>
-			<option value="50">Временами</option>
-			<option value="70">Часты</option>
+			<option value="0">РќРёРєР°РєР°СЏ</option>
+			<option value="10">Р РµРґРєРё</option>
+			<option value="30">РњР°Р»С‹</option>
+			<option value="50">Р’СЂРµРјРµРЅР°РјРё</option>
+			<option value="70">Р§Р°СЃС‚С‹</option>
 	        </select></td></tr>
-<tr><td>Дробящий урон</td><td>
+<tr><td>Р”СЂРѕР±СЏС‰РёР№ СѓСЂРѕРЅ</td><td>
 			<select name="d_kach">
 			<option value="<? print"".$sp['d_kach']."";?>"><? print"".$sp['d_kach']."";?></option>
-			<option value="0">Никакая</option>
-			<option value="10">Редки</option>
-			<option value="30">Малы</option>
-			<option value="50">Временами</option>
-			<option value="70">Часты</option>
+			<option value="0">РќРёРєР°РєР°СЏ</option>
+			<option value="10">Р РµРґРєРё</option>
+			<option value="30">РњР°Р»С‹</option>
+			<option value="50">Р’СЂРµРјРµРЅР°РјРё</option>
+			<option value="70">Р§Р°СЃС‚С‹</option>
 	        </select></td></tr>
-<tr><td>Режущий урон</td><td>
+<tr><td>Р РµР¶СѓС‰РёР№ СѓСЂРѕРЅ</td><td>
 			<select name="z_kach">
 			<option value="<? print"".$sp['z_kach']."";?>"><? print"".$sp['z_kach']."";?></option>
-			<option value="0">Никакая</option>
-			<option value="10">Редки</option>
-			<option value="30">Малы</option>
-			<option value="50">Временами</option>
-			<option value="70">Часты</option>
+			<option value="0">РќРёРєР°РєР°СЏ</option>
+			<option value="10">Р РµРґРєРё</option>
+			<option value="30">РњР°Р»С‹</option>
+			<option value="50">Р’СЂРµРјРµРЅР°РјРё</option>
+			<option value="70">Р§Р°СЃС‚С‹</option>
 	        </select></td></tr>
-<tr><td>Мощность колючего урона</td><td><input type=text name=mfkol  value="<? print"".$sp['mfkol']."";?>"></td></tr>
-<tr><td>Мощность рубящего урона</td><td><input type=text name=mfrub  value="<? print"".$sp['mfrub']."";?>"></td></tr>
-<tr><td>Мощность дробящего урона</td><td><input type=text name=mfdrob  value="<? print"".$sp['mfdrob']."";?>"></td></tr>
-<tr><td>Мощность режущего урона</td><td><input type=text name=mfrej  value="<? print"".$sp['mfrej']."";?>"></td></tr>
+<tr><td>РњРѕС‰РЅРѕСЃС‚СЊ РєРѕР»СЋС‡РµРіРѕ СѓСЂРѕРЅР°</td><td><input type=text name=mfkol  value="<? print"".$sp['mfkol']."";?>"></td></tr>
+<tr><td>РњРѕС‰РЅРѕСЃС‚СЊ СЂСѓР±СЏС‰РµРіРѕ СѓСЂРѕРЅР°</td><td><input type=text name=mfrub  value="<? print"".$sp['mfrub']."";?>"></td></tr>
+<tr><td>РњРѕС‰РЅРѕСЃС‚СЊ РґСЂРѕР±СЏС‰РµРіРѕ СѓСЂРѕРЅР°</td><td><input type=text name=mfdrob  value="<? print"".$sp['mfdrob']."";?>"></td></tr>
+<tr><td>РњРѕС‰РЅРѕСЃС‚СЊ СЂРµР¶СѓС‰РµРіРѕ СѓСЂРѕРЅР°</td><td><input type=text name=mfrej  value="<? print"".$sp['mfrej']."";?>"></td></tr>
 
 <input name="names" type="hidden" value="<? print"".$sp['name']."";?>" />
 </table>
-<INPUT name="sav" TYPE="submit" value=" Сохранить ">
-<INPUT name="dels" TYPE="submit" value=" Удалить ">
+<INPUT name="sav" TYPE="submit" value=" РЎРѕС…СЂР°РЅРёС‚СЊ ">
+<INPUT name="dels" TYPE="submit" value=" РЈРґР°Р»РёС‚СЊ ">
 </form>
 
 <?
@@ -220,16 +220,16 @@ mysql_query("UPDATE `$magaz` SET name='".$_POST['name']."',duration='".$_POST['d
 	
 
 
-echo "Cохранена вещь '".$_POST['name']."'.";
+echo "CРѕС…СЂР°РЅРµРЅР° РІРµС‰СЊ '".$_POST['name']."'.";
 exit();
  
  }
 if($_POST['dels']){
 mysql_query("DELETE FROM $magaz WHERE `name` = '".$_POST['names']."'");
-echo "Удалена вещь '".$_POST['name']."'.";
+echo "РЈРґР°Р»РµРЅР° РІРµС‰СЊ '".$_POST['name']."'.";
 exit();
 }
- }else{print"Такой вещи не существует!";}
+ }else{print"РўР°РєРѕР№ РІРµС‰Рё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!";}
 //////////////////////////////
 }
 }

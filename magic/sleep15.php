@@ -9,22 +9,22 @@ if ($user['intel'] >= 1) {
     }
 else {$int=0;}
 
-if ($user['battle'] > 0) {echo "Не в бою...";}
-elseif ($effect['time']) {echo "На персонаже уже есть заклятие молчания"; }
-elseif ($user['room'] != $us['room']) { echo "Персонаж в другой комнате!"; }
-elseif (!$us['online']) {echo "Персонаж не в игре!";}
-elseif ($us['deal'] == 1) { echo "Вы не можете наложить заклятие молчания на этого персонажа"; }
-elseif ($us['align'] > 2 && $us['align'] < 3) { echo "Решились поднять руку на Ангела?.."; }
+if ($user['battle'] > 0) {echo "РќРµ РІ Р±РѕСЋ...";}
+elseif ($effect['time']) {echo "РќР° РїРµСЂСЃРѕРЅР°Р¶Рµ СѓР¶Рµ РµСЃС‚СЊ Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ"; }
+elseif ($user['room'] != $us['room']) { echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!"; }
+elseif (!$us['online']) {echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РёРіСЂРµ!";}
+elseif ($us['deal'] == 1) { echo "Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РЅР°Р»РѕР¶РёС‚СЊ Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ РЅР° СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°"; }
+elseif ($us['align'] > 2 && $us['align'] < 3) { echo "Р РµС€РёР»РёСЃСЊ РїРѕРґРЅСЏС‚СЊ СЂСѓРєСѓ РЅР° РђРЅРіРµР»Р°?.."; }
 elseif (rand(1,100) < $int) {
 
-            addch("<img src=i/magic/sleep.gif>Персонаж &quot;{$user['login']}&quot; наложил заклятие молчания на &quot;{$_POST['target']}&quot;, сроком 15 мин.");
-            mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$us['id']."','Заклятие молчания',".(time()+900).",2);");
-            echo "<font color=red><b>На персонажа \"{$_POST['target']}\" наложено заклятие молчания </b></font>";
+            addch("<img src=i/magic/sleep.gif>РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot; РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ РЅР° &quot;{$_POST['target']}&quot;, СЃСЂРѕРєРѕРј 15 РјРёРЅ.");
+            mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$us['id']."','Р—Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ',".(time()+900).",2);");
+            echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° \"{$_POST['target']}\" РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ </b></font>";
             $bet=1;
 
 
 } else {
-                echo "Свиток рассыпался в ваших руках...";
+                echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
                 $bet=1;
             }
 ?>

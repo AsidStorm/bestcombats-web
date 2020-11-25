@@ -1,19 +1,19 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
 if ($_SESSION['uid'] == null) header("Location: index.php");
 if ($user['battle'] == 0) {
-  echo "Это боевая магия...";
+  echo "Р­С‚Рѕ Р±РѕРµРІР°СЏ РјР°РіРёСЏ...";
 } else {
   $int=100;
   if (rand(1,100) < $int) {
     if ($row["magic"]==207) {
-      $name="Отморозок";
+      $name="РћС‚РјРѕСЂРѕР·РѕРє";
       if ($user["level"]>=9) $prototype=4030;
       elseif ($user["level"]>=7) $prototype=4029;
       elseif ($user["level"]>=5) $prototype=4028;
       else $prototype=3946;
       $hp=5000;
-      $action="призвал".($user["sex"]?"":"а")." в бой отморозка";
+      $action="РїСЂРёР·РІР°Р»".($user["sex"]?"":"Р°")." РІ Р±РѕР№ РѕС‚РјРѕСЂРѕР·РєР°";
     }
     $nb = mysql_fetch_array(mysql_query("SELECT count(`id`) FROM `bots` WHERE `name` LIKE '$name (%';"));
     mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('$name (".($nb[0]+1).")','$prototype','".$user['battle']."','$hp');");
@@ -26,13 +26,13 @@ if ($user['battle'] == 0) {
       $battle[$k][$bot] = array(0,0,time());
     }
     $t1 = explode(";",$bd['t1']);
-    // проставляем кто-где
+    // РїСЂРѕСЃС‚Р°РІР»СЏРµРј РєС‚Рѕ-РіРґРµ
     if (in_array ($user['id'],$t1)) {
       $ttt = 1;
     } else {
       $ttt = 2;
     }
-    //mysql_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' породил своего клона '.nick5($bot,"B".$ttt).'<BR>\') WHERE `id` = '.$user['battle'].';');
+    //mysql_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' РїРѕСЂРѕРґРёР» СЃРІРѕРµРіРѕ РєР»РѕРЅР° '.nick5($bot,"B".$ttt).'<BR>\') WHERE `id` = '.$user['battle'].';');
     addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' '.$action.' '.nick5($bot,"B".$ttt).'<BR>');
 
     mysql_query('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t'.$ttt.'`=CONCAT(`t'.$ttt.'`,\';'.$bot.'\')  WHERE `id` = '.$user['battle'].' ;');
@@ -40,9 +40,9 @@ if ($user['battle'] == 0) {
     mysql_query("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = ".$user['battle']." LIMIT 1;");
 
     $bet=1;
-    echo "$name призван в бой.";
+    echo "$name РїСЂРёР·РІР°РЅ РІ Р±РѕР№.";
   } else {
-    echo "Свиток рассыпался в ваших руках...";
+    echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
     $bet=1;
   }
 }

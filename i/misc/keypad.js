@@ -4,7 +4,7 @@ var tFobj = null;
 var tPsw = null;
 var tDiv = null;
 
-var chRus = 'àáâãäå¸æçèéêëìíîïðñòóôõö÷øùúûüýþÿ';
+var chRus = 'Ð°Ð±Ð²Ð³Ð´ÐµÑ‘Ð¶Ð·Ð¸Ð¹ÐºÐ»Ð¼Ð½Ð¾Ð¿Ñ€ÑÑ‚ÑƒÑ„Ñ…Ñ†Ñ‡ÑˆÑ‰ÑŠÑ‹ÑŒÑÑŽÑ';
 var chEng = 'abcdefghijklmnopqrstuvwxyz';
 var chDec = '0123456789';
 var spSim = '!@#$%^&*()_+|=-`~[]{}.,?><;:/';
@@ -79,8 +79,8 @@ function shKeypad(fl) {
 		}
 	keyTable = '<TABLE align=center border=0 cellspacing=0 cellpadding=0>';
 	keyTable += '<TR>' + KeyShow(0, chEng1) + "<TD colspan=7 align=right><INPUT style='width=140;' type=button class='btn' value='&larr;' onclick=\"delSim()\"></TD></TR>";
-	keyTable += '<TR>' + KeyShow(1, chEng1)+"<TD colspan=7 align=right><INPUT style='width=140;' type=button class='btn' value='Î÷èñòèòü âñå' onclick=\"delSim(1);\"></TD></TR>";
-	keyTable += '<TR>' + KeyShow(0, chDec1) +"<TD colspan=16 align=right><INPUT style='width=140;' type=button class='btn' value='Ïî àëôàâèòó' onclick=\"shKeypad(); document.all['"+tDiv+"'].innerHTML = keyTable;\"></TD><TD colspan=7 align=right><INPUT style='width=140;' type=button class='btn' value='Ïåðåìåøàòü' onclick=\"shKeypad(1); document.all['"+tDiv+"'].innerHTML = keyTable;\"></TD></TR>";
+	keyTable += '<TR>' + KeyShow(1, chEng1)+"<TD colspan=7 align=right><INPUT style='width=140;' type=button class='btn' value='ÐžÑ‡Ð¸ÑÑ‚Ð¸Ñ‚ÑŒ Ð²ÑÐµ' onclick=\"delSim(1);\"></TD></TR>";
+	keyTable += '<TR>' + KeyShow(0, chDec1) +"<TD colspan=16 align=right><INPUT style='width=140;' type=button class='btn' value='ÐŸÐ¾ Ð°Ð»Ñ„Ð°Ð²Ð¸Ñ‚Ñƒ' onclick=\"shKeypad(); document.all['"+tDiv+"'].innerHTML = keyTable;\"></TD><TD colspan=7 align=right><INPUT style='width=140;' type=button class='btn' value='ÐŸÐµÑ€ÐµÐ¼ÐµÑˆÐ°Ñ‚ÑŒ' onclick=\"shKeypad(1); document.all['"+tDiv+"'].innerHTML = keyTable;\"></TD></TR>";
 	keyTable += '<TR><td style="HEIGHT: 8px;"></td></TR>';
 	keyTable += '<TR>' + KeyShow(0, chRus1)+'</TR>';
 	keyTable += '<TR>' + KeyShow(1, chRus1)+'</TR>';

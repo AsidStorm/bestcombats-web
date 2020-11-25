@@ -49,20 +49,20 @@ if($user['align']=='2.5')
     </style>
 	<script src="http://img.bestcombats.net/js/swfobject_modified.js" type="text/javascript"></script>
 <TABLE width="100%" cellspacing="0" cellpadding="0">
-	<tr><td valign="top"><div align="center" class="pH3">Рулетка</div>
+	<tr><td valign="top"><div align="center" class="pH3">Р СѓР»РµС‚РєР°</div>
       <br />
 	  <div align="center">
-	    <p>Рулетка работает в тестовом режиме. Вы можете потерять кр., возмещаться потери не будут.</p>
+	    <p>Р СѓР»РµС‚РєР° СЂР°Р±РѕС‚Р°РµС‚ РІ С‚РµСЃС‚РѕРІРѕРј СЂРµР¶РёРјРµ. Р’С‹ РјРѕР¶РµС‚Рµ РїРѕС‚РµСЂСЏС‚СЊ РєСЂ., РІРѕР·РјРµС‰Р°С‚СЊСЃСЏ РїРѕС‚РµСЂРё РЅРµ Р±СѓРґСѓС‚.</p>
 	    <p>
           <object id="ruletka" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="940" height="340">
 	        <param name="movie" value="http://img.bestcombats.net/swf/ruletka.swf" />
 	        <param name="quality" value="high" />
 	        <param name="wmode" value="opaque" />
 	        <param name="swfversion" value="6.0.65.0" />
-	        <!-- Этот тег param предлагает пользователям Flash Player 6.0 r65 и более поздних версий загрузить последнюю версию Flash Player. Удалите его, если не хотите, чтобы пользователи видели запрос. -->
+	        <!-- Р­С‚РѕС‚ С‚РµРі param РїСЂРµРґР»Р°РіР°РµС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј Flash Player 6.0 r65 Рё Р±РѕР»РµРµ РїРѕР·РґРЅРёС… РІРµСЂСЃРёР№ Р·Р°РіСЂСѓР·РёС‚СЊ РїРѕСЃР»РµРґРЅСЋСЋ РІРµСЂСЃРёСЋ Flash Player. РЈРґР°Р»РёС‚Рµ РµРіРѕ, РµСЃР»Рё РЅРµ С…РѕС‚РёС‚Рµ, С‡С‚РѕР±С‹ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё РІРёРґРµР»Рё Р·Р°РїСЂРѕСЃ. -->
 	        <param name="expressinstall" value="http://img.bestcombats.net/swf/expressInstall.swf" />
 	        <param name="BGCOLOR" value="#dedfde" />
-	        <!-- Следующий тег object не поддерживается браузером Internet Explorer. Поэтому скройте его от Internet Explorer при помощи IECC. -->
+	        <!-- РЎР»РµРґСѓСЋС‰РёР№ С‚РµРі object РЅРµ РїРѕРґРґРµСЂР¶РёРІР°РµС‚СЃСЏ Р±СЂР°СѓР·РµСЂРѕРј Internet Explorer. РџРѕСЌС‚РѕРјСѓ СЃРєСЂРѕР№С‚Рµ РµРіРѕ РѕС‚ Internet Explorer РїСЂРё РїРѕРјРѕС‰Рё IECC. -->
 	        <!--[if !IE]>-->
 	        <object type="application/x-shockwave-flash" data="http://img.bestcombats.net/swf/ruletka.swf" width="940" height="340">
 	          <!--<![endif]-->
@@ -71,10 +71,10 @@ if($user['align']=='2.5')
 	          <param name="swfversion" value="6.0.65.0" />
 	          <param name="expressinstall" value="http://img.bestcombats.net/swf/expressInstall.swf" />
 	          <param name="BGCOLOR" value="#dedfde" />
-	          <!-- Браузер отображает следующее альтернативное содержимое для пользователей Flash Player 6.0 и более старых версий. -->
+	          <!-- Р‘СЂР°СѓР·РµСЂ РѕС‚РѕР±СЂР°Р¶Р°РµС‚ СЃР»РµРґСѓСЋС‰РµРµ Р°Р»СЊС‚РµСЂРЅР°С‚РёРІРЅРѕРµ СЃРѕРґРµСЂР¶РёРјРѕРµ РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ Flash Player 6.0 Рё Р±РѕР»РµРµ СЃС‚Р°СЂС‹С… РІРµСЂСЃРёР№. -->
 	          <div>
-	            <h4>Для содержимого этой страницы требуется более новая версия Adobe Flash Player.</h4>
-	            <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Получить проигрыватель Adobe Flash Player" /></a></p>
+	            <h4>Р”Р»СЏ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ СЌС‚РѕР№ СЃС‚СЂР°РЅРёС†С‹ С‚СЂРµР±СѓРµС‚СЃСЏ Р±РѕР»РµРµ РЅРѕРІР°СЏ РІРµСЂСЃРёСЏ Adobe Flash Player.</h4>
+	            <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="РџРѕР»СѓС‡РёС‚СЊ РїСЂРѕРёРіСЂС‹РІР°С‚РµР»СЊ Adobe Flash Player" /></a></p>
               </div>
 	          <!--[if !IE]>-->
             </object>
@@ -93,7 +93,7 @@ if($user['align']=='2.5')
 	</td></table>
 	</td></table>
     <small>
-    <p align="left">Банк казино: <b><?
+    <p align="left">Р‘Р°РЅРє РєР°Р·РёРЅРѕ: <b><?
     $mn = 0; $mz = 0;
 	$sp = mysql_query('SELECT * FROM `ruletka_coin` WHERE `money` > 0 AND `end` > 0');
 	while($pl = mysql_fetch_array($sp))
@@ -106,7 +106,7 @@ if($user['align']=='2.5')
 		}
 	}
 	echo $mz-($mn-14024);
-	?> кр.</b></p></small></td>
+	?> РєСЂ.</b></p></small></td>
 	</table>
     <br>
 	<div id="textgo" style="visibility:hidden;"></div>

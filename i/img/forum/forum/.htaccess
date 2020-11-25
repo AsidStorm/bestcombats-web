@@ -1,10 +1,10 @@
-# запрет листинга всех папок и под-папок
+# Р·Р°РїСЂРµС‚ Р»РёСЃС‚РёРЅРіР° РІСЃРµС… РїР°РїРѕРє Рё РїРѕРґ-РїР°РїРѕРє
 Options -Indexes
 
-# Устанавливаем типы для файлов
+# РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С‚РёРїС‹ РґР»СЏ С„Р°Р№Р»РѕРІ
 AddType "text/html" .php .cgi .pl .fcgi .fpl .phtml .phps .shtml .php2 .cgi .php3 .php4 .php5 .php6 .asp .jsp .pl .asp .aspx .shtm .htm .html .wml
 
-# Отключаем PHP
+# РћС‚РєР»СЋС‡Р°РµРј PHP
 RemoveType php
 php_flag engine 0
 <Files 403.shtml>

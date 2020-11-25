@@ -1,37 +1,37 @@
 <?php
 
-/*************************************** трещина *********************************************/
+/*************************************** С‚СЂРµС‰РёРЅР° *********************************************/
 
-  // трещина 44x2
+  // С‚СЂРµС‰РёРЅР° 44x2
   if (($tx*2==44 && $ty*2==2) || ($tx*2==18 && $ty*2==2)) {
-    $report="<div style=\"font-weight:normal\">Подозрительная трещина.<br><br>Как только Вы шагнёте на эту клетку - Вы провалитесь на третий этаж.</div>";
+    $report="<div style=\"font-weight:normal\">РџРѕРґРѕР·СЂРёС‚РµР»СЊРЅР°СЏ С‚СЂРµС‰РёРЅР°.<br><br>РљР°Рє С‚РѕР»СЊРєРѕ Р’С‹ С€Р°РіРЅС‘С‚Рµ РЅР° СЌС‚Сѓ РєР»РµС‚РєСѓ - Р’С‹ РїСЂРѕРІР°Р»РёС‚РµСЃСЊ РЅР° С‚СЂРµС‚РёР№ СЌС‚Р°Р¶.</div>";
   }
   
-/*************************************** куча мусора *********************************************/
+/*************************************** РєСѓС‡Р° РјСѓСЃРѕСЂР° *********************************************/
   
-  // куча мусора
+  // РєСѓС‡Р° РјСѓСЃРѕСЂР°
   if (($tx*2==30 && $ty*2==14) || ($tx*2==34 && $ty*2==14) || ($tx*2==44 && $ty*2==12) || ($tx*2==42 && $ty*2==8) || ($tx*2==38 && $ty*2==4) || ($tx*2==28 && $ty*2==4) || ($tx*2==32 && $ty*2==6)) {    
     if (usagesleft($tx, $ty)) {
       takeusage($tx, $ty);
       $rnd=mt_rand(1,100);
       if ($rnd<=10) {
-        $report=itemtofloor(2459, 0, 0, 1); // Бутылка  
+        $report=itemtofloor(2459, 0, 0, 1); // Р‘СѓС‚С‹Р»РєР°  
       } elseif ($rnd<=20) {
         $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 AND (id = 15 OR id = 16 OR id = 17 OR id = 19 OR id = 20 OR id = 21) ORDER BY RAND() ") or die(mysql_error()); 
         $report=itemtofloor($smallItem, 0, 0, 1, 'smallitems', 1);
       } elseif ($rnd<=25) {
-        $report=itemtofloor(2593, 0, 0, 3); // лучистый рубин
+        $report=itemtofloor(2593, 0, 0, 3); // Р»СѓС‡РёСЃС‚С‹Р№ СЂСѓР±РёРЅ
       } else {
         setCaveEffect(9999, 9994);
       }
     } else {
-      $report="<div style=\"font-weight:normal\">Пусто.</div>";
+      $report="<div style=\"font-weight:normal\">РџСѓСЃС‚Рѕ.</div>";
     }
   }
 
-/*************************************** сундук *********************************************/
+/*************************************** СЃСѓРЅРґСѓРє *********************************************/
 
-  // Сундук 26x14
+  // РЎСѓРЅРґСѓРє 26x14
   if ($tx*2==26 && $ty*2==14) {
     if (usagesleft($tx, $ty)) {
       $rnd=mt_rand(1,100);
@@ -40,19 +40,19 @@
         $dItem = array(1431, 236, 1185, 1647, 1237);
         $report=itemtofloor($dItem[$i], 0, 0, 1);
       } elseif ($rnd<=66) {
-        $report=itemtofloor(5, 0, 0, 1); // чек на предъявителя
+        $report=itemtofloor(5, 0, 0, 1); // С‡РµРє РЅР° РїСЂРµРґСЉСЏРІРёС‚РµР»СЏ
       } else {
         $mhp=500+mt_rand(0, 500);
-        $report="Вы попали в ловушку -$mhp HP.";
+        $report="Р’С‹ РїРѕРїР°Р»Рё РІ Р»РѕРІСѓС€РєСѓ -$mhp HP.";
         takehp($user["id"], $mhp);
       }
       takeusage($tx, $ty);
     } else {
-      $report="<div style=\"font-weight:normal\">Пусто.</div>";
+      $report="<div style=\"font-weight:normal\">РџСѓСЃС‚Рѕ.</div>";
     }
   }
   
-  // Сундук 44x6
+  // РЎСѓРЅРґСѓРє 44x6
   if ($tx*2==44 && $ty*2==6) {
     if (usagesleft($tx, $ty)) {
       $rnd=mt_rand(1,100);
@@ -61,10 +61,10 @@
         $dItem = array(1431, 236, 1185, 1647, 1237);
         $report=itemtofloor($dItem[$i], 0, 0, 1);
       } elseif ($rnd<=66) {
-        $report="<div style=\"font-weight:normal\">Пусто.</div>";
+        $report="<div style=\"font-weight:normal\">РџСѓСЃС‚Рѕ.</div>";
       } else {
         $mhp=500+mt_rand(0, 500);
-        $report="Вы попали в ловушку -$mhp HP.";
+        $report="Р’С‹ РїРѕРїР°Р»Рё РІ Р»РѕРІСѓС€РєСѓ -$mhp HP.";
         takehp($user["id"], $mhp);
       }
       takeusage($tx, $ty);
@@ -72,69 +72,69 @@
         $report="<div style=\"font-weight:normal\"></div>";
       }
     } else {
-      $report="<div style=\"font-weight:normal\">Пусто.</div>";
+      $report="<div style=\"font-weight:normal\">РџСѓСЃС‚Рѕ.</div>";
     }
   }
   
-  // Сундук 42x2
+  // РЎСѓРЅРґСѓРє 42x2
   if ($tx*2==42 && $ty*2==2) {
-    $isKey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Пирамидальный Ключ' AND owner = " . $user['id']), 0, 0);
+    $isKey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'РџРёСЂР°РјРёРґР°Р»СЊРЅС‹Р№ РљР»СЋС‡' AND owner = " . $user['id']), 0, 0);
     if (!$isKey) {
-      $isItem = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Осколок Пирамидального Ключа' AND owner = " . $user['id']), 0, 0);
+      $isItem = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'РћСЃРєРѕР»РѕРє РџРёСЂР°РјРёРґР°Р»СЊРЅРѕРіРѕ РљР»СЋС‡Р°' AND owner = " . $user['id']), 0, 0);
       if (!$isItem) {
         $report=pickupitem(2531, 0, 0, 0, 1, 2);
       } else {
-        $report="<div style=\"font-weight:normal\">У вас уже есть <b>Осколок Пирамидального Ключа</b></div>";
+        $report="<div style=\"font-weight:normal\">РЈ РІР°СЃ СѓР¶Рµ РµСЃС‚СЊ <b>РћСЃРєРѕР»РѕРє РџРёСЂР°РјРёРґР°Р»СЊРЅРѕРіРѕ РљР»СЋС‡Р°</b></div>";
       }
     } else {
-      $report="<div style=\"font-weight:normal\">У вас уже есть <b>Пирамидальный Ключ</b></div>";
+      $report="<div style=\"font-weight:normal\">РЈ РІР°СЃ СѓР¶Рµ РµСЃС‚СЊ <b>РџРёСЂР°РјРёРґР°Р»СЊРЅС‹Р№ РљР»СЋС‡</b></div>";
     }
   }
   
-  // Сундук 6x2
+  // РЎСѓРЅРґСѓРє 6x2
   if ($tx*2==6 && $ty*2==2) {
     if (usagesleft($tx, $ty)) {
       $rnd=mt_rand(1,100);
       if ($rnd<=15) {
-        $report=itemtofloor(1959, 0, 0, 1); // Бутерброд -Завтрак рыцаря-
+        $report=itemtofloor(1959, 0, 0, 1); // Р‘СѓС‚РµСЂР±СЂРѕРґ -Р—Р°РІС‚СЂР°Рє СЂС‹С†Р°СЂСЏ-
       } elseif ($rnd<=30) {
-        $report=itemtofloor(2460, 0, 0, 3); // Испортившийся эликсир	
+        $report=itemtofloor(2460, 0, 0, 3); // РСЃРїРѕСЂС‚РёРІС€РёР№СЃСЏ СЌР»РёРєСЃРёСЂ	
       } elseif ($rnd<=45) {
-        $report=itemtofloor(2459, 0, 0, 1); // Бутылка
+        $report=itemtofloor(2459, 0, 0, 1); // Р‘СѓС‚С‹Р»РєР°
       } elseif ($rnd<=60) {
         $smallItem = mqfa1("SELECT id FROM smallitems WHERE type = 189 ORDER BY RAND() ") or die(mysql_error()); 
         $report=itemtofloor($smallItem, 0, 0, 1, 'smallitems', 1);
       } elseif ($rnd<=75) {
-        $report = '<div style="font-weight:normal">Пусто.</div>';
+        $report = '<div style="font-weight:normal">РџСѓСЃС‚Рѕ.</div>';
       } else {
         $mhp=500+mt_rand(0, 500);
-        $report="Вы попали в ловушку -$mhp HP.";
+        $report="Р’С‹ РїРѕРїР°Р»Рё РІ Р»РѕРІСѓС€РєСѓ -$mhp HP.";
         takehp($user["id"], $mhp);
       }
       takeusage($tx, $ty);
     } else {
-      $report="<div style=\"font-weight:normal\">Пусто.</div>";
+      $report="<div style=\"font-weight:normal\">РџСѓСЃС‚Рѕ.</div>";
     }
   }
   
-  // Сундук 20x12
+  // РЎСѓРЅРґСѓРє 20x12
   if ($tx*2==20 && $ty*2==12) {
-    $isKey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Пирамидальный Ключ' AND owner = " . $user['id']), 0, 0);
+    $isKey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'РџРёСЂР°РјРёРґР°Р»СЊРЅС‹Р№ РљР»СЋС‡' AND owner = " . $user['id']), 0, 0);
     if (!$isKey) {
-      $isItem = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Обломок Пирамидального Ключа' AND owner = " . $user['id']), 0, 0);
+      $isItem = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'РћР±Р»РѕРјРѕРє РџРёСЂР°РјРёРґР°Р»СЊРЅРѕРіРѕ РљР»СЋС‡Р°' AND owner = " . $user['id']), 0, 0);
       if (!$isItem) {
         $report=pickupitem(2530, 0, 0, 0, 1, 2);
       } else {
-        $report="<div style=\"font-weight:normal\">У вас уже есть <b>Обломок Пирамидального Ключа</b></div>";
+        $report="<div style=\"font-weight:normal\">РЈ РІР°СЃ СѓР¶Рµ РµСЃС‚СЊ <b>РћР±Р»РѕРјРѕРє РџРёСЂР°РјРёРґР°Р»СЊРЅРѕРіРѕ РљР»СЋС‡Р°</b></div>";
       }
     } else {
-      $report="<div style=\"font-weight:normal\">У вас уже есть <b>Пирамидальный Ключ</b></div>";
+      $report="<div style=\"font-weight:normal\">РЈ РІР°СЃ СѓР¶Рµ РµСЃС‚СЊ <b>РџРёСЂР°РјРёРґР°Р»СЊРЅС‹Р№ РљР»СЋС‡</b></div>";
     }
   }
 
-/*************************************** алтарь *********************************************/
+/*************************************** Р°Р»С‚Р°СЂСЊ *********************************************/
   
-  // алтарь 8x10, 6x12, 10x2, 10x20, 16x12, 20x14
+  // Р°Р»С‚Р°СЂСЊ 8x10, 6x12, 10x2, 10x20, 16x12, 20x14
   if (($tx*2==8 && $ty*2==10) || ($tx*2==6 && $ty*2==12) || ($tx*2==10 && $ty*2==2) || ($tx*2==10 && $ty*2==20) || ($tx*2==16 && $ty*2==12) || ($tx*2==20 && $ty*2==14)) {  
     if (usagesleft($tx, $ty)) {
       takeusage($tx, $ty);
@@ -143,31 +143,31 @@
         setCaveEffect(9992, 9993);
       } else {
         /** 
-         * 2334 Кольцо Отражения, 967 Кольцо Жадного Калеки, 2330 Синее Кольцо Мастерства
-         * 2328	Песочный Перстень, 2397	Перчатки дровосека, 1423 Перчатки Рыцаря 
+         * 2334 РљРѕР»СЊС†Рѕ РћС‚СЂР°Р¶РµРЅРёСЏ, 967 РљРѕР»СЊС†Рѕ Р–Р°РґРЅРѕРіРѕ РљР°Р»РµРєРё, 2330 РЎРёРЅРµРµ РљРѕР»СЊС†Рѕ РњР°СЃС‚РµСЂСЃС‚РІР°
+         * 2328	РџРµСЃРѕС‡РЅС‹Р№ РџРµСЂСЃС‚РµРЅСЊ, 2397	РџРµСЂС‡Р°С‚РєРё РґСЂРѕРІРѕСЃРµРєР°, 1423 РџРµСЂС‡Р°С‚РєРё Р С‹С†Р°СЂСЏ 
         **/
         $items = array(2334, 967, 2330, 2328, 2397, 1423);
         $i = mt_rand(0, 5);
         $report=itemtofloor($items[$i], 0, 0, 1);
       }
     } else {
-      $report="<div style=\"font-weight:normal\">Пусто.</div>";
+      $report="<div style=\"font-weight:normal\">РџСѓСЃС‚Рѕ.</div>";
     }
     
   }
   
-  // Алтарь Жертвенного Очищения 18x20
+  // РђР»С‚Р°СЂСЊ Р–РµСЂС‚РІРµРЅРЅРѕРіРѕ РћС‡РёС‰РµРЅРёСЏ 18x20
   if ($tx*2==18 && $ty*2==20) {
     $mhp = $user['maxhp'] / 2;
     if ($mhp > 1000) {
       $mhp = 1000;
     }
     $mhp = round($mhp);
-    $report = "Вы попали в ловушку -$mhp HP";
+    $report = "Р’С‹ РїРѕРїР°Р»Рё РІ Р»РѕРІСѓС€РєСѓ -$mhp HP";
     takehp($user["id"], $mhp);
     $curse = mqfaa("SELECT * FROM effects WHERE type = 9992 AND owner = " . $user['id'] . " ORDER BY id DESC");
     if ($curse) {
-      $report .= " и избавились от всех проклятий Глубин.";
+      $report .= " Рё РёР·Р±Р°РІРёР»РёСЃСЊ РѕС‚ РІСЃРµС… РїСЂРѕРєР»СЏС‚РёР№ Р“Р»СѓР±РёРЅ.";
       foreach ($curse as $c) {
         mysql_query('DELETE FROM effects WHERE id = ' . $c['id']);
         mysql_query("
@@ -186,70 +186,70 @@
     }
   }
 
-/*************************************** статуи *********************************************/
+/*************************************** СЃС‚Р°С‚СѓРё *********************************************/
   
-  // Статуя 42x18, 30x4, 6x10, 8x12
+  // РЎС‚Р°С‚СѓСЏ 42x18, 30x4, 6x10, 8x12
   if (($tx*2==42 && $ty*2==18) || ($tx*2==30 && $ty*2==4) || ($tx*2==6 && $ty*2==10) || ($tx*2==8 && $ty*2==12)) {
-    $report="<div style=\"font-weight:normal\">Неразборчивая надпись ярко выраженного нецензурного содержания, намекающая на нежелательность встречи и какого-либо вида общения.</div>";
+    $report="<div style=\"font-weight:normal\">РќРµСЂР°Р·Р±РѕСЂС‡РёРІР°СЏ РЅР°РґРїРёСЃСЊ СЏСЂРєРѕ РІС‹СЂР°Р¶РµРЅРЅРѕРіРѕ РЅРµС†РµРЅР·СѓСЂРЅРѕРіРѕ СЃРѕРґРµСЂР¶Р°РЅРёСЏ, РЅР°РјРµРєР°СЋС‰Р°СЏ РЅР° РЅРµР¶РµР»Р°С‚РµР»СЊРЅРѕСЃС‚СЊ РІСЃС‚СЂРµС‡Рё Рё РєР°РєРѕРіРѕ-Р»РёР±Рѕ РІРёРґР° РѕР±С‰РµРЅРёСЏ.</div>";
   }
   
-/*************************************** фонтан *********************************************/
+/*************************************** С„РѕРЅС‚Р°РЅ *********************************************/
   
-  // Фонтан призрачной силы 42x20
+  // Р¤РѕРЅС‚Р°РЅ РїСЂРёР·СЂР°С‡РЅРѕР№ СЃРёР»С‹ 42x20
   if ($tx*2==42 && $ty*2==20) {
-    $report="<div style=\"font-weight:normal\">Пока не работает.</div>";
+    $report="<div style=\"font-weight:normal\">РџРѕРєР° РЅРµ СЂР°Р±РѕС‚Р°РµС‚.</div>";
   }
   
-  // Фонтан призрачного ума 2x20
+  // Р¤РѕРЅС‚Р°РЅ РїСЂРёР·СЂР°С‡РЅРѕРіРѕ СѓРјР° 2x20
   if ($tx*2==2 && $ty*2==20) {
     if (usagesleft($tx, $ty)) {
       if (mqfa1("select id from inventory where owner='$user[id]' and prototype='2459'")) {
-        // 2364	Снадобье Разума, 2363 Снадобье Предчувствия
+        // 2364	РЎРЅР°РґРѕР±СЊРµ Р Р°Р·СѓРјР°, 2363 РЎРЅР°РґРѕР±СЊРµ РџСЂРµРґС‡СѓРІСЃС‚РІРёСЏ
         $report=pickupitem(mt_rand(2363, 2364), 1, 0, 0, 3);
         takeusage($tx, $ty);
         useitem(2459);
         if (!@$report) {
-          $report="<div style=\"font-weight:normal\">Вы набрали из фонтана эликсир.</div>";
+          $report="<div style=\"font-weight:normal\">Р’С‹ РЅР°Р±СЂР°Р»Рё РёР· С„РѕРЅС‚Р°РЅР° СЌР»РёРєСЃРёСЂ.</div>";
         }
       } else {
-        $report="Для того, чтобы набрать эликсир, вам необходима пустая бутылка.";
+        $report="Р”Р»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РЅР°Р±СЂР°С‚СЊ СЌР»РёРєСЃРёСЂ, РІР°Рј РЅРµРѕР±С…РѕРґРёРјР° РїСѓСЃС‚Р°СЏ Р±СѓС‚С‹Р»РєР°.";
       }
     } else {
-      $report="Пусто.";
+      $report="РџСѓСЃС‚Рѕ.";
     }
   }
   
-/*************************************** камни *********************************************/
+/*************************************** РєР°РјРЅРё *********************************************/
   
-  // Камень портала Чернокнижника 42x4
+  // РљР°РјРµРЅСЊ РїРѕСЂС‚Р°Р»Р° Р§РµСЂРЅРѕРєРЅРёР¶РЅРёРєР° 42x4
   if ($tx*2==42 && $ty*2==4) {
-    $isStone = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Чернокнижника' AND owner = " . $user['id']), 0, 0);
+    $isStone = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'РљР°РјРµРЅСЊ РџРѕСЂС‚Р°Р»Р° Р§РµСЂРЅРѕРєРЅРёР¶РЅРёРєР°' AND owner = " . $user['id']), 0, 0);
     if (!$isStone) {
       $report=pickupitem(2528, 0, 0, 0, 1, 2);
     } else {
-      $report="<div style=\"font-weight:normal\">У вас уже есть <b>Камень портала Чернокнижника.</b></div>";
+      $report="<div style=\"font-weight:normal\">РЈ РІР°СЃ СѓР¶Рµ РµСЃС‚СЊ <b>РљР°РјРµРЅСЊ РїРѕСЂС‚Р°Р»Р° Р§РµСЂРЅРѕРєРЅРёР¶РЅРёРєР°.</b></div>";
     }
   }
   
-  // Камень портала Епископа 20x4
+  // РљР°РјРµРЅСЊ РїРѕСЂС‚Р°Р»Р° Р•РїРёСЃРєРѕРїР° 20x4
   if ($tx*2==20 && $ty*2==4) {
-    $isStone = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'Камень Портала Епископа' AND owner = " . $user['id']), 0, 0);
+    $isStone = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE name = 'РљР°РјРµРЅСЊ РџРѕСЂС‚Р°Р»Р° Р•РїРёСЃРєРѕРїР°' AND owner = " . $user['id']), 0, 0);
     if (!$isStone) {
       $report=pickupitem(2526, 0, 0, 0, 1, 2);
     } else {
-      $report="<div style=\"font-weight:normal\">У вас уже есть <b>Камень портала Епископа.</b></div>";
+      $report="<div style=\"font-weight:normal\">РЈ РІР°СЃ СѓР¶Рµ РµСЃС‚СЊ <b>РљР°РјРµРЅСЊ РїРѕСЂС‚Р°Р»Р° Р•РїРёСЃРєРѕРїР°.</b></div>";
     }
   }
   
-/*************************************** разное *********************************************/
+/*************************************** СЂР°Р·РЅРѕРµ *********************************************/
 
-  // купель 14x20
+  // РєСѓРїРµР»СЊ 14x20
   if ($tx*2==14 && $ty*2==20) {
     if (usagesleft($tx, $ty)) {
-      $report=itemtofloor(2503, 0, 0, 3); // Антидот
+      $report=itemtofloor(2503, 0, 0, 3); // РђРЅС‚РёРґРѕС‚
       takeusage($tx, $ty);
     } else {
-      $report="<div style=\"font-weight:normal\">Пусто.</div>";
+      $report="<div style=\"font-weight:normal\">РџСѓСЃС‚Рѕ.</div>";
     }
   }
 

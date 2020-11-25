@@ -15,15 +15,15 @@
       if ($this->battle_data["room"]==57) {
         $ud=mqfa("select id, team from fieldparties where user='$v' order by id desc");
         mq("update fieldparties set x=".$fielddata[$this->battle_data["room"]-1]["x$ud[team]"].", y=".$fielddata[$this->battle_data["room"]-1]["y$ud[team]"].", dir=".$fielddata[$this->battle_data["room"]-1]["direction$ud[team]"]." where id='$ud[id]'");
-        mq("delete from inventory where owner='$v' and (name='Красный кристалл' or name='Зелёный кристалл' or name='Жёлтый кристалл')");
+        mq("delete from inventory where owner='$v' and (name='РљСЂР°СЃРЅС‹Р№ РєСЂРёСЃС‚Р°Р»Р»' or name='Р—РµР»С‘РЅС‹Р№ РєСЂРёСЃС‚Р°Р»Р»' or name='Р–С‘Р»С‚С‹Р№ РєСЂРёСЃС‚Р°Р»Р»')");
       }
       if ($this->battle_data["room"]==63 || $this->battle_data["room"]==72) {
         $this->getbu($v);
-        $updlog.=logdate()." ".fullnick($v)." ".($this->battleunits[$v]["sex"]==1?"повержен":"проиграла")."<br>";
+        $updlog.=logdate()." ".fullnick($v)." ".($this->battleunits[$v]["sex"]==1?"РїРѕРІРµСЂР¶РµРЅ":"РїСЂРѕРёРіСЂР°Р»Р°")."<br>";
         outoffield($v, $this->battle_data["room"]);
         $tr = settravma($v,1,60*60+(rand(0,60)*60),1);
-        if ($tr) $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($v).' получил повреждение: <font color=red>'.$tr.'</font><BR>');
-        privatemsg("Вы выбыли из ".($this->battle_data["room"]==63?"поединка":"турнира").".", $this->userdata[$v]["login"]);
+        if ($tr) $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($v).' РїРѕР»СѓС‡РёР» РїРѕРІСЂРµР¶РґРµРЅРёРµ: <font color=red>'.$tr.'</font><BR>');
+        privatemsg("Р’С‹ РІС‹Р±С‹Р»Рё РёР· ".($this->battle_data["room"]==63?"РїРѕРµРґРёРЅРєР°":"С‚СѓСЂРЅРёСЂР°").".", $this->userdata[$v]["login"]);
       }
       if (in_array($user["room"], $caverooms)) {
         mq("update caveparties set floor = $floor, x='".$cavedata[$user["room"]]["x$floor"]."', y='".$cavedata[$user["room"]]["y$floor"]."', dir='".$cavedata[$user["room"]]["dir$floor"]."', loses=loses+1 where user='$v'");
@@ -31,7 +31,7 @@
     } else {
       if ($this->battle_data["room"]==72) {
         $this->getbu($v);
-        $updlog.=logdate()." ".fullnick($this->battleunits[$v]["prototype"])." ".($this->battleunits[$v]["sex"]==1?"повержен":"проиграла")."<br>";
+        $updlog.=logdate()." ".fullnick($this->battleunits[$v]["prototype"])." ".($this->battleunits[$v]["sex"]==1?"РїРѕРІРµСЂР¶РµРЅ":"РїСЂРѕРёРіСЂР°Р»Р°")."<br>";
         mq("delete from fieldparties where user='".$this->battleunits[$v]["prototype"]."'");
       }
     }

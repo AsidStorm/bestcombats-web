@@ -14,11 +14,11 @@
 <SCRIPT src='http://img.bestcombats.net/js/commoninf.js'></SCRIPT>
 <SCRIPT>
 var Hint3Name = '';
-// Заголовок, название скрипта, имя поля с логином
+// Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РёРјСЏ РїРѕР»СЏ СЃ Р»РѕРіРёРЅРѕРј
 function findlogin(title, script, name){
 	document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
 	'<form action="'+script+'" method=POST><table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"><td colspan=2>'+
-	'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" »» "></TD></TR></TABLE></FORM></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" В»В» "></TD></TR></TABLE></FORM></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 100;
@@ -58,52 +58,52 @@ if (@$_REQUEST['to_id']) {
 if (@$step==3){
 	$step=0;
 	$id_person_x=$res['id'];
-	if (@!$id_person_x) $mess='Персонаж не найден';
-	elseif ($id_person_x==$user['id']) $mess='Незачем передавать самому себе';
-	elseif ($res['align']==4) $mess='Со склонностью хаос передачи предметов запрещены';
-	elseif ($user['align']==4) $mess='Со склонностью хаос передачи предметов запрещены';
-	elseif ($res['online']<1) $mess='Персонаж не онлайн';
-	elseif ($res['room']!=$user['room']) $mess='Вы должны находиться в одной комнате с тем кому хотите передать вещи';
-	elseif ($res['level']<5) $mess='К персонажам до 7-го уровня передачи предметов запрещены';
-	elseif ($user['level']<7) $mess='Персонажам до 7-го уровня передачи предметов запрещены';
+	if (@!$id_person_x) $mess='РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ';
+	elseif ($id_person_x==$user['id']) $mess='РќРµР·Р°С‡РµРј РїРµСЂРµРґР°РІР°С‚СЊ СЃР°РјРѕРјСѓ СЃРµР±Рµ';
+	elseif ($res['align']==4) $mess='РЎРѕ СЃРєР»РѕРЅРЅРѕСЃС‚СЊСЋ С…Р°РѕСЃ РїРµСЂРµРґР°С‡Рё РїСЂРµРґРјРµС‚РѕРІ Р·Р°РїСЂРµС‰РµРЅС‹';
+	elseif ($user['align']==4) $mess='РЎРѕ СЃРєР»РѕРЅРЅРѕСЃС‚СЊСЋ С…Р°РѕСЃ РїРµСЂРµРґР°С‡Рё РїСЂРµРґРјРµС‚РѕРІ Р·Р°РїСЂРµС‰РµРЅС‹';
+	elseif ($res['online']<1) $mess='РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РѕРЅР»Р°Р№РЅ';
+	elseif ($res['room']!=$user['room']) $mess='Р’С‹ РґРѕР»Р¶РЅС‹ РЅР°С…РѕРґРёС‚СЊСЃСЏ РІ РѕРґРЅРѕР№ РєРѕРјРЅР°С‚Рµ СЃ С‚РµРј РєРѕРјСѓ С…РѕС‚РёС‚Рµ РїРµСЂРµРґР°С‚СЊ РІРµС‰Рё';
+	elseif ($res['level']<5) $mess='Рљ РїРµСЂСЃРѕРЅР°Р¶Р°Рј РґРѕ 7-РіРѕ СѓСЂРѕРІРЅСЏ РїРµСЂРµРґР°С‡Рё РїСЂРµРґРјРµС‚РѕРІ Р·Р°РїСЂРµС‰РµРЅС‹';
+	elseif ($user['level']<7) $mess='РџРµСЂСЃРѕРЅР°Р¶Р°Рј РґРѕ 7-РіРѕ СѓСЂРѕРІРЅСЏ РїРµСЂРµРґР°С‡Рё РїСЂРµРґРјРµС‚РѕРІ Р·Р°РїСЂРµС‰РµРЅС‹';
 	else{
 		$idkomu=$id_person_x;
 		$komu=mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` ='".mysql_real_escape_string($idkomu)."';"));
 		$mess=$_REQUEST['FindLogin'];
 		$step=3;
 	}
-}else $mess='К персонажам до 7-го уровня передачи предметов запрещены';
+}else $mess='Рљ РїРµСЂСЃРѕРЅР°Р¶Р°Рј РґРѕ 7-РіРѕ СѓСЂРѕРІРЅСЏ РїРµСЂРµРґР°С‡Рё РїСЂРµРґРјРµС‚РѕРІ Р·Р°РїСЂРµС‰РµРЅС‹';
 
 if ($step==3) {
 	if ($_REQUEST['setkredit']>0 && $_REQUEST['to_id'] && $_REQUEST['sd4']==$user['id'] ) {
 		$_REQUEST['setkredit'] = round($_REQUEST['setkredit'],2);
-		if ($user['money']<$_REQUEST['setkredit']) $mess="Недостаточно денег";
+		if ($user['money']<$_REQUEST['setkredit']) $mess="РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі";
 		else {
 			if ((mysql_query("UPDATE `users` set `money`=`money`-'".mysql_real_escape_string(strval($_REQUEST[setkredit]))."' where id='".mysql_real_escape_string($user['id'])."'")) && (mysql_query("UPDATE `users` set `money`=`money`+'".mysql_real_escape_string(strval($_REQUEST[setkredit]))."' where id='".mysql_real_escape_string($idkomu)."'"))) {
-				$mess='Удачно переданы '.strval($_REQUEST[setkredit]).' кр к персонажу '.$komu['login'];
-				addchp ('<font color=red>Внимание!</font> Персонаж "'.$user['login'].'" передал вам <B>'.strval($_REQUEST[setkredit]).' кр</B>.   ','{[]}'.$komu['login'].'{[]}');
-					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','Переведены кредиты ".mysql_real_escape_string(strval($_REQUEST[setkredit]))." от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
-					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','Переведены кредиты ".mysql_real_escape_string(strval($_REQUEST[setkredit]))." от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
+				$mess='РЈРґР°С‡РЅРѕ РїРµСЂРµРґР°РЅС‹ '.strval($_REQUEST[setkredit]).' РєСЂ Рє РїРµСЂСЃРѕРЅР°Р¶Сѓ '.$komu['login'];
+				addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РџРµСЂСЃРѕРЅР°Р¶ "'.$user['login'].'" РїРµСЂРµРґР°Р» РІР°Рј <B>'.strval($_REQUEST[setkredit]).' РєСЂ</B>.   ','{[]}'.$komu['login'].'{[]}');
+					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','РџРµСЂРµРІРµРґРµРЅС‹ РєСЂРµРґРёС‚С‹ ".mysql_real_escape_string(strval($_REQUEST[setkredit]))." РѕС‚ ".mysql_real_escape_string($user['login'])." Рє ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
+					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','РџРµСЂРµРІРµРґРµРЅС‹ РєСЂРµРґРёС‚С‹ ".mysql_real_escape_string(strval($_REQUEST[setkredit]))." РѕС‚ ".mysql_real_escape_string($user['login'])." Рє ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
 				$user['money']-=$_REQUEST[setkredit];
 			}
 			else {
-				$mess='Произошла ошибка!';
+				$mess='РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!';
 			}
 		}
 	}
 	if ($_REQUEST['setekredit']>0 && $_REQUEST['to_id'] && $_REQUEST['sd4']==$user['id'] ) {
 		$_REQUEST['setekredit'] = round($_REQUEST['setekredit'],2);
-		if ($user['ekr']<$_REQUEST['setekredit']) $mess="Недостаточно денег";
+		if ($user['ekr']<$_REQUEST['setekredit']) $mess="РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі";
 		else {
 			if ((mysql_query("UPDATE `users` set `ekr`=`ekr`-'".mysql_real_escape_string(strval($_REQUEST[setekredit]))."' where id='".mysql_real_escape_string($user['id'])."'")) && (mysql_query("UPDATE `users` set `ekr`=`ekr`+'".mysql_real_escape_string(strval($_REQUEST[setekredit]))."' where id='".mysql_real_escape_string($idkomu)."'"))) {
-				$mess='Удачно переданы '.strval($_REQUEST[setekredit]).' екр к персонажу '.$komu['login'];
-				addchp ('<font color=red>Внимание!</font> Персонаж "'.$user['login'].'" передал вам <B>'.strval($_REQUEST[setekredit]).' екр</B>.   ','{[]}'.$komu['login'].'{[]}');
-					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','Переведены ЕвроКредиты ".mysql_real_escape_string(strval($_REQUEST[setekredit]))." от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
-					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','Переведены ЕвроКредиты ".mysql_real_escape_string(strval($_REQUEST[setekredit]))." от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
+				$mess='РЈРґР°С‡РЅРѕ РїРµСЂРµРґР°РЅС‹ '.strval($_REQUEST[setekredit]).' РµРєСЂ Рє РїРµСЂСЃРѕРЅР°Р¶Сѓ '.$komu['login'];
+				addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РџРµСЂСЃРѕРЅР°Р¶ "'.$user['login'].'" РїРµСЂРµРґР°Р» РІР°Рј <B>'.strval($_REQUEST[setekredit]).' РµРєСЂ</B>.   ','{[]}'.$komu['login'].'{[]}');
+					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','РџРµСЂРµРІРµРґРµРЅС‹ Р•РІСЂРѕРљСЂРµРґРёС‚С‹ ".mysql_real_escape_string(strval($_REQUEST[setekredit]))." РѕС‚ ".mysql_real_escape_string($user['login'])." Рє ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
+					mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','РџРµСЂРµРІРµРґРµРЅС‹ Р•РІСЂРѕРљСЂРµРґРёС‚С‹ ".mysql_real_escape_string(strval($_REQUEST[setekredit]))." РѕС‚ ".mysql_real_escape_string($user['login'])." Рє ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
 				$user['money']-=$_REQUEST[setekredit];
 			}
 			else {
-				$mess='Произошла ошибка!';
+				$mess='РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!';
 			}
 		}
 	}
@@ -112,14 +112,14 @@ if ($step==3) {
 	    echo mysql_error();
 		$num_rows = mysql_num_rows($result);
 		$res = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `id` = '".mysql_real_escape_string($_REQUEST['setobject'])."' AND dressed=0 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = '' AND `honor` = 0 AND `artefact` = 0;"));
-		if (!$res['id']) $mess="Предмет не найден в рюкзаке";
-		elseif ($res['dressed']!=0) $mess="Сначала необходимо снять предмет с себя.";
-		elseif ($res['prototype']==11529 and $num_rows>0) $mess="Слишком много таких предметов.";
-		elseif ($user['money']<1) $mess='Недостаточно денег на оплату передачи';
+		if (!$res['id']) $mess="РџСЂРµРґРјРµС‚ РЅРµ РЅР°Р№РґРµРЅ РІ СЂСЋРєР·Р°РєРµ";
+		elseif ($res['dressed']!=0) $mess="РЎРЅР°С‡Р°Р»Р° РЅРµРѕР±С…РѕРґРёРјРѕ СЃРЅСЏС‚СЊ РїСЂРµРґРјРµС‚ СЃ СЃРµР±СЏ.";
+		elseif ($res['prototype']==11529 and $num_rows>0) $mess="РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ С‚Р°РєРёС… РїСЂРµРґРјРµС‚РѕРІ.";
+		elseif ($user['money']<1) $mess='РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РЅР° РѕРїР»Р°С‚Сѓ РїРµСЂРµРґР°С‡Рё';
 		else {
 			$value=$res;
-			if (@$value['present']) $mess='Нельзя передавать подарки';
-			elseif (@$value['destinyinv']) $mess='Вещь связана с вами общей судьбой';
+			if (@$value['present']) $mess='РќРµР»СЊР·СЏ РїРµСЂРµРґР°РІР°С‚СЊ РїРѕРґР°СЂРєРё';
+			elseif (@$value['destinyinv']) $mess='Р’РµС‰СЊ СЃРІСЏР·Р°РЅР° СЃ РІР°РјРё РѕР±С‰РµР№ СЃСѓРґСЊР±РѕР№';
 			else{
 				$mto = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($idkomu)."' AND `dressed` = 0 AND `honor` = 0 AND `artefact` = 0 AND `setsale` = 0; "));
 
@@ -132,19 +132,19 @@ if ($step==3) {
 				if ($newmass<=$allmass) {
 					if ((mysql_query("update `users` set `money`=`money`-1 where `id`='".mysql_real_escape_string($user['id'])."'")) && (mysql_query("update `inventory` set `owner` = '".mysql_real_escape_string($komu['id'])."' where `id`='".mysql_real_escape_string($res['id'])."' and `owner`= '".mysql_real_escape_string($user['id'])."';"))) {
 						if (($user['room'] < 501) || ($user['room'] > 560)) {
-							mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','Передан предмет ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."/".mysql_real_escape_string($res['maxdur'])."] от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login']).", налог 1 кр.','1','".time()."');");
-							mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','Передан предмет ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."/".mysql_real_escape_string($res['maxdur'])."] от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login']).", налог 1 кр.','1','".time()."');");
+							mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','РџРµСЂРµРґР°РЅ РїСЂРµРґРјРµС‚ ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."/".mysql_real_escape_string($res['maxdur'])."] РѕС‚ ".mysql_real_escape_string($user['login'])." Рє ".mysql_real_escape_string($komu['login']).", РЅР°Р»РѕРі 1 РєСЂ.','1','".time()."');");
+							mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','РџРµСЂРµРґР°РЅ РїСЂРµРґРјРµС‚ ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."/".mysql_real_escape_string($res['maxdur'])."] РѕС‚ ".mysql_real_escape_string($user['login'])." Рє ".mysql_real_escape_string($komu['login']).", РЅР°Р»РѕРі 1 РєСЂ.','1','".time()."');");
 						}
-						$mess='Удачно передано "'.$value['name'].'" к персонажу '.$komu['login'];
-						addchp ('<font color=red>Внимание!</font> Персонаж "'.$user['login'].'" передал вам "'.$value['name'].'".   ','{[]}'.$komu['login'].'{[]}');
+						$mess='РЈРґР°С‡РЅРѕ РїРµСЂРµРґР°РЅРѕ "'.$value['name'].'" Рє РїРµСЂСЃРѕРЅР°Р¶Сѓ '.$komu['login'];
+						addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РџРµСЂСЃРѕРЅР°Р¶ "'.$user['login'].'" РїРµСЂРµРґР°Р» РІР°Рј "'.$value['name'].'".   ','{[]}'.$komu['login'].'{[]}');
 						$user['money']-=1;
 					}
 					else {
-						$mess='Произошла ошибка!';
+						$mess='РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!';
 					}
 				}
 				else {
-					$mess='У персонажа "'.$komu['login'].'" переполнен рюкзак!';
+					$mess='РЈ РїРµСЂСЃРѕРЅР°Р¶Р° "'.$komu['login'].'" РїРµСЂРµРїРѕР»РЅРµРЅ СЂСЋРєР·Р°Рє!';
 				}
 			}
 		}
@@ -153,14 +153,14 @@ if ($step==3) {
 		$result = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($idkomu)."' AND `prototype` = '11529';");
 		$num_rows = mysql_num_rows($result);
 		$res = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `id` = '".mysql_real_escape_string($_REQUEST['setobject'])."' AND dressed=0 AND `setsale` = 0 AND `present` = '' AND `destinyinv` = '' AND `honor` = 0 AND `artefact` = 0;"));
-		if (!$res['id']) $mess="Предмет не найден в рюкзаке";
-		elseif ($res['dressed']!=0) $mess="Сначала необходимо снять предмет с себя.";
-		elseif ($res['prototype']==11529 and $num_rows>0) $mess="Слишком много таких предметов.";
+		if (!$res['id']) $mess="РџСЂРµРґРјРµС‚ РЅРµ РЅР°Р№РґРµРЅ РІ СЂСЋРєР·Р°РєРµ";
+		elseif ($res['dressed']!=0) $mess="РЎРЅР°С‡Р°Р»Р° РЅРµРѕР±С…РѕРґРёРјРѕ СЃРЅСЏС‚СЊ РїСЂРµРґРјРµС‚ СЃ СЃРµР±СЏ.";
+		elseif ($res['prototype']==11529 and $num_rows>0) $mess="РЎР»РёС€РєРѕРј РјРЅРѕРіРѕ С‚Р°РєРёС… РїСЂРµРґРјРµС‚РѕРІ.";
 
 		else {
 			$value=$res;
-			if (@$value['present']) $mess='Нельзя передавать подарки';
-			elseif (@$value['destinyinv']) $mess='Вещь связана с вами общей судьбой';
+			if (@$value['present']) $mess='РќРµР»СЊР·СЏ РїРµСЂРµРґР°РІР°С‚СЊ РїРѕРґР°СЂРєРё';
+			elseif (@$value['destinyinv']) $mess='Р’РµС‰СЊ СЃРІСЏР·Р°РЅР° СЃ РІР°РјРё РѕР±С‰РµР№ СЃСѓРґСЊР±РѕР№';
 			else{
 				$mto = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($idkomu)."' AND `dressed` = 0 AND `setsale` = 0; "));
 
@@ -172,19 +172,19 @@ if ($step==3) {
 				$newmass=$mto[0]+$res['massa'];
 				if ($newmass<=$allmass) {
 					if (mysql_query("update `inventory` set `present` = '".mysql_real_escape_string($user['login'])."' ,`owner` = '".mysql_real_escape_string($komu['id'])."' where `id`='".mysql_real_escape_string($res['id'])."' and `owner`= '".mysql_real_escape_string($user['id'])."';")) {
-						addchp ('<font color=red>Внимание!</font> Персонаж "'.$user['login'].'" подарил вам "'.$value['name'].'"</B>.   ','{[]}'.$komu['login'].'{[]}');
+						addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РџРµСЂСЃРѕРЅР°Р¶ "'.$user['login'].'" РїРѕРґР°СЂРёР» РІР°Рј "'.$value['name'].'"</B>.   ','{[]}'.$komu['login'].'{[]}');
 						if (($user['room'] < 501) || ($user['room'] > 560)) {
-							mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','Подарен предмет ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."/".mysql_real_escape_string($res['maxdur'])."] от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
-							mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','Подарен предмет ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."/".mysql_real_escape_string($res['maxdur'])."] от ".mysql_real_escape_string($user['login'])." к ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
+							mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','РџРѕРґР°СЂРµРЅ РїСЂРµРґРјРµС‚ ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."/".mysql_real_escape_string($res['maxdur'])."] РѕС‚ ".mysql_real_escape_string($user['login'])." Рє ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
+							mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','РџРѕРґР°СЂРµРЅ РїСЂРµРґРјРµС‚ ".mysql_real_escape_string($res['name'])." id:(cap".mysql_real_escape_string($res['id']).") [".mysql_real_escape_string($res['duration'])."/".mysql_real_escape_string($res['maxdur'])."] РѕС‚ ".mysql_real_escape_string($user['login'])." Рє ".mysql_real_escape_string($komu['login'])."','1','".time()."');");
 						}
-						$mess='Удачно подарен предмет "'.$value['name'].'"  персонажу '.$komu['login'];
+						$mess='РЈРґР°С‡РЅРѕ РїРѕРґР°СЂРµРЅ РїСЂРµРґРјРµС‚ "'.$value['name'].'"  РїРµСЂСЃРѕРЅР°Р¶Сѓ '.$komu['login'];
 					}
 					else {
-						$mess='Произошла ошибка!';
+						$mess='РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!';
 					}
 				}
 				else {
-					$mess='У персонажа "'.$komu['login'].'" переполнен рюкзак!';
+					$mess='РЈ РїРµСЂСЃРѕРЅР°Р¶Р° "'.$komu['login'].'" РїРµСЂРµРїРѕР»РЅРµРЅ СЂСЋРєР·Р°Рє!';
 				}
 			}
 		}
@@ -192,12 +192,12 @@ if ($step==3) {
 
 	if ($_REQUEST['cost'] > 0 && $_REQUEST['to_id']) {
 		$res = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `dressed`=0 AND `artefact` =0  AND `id` = '".mysql_real_escape_string($_REQUEST['id_th'])."' LIMIT 1;"));
-		if (!$res['id']) $mess="Предмет не найден в рюкзаке";
-		elseif ($res['dressed']!=0) $mess="Сначала необходимо снять предмет.";
+		if (!$res['id']) $mess="РџСЂРµРґРјРµС‚ РЅРµ РЅР°Р№РґРµРЅ РІ СЂСЋРєР·Р°РєРµ";
+		elseif ($res['dressed']!=0) $mess="РЎРЅР°С‡Р°Р»Р° РЅРµРѕР±С…РѕРґРёРјРѕ СЃРЅСЏС‚СЊ РїСЂРµРґРјРµС‚.";
 		else {
 			$value=$res;
-			if (@$value['present']) $mess='Нельзя передавать подарки';
-			elseif (@$value['destinyinv']) $mess='Вещь связана с вами общей судьбой';
+			if (@$value['present']) $mess='РќРµР»СЊР·СЏ РїРµСЂРµРґР°РІР°С‚СЊ РїРѕРґР°СЂРєРё';
+			elseif (@$value['destinyinv']) $mess='Р’РµС‰СЊ СЃРІСЏР·Р°РЅР° СЃ РІР°РјРё РѕР±С‰РµР№ СЃСѓРґСЊР±РѕР№';
 			else{
 				#KOMOK_LOG
 				$row = $res;
@@ -215,7 +215,7 @@ if ($step==3) {
 					$re .= ob_get_clean();
 					$re .= "</TD></TR></table>";
 					$re = str_replace("\n","",$re);
-					$mess = 'Предложение персонажу '.$komu['login'].' сделано.';
+					$mess = 'РџСЂРµРґР»РѕР¶РµРЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Сѓ '.$komu['login'].' СЃРґРµР»Р°РЅРѕ.';
 					mysql_query("update `inventory` set `tradesale` = '".mysql_real_escape_string($_REQUEST['cost'])."' where `id`='".mysql_real_escape_string($res['id'])."' and `owner`= '".mysql_real_escape_string($res['owner'])."';");
 					mysql_query("INSERT INTO `trade`(`to_id` ,`login`  ,`txt` ,`kr` ,`id` ,`baer` ) VALUES ('".mysql_real_escape_string($_SESSION['uid'])."','".mysql_real_escape_string($user['login'])."','".mysql_real_escape_string($re)."',".mysql_real_escape_string($_REQUEST['cost']).",'".mysql_real_escape_string($_REQUEST['id_th'])."',".mysql_real_escape_string($_REQUEST['to_id']).");");
 
@@ -227,7 +227,7 @@ if ($step==3) {
 	if ($_REQUEST['transfersale'] && $_REQUEST['to_id']) {
 		$res = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `dressed`=0 AND `owner` = '".mysql_real_escape_string($_REQUEST['to_id'])."' AND `id` = '".mysql_real_escape_string($_REQUEST['transfersale'])."' LIMIT 1;"));
 		if($user['money'] < $res['tradesale']) {
-		    $mess ='<font color=red><b>Не хватает денег для проведения операции</b></font>';
+		    $mess ='<font color=red><b>РќРµ С…РІР°С‚Р°РµС‚ РґРµРЅРµРі РґР»СЏ РїСЂРѕРІРµРґРµРЅРёСЏ РѕРїРµСЂР°С†РёРё</b></font>';
 		} 
 		else
 		{
@@ -235,12 +235,12 @@ if ($step==3) {
 		    mysql_query("update `users` set `money`=`money`-'".mysql_real_escape_string($res['tradesale'])."' where `id`='".mysql_real_escape_string($user['id'])."'");
 		    mysql_query("update `users` set `money`=`money`+'".mysql_real_escape_string($res['tradesale'])."' where `id`='".mysql_real_escape_string($_REQUEST['to_id'])."'");
 		    if (($user['room'] < 501) || ($user['room'] > 560)) {
-		    	mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','Покупка за ".mysql_real_escape_string($res['tradesale'])."кр (".mysql_real_escape_string($res['name']).") у ".$komu['login']."',1,'".time()."');");
-		    	mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','Продажа за ".mysql_real_escape_string($res['tradesale'])."кр (".mysql_real_escape_string($res['name']).") к ".$user['login']."',1,'".time()."');");
+		    	mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($_SESSION['uid'])."','РџРѕРєСѓРїРєР° Р·Р° ".mysql_real_escape_string($res['tradesale'])."РєСЂ (".mysql_real_escape_string($res['name']).") Сѓ ".$komu['login']."',1,'".time()."');");
+		    	mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($idkomu)."','РџСЂРѕРґР°Р¶Р° Р·Р° ".mysql_real_escape_string($res['tradesale'])."РєСЂ (".mysql_real_escape_string($res['name']).") Рє ".$user['login']."',1,'".time()."');");
 		    }
-		    $mess='Удачно куплено "'.$res['name'].'" персонажу '.$komu['login'];
-		    $mess2='Удачно куплено "'.$res['name'].'" персонажeм '.$user['login'];
-		    addchp ('<font color=red>Внимание!</font> '.$mess2,'{[]}'.$komu['login'].'{[]}');
+		    $mess='РЈРґР°С‡РЅРѕ РєСѓРїР»РµРЅРѕ "'.$res['name'].'" РїРµСЂСЃРѕРЅР°Р¶Сѓ '.$komu['login'];
+		    $mess2='РЈРґР°С‡РЅРѕ РєСѓРїР»РµРЅРѕ "'.$res['name'].'" РїРµСЂСЃРѕРЅР°Р¶eРј '.$user['login'];
+		    addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> '.$mess2,'{[]}'.$komu['login'].'{[]}');
 		    $user['money']-=$res['tradesale'];
 		}
 	}
@@ -251,7 +251,7 @@ if ($step==3) {
 function findmoney(title, script, name, obj){
 	document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
 	'<form action="'+script+'" method=get><table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><INPUT TYPE=hidden name=id_th value="'+obj+'"><INPUT TYPE=hidden name=to_id value="<? echo @$komu['id']; ?>"><td colspan=2>'+
-	'Укажите cумму:<small></TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" »» "></TD></TR></TABLE></FORM></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ cСѓРјРјСѓ:<small></TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" В»В» "></TD></TR></TABLE></FORM></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 100;
@@ -261,18 +261,18 @@ function findmoney(title, script, name, obj){
 
 var tologin = '<? echo @($step==3?$komu['login']:''); ?>';
 function Sale(to_id, name, n, txt, transfer_kredit){
-	var s = prompt("Продать \""+txt+"\" к \""+tologin+"\". Укажите цену:", '');
-	if (s != null && s!= '') { // продаем
-	    if (confirm("Продать \""+txt+"\" к \""+tologin+"\" за "+parseFloat(s)+" кр. Вы заплатите "+transfer_kredit+"кр. за передачу! Ваш партнер по сделке должен открыть у себя окно обмена. Продолжить?")) {
+	var s = prompt("РџСЂРѕРґР°С‚СЊ \""+txt+"\" Рє \""+tologin+"\". РЈРєР°Р¶РёС‚Рµ С†РµРЅСѓ:", '');
+	if (s != null && s!= '') { // РїСЂРѕРґР°РµРј
+	    if (confirm("РџСЂРѕРґР°С‚СЊ \""+txt+"\" Рє \""+tologin+"\" Р·Р° "+parseFloat(s)+" РєСЂ. Р’С‹ Р·Р°РїР»Р°С‚РёС‚Рµ "+transfer_kredit+"РєСЂ. Р·Р° РїРµСЂРµРґР°С‡Сѓ! Р’Р°С€ РїР°СЂС‚РЅРµСЂ РїРѕ СЃРґРµР»РєРµ РґРѕР»Р¶РµРЅ РѕС‚РєСЂС‹С‚СЊ Сѓ СЃРµР±СЏ РѕРєРЅРѕ РѕР±РјРµРЅР°. РџСЂРѕРґРѕР»Р¶РёС‚СЊ?")) {
 		   location="/main.php?to_id="+to_id+"&setobject="+name+"&n="+n+"&s4i=<?=$user['sid']?>&sale="+s+"&sd4=<? echo @$user['id']; ?>&0.760742158507544";
 		}
 	}
 }
 function transfer(to_id, login, txt, kredit, id, destiny){
-	document.getElementById("hint3").innerHTML = '<table width=500 cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>Продажа предмета</td></tr><tr><td>'+
+	document.getElementById("hint3").innerHTML = '<table width=500 cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>РџСЂРѕРґР°Р¶Р° РїСЂРµРґРјРµС‚Р°</td></tr><tr><td>'+
 	'<form action="give.php" method=get><table width=100% cellspacing=0 cellpadding=5 bgcolor=FFF6DD><tr><td><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"><INPUT TYPE=hidden name=FindLogin value=0><INPUT TYPE=hidden name=to_id value="'+to_id+'"><INPUT TYPE=hidden name=transfersale value="'+id+'">'+
-	'<b>'+login+'</b> <a href="inf.php?'+to_id+'" target=_blank><IMG SRC=i/inf.gif WIDTH=12 HEIGHT=11></a> предлагает Вам купить предмет:<BR>'+
-	txt+'<BR>за <font color=red><b>'+kredit+' кр.</b></font><BR>Проводим сделку?</TD></TR><TR><TD align=center><INPUT TYPE=submit '+(destiny?" onclick='return confirm(\"Этот предмет может использовать только "+destiny+" Вы уверены, что хотите его купить?\")'":"")+' value="  ДА  "> &nbsp;&nbsp; <INPUT TYPE=button value=" НЕТ " onclick="closehint3()"></TD></TR></TABLE></FORM></td></tr></table>';
+	'<b>'+login+'</b> <a href="inf.php?'+to_id+'" target=_blank><IMG SRC=i/inf.gif WIDTH=12 HEIGHT=11></a> РїСЂРµРґР»Р°РіР°РµС‚ Р’Р°Рј РєСѓРїРёС‚СЊ РїСЂРµРґРјРµС‚:<BR>'+
+	txt+'<BR>Р·Р° <font color=red><b>'+kredit+' РєСЂ.</b></font><BR>РџСЂРѕРІРѕРґРёРј СЃРґРµР»РєСѓ?</TD></TR><TR><TD align=center><INPUT TYPE=submit '+(destiny?" onclick='return confirm(\"Р­С‚РѕС‚ РїСЂРµРґРјРµС‚ РјРѕР¶РµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ "+destiny+" Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ РµРіРѕ РєСѓРїРёС‚СЊ?\")'":"")+' value="  Р”Рђ  "> &nbsp;&nbsp; <INPUT TYPE=button value=" РќР•Рў " onclick="closehint3()"></TD></TR></TABLE></FORM></td></tr></table>';
 	document.getElementById("hint3").style.visibility = "visible";
 	document.getElementById("hint3").style.left = 100;
 	document.getElementById("hint3").style.top = 60;
@@ -284,18 +284,18 @@ function reloadit(){
 </SCRIPT>
 </HEAD>
 <body bgcolor=e2e0e0><div id=hint3 class=ahint></div><div id=hint4 class=ahint></div>
-<H3>Передача предметов/кредитов другому игроку</H3>
+<H3>РџРµСЂРµРґР°С‡Р° РїСЂРµРґРјРµС‚РѕРІ/РєСЂРµРґРёС‚РѕРІ РґСЂСѓРіРѕРјСѓ РёРіСЂРѕРєСѓ</H3>
 <TABLE width=100% cellspacing=0 cellpadding=0>
 <TR><TD>
 <? if ($step==3) {
-echo 'К кому передавать: <font color=red><SCRIPT>drwfl("'.@$komu['login'].'",'.@$komu['id'].',"'.@$komu['level'].'","'.@$komu['align'].'","'.@$komu['klan'].'")</SCRIPT></font>';
-?> <INPUT TYPE=button value="Сменить" onClick="findlogin('Передача предметов','give.php','FindLogin')"><BR><?
+echo 'Рљ РєРѕРјСѓ РїРµСЂРµРґР°РІР°С‚СЊ: <font color=red><SCRIPT>drwfl("'.@$komu['login'].'",'.@$komu['id'].',"'.@$komu['level'].'","'.@$komu['align'].'","'.@$komu['klan'].'")</SCRIPT></font>';
+?> <INPUT TYPE=button value="РЎРјРµРЅРёС‚СЊ" onClick="findlogin('РџРµСЂРµРґР°С‡Р° РїСЂРµРґРјРµС‚РѕРІ','give.php','FindLogin')"><BR><?
 }else{
 	$roww = mysql_fetch_array(mysql_query("SELECT * FROM `trade` WHERE `baer` = '".mysql_real_escape_string($user['id'])."' LIMIT 1;"));
 	mysql_query("DELETE FROM `trade` WHERE `baer` = '".mysql_real_escape_string($user['id'])."' LIMIT 1;");
 	$rwx = mysql_fetch_array(mysql_query("SELECT `id` FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($roww['to_id'])."' AND `tradesale` > 0 AND `id` = '".mysql_real_escape_string($roww['id'])."' LIMIT 1;"));
 	if (!$roww['id'] OR !$rwx['id']) {
-?> <SCRIPT>findlogin('Передача предметов','give.php','FindLogin');</SCRIPT><? }
+?> <SCRIPT>findlogin('РџРµСЂРµРґР°С‡Р° РїСЂРµРґРјРµС‚РѕРІ','give.php','FindLogin');</SCRIPT><? }
 else
  {
 	?> <SCRIPT>transfer(<?=$roww['to_id']?>, '<?=$roww['login']?>', '<?=str_replace("\r\n","",$roww['txt'])?>', <?=$roww['kr']?>, <?=$roww['id']?>, '');</SCRIPT><?
@@ -305,8 +305,8 @@ else
 ?>
 
 </td><TD align=right>
-	<INPUT TYPE=button value="Подсказка" style="background-color:#A9AFC0" onClick="window.open('help/transfer.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">
-	<INPUT TYPE=button value="Вернуться" onClick="location.href='main.php'">
+	<INPUT TYPE=button value="РџРѕРґСЃРєР°Р·РєР°" style="background-color:#A9AFC0" onClick="window.open('help/transfer.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">
+	<INPUT TYPE=button value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" onClick="location.href='main.php'">
 </td></tr><tr><td colspan=2 align=right><? if ($step!=4) {?> <FONT COLOR=red><B><? echo $mess; ?></B></FONT> <? } ?></td></tr></table>
 
 <TABLE width=100% cellspacing=0 cellpadding=0>
@@ -317,13 +317,13 @@ else
 	if ($step==3) { ?>
 	<INPUT TYPE=hidden name=to_id value="<? echo $idkomu; ?>">
 	<INPUT TYPE=hidden name=sd4 value="<? echo $user['id']; ?>">
-	<BR>У вас на счету: <FONT COLOR=339900><B><? echo $user['money']; ?></B></FONT> кр.<BR>
-	<small><BR>Передать кредиты, минимально 0.01кр.<BR></small>
-	Укажите передаваемую сумму кр: <INPUT TYPE=text NAME=setkredit maxlength=8 size=6>&nbsp;<INPUT TYPE=submit VALUE="Передать">
+	<BR>РЈ РІР°СЃ РЅР° СЃС‡РµС‚Сѓ: <FONT COLOR=339900><B><? echo $user['money']; ?></B></FONT> РєСЂ.<BR>
+	<small><BR>РџРµСЂРµРґР°С‚СЊ РєСЂРµРґРёС‚С‹, РјРёРЅРёРјР°Р»СЊРЅРѕ 0.01РєСЂ.<BR></small>
+	РЈРєР°Р¶РёС‚Рµ РїРµСЂРµРґР°РІР°РµРјСѓСЋ СЃСѓРјРјСѓ РєСЂ: <INPUT TYPE=text NAME=setkredit maxlength=8 size=6>&nbsp;<INPUT TYPE=submit VALUE="РџРµСЂРµРґР°С‚СЊ">
 <!--	<BR>-------------------------------------------------
-	<BR>У вас на счету: <FONT COLOR=339900><B><? echo $user['ekr']; ?></B></FONT> екр.<BR>
-	<small><BR>Передать ЕвроКредиты, минимально 1 екр.<BR></small>
-	Укажите передаваемую сумму екр: <INPUT TYPE=text NAME=setekredit maxlength=8 size=6>&nbsp;<INPUT TYPE=submit VALUE="Передать">
+	<BR>РЈ РІР°СЃ РЅР° СЃС‡РµС‚Сѓ: <FONT COLOR=339900><B><? echo $user['ekr']; ?></B></FONT> РµРєСЂ.<BR>
+	<small><BR>РџРµСЂРµРґР°С‚СЊ Р•РІСЂРѕРљСЂРµРґРёС‚С‹, РјРёРЅРёРјР°Р»СЊРЅРѕ 1 РµРєСЂ.<BR></small>
+	РЈРєР°Р¶РёС‚Рµ РїРµСЂРµРґР°РІР°РµРјСѓСЋ СЃСѓРјРјСѓ РµРєСЂ: <INPUT TYPE=text NAME=setekredit maxlength=8 size=6>&nbsp;<INPUT TYPE=submit VALUE="РџРµСЂРµРґР°С‚СЊ">
 -->
 	<?
 	}
@@ -348,21 +348,21 @@ if ($step==3) {
 <TABLE border=0 width=100% cellspacing="0" cellpadding="0" bgcolor="#A5A5A5">
 <TR><TD>
 	<TABLE border=0 width=100% cellspacing="0" cellpadding="3" bgcolor=#d4d2d2><TR>
-	<TD  align=center bgcolor="<?=($_SESSION['razdel']==null)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=0&sd4=<? echo $user['id']; ?>">Обмундирование</A></TD>
-	<TD  align=center bgcolor="<?=($_SESSION['razdel']==1)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=1&sd4=<? echo $user['id']; ?>">Заклятия</A></TD>
-	<TD  align=center bgcolor="<?=($_SESSION['razdel']==3)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=3&sd4=<? echo $user['id']; ?>">Еда</A></TD>
-	<TD  align=center bgcolor="<?=($_SESSION['razdel']==2)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=2&sd4=<? echo $user['id']; ?>">Прочее</A></TD>
+	<TD  align=center bgcolor="<?=($_SESSION['razdel']==null)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=0&sd4=<? echo $user['id']; ?>">РћР±РјСѓРЅРґРёСЂРѕРІР°РЅРёРµ</A></TD>
+	<TD  align=center bgcolor="<?=($_SESSION['razdel']==1)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=1&sd4=<? echo $user['id']; ?>">Р—Р°РєР»СЏС‚РёСЏ</A></TD>
+	<TD  align=center bgcolor="<?=($_SESSION['razdel']==3)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=3&sd4=<? echo $user['id']; ?>">Р•РґР°</A></TD>
+	<TD  align=center bgcolor="<?=($_SESSION['razdel']==2)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=2&sd4=<? echo $user['id']; ?>">РџСЂРѕС‡РµРµ</A></TD>
 	</TR></TABLE>
 </TD></TR>
 <TR>
-	<TD align=center><B>Рюкзак (масса: <?php
+	<TD align=center><B>Р СЋРєР·Р°Рє (РјР°СЃСЃР°: <?php
 
 	$d = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '".mysql_real_escape_string($_SESSION['uid'])."' AND `dressed` = 0 AND `artefact` ='' AND `honor` ='' AND `setsale` = 0; "));
 
 	echo $d[0];
 	?>/<?=get_meshok()?>)</B></TD>
 </TR>
-<TR><TD align=center><!--Рюкзак-->
+<TR><TD align=center><!--Р СЋРєР·Р°Рє-->
 <TABLE BORDER=0 WIDTH=100% CELLSPACING="1" CELLPADDING="2" BGCOLOR="#A5A5A5">
 <?php
 	if ($_SESSION['razdel']==null) {
@@ -383,9 +383,9 @@ if ($step==3) {
 		echo "<TR bgcolor={$color}><TD align=center ><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
 		?>
 		<BR>
-			<? echo "<A HREF=\"give.php?to_id=".$idkomu."&id_th=".$row['id']."&setobject=".$row['id']."&s4i=".$user['sid']."&sd4=".$user['id']."&tmp=".rand(0,50000000)."\"".'onclick="return confirm(\'Передать предмет '.$row['name'].'?\')">передать&nbsp;за&nbsp;1&nbsp;кр.</A>';
-			echo "<br><A HREF=\"give.php?to_id=".$idkomu."&id_th=".$row['id']."&setobject=".$row['id']."&gift=1&s4i=".$user['sid']."&sd4=".$user['id']."&tmp=".rand(0,50000000)."\"".'onclick="return confirm(\'Подарить предмет '.$row['name'].'?\')">подарить</A>';
-			 echo "<br><A HREF=#".' onClick="findmoney(\'Продажа предмета\',\'give.php\',\'cost\','.$row['id'].')">продать</A>';
+			<? echo "<A HREF=\"give.php?to_id=".$idkomu."&id_th=".$row['id']."&setobject=".$row['id']."&s4i=".$user['sid']."&sd4=".$user['id']."&tmp=".rand(0,50000000)."\"".'onclick="return confirm(\'РџРµСЂРµРґР°С‚СЊ РїСЂРµРґРјРµС‚ '.$row['name'].'?\')">РїРµСЂРµРґР°С‚СЊ&nbsp;Р·Р°&nbsp;1&nbsp;РєСЂ.</A>';
+			echo "<br><A HREF=\"give.php?to_id=".$idkomu."&id_th=".$row['id']."&setobject=".$row['id']."&gift=1&s4i=".$user['sid']."&sd4=".$user['id']."&tmp=".rand(0,50000000)."\"".'onclick="return confirm(\'РџРѕРґР°СЂРёС‚СЊ РїСЂРµРґРјРµС‚ '.$row['name'].'?\')">РїРѕРґР°СЂРёС‚СЊ</A>';
+			 echo "<br><A HREF=#".' onClick="findmoney(\'РџСЂРѕРґР°Р¶Р° РїСЂРµРґРјРµС‚Р°\',\'give.php\',\'cost\','.$row['id'].')">РїСЂРѕРґР°С‚СЊ</A>';
 			 ?>
 
 		</TD>
@@ -395,7 +395,7 @@ if ($step==3) {
 		echo "</TD></TR>";
 	}
 	if (mysql_num_rows($data) == 0) {
-		echo "<tr><td align=center bgcolor=#C7C7C7>Пусто</td></tr>";
+		echo "<tr><td align=center bgcolor=#C7C7C7>РџСѓСЃС‚Рѕ</td></tr>";
 	}
 ?>
 

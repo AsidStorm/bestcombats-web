@@ -19,7 +19,7 @@
     $taken=takeitemfromshop($k);
     $tbl="shop";
   }
-  adddelo($user["id"], "Персонаж $user[login] нашёл в сундучке (id: $_GET[use]) $taken[name] (id: $taken[id]).", 4);
-  echo "В сундучке Вы нашли: <b>$taken[name]</b>";
+  adddelo($user["id"], "РџРµСЂСЃРѕРЅР°Р¶ $user[login] РЅР°С€С‘Р» РІ СЃСѓРЅРґСѓС‡РєРµ (id: $_GET[use]) $taken[name] (id: $taken[id]).", 4);
+  echo "Р’ СЃСѓРЅРґСѓС‡РєРµ Р’С‹ РЅР°С€Р»Рё: <b>$taken[name]</b>";
   mq("delete from inventory where owner='$_SESSION[uid]' and id='$_GET[use]'");
 ?>

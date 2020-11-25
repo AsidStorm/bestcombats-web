@@ -12,7 +12,7 @@
     if ($x*2==12 && $y*2==4) gotoxy(8, 4, 0);
     else gotoxy(12, 4, 0);
           
-    } else $report="У вас нет необходимого ключа.";
+    } else $report="РЈ РІР°СЃ РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ РєР»СЋС‡Р°.";
 
   }
   if ($tx*2==14 && $ty*2==4) {
@@ -20,12 +20,12 @@
     $report="<div style=\"font-weight:normal\"></div>";
     include_once "cavefunctions.php";
     $report=temper();
-    } else $report="Не стоит нырять в прорубь, когда рядом враги.";
+    } else $report="РќРµ СЃС‚РѕРёС‚ РЅС‹СЂСЏС‚СЊ РІ РїСЂРѕСЂСѓР±СЊ, РєРѕРіРґР° СЂСЏРґРѕРј РІСЂР°РіРё.";
 
   }
   if ($tx*2==16 && $ty*2==8) {
     
-    $report="<div style=\"font-weight:normal\">Вы спустились на второй этаж.</div>";
+    $report="<div style=\"font-weight:normal\">Р’С‹ СЃРїСѓСЃС‚РёР»РёСЃСЊ РЅР° РІС‚РѕСЂРѕР№ СЌС‚Р°Р¶.</div>";
     gotoxy(8, 2, 2);
     
   }

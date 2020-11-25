@@ -1,7 +1,7 @@
 <?php
 
 if ($user['battle'] > 0) {
-	echo "Не в бою...";
+	echo "РќРµ РІ Р±РѕСЋ...";
 }
 
 if ($_SESSION['uid'] == null) header("Location: index.php");
@@ -9,16 +9,16 @@ if ($_SESSION['uid'] == null) header("Location: index.php");
 $svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '{$_GET['use']}' AND `owner` = '{$user['id']}' LIMIT 1;"));
 $svDest = substr($svitok['name'], -2, 2);
 $iType=array(
-    "хи"=>1,
-    "хэ"=>2,
-    "ви"=>5,
-    "во"=>9,
-    "кэ"=>24,
-    "ки"=>11,
-    "ми"=>8,
-    "си"=>22,
-    "мо"=>4,
-    "со"=>23
+    "С…Рё"=>1,
+    "С…СЌ"=>2,
+    "РІРё"=>5,
+    "РІРѕ"=>9,
+    "РєСЌ"=>24,
+    "РєРё"=>11,
+    "РјРё"=>8,
+    "СЃРё"=>22,
+    "РјРѕ"=>4,
+    "СЃРѕ"=>23
 );
 //if ($user['id'] == 7) {
     $dresses = mqfaa("SELECT * FROM `inventory` WHERE `owner` = '{$user['id']}' AND magic < 1 AND type = " . $iType[$svDest]);
@@ -65,22 +65,22 @@ if ($dress && $svitok) {
                 `mfmagp`=`mfmagp`+{$svitok['mfmagp']},
                 `massa` = `massa`+3,
                 `destinyinv`=1,
-                `opisan` = 'Предмет усилен <b>{$svitok['name']}</b>'
+                `opisan` = 'РџСЂРµРґРјРµС‚ СѓСЃРёР»РµРЅ <b>{$svitok['name']}</b>'
             WHERE `id` = {$dress['id']} LIMIT 1;
         ";
         if (mysql_query($query)) {
-                echo "<font color=red><b>Предмет \"{$_POST['target']}\" удачно усилен.<b></font> ";
+                echo "<font color=red><b>РџСЂРµРґРјРµС‚ \"{$_POST['target']}\" СѓРґР°С‡РЅРѕ СѓСЃРёР»РµРЅ.<b></font> ";
                 $bet=1;
                             /*,
                             `cost` = `cost`+{$svitok['nlevel']}*/
         } else {
-            echo "<font color=red><b>Произошла ошибка!<b></font>";
+            echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
         }
     } else {
-        echo "<font color=red><b>Предмет уже усилен или не подлежит усилению<b></font>";
+        echo "<font color=red><b>РџСЂРµРґРјРµС‚ СѓР¶Рµ СѓСЃРёР»РµРЅ РёР»Рё РЅРµ РїРѕРґР»РµР¶РёС‚ СѓСЃРёР»РµРЅРёСЋ<b></font>";
     }
 } else {
-    echo "<font color=red><b>Неправильное имя предмета или неправильная руна<b></font>";
+    echo "<font color=red><b>РќРµРїСЂР°РІРёР»СЊРЅРѕРµ РёРјСЏ РїСЂРµРґРјРµС‚Р° РёР»Рё РЅРµРїСЂР°РІРёР»СЊРЅР°СЏ СЂСѓРЅР°<b></font>";
 }
 
 

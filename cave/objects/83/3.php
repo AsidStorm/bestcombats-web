@@ -1,48 +1,48 @@
 <?php
 
-// ñêåëåòû
+// ÑÐºÐµÐ»ÐµÑ‚Ñ‹
 if (($tx*2==10 && $ty*2==10) || ($tx*2==18 && $ty*2==6) || ($tx*2==18 && $ty*2==4)) {
     if (usagesleft($tx, $ty)) {
         takeusage($tx, $ty);
         $rand = mt_rand(1,100);
         if ($rand <= 50) {
-            $report = usagesleft($tx, $ty) ? 'Ïóñòî, ïîðîáóéòå åùå ðàç.' : 'Ïóñòî'; 
+            $report = usagesleft($tx, $ty) ? 'ÐŸÑƒÑÑ‚Ð¾, Ð¿Ð¾Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ðµ Ñ€Ð°Ð·.' : 'ÐŸÑƒÑÑ‚Ð¾'; 
         } elseif ($rand <= 80) {
             $mhp = 100 + mt_rand(0, 900);
-            $report = "Âû ïîïàëè â ëîâóøêó -$mhp HP.";
+            $report = "Ð’Ñ‹ Ð¿Ð¾Ð¿Ð°Ð»Ð¸ Ð² Ð»Ð¾Ð²ÑƒÑˆÐºÑƒ -$mhp HP.";
             takehp($user["id"], $mhp);
         } elseif ($rand <= 85) {
-            $report = itemtofloor(2581, 0, 0, 1); // ÷óæàÿ êâèòàíöèÿ íà òîâàð
+            $report = itemtofloor(2581, 0, 0, 1); // Ñ‡ÑƒÐ¶Ð°Ñ ÐºÐ²Ð¸Ñ‚Ð°Ð½Ñ†Ð¸Ñ Ð½Ð° Ñ‚Ð¾Ð²Ð°Ñ€
         } else {
-            $report = itemtofloor(mt_rand(2595, 2634), 0, 0, 3); // ñòðàíè÷êè
+            $report = itemtofloor(mt_rand(2595, 2634), 0, 0, 3); // ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ‡ÐºÐ¸
         }
     } else {
-        $report="Ïóñòî";
+        $report="ÐŸÑƒÑÑ‚Ð¾";
     }
 }
 
-// ñóíäóêè
+// ÑÑƒÐ½Ð´ÑƒÐºÐ¸
 if (($tx*2==14 && $ty*2==6) || ($tx*2==16 && $ty*2==6) || ($tx*2==2 && $ty*2==4) || ($tx*2==2 && $ty*2==10) || ($tx*2==2 && $ty*2==18)) {
     if (usagesleft($tx, $ty)) {
         takeusage($tx, $ty);
         $rand = mt_rand(1,100);
         if ($rand <= 80) {
-            $report = usagesleft($tx, $ty) ? 'Ïóñòî, ïîðîáóéòå åùå ðàç.' : 'Ïóñòî'; 
+            $report = usagesleft($tx, $ty) ? 'ÐŸÑƒÑÑ‚Ð¾, Ð¿Ð¾Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ðµ Ñ€Ð°Ð·.' : 'ÐŸÑƒÑÑ‚Ð¾'; 
         } elseif ($rand <= 85) {
-            $report = itemtofloor(2590, 0, 0, 1); // ïðàâî íà äðóæáó
+            $report = itemtofloor(2590, 0, 0, 1); // Ð¿Ñ€Ð°Ð²Ð¾ Ð½Ð° Ð´Ñ€ÑƒÐ¶Ð±Ñƒ
         } elseif ($rand <= 90) {
-            $report = itemtofloor(mt_rand(2573, 2576), 0, 0, 1); // ýëèêñèðû
+            $report = itemtofloor(mt_rand(2573, 2576), 0, 0, 1); // ÑÐ»Ð¸ÐºÑÐ¸Ñ€Ñ‹
         } elseif ($rand <= 95) {
-            $report = itemtofloor(mt_rand(2577, 2579), 0, 0, 1); // ìîëîò
+            $report = itemtofloor(mt_rand(2577, 2579), 0, 0, 1); // Ð¼Ð¾Ð»Ð¾Ñ‚
         } else {
-            $report = itemtofloor(mt_rand(2595, 2634), 0, 0, 3); // ñòðàíè÷êè
+            $report = itemtofloor(mt_rand(2595, 2634), 0, 0, 3); // ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ‡ÐºÐ¸
         }
     } else {
-        $report = 'Ïóñòî';
+        $report = 'ÐŸÑƒÑÑ‚Ð¾';
     }
 }
 
-// êðîâàòè
+// ÐºÑ€Ð¾Ð²Ð°Ñ‚Ð¸
 if (($tx*2==6 && $ty*2==2) || ($tx*2==4 && $ty*2==2) || ($tx*2==2 && $ty*2==2) || ($tx*2==6 && $ty*2==6) || ($tx*2==4 && $ty*2==6) ||
     ($tx*2==2 && $ty*2==6) || ($tx*2==6 && $ty*2==8) || ($tx*2==4 && $ty*2==8) || ($tx*2==2 && $ty*2==8) || ($tx*2==2 && $ty*2==12) ||
     ($tx*2==2 && $ty*2==16) || ($tx*2==6 && $ty*2==18) || ($tx*2==6 && $ty*2==20) || ($tx*2==4 && $ty*2==20) || ($tx*2==2 && $ty*2==20)) {
@@ -50,20 +50,20 @@ if (($tx*2==6 && $ty*2==2) || ($tx*2==4 && $ty*2==2) || ($tx*2==2 && $ty*2==2) |
         takeusage($tx, $ty);
         $rand = mt_rand(1,100);
         if ($rand <= 65) {
-            $report = 'Ïóñòî'; 
+            $report = 'ÐŸÑƒÑÑ‚Ð¾'; 
         } elseif ($rand <= 80) {
-            $report = itemtofloor(2589, 1, 0, 1); // êëþ÷ îò êëåòêè
+            $report = itemtofloor(2589, 1, 0, 1); // ÐºÐ»ÑŽÑ‡ Ð¾Ñ‚ ÐºÐ»ÐµÑ‚ÐºÐ¸
         } elseif ($rand <= 85) {
-            $report = itemtofloor(mt_rand(2573, 2576), 0, 0, 1); // ýëèêñèðû
+            $report = itemtofloor(mt_rand(2573, 2576), 0, 0, 1); // ÑÐ»Ð¸ÐºÑÐ¸Ñ€Ñ‹
         } elseif ($rand <= 90) {
-            $report = itemtofloor(mt_rand(2577, 2579), 0, 0, 1); // ìîëîò
+            $report = itemtofloor(mt_rand(2577, 2579), 0, 0, 1); // Ð¼Ð¾Ð»Ð¾Ñ‚
         } elseif ($rand <= 95) {
-            $report = itemtofloor(2588, 0, 0, 1); // îáëîæêà îò êíèãè
+            $report = itemtofloor(2588, 0, 0, 1); // Ð¾Ð±Ð»Ð¾Ð¶ÐºÐ° Ð¾Ñ‚ ÐºÐ½Ð¸Ð³Ð¸
         } else {
-            $report = itemtofloor(mt_rand(2595, 2634), 0, 0, 3); // ñòðàíè÷êè
+            $report = itemtofloor(mt_rand(2595, 2634), 0, 0, 3); // ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ‡ÐºÐ¸
         }
     } else {
-        $report = 'Ïóñòî';
+        $report = 'ÐŸÑƒÑÑ‚Ð¾';
     }
 }
 

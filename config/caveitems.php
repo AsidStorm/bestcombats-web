@@ -17,57 +17,57 @@ if ($user['room'] == 74) {
     $randSmallI = mysql_result(mysql_query("SELECT id FROM smallitems WHERE type = 189 ORDER BY RAND() LIMIT 1"), 0, 0);
     $randCharm0 = mysql_result(mysql_query("SELECT id FROM shop WHERE id = 2534 OR id = 2538 OR id = 2542 OR id = 2546 OR id = 2550 ORDER BY RAND() LIMIT 1"), 0, 0);
 
-    $caveitems[16] = array(array('id'=>979, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>10)); // Îôèöåð ãëóáèí
-    $caveitems[20] = array( // Áåðñåpê
+    $caveitems[16] = array(array('id'=>979, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>10)); // ÐžÑ„Ð¸Ñ†ÐµÑ€ Ð³Ð»ÑƒÐ±Ð¸Ð½
+    $caveitems[20] = array( // Ð‘ÐµÑ€ÑÐµpÐº
         array('id'=>1971, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>10),
         array('id'=>1387, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>10),
         array('id'=>2460, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>10)
     );
-    $caveitems[21] = array(array('id'=>2368, 'from'=>'shop', 'foronetrip'=>1, 'chance'=>10)); // Ñëèçü 500
-    $caveitems[28] = array(array('id'=>2368, 'from'=>'shop', 'foronetrip'=>1, 'chance'=>10)); // Ñëèçü 700
-    $caveitems[34] = array( // ×åðíîêíèæíèê
+    $caveitems[21] = array(array('id'=>2368, 'from'=>'shop', 'foronetrip'=>1, 'chance'=>10)); // Ð¡Ð»Ð¸Ð·ÑŒ 500
+    $caveitems[28] = array(array('id'=>2368, 'from'=>'shop', 'foronetrip'=>1, 'chance'=>10)); // Ð¡Ð»Ð¸Ð·ÑŒ 700
+    $caveitems[34] = array( // Ð§ÐµÑ€Ð½Ð¾ÐºÐ½Ð¸Ð¶Ð½Ð¸Ðº
         array('id'=>995, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>996, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>1967, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2)
     ); 
-    $caveitems[42] = array(array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2)); // Ïðîêëÿòûé 1000
-    $caveitems[43] = array(array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2)); // Çîìáè 1800
-    $caveitems[44] = array(array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2)); // Çîìáè 2160
-    $caveitems[45] = array( // Ïîæèðàòåëü Ïàäàëè
+    $caveitems[42] = array(array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2)); // ÐŸÑ€Ð¾ÐºÐ»ÑÑ‚Ñ‹Ð¹ 1000
+    $caveitems[43] = array(array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2)); // Ð—Ð¾Ð¼Ð±Ð¸ 1800
+    $caveitems[44] = array(array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2)); // Ð—Ð¾Ð¼Ð±Ð¸ 2160
+    $caveitems[45] = array( // ÐŸÐ¾Ð¶Ð¸Ñ€Ð°Ñ‚ÐµÐ»ÑŒ ÐŸÐ°Ð´Ð°Ð»Ð¸
         array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>$randSmallI, 'from'=>'smallitems', 'foronetrip'=>0, 'chance'=>20)
     ); 
-    $caveitems[46] = array( // Øóò Ïîâåëèòåëÿ
-        /////////////////////////////// + ñâèòîê çà÷àðîâàíèÿ ///////////////////////////////////////////////////////////////
+    $caveitems[46] = array( // Ð¨ÑƒÑ‚ ÐŸÐ¾Ð²ÐµÐ»Ð¸Ñ‚ÐµÐ»Ñ
+        /////////////////////////////// + ÑÐ²Ð¸Ñ‚Ð¾Ðº Ð·Ð°Ñ‡Ð°Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ ///////////////////////////////////////////////////////////////
         array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>$randSmallI, 'from'=>'smallitems', 'foronetrip'=>0, 'chance'=>20),
         array('id'=>$randCharm0, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>100),
     ); 
-    $caveitems[47] = array( // Òðóïîæîð
+    $caveitems[47] = array( // Ð¢Ñ€ÑƒÐ¿Ð¾Ð¶Ð¾Ñ€
         array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>$randSmallI, 'from'=>'smallitems', 'foronetrip'=>0, 'chance'=>20),
         array('id'=>$randCharm0, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>100),
     ); 
-    $caveitems[48] = array( // Ïðîêëÿòûé Ïëåííèê
-        /////////////////////////////// + ñâèòîê çà÷àðîâàíèÿ //////////////////////////////////////////////////////////////
+    $caveitems[48] = array( // ÐŸÑ€Ð¾ÐºÐ»ÑÑ‚Ñ‹Ð¹ ÐŸÐ»ÐµÐ½Ð½Ð¸Ðº
+        /////////////////////////////// + ÑÐ²Ð¸Ñ‚Ð¾Ðº Ð·Ð°Ñ‡Ð°Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ //////////////////////////////////////////////////////////////
         array('id'=>$randSmallI, 'from'=>'smallitems', 'foronetrip'=>0, 'chance'=>20),
         array('id'=>$randCharm0, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>100),
     ); 
-    $caveitems[49] = array(array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2)); // Ïðîêëÿòûé 1100
-    $caveitems[51] = array( // Äðåâíèé Ñòðàæ 8000
+    $caveitems[49] = array(array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2)); // ÐŸÑ€Ð¾ÐºÐ»ÑÑ‚Ñ‹Ð¹ 1100
+    $caveitems[51] = array( // Ð”Ñ€ÐµÐ²Ð½Ð¸Ð¹ Ð¡Ñ‚Ñ€Ð°Ð¶ 8000
         array('id'=>995, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>$randAllSh7, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>$randSmallI, 'from'=>'smallitems', 'foronetrip'=>0, 'chance'=>20)
     ); 
-    $caveitems[52] = array( // Äðåâíèé Ñòðàæ 8800
+    $caveitems[52] = array( // Ð”Ñ€ÐµÐ²Ð½Ð¸Ð¹ Ð¡Ñ‚Ñ€Ð°Ð¶ 8800
         array('id'=>995, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>$randAllSh7, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>$randSmallI, 'from'=>'smallitems', 'foronetrip'=>0, 'chance'=>20)
     ); 
-    $caveitems[54] = array( // Äðåâíèé Ñòðàæ 10400
+    $caveitems[54] = array( // Ð”Ñ€ÐµÐ²Ð½Ð¸Ð¹ Ð¡Ñ‚Ñ€Ð°Ð¶ 10400
         array('id'=>995, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>$randAllSh7, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
         array('id'=>$randCompl9, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>2),
@@ -90,11 +90,11 @@ if ($user['room'] == 403) {
     $caveitems[91] = array(array('id'=>11452, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>70));
     $caveitems[92] = array(array('id'=>11452, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>70));
     $caveitems[93] = array(array('id'=>11452, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>70));
-    $caveitems[95] = array(array('id'=>11462, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>100)); //Ìàðòûí
+    $caveitems[95] = array(array('id'=>11462, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>100)); //ÐœÐ°Ñ€Ñ‚Ñ‹Ð½
     $caveitems[96] = array(array('id'=>11452, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>70));
     $caveitems[98] = array(array('id'=>11452, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>70));
     $caveitems[99] = array(array('id'=>11452, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>70));
-//Äðîï âòîðîé ýòàæ êàíàëêè
+//Ð”Ñ€Ð¾Ð¿ Ð²Ñ‚Ð¾Ñ€Ð¾Ð¹ ÑÑ‚Ð°Ð¶ ÐºÐ°Ð½Ð°Ð»ÐºÐ¸
     $caveitems[100] = array(array('id'=>11467, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>70));
     $caveitems[101] = array(array('id'=>11468, 'from'=>'shop', 'foronetrip'=>0, 'chance'=>100));
 

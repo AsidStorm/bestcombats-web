@@ -7,10 +7,10 @@
 
 <form method=get>
 	<fieldset>
-		<legend>Персонаж</legend>
+		<legend>РџРµСЂСЃРѕРЅР°Р¶</legend>
 		<table>
-			<tr><td>Логин</td><td><input type='text' name='login' value='<?=$_GET['login']?>'></td><td><input type=submit value='посмотреть'></td></tr>
-			<tr><td>ID</td><td><input type='text' name='id' value='<?=$_GET['id']?>'></td><td><input type=submit value='посмотреть'></td></tr>
+			<tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='<?=$_GET['login']?>'></td><td><input type=submit value='РїРѕСЃРјРѕС‚СЂРµС‚СЊ'></td></tr>
+			<tr><td>ID</td><td><input type='text' name='id' value='<?=$_GET['id']?>'></td><td><input type=submit value='РїРѕСЃРјРѕС‚СЂРµС‚СЊ'></td></tr>
 		</table>
 	</fieldset>
 </form>
@@ -23,9 +23,9 @@
 		}
 		
 		If (empty($_GET['id']) and empty($_GET['login'])){
-			//echo "Персонаж не найден в БД!";
+			//echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ РІ Р‘Р”!";
 		}elseIf (empty($user)){
-			echo "Персонаж не найден в БД!";
+			echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ РІ Р‘Р”!";
 		}else{
 			$ip=explode('.',$user['ip']);
 

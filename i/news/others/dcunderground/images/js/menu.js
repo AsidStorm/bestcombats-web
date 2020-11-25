@@ -294,7 +294,7 @@ function genMenu(MA,MI,MU)
 		var icheck = i % 2 == 0 ? 1 : 0
 		icheck == 1 ? bgcolor = 'bgcolor=#dcdcdc' : bgcolor = 'bgcolor=#dcdcdc'
 
-		document.write('<tr><td '+bgcolor+' onMouseOver="this.style.backgroundColor=\'A9A9A9\'" onMouseOut="this.style.backgroundColor=\'dcdcdc\'" nowrap><div id=n1><div id=n2><a href="'+URL[i]+'" class="LayerNavLink"><img src=/images/pixel.gif height=13 width=100% border=0></div></div><font color="#464646">•</font>&nbsp;'+ITEM[i]+'</a></td></tr>');
+		document.write('<tr><td '+bgcolor+' onMouseOver="this.style.backgroundColor=\'A9A9A9\'" onMouseOut="this.style.backgroundColor=\'dcdcdc\'" nowrap><div id=n1><div id=n2><a href="'+URL[i]+'" class="LayerNavLink"><img src=/images/pixel.gif height=13 width=100% border=0></div></div><font color="#464646">â€¢</font>&nbsp;'+ITEM[i]+'</a></td></tr>');
 	}
 
 	document.write('</table></td></table></DIV>');
@@ -402,7 +402,7 @@ function prepareScriptStatus(w, h, id, closingFunction){
 		str += "<tr><td class='info_content'><div id='"+id+"Text' style='height:20px;width:100%;overflow:auto;text-align:center;'></div></td></tr>";
 		if ( closingFunction != null ){
 			str += "<tr><td align='center'>";
-			str += "<input type='button' class='info_button' value='Çàêðûòü' onClick=\"javascript:"+closingFunction+"\"></td></tr>";
+			str += "<input type='button' class='info_button' value='Ð—Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ' onClick=\"javascript:"+closingFunction+"\"></td></tr>";
 		}
 		str += "</table>";
 		document.body.innerHTML += str;

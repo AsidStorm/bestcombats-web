@@ -8,7 +8,7 @@ if($_POST['code']  && $_SESSION['sid'] && $_SESSION['puid'] && $_SESSION['stap']
 $data4 = mysql_fetch_array(mysql_query("SELECT pass2,pass FROM `users` WHERE `id` = '{$_SESSION['puid']}' LIMIT 1;"));
 if(md5($_POST['code'])==$data4['pass2']){
 $chkps1="yes";
-}else{$koko="<FONT COLOR=\"white\">Неверный пароль</FONT><BR>";}
+}else{$koko="<FONT COLOR=\"white\">РќРµРІРµСЂРЅС‹Р№ РїР°СЂРѕР»СЊ</FONT><BR>";}
 
 
 }
@@ -22,17 +22,17 @@ $_SESSION['stap'] = addslashes($_SESSION['stap']);
 }
 
     if ($data[0] == null) {
-        echo "<html><head><META http-equiv=Content-type content='text/html; charset=windows-1251'><title>Произошла ошибка</title></head><body><BR>Произошла ошибка!<BR>Неверный пароль, войдите с <a href=index.php>главной страницы</a>.<BR><BR><BR><hr><table width=100%><tr><td align=left><b><a href='javascript:window.history.go(-1);'>Назад</a></b></td><td align=right>(C) bestcombats</td></tr></table></body></html>";
+        echo "<html><head><META http-equiv=Content-type content='text/html; charset=windows-1251'><title>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°</title></head><body><BR>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<BR>РќРµРІРµСЂРЅС‹Р№ РїР°СЂРѕР»СЊ, РІРѕР№РґРёС‚Рµ СЃ <a href=index.php>РіР»Р°РІРЅРѕР№ СЃС‚СЂР°РЅРёС†С‹</a>.<BR><BR><BR><hr><table width=100%><tr><td align=left><b><a href='javascript:window.history.go(-1);'>РќР°Р·Р°Рґ</a></b></td><td align=right>(C) bestcombats</td></tr></table></body></html>";
         $f=fopen("logs/error.log","ab");
         fwrite($f, date("d.m.Y H:i",time())." $_SERVER[REMOTE_ADDR] $_POST[login] $_POST[psw]\r\n");
         fclose($f);
     }
 //  elseif ($data['klan'] != 'adminion') {
-//      echo "<html><head><META http-equiv=Content-type content='text/html; charset=windows-1251'><title>Произошла ошибка</title></head><body><BR>Произошла ошибка!<BR>Временная приостановка. После всех технических работ вы снова сможете войти на сайт. <font color=red><b>Открытие в 17:15 по Москве.</b></font><BR><BR><BR><hr><table width=100%><tr><td align=left><b><a href='javascript:window.history.go(-1);'>Назад</a></b></td><td align=right>(C) bestcombats</td></tr></table></body></html>";
+//      echo "<html><head><META http-equiv=Content-type content='text/html; charset=windows-1251'><title>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°</title></head><body><BR>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<BR>Р’СЂРµРјРµРЅРЅР°СЏ РїСЂРёРѕСЃС‚Р°РЅРѕРІРєР°. РџРѕСЃР»Рµ РІСЃРµС… С‚РµС…РЅРёС‡РµСЃРєРёС… СЂР°Р±РѕС‚ РІС‹ СЃРЅРѕРІР° СЃРјРѕР¶РµС‚Рµ РІРѕР№С‚Рё РЅР° СЃР°Р№С‚. <font color=red><b>РћС‚РєСЂС‹С‚РёРµ РІ 17:15 РїРѕ РњРѕСЃРєРІРµ.</b></font><BR><BR><BR><hr><table width=100%><tr><td align=left><b><a href='javascript:window.history.go(-1);'>РќР°Р·Р°Рґ</a></b></td><td align=right>(C) bestcombats</td></tr></table></body></html>";
 //  }
     elseif($data['block']==1)
     {
-        echo "<html><head><META http-equiv=Content-type content='text/html; charset=windows-1251'><title>Произошла ошибка</title></head><body><BR>Произошла ошибка!<BR>Персонаж заблокирован.<BR><BR><BR><font color=red>Причина: ".$data['palcom']."</font><hr><table width=100%><tr><td align=left><b><a href='javascript:window.history.go(-1);'>Назад</a></b></td><td align=right>(C) bestcombats</td></tr></table></body></html>";
+        echo "<html><head><META http-equiv=Content-type content='text/html; charset=windows-1251'><title>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°</title></head><body><BR>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<BR>РџРµСЂСЃРѕРЅР°Р¶ Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ.<BR><BR><BR><font color=red>РџСЂРёС‡РёРЅР°: ".$data['palcom']."</font><hr><table width=100%><tr><td align=left><b><a href='javascript:window.history.go(-1);'>РќР°Р·Р°Рґ</a></b></td><td align=right>(C) bestcombats</td></tr></table></body></html>";
     }
     else
     {
@@ -69,10 +69,10 @@ if($_SESSION['sid'] && $_SESSION['puid'] && $_SESSION['stap']==$data['pass'] && 
 <META Http-Equiv=Cache-Control Content=no-cache>
 <meta http-equiv=PRAGMA content=NO-CACHE>
 <META Http-Equiv=Expires Content=0>
-<TITLE>Второй пароль</TITLE>
+<TITLE>Р’С‚РѕСЂРѕР№ РїР°СЂРѕР»СЊ</TITLE>
 </HEAD>
 <body bgcolor=666666>
-<H3><FONT COLOR="black">Запрос второго пароля к персонажу.</FONT></H3>
+<H3><FONT COLOR="black">Р—Р°РїСЂРѕСЃ РІС‚РѕСЂРѕРіРѕ РїР°СЂРѕР»СЏ Рє РїРµСЂСЃРѕРЅР°Р¶Сѓ.</FONT></H3>
 <?=$koko?>
 <div align="center">
 <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="600" height="250">
@@ -104,9 +104,9 @@ exit();
           $drugi1 = mq("SELECT friends.user, friends.friend, friends.enemy, online.date, users.login FROM friends left join online on online.id=friends.user left join users on users.id=online.id WHERE (friends.friend='$data[id]' or friends.enemy='$data[id]') and online.date>".(time()-60));
           while ($drugi = mysql_fetch_array($drugi1)) {
             if ($drugi["friend"]) {
-                addchp ('<font color=red>Внимание!</font> <font color="Black">Вас приветствует <a href="javascript:top.AddTo(\\\\\''.$data['login'].'\\\\\')"><span oncontextmenu="OpenMenu()">'.$data['login'].'</span></a></font>','{[]}'.$drugi['login'].'{[]}');
+                addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> <font color="Black">Р’Р°СЃ РїСЂРёРІРµС‚СЃС‚РІСѓРµС‚ <a href="javascript:top.AddTo(\\\\\''.$data['login'].'\\\\\')"><span oncontextmenu="OpenMenu()">'.$data['login'].'</span></a></font>','{[]}'.$drugi['login'].'{[]}');
             } else {
-                addchp ('<font color=red>Внимание!</font> <font color="Black"><a href="javascript:top.AddTo(\\\\\''.$data['login'].'\\\\\')"><span oncontextmenu="OpenMenu()">'.$data['login'].'</span></a></font> не дремлет!','{[]}'.$drugi['login'].'{[]}');
+                addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> <font color="Black"><a href="javascript:top.AddTo(\\\\\''.$data['login'].'\\\\\')"><span oncontextmenu="OpenMenu()">'.$data['login'].'</span></a></font> РЅРµ РґСЂРµРјР»РµС‚!','{[]}'.$drugi['login'].'{[]}');
             }
           }
         }
@@ -128,7 +128,7 @@ exit();
         updeffects($data["id"]);
         fixstats($data["id"]);
         checkitemchange();
-	addchp ('<font color=red><b>Внимание!</b></font> <img src="/chat/smiles/smiles_358.gif"> Все свежие новости вы можете узнать в <a href="http://events.bestcombats.net/" target="_blank">Новостной ленте</a> <font color=green><b>BestcombatS</b></font>!','{[]}'.$data['login'].'{[]}');
+	addchp ('<font color=red><b>Р’РЅРёРјР°РЅРёРµ!</b></font> <img src="/chat/smiles/smiles_358.gif"> Р’СЃРµ СЃРІРµР¶РёРµ РЅРѕРІРѕСЃС‚Рё РІС‹ РјРѕР¶РµС‚Рµ СѓР·РЅР°С‚СЊ РІ <a href="http://events.bestcombats.net/" target="_blank">РќРѕРІРѕСЃС‚РЅРѕР№ Р»РµРЅС‚Рµ</a> <font color=green><b>BestcombatS</b></font>!','{[]}'.$data['login'].'{[]}');
         header("Location:battle.php");
     }
 ?>

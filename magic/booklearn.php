@@ -1,12 +1,12 @@
 <?
   $rec=mqfa("select id from effects where owner='$user[id]' and type=54");
   if ($rec) {
-    echo "Âû óæå èçó÷àåòå êíèãó.";
+    echo "Ð’Ñ‹ ÑƒÐ¶Ðµ Ð¸Ð·ÑƒÑ‡Ð°ÐµÑ‚Ðµ ÐºÐ½Ð¸Ð³Ñƒ.";
   } else {
     global $testusers;
     if (in_array($user["id"],$testusers) || $user["id"]==2372) mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','".$row['name']."',".(time()+3).",54)");
     else mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','".$row['name']."',".(time()+60*60*24).",54)");
     mq("delete from inventory where owner='$user[id]' and id='$row[id]'");
-    echo "Âû íà÷àëè èçó÷àòü \"$row[name]\".";
+    echo "Ð’Ñ‹ Ð½Ð°Ñ‡Ð°Ð»Ð¸ Ð¸Ð·ÑƒÑ‡Ð°Ñ‚ÑŒ \"$row[name]\".";
   }
 ?>

@@ -1,10 +1,10 @@
 <?php
-/*---спам------*/
+/*---СЃРїР°Рј------*/
 function my_strtolower($string)
 {
     $str = strtolower($string);
-    if (strtolower('Ц') != 'ц') {
-        $string = strtr($string, 'АБВГДЕЁЖЗИЙКЛМНОРПСТУФХЦЧШЩЪЬЫЭЮЯ', 'абвгдеёжзийклмнорпстуфхцчшщъьыэюя');
+    if (strtolower('Р¦') != 'С†') {
+        $string = strtr($string, 'РђР‘Р’Р“Р”Р•РЃР–Р—РР™РљР›РњРќРћР РџРЎРўРЈР¤РҐР¦Р§РЁР©РЄР¬Р«Р­Р®РЇ', 'Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕСЂРїСЃС‚СѓС„С…С†С‡С€С‰СЉСЊС‹СЌСЋСЏ');
         $string = strtr($string, 'QWERTYUIOPASDFGHJKLZXCVBNM', 'qwertyuiopasdfghjklzxcvbnm');
     }
     return $string;
@@ -12,20 +12,20 @@ function my_strtolower($string)
 
 if (isset($_POST['spam_text']) && $_POST['spam_text'] != '') {
     mysql_query('INSERT INTO `spam_text` (`text`) VALUES ("' . mysql_real_escape_string(my_strtolower($_POST['spam_text'])) . '")');
-    $user->error = '<b style="color:red">Готово</b>';
+    $user->error = '<b style="color:red">Р“РѕС‚РѕРІРѕ</b>';
 
 }
 if (isset($_GET['del_t']) && is_numeric($_GET['del_t'])) {
     mysql_query('DELETE FROM `spam_text` WHERE `id`="' . $_GET['del_t'] . '"');
     header("Location: a.php#tab2");
-    echo  '<b style="color:red">Готово</b>';
+    echo  '<b style="color:red">Р“РѕС‚РѕРІРѕ</b>';
 }
 /*---------*/
-echo '<h4>Панель управления фильтром спама</h4>';
+echo '<h4>РџР°РЅРµР»СЊ СѓРїСЂР°РІР»РµРЅРёСЏ С„РёР»СЊС‚СЂРѕРј СЃРїР°РјР°</h4>';
 echo '<form method="post" action="">
-	Плохое слово <input type="text" name="spam_text" maxlength="20" />&nbsp;<input type="submit" value="Добавить плохое слово" name="turn_submit" /><br />
+	РџР»РѕС…РѕРµ СЃР»РѕРІРѕ <input type="text" name="spam_text" maxlength="20" />&nbsp;<input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ РїР»РѕС…РѕРµ СЃР»РѕРІРѕ" name="turn_submit" /><br />
 	<br clear="all" />
-	<b>Фильтр:</b><br />';
+	<b>Р¤РёР»СЊС‚СЂ:</b><br />';
 $bads = mysql_query('SELECT * FROM `spam_text` ORDER by `id` DESC');
 while ($badswords = mysql_fetch_array($bads)) {
     echo $badswords['text'] . "<a href='?pal&p=13&del_t=" . $badswords['id'] . "'>X</a>, ";

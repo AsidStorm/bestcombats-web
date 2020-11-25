@@ -14,40 +14,40 @@ if (!$us["online"]) {
   }
 }
 if (!$us['online'] || $us["invis"]) {
-    echo "Персонаж не в игре!";
+    echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РёРіСЂРµ!";
 } elseif ($owntravma['id'] && !$us['battle']) {
-  echo "Персонаж тяжело травмирован...";
+  echo "РџРµСЂСЃРѕРЅР°Р¶ С‚СЏР¶РµР»Рѕ С‚СЂР°РІРјРёСЂРѕРІР°РЅ...";
 } elseif ($user['klan'] != '' && ($user['klan'] == $us['klan'])) {
-  echo "Чтите честь ваших сокланов.";
+  echo "Р§С‚РёС‚Рµ С‡РµСЃС‚СЊ РІР°С€РёС… СЃРѕРєР»Р°РЅРѕРІ.";
 } elseif ($user['align'] >1 && $user['align'] <2 && $us['align'] >1 && $us['align'] <2) {
-  echo "Чтите честь братьев.";
+  echo "Р§С‚РёС‚Рµ С‡РµСЃС‚СЊ Р±СЂР°С‚СЊРµРІ.";
 } elseif ($user['room'] != $us['room']) {
-  echo "Персонаж в другой комнате!";
+  echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!";
 } elseif ($us['level'] < 1) {
-  echo "Новички находятся под защитой мироздателя!";
+  echo "РќРѕРІРёС‡РєРё РЅР°С…РѕРґСЏС‚СЃСЏ РїРѕРґ Р·Р°С‰РёС‚РѕР№ РјРёСЂРѕР·РґР°С‚РµР»СЏ!";
 } elseif ($us['hp'] < $us['maxhp']*0.33  && !$us['battle']) {
-  echo "Жертва слишком слаба!";
+  echo "Р–РµСЂС‚РІР° СЃР»РёС€РєРѕРј СЃР»Р°Р±Р°!";
 } elseif ($user['hp'] < $user['maxhp']*0.33 && !$user["battle"]) {
-  echo "Вы слишком слабы!";
+  echo "Р’С‹ СЃР»РёС€РєРѕРј СЃР»Р°Р±С‹!";
 } elseif ($us['hp'] < 1  && $us['battle']) {
-  echo "Вы не можете использовать свиток на погибшем!";
+  echo "Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРІРёС‚РѕРє РЅР° РїРѕРіРёР±С€РµРј!";
 } else {
   if ($user["battle"]) {
     global $fbattle, $report, $scrollresult;
     $target=$fbattle->findlogin($_POST["target"]);
     if (!$target) {
-      echo "Цель не найдена.";
+      echo "Р¦РµР»СЊ РЅРµ РЅР°Р№РґРµРЅР°.";
     } elseif ($target["team"]==$fbattle->myteam) {
-      echo "Нельзя использовать свиток на товарищей по команде.";
+      echo "РќРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРІРёС‚РѕРє РЅР° С‚РѕРІР°СЂРёС‰РµР№ РїРѕ РєРѕРјР°РЅРґРµ.";
     } elseif ($fbattle->userdata[$target["id"]]["hp"]<=0) {
-      echo "Не стоит глумиться над трупами.";
+      echo "РќРµ СЃС‚РѕРёС‚ РіР»СѓРјРёС‚СЊСЃСЏ РЅР°Рґ С‚СЂСѓРїР°РјРё.";
     } else {
       $fbattle->getbu($target["id"]);
       if ($fbattle->battleunits[$target["id"]]["prototype"]==3946) {
         if ($fbattle->userdata[$target["id"]]["maxhp"]-$fbattle->userdata[$target["id"]]["hp"]>21) {
           $dam=mt_rand(1000, 2000);
         } else $dam=1;
-      } elseif ((strpos($_POST["target"], "Отморозок")===0 && $target["id"]>_BOTSEPARATOR_)) {
+      } elseif ((strpos($_POST["target"], "РћС‚РјРѕСЂРѕР·РѕРє")===0 && $target["id"]>_BOTSEPARATOR_)) {
         $dam=mt_rand(1000, 2000);        
       } else {
         $dam=rand(1000,2000);
@@ -59,18 +59,18 @@ if (!$us['online'] || $us["invis"]) {
       $fbattle->adddamage($user["id"], $dam, $target["id"]);
 
       $scrollresult=array();
-      $scrollresult["action"]="Использовал".($user["sex"]==1?"":"а")." свиток Молния на";
+      $scrollresult["action"]="РСЃРїРѕР»СЊР·РѕРІР°Р»".($user["sex"]==1?"":"Р°")." СЃРІРёС‚РѕРє РњРѕР»РЅРёСЏ РЅР°";
       $scrollresult["target"]=$target["id"];
       $scrollresult["logtype"]=1;
       $scrollresult["damage"]=$dam;
       $bet=1;
     }
   } else {
-    if ($user['sex'] == 1) {$action="Использовал";}   else {$action="Использовала";}
+    if ($user['sex'] == 1) {$action="РСЃРїРѕР»СЊР·РѕРІР°Р»";}   else {$action="РСЃРїРѕР»СЊР·РѕРІР°Р»Р°";}
     if ($user['align'] > '2' && $user['align'] < '3')  {
-      $angel="Ангел";
+      $angel="РђРЅРіРµР»";
     } elseif ($user['align'] > '1' && $user['align'] < '2') {
-      $angel="Персонаж";
+      $angel="РџРµСЂСЃРѕРЅР°Р¶";
     }
 
     $jert = $us;
@@ -79,23 +79,23 @@ if (!$us['online'] || $us["invis"]) {
       $jert["hp"]-=$minhp;
       if ($jert["hp"]<0) $jert["hp"]=0;
       if ($user['invis']==1) {
-        addch("<img src=i/magic/lighting_bolt40.gif> <B>невидимка</B> ".$action." свиток Молния в &quot;{$_POST['target']}&quot; <b>-$minhp</b> [$jert[hp]/$jert[maxhp]].");
-        addchp ('<font color=red>Внимание!</font> На вас '.$action.' свиток Молния <B>невидимка</B> '."<b>-$minhp</b> [$jert[hp]/$jert[maxhp]]".'.<BR>\'; var z = \'   ','{[]}'.nick7 ($jert['id']).'{[]}');
+        addch("<img src=i/magic/lighting_bolt40.gif> <B>РЅРµРІРёРґРёРјРєР°</B> ".$action." СЃРІРёС‚РѕРє РњРѕР»РЅРёСЏ РІ &quot;{$_POST['target']}&quot; <b>-$minhp</b> [$jert[hp]/$jert[maxhp]].");
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РќР° РІР°СЃ '.$action.' СЃРІРёС‚РѕРє РњРѕР»РЅРёСЏ <B>РЅРµРІРёРґРёРјРєР°</B> '."<b>-$minhp</b> [$jert[hp]/$jert[maxhp]]".'.<BR>\'; var z = \'   ','{[]}'.nick7 ($jert['id']).'{[]}');
       } else {
-        addch("<img src=i/magic/lighting_bolt40.gif> <b>{$user['login']}</b> ".$action." свиток Молния в &quot;{$_POST['target']}&quot; <b>-$minhp</b> [$jert[hp]/$jert[maxhp]].<br>");
-        addchp ('<font color=red>Внимание!</font> На вас '.$action.' свиток Молния <B>'.$user['login'].'</B> '."<b>-$minhp</b> [$jert[hp]/$jert[maxhp]]".'.<BR>\'; var z = \'   ','{[]}'.nick7 ($jert['id']).'{[]}');
+        addch("<img src=i/magic/lighting_bolt40.gif> <b>{$user['login']}</b> ".$action." СЃРІРёС‚РѕРє РњРѕР»РЅРёСЏ РІ &quot;{$_POST['target']}&quot; <b>-$minhp</b> [$jert[hp]/$jert[maxhp]].<br>");
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РќР° РІР°СЃ '.$action.' СЃРІРёС‚РѕРє РњРѕР»РЅРёСЏ <B>'.$user['login'].'</B> '."<b>-$minhp</b> [$jert[hp]/$jert[maxhp]]".'.<BR>\'; var z = \'   ','{[]}'.nick7 ($jert['id']).'{[]}');
       }
       //addqueststep($user["id"],5);
       //addqueststep($jert["id"],6);
       mq("update users set fullhptime=".time().", hp=hp-$minhp where id='$jert[id]'");
-      echo '<font color=red>Вы использовали свиток Молния на '.$_POST['target'].'.</font>';
+      echo '<font color=red>Р’С‹ РёСЃРїРѕР»СЊР·РѕРІР°Р»Рё СЃРІРёС‚РѕРє РњРѕР»РЅРёСЏ РЅР° '.$_POST['target'].'.</font>';
       $bet=1;
     } else {
-      echo '<font color=red>Мазохист?...</font>';
+      echo '<font color=red>РњР°Р·РѕС…РёСЃС‚?...</font>';
     }
   }
   //$bet=1;
 } //else {
-//      echo "Свиток рассыпался в ваших руках...";
+//      echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
 //  }
 ?>

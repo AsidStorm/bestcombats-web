@@ -26,17 +26,17 @@
 	<div id=hint4 class=ahint></div>
 	<TABLE cellspacing=0 cellpadding=2 width=100%>
 <TD style="width: 40%; vertical-align: top; "><TABLE cellspacing=0 cellpadding=2 style="width: 100%; ">
-<TD align=center><h4>Вконтакте</h4></TD>
+<TD align=center><h4>Р’РєРѕРЅС‚Р°РєС‚Рµ</h4></TD>
 </TR>
 <TR>
 </head>
 <TD bgcolor=efeded nowrap>
-<TR>В разработке</div></TD>
+<TR>Р’ СЂР°Р·СЂР°Р±РѕС‚РєРµ</div></TD>
 </TR>
 </TABLE></TD>
 <TD style="width: 5%; vertical-align: top; ">&nbsp;</TD>
-<TD style="width: 25%; vertical-align: top; text-align: right; "><INPUT type='button' value='Обновить' style='width: 75px' onclick='location="/vzarab.php"'>
-&nbsp;<INPUT TYPE=button value="Вернуться" style='width: 75px' onclick="location.href='main.php'"></TD>
+<TD style="width: 25%; vertical-align: top; text-align: right; "><INPUT type='button' value='РћР±РЅРѕРІРёС‚СЊ' style='width: 75px' onclick='location="/vzarab.php"'>
+&nbsp;<INPUT TYPE=button value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" style='width: 75px' onclick="location.href='main.php'"></TD>
 </TR>
 </TABLE>
 <br><div align=left>

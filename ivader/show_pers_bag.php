@@ -2,37 +2,37 @@
 //If ($_SERVER['REMOTE_ADDR']!='176.37.62.46'){die();}
 include "../connect.php";
 
-$user_stek = mysql_query("SELECT * FROM `users` WHERE `bot` ='0' and `id`>=11000 and `align`<>2.5 and user_id=0 and login<>'Ëè÷' and login<>'Äåä Ìîğîç'  and login<>'Òåõíè÷åñêèé' and vid=0 and block=0 and battle=0 ");
+$user_stek = mysql_query("SELECT * FROM `users` WHERE `bot` ='0' and `id`>=11000 and `align`<>2.5 and user_id=0 and login<>'Ğ›Ğ¸Ñ‡' and login<>'Ğ”ĞµĞ´ ĞœĞ¾Ñ€Ğ¾Ğ·'  and login<>'Ğ¢ĞµÑ…Ğ½Ğ¸Ñ‡ĞµÑĞºĞ¸Ğ¹' and vid=0 and block=0 and battle=0 ");
 	$expstats = array(
 						/*   nextup,summstats*/
 						"20" => 3,
 						"45" => 4,
 						"75" => 5,
 						"110" => 6,
-						"160" => 9, //1ëâë
+						"160" => 9, //1Ğ»Ğ²Ğ»
 						"215" => 10,
 						"280" => 11,
 						"350" => 12,
 						"410" => 13,
-						"530" => 16,//2ëâë
+						"530" => 16,//2Ğ»Ğ²Ğ»
 						"670" => 17,
 						"830" => 18,
 						"950" => 19,
 						"1100" => 20,
 						"1300" => 21,
-						"1450" => 24, //3ëâë
+						"1450" => 24, //3Ğ»Ğ²Ğ»
 						"1650" => 25,
 						"1850" => 26,
 						"2050" => 27,
 						"2200" => 28,
 						"2500" => 29,
-						"2900" => 34, //4ëâë
+						"2900" => 34, //4Ğ»Ğ²Ğ»
 						"3350" => 35,
 						"3800" => 36,
 						"4200" => 37,
 						"4600" => 38,
 						"5000" => 39,
-						"6000" => 42, //5ëâë
+						"6000" => 42, //5Ğ»Ğ²Ğ»
 						"7000" => 43,
 						"8000" => 44,
 						"9000" => 45,
@@ -40,7 +40,7 @@ $user_stek = mysql_query("SELECT * FROM `users` WHERE `bot` ='0' and `id`>=11000
 						"11000" => 47,
 						"12000" => 48,
 						"12500" => 49,
-						"14000" => 52, //6ëâë
+						"14000" => 52, //6Ğ»Ğ²Ğ»
 						"15500" => 53,
 						"17000" => 54,
 						"19000" => 55,
@@ -48,7 +48,7 @@ $user_stek = mysql_query("SELECT * FROM `users` WHERE `bot` ='0' and `id`>=11000
 						"23000" => 57,
 						"27000" => 58,
 						"30000" => 59,
-						"60000" => 64, //7ëâë
+						"60000" => 64, //7Ğ»Ğ²Ğ»
 						"75000" => 65,
 						"150000" => 66,
 						"175000" => 67,
@@ -64,7 +64,7 @@ $user_stek = mysql_query("SELECT * FROM `users` WHERE `bot` ='0' and `id`>=11000
 						"600000" => 78,
 						"700000" => 78,
 						"800000" => 78,
-						"900000" => 78,//8ëâë
+						"900000" => 78,//8Ğ»Ğ²Ğ»
 						"1000000" => 78,
 						"1200000" => 78,
 						
@@ -79,9 +79,9 @@ $user_stek = mysql_query("SELECT * FROM `users` WHERE `bot` ='0' and `id`>=11000
 						"2800000" => 86,
 						"3000000" => 87,
 						
-						"4500000" => 94,//9ëâë
+						"4500000" => 94,//9Ğ»Ğ²Ğ»
 						
-						"6000000" => 94,//9ëâë
+						"6000000" => 94,//9Ğ»Ğ²Ğ»
 						"6500000" => 95,
 						"7500000" => 96,
 						"8500000" => 97,
@@ -91,7 +91,7 @@ $user_stek = mysql_query("SELECT * FROM `users` WHERE `bot` ='0' and `id`>=11000
 						"9750000" => 101,
 						"9900000" => 102,
 						"10000000" => 103,
-						"13000000" => 112,//10ëâë
+						"13000000" => 112,//10Ğ»Ğ²Ğ»
 						"14000000" => 114,
 						"15000000" => 116,
 						"16000000" => 118,
@@ -115,7 +115,7 @@ $user_stek = mysql_query("SELECT * FROM `users` WHERE `bot` ='0' and `id`>=11000
                         "48000000" => 154,
                         "50000000" => 156,
                         "52000000" => 158,
-                        "55000000" => 168,//11ëâë
+                        "55000000" => 168,//11Ğ»Ğ²Ğ»
                         "60000000" => 169,
                         "65000000" => 170,
                         "70000000" => 171,
@@ -138,15 +138,15 @@ while ($user=mysql_fetch_array($user_stek)){
 	If ($user['login']=='Copone' or $summstat+$user['stats']<>$user['ptp_stat']+$user['level']+12+$expstats[$user['nextup']]+$sum_wear[0]+$sum_wear[1]+$sum_wear[2]+$sum_wear[3]+$sum_effect[0]+$sum_effect[1]+$sum_effect[2]+$sum_effect[3] and empty($travma)){
 		echo  "<tr>
 					<td>".$user['login']."<a href='/inf.php?".$user['id']."' target='_blank'><img src='/i/inf.gif'></a></td>
-					<td>ñòàòîâ:".($summstat+$user['stats'])."</td>
-					<td> äîëæíî áûòü:".($user['level']+12+$expstats[$user['nextup']]+$sum_wear[0]+$sum_wear[1]+$sum_wear[2]+$sum_wear[3]+$sum_effect[0]+$sum_effect[1]+$sum_effect[2]+$sum_effect[3])."</td>
-					<td>Àïîâûå: ".$expstats[$user['nextup']]."</td>
-					<td>Ğîäíûå: ".($summstat-$sum_wear[0]-$sum_wear[1]-$sum_wear[2]-$sum_wear[3]-$sum_effect[0]-$sum_effect[1]-$sum_effect[2]-$sum_effect[3]-12-$user['level'])."</td>
-					<td>Âåùè: ".($sum_wear[0]+$sum_wear[1]+$sum_wear[2]+$sum_wear[3])."</td>
-					<td>İôôåêòû: ".($sum_effect[0]+$sum_effect[1]+$sum_effect[2]+$sum_effect[3])."</td>
-					<td>Íå ğàñêèíóòî ".$user['stats']."</td>
-					<td>Ïåùåğíûå ".$user['ptp_stat']."</td>
-					<td>Ëèøíèõ: ".($summstat+$user['stats']-($user['level']+12+$expstats[$user['nextup']]+$sum_wear[0]+$sum_wear[1]+$sum_wear[2]+$sum_wear[3]+$sum_effect[0]+$sum_effect[1]+$sum_effect[2]+$sum_effect[3]))."</td>
+					<td>ÑÑ‚Ğ°Ñ‚Ğ¾Ğ²:".($summstat+$user['stats'])."</td>
+					<td> Ğ´Ğ¾Ğ»Ğ¶Ğ½Ğ¾ Ğ±Ñ‹Ñ‚ÑŒ:".($user['level']+12+$expstats[$user['nextup']]+$sum_wear[0]+$sum_wear[1]+$sum_wear[2]+$sum_wear[3]+$sum_effect[0]+$sum_effect[1]+$sum_effect[2]+$sum_effect[3])."</td>
+					<td>ĞĞ¿Ğ¾Ğ²Ñ‹Ğµ: ".$expstats[$user['nextup']]."</td>
+					<td>Ğ Ğ¾Ğ´Ğ½Ñ‹Ğµ: ".($summstat-$sum_wear[0]-$sum_wear[1]-$sum_wear[2]-$sum_wear[3]-$sum_effect[0]-$sum_effect[1]-$sum_effect[2]-$sum_effect[3]-12-$user['level'])."</td>
+					<td>Ğ’ĞµÑ‰Ğ¸: ".($sum_wear[0]+$sum_wear[1]+$sum_wear[2]+$sum_wear[3])."</td>
+					<td>Ğ­Ñ„Ñ„ĞµĞºÑ‚Ñ‹: ".($sum_effect[0]+$sum_effect[1]+$sum_effect[2]+$sum_effect[3])."</td>
+					<td>ĞĞµ Ñ€Ğ°ÑĞºĞ¸Ğ½ÑƒÑ‚Ğ¾ ".$user['stats']."</td>
+					<td>ĞŸĞµÑ‰ĞµÑ€Ğ½Ñ‹Ğµ ".$user['ptp_stat']."</td>
+					<td>Ğ›Ğ¸ÑˆĞ½Ğ¸Ñ…: ".($summstat+$user['stats']-($user['level']+12+$expstats[$user['nextup']]+$sum_wear[0]+$sum_wear[1]+$sum_wear[2]+$sum_wear[3]+$sum_effect[0]+$sum_effect[1]+$sum_effect[2]+$sum_effect[3]))."</td>
 			  </tr>";
 	
 	}

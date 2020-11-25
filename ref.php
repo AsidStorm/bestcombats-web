@@ -34,7 +34,7 @@
     <div id=hint4 class=ahint></div>
     <TABLE cellspacing=0 cellpadding=2 width=100%>
 <TD style="width: 40%; vertical-align: top; "><TABLE cellspacing=0 cellpadding=2 style="width: 100%; ">
-<TD align=center><h4>Реферальная Система</h4></TD>
+<TD align=center><h4>Р РµС„РµСЂР°Р»СЊРЅР°СЏ РЎРёСЃС‚РµРјР°</h4></TD>
 </TR>
 <TR>
 </head>
@@ -45,7 +45,7 @@ $data = mysql_query("SELECT `id`, `login`, `status`, `level`, `room`, `align`, (
 $i=0;
 while($row = mysql_fetch_array($data)){
 $i++;
-if($i==1){echo"<center>Список игроков которых Вы привели:</center><br>";}
+if($i==1){echo"<center>РЎРїРёСЃРѕРє РёРіСЂРѕРєРѕРІ РєРѕС‚РѕСЂС‹С… Р’С‹ РїСЂРёРІРµР»Рё:</center><br>";}
 
 
 
@@ -60,12 +60,12 @@ if($i==1){echo"<center>Список игроков которых Вы привели:</center><br>";}
                             echo ' - <i>',$rrm,'</i><BR>';
                         }
                         if ($row['online']<1) {
-                            echo '<font color=gray><img src="http://img.bestcombats.net/chat/offline.gif" width=20 height=15 alt="Нет в клубе">';
+                            echo '<font color=gray><img src="http://img.bestcombats.net/chat/offline.gif" width=20 height=15 alt="РќРµС‚ РІ РєР»СѓР±Рµ">';
                             nick2($row['id']);
                             if ($row['id'] == $user['deal']) {
                                 echo ' - ',$row['status'],'';
                             }
-                            echo ' - нет в клубе</font><BR>';
+                            echo ' - РЅРµС‚ РІ РєР»СѓР±Рµ</font><BR>';
                         }
 
 
@@ -77,23 +77,23 @@ if($i==1){echo"<center>Список игроков которых Вы привели:</center><br>";}
 
 ?>
 <TR><TD style="text-align: left; ">
-С помощью реферальной системы Вы можете приводить в игру своих друзей используя ссылку ниже, и получать за этоЕврокредиты.<br>
-За каждого зарегистрировашегося персонажа Вы получаете Еврокредиты когда он дойдет до:<br><br>
-8-го уровня Вы получаете <font color="#9d9f06">10</font> екр.<br>
-9-го уровня Вы получаете еще <font color="#9d9f06">15</font> екр.<br>
-10-го уровня Вы получаете еще <font color="#9d9f06">20</font> екр.<br>
-11-го уровня Вы получаете еще <font color="#9d9f06">25</font> екр.<br>
-12-го уровня Вы получаете еще <font color="#9d9f06">50</font> екр.<br>
+РЎ РїРѕРјРѕС‰СЊСЋ СЂРµС„РµСЂР°Р»СЊРЅРѕР№ СЃРёСЃС‚РµРјС‹ Р’С‹ РјРѕР¶РµС‚Рµ РїСЂРёРІРѕРґРёС‚СЊ РІ РёРіСЂСѓ СЃРІРѕРёС… РґСЂСѓР·РµР№ РёСЃРїРѕР»СЊР·СѓСЏ СЃСЃС‹Р»РєСѓ РЅРёР¶Рµ, Рё РїРѕР»СѓС‡Р°С‚СЊ Р·Р° СЌС‚РѕР•РІСЂРѕРєСЂРµРґРёС‚С‹.<br>
+Р—Р° РєР°Р¶РґРѕРіРѕ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С€РµРіРѕСЃСЏ РїРµСЂСЃРѕРЅР°Р¶Р° Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ Р•РІСЂРѕРєСЂРµРґРёС‚С‹ РєРѕРіРґР° РѕРЅ РґРѕР№РґРµС‚ РґРѕ:<br><br>
+8-РіРѕ СѓСЂРѕРІРЅСЏ Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ <font color="#9d9f06">10</font> РµРєСЂ.<br>
+9-РіРѕ СѓСЂРѕРІРЅСЏ Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РµС‰Рµ <font color="#9d9f06">15</font> РµРєСЂ.<br>
+10-РіРѕ СѓСЂРѕРІРЅСЏ Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РµС‰Рµ <font color="#9d9f06">20</font> РµРєСЂ.<br>
+11-РіРѕ СѓСЂРѕРІРЅСЏ Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РµС‰Рµ <font color="#9d9f06">25</font> РµРєСЂ.<br>
+12-РіРѕ СѓСЂРѕРІРЅСЏ Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РµС‰Рµ <font color="#9d9f06">50</font> РµРєСЂ.<br>
 
 <IMG src="http://img.bestcombats.net/ref/ref.gif" width="160" height="150"><br>
 
-Ваша ссылка на регистрацию новых игроков: <b>http://bestcombats.net/r<?echo $user["id"]?></b><br>
+Р’Р°С€Р° СЃСЃС‹Р»РєР° РЅР° СЂРµРіРёСЃС‚СЂР°С†РёСЋ РЅРѕРІС‹С… РёРіСЂРѕРєРѕРІ: <b>http://bestcombats.net/r<?echo $user["id"]?></b><br>
 <Br></div></TD>
 </TR>
 </TABLE></TD>
 <TD style="width: 5%; vertical-align: top; ">&nbsp;</TD>
-<TD style="width: 25%; vertical-align: top; text-align: right; "><INPUT type='button' value='Обновить' style='width: 75px' onclick='location="/ref.php"'>
-&nbsp;<INPUT TYPE=button value="Вернуться" style='width: 75px' onClick="location.href='main.php'"></TD>
+<TD style="width: 25%; vertical-align: top; text-align: right; "><INPUT type='button' value='РћР±РЅРѕРІРёС‚СЊ' style='width: 75px' onclick='location="/ref.php"'>
+&nbsp;<INPUT TYPE=button value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" style='width: 75px' onClick="location.href='main.php'"></TD>
 </TR>
 </TABLE>
 </body>

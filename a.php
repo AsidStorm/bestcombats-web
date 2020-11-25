@@ -63,14 +63,14 @@ if(!empty($auth_pass)) {
 </script>
 <SCRIPT>
 var Hint3Name = '';
-// Заголовок, название скрипта, имя поля с логином
+// Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РёРјСЏ РїРѕР»СЏ СЃ Р»РѕРіРёРЅРѕРј
 function runmagic(title, magic, name){
 	document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</b></BIG></td></tr><tr><td colspan=2>'+
 	'<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><td colspan=2><form action="a.php" method=POST><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
-	'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
-	'<select style="background-color:#eceddf; color:#000000;" name="timer"><option value=15>15 мин<option value=30>30 мин<option value=60>1 час'+
-	'<option value=180>3 часа<option value=360>6 часов<option value=720>12 часов<option value=1440>сутки</select>'+
-	'</TD><TD width=30><INPUT TYPE="submit" value=" »» "></TD></TR></FORM></TABLE></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
+	'<select style="background-color:#eceddf; color:#000000;" name="timer"><option value=15>15 РјРёРЅ<option value=30>30 РјРёРЅ<option value=60>1 С‡Р°СЃ'+
+	'<option value=180>3 С‡Р°СЃР°<option value=360>6 С‡Р°СЃРѕРІ<option value=720>12 С‡Р°СЃРѕРІ<option value=1440>СЃСѓС‚РєРё</select>'+
+	'</TD><TD width=30><INPUT TYPE="submit" value=" В»В» "></TD></TR></FORM></TABLE></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 100;
@@ -81,10 +81,10 @@ function runmagic(title, magic, name){
 function runmagicf(title, magic, name){
 	document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</b></BIG></td></tr><tr><td colspan=2>'+
 	'<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><td colspan=2><form action="a.php" method=POST><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
-	'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
-	'<select style="background-color:#eceddf; color:#000000;" name="timer"><option value=15>15 мин<option value=30>30 мин<option value=60>1 час'+
-	'<option value=180>3 часа<option value=360>6 часов<option value=720>12 часов<option value=1440>сутки<option value=4320>3 суток<option value=10080>неделя</select>'+
-	'</TD><TD width=30><INPUT TYPE="submit" value=" »» "></TD></TR></FORM></TABLE></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
+	'<select style="background-color:#eceddf; color:#000000;" name="timer"><option value=15>15 РјРёРЅ<option value=30>30 РјРёРЅ<option value=60>1 С‡Р°СЃ'+
+	'<option value=180>3 С‡Р°СЃР°<option value=360>6 С‡Р°СЃРѕРІ<option value=720>12 С‡Р°СЃРѕРІ<option value=1440>СЃСѓС‚РєРё<option value=4320>3 СЃСѓС‚РѕРє<option value=10080>РЅРµРґРµР»СЏ</select>'+
+	'</TD><TD width=30><INPUT TYPE="submit" value=" В»В» "></TD></TR></FORM></TABLE></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 100;
@@ -95,8 +95,8 @@ function runmagicf(title, magic, name){
 function runmagic1(title, magic, name){
 	document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</b></BIG></td></tr><tr><td colspan=2>'+
 	'<form action="a.php" method=POST><table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><td colspan=2><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
-	'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
-	'</TD><TD width=30><INPUT TYPE="submit" value=" »» "></TD></TR></TABLE></FORM></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
+	'</TD><TD width=30><INPUT TYPE="submit" value=" В»В» "></TD></TR></TABLE></FORM></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 100;
@@ -107,10 +107,10 @@ function runmagic1(title, magic, name){
 function runmagic2(title, magic, name){
 	document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</b></BIG></td></tr><tr><td colspan=2>'+
 	'<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><td colspan=2><form action="a.php" method=POST><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
-	'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
-	'<select style="background-color:#eceddf; color:#000000;" name="timer"><option value=2>2 дня<option value=3>3 дня<option value=7>неделя<option value=14>2 недели'+
-	'<option value=30>1 месяц<option value=60>2 месяца<option value=365>бессрочно</select>'+
-	'</TD><TD width=30><INPUT TYPE="submit" value=" »» "></TD></TR></FORM></TABLE></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
+	'<select style="background-color:#eceddf; color:#000000;" name="timer"><option value=2>2 РґРЅСЏ<option value=3>3 РґРЅСЏ<option value=7>РЅРµРґРµР»СЏ<option value=14>2 РЅРµРґРµР»Рё'+
+	'<option value=30>1 РјРµСЃСЏС†<option value=60>2 РјРµСЃСЏС†Р°<option value=365>Р±РµСЃСЃСЂРѕС‡РЅРѕ</select>'+
+	'</TD><TD width=30><INPUT TYPE="submit" value=" В»В» "></TD></TR></FORM></TABLE></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 100;
@@ -121,8 +121,8 @@ function runmagic2(title, magic, name){
 function runmagic3(title, magic, name){
 	document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</b></BIG></td></tr><tr><td colspan=2>'+
 	'<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><td colspan=2><form action="a.php" method=POST><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
-	'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
-	'<br>Причина: <INPUT TYPE=text size=25 NAME="palcom"></TD><TD width=30><INPUT TYPE="submit" value=" »» "></TD></TR></FORM></TABLE></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
+	'<br>РџСЂРёС‡РёРЅР°: <INPUT TYPE=text size=25 NAME="palcom"></TD><TD width=30><INPUT TYPE="submit" value=" В»В» "></TD></TR></FORM></TABLE></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 100;
@@ -132,9 +132,9 @@ function runmagic3(title, magic, name){
 function runmagic4(title, magic, name, name1){
 	document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</b></BIG></td></tr><tr><td colspan=2>'+
 	'<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><td><form action="a.php" method=POST><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
-	'Укажите логин жениха: <INPUT TYPE=text NAME="'+name+'">'+
-	'<br>Укажите логин невесты: <INPUT TYPE=text NAME="'+name1+'">'+
-	'<br><center><INPUT TYPE="submit" value=" »» "></center></TD></TR></FORM></TABLE></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ Р¶РµРЅРёС…Р°: <INPUT TYPE=text NAME="'+name+'">'+
+	'<br>РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РЅРµРІРµСЃС‚С‹: <INPUT TYPE=text NAME="'+name1+'">'+
+	'<br><center><INPUT TYPE="submit" value=" В»В» "></center></TD></TR></FORM></TABLE></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 100;
@@ -144,10 +144,10 @@ function runmagic4(title, magic, name, name1){
 function runmagic10(title, magic, name){
 	document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</b></BIG></td></tr><tr><td colspan=2>'+
 	'<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><td colspan=2><form action="a.php" method=POST><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
-	'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
-	'<select style="background-color:#eceddf; color:#000000;" name="timer"><option value=2>2 дня<option value=3>3 дня<option value=7>неделя<option value=14>2 недели'+
-	'<option value=30>1 месяц<option value=60>2 месяца<option value=365>бессрочно</select>'+
-	'</TD><TD width=30><INPUT TYPE="submit" value=" »» "></TD></TR></FORM></TABLE></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
+	'<select style="background-color:#eceddf; color:#000000;" name="timer"><option value=2>2 РґРЅСЏ<option value=3>3 РґРЅСЏ<option value=7>РЅРµРґРµР»СЏ<option value=14>2 РЅРµРґРµР»Рё'+
+	'<option value=30>1 РјРµСЃСЏС†<option value=60>2 РјРµСЃСЏС†Р°<option value=365>Р±РµСЃСЃСЂРѕС‡РЅРѕ</select>'+
+	'</TD><TD width=30><INPUT TYPE="submit" value=" В»В» "></TD></TR></FORM></TABLE></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 100;
@@ -157,49 +157,49 @@ function runmagic10(title, magic, name){
 function teleport(title, magic, name){
 document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</b></BIG></td></tr><tr><td colspan=2>'+
 '<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><td colspan=2><form action="a.php" method=POST><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
-'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
+'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
 '<select style="background-color:#eceddf; color:#000000;" name="room">'+
-'<option value=0">Секретная Комната'+
-'<option value=1">Комната для новичков'+
-'<option value=2">Комната перехода'+
-'<option value=3">Бойцовский Клуб'+
-'<option value=4">Подземелье'+
-'<option value=5">Зал Воинов 1'+
-'<option value=6">Зал Воинов 2'+
-'<option value=7">Зал Воинов 3'+
-'<option value=8">Торговый зал'+
-'<option value=9">Рыцарский зал'+
-'<option value=10">Башня рыцарей-магов'+
-'<option value=11">2 Этаж'+
-'<option value=26">Паркова'+
-'<option value=15">Зал Паладинов'+
-'<option value=16">Совет Белого Братства'+
-'<option value=17">Зал Тьмы'+
-'<option value=18">Царство Тьмы'+
-'<option value=19">Будуар'+
-'<option value=20">Центральная площадь'+
-'<option value=21">Страшилкина улица'+
-'<option value=22">Магазин'+
-'<option value=23">Ремонтная мастерская'+
-'<option value=25">Комиссионный магазин'+
-'<option value=27">Почта'+
-'<option value=28">Регистратура кланов'+
-'<option value=37">Банк'+
-'<option value=31">Башня смерти'+
-'<option value=34">Цветочный магазин'+
-'<option value=35">Магазин Березка'+
-'<option value=36">Зал Стихий'+
-'<option value=37">Магазин Забытой Чести'+
-'<option value=42">Лотерея Сталкеров'+
-'<option value=43">Комната Знахаря'+
-'<option value=402">Вход в подземелье'+
-'<option value=666">Тюрьма'+
-'<option value=667">Бар "Пьяный Админ"'+
-'<option value=888">Зоомагазин'+
-'<option value=101">Общежитие'+
-'<option value=29">Торговая'+
+'<option value=0">РЎРµРєСЂРµС‚РЅР°СЏ РљРѕРјРЅР°С‚Р°'+
+'<option value=1">РљРѕРјРЅР°С‚Р° РґР»СЏ РЅРѕРІРёС‡РєРѕРІ'+
+'<option value=2">РљРѕРјРЅР°С‚Р° РїРµСЂРµС…РѕРґР°'+
+'<option value=3">Р‘РѕР№С†РѕРІСЃРєРёР№ РљР»СѓР±'+
+'<option value=4">РџРѕРґР·РµРјРµР»СЊРµ'+
+'<option value=5">Р—Р°Р» Р’РѕРёРЅРѕРІ 1'+
+'<option value=6">Р—Р°Р» Р’РѕРёРЅРѕРІ 2'+
+'<option value=7">Р—Р°Р» Р’РѕРёРЅРѕРІ 3'+
+'<option value=8">РўРѕСЂРіРѕРІС‹Р№ Р·Р°Р»'+
+'<option value=9">Р С‹С†Р°СЂСЃРєРёР№ Р·Р°Р»'+
+'<option value=10">Р‘Р°С€РЅСЏ СЂС‹С†Р°СЂРµР№-РјР°РіРѕРІ'+
+'<option value=11">2 Р­С‚Р°Р¶'+
+'<option value=26">РџР°СЂРєРѕРІР°'+
+'<option value=15">Р—Р°Р» РџР°Р»Р°РґРёРЅРѕРІ'+
+'<option value=16">РЎРѕРІРµС‚ Р‘РµР»РѕРіРѕ Р‘СЂР°С‚СЃС‚РІР°'+
+'<option value=17">Р—Р°Р» РўСЊРјС‹'+
+'<option value=18">Р¦Р°СЂСЃС‚РІРѕ РўСЊРјС‹'+
+'<option value=19">Р‘СѓРґСѓР°СЂ'+
+'<option value=20">Р¦РµРЅС‚СЂР°Р»СЊРЅР°СЏ РїР»РѕС‰Р°РґСЊ'+
+'<option value=21">РЎС‚СЂР°С€РёР»РєРёРЅР° СѓР»РёС†Р°'+
+'<option value=22">РњР°РіР°Р·РёРЅ'+
+'<option value=23">Р РµРјРѕРЅС‚РЅР°СЏ РјР°СЃС‚РµСЂСЃРєР°СЏ'+
+'<option value=25">РљРѕРјРёСЃСЃРёРѕРЅРЅС‹Р№ РјР°РіР°Р·РёРЅ'+
+'<option value=27">РџРѕС‡С‚Р°'+
+'<option value=28">Р РµРіРёСЃС‚СЂР°С‚СѓСЂР° РєР»Р°РЅРѕРІ'+
+'<option value=37">Р‘Р°РЅРє'+
+'<option value=31">Р‘Р°С€РЅСЏ СЃРјРµСЂС‚Рё'+
+'<option value=34">Р¦РІРµС‚РѕС‡РЅС‹Р№ РјР°РіР°Р·РёРЅ'+
+'<option value=35">РњР°РіР°Р·РёРЅ Р‘РµСЂРµР·РєР°'+
+'<option value=36">Р—Р°Р» РЎС‚РёС…РёР№'+
+'<option value=37">РњР°РіР°Р·РёРЅ Р—Р°Р±С‹С‚РѕР№ Р§РµСЃС‚Рё'+
+'<option value=42">Р›РѕС‚РµСЂРµСЏ РЎС‚Р°Р»РєРµСЂРѕРІ'+
+'<option value=43">РљРѕРјРЅР°С‚Р° Р—РЅР°С…Р°СЂСЏ'+
+'<option value=402">Р’С…РѕРґ РІ РїРѕРґР·РµРјРµР»СЊРµ'+
+'<option value=666">РўСЋСЂСЊРјР°'+
+'<option value=667">Р‘Р°СЂ "РџСЊСЏРЅС‹Р№ РђРґРјРёРЅ"'+
+'<option value=888">Р—РѕРѕРјР°РіР°Р·РёРЅ'+
+'<option value=101">РћР±С‰РµР¶РёС‚РёРµ'+
+'<option value=29">РўРѕСЂРіРѕРІР°СЏ'+
 '</select></select>'+
-'</TD><TD width=30><INPUT TYPE="submit" value=" »» "></TD></TR></FORM></TABLE></td></tr></table>';
+'</TD><TD width=30><INPUT TYPE="submit" value=" В»В» "></TD></TR></FORM></TABLE></td></tr></table>';
 document.all("hint3").style.visibility = "visible";
 document.all("hint3").style.left = 100;
 document.all("hint3").style.top = 100;
@@ -214,24 +214,24 @@ Hint3Name='';
 </head>
 
 <body leftmargin=5 topmargin=5 marginwidth=0 marginheight=0 bgcolor=#e2e0e0 >
-<table align=right><tr><td><INPUT TYPE="button" onclick="location.href='/ktogde77.php';" value="Кто в сети?" title="Кто в сети?"> <INPUT TYPE="button" onClick="location.href='nagruzka.php';" value="Статистика сервера" title="Статистика"> <INPUT TYPE="button" onclick="location.href='main.php';" value="Вернуться" title="Вернуться"></table>
-<h3><center>Администраторская панель</center></h3>
+<table align=right><tr><td><INPUT TYPE="button" onclick="location.href='/ktogde77.php';" value="РљС‚Рѕ РІ СЃРµС‚Рё?" title="РљС‚Рѕ РІ СЃРµС‚Рё?"> <INPUT TYPE="button" onClick="location.href='nagruzka.php';" value="РЎС‚Р°С‚РёСЃС‚РёРєР° СЃРµСЂРІРµСЂР°" title="РЎС‚Р°С‚РёСЃС‚РёРєР°"> <INPUT TYPE="button" onclick="location.href='main.php';" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" title="Р’РµСЂРЅСѓС‚СЊСЃСЏ"></table>
+<h3><center>РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСЃРєР°СЏ РїР°РЅРµР»СЊ</center></h3>
 <ul class="tabset_tabs">
-<li><a href="#tab1" class="active">Кнопки</a></li>
-<li><a href="#tab2">Спам</a></li>
-<li><a href="#tab3">Работа с кланами</a></li>
-<li><a href="#tab4">Работа с персонажами</a></li>
-<li><a href="#tab5">Работа с Web сервером</a></li>
-<li><a href="#tab6">Работа с поединками</a></li>
-<li><a href="#tab7">Работа с магазинами</a></li>
-<li><a href="#tab8">Работа с званиями/должностями</a></li><br>
-<li><a href="#tab9">Работа с образами</a></li>
-<li><a href="#tab10">Админские кнопочки</a></li>
-<li><a href="#tab11">Системки</a></li>
-<li><a href="#tab12">Невидимки</a></li>
+<li><a href="#tab1" class="active">РљРЅРѕРїРєРё</a></li>
+<li><a href="#tab2">РЎРїР°Рј</a></li>
+<li><a href="#tab3">Р Р°Р±РѕС‚Р° СЃ РєР»Р°РЅР°РјРё</a></li>
+<li><a href="#tab4">Р Р°Р±РѕС‚Р° СЃ РїРµСЂСЃРѕРЅР°Р¶Р°РјРё</a></li>
+<li><a href="#tab5">Р Р°Р±РѕС‚Р° СЃ Web СЃРµСЂРІРµСЂРѕРј</a></li>
+<li><a href="#tab6">Р Р°Р±РѕС‚Р° СЃ РїРѕРµРґРёРЅРєР°РјРё</a></li>
+<li><a href="#tab7">Р Р°Р±РѕС‚Р° СЃ РјР°РіР°Р·РёРЅР°РјРё</a></li>
+<li><a href="#tab8">Р Р°Р±РѕС‚Р° СЃ Р·РІР°РЅРёСЏРјРё/РґРѕР»Р¶РЅРѕСЃС‚СЏРјРё</a></li><br>
+<li><a href="#tab9">Р Р°Р±РѕС‚Р° СЃ РѕР±СЂР°Р·Р°РјРё</a></li>
+<li><a href="#tab10">РђРґРјРёРЅСЃРєРёРµ РєРЅРѕРїРѕС‡РєРё</a></li>
+<li><a href="#tab11">РЎРёСЃС‚РµРјРєРё</a></li>
+<li><a href="#tab12">РќРµРІРёРґРёРјРєРё</a></li>
 </ul>
 <div id="tab1" class="tabset_content">
-<h2 class="tabset_label">Кнопки</h2>
+<h2 class="tabset_label">РљРЅРѕРїРєРё</h2>
 <?
 echo "<div align=center id=hint3></div>";
 $moj = expa($al['accses']);
@@ -401,98 +401,98 @@ if(isset($_POST['use']) and !empty($_POST['use']) and in_array($_POST['use'],arr
 		echo "<tr><td align=center><br><br>";
 		foreach($moj as $k => $v) {
 			switch($k) {
-				case "sleep": $script_name="runmagic"; $magic_name="Наложить заклятие молчания"; break;
+				case "sleep": $script_name="runmagic"; $magic_name="РќР°Р»РѕР¶РёС‚СЊ Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ"; break;
 				case "sleepf": 
 				if ($user['align']>2 && $user['align']<3) {
-					$script_name="runmagicf"; $magic_name="Наложить заклятие форумного молчания"; 
+					$script_name="runmagicf"; $magic_name="РќР°Р»РѕР¶РёС‚СЊ Р·Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ"; 
 				}
 				else {
-					$script_name="runmagic"; $magic_name="Наложить заклятие форумного молчания"; 
+					$script_name="runmagic"; $magic_name="РќР°Р»РѕР¶РёС‚СЊ Р·Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ"; 
 				}	
 				break;
-				case "sleep_off": $script_name="runmagic1"; $magic_name="Снять заклятие молчания"; break;
-				case "sleepf_off": $script_name="runmagic1"; $magic_name="Снять заклятие форумного молчания"; break;
-				case "haos": $script_name="runmagic2"; $magic_name="Наложить заклятие хаоса"; break;
-				case "haos_off": $script_name="runmagic1"; $magic_name="Снять заклятие хаоса"; break;
-				case "death": $script_name="runmagic1"; $magic_name="Наложить заклятие смерти"; break;
-				case "death_off": $script_name="runmagic1"; $magic_name="Снять заклятие смерти"; break;
-				case "chains": $script_name="runmagic2"; $magic_name="Наложить Путы"; break;
-				case "chainsoff": $script_name="runmagic1"; $magic_name="Снять Путы"; break;
-				case "jail": $script_name="runmagic2"; $magic_name="Отправить в Заточение"; break;
-				case "jail_off": $script_name="runmagic1"; $magic_name="Выпустить из заточения"; break;
-				case "piot": $script_name="runmagic1"; $magic_name="С кем пить идем?"; break;
-				case "nepiot": $script_name="runmagic1"; $magic_name="Найух с пляжу!"; break;
-				case "obezl": $script_name="runmagic2"; $magic_name="Наложить заклятие обезличивания"; break;
-				case "obezl_off": $script_name="runmagic1"; $magic_name="Снять заклятие обезличивания"; break;
-				case "pal_off": $script_name="runmagic1"; $magic_name="Лишить звания Паладин"; break;
-				case "attackk": $script_name="runmagic1"; $magic_name="Кулачное Нападение"; break;
-				case "attack": $script_name="runmagic1"; $magic_name="Нападение"; break;
-				case "battack": $script_name="runmagic1"; $magic_name="Кровавое нападение"; break;
-				case "attackt": $script_name="runmagic1"; $magic_name="Темное Нападение"; break;
-				case "marry": $script_name="runmagic4"; $magic_name="Зарегистрировать брак"; break;
-				case "unmarry": $script_name="runmagic4"; $magic_name="Расторгнуть брак"; break;
-				case "hidden": $script_name="runmagic1"; $magic_name="Заклятие невидимости"; break;
-                                case "delbattle": $script_name="runmagic1"; $magic_name="Удалить бой"; break;
-				case "teleport": $script_name="teleport"; $magic_name="Телепортация"; break;
-				case "check": $script_name="runmagic1"; $magic_name="Поставить проверку"; break;
-				case "ct_all": $script_name="runmagic1"; $magic_name="Вылечить от травм"; break;
-				case "pal_buttons": $script_name="runmagic"; $magic_name="Отметить о прохождении проверки"; break;
-				case "teleport": $script_name="teleport"; $magic_name="Телепортация"; break;
-				case "vampir": $script_name="runmagic1"; $magic_name="Вампиризм (выпить энергию другого игрока)"; break;
-				case "brat": $script_name="runmagic1"; $magic_name="Помочь темному собрату (вмешаться в поединок)"; break;
-				case "bratl": $script_name="runmagic1"; $magic_name="Рассеять Тьму"; break;
-				case "dneit": $script_name="runmagic1"; $magic_name="Присвоить склонность (Нейтральное братство)"; break;
-				case "dlight": $script_name="runmagic1"; $magic_name="Присвоить склонность (Светлое братство)"; break;
-				case "ddark": $script_name="runmagic1"; $magic_name="Присвоить склонность (Темное братство)"; break;
-				case "note": $script_name="runmagic"; $magic_name="Редактировать личное дело"; break;
-				case "sys": $script_name="runmagic"; $magic_name="Отправить в чат системное сообщение"; break;
-				case "scanner": $script_name="runmagic"; $magic_name="Показать лог действий модератора"; break;
-				case "rep": $script_name="runmagic"; $magic_name="Отчет о переводах"; break;
-				case "rost": $script_name="runmagic"; $magic_name="Присвоить статус"; break;
+				case "sleep_off": $script_name="runmagic1"; $magic_name="РЎРЅСЏС‚СЊ Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ"; break;
+				case "sleepf_off": $script_name="runmagic1"; $magic_name="РЎРЅСЏС‚СЊ Р·Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ"; break;
+				case "haos": $script_name="runmagic2"; $magic_name="РќР°Р»РѕР¶РёС‚СЊ Р·Р°РєР»СЏС‚РёРµ С…Р°РѕСЃР°"; break;
+				case "haos_off": $script_name="runmagic1"; $magic_name="РЎРЅСЏС‚СЊ Р·Р°РєР»СЏС‚РёРµ С…Р°РѕСЃР°"; break;
+				case "death": $script_name="runmagic1"; $magic_name="РќР°Р»РѕР¶РёС‚СЊ Р·Р°РєР»СЏС‚РёРµ СЃРјРµСЂС‚Рё"; break;
+				case "death_off": $script_name="runmagic1"; $magic_name="РЎРЅСЏС‚СЊ Р·Р°РєР»СЏС‚РёРµ СЃРјРµСЂС‚Рё"; break;
+				case "chains": $script_name="runmagic2"; $magic_name="РќР°Р»РѕР¶РёС‚СЊ РџСѓС‚С‹"; break;
+				case "chainsoff": $script_name="runmagic1"; $magic_name="РЎРЅСЏС‚СЊ РџСѓС‚С‹"; break;
+				case "jail": $script_name="runmagic2"; $magic_name="РћС‚РїСЂР°РІРёС‚СЊ РІ Р—Р°С‚РѕС‡РµРЅРёРµ"; break;
+				case "jail_off": $script_name="runmagic1"; $magic_name="Р’С‹РїСѓСЃС‚РёС‚СЊ РёР· Р·Р°С‚РѕС‡РµРЅРёСЏ"; break;
+				case "piot": $script_name="runmagic1"; $magic_name="РЎ РєРµРј РїРёС‚СЊ РёРґРµРј?"; break;
+				case "nepiot": $script_name="runmagic1"; $magic_name="РќР°Р№СѓС… СЃ РїР»СЏР¶Сѓ!"; break;
+				case "obezl": $script_name="runmagic2"; $magic_name="РќР°Р»РѕР¶РёС‚СЊ Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ"; break;
+				case "obezl_off": $script_name="runmagic1"; $magic_name="РЎРЅСЏС‚СЊ Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ"; break;
+				case "pal_off": $script_name="runmagic1"; $magic_name="Р›РёС€РёС‚СЊ Р·РІР°РЅРёСЏ РџР°Р»Р°РґРёРЅ"; break;
+				case "attackk": $script_name="runmagic1"; $magic_name="РљСѓР»Р°С‡РЅРѕРµ РќР°РїР°РґРµРЅРёРµ"; break;
+				case "attack": $script_name="runmagic1"; $magic_name="РќР°РїР°РґРµРЅРёРµ"; break;
+				case "battack": $script_name="runmagic1"; $magic_name="РљСЂРѕРІР°РІРѕРµ РЅР°РїР°РґРµРЅРёРµ"; break;
+				case "attackt": $script_name="runmagic1"; $magic_name="РўРµРјРЅРѕРµ РќР°РїР°РґРµРЅРёРµ"; break;
+				case "marry": $script_name="runmagic4"; $magic_name="Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ Р±СЂР°Рє"; break;
+				case "unmarry": $script_name="runmagic4"; $magic_name="Р Р°СЃС‚РѕСЂРіРЅСѓС‚СЊ Р±СЂР°Рє"; break;
+				case "hidden": $script_name="runmagic1"; $magic_name="Р—Р°РєР»СЏС‚РёРµ РЅРµРІРёРґРёРјРѕСЃС‚Рё"; break;
+                                case "delbattle": $script_name="runmagic1"; $magic_name="РЈРґР°Р»РёС‚СЊ Р±РѕР№"; break;
+				case "teleport": $script_name="teleport"; $magic_name="РўРµР»РµРїРѕСЂС‚Р°С†РёСЏ"; break;
+				case "check": $script_name="runmagic1"; $magic_name="РџРѕСЃС‚Р°РІРёС‚СЊ РїСЂРѕРІРµСЂРєСѓ"; break;
+				case "ct_all": $script_name="runmagic1"; $magic_name="Р’С‹Р»РµС‡РёС‚СЊ РѕС‚ С‚СЂР°РІРј"; break;
+				case "pal_buttons": $script_name="runmagic"; $magic_name="РћС‚РјРµС‚РёС‚СЊ Рѕ РїСЂРѕС…РѕР¶РґРµРЅРёРё РїСЂРѕРІРµСЂРєРё"; break;
+				case "teleport": $script_name="teleport"; $magic_name="РўРµР»РµРїРѕСЂС‚Р°С†РёСЏ"; break;
+				case "vampir": $script_name="runmagic1"; $magic_name="Р’Р°РјРїРёСЂРёР·Рј (РІС‹РїРёС‚СЊ СЌРЅРµСЂРіРёСЋ РґСЂСѓРіРѕРіРѕ РёРіСЂРѕРєР°)"; break;
+				case "brat": $script_name="runmagic1"; $magic_name="РџРѕРјРѕС‡СЊ С‚РµРјРЅРѕРјСѓ СЃРѕР±СЂР°С‚Сѓ (РІРјРµС€Р°С‚СЊСЃСЏ РІ РїРѕРµРґРёРЅРѕРє)"; break;
+				case "bratl": $script_name="runmagic1"; $magic_name="Р Р°СЃСЃРµСЏС‚СЊ РўСЊРјСѓ"; break;
+				case "dneit": $script_name="runmagic1"; $magic_name="РџСЂРёСЃРІРѕРёС‚СЊ СЃРєР»РѕРЅРЅРѕСЃС‚СЊ (РќРµР№С‚СЂР°Р»СЊРЅРѕРµ Р±СЂР°С‚СЃС‚РІРѕ)"; break;
+				case "dlight": $script_name="runmagic1"; $magic_name="РџСЂРёСЃРІРѕРёС‚СЊ СЃРєР»РѕРЅРЅРѕСЃС‚СЊ (РЎРІРµС‚Р»РѕРµ Р±СЂР°С‚СЃС‚РІРѕ)"; break;
+				case "ddark": $script_name="runmagic1"; $magic_name="РџСЂРёСЃРІРѕРёС‚СЊ СЃРєР»РѕРЅРЅРѕСЃС‚СЊ (РўРµРјРЅРѕРµ Р±СЂР°С‚СЃС‚РІРѕ)"; break;
+				case "note": $script_name="runmagic"; $magic_name="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ Р»РёС‡РЅРѕРµ РґРµР»Рѕ"; break;
+				case "sys": $script_name="runmagic"; $magic_name="РћС‚РїСЂР°РІРёС‚СЊ РІ С‡Р°С‚ СЃРёСЃС‚РµРјРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ"; break;
+				case "scanner": $script_name="runmagic"; $magic_name="РџРѕРєР°Р·Р°С‚СЊ Р»РѕРі РґРµР№СЃС‚РІРёР№ РјРѕРґРµСЂР°С‚РѕСЂР°"; break;
+				case "rep": $script_name="runmagic"; $magic_name="РћС‚С‡РµС‚ Рѕ РїРµСЂРµРІРѕРґР°С…"; break;
+				case "rost": $script_name="runmagic"; $magic_name="РџСЂРёСЃРІРѕРёС‚СЊ СЃС‚Р°С‚СѓСЃ"; break;
 				case "ldadd": $script_name=""; $magic_name=""; break;
-				case "bexit": $script_name="runmagic1"; $magic_name="Выйти из боя"; break;
-				case "a_ogon": $script_name="runmagic1"; $magic_name="Астрал стихий (огонь)"; break;
-				case "iz_ogon": $script_name="runmagic1"; $magic_name="Изгнание астрала стихий (огонь)"; break;
-				case "a_voda": $script_name="runmagic1"; $magic_name="Астрал стихий (вода)"; break;
-				case "iz_voda": $script_name="runmagic1"; $magic_name="Изгнание астрала стихий (вода)"; break;
-				case "a_vozduh": $script_name="runmagic1"; $magic_name="Астрал стихий (воздух)"; break;
-				case "iz_vozduh": $script_name="runmagic1"; $magic_name="Изгнание астрала стихий (воздух)"; break;
-				case "a_zemlya": $script_name="runmagic1"; $magic_name="Астрал стихий (земля)"; break;
-				case "iz_zemlya": $script_name="runmagic1"; $magic_name="Изгнание астрала стихий (земля)"; break;
-				case "defence": $script_name="runmagic1"; $magic_name="Наложить Защиту от Оружия"; break;
-				case "devastate": $script_name="runmagic1"; $magic_name="Наложить Сокрушение"; break;
-				case "hidden": $script_name="runmagic1"; $magic_name="Невидимость"; break;
-				case "hidden_off": $script_name="runmagic1"; $magic_name="Рассеять невидимость"; break;
-				case "luck_ptp": $script_name="runmagic1"; $magic_name="Пропуск забытых"; break;
-				case "d_blat-100": $script_name="runmagic1"; $magic_name="Право на подвиг";  break;
+				case "bexit": $script_name="runmagic1"; $magic_name="Р’С‹Р№С‚Рё РёР· Р±РѕСЏ"; break;
+				case "a_ogon": $script_name="runmagic1"; $magic_name="РђСЃС‚СЂР°Р» СЃС‚РёС…РёР№ (РѕРіРѕРЅСЊ)"; break;
+				case "iz_ogon": $script_name="runmagic1"; $magic_name="РР·РіРЅР°РЅРёРµ Р°СЃС‚СЂР°Р»Р° СЃС‚РёС…РёР№ (РѕРіРѕРЅСЊ)"; break;
+				case "a_voda": $script_name="runmagic1"; $magic_name="РђСЃС‚СЂР°Р» СЃС‚РёС…РёР№ (РІРѕРґР°)"; break;
+				case "iz_voda": $script_name="runmagic1"; $magic_name="РР·РіРЅР°РЅРёРµ Р°СЃС‚СЂР°Р»Р° СЃС‚РёС…РёР№ (РІРѕРґР°)"; break;
+				case "a_vozduh": $script_name="runmagic1"; $magic_name="РђСЃС‚СЂР°Р» СЃС‚РёС…РёР№ (РІРѕР·РґСѓС…)"; break;
+				case "iz_vozduh": $script_name="runmagic1"; $magic_name="РР·РіРЅР°РЅРёРµ Р°СЃС‚СЂР°Р»Р° СЃС‚РёС…РёР№ (РІРѕР·РґСѓС…)"; break;
+				case "a_zemlya": $script_name="runmagic1"; $magic_name="РђСЃС‚СЂР°Р» СЃС‚РёС…РёР№ (Р·РµРјР»СЏ)"; break;
+				case "iz_zemlya": $script_name="runmagic1"; $magic_name="РР·РіРЅР°РЅРёРµ Р°СЃС‚СЂР°Р»Р° СЃС‚РёС…РёР№ (Р·РµРјР»СЏ)"; break;
+				case "defence": $script_name="runmagic1"; $magic_name="РќР°Р»РѕР¶РёС‚СЊ Р—Р°С‰РёС‚Сѓ РѕС‚ РћСЂСѓР¶РёСЏ"; break;
+				case "devastate": $script_name="runmagic1"; $magic_name="РќР°Р»РѕР¶РёС‚СЊ РЎРѕРєСЂСѓС€РµРЅРёРµ"; break;
+				case "hidden": $script_name="runmagic1"; $magic_name="РќРµРІРёРґРёРјРѕСЃС‚СЊ"; break;
+				case "hidden_off": $script_name="runmagic1"; $magic_name="Р Р°СЃСЃРµСЏС‚СЊ РЅРµРІРёРґРёРјРѕСЃС‚СЊ"; break;
+				case "luck_ptp": $script_name="runmagic1"; $magic_name="РџСЂРѕРїСѓСЃРє Р·Р°Р±С‹С‚С‹С…"; break;
+				case "d_blat-100": $script_name="runmagic1"; $magic_name="РџСЂР°РІРѕ РЅР° РїРѕРґРІРёРі";  break;
 
 			}
-            if($k=="vragon"){echo"<a onclick=\"if (confirm('Вы уверены что хотите вызвать Общего Врага?')) window.location='a.php?use=vragon'\" href='#'><img src='http://img.bestcombats.net/pbuttons/16.gif' title='Вызвать Общего Врага'></a> ";}
-            elseif($k=="vragoff"){echo"<a onclick=\"if (confirm('Вы уверены что хотите отозвать Общего Врага?')) window.location='a.php?use=vragoff'\" href='#'><img src='http://img.bestcombats.net/pbuttons/34.gif' title='Отозвать Общего Врага'></a> ";}
+            if($k=="vragon"){echo"<a onclick=\"if (confirm('Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ РІС‹Р·РІР°С‚СЊ РћР±С‰РµРіРѕ Р’СЂР°РіР°?')) window.location='a.php?use=vragon'\" href='#'><img src='http://img.bestcombats.net/pbuttons/16.gif' title='Р’С‹Р·РІР°С‚СЊ РћР±С‰РµРіРѕ Р’СЂР°РіР°'></a> ";}
+            elseif($k=="vragoff"){echo"<a onclick=\"if (confirm('Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ РѕС‚РѕР·РІР°С‚СЊ РћР±С‰РµРіРѕ Р’СЂР°РіР°?')) window.location='a.php?use=vragoff'\" href='#'><img src='http://img.bestcombats.net/pbuttons/34.gif' title='РћС‚РѕР·РІР°С‚СЊ РћР±С‰РµРіРѕ Р’СЂР°РіР°'></a> ";}
 			elseif ($script_name) {print "<a onclick=\"javascript:$script_name('$magic_name','$k','target','target1') \" href='#'><img src='http://img.bestcombats.net/pbuttons/".$k.".gif' title='".$magic_name."'></a> ";}
 		}
 		echo "</td></tr></table>";
-### Системка ###
-			echo "<form method=post action=\"a.php\">Добавить в \"дело\" игрока заметку о нарушении правил, прокрутке и пр. <br>
-					<table><tr><td>Введите логин </td><td><input type='text' name='ldnick' value='$ldtarget'></td><td> сообщение <input type='text' size='50' name='ldtext' value=''></td><td><input type='hidden' name='use' value='ldadd'><input type=submit value='Добавить'></td></tr>";
+### РЎРёСЃС‚РµРјРєР° ###
+			echo "<form method=post action=\"a.php\">Р”РѕР±Р°РІРёС‚СЊ РІ \"РґРµР»Рѕ\" РёРіСЂРѕРєР° Р·Р°РјРµС‚РєСѓ Рѕ РЅР°СЂСѓС€РµРЅРёРё РїСЂР°РІРёР», РїСЂРѕРєСЂСѓС‚РєРµ Рё РїСЂ. <br>
+					<table><tr><td>Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ </td><td><input type='text' name='ldnick' value='$ldtarget'></td><td> СЃРѕРѕР±С‰РµРЅРёРµ <input type='text' size='50' name='ldtext' value=''></td><td><input type='hidden' name='use' value='ldadd'><input type=submit value='Р”РѕР±Р°РІРёС‚СЊ'></td></tr>";
 				if ($ldblock) {
-					echo "<tr><td colspan=4><input type='checkbox' name='red' class='input' checked> Записать, как причину отправки в хаос/блокировки</td></tr>";
+					echo "<tr><td colspan=4><input type='checkbox' name='red' class='input' checked> Р—Р°РїРёСЃР°С‚СЊ, РєР°Рє РїСЂРёС‡РёРЅСѓ РѕС‚РїСЂР°РІРєРё РІ С…Р°РѕСЃ/Р±Р»РѕРєРёСЂРѕРІРєРё</td></tr>";
 				}
 				else {
-					echo "<tr><td colspan=4><input type='checkbox' name='red' class='input' > Записать, как причину отправки в хаос/блокировки</td></tr>";
+					echo "<tr><td colspan=4><input type='checkbox' name='red' class='input' > Р—Р°РїРёСЃР°С‚СЊ, РєР°Рє РїСЂРёС‡РёРЅСѓ РѕС‚РїСЂР°РІРєРё РІ С…Р°РѕСЃ/Р±Р»РѕРєРёСЂРѕРІРєРё</td></tr>";
 				}
 			echo "</table></form>";
 ?>
 </div>
 <div id="tab2" class="tabset_content">
-<h2 class="tabset_label">Спам</h2>
+<h2 class="tabset_label">РЎРїР°Рј</h2>
 <?php
-##### Спам #####	
+##### РЎРїР°Рј #####	
 function my_strtolower($string)
 {
     $str = strtolower($string);
-    if (strtolower('Ц') != 'ц') {
-        $string = strtr($string, 'АБВГДЕЁЖЗИЙКЛМНОРПСТУФХЦЧШЩЪЬЫЭЮЯ', 'абвгдеёжзийклмнорпстуфхцчшщъьыэюя');
+    if (strtolower('Р¦') != 'С†') {
+        $string = strtr($string, 'РђР‘Р’Р“Р”Р•РЃР–Р—РР™РљР›РњРќРћР РџРЎРўРЈР¤РҐР¦Р§РЁР©РЄР¬Р«Р­Р®РЇ', 'Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕСЂРїСЃС‚СѓС„С…С†С‡С€С‰СЉСЊС‹СЌСЋСЏ');
         $string = strtr($string, 'QWERTYUIOPASDFGHJKLZXCVBNM', 'qwertyuiopasdfghjklzxcvbnm');
     }
     return $string;
@@ -500,19 +500,19 @@ function my_strtolower($string)
 
 if (isset($_POST['spam_text']) && $_POST['spam_text'] != '') {
     mysql_query('INSERT INTO `spam_text` (`text`) VALUES ("' . mysql_real_escape_string(my_strtolower($_POST['spam_text'])) . '")');
-    $user->error = '<b style="color:red">Готово</b>';
+    $user->error = '<b style="color:red">Р“РѕС‚РѕРІРѕ</b>';
 
 }
 if (isset($_GET['del_t']) && is_numeric($_GET['del_t'])) {
     mysql_query('DELETE FROM `spam_text` WHERE `id`="' . $_GET['del_t'] . '"');
     header("Location: a.php#tab2");
-    echo  '<b style="color:red">Готово</b>';
+    echo  '<b style="color:red">Р“РѕС‚РѕРІРѕ</b>';
 }
-echo '<h4>Панель управления фильтром спама</h4>';
+echo '<h4>РџР°РЅРµР»СЊ СѓРїСЂР°РІР»РµРЅРёСЏ С„РёР»СЊС‚СЂРѕРј СЃРїР°РјР°</h4>';
 echo '<form method="post" action="">
-	Плохое слово <input type="text" name="spam_text" maxlength="20" />&nbsp;<input type="submit" value="Добавить плохое слово" name="turn_submit" /><br />
+	РџР»РѕС…РѕРµ СЃР»РѕРІРѕ <input type="text" name="spam_text" maxlength="20" />&nbsp;<input type="submit" value="Р”РѕР±Р°РІРёС‚СЊ РїР»РѕС…РѕРµ СЃР»РѕРІРѕ" name="turn_submit" /><br />
 	<br clear="all" />
-	<b>Фильтр:</b><br />';
+	<b>Р¤РёР»СЊС‚СЂ:</b><br />';
 $bads = mysql_query('SELECT * FROM `spam_text` ORDER by `id` DESC');
 while ($badswords = mysql_fetch_array($bads)) {
     echo $badswords['text'] . "<a href='?pal&p=13&del_t=" . $badswords['id'] . "'>X</a>, ";
@@ -520,114 +520,114 @@ while ($badswords = mysql_fetch_array($bads)) {
 ?>
 </div>
 <div id="tab3" class="tabset_content">
-  <h2 class="tabset_label">Работа с кланами</h2>
+  <h2 class="tabset_label">Р Р°Р±РѕС‚Р° СЃ РєР»Р°РЅР°РјРё</h2>
 <?
-##### Расформировка Клана #####	
-echo"<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Расформировать Клан</legend>
-<table><tr><td>Клан</td><td><input type='text' name='del_clan'></td></tr>
-<tr><td><input type=submit value='Расформировать'></td></tr>
+##### Р Р°СЃС„РѕСЂРјРёСЂРѕРІРєР° РљР»Р°РЅР° #####	
+echo"<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Р Р°СЃС„РѕСЂРјРёСЂРѕРІР°С‚СЊ РљР»Р°РЅ</legend>
+<table><tr><td>РљР»Р°РЅ</td><td><input type='text' name='del_clan'></td></tr>
+<tr><td><input type=submit value='Р Р°СЃС„РѕСЂРјРёСЂРѕРІР°С‚СЊ'></td></tr>
 </table></fieldset></form>";
 if (isset($_POST['del_clan'])) {
 mysql_query("UPDATE `users` SET `align` = '0',`status`='',`klan`='' WHERE `klan` = '".$_POST['del_clan']."';");
 mysql_query("DELETE from `clans` WHERE `name` = '".$_POST['del_clan']."';");
 mysql_query("DELETE from `clanstorage` WHERE `klan` = '".$_POST['del_clan']."';");
 mysql_query("DELETE from `clanevents` WHERE `klan` = '".$_POST['del_clan']."';");
-echo"<font color=red>Клан ".$_POST['del_clan']." расформирован!</font><br>";
+echo"<font color=red>РљР»Р°РЅ ".$_POST['del_clan']." СЂР°СЃС„РѕСЂРјРёСЂРѕРІР°РЅ!</font><br>";
 }
 ?>
 </div>
 <div id="tab4" class="tabset_content">
-<h2 class="tabset_label">Работа с персонажами</h2>
+<h2 class="tabset_label">Р Р°Р±РѕС‚Р° СЃ РїРµСЂСЃРѕРЅР°Р¶Р°РјРё</h2>
 <?
-##### Очистка истории имен #####	
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Очистить историю имен</legend>
-<table><tr><td>Логин</td><td><input type='text' name='clear_historylog'></td></tr>
-<tr><td><input type=submit value='Очистить'></td></tr>
+##### РћС‡РёСЃС‚РєР° РёСЃС‚РѕСЂРёРё РёРјРµРЅ #####	
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РћС‡РёСЃС‚РёС‚СЊ РёСЃС‚РѕСЂРёСЋ РёРјРµРЅ</legend>
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='clear_historylog'></td></tr>
+<tr><td><input type=submit value='РћС‡РёСЃС‚РёС‚СЊ'></td></tr>
 </table></fieldset></form>";					
 
 if (isset($_POST['clear_historylog'])) {
 mysql_query("UPDATE `users` SET `loginhistory`='' WHERE `login` = '".$_POST['clear_historylog']."';");
-echo"<font color=red>История имен персонажа ".$_POST['clear_historylog']." очишена!</font><br>";
+echo"<font color=red>РСЃС‚РѕСЂРёСЏ РёРјРµРЅ РїРµСЂСЃРѕРЅР°Р¶Р° ".$_POST['clear_historylog']." РѕС‡РёС€РµРЅР°!</font><br>";
 }	
-##### Очистка черного списка #####	
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Очистить черный список</legend>
-<table><tr><td>Логин</td><td><input type='text' name='clear_cs'></td></tr>
-<tr><td><input type=submit value='Очистить'></td></tr>
+##### РћС‡РёСЃС‚РєР° С‡РµСЂРЅРѕРіРѕ СЃРїРёСЃРєР° #####	
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РћС‡РёСЃС‚РёС‚СЊ С‡РµСЂРЅС‹Р№ СЃРїРёСЃРѕРє</legend>
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='clear_cs'></td></tr>
+<tr><td><input type=submit value='РћС‡РёСЃС‚РёС‚СЊ'></td></tr>
 </table></fieldset></form>";					
 
 if (isset($_POST['clear_cs'])) {
 mysql_query("UPDATE `users` SET `ignore`='' WHERE `login` = '".$_POST['clear_cs']."';");
-echo"<font color=red>Черный список персонажа ".$_POST['clear_cs']." очишен!</font><br>";
+echo"<font color=red>Р§РµСЂРЅС‹Р№ СЃРїРёСЃРѕРє РїРµСЂСЃРѕРЅР°Р¶Р° ".$_POST['clear_cs']." РѕС‡РёС€РµРЅ!</font><br>";
 }
-##### Смена ника #####	
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Смена имени</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
-<tr><td>Новый логин </td><td><input type='text' name='new-login'> </td></tr>
-<tr><td><input type=submit value='Изменить'></td></tr></table></fieldset></form>";
+##### РЎРјРµРЅР° РЅРёРєР° #####	
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РЎРјРµРЅР° РёРјРµРЅРё</legend>
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
+<tr><td>РќРѕРІС‹Р№ Р»РѕРіРёРЅ </td><td><input type='text' name='new-login'> </td></tr>
+<tr><td><input type=submit value='РР·РјРµРЅРёС‚СЊ'></td></tr></table></fieldset></form>";
 
 if (isset($_POST['login']) && isset($_POST['new-login'])) {
 $target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 If (!empty($target_user_tel['id'])){
 mysql_query("UPDATE `users` SET `login` = '".$_POST['new-login']."',`loginhistory`=concat(`loginhistory`,';".$_POST['login']."||".date('d-m-Y')."') WHERE `id` = '".$target_user_tel['id']."';");
-echo"<font color=red>Вы изменили персонажу ".$_POST['login']." имя!</font><br>";	
+echo"<font color=red>Р’С‹ РёР·РјРµРЅРёР»Рё РїРµСЂСЃРѕРЅР°Р¶Сѓ ".$_POST['login']." РёРјСЏ!</font><br>";	
 }else{
-echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['login']."!</font><br>";	
 }
 }
-##### Смена пола #####	
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Смена пола</legend>
-<table><tr><td>Логин персонажа</td><td><input type='text' name='login'></td></tr>
-<tr><td>Пол</td><td><select name='change_sex'>					
-<option value='1'>Мужской</option>	
-<option value='(0)'>Женский</option>					
+##### РЎРјРµРЅР° РїРѕР»Р° #####	
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РЎРјРµРЅР° РїРѕР»Р°</legend>
+<table><tr><td>Р›РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°</td><td><input type='text' name='login'></td></tr>
+<tr><td>РџРѕР»</td><td><select name='change_sex'>					
+<option value='1'>РњСѓР¶СЃРєРѕР№</option>	
+<option value='(0)'>Р–РµРЅСЃРєРёР№</option>					
 </select></td></tr>
-<tr><td><small>(образ выставится начальный)</small></td></tr>
-<tr><td><input type=submit value='Изменить'></td></tr>
+<tr><td><small>(РѕР±СЂР°Р· РІС‹СЃС‚Р°РІРёС‚СЃСЏ РЅР°С‡Р°Р»СЊРЅС‹Р№)</small></td></tr>
+<tr><td><input type=submit value='РР·РјРµРЅРёС‚СЊ'></td></tr>
 </table></fieldset></form>";					
 
 if (isset($_POST['login']) && isset($_POST['change_sex'])) {
 $target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 If (!empty($target_user_tel['id'])){
 mysql_query("UPDATE `users` SET `sex` = '".(int)$_POST['change_sex']."',`shadow`='0.gif' WHERE `id` = '".$target_user_tel['id']."';");
-echo"<font color=red>Вы изменили персонажу ".$_POST['login']." пол!</font><br>";	
+echo"<font color=red>Р’С‹ РёР·РјРµРЅРёР»Рё РїРµСЂСЃРѕРЅР°Р¶Сѓ ".$_POST['login']." РїРѕР»!</font><br>";	
 }else{
-echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['login']."!</font><br>";	
 }
 }
-##### Смена емайла #####			
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Смена e-mail'а</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
+##### РЎРјРµРЅР° РµРјР°Р№Р»Р° #####			
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РЎРјРµРЅР° e-mail'Р°</legend>
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
 <tr><td>E-Mail</td><td><input type='text' name='new-email'></td></tr>
-<tr><td><input type=submit value='Изменить'></td></tr></table></fieldset></form>";
+<tr><td><input type=submit value='РР·РјРµРЅРёС‚СЊ'></td></tr></table></fieldset></form>";
 
 if (isset($_POST['login']) && isset($_POST['new-email'])) {
 $target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 If (!empty($target_user_tel['id'])){
 mysql_query("UPDATE `users` SET `email` = '".$_POST['new-email']."' WHERE `id` = '".$target_user_tel['id']."';");
-echo"<font color=red>Вы изменили персонажу ".$_POST['login']." емайл!</font><br>";	
+echo"<font color=red>Р’С‹ РёР·РјРµРЅРёР»Рё РїРµСЂСЃРѕРЅР°Р¶Сѓ ".$_POST['login']." РµРјР°Р№Р»!</font><br>";	
 }else{
-echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['login']."!</font><br>";	
 }
 }
-##### Смена даты рождения #####
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Смена даты рождения</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
-<tr><td>Дата рождения </td><td><input type='text' name='new-date'> (в формате ДД-ММ-ГГГГ)</td></tr>
-<tr><td><input type=submit value='Изменить'></td></tr></table></fieldset></form>";
+##### РЎРјРµРЅР° РґР°С‚С‹ СЂРѕР¶РґРµРЅРёСЏ #####
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РЎРјРµРЅР° РґР°С‚С‹ СЂРѕР¶РґРµРЅРёСЏ</legend>
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
+<tr><td>Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ </td><td><input type='text' name='new-date'> (РІ С„РѕСЂРјР°С‚Рµ Р”Р”-РњРњ-Р“Р“Р“Р“)</td></tr>
+<tr><td><input type=submit value='РР·РјРµРЅРёС‚СЊ'></td></tr></table></fieldset></form>";
 
 if (isset($_POST['login']) && isset($_POST['new-date'])) {
 $target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 If (!empty($target_user_tel['id'])){
 mysql_query("UPDATE `users` SET `borndate` = '".$_POST['new-date']."' WHERE `id` = '".$target_user_tel['id']."';");
-echo"<font color=red>Вы изменили персонажу ".$_POST['login']." дату рождения!</font><br>";	
+echo"<font color=red>Р’С‹ РёР·РјРµРЅРёР»Рё РїРµСЂСЃРѕРЅР°Р¶Сѓ ".$_POST['login']." РґР°С‚Сѓ СЂРѕР¶РґРµРЅРёСЏ!</font><br>";	
 }else{
-echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['login']."!</font><br>";	
 }
 }
-##### Удаление Персонажа #####	
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Удалить Персонажа</legend>
-<table><tr><td>Логин</td><td><input type='text' name='logindelete'></td></tr>
-<tr><td><input type=submit value='Удалить'></td></tr>
+##### РЈРґР°Р»РµРЅРёРµ РџРµСЂСЃРѕРЅР°Р¶Р° #####	
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РЈРґР°Р»РёС‚СЊ РџРµСЂСЃРѕРЅР°Р¶Р°</legend>
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='logindelete'></td></tr>
+<tr><td><input type=submit value='РЈРґР°Р»РёС‚СЊ'></td></tr>
 </table></fieldset></form>";
 
 if (isset($_POST['logindelete'])) {
@@ -663,28 +663,28 @@ mysql_query('DELETE FROM `vxod` WHERE login='.$_POST['logindelete'].' ');
 mysql_query('DELETE FROM `vxodd` WHERE login='.$_POST['logindelete'].' ');
 mysql_query('DELETE FROM `users` WHERE id='.$user_del['id'].' ');
 mysql_query('DELETE FROM `users` WHERE user_id='.$user_del['id'].' ');
-echo '<font color="red">Вы удалили перса с ником "'.$_POST['logindelete'].'" !</font>';
+echo '<font color="red">Р’С‹ СѓРґР°Р»РёР»Рё РїРµСЂСЃР° СЃ РЅРёРєРѕРј "'.$_POST['logindelete'].'" !</font>';
 }
 
 ?>
 </div>
 <div id="tab5" class="tabset_content">
-  <h2 class="tabset_label">Работа с Web сервером</h2>
+  <h2 class="tabset_label">Р Р°Р±РѕС‚Р° СЃ Web СЃРµСЂРІРµСЂРѕРј</h2>
 <?
-##### Бан Ip Через Iptables #####	
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Бан Ip Через Iptables</legend>
+##### Р‘Р°РЅ Ip Р§РµСЂРµР· Iptables #####	
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Р‘Р°РЅ Ip Р§РµСЂРµР· Iptables</legend>
 <table><tr><td>Ip</td><td><input type='text' name='banip'></td></tr>
-<tr><td><input type=submit value='Заблокировать'></td></tr>
+<tr><td><input type=submit value='Р—Р°Р±Р»РѕРєРёСЂРѕРІР°С‚СЊ'></td></tr>
 </table></fieldset></form>";
 
 if (isset($_POST['banip'])){
 exec("sudo iptables -I INPUT -s ".$_POST['banip']." -j DROP");
-echo"<font color=red>IP ".$_POST['banip']." Заблокирован</font><br>";
+echo"<font color=red>IP ".$_POST['banip']." Р—Р°Р±Р»РѕРєРёСЂРѕРІР°РЅ</font><br>";
 }
-##### Очистка Логов #####
+##### РћС‡РёСЃС‚РєР° Р›РѕРіРѕРІ #####
 
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Очистка Логов</legend>
-<input type=submit name='dellogs' value='Очистить'>";
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РћС‡РёСЃС‚РєР° Р›РѕРіРѕРІ</legend>
+<input type=submit name='dellogs' value='РћС‡РёСЃС‚РёС‚СЊ'>";
 echo "</fieldset></form>";
 
 if ($_POST['dellogs']) {
@@ -696,37 +696,37 @@ mysql_query("UPDATE `users` SET `battle` = '0';");
 mysql_query("TRUNCATE TABLE  `battle`;");
 mysql_query("TRUNCATE TABLE  `logs`;");
 mysql_query("TRUNCATE TABLE  `battleunits`;");
-echo"<font color=red>Успешно</font>";
+echo"<font color=red>РЈСЃРїРµС€РЅРѕ</font>";
 }
 ?>
 </div>
 <div id="tab6" class="tabset_content">
-<h2 class="tabset_label">Работа с поединками</h2>
+<h2 class="tabset_label">Р Р°Р±РѕС‚Р° СЃ РїРѕРµРґРёРЅРєР°РјРё</h2>
 <?
-##### Закрытие Боя #####	
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Закрытие боя (для DeBuger)</legend>
-<table><tr><td>ID боя</td><td><input type='text' name='end_battle1'></td></tr>
-<tr><td><input type=submit value='Удалить'></td></tr>
+##### Р—Р°РєСЂС‹С‚РёРµ Р‘РѕСЏ #####	
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Р—Р°РєСЂС‹С‚РёРµ Р±РѕСЏ (РґР»СЏ DeBuger)</legend>
+<table><tr><td>ID Р±РѕСЏ</td><td><input type='text' name='end_battle1'></td></tr>
+<tr><td><input type=submit value='РЈРґР°Р»РёС‚СЊ'></td></tr>
 </table></fieldset></form>";					
 
 if (isset($_POST['end_battle1'])) {
 mysql_query("UPDATE `battle` SET `win`=0 WHERE `id` = '".$_POST['end_battle1']."';");
-echo"<font color=red>Вы закрыли бой ".$_POST['end_battle1']." из базы!</font><br>";
+echo"<font color=red>Р’С‹ Р·Р°РєСЂС‹Р»Рё Р±РѕР№ ".$_POST['end_battle1']." РёР· Р±Р°Р·С‹!</font><br>";
 }
 ?>
 </div>
 <div id="tab7" class="tabset_content">
-<h2 class="tabset_label">Работа с магазинами</h2>
+<h2 class="tabset_label">Р Р°Р±РѕС‚Р° СЃ РјР°РіР°Р·РёРЅР°РјРё</h2>
 <?
-##### Смена цены у вещи #####	
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Смена цены у вещи</legend>
-<table><tr><td>Название вещи</td><td><input type='text' name='name_of_item'></td></tr>
-<tr><td>Новая цена</td><td><input type='text' name='new_pri'> </td></tr>
-<tr><td>Магазин</td><td><select name='magazin'>					
-<option value='shop'>Гос.</option>	
-<option value='berezka'>Березка</option>					
+##### РЎРјРµРЅР° С†РµРЅС‹ Сѓ РІРµС‰Рё #####	
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РЎРјРµРЅР° С†РµРЅС‹ Сѓ РІРµС‰Рё</legend>
+<table><tr><td>РќР°Р·РІР°РЅРёРµ РІРµС‰Рё</td><td><input type='text' name='name_of_item'></td></tr>
+<tr><td>РќРѕРІР°СЏ С†РµРЅР°</td><td><input type='text' name='new_pri'> </td></tr>
+<tr><td>РњР°РіР°Р·РёРЅ</td><td><select name='magazin'>					
+<option value='shop'>Р“РѕСЃ.</option>	
+<option value='berezka'>Р‘РµСЂРµР·РєР°</option>					
 </select></td></tr>
-<tr><td><input type=submit value='Изменить'></td></tr>
+<tr><td><input type=submit value='РР·РјРµРЅРёС‚СЊ'></td></tr>
 </table></fieldset></form>";					
 
 if (isset($_POST['name_of_item']) && isset($_POST['new_pri']) && isset($_POST['magazin'])) {
@@ -737,175 +737,175 @@ mysql_query("UPDATE `shop` SET `cost` = '".$_POST['new_pri']."' WHERE `id` = '".
 }elseif($_POST['magazin']=='berezka'){
 mysql_query("UPDATE `berezka` SET `ecost` = '".$_POST['new_pri']."' WHERE `id` = '".$target_user_tel['id']."' LIMIT 1;");
 }
-echo"<font color=red>Вы изменили цену ".$_POST['name_of_item']."!</font><br>";	
+echo"<font color=red>Р’С‹ РёР·РјРµРЅРёР»Рё С†РµРЅСѓ ".$_POST['name_of_item']."!</font><br>";	
 }else{
-echo"<font color=red>Не была найда вещь под именем ".$_POST['name_of_item']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р»Р° РЅР°Р№РґР° РІРµС‰СЊ РїРѕРґ РёРјРµРЅРµРј ".$_POST['name_of_item']."!</font><br>";	
 }
 }
 ?>
 </div>
 <div id="tab8" class="tabset_content">
-<h2 class="tabset_label">Работа с званиями/должностями</h2>
+<h2 class="tabset_label">Р Р°Р±РѕС‚Р° СЃ Р·РІР°РЅРёСЏРјРё/РґРѕР»Р¶РЅРѕСЃС‚СЏРјРё</h2>
 <?
-##### Алхимик #####
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Выдача должности алхимика</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
-<tr><td>Должность</td><td><select name='alhimic'>
-<option value='0'>0 степень</option>		
-<option value='1'>1 степень</option>	
-<option value='2'>2 степень</option>
-<option value='3'>3 степень</option>
-<option value='4'>4 степень</option>
-<option value='5'>5 степень</option>";					
+##### РђР»С…РёРјРёРє #####
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Р’С‹РґР°С‡Р° РґРѕР»Р¶РЅРѕСЃС‚Рё Р°Р»С…РёРјРёРєР°</legend>
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
+<tr><td>Р”РѕР»Р¶РЅРѕСЃС‚СЊ</td><td><select name='alhimic'>
+<option value='0'>0 СЃС‚РµРїРµРЅСЊ</option>		
+<option value='1'>1 СЃС‚РµРїРµРЅСЊ</option>	
+<option value='2'>2 СЃС‚РµРїРµРЅСЊ</option>
+<option value='3'>3 СЃС‚РµРїРµРЅСЊ</option>
+<option value='4'>4 СЃС‚РµРїРµРЅСЊ</option>
+<option value='5'>5 СЃС‚РµРїРµРЅСЊ</option>";					
 
 echo "</select></td></tr>
-<tr><td><input type=submit value='Назначить'></td></tr></table>";
+<tr><td><input type=submit value='РќР°Р·РЅР°С‡РёС‚СЊ'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['alhimic'])) {
 $target_user_tel=mysql_fetch_array(mysql_query("SELECT `id`,`login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 If (!empty($target_user_tel['id'])){
 mysql_query("UPDATE `users` SET `deal` = '".(int)$_POST['alhimic']."' WHERE `id` = '".$target_user_tel['id']."';");
-echo"<font color=red>Вы присвоили персонажу ".$_POST['login']." звание алхимика ".$_POST['alhimic']." степени!</font><br>";	
+echo"<font color=red>Р’С‹ РїСЂРёСЃРІРѕРёР»Рё РїРµСЂСЃРѕРЅР°Р¶Сѓ ".$_POST['login']." Р·РІР°РЅРёРµ Р°Р»С…РёРјРёРєР° ".$_POST['alhimic']." СЃС‚РµРїРµРЅРё!</font><br>";	
 }else{
-echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['login']."!</font><br>";	
 }
 }
 ##### Silver Account #####
 echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Silver Account</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
-<tr><td>Должность</td><td><select name='silver'>
-<option value='604800'>Неделя</option>		
-<option value='2629743'>Месяц</option>
-<option value='0'>Вечно</option>";					
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
+<tr><td>Р”РѕР»Р¶РЅРѕСЃС‚СЊ</td><td><select name='silver'>
+<option value='604800'>РќРµРґРµР»СЏ</option>		
+<option value='2629743'>РњРµСЃСЏС†</option>
+<option value='0'>Р’РµС‡РЅРѕ</option>";					
 echo "</select></td></tr>
-<tr><td><input type=submit value='Присвоить'></td></tr></table>";
+<tr><td><input type=submit value='РџСЂРёСЃРІРѕРёС‚СЊ'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['silver'])) {
 $target_user_tel=mysql_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($_POST['silver']==604800){
-//Срок для личного дела
-$skolko = 'Неделю';
-//Цена на неделю
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'РќРµРґРµР»СЋ';
+//Р¦РµРЅР° РЅР° РЅРµРґРµР»СЋ
 $cost = '50';
 }elseif ($_POST['silver']==2629743){
-//Срок для личного дела
-$skolko = 'Месяц';
-//Цена на месяц
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'РњРµСЃСЏС†';
+//Р¦РµРЅР° РЅР° РјРµСЃСЏС†
 $cost = '150';
 }elseif ($_POST['silver']==0){
-//Срок для личного дела
-$skolko = 'Вечно';
-//Цена на вечно
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'Р’РµС‡РЅРѕ';
+//Р¦РµРЅР° РЅР° РІРµС‡РЅРѕ
 $cost = '600';
 }
 if ($target_user_tel['ekr']<$cost){
-echo"У персонажа недостаточно еврокредитов для данной операции";
+echo"РЈ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РµРІСЂРѕРєСЂРµРґРёС‚РѕРІ РґР»СЏ РґР°РЅРЅРѕР№ РѕРїРµСЂР°С†РёРё";
 }elseif ($target_user_tel['vip']!=0){
-echo"У персонажа уже имееться VIP Account";
+echo"РЈ РїРµСЂСЃРѕРЅР°Р¶Р° СѓР¶Рµ РёРјРµРµС‚СЊСЃСЏ VIP Account";
 }elseif (!empty($target_user_tel['id'])){
 mq("UPDATE `users` SET `vip` = '1', `ekr`=`ekr`-'$cost' WHERE `id` = '".$target_user_tel['id']."' LIMIT 1;");
 if($_POST['silver']!=0){
 mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$target_user_tel['id']."','Silver Account',".(time()+$_POST['silver']).",70);");
 }
-mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$target_user_tel['id']."','Купил Silver Account у диллера ".$user['login']." на срок $skolko.',1,'".time()."');");
+mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$target_user_tel['id']."','РљСѓРїРёР» Silver Account Сѓ РґРёР»Р»РµСЂР° ".$user['login']." РЅР° СЃСЂРѕРє $skolko.',1,'".time()."');");
 }else{
-echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['login']."!</font><br>";	
 }
 }
 ##### Gold Account #####
 echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Gold Account</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
-<tr><td>Должность</td><td><select name='Gold'>
-<option value='604800'>Неделя</option>		
-<option value='2629743'>Месяц</option>
-<option value='0'>Вечно</option>";					
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
+<tr><td>Р”РѕР»Р¶РЅРѕСЃС‚СЊ</td><td><select name='Gold'>
+<option value='604800'>РќРµРґРµР»СЏ</option>		
+<option value='2629743'>РњРµСЃСЏС†</option>
+<option value='0'>Р’РµС‡РЅРѕ</option>";					
 echo "</select></td></tr>
-<tr><td><input type=submit value='Присвоить'></td></tr></table>";
+<tr><td><input type=submit value='РџСЂРёСЃРІРѕРёС‚СЊ'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['Gold'])) {
 $target_user_tel=mysql_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($_POST['Gold']==604800){
-//Срок для личного дела
-$skolko = 'Неделю';
-//Цена на неделю
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'РќРµРґРµР»СЋ';
+//Р¦РµРЅР° РЅР° РЅРµРґРµР»СЋ
 $cost = '100';
 }elseif ($_POST['Gold']==2629743){
-//Срок для личного дела
-$skolko = 'Месяц';
-//Цена на месяц
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'РњРµСЃСЏС†';
+//Р¦РµРЅР° РЅР° РјРµСЃСЏС†
 $cost = '250';
 }elseif ($_POST['Gold']==0){
-//Срок для личного дела
-$skolko = 'Вечно';
-//Цена на вечно
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'Р’РµС‡РЅРѕ';
+//Р¦РµРЅР° РЅР° РІРµС‡РЅРѕ
 $cost = '800';
 }
 if ($target_user_tel['ekr']<$cost){
-echo"У персонажа недостаточно еврокредитов для данной операции";
+echo"РЈ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РµРІСЂРѕРєСЂРµРґРёС‚РѕРІ РґР»СЏ РґР°РЅРЅРѕР№ РѕРїРµСЂР°С†РёРё";
 }elseif ($target_user_tel['vip']!=0){
-echo"У персонажа уже имееться VIP Account";
+echo"РЈ РїРµСЂСЃРѕРЅР°Р¶Р° СѓР¶Рµ РёРјРµРµС‚СЊСЃСЏ VIP Account";
 }elseif (!empty($target_user_tel['id'])){
 mq("UPDATE `users` SET `vip` = '2', `ekr`=`ekr`-'$cost' WHERE `id` = '".$target_user_tel['id']."' LIMIT 1;");
 if($_POST['Gold']!=0){
 mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$target_user_tel['id']."','Gold Account',".(time()+$_POST['Gold']).",70);");
 }
-mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$target_user_tel['id']."','Купил Gold Account у диллера ".$user['login']." на срок $skolko.',1,'".time()."');");
+mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$target_user_tel['id']."','РљСѓРїРёР» Gold Account Сѓ РґРёР»Р»РµСЂР° ".$user['login']." РЅР° СЃСЂРѕРє $skolko.',1,'".time()."');");
 }else{
-echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['login']."!</font><br>";	
 }
 }
 ##### Platinum Account #####
 echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Platinum Account</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
-<tr><td>Должность</td><td><select name='Platinum'>
-<option value='604800'>Неделя</option>		
-<option value='2629743'>Месяц</option>
-<option value='0'>Вечно</option>";					
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
+<tr><td>Р”РѕР»Р¶РЅРѕСЃС‚СЊ</td><td><select name='Platinum'>
+<option value='604800'>РќРµРґРµР»СЏ</option>		
+<option value='2629743'>РњРµСЃСЏС†</option>
+<option value='0'>Р’РµС‡РЅРѕ</option>";					
 echo "</select></td></tr>
-<tr><td><input type=submit value='Присвоить'></td></tr></table>";
+<tr><td><input type=submit value='РџСЂРёСЃРІРѕРёС‚СЊ'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['Platinum'])) {
 $target_user_tel=mysql_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($_POST['Platinum']==604800){
-//Срок для личного дела
-$skolko = 'Неделю';
-//Цена на неделю
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'РќРµРґРµР»СЋ';
+//Р¦РµРЅР° РЅР° РЅРµРґРµР»СЋ
 $cost = '150';
 }elseif ($_POST['Platinum']==2629743){
-//Срок для личного дела
-$skolko = 'Месяц';
-//Цена на месяц
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'РњРµСЃСЏС†';
+//Р¦РµРЅР° РЅР° РјРµСЃСЏС†
 $cost = '350';
 }elseif ($_POST['Platinum']==0){
-//Срок для личного дела
-$skolko = 'Вечно';
-//Цена на вечно
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'Р’РµС‡РЅРѕ';
+//Р¦РµРЅР° РЅР° РІРµС‡РЅРѕ
 $cost = '1000';
 }
 if ($target_user_tel['ekr']<$cost){
-echo"У персонажа недостаточно еврокредитов для данной операции";
+echo"РЈ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РµРІСЂРѕРєСЂРµРґРёС‚РѕРІ РґР»СЏ РґР°РЅРЅРѕР№ РѕРїРµСЂР°С†РёРё";
 }elseif ($target_user_tel['vip']!=0){
-echo"У персонажа уже имееться VIP Account";
+echo"РЈ РїРµСЂСЃРѕРЅР°Р¶Р° СѓР¶Рµ РёРјРµРµС‚СЊСЃСЏ VIP Account";
 }elseif (!empty($target_user_tel['id'])){
 mq("UPDATE `users` SET `vip` = '3', `ekr`=`ekr`-'$cost' WHERE `id` = '".$target_user_tel['id']."' LIMIT 1;");
 if($_POST['Platinum']!=0){
 mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$target_user_tel['id']."','Platinum Account',".(time()+$_POST['Platinum']).",70);");
 }
-mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$target_user_tel['id']."','Купил Platinum Account у диллера ".$user['login']." на срок $skolko.',1,'".time()."');");
+mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$target_user_tel['id']."','РљСѓРїРёР» Platinum Account Сѓ РґРёР»Р»РµСЂР° ".$user['login']." РЅР° СЃСЂРѕРє $skolko.',1,'".time()."');");
 }else{
-echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['login']."!</font><br>";	
 }
 }
-##### Панель радио #####
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Присвоить Dj</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
+##### РџР°РЅРµР»СЊ СЂР°РґРёРѕ #####
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РџСЂРёСЃРІРѕРёС‚СЊ Dj</legend>
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
 <tr>
-<td>Должность</td><td><select name='djname'>	
-<option value='1'>Присвоить</option>
-<option value='(0)'>Убрать</option>
+<td>Р”РѕР»Р¶РЅРѕСЃС‚СЊ</td><td><select name='djname'>	
+<option value='1'>РџСЂРёСЃРІРѕРёС‚СЊ</option>
+<option value='(0)'>РЈР±СЂР°С‚СЊ</option>
 </select></td>
 </tr>
-<tr><td><input type=submit value='Назначить'></td></tr>
+<tr><td><input type=submit value='РќР°Р·РЅР°С‡РёС‚СЊ'></td></tr>
 </table>";
 echo "</fieldset></form>";
 
@@ -914,143 +914,143 @@ $user_id=mysql_result(mysql_query("SELECT `id` FROM `users` WHERE `login` ='".$_
 if(!empty($user_id)){
 If ($_POST['djname']==0){
 mysql_query("UPDATE `users` SET `radiodj` = '0' WHERE `login` = '".$_POST['login']."';");
-echo"<font color=red>Вы убрали статус dj у ".$_POST['login']."!</font><br>";
+echo"<font color=red>Р’С‹ СѓР±СЂР°Р»Рё СЃС‚Р°С‚СѓСЃ dj Сѓ ".$_POST['login']."!</font><br>";
 }else{
 mysql_query("UPDATE `users` SET `radiodj` = '1' WHERE `login` = '".$_POST['login']."';");
-echo"<font color=red>Вы присвоили статус Dj  ".$_POST['login']."!</font><br>";
+echo"<font color=red>Р’С‹ РїСЂРёСЃРІРѕРёР»Рё СЃС‚Р°С‚СѓСЃ Dj  ".$_POST['login']."!</font><br>";
 }
 }
 }
-##### Орден света #####
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Принять в орден / поменять крест</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
-<tr><td>Крест</td><td><select name='krest'>
-<option value='1.1'>Паладин Поднебесья</option>
-<option value='1.2'>Инквизитор</option>
-<option value='1.4'>Таможенный Паладин</option>
-<option value='1.5'>Паладин Солнечной Улыбки</option>
-<option value='1.7'>Паладин Огненной Зари</option>
-<option value='1.75'>Хранитель Знаний</option>
-<option value='1.9'>Паладин Неба</option>
-<option value='1.91'>Старший Паладин Неба</option>
-<option value='1.92'>Кавалер Ордена</option>";
+##### РћСЂРґРµРЅ СЃРІРµС‚Р° #####
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РџСЂРёРЅСЏС‚СЊ РІ РѕСЂРґРµРЅ / РїРѕРјРµРЅСЏС‚СЊ РєСЂРµСЃС‚</legend>
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
+<tr><td>РљСЂРµСЃС‚</td><td><select name='krest'>
+<option value='1.1'>РџР°Р»Р°РґРёРЅ РџРѕРґРЅРµР±РµСЃСЊСЏ</option>
+<option value='1.2'>РРЅРєРІРёР·РёС‚РѕСЂ</option>
+<option value='1.4'>РўР°РјРѕР¶РµРЅРЅС‹Р№ РџР°Р»Р°РґРёРЅ</option>
+<option value='1.5'>РџР°Р»Р°РґРёРЅ РЎРѕР»РЅРµС‡РЅРѕР№ РЈР»С‹Р±РєРё</option>
+<option value='1.7'>РџР°Р»Р°РґРёРЅ РћРіРЅРµРЅРЅРѕР№ Р—Р°СЂРё</option>
+<option value='1.75'>РҐСЂР°РЅРёС‚РµР»СЊ Р—РЅР°РЅРёР№</option>
+<option value='1.9'>РџР°Р»Р°РґРёРЅ РќРµР±Р°</option>
+<option value='1.91'>РЎС‚Р°СЂС€РёР№ РџР°Р»Р°РґРёРЅ РќРµР±Р°</option>
+<option value='1.92'>РљР°РІР°Р»РµСЂ РћСЂРґРµРЅР°</option>";
 if (($user['align'] == '2.5') || ($user['align']=='2.6')) {
-echo "<option value='1.99'>Верховный Паладин</option>";
+echo "<option value='1.99'>Р’РµСЂС…РѕРІРЅС‹Р№ РџР°Р»Р°РґРёРЅ</option>";
 }
 
 echo "</select></td></tr>
-<tr><td><input type=submit value='Назначить'></td></tr></table>";
+<tr><td><input type=submit value='РќР°Р·РЅР°С‡РёС‚СЊ'></td></tr></table>";
 echo "</fieldset></form>";
 if ($_POST['login'] && $_POST['krest']) {
 switch($_POST['krest']){
 case 1.1:
-$rang = 'Паладин Поднебесья';
+$rang = 'РџР°Р»Р°РґРёРЅ РџРѕРґРЅРµР±РµСЃСЊСЏ';
 break;
 case 1.2:
-$rang = 'Инквизитор';
+$rang = 'РРЅРєРІРёР·РёС‚РѕСЂ';
 break;
 case 1.4:
-$rang = 'Таможенный Паладин';
+$rang = 'РўР°РјРѕР¶РµРЅРЅС‹Р№ РџР°Р»Р°РґРёРЅ';
 break;
 case 1.5:
-$rang = 'Паладин Солнечной Улыбки';
+$rang = 'РџР°Р»Р°РґРёРЅ РЎРѕР»РЅРµС‡РЅРѕР№ РЈР»С‹Р±РєРё';
 break;
 case 1.7:
-$rang = 'Паладин Огненной Зари';
+$rang = 'РџР°Р»Р°РґРёРЅ РћРіРЅРµРЅРЅРѕР№ Р—Р°СЂРё';
 break;
 case 1.75:
-$rang = 'Хранитель Знаний';
+$rang = 'РҐСЂР°РЅРёС‚РµР»СЊ Р—РЅР°РЅРёР№';
 break;
 case 1.9:
-$rang = 'Паладин Неба';
+$rang = 'РџР°Р»Р°РґРёРЅ РќРµР±Р°';
 break;
 case 1.91:
-$rang = 'Старший Паладина Неба';
+$rang = 'РЎС‚Р°СЂС€РёР№ РџР°Р»Р°РґРёРЅР° РќРµР±Р°';
 break;
 case 1.92:
-$rang = 'Кавалер Ордена';
+$rang = 'РљР°РІР°Р»РµСЂ РћСЂРґРµРЅР°';
 break;
 case 1.99:
-$rang = 'Верховный Паладин';
+$rang = 'Р’РµСЂС…РѕРІРЅС‹Р№ РџР°Р»Р°РґРёРЅ';
 break;
 }
 $dd = mysql_fetch_array(mysql_query("SELECT `id`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
-if ($user['sex'] == 1) {$action="присвоил";}
-else {$action="присвоила";}
+if ($user['sex'] == 1) {$action="РїСЂРёСЃРІРѕРёР»";}
+else {$action="РїСЂРёСЃРІРѕРёР»Р°";}
 if ($user['align'] > '2' && $user['align'] < '3')  {
-$angel="Ангел";
+$angel="РђРЅРіРµР»";
 }
 elseif ($user['align'] > '1' && $user['align'] < '2') {
-$angel="Паладин";
+$angel="РџР°Р»Р°РґРёРЅ";
 }
 if($dd) {
 mysql_query("UPDATE `users` SET `align` = '".$_POST['krest']."',`status` = '$rang' WHERE `login` = '".$_POST['login']."';");
 $target=$_POST['login'];
-$mess="$angel &quot;{$user['login']}&quot; $action &quot;$target&quot; звание $rang";
+$mess="$angel &quot;{$user['login']}&quot; $action &quot;$target&quot; Р·РІР°РЅРёРµ $rang";
 mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$dd['id']."','$mess','".time()."');");
 mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 }
 }
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Принять в Армаду / поменять должность</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
-<tr><td>Должность</td><td><select name='tarmanka'>
-<option value='3.01'>Тарман-Служитель</option>
-<option value='3.05'>Тарман-Надсмотрщик</option>
-<option value='3.07'>Тарман-Убийца</option>
-<option value='3.09'>Тарман-Палач</option>
-<option value='3.091'>Тарман-Владыка</option>
-<option value='3.06'>Каратель</option>
-<option value='3.075'>Гвардеец-13</option>
-<option value='3.092'>Ветеран Армады</option>";
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РџСЂРёРЅСЏС‚СЊ РІ РђСЂРјР°РґСѓ / РїРѕРјРµРЅСЏС‚СЊ РґРѕР»Р¶РЅРѕСЃС‚СЊ</legend>
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
+<tr><td>Р”РѕР»Р¶РЅРѕСЃС‚СЊ</td><td><select name='tarmanka'>
+<option value='3.01'>РўР°СЂРјР°РЅ-РЎР»СѓР¶РёС‚РµР»СЊ</option>
+<option value='3.05'>РўР°СЂРјР°РЅ-РќР°РґСЃРјРѕС‚СЂС‰РёРє</option>
+<option value='3.07'>РўР°СЂРјР°РЅ-РЈР±РёР№С†Р°</option>
+<option value='3.09'>РўР°СЂРјР°РЅ-РџР°Р»Р°С‡</option>
+<option value='3.091'>РўР°СЂРјР°РЅ-Р’Р»Р°РґС‹РєР°</option>
+<option value='3.06'>РљР°СЂР°С‚РµР»СЊ</option>
+<option value='3.075'>Р“РІР°СЂРґРµРµС†-13</option>
+<option value='3.092'>Р’РµС‚РµСЂР°РЅ РђСЂРјР°РґС‹</option>";
 if (($user['align'] == '2.5') || ($user['align']=='2.6')) {
-echo "<option value='3.99'>Патриарх</option>";
+echo "<option value='3.99'>РџР°С‚СЂРёР°СЂС…</option>";
 }
 echo "</select></td></tr>
-<tr><td><input type=submit value='Назначить'></td></tr></table>";
+<tr><td><input type=submit value='РќР°Р·РЅР°С‡РёС‚СЊ'></td></tr></table>";
 echo "</fieldset></form>";
 if ($_POST['login'] && $_POST['tarmanka']) {
 switch($_POST['tarmanka']){
 case 3.01:
-$rang = 'Тарман-Служитель';
+$rang = 'РўР°СЂРјР°РЅ-РЎР»СѓР¶РёС‚РµР»СЊ';
 break;
 case 3.05:
-$rang = 'Тарман-Надсмотрщик';
+$rang = 'РўР°СЂРјР°РЅ-РќР°РґСЃРјРѕС‚СЂС‰РёРє';
 break;
 case 3.07:
-$rang = 'Тарман-Убийца';
+$rang = 'РўР°СЂРјР°РЅ-РЈР±РёР№С†Р°';
 break;
 case 3.09:
-$rang = 'Тарман-Палач';
+$rang = 'РўР°СЂРјР°РЅ-РџР°Р»Р°С‡';
 break;
 case 3.091:
-$rang = 'Тарман-Владыка';
+$rang = 'РўР°СЂРјР°РЅ-Р’Р»Р°РґС‹РєР°';
 break;
 case 3.06:
-$rang = 'Каратель';
+$rang = 'РљР°СЂР°С‚РµР»СЊ';
 break;
 case 3.075:
-$rang = 'Гвардеец-13';
+$rang = 'Р“РІР°СЂРґРµРµС†-13';
 break;
 case 3.092:
-$rang = 'Ветеран Армады';
+$rang = 'Р’РµС‚РµСЂР°РЅ РђСЂРјР°РґС‹';
 break;
 case 3.99:
-$rang = 'Патриарх';
+$rang = 'РџР°С‚СЂРёР°СЂС…';
 break;
 }
 $dd = mysql_fetch_array(mysql_query("SELECT `id`, `login` FROM `users` WHERE `login` = '".$_POST['login']."';"));
-if ($user['sex'] == 1) {$action="присвоил";}
-else {$action="присвоила";}
+if ($user['sex'] == 1) {$action="РїСЂРёСЃРІРѕРёР»";}
+else {$action="РїСЂРёСЃРІРѕРёР»Р°";}
 if ($user['align'] > '2' && $user['align'] < '3')  {
-$angel="Ангел";
+$angel="РђРЅРіРµР»";
 }
 elseif ($user['align'] > '1' && $user['align'] < '2') {
-$angel="Паладин";
+$angel="РџР°Р»Р°РґРёРЅ";
 }
 if($dd) {
 mysql_query("UPDATE `users` SET `align` = '".$_POST['tarmanka']."',`status` = '$rang' WHERE `login` = '".$_POST['login']."';");
 $target=$_POST['login'];
-$mess="$angel &quot;{$user['login']}&quot; $action &quot;$target&quot; звание $rang";
+$mess="$angel &quot;{$user['login']}&quot; $action &quot;$target&quot; Р·РІР°РЅРёРµ $rang";
 mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$dd['id']."','$mess','".time()."');");
 mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 }
@@ -1059,21 +1059,21 @@ mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_
 ?>
 </div>
 <div id="tab9" class="tabset_content">
-<h2 class="tabset_label">Работа с образами</h2>
+<h2 class="tabset_label">Р Р°Р±РѕС‚Р° СЃ РѕР±СЂР°Р·Р°РјРё</h2>
 <?
-##### Добавление образа #####	
-echo "<form  method='post' ENCTYPE='multipart/form-data'><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Добавление образа персонажу</legend>
-<table><tr><td>Логин/клан</td><td><input type='text' name='shadow_name'></td></tr>
-<tr><td>Тип</td><td><select name='shadow_type'>					
-<option value='users'>Персонаж</option>	
-<option value='clans'>Клан</option>					
+##### Р”РѕР±Р°РІР»РµРЅРёРµ РѕР±СЂР°Р·Р° #####	
+echo "<form  method='post' ENCTYPE='multipart/form-data'><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Р”РѕР±Р°РІР»РµРЅРёРµ РѕР±СЂР°Р·Р° РїРµСЂСЃРѕРЅР°Р¶Сѓ</legend>
+<table><tr><td>Р›РѕРіРёРЅ/РєР»Р°РЅ</td><td><input type='text' name='shadow_name'></td></tr>
+<tr><td>РўРёРї</td><td><select name='shadow_type'>					
+<option value='users'>РџРµСЂСЃРѕРЅР°Р¶</option>	
+<option value='clans'>РљР»Р°РЅ</option>					
 </select></td></tr>					
-<tr><td>Пол</td><td><select name='shadow_sex'>					
-<option value='m'>Мужской</option>	
-<option value='w'>Женский</option>					
+<tr><td>РџРѕР»</td><td><select name='shadow_sex'>					
+<option value='m'>РњСѓР¶СЃРєРѕР№</option>	
+<option value='w'>Р–РµРЅСЃРєРёР№</option>					
 </select></td></tr>
-<tr><td>Картинка: </td><td><input type='file' name='shadow_file'><BR> </td></tr>
-<tr><td><input type=submit value='Загрузить'></td></tr>
+<tr><td>РљР°СЂС‚РёРЅРєР°: </td><td><input type='file' name='shadow_file'><BR> </td></tr>
+<tr><td><input type=submit value='Р—Р°РіСЂСѓР·РёС‚СЊ'></td></tr>
 </table></fieldset></form>";					
 
 if (isset($_POST['shadow_name']) and isset($_POST['shadow_type']) and isset($_POST['shadow_sex']) and isset($_FILES['shadow_file'])) {
@@ -1085,10 +1085,10 @@ $image_info = GetImageSize($_FILES['shadow_file']['tmp_name']);
 If ($image_info[0]==120 and $image_info[1]==220){
 move_uploaded_file($_FILES['shadow_file']['tmp_name'], '/var/www/game/data/www/img.old-bk.ru/i/shadow/'.$target_user['sex'].'/'.$_FILES['shadow_file']['name']);
 mysql_query("INSERT `shadows_".$_POST['shadow_sex']."` (`img`,`nlogin`)VALUES('".($_FILES['shadow_file']['name'])."','".$_POST['shadow_name']."')  ");
-echo"<font color=red>Вы добавили персонажу ".$_POST['shadow_name']." образ!</font><br>";
-}else{echo "<font color=red>Картинка не стандартного размера! 120x220 (стандарт)</font><br>";}
-}else{echo "<font color=red>Картинка уже существует.</font><br>";}
-}else{echo"<font color=red>Не был найден персонаж ".$_POST['shadow_name']."!</font><br>";}						
+echo"<font color=red>Р’С‹ РґРѕР±Р°РІРёР»Рё РїРµСЂСЃРѕРЅР°Р¶Сѓ ".$_POST['shadow_name']." РѕР±СЂР°Р·!</font><br>";
+}else{echo "<font color=red>РљР°СЂС‚РёРЅРєР° РЅРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ СЂР°Р·РјРµСЂР°! 120x220 (СЃС‚Р°РЅРґР°СЂС‚)</font><br>";}
+}else{echo "<font color=red>РљР°СЂС‚РёРЅРєР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.</font><br>";}
+}else{echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['shadow_name']."!</font><br>";}						
 }elseif($_POST['shadow_type']=='clans'){
 $target_clan=mysql_fetch_array(mysql_query("SELECT `id` FROM `clans` WHERE `name` = '".$_POST['shadow_name']."';"));	
 If (!empty($target_clan['id'])){
@@ -1098,28 +1098,28 @@ $image_info = GetImageSize($_FILES['shadow_file']['tmp_name']);
 If ($image_info[0]==120 and $image_info[1]==220){	
 move_uploaded_file($_FILES['shadow_file']['tmp_name'], '/var/www/game/data/www/img.old-bk.ru/i/shadow/'.$sex.'/'.$_FILES['shadow_file']['name']);
 mysql_query("INSERT `shadows_".$_POST['shadow_sex']."` (`img`,`nclan`)VALUES('".($_FILES['shadow_file']['name'])."','".$_POST['shadow_name']."')  ");
-echo "<br/><font color=red>Вы добавили клану ".$_POST['shadow_name']." образ!</font><br>";								
-}else{echo "<font color=red>Картинка не стандартного размера! 120x220 (стандарт)</font><br>";}
-}else{echo "<font color=red>Картинка уже существует.</font><br>";}
-}else{echo"<font color=red>Не был найден клан ".$_POST['shadow_name']."!</font><br>";}	
+echo "<br/><font color=red>Р’С‹ РґРѕР±Р°РІРёР»Рё РєР»Р°РЅСѓ ".$_POST['shadow_name']." РѕР±СЂР°Р·!</font><br>";								
+}else{echo "<font color=red>РљР°СЂС‚РёРЅРєР° РЅРµ СЃС‚Р°РЅРґР°СЂС‚РЅРѕРіРѕ СЂР°Р·РјРµСЂР°! 120x220 (СЃС‚Р°РЅРґР°СЂС‚)</font><br>";}
+}else{echo "<font color=red>РљР°СЂС‚РёРЅРєР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.</font><br>";}
+}else{echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РєР»Р°РЅ ".$_POST['shadow_name']."!</font><br>";}	
 }
 				}
 ?>
 </div>
 <div id="tab10" class="tabset_content">
-<h2 class="tabset_label">Админские кнопочки</h2>
+<h2 class="tabset_label">РђРґРјРёРЅСЃРєРёРµ РєРЅРѕРїРѕС‡РєРё</h2>
 <?
-##### Телепортирование между городами #####
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Телепортировать между городами</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
-<tr><td>Город</td><td><select name='teleportcity'>					
+##### РўРµР»РµРїРѕСЂС‚РёСЂРѕРІР°РЅРёРµ РјРµР¶РґСѓ РіРѕСЂРѕРґР°РјРё #####
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РўРµР»РµРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ РјРµР¶РґСѓ РіРѕСЂРѕРґР°РјРё</legend>
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='",$_POST['login'],"'></td></tr>
+<tr><td>Р“РѕСЂРѕРґ</td><td><select name='teleportcity'>					
 <option value='virtcity'>Capital City</option>	
 <option value='dungeon'>Abandoned Plain</option>
 <option value='suburb'>Angels City</option>
 <option value='suncity'>Sun City</option>";
 
 echo "</select></td></tr>
-<tr><td><input type=submit value='Телепортировать'></td></tr></table>";
+<tr><td><input type=submit value='РўРµР»РµРїРѕСЂС‚РёСЂРѕРІР°С‚СЊ'></td></tr></table>";
 echo "</fieldset></form>";
 
 if (isset($_POST['login']) && isset($_POST['teleportcity'])) {
@@ -1133,56 +1133,56 @@ mysql_query("UPDATE `online` SET `city` = 'abandonedplain',`room`=20 WHERE `id` 
 mysql_query("UPDATE `online` SET `city` = '".$_POST['teleportcity']."',`room`=20 WHERE `id` = '".$target_user_tel['id']."';");
 }
 
-echo"<font color=red>Вы телепортировали персонажа ".$_POST['login']."!</font><br>";	
+echo"<font color=red>Р’С‹ С‚РµР»РµРїРѕСЂС‚РёСЂРѕРІР°Р»Рё РїРµСЂСЃРѕРЅР°Р¶Р° ".$_POST['login']."!</font><br>";	
 }else{
-echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['login']."!</font><br>";	
 }
 }
-##### Удаление Айпи #####	
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Подчистить историю IP</legend>
+##### РЈРґР°Р»РµРЅРёРµ РђР№РїРё #####	
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РџРѕРґС‡РёСЃС‚РёС‚СЊ РёСЃС‚РѕСЂРёСЋ IP</legend>
 <table><tr><td>IP</td><td><input type='text' name='clear_ip'></td></tr>
-<tr><td><input type=submit value='Удалить'></td></tr>
+<tr><td><input type=submit value='РЈРґР°Р»РёС‚СЊ'></td></tr>
 </table></fieldset></form>";					
 
 if (isset($_POST['clear_ip'])) {
 mysql_query("DELETE from `iplog` WHERE `ip` = '".$_POST['clear_ip']."';");
 mysql_query("UPDATE `users` SET `ip` = '' WHERE `ip` = '".$_POST['clear_ip']."' ");
-echo"<font color=red>Вы удалили IP ".$_POST['clear_ip']." из базы!</font><br>";
+echo"<font color=red>Р’С‹ СѓРґР°Р»РёР»Рё IP ".$_POST['clear_ip']." РёР· Р±Р°Р·С‹!</font><br>";
 }	
 
 ?>
 </div>
 <div id="tab11" class="tabset_content">
-<h2 class="tabset_label">Системки</h2>
+<h2 class="tabset_label">РЎРёСЃС‚РµРјРєРё</h2>
 <?
-##### Системка #####	
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Отправить системное сообщение в чат</legend>
-<table><tr><td>Отправить системное сообщение в чат</td><td><input type='text' name='sysmsg' size='100'></td></tr>
-<tr><td><input type=submit value='Отправить'></td></tr>
+##### РЎРёСЃС‚РµРјРєР° #####	
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РћС‚РїСЂР°РІРёС‚СЊ СЃРёСЃС‚РµРјРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РІ С‡Р°С‚</legend>
+<table><tr><td>РћС‚РїСЂР°РІРёС‚СЊ СЃРёСЃС‚РµРјРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РІ С‡Р°С‚</td><td><input type='text' name='sysmsg' size='100'></td></tr>
+<tr><td><input type=submit value='РћС‚РїСЂР°РІРёС‚СЊ'></td></tr>
 </table></fieldset></form>";					
 
 if (isset($_POST['sysmsg'])) {
 systemmsg("<font color=#FF0033>[<b>".($user['login'])."</b>]  ".($_POST['sysmsg'])."</font>");
-echo"<font color=red>Отправлено системное сообщение в чат.</font><br>";
+echo"<font color=red>РћС‚РїСЂР°РІР»РµРЅРѕ СЃРёСЃС‚РµРјРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РІ С‡Р°С‚.</font><br>";
 }
-##### Системка Новости #####	
-echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Отправить системное сообщение новости</legend>
-<table><tr><td>ID Новости</td><td><input type='text' name='newsmsg'></td></tr>
-<tr><td><input type=submit value='Отправить'></td></tr>
+##### РЎРёСЃС‚РµРјРєР° РќРѕРІРѕСЃС‚Рё #####	
+echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>РћС‚РїСЂР°РІРёС‚СЊ СЃРёСЃС‚РµРјРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РЅРѕРІРѕСЃС‚Рё</legend>
+<table><tr><td>ID РќРѕРІРѕСЃС‚Рё</td><td><input type='text' name='newsmsg'></td></tr>
+<tr><td><input type=submit value='РћС‚РїСЂР°РІРёС‚СЊ'></td></tr>
 </table></fieldset></form>";					
 
 if (isset($_POST['newsmsg'])) {
 systemmsg("<font color=#FF0033>[<b>".($user['login'])."</b>]  ".($_POST['sysmsg'])."</font>");
-echo"<font color=red>Отправлено системное сообщение в чат.</font><br>";
+echo"<font color=red>РћС‚РїСЂР°РІР»РµРЅРѕ СЃРёСЃС‚РµРјРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РІ С‡Р°С‚.</font><br>";
 }	
 ?>
 </div>
 <div id="tab12" class="tabset_content">
-<h2 class="tabset_label">Невидимки</h2>
+<h2 class="tabset_label">РќРµРІРёРґРёРјРєРё</h2>
  <?$r=mq("select users.login, users.room, effects.time from effects left join users on users.id=effects.owner where type=1022 and time>".time());
   if (mysql_num_rows($r)>0) {
-    echo "<br><br>Невидимки:<table>
-    <tr><td><b>Номер</b></td><td><b>Логин</b></td><td><b>Локация</b><td></td></tr>";
+    echo "<br><br>РќРµРІРёРґРёРјРєРё:<table>
+    <tr><td><b>РќРѕРјРµСЂ</b></td><td><b>Р›РѕРіРёРЅ</b></td><td><b>Р›РѕРєР°С†РёСЏ</b><td></td></tr>";
     while ($rec=mysql_fetch_assoc($r)) {
       echo "<tr><td>".substr($rec["time"],strlen($rec["time"])-4)."</td><td>$rec[login]</td><td>".$rooms[$rec["room"]]."</td></tr>";
     }

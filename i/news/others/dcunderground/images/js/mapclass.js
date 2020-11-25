@@ -1,4 +1,4 @@
-//update 22.04.09 by язон 
+//update 22.04.09 by СЏР·РѕРЅ 
 function highlightMonster(m, self, color){
 	var id, creatures, ug, style;
 
@@ -57,15 +57,15 @@ Statistic.prototype.addMonstr = function(){
 	var table = '<center><table border="0" cellpadding="0" cellspacing="0" style="font:normal 14px Times, serif"><tr style="font-weight:bold;text-align:center;"><td width="7">&nbsp;</td><td width="15">&nbsp;</td><td colspan="2">&nbsp;</td>';
 	for (var i = minlevel; i <= maxlevel; i++)
 	{
-		table += '<td width="35"><span title="[' + i + '] уровень">[' + i + ']</span></td>';
+		table += '<td width="35"><span title="[' + i + '] СѓСЂРѕРІРµРЅСЊ">[' + i + ']</span></td>';
 	}
-	table += '<td width="35"><b title="Суммарно">&#931;</b></td></tr>';
+	table += '<td width="35"><b title="РЎСѓРјРјР°СЂРЅРѕ">&#931;</b></td></tr>';
 	count1 = 0;
 	for(var i in this.bank){
 		if(typeof(this.bank[i]) != 'function'){
 			table += '<tr style="background:'+(((c)%2)?'#E4E4E4':'#F2F2F2')+';">';
 			count2 = 0;
-			table += '<td style="background:'+color[c]+'"><label for="hlchbx_'+c+'">&nbsp;</label></td><td><input name="hlchbx_'+c+'" type="checkbox" title="Подсветить '+creatures[i].name+'" onclick="highlightMonster(\''+i+'\',this, '+(c++)+')" /></td>';
+			table += '<td style="background:'+color[c]+'"><label for="hlchbx_'+c+'">&nbsp;</label></td><td><input name="hlchbx_'+c+'" type="checkbox" title="РџРѕРґСЃРІРµС‚РёС‚СЊ '+creatures[i].name+'" onclick="highlightMonster(\''+i+'\',this, '+(c++)+')" /></td>';
 			table += '<td><img hspace="10" src="'+creatures[i].icon+'" width="17" height="26" /></td><td>'+creatures[i].name+'</td>';
 			for(var j = minlevel; j <= maxlevel; j++)
 			{
@@ -77,12 +77,12 @@ Statistic.prototype.addMonstr = function(){
 			count1 += count2;
 		}
 	}
-	table +='<tr style="font-weight:bold;"><td>&nbsp;</td><td colspan="10" align="right" >Всего монстров: </td><td align="center">'+count1+'</td></tr>';
+	table +='<tr style="font-weight:bold;"><td>&nbsp;</td><td colspan="10" align="right" >Р’СЃРµРіРѕ РјРѕРЅСЃС‚СЂРѕРІ: </td><td align="center">'+count1+'</td></tr>';
 	table +='</table></center>';
 	document.getElementById('monstStat').innerHTML = table;
 };*/
 
-//added by Язон Дин Альт
+//added by РЇР·РѕРЅ Р”РёРЅ РђР»СЊС‚
 function g(a,b)
 {
 if(a > b) return 1;
@@ -126,20 +126,20 @@ Statistic.prototype.showMonstr = function()
 		}
 		if (isMstrLvl==true)
 		{
-			table += '<td width="35"><span title="[' + j + '] уровень!">[' + j + ']</span></td>';
+			table += '<td width="35"><span title="[' + j + '] СѓСЂРѕРІРµРЅСЊ!">[' + j + ']</span></td>';
 			isMstrLvlArr.push(j);
 		}
 	}
 	isMstrLvlArr=isMstrLvlArr.sort(g);
-	table += '<td width="35"><b title="Суммарно">&#931;</b></td></tr>';
+	table += '<td width="35"><b title="РЎСѓРјРјР°СЂРЅРѕ">&#931;</b></td></tr>';
 	count1 = 0;
 	for(var i in this.bank){
 		if(typeof(this.bank[i]) != 'function'){
 			table += '<tr style="background:'+(((c)%2)?'#E4E4E4':'#F2F2F2')+';">';
 			count2 = 0;
-			table += '<td style="background:'+color[c]+'"><label for="hlchbx_'+c+'">&nbsp;</label></td><td><input name="hlchbx_'+c+'" type="checkbox" title="Подсветить '+creatures[i].name+'" onclick="highlightMonster(\''+i+'\',this, '+(c++)+')" /></td>';
+			table += '<td style="background:'+color[c]+'"><label for="hlchbx_'+c+'">&nbsp;</label></td><td><input name="hlchbx_'+c+'" type="checkbox" title="РџРѕРґСЃРІРµС‚РёС‚СЊ '+creatures[i].name+'" onclick="highlightMonster(\''+i+'\',this, '+(c++)+')" /></td>';
 			table += '<td><img hspace="10" src="'+creatures[i].icon+'" width="17" height="26" /></td><td>'+creatures[i].name+'</td>';
-			// дописааать!!!
+			// РґРѕРїРёСЃР°Р°Р°С‚СЊ!!!
 			for(var j = 0; j <= (isMstrLvlArr.length-1); j++)
 			{
 				count2 += (this.bank[i][isMstrLvlArr[j]]!= undefined)? this.bank[i][isMstrLvlArr[j]]:0;
@@ -158,7 +158,7 @@ Statistic.prototype.showMonstr = function()
 			count1 += count2;
 		}
 	}
-	table +='<tr style="font-weight:bold;"><td>&nbsp;</td><td colspan="10" align="right" >Всего монстров: </td><td align="center">'+count1+'</td></tr>';
+	table +='<tr style="font-weight:bold;"><td>&nbsp;</td><td colspan="10" align="right" >Р’СЃРµРіРѕ РјРѕРЅСЃС‚СЂРѕРІ: </td><td align="center">'+count1+'</td></tr>';
 	table +='</table></center>';
 	document.getElementById('monstStat').innerHTML = table;
 };
@@ -200,7 +200,7 @@ Cell.prototype.attacheFeatures = function(){
 	var img, src, style, owp2_direct;
 	if(this.features){
 		for( var i = 0; i < this.features.length; i++){
-			// Направление сторон света: 0 - Север, 1 - Восток, 2 - Юг, 3 - Запад
+			// РќР°РїСЂР°РІР»РµРЅРёРµ СЃС‚РѕСЂРѕРЅ СЃРІРµС‚Р°: 0 - РЎРµРІРµСЂ, 1 - Р’РѕСЃС‚РѕРє, 2 - Р®Рі, 3 - Р—Р°РїР°Рґ
 			if(this.features[i] == 'oneWayPass'){
 				src = features[this.features[i]].icon.replace(/\/\d./,initvars.direct+'.');
 
@@ -424,8 +424,8 @@ function callRightClickMenu(evt){
 		var elem = (evt.target) ? evt.target : evt.srcElement;
 		var offsetLeft = 0;
 		var offsetTop = 0;
-		var text = '<ul><li><a href="javascript:void(0)">переместить</a></li><li>';
-		text += '<a href="javascript:void(0)">расчитать маршрут</a></li></ul>';
+		var text = '<ul><li><a href="javascript:void(0)">РїРµСЂРµРјРµСЃС‚РёС‚СЊ</a></li><li>';
+		text += '<a href="javascript:void(0)">СЂР°СЃС‡РёС‚Р°С‚СЊ РјР°СЂС€СЂСѓС‚</a></li></ul>';
 
 		while (elem.id != 'plane') {
 			offsetLeft += elem.offsetLeft;
@@ -498,11 +498,11 @@ function callShowToolTip(evt){
 			text += '/>';
 			text += ((creatures[source[0]].alignment || parseInt(source[3],10))?'<img src="'+imP2+'align'+((creatures[source[0]].alignment==1 || parseInt(source[3],10)==1)?9:3)+'.gif" align="absmiddle" />':'');
 			text += '<b>'+creatures[source[0]].name+' ['+source[1]+'] ('+hp+'HP)</b><br />';
-			text += '<b>В количестве: '+source[2]+' шт.</b>';
-			text += '<br />Сила: '+feature[i].str+'<br />Ловкость: '+feature[i].dex;
-			text += '<br />Интуиция: '+feature[i].inst+'<br />Выносливость: '+feature[i].power;
-			text += '<br />Интеллект: '+feature[i].intel+'<br />Мудрость: '+feature[i].wis+'<hr>';
-			text += ''+creatures[source[0]].descr+'<br /><b>Место рождения: '+creatures[source[0]].birthplace+'</b>';
+			text += '<b>Р’ РєРѕР»РёС‡РµСЃС‚РІРµ: '+source[2]+' С€С‚.</b>';
+			text += '<br />РЎРёР»Р°: '+feature[i].str+'<br />Р›РѕРІРєРѕСЃС‚СЊ: '+feature[i].dex;
+			text += '<br />РРЅС‚СѓРёС†РёСЏ: '+feature[i].inst+'<br />Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: '+feature[i].power;
+			text += '<br />РРЅС‚РµР»Р»РµРєС‚: '+feature[i].intel+'<br />РњСѓРґСЂРѕСЃС‚СЊ: '+feature[i].wis+'<hr>';
+			text += ''+creatures[source[0]].descr+'<br /><b>РњРµСЃС‚Рѕ СЂРѕР¶РґРµРЅРёСЏ: '+creatures[source[0]].birthplace+'</b>';
 
 
 			initvars.tooltip.style.width = '320px';
@@ -653,11 +653,11 @@ Underground.prototype.drawMap = function(fnum){
 
 	baseDiv += '<td valign="top"><div id="floor" style="margin:0px 25px 25px;"></div></td>';
 	baseDiv += '<td valign="top" rowspan="2" width="130"><div style="position:relative;width:128px;height:145px;background:url('+initvars.compassBG+') no-repeat center top;text-transform:uppercase;font:bold 12px Arial, sans-serif;">';
-	baseDiv += '<div id="compass1" style="position:absolute;top:72px;right:0px;"><a href="javascript:underground[0].turnMap(1);">с</a></div>';
-	baseDiv += '<div id="compass2" style="position:absolute;top:132px;left:60px;"><a href="javascript:underground[0].turnMap(2);">в</a></div>';
-	baseDiv += '<div id="compass3" style="position:absolute;top:72px;left:0px;"><a href="javascript:underground[0].turnMap(3);">З</a></div></div>';
+	baseDiv += '<div id="compass1" style="position:absolute;top:72px;right:0px;"><a href="javascript:underground[0].turnMap(1);">СЃ</a></div>';
+	baseDiv += '<div id="compass2" style="position:absolute;top:132px;left:60px;"><a href="javascript:underground[0].turnMap(2);">РІ</a></div>';
+	baseDiv += '<div id="compass3" style="position:absolute;top:72px;left:0px;"><a href="javascript:underground[0].turnMap(3);">Р—</a></div></div>';
 	baseDiv += '<ul id="floorMenu" style="width:160px;margin:15px 0px;"></ul></td></tr><tr>';
-	baseDiv += '<td><fieldset><legend>Количество монстров</legend><div id="monstStat"></div></fieldset></td>';
+	baseDiv += '<td><fieldset><legend>РљРѕР»РёС‡РµСЃС‚РІРѕ РјРѕРЅСЃС‚СЂРѕРІ</legend><div id="monstStat"></div></fieldset></td>';
 	baseDiv += '</tr></table>';
 
 	document.getElementById(sections[0].id).innerHTML = baseDiv;
@@ -685,17 +685,17 @@ Underground.prototype.redrawMap = function(fnum){
 		floors = underground[j].floors;
 		for(var i = 0; i < floors.length; i++){
 			if(i == initvars.currentFloor && j == initvars.currentUnderground){
-				li += '<li style="list-style-type:disc;color:#990000;">'+(i+1)+'-й этаж</li>';
+				li += '<li style="list-style-type:disc;color:#990000;">'+(i+1)+'-Р№ СЌС‚Р°Р¶</li>';
 			}else{
 				li += '<li style="list-style:none;"><a href="';
 				li += (j == initvars.currentUnderground)?'javascript:redrawMap('+i+')" >':'javascript:startMapDrawing('+j+','+i+')" >';
-				li += (i+1)+'-й этаж</a></li>';
+				li += (i+1)+'-Р№ СЌС‚Р°Р¶</a></li>';
 			}
 		}
 		li += '</ul>'
 	}
 
-	var comp_dir = ['cевер','восток','юг','запад'];
+	var comp_dir = ['cРµРІРµСЂ','РІРѕСЃС‚РѕРє','СЋРі','Р·Р°РїР°Рґ'];
 	var link_str, directID;
 
 	for(var i = 0; i < 4; i++){
@@ -717,12 +717,12 @@ Underground.prototype.redrawMap = function(fnum){
 	}
 
 	var style = 'font:bold 14px;text-align:right;color:#990000;';
-	var table_str  = '<div id="currentPlace" style="'+style+'">Этаж '+(initvars.currentFloor+1)+'</div>';
-	// added by Язон Дин Альт
+	var table_str  = '<div id="currentPlace" style="'+style+'">Р­С‚Р°Р¶ '+(initvars.currentFloor+1)+'</div>';
+	// added by РЇР·РѕРЅ Р”РёРЅ РђР»СЊС‚
 	var letters=new Array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','aa','ab','ac','ad','ae','af','ag','ah','ai','aj','ak','al');
 	
-	table_str += '<div id="currentDirection" style="text-align:right;">смотрим на '+comp_dir[initvars.direct]+'</div>';
-	// горизонталь
+	table_str += '<div id="currentDirection" style="text-align:right;">СЃРјРѕС‚СЂРёРј РЅР° '+comp_dir[initvars.direct]+'</div>';
+	// РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊ
 	table_str += '<div style="position:relative;top:0px;left:0px;zoom:'+initvars.zoom+'%;">';
 	style = 'width:'+((offcetX+1)*initvars.cellSize)+'px;height:'+initvars.cellSize+'px;position:relative;';
 	style += 'background:'+initvars.coordBackgroundColor[initvars.currentUnderground]+';';
@@ -758,7 +758,7 @@ Underground.prototype.redrawMap = function(fnum){
 	
 	table_str += '</div>';
 
-	// вертикаль
+	// РІРµСЂС‚РёРєР°Р»СЊ
 	style = 'width:'+initvars.cellSize+'px;height:'+(offcetY*initvars.cellSize)+'px;position:relative;';
 	style += 'background:'+initvars.coordBackgroundColor[initvars.currentUnderground]+';';
 	table_str += '<div id="vertLine" style="'+style+'">';
@@ -789,7 +789,7 @@ Underground.prototype.redrawMap = function(fnum){
 	}
 	table_str += '</div>';
 
-	//поле
+	//РїРѕР»Рµ
 
 	style  = 'position:absolute; top:'+(initvars.cellSize)+'px;left:'+(initvars.cellSize)+'px;';
 	style += 'width:'+(initvars.cellSize*offcetX)+'px;height:'+(initvars.cellSize*offcetY)+'px;border:1px solid '+initvars.mapBorderColor+';';
@@ -812,7 +812,7 @@ Underground.prototype.redrawMap = function(fnum){
 	rightClickMenu += 'onmouseover="clearTimeout(initvars.rc_TimeoutID);" ';
 	rightClickMenu += 'onmouseout="clearTimeout(initvars.rc_TimeoutID);initvars.rc_TimeoutID = setTimeout(\'hideRightClickMenu()\', initvars.delay);" ></div>';
 
-	// всплывающие подсказки
+	// РІСЃРїР»С‹РІР°СЋС‰РёРµ РїРѕРґСЃРєР°Р·РєРё
 	style  = 'position:absolute; top:0px; left:0px; color: #444444; font:12px Arial, sans-serif; padding:10px;';
 	style += 'border:1px solid #b4b4b4; width:300px; visibility: hidden;';
 	style += 'filter:alpha( style=0,opacity=85); z-index:100;';

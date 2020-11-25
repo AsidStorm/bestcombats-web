@@ -1,5 +1,5 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
 	//if (rand(1,2)==1) {
 
 		if ($_SESSION['uid'] == null) header("Location: index.php");
@@ -27,41 +27,41 @@
 					if (mysql_query("DELETE FROM`effects` WHERE `owner` = '{$tar['id']}' and `type` = '21' LIMIT 1 ;")) {
 						mysql_query("UPDATE `users` SET `palcom` = '',`prison`='0', `room`='20' WHERE `id` = {$tar['id']} LIMIT 1;");
 						mysql_query("UPDATE `online` SET  `room`='20' WHERE `id` = {$tar['id']} LIMIT 1;");
-						if ($user['sex'] == 1) {$action="выпустил";}
-						else {$action="выпустила";}
+						if ($user['sex'] == 1) {$action="РІС‹РїСѓСЃС‚РёР»";}
+						else {$action="РІС‹РїСѓСЃС‚РёР»Р°";}
                         if ($user['align'] > '2' && $user['align'] < '3')  {
-                        $angel="Ангел";
+                        $angel="РђРЅРіРµР»";
                         }
                         elseif ($user['align'] > '1' && $user['align'] < '2') {
-                        $angel="Паладин";
+                        $angel="РџР°Р»Р°РґРёРЅ";
                         }
 						elseif ($user['align'] > '3' && $user['align'] <'4') {
-						$angel="Тарман";
+						$angel="РўР°СЂРјР°РЅ";
 						}
-						$mess="$angel &quot;{$user['login']}&quot; $action из заточения персонажа &quot;$target&quot;.";
-						$messch="$angel &quot;{$user['login']}&quot; $action из заточения персонажа &quot;$target&quot;.";
+						$mess="$angel &quot;{$user['login']}&quot; $action РёР· Р·Р°С‚РѕС‡РµРЅРёСЏ РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot;.";
+						$messch="$angel &quot;{$user['login']}&quot; $action РёР· Р·Р°С‚РѕС‡РµРЅРёСЏ РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot;.";
 						if ($user['invis'] == '1') {
-						$messch="&quot;невидимка&quot; выпустил из заточения персонажа &quot;$target&quot;.";
-						$mess="$angel &quot;{$user['login']}&quot; $action из заточения персонажа &quot;$target&quot;.";
+						$messch="&quot;РЅРµРІРёРґРёРјРєР°&quot; РІС‹РїСѓСЃС‚РёР» РёР· Р·Р°С‚РѕС‡РµРЅРёСЏ РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot;.";
+						$mess="$angel &quot;{$user['login']}&quot; $action РёР· Р·Р°С‚РѕС‡РµРЅРёСЏ РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot;.";
                         }
 						mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
 						mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 						addch("<img src=i/magic/jail_off.gif> $messch");
-						echo "<font color=red><b>Персонаж \"$target\" выпущен на свободу</b></font>";			
+						echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РІС‹РїСѓС‰РµРЅ РЅР° СЃРІРѕР±РѕРґСѓ</b></font>";			
 					}
 					else {
-						echo "<font color=red><b>Произошла ошибка!<b></font>";
+						echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
 					}
 				}
 				else {
-					echo "<font color=red><b>Вы не можете выпустить персонажа!<b></font>";
+					echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РІС‹РїСѓСЃС‚РёС‚СЊ РїРµСЂСЃРѕРЅР°Р¶Р°!<b></font>";
 				}
 			}
 			else {
-				echo "<font color=red><b>Персонаж \"$target\" не в тюрьме </b></font>";
+				echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ РІ С‚СЋСЂСЊРјРµ </b></font>";
 			}
 		}
 		else {
-			echo "<font color=red><b>Персонаж \"$target\" не существует!<b></font>";
+			echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!<b></font>";
 		}
 ?>

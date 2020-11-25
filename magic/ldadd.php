@@ -1,5 +1,5 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
     //if (rand(1,2)==1) {
 
 
@@ -26,33 +26,33 @@
                         $pal=$date_today." ".$_POST['ldtext'];
                     }
                     if (mysql_query("UPDATE `users` SET `palcom` = '$pal' WHERE `id` = {$tar['id']} LIMIT 1;")) {
-                        $mess="Сообщение от ".$user['login'].": ".$_POST['ldtext'];
+                        $mess="РЎРѕРѕР±С‰РµРЅРёРµ РѕС‚ ".$user['login'].": ".$_POST['ldtext'];
                         mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
-                        $mess="Изменена причина отправки в хаос/блокировки &quot;{$_POST['ldnick']}&quot;: $mess";
+                        $mess="РР·РјРµРЅРµРЅР° РїСЂРёС‡РёРЅР° РѕС‚РїСЂР°РІРєРё РІ С…Р°РѕСЃ/Р±Р»РѕРєРёСЂРѕРІРєРё &quot;{$_POST['ldnick']}&quot;: $mess";
                         mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
-                        echo "<font color=red><b>Успешно изменена причина отправки в хаос/блокировки персонажа \"$target\"</b></font>";
+                        echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ РёР·РјРµРЅРµРЅР° РїСЂРёС‡РёРЅР° РѕС‚РїСЂР°РІРєРё РІ С…Р°РѕСЃ/Р±Р»РѕРєРёСЂРѕРІРєРё РїРµСЂСЃРѕРЅР°Р¶Р° \"$target\"</b></font>";
                     }
                     else {
-                        echo "<font color=red><b>Произошла ошибка!<b></font>";
+                        echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
                     }
                 }
                 else {
-                    $mess="Сообщение от ".$user['login'].": ".$_POST['ldtext'];
+                    $mess="РЎРѕРѕР±С‰РµРЅРёРµ РѕС‚ ".$user['login'].": ".$_POST['ldtext'];
                     if (mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');")) {
-                        $mess="Добавлена запись в дело &quot;{$_POST['ldnick']}&quot;: $mess";
+                        $mess="Р”РѕР±Р°РІР»РµРЅР° Р·Р°РїРёСЃСЊ РІ РґРµР»Рѕ &quot;{$_POST['ldnick']}&quot;: $mess";
                         mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
-                        echo "<font color=red><b>Успешно добавлена запись в дело игрока \"$target\"</b></font>";
+                        echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅР° Р·Р°РїРёСЃСЊ РІ РґРµР»Рѕ РёРіСЂРѕРєР° \"$target\"</b></font>";
                     }
                     else {
-                        echo "<font color=red><b>Произошла ошибка!<b></font>";
+                        echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
                     }
                 }
             }
             else {
-                echo "<font color=red><b>Вы не можете добавить запись в дело этого персонажа!<b></font>";
+                echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РґРѕР±Р°РІРёС‚СЊ Р·Р°РїРёСЃСЊ РІ РґРµР»Рѕ СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°!<b></font>";
             }
         }
         else {
-            echo "<font color=red><b>Персонаж \"$target\" не существует!<b></font>";
+            echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!<b></font>";
         }
 ?>

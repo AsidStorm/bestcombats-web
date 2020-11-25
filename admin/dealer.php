@@ -27,10 +27,10 @@ var Hint3Name = '';
 function runmagic(title, magic, name){
     document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</b></BIG></td></tr><tr><td colspan=2>'+
     '<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><td colspan=2><form action="dealer.php" method=POST><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
-    'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
-    '<select style="background-color:#eceddf; color:#000000;" name="timer"><option value=15>15 мин<option value=30>30 мин<option value=60>1 час'+
-    '<option value=180>3 часа<option value=360>6 часов<option value=720>12 часов<option value=1440>сутки'+
-    '<option value=10080>неделя<option value=40320>месяц</select></TD><TD width=30><INPUT TYPE="submit" value=" »» "></TD></TR></FORM></TABLE></td></tr></table>';
+    'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
+    '<select style="background-color:#eceddf; color:#000000;" name="timer"><option value=15>15 РјРёРЅ<option value=30>30 РјРёРЅ<option value=60>1 С‡Р°СЃ'+
+    '<option value=180>3 С‡Р°СЃР°<option value=360>6 С‡Р°СЃРѕРІ<option value=720>12 С‡Р°СЃРѕРІ<option value=1440>СЃСѓС‚РєРё'+
+    '<option value=10080>РЅРµРґРµР»СЏ<option value=40320>РјРµСЃСЏС†</select></TD><TD width=30><INPUT TYPE="submit" value=" В»В» "></TD></TR></FORM></TABLE></td></tr></table>';
     document.all("hint3").style.visibility = "visible";
     document.all("hint3").style.left = 100;
     document.all("hint3").style.top = 100;
@@ -40,54 +40,54 @@ function runmagic(title, magic, name){
 function teleport(title, magic, name){
 document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</b></BIG></td></tr><tr><td colspan=2>'+
 '<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><td colspan=2><form action="dealer.php" method=POST><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
-'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
+'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
 '<select style="background-color:#eceddf; color:#000000;" name="room">'+
-'<option value=0">Секретная Комната'+
-'<option value=1">Комната для новичков'+
-'<option value=2">Комната перехода'+
-'<option value=3">Бойцовский Клуб'+
-'<option value=4">Подземелье'+
-'<option value=5">Зал Воинов 1'+
-'<option value=6">Зал Воинов 2'+
-'<option value=7">Зал Воинов 3'+
-'<option value=8">Торговый зал'+
-'<option value=9">Рыцарский зал'+
-'<option value=10">Башня рыцарей-магов'+
-'<option value=11">2 Этаж'+
-'<option value=26">Паркова'+
-'<option value=13">Астральные этажи'+
-'<option value=14">Огненный мир'+
-'<option value=15">Зал Паладинов'+
-'<option value=16">Совет Белого Братства'+
-'<option value=17">Зал Тьмы'+
-'<option value=18">Царство Тьмы'+
-'<option value=19">Будуар'+
-'<option value=20">Центральная площадь'+
-'<option value=21">Страшилкина улица'+
-'<option value=22">Магазин'+
-'<option value=23">Ремонтная мастерская'+
-'<option value=25">Комиссионный магазин'+
-'<option value=27">Почта'+
-'<option value=28">Регистратура кланов'+
-'<option value=37">Банк'+
-'<option value=31">Башня смерти'+
-'<option value=34">Цветочный магазин'+
-'<option value=35">Магазин Березка'+
-'<option value=36">Зал Стихий'+
-'<option value=37">Магазин Забытой Чести'+
-'<option value=42">Лотерея Сталкеров'+
-'<option value=43">Комната Знахаря'+
-'<option value=402">Вход в подземелье'+
-'<option value=404">Магазин Луки'+
-'<option value=666">Тюрьма'+
-'<option value=667">Бар "Пьяный Админ"'+
-'<option value=668">Зоомагазин'+
-'<option value=101">Общежитие Этаж 1'+
-'<option value=49">Общежитие Этаж 2'+
+'<option value=0">РЎРµРєСЂРµС‚РЅР°СЏ РљРѕРјРЅР°С‚Р°'+
+'<option value=1">РљРѕРјРЅР°С‚Р° РґР»СЏ РЅРѕРІРёС‡РєРѕРІ'+
+'<option value=2">РљРѕРјРЅР°С‚Р° РїРµСЂРµС…РѕРґР°'+
+'<option value=3">Р‘РѕР№С†РѕРІСЃРєРёР№ РљР»СѓР±'+
+'<option value=4">РџРѕРґР·РµРјРµР»СЊРµ'+
+'<option value=5">Р—Р°Р» Р’РѕРёРЅРѕРІ 1'+
+'<option value=6">Р—Р°Р» Р’РѕРёРЅРѕРІ 2'+
+'<option value=7">Р—Р°Р» Р’РѕРёРЅРѕРІ 3'+
+'<option value=8">РўРѕСЂРіРѕРІС‹Р№ Р·Р°Р»'+
+'<option value=9">Р С‹С†Р°СЂСЃРєРёР№ Р·Р°Р»'+
+'<option value=10">Р‘Р°С€РЅСЏ СЂС‹С†Р°СЂРµР№-РјР°РіРѕРІ'+
+'<option value=11">2 Р­С‚Р°Р¶'+
+'<option value=26">РџР°СЂРєРѕРІР°'+
+'<option value=13">РђСЃС‚СЂР°Р»СЊРЅС‹Рµ СЌС‚Р°Р¶Рё'+
+'<option value=14">РћРіРЅРµРЅРЅС‹Р№ РјРёСЂ'+
+'<option value=15">Р—Р°Р» РџР°Р»Р°РґРёРЅРѕРІ'+
+'<option value=16">РЎРѕРІРµС‚ Р‘РµР»РѕРіРѕ Р‘СЂР°С‚СЃС‚РІР°'+
+'<option value=17">Р—Р°Р» РўСЊРјС‹'+
+'<option value=18">Р¦Р°СЂСЃС‚РІРѕ РўСЊРјС‹'+
+'<option value=19">Р‘СѓРґСѓР°СЂ'+
+'<option value=20">Р¦РµРЅС‚СЂР°Р»СЊРЅР°СЏ РїР»РѕС‰Р°РґСЊ'+
+'<option value=21">РЎС‚СЂР°С€РёР»РєРёРЅР° СѓР»РёС†Р°'+
+'<option value=22">РњР°РіР°Р·РёРЅ'+
+'<option value=23">Р РµРјРѕРЅС‚РЅР°СЏ РјР°СЃС‚РµСЂСЃРєР°СЏ'+
+'<option value=25">РљРѕРјРёСЃСЃРёРѕРЅРЅС‹Р№ РјР°РіР°Р·РёРЅ'+
+'<option value=27">РџРѕС‡С‚Р°'+
+'<option value=28">Р РµРіРёСЃС‚СЂР°С‚СѓСЂР° РєР»Р°РЅРѕРІ'+
+'<option value=37">Р‘Р°РЅРє'+
+'<option value=31">Р‘Р°С€РЅСЏ СЃРјРµСЂС‚Рё'+
+'<option value=34">Р¦РІРµС‚РѕС‡РЅС‹Р№ РјР°РіР°Р·РёРЅ'+
+'<option value=35">РњР°РіР°Р·РёРЅ Р‘РµСЂРµР·РєР°'+
+'<option value=36">Р—Р°Р» РЎС‚РёС…РёР№'+
+'<option value=37">РњР°РіР°Р·РёРЅ Р—Р°Р±С‹С‚РѕР№ Р§РµСЃС‚Рё'+
+'<option value=42">Р›РѕС‚РµСЂРµСЏ РЎС‚Р°Р»РєРµСЂРѕРІ'+
+'<option value=43">РљРѕРјРЅР°С‚Р° Р—РЅР°С…Р°СЂСЏ'+
+'<option value=402">Р’С…РѕРґ РІ РїРѕРґР·РµРјРµР»СЊРµ'+
+'<option value=404">РњР°РіР°Р·РёРЅ Р›СѓРєРё'+
+'<option value=666">РўСЋСЂСЊРјР°'+
+'<option value=667">Р‘Р°СЂ "РџСЊСЏРЅС‹Р№ РђРґРјРёРЅ"'+
+'<option value=668">Р—РѕРѕРјР°РіР°Р·РёРЅ'+
+'<option value=101">РћР±С‰РµР¶РёС‚РёРµ Р­С‚Р°Р¶ 1'+
+'<option value=49">РћР±С‰РµР¶РёС‚РёРµ Р­С‚Р°Р¶ 2'+
 '<option value=44">VIP'+
-'<option value=29">Торговая'+
+'<option value=29">РўРѕСЂРіРѕРІР°СЏ'+
 '</select></select>'+
-'</TD><TD width=30><INPUT TYPE="submit" value=" »» "></TD></TR></FORM></TABLE></td></tr></table>';
+'</TD><TD width=30><INPUT TYPE="submit" value=" В»В» "></TD></TR></FORM></TABLE></td></tr></table>';
 document.all("hint3").style.visibility = "visible";
 document.all("hint3").style.left = 100;
 document.all("hint3").style.top = 100;
@@ -100,8 +100,8 @@ Hint3Name='';
 }
 </SCRIPT>
 <body leftmargin=5 topmargin=5 marginwidth=0 marginheight=0 bgcolor=#e2e0e0 >
-<table align=right><tr><td><INPUT TYPE="button" class=btn onclick="location.href='dealer.php';" value="Обновить" title="Обновить"> 
-<INPUT TYPE="button" class=btn onclick="location.href='../main.php';" value="Вернуться" title="Вернуться"></table>
+<table align=right><tr><td><INPUT TYPE="button" class=btn onclick="location.href='dealer.php';" value="РћР±РЅРѕРІРёС‚СЊ" title="РћР±РЅРѕРІРёС‚СЊ"> 
+<INPUT TYPE="button" class=btn onclick="location.href='../main.php';" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" title="Р’РµСЂРЅСѓС‚СЊСЃСЏ"></table>
 <center><img src=http://img.bestcombats.net/align/align_5.gif><b><?echo $user['login']?></b>[<?echo $user['level']?>]<a href=/inf.php?<?echo $user['id']?> target="_blank"><img src=http://img.bestcombats.net/chat/inf.gif></a></center>
 </HEAD>
 <?
@@ -135,42 +135,42 @@ echo "<table>";
 echo "<tr><td align=center><br>";
 foreach($moj as $k => $v) {
 switch($k) {
-case "teleport": $script_name="teleport"; $magic_name="Телепортация"; break;
-case "sleep": $script_name="runmagic"; $magic_name="Заклятие Молчания"; break;
+case "teleport": $script_name="teleport"; $magic_name="РўРµР»РµРїРѕСЂС‚Р°С†РёСЏ"; break;
+case "sleep": $script_name="runmagic"; $magic_name="Р—Р°РєР»СЏС‚РёРµ РњРѕР»С‡Р°РЅРёСЏ"; break;
 }
 if ($script_name) {print "<a onclick=\"javascript:$script_name('$magic_name','$k','target','target1') \" href='#'><img src='http://bestcombats.net/i/magic/".$k.".gif' title='".$magic_name."'></a> ";}
 }
 if ($user["deal"]>0 && $user['deal']<6) {
-print "<input type=button value=\"Дать сундук\" onclick=\"javascript:runmagic5('Выдать сундук','givechest','target','target1') \">&nbsp;";
-print "<input type=button value=\"Забрать екр\" onclick=\"javascript:runmagict('Забрать екр','takeekr','target','target1') \">&nbsp;";
+print "<input type=button value=\"Р”Р°С‚СЊ СЃСѓРЅРґСѓРє\" onclick=\"javascript:runmagic5('Р’С‹РґР°С‚СЊ СЃСѓРЅРґСѓРє','givechest','target','target1') \">&nbsp;";
+print "<input type=button value=\"Р—Р°Р±СЂР°С‚СЊ РµРєСЂ\" onclick=\"javascript:runmagict('Р—Р°Р±СЂР°С‚СЊ РµРєСЂ','takeekr','target','target1') \">&nbsp;";
 }
 echo "</td></tr></table>";
 
 if($user['deal']> 0){
-############# Проверка и открытие данных счета  #################
+############# РџСЂРѕРІРµСЂРєР° Рё РѕС‚РєСЂС‹С‚РёРµ РґР°РЅРЅС‹С… СЃС‡РµС‚Р°  #################
 if (isset($_SESSION['bankid'])){
 $bank_alhimik = mysql_fetch_array(mysql_query("SELECT * FROM `bank` WHERE `id` = ".$_SESSION['bankid']." LIMIT 1;"));	
 }
 
-############## Экоанизация формы ################################
+############## Р­РєРѕР°РЅРёР·Р°С†РёСЏ С„РѕСЂРјС‹ ################################
 echo '<TR><TD style="text-align: left; ">';
-echo "<br><h4>Дилерская панель</h4>";
-If (isset($_SESSION['bankid'])){echo "Банк: <FONT COLOR=#339900>".$bank_alhimik['ekr']."</font> екр.";}
-echo "<form method=post action=\"dealer.php\"><b>Зачислить екры на счет </b>
-<table><tr> <td>Введите сумму </td>
+echo "<br><h4>Р”РёР»РµСЂСЃРєР°СЏ РїР°РЅРµР»СЊ</h4>";
+If (isset($_SESSION['bankid'])){echo "Р‘Р°РЅРє: <FONT COLOR=#339900>".$bank_alhimik['ekr']."</font> РµРєСЂ.";}
+echo "<form method=post action=\"dealer.php\"><b>Р—Р°С‡РёСЃР»РёС‚СЊ РµРєСЂС‹ РЅР° СЃС‡РµС‚ </b>
+<table><tr> <td>Р’РІРµРґРёС‚Рµ СЃСѓРјРјСѓ </td>
 <td><input type='text' name='ekr' value=''></td>
-<td> Номер счета <input type='text' name='bank' value=''></td>
-<td> Ник персонажа <input type='text' name='tonick' value=''></td><td>";
-If (isset($_SESSION['bankid'])){ echo"<input type=submit name='putekr' value='Зачислить'>";}else{echo "<font color=red>Авторизируйтесь в Банке!</font>";}
+<td> РќРѕРјРµСЂ СЃС‡РµС‚Р° <input type='text' name='bank' value=''></td>
+<td> РќРёРє РїРµСЂСЃРѕРЅР°Р¶Р° <input type='text' name='tonick' value=''></td><td>";
+If (isset($_SESSION['bankid'])){ echo"<input type=submit name='putekr' value='Р—Р°С‡РёСЃР»РёС‚СЊ'>";}else{echo "<font color=red>РђРІС‚РѕСЂРёР·РёСЂСѓР№С‚РµСЃСЊ РІ Р‘Р°РЅРєРµ!</font>";}
 echo "</td></tr></table></form>";
-echo "<br><form method=post action=\"dealer.php\"><b>Проверить логин / номер счета </b>
-<table><tr><td>Логин </td><td><input type='text' name='charlogin' value=''></td>
-<td> Номер счета <input type='text' name='charbank' value=''></td>
-<td><input type=submit name='checkbank' value='Проверить'></td></tr>
+echo "<br><form method=post action=\"dealer.php\"><b>РџСЂРѕРІРµСЂРёС‚СЊ Р»РѕРіРёРЅ / РЅРѕРјРµСЂ СЃС‡РµС‚Р° </b>
+<table><tr><td>Р›РѕРіРёРЅ </td><td><input type='text' name='charlogin' value=''></td>
+<td> РќРѕРјРµСЂ СЃС‡РµС‚Р° <input type='text' name='charbank' value=''></td>
+<td><input type=submit name='checkbank' value='РџСЂРѕРІРµСЂРёС‚СЊ'></td></tr>
 </table></form>
 </TD></TR>";
 
-############## Зачисление екр #####################################
+############## Р—Р°С‡РёСЃР»РµРЅРёРµ РµРєСЂ #####################################
 if ($_POST['putekr'] and isset($_SESSION['bankid'])){
 if (isset($_POST['ekr']) and isset($_POST['bank']) and isset($_POST['tonick'])) {
 If ($_POST['ekr']<=$bank_alhimik['ekr'] and $_POST['ekr']>0){
@@ -195,168 +195,168 @@ mysql_query("INSERT INTO `dilerdelo` (dilerid,dilername,bank,owner,ekr) values (
 mysql_query("INSERT INTO `dilerdelo` (dilerid,dilername,bank,owner,ekr) values ('".mysql_real_escape_string($user['id'])."','".mysql_real_escape_string($user['login'])."','".mysql_real_escape_string($_POST['bank'])."','".mysql_real_escape_string($_POST['tonick'])."','".mysql_real_escape_string($_POST['ekr'])."');");
 }
 
-mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($tonick['id'])."','Получено ".mysql_real_escape_string($_POST['ekr'])." екр на счет №".mysql_real_escape_string($_POST['bank'])." от дилера ".$user['login']."',1,'".time()."');");
+mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".mysql_real_escape_string($tonick['id'])."','РџРѕР»СѓС‡РµРЅРѕ ".mysql_real_escape_string($_POST['ekr'])." РµРєСЂ РЅР° СЃС‡РµС‚ в„–".mysql_real_escape_string($_POST['bank'])." РѕС‚ РґРёР»РµСЂР° ".$user['login']."',1,'".time()."');");
 $us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '".$tonick['id']."' LIMIT 1;"));
 
 if($us[0]){
-addchp ('<font color=red>Внимание!</font> На ваш счет №'.$_POST['bank'].' переведено '.$_POST['ekr'].' екр. от дилера '.$user['login'].'  ','{[]}'.$_POST['tonick'].'{[]}');
+addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РќР° РІР°С€ СЃС‡РµС‚ в„–'.$_POST['bank'].' РїРµСЂРµРІРµРґРµРЅРѕ '.$_POST['ekr'].' РµРєСЂ. РѕС‚ РґРёР»РµСЂР° '.$user['login'].'  ','{[]}'.$_POST['tonick'].'{[]}');
 }else{
-mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$tonick['id']."','','".'<font color=red>Внимание!</font> На ваш счет №'.mysql_real_escape_string($_POST['bank']).' переведено '.mysql_real_escape_string($_POST['ekr']).' екр. от дилера '.mysql_real_escape_string($user['login']).'  '."');");
+mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$tonick['id']."','','".'<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РќР° РІР°С€ СЃС‡РµС‚ в„–'.mysql_real_escape_string($_POST['bank']).' РїРµСЂРµРІРµРґРµРЅРѕ '.mysql_real_escape_string($_POST['ekr']).' РµРєСЂ. РѕС‚ РґРёР»РµСЂР° '.mysql_real_escape_string($user['login']).'  '."');");
 }
 
 mysql_query("UPDATE `bank` set `ekr` = ekr-'".mysql_real_escape_string($_POST['ekr'])."' WHERE `id` = '".mysql_real_escape_string($_SESSION['bankid'])."' LIMIT 1;");
 
-print "<b><font color=red>Успешно зачислено {$_POST['ekr']} екр. на счет {$_POST['bank']} персонажа {$_POST['tonick']}!</font></b>";
+print "<b><font color=red>РЈСЃРїРµС€РЅРѕ Р·Р°С‡РёСЃР»РµРЅРѕ {$_POST['ekr']} РµРєСЂ. РЅР° СЃС‡РµС‚ {$_POST['bank']} РїРµСЂСЃРѕРЅР°Р¶Р° {$_POST['tonick']}!</font></b>";
 
 }else{
-print "<b><font color=red>Произошла ошибка!</font></b>";
+print "<b><font color=red>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!</font></b>";
 }
-}else{print "<b><font color=red>Вы не можете передавать персонажу {$_POST['tonick']} екры!</font></b>";}
-}else{print "<b><font color=red>Счет номер {$_POST['bank']} не принадлежит персонажу {$_POST['tonick']}!</font></b>";}
-}else{print "<b><font color=red>У Вас недостаточно екр. на счете!</font></b>";}
-}else{print "<b><font color=red>Введите сумму, номер счета и ник персонажа!</font></b>";}
+}else{print "<b><font color=red>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РїРµСЂРµРґР°РІР°С‚СЊ РїРµСЂСЃРѕРЅР°Р¶Сѓ {$_POST['tonick']} РµРєСЂС‹!</font></b>";}
+}else{print "<b><font color=red>РЎС‡РµС‚ РЅРѕРјРµСЂ {$_POST['bank']} РЅРµ РїСЂРёРЅР°РґР»РµР¶РёС‚ РїРµСЂСЃРѕРЅР°Р¶Сѓ {$_POST['tonick']}!</font></b>";}
+}else{print "<b><font color=red>РЈ Р’Р°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РµРєСЂ. РЅР° СЃС‡РµС‚Рµ!</font></b>";}
+}else{print "<b><font color=red>Р’РІРµРґРёС‚Рµ СЃСѓРјРјСѓ, РЅРѕРјРµСЂ СЃС‡РµС‚Р° Рё РЅРёРє РїРµСЂСЃРѕРЅР°Р¶Р°!</font></b>";}
 }
 
 if ($_POST['checkbank']) {
 if ($_POST['charlogin']) {
 $tonick = mysql_fetch_array(mysql_query("SELECT login,id FROM `users` WHERE `login` = '".mysql_real_escape_string($_POST['charlogin'])."' LIMIT 1;"));
 $bankdb = mysql_query("SELECT owner,id FROM `bank` WHERE `owner` = '".mysql_real_escape_string($tonick['id'])."'");
-print "Персонажу {$_POST['charlogin']} принадлежат счета: <br>";
+print "РџРµСЂСЃРѕРЅР°Р¶Сѓ {$_POST['charlogin']} РїСЂРёРЅР°РґР»РµР¶Р°С‚ СЃС‡РµС‚Р°: <br>";
 while ($bank=mysql_fetch_array($bankdb)) {
-print "№ {$bank['id']} <br>";
+print "в„– {$bank['id']} <br>";
 }
 }
 else if  ($_POST['charbank']) {
 $bank = mysql_fetch_array(mysql_query("SELECT owner,id FROM `bank` WHERE `id` = '".mysql_real_escape_string($_POST['charbank'])." 'LIMIT 1;"));
 $tonick = mysql_fetch_array(mysql_query("SELECT login,id FROM `users` WHERE `id` = '".mysql_real_escape_string($bank['owner'])."' LIMIT 1;"));
-print "Счет № {$_POST['charbank']} принадлежит персонажу {$tonick['login']} <br>";
+print "РЎС‡РµС‚ в„– {$_POST['charbank']} РїСЂРёРЅР°РґР»РµР¶РёС‚ РїРµСЂСЃРѕРЅР°Р¶Сѓ {$tonick['login']} <br>";
 }		
 }
 }
 ##### Silver Account #####
 echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Silver Account</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
-<tr><td>Должность</td><td><select name='silver'>
-<option value='604800'>Неделя</option>		
-<option value='2629743'>Месяц</option>
-<option value='0'>Вечно</option>";					
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
+<tr><td>Р”РѕР»Р¶РЅРѕСЃС‚СЊ</td><td><select name='silver'>
+<option value='604800'>РќРµРґРµР»СЏ</option>		
+<option value='2629743'>РњРµСЃСЏС†</option>
+<option value='0'>Р’РµС‡РЅРѕ</option>";					
 echo "</select></td></tr>
-<tr><td><input type=submit value='Присвоить'></td></tr></table>";
+<tr><td><input type=submit value='РџСЂРёСЃРІРѕРёС‚СЊ'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['silver'])) {
 $target_user_tel=mysql_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($_POST['silver']==604800){
-//Срок для личного дела
-$skolko = 'Неделю';
-//Цена на неделю
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'РќРµРґРµР»СЋ';
+//Р¦РµРЅР° РЅР° РЅРµРґРµР»СЋ
 $cost = '50';
 }elseif ($_POST['silver']==2629743){
-//Срок для личного дела
-$skolko = 'Месяц';
-//Цена на месяц
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'РњРµСЃСЏС†';
+//Р¦РµРЅР° РЅР° РјРµСЃСЏС†
 $cost = '150';
 }elseif ($_POST['silver']==0){
-//Срок для личного дела
-$skolko = 'Вечно';
-//Цена на вечно
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'Р’РµС‡РЅРѕ';
+//Р¦РµРЅР° РЅР° РІРµС‡РЅРѕ
 $cost = '600';
 }
 if ($target_user_tel['ekr']<$cost){
-echo"У персонажа недостаточно еврокредитов для данной операции";
+echo"РЈ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РµРІСЂРѕРєСЂРµРґРёС‚РѕРІ РґР»СЏ РґР°РЅРЅРѕР№ РѕРїРµСЂР°С†РёРё";
 }elseif ($target_user_tel['vip']!=0){
-echo"У персонажа уже имееться VIP Account";
+echo"РЈ РїРµСЂСЃРѕРЅР°Р¶Р° СѓР¶Рµ РёРјРµРµС‚СЊСЃСЏ VIP Account";
 }elseif (!empty($target_user_tel['id'])){
 mq("UPDATE `users` SET `vip` = '1', `ekr`=`ekr`-'$cost' WHERE `id` = '".$target_user_tel['id']."' LIMIT 1;");
 if($_POST['silver']!=0){
 mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$target_user_tel['id']."','Silver Account',".(time()+$_POST['silver']).",70);");
 }
-mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$target_user_tel['id']."','Купил Silver Account у диллера ".$user['login']." на срок $skolko.',1,'".time()."');");
+mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$target_user_tel['id']."','РљСѓРїРёР» Silver Account Сѓ РґРёР»Р»РµСЂР° ".$user['login']." РЅР° СЃСЂРѕРє $skolko.',1,'".time()."');");
 }else{
-echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['login']."!</font><br>";	
 }
 }
 ##### Gold Account #####
 echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Gold Account</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
-<tr><td>Должность</td><td><select name='Gold'>
-<option value='604800'>Неделя</option>		
-<option value='2629743'>Месяц</option>
-<option value='0'>Вечно</option>";					
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
+<tr><td>Р”РѕР»Р¶РЅРѕСЃС‚СЊ</td><td><select name='Gold'>
+<option value='604800'>РќРµРґРµР»СЏ</option>		
+<option value='2629743'>РњРµСЃСЏС†</option>
+<option value='0'>Р’РµС‡РЅРѕ</option>";					
 echo "</select></td></tr>
-<tr><td><input type=submit value='Присвоить'></td></tr></table>";
+<tr><td><input type=submit value='РџСЂРёСЃРІРѕРёС‚СЊ'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['Gold'])) {
 $target_user_tel=mysql_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($_POST['Gold']==604800){
-//Срок для личного дела
-$skolko = 'Неделю';
-//Цена на неделю
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'РќРµРґРµР»СЋ';
+//Р¦РµРЅР° РЅР° РЅРµРґРµР»СЋ
 $cost = '100';
 }elseif ($_POST['Gold']==2629743){
-//Срок для личного дела
-$skolko = 'Месяц';
-//Цена на месяц
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'РњРµСЃСЏС†';
+//Р¦РµРЅР° РЅР° РјРµСЃСЏС†
 $cost = '250';
 }elseif ($_POST['Gold']==0){
-//Срок для личного дела
-$skolko = 'Вечно';
-//Цена на вечно
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'Р’РµС‡РЅРѕ';
+//Р¦РµРЅР° РЅР° РІРµС‡РЅРѕ
 $cost = '800';
 }
 if ($target_user_tel['ekr']<$cost){
-echo"У персонажа недостаточно еврокредитов для данной операции";
+echo"РЈ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РµРІСЂРѕРєСЂРµРґРёС‚РѕРІ РґР»СЏ РґР°РЅРЅРѕР№ РѕРїРµСЂР°С†РёРё";
 }elseif ($target_user_tel['vip']!=0){
-echo"У персонажа уже имееться VIP Account";
+echo"РЈ РїРµСЂСЃРѕРЅР°Р¶Р° СѓР¶Рµ РёРјРµРµС‚СЊСЃСЏ VIP Account";
 }elseif (!empty($target_user_tel['id'])){
 mq("UPDATE `users` SET `vip` = '2', `ekr`=`ekr`-'$cost' WHERE `id` = '".$target_user_tel['id']."' LIMIT 1;");
 if($_POST['Gold']!=0){
 mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$target_user_tel['id']."','Gold Account',".(time()+$_POST['Gold']).",70);");
 }
-mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$target_user_tel['id']."','Купил Gold Account у диллера ".$user['login']." на срок $skolko.',1,'".time()."');");
+mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$target_user_tel['id']."','РљСѓРїРёР» Gold Account Сѓ РґРёР»Р»РµСЂР° ".$user['login']." РЅР° СЃСЂРѕРє $skolko.',1,'".time()."');");
 }else{
-echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['login']."!</font><br>";	
 }
 }
 ##### Platinum Account #####
 echo "<form method=post><fieldset style='border:2px dashed #656565;'><legend style='color: green; font-weight: bold;'>Platinum Account</legend>
-<table><tr><td>Логин</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
-<tr><td>Должность</td><td><select name='Platinum'>
-<option value='604800'>Неделя</option>		
-<option value='2629743'>Месяц</option>
-<option value='0'>Вечно</option>";					
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='login' value='".$_POST['login']."'></td></tr>
+<tr><td>Р”РѕР»Р¶РЅРѕСЃС‚СЊ</td><td><select name='Platinum'>
+<option value='604800'>РќРµРґРµР»СЏ</option>		
+<option value='2629743'>РњРµСЃСЏС†</option>
+<option value='0'>Р’РµС‡РЅРѕ</option>";					
 echo "</select></td></tr>
-<tr><td><input type=submit value='Присвоить'></td></tr></table>";
+<tr><td><input type=submit value='РџСЂРёСЃРІРѕРёС‚СЊ'></td></tr></table>";
 echo "</fieldset></form>";				
 if (isset($_POST['login']) && isset($_POST['Platinum'])) {
 $target_user_tel=mysql_fetch_array(mq("SELECT `id`,`vip`,`ekr` FROM `users` WHERE `login` = '".$_POST['login']."';"));
 if ($_POST['Platinum']==604800){
-//Срок для личного дела
-$skolko = 'Неделю';
-//Цена на неделю
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'РќРµРґРµР»СЋ';
+//Р¦РµРЅР° РЅР° РЅРµРґРµР»СЋ
 $cost = '150';
 }elseif ($_POST['Platinum']==2629743){
-//Срок для личного дела
-$skolko = 'Месяц';
-//Цена на месяц
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'РњРµСЃСЏС†';
+//Р¦РµРЅР° РЅР° РјРµСЃСЏС†
 $cost = '350';
 }elseif ($_POST['Platinum']==0){
-//Срок для личного дела
-$skolko = 'Вечно';
-//Цена на вечно
+//РЎСЂРѕРє РґР»СЏ Р»РёС‡РЅРѕРіРѕ РґРµР»Р°
+$skolko = 'Р’РµС‡РЅРѕ';
+//Р¦РµРЅР° РЅР° РІРµС‡РЅРѕ
 $cost = '1000';
 }
 if ($target_user_tel['ekr']<$cost){
-echo"У персонажа недостаточно еврокредитов для данной операции";
+echo"РЈ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РµРІСЂРѕРєСЂРµРґРёС‚РѕРІ РґР»СЏ РґР°РЅРЅРѕР№ РѕРїРµСЂР°С†РёРё";
 }elseif ($target_user_tel['vip']!=0){
-echo"У персонажа уже имееться VIP Account";
+echo"РЈ РїРµСЂСЃРѕРЅР°Р¶Р° СѓР¶Рµ РёРјРµРµС‚СЊСЃСЏ VIP Account";
 }elseif (!empty($target_user_tel['id'])){
 mq("UPDATE `users` SET `vip` = '3', `ekr`=`ekr`-'$cost' WHERE `id` = '".$target_user_tel['id']."' LIMIT 1;");
 if($_POST['Platinum']!=0){
 mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$target_user_tel['id']."','Platinum Account',".(time()+$_POST['Platinum']).",70);");
 }
-mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$target_user_tel['id']."','Купил Platinum Account у диллера ".$user['login']." на срок $skolko.',1,'".time()."');");
+mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','".$target_user_tel['id']."','РљСѓРїРёР» Platinum Account Сѓ РґРёР»Р»РµСЂР° ".$user['login']." РЅР° СЃСЂРѕРє $skolko.',1,'".time()."');");
 }else{
-echo"<font color=red>Не был найден персонаж ".$_POST['login']."!</font><br>";	
+echo"<font color=red>РќРµ Р±С‹Р» РЅР°Р№РґРµРЅ РїРµСЂСЃРѕРЅР°Р¶ ".$_POST['login']."!</font><br>";	
 }
 }
 ?>

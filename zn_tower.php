@@ -35,10 +35,10 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
             if(mt_rand($uniruna,30)==30) {
                 $rune_level=99;
             }
-            $rune_align=array("Игнис ","Аква ","Аура ","Тера ");
-            $rune_lvl=array(4=>"Рота", 7=>"Триа", 9=>"Квад", 99=>"Уни");
-            $rune_type=array("","хи","хэ","ви","во","кэ","ки","ми","си","мо","со");
-            $rune_for =array("","Серьги","Ожерелье","Кольцо","Перчатки","Поножи","Обувь","Шлем","Наручи","Броня","Пояс");
+            $rune_align=array("РРіРЅРёСЃ ","РђРєРІР° ","РђСѓСЂР° ","РўРµСЂР° ");
+            $rune_lvl=array(4=>"Р РѕС‚Р°", 7=>"РўСЂРёР°", 9=>"РљРІР°Рґ", 99=>"РЈРЅРё");
+            $rune_type=array("","С…Рё","С…СЌ","РІРё","РІРѕ","РєСЌ","РєРё","РјРё","СЃРё","РјРѕ","СЃРѕ");
+            $rune_for =array("","РЎРµСЂСЊРіРё","РћР¶РµСЂРµР»СЊРµ","РљРѕР»СЊС†Рѕ","РџРµСЂС‡Р°С‚РєРё","РџРѕРЅРѕР¶Рё","РћР±СѓРІСЊ","РЁР»РµРј","РќР°СЂСѓС‡Рё","Р‘СЂРѕРЅСЏ","РџРѕСЏСЃ");
             $params=array();
             $params[0][4]=array('mfrub=>1','mfmagp=>1','mfkrit=>25','mfdhit=>2','mfkrit=>25','mfdhit=>2','mfdmag=>2');
             $params[1][4]=array('mfrej=>1','mfmagp=>1','mfakrit=>25','mfdhit=>2','mfakrit=>25','mfdhit=>2','mfdmag=>2');
@@ -93,18 +93,18 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
                     0,
                     '{$rune_level}',
                     '245',
-                    'Этой руной можно улучшить предмет (".$rune_for[$rt].")',
+                    'Р­С‚РѕР№ СЂСѓРЅРѕР№ РјРѕР¶РЅРѕ СѓР»СѓС‡С€РёС‚СЊ РїСЂРµРґРјРµС‚ (".$rune_for[$rt].")',
                     {$stroka2}
                 );
             ")) {
                 destructitem($dress['id']);
                 mysql_query("UPDATE zn_tower SET reputation = reputation + 1 WHERE user_id = " . $_SESSION['uid']);
-                echo "<font color=red><b>Предмет удачно растворен. <br>Получена {$rune_name} за {$dress['name']}</b></font>";
+                echo "<font color=red><b>РџСЂРµРґРјРµС‚ СѓРґР°С‡РЅРѕ СЂР°СЃС‚РІРѕСЂРµРЅ. <br>РџРѕР»СѓС‡РµРЅР° {$rune_name} Р·Р° {$dress['name']}</b></font>";
             }
         }
     } else {
         destructitem($dress['id']);
-        echo "<font color=red><b>Предмет растворен неудачно.</b></font>";
+        echo "<font color=red><b>РџСЂРµРґРјРµС‚ СЂР°СЃС‚РІРѕСЂРµРЅ РЅРµСѓРґР°С‡РЅРѕ.</b></font>";
     }
 }
 
@@ -116,11 +116,11 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
     <?php if ($user['align'] != 2.5) { ?>
     <script LANGUAGE='JavaScript'>
     document.ondragstart = test;
-    //запрет на перетаскивание
+    //Р·Р°РїСЂРµС‚ РЅР° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ
     document.onselectstart = test;
-    //запрет на выделение элементов страницы
+    //Р·Р°РїСЂРµС‚ РЅР° РІС‹РґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂР°РЅРёС†С‹
     document.oncontextmenu = test;
-    //запрет на выведение контекстного меню
+    //Р·Р°РїСЂРµС‚ РЅР° РІС‹РІРµРґРµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ
     function test() {
      return false
     }
@@ -142,15 +142,15 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
             <TD valign=top width=100%>
                 <center>
                     <font style="font-size:24px; color:#000033">
-                        <h3>Алтарь Предметов.</h3>
+                        <h3>РђР»С‚Р°СЂСЊ РџСЂРµРґРјРµС‚РѕРІ.</h3>
                     </font>
                 </center>
             </TD>
             <TD nowrap valign=top>
                 <BR>
                 <DIV align=right>
-                    <INPUT style="font-size:12px;" type='button' onClick="location='zn_tower.php'" value=Обновить>
-                    <INPUT style="font-size:12px;" type='button' onClick="location='city.php?got=1&level9000'" value=Вернуться>
+                    <INPUT style="font-size:12px;" type='button' onClick="location='zn_tower.php'" value=РћР±РЅРѕРІРёС‚СЊ>
+                    <INPUT style="font-size:12px;" type='button' onClick="location='city.php?got=1&level9000'" value=Р’РµСЂРЅСѓС‚СЊСЃСЏ>
                 </DIV>
             </TD>
         </TR>
@@ -163,7 +163,7 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
             <td>    
                 <div>
                     <font color="red">
-                        <b>Вы можете посетить Алтарь предметов через <?php echo secs2hrs(3600*2 - $tflv) ?></b>
+                        <b>Р’С‹ РјРѕР¶РµС‚Рµ РїРѕСЃРµС‚РёС‚СЊ РђР»С‚Р°СЂСЊ РїСЂРµРґРјРµС‚РѕРІ С‡РµСЂРµР· <?php echo secs2hrs(3600*2 - $tflv) ?></b>
                     </font>
                 </div>
             </td>
@@ -197,7 +197,7 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
                         <TD align=center style='width:150px'>
                             <IMG SRC="/i/sh/<?php echo $row['img'] ?>" BORDER=0>
                             <BR>
-                            <A HREF="zn_tower.php?sed=<?=$row['id']?>&sid=&dissolve=1">растворить</A>
+                            <A HREF="zn_tower.php?sed=<?=$row['id']?>&sid=&dissolve=1">СЂР°СЃС‚РІРѕСЂРёС‚СЊ</A>
                         </TD>
                         <TD valign=top><?php showitem ($row); ?></TD>
                     </TR>
@@ -205,7 +205,7 @@ if ($_GET['sed']>0 && $_GET['dissolve']==1 && is_numeric($_GET['sed'])) {
                         }
                         if($ci==0){
                             echo "<TR bgcolor=\"#C7C7C7\"><TD valign=top>";
-                                echo "У вас нет подходящих предметов для расплавления.";
+                                echo "РЈ РІР°СЃ РЅРµС‚ РїРѕРґС…РѕРґСЏС‰РёС… РїСЂРµРґРјРµС‚РѕРІ РґР»СЏ СЂР°СЃРїР»Р°РІР»РµРЅРёСЏ.";
                             echo "</TD></TR>";
                         }
                     ?>

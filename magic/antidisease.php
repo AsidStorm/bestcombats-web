@@ -5,9 +5,9 @@ $d = mqfa("SELECT * FROM effects WHERE type = 9999 AND owner = " . $user['id'] .
 if ($d) {
     global $nodrink;
     if (in_array($user["room"],$nodrink)) {
-      echo "Здесь запрещено пить эликсиры!";
+      echo "Р—РґРµСЃСЊ Р·Р°РїСЂРµС‰РµРЅРѕ РїРёС‚СЊ СЌР»РёРєСЃРёСЂС‹!";
     } elseif ($user['battle'] > 0) {
-      echo "Не в бою...";               
+      echo "РќРµ РІ Р±РѕСЋ...";               
     } else {
         mysql_query('DELETE FROM effects WHERE id = ' . $d['id']);
         mysql_query("
@@ -19,12 +19,12 @@ if ($d) {
               vinos = (".((-1)*$d['vinos'])." + vinos)
             WHERE id = $user[id]
         ") or die(mysql_error());
-        echo "Вы успешно вылечены от болезни " . $d['name'];
-        addchp ('<font color=red>Внимание!</font> Вы успешно вылечены от болезни <b>' . $d['name'] . '</b>', '{[]}'.$user['login'].'{[]}');
+        echo "Р’С‹ СѓСЃРїРµС€РЅРѕ РІС‹Р»РµС‡РµРЅС‹ РѕС‚ Р±РѕР»РµР·РЅРё " . $d['name'];
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’С‹ СѓСЃРїРµС€РЅРѕ РІС‹Р»РµС‡РµРЅС‹ РѕС‚ Р±РѕР»РµР·РЅРё <b>' . $d['name'] . '</b>', '{[]}'.$user['login'].'{[]}');
         $bet=1;
     }
 } else {
-    echo "Вы не болеете";
+    echo "Р’С‹ РЅРµ Р±РѕР»РµРµС‚Рµ";
 }
 
     

@@ -10,7 +10,7 @@
   }
   if (@$_GET["goto"]) {
     if ($_GET["goto"]==20) {
-      $r=mq("select id, dressed from inventory where owner='$user[id]' and prototype=1 and name like 'Маска%'");
+      $r=mq("select id, dressed from inventory where owner='$user[id]' and prototype=1 and name like 'РњР°СЃРєР°%'");
       while ($rec=mysql_fetch_assoc($r)) {
         if ($rec["dressed"]) dropitem(8);
         mq("delete from inventory where id='$rec[id]'");
@@ -39,7 +39,7 @@ hr { height: 1px; }
 <div id="barcontainer" style="position:absolute; right:20px; top:0px; width:1px; height:1px; z-index:101; overflow:visible;">
 <TABLE height=15 border="0" cellspacing="0" cellpadding="0">
 <TR>
-<TD rowspan=3 valign="bottom"><a href="?rnd=0.604083970286585"><img src="/i/move/rel_1.gif" width="15" height="16" alt="Обновить" border="0" /></a></TD>
+<TD rowspan=3 valign="bottom"><a href="?rnd=0.604083970286585"><img src="/i/move/rel_1.gif" width="15" height="16" alt="РћР±РЅРѕРІРёС‚СЊ" border="0" /></a></TD>
 <TD colspan="3"><img src="/i/move/navigatin_462s.gif" width="80" height="4" /></TD>
 </TR>
 <TR>
@@ -54,12 +54,12 @@ hr { height: 1px; }
 </div>
 <?
   if ($user["room"]==24) {
-    echo "<h3>Новогодняя елка!</h3>";
+    echo "<h3>РќРѕРІРѕРіРѕРґРЅСЏСЏ РµР»РєР°!</h3>";
     if ($_POST['fail']) {
-      echo '<font color=red>Операция была отменена.</font>';
+      echo '<font color=red>РћРїРµСЂР°С†РёСЏ Р±С‹Р»Р° РѕС‚РјРµРЅРµРЅР°.</font>';
     }
     if ($_POST['comment']) {
-      if (time()-$_SESSION["lastelka"]<60) echo '<font color=red>Писать на ёлке можно не чаще чем раз в минуту.</font>';
+      if (time()-$_SESSION["lastelka"]<60) echo '<font color=red>РџРёСЃР°С‚СЊ РЅР° С‘Р»РєРµ РјРѕР¶РЅРѕ РЅРµ С‡Р°С‰Рµ С‡РµРј СЂР°Р· РІ РјРёРЅСѓС‚Сѓ.</font>';
       else {
         mysql_query('INSERT INTO `elka` (`who`,`date`,`text`) values (\''.nick3 ($user['id']).'\',\''.date("d.m.Y H:i").'\',\''.strip_tags($_POST['comment']).'\');');
         $_SESSION["lastelka"]=time();
@@ -83,30 +83,30 @@ hr { height: 1px; }
         elseif ($user["level"]>6) $v*=2;
         $mf="";$mfval="";$ghp=0;$gmana=0;
         if ($rec["prototype"]==2348) {
-          $name="Благословение ёлки: Жизнь";
+          $name="Р‘Р»Р°РіРѕСЃР»РѕРІРµРЅРёРµ С‘Р»РєРё: Р–РёР·РЅСЊ";
           $ghp=$v;
         }
         if ($rec["prototype"]==2349) {
-          $name="Благословение ёлки: Магия";
+          $name="Р‘Р»Р°РіРѕСЃР»РѕРІРµРЅРёРµ С‘Р»РєРё: РњР°РіРёСЏ";
           $gmana=$v;
         }
         if ($rec["prototype"]==2350) {
-          $name="Благословение ёлки: Опасность";
+          $name="Р‘Р»Р°РіРѕСЃР»РѕРІРµРЅРёРµ С‘Р»РєРё: РћРїР°СЃРЅРѕСЃС‚СЊ";
           $mf="mfkrit";$mfval=$v;
         }
         if ($rec["prototype"]==2351) {
-          $name="Благословение ёлки: Устойчивость";
+          $name="Р‘Р»Р°РіРѕСЃР»РѕРІРµРЅРёРµ С‘Р»РєРё: РЈСЃС‚РѕР№С‡РёРІРѕСЃС‚СЊ";
           $mf="mfakrit";$mfval=$v;
         }
         if ($rec["prototype"]==2352) {
-          $name="Благословение ёлки: Реакция";
+          $name="Р‘Р»Р°РіРѕСЃР»РѕРІРµРЅРёРµ С‘Р»РєРё: Р РµР°РєС†РёСЏ";
           $mf="mfauvorot";$mfval=$v;
         }
         $i=mqfa1("select id from effects where owner='$user[id]' and type=".NYBLESSING);
         if ($i) mq("update effects set time=".(60*60*24+time()).", name='$name', ghp=$ghp, gmana=$gmana, mf='$mf', mfval='$mfval' where id='$i'");
         else mq("insert into effects set owner='$user[id]', type=".NYBLESSING.", name='$name', time=".(60*60*24+time()).", ghp=$ghp, gmana=$gmana, mf='$mf', mfval='$mfval'");
         resetmax($user["id"]);
-        echo "Вы получили <b>$name</b><br><br>";
+        echo "Р’С‹ РїРѕР»СѓС‡РёР»Рё <b>$name</b><br><br>";
       }
     }
     if (@$_GET["mask"] && 0) {
@@ -121,15 +121,15 @@ hr { height: 1px; }
         $inta=15+$addit["ginta"]-$user["inta"]+rand(0,5)-2-ceil($user["stats"]/3);
         $intel=$addit["gintel"]-$user["intel"];
         $hp=120+$addit["ghp"]-$user["maxhp"];
-        mq("insert into inventory (owner, gsila, glovk, ginta, gintel, ghp, duration, maxdur, nlevel, img, type, name, prototype, present) values ('$user[id]', '$sila', '$lovk', '$inta', '$intel', '$hp', 0, 1, 1, 'mask".rand(1,19).".gif',8,'Маска',1, 'Снегурочка')");
-        echo "<b><font color=red>Вы получили маску.<br>".($user["stats"]?"Т. к. у Вас имеются нераспределённые статы, её параметры ниже.":"")."<br><br></font></b>";
+        mq("insert into inventory (owner, gsila, glovk, ginta, gintel, ghp, duration, maxdur, nlevel, img, type, name, prototype, present) values ('$user[id]', '$sila', '$lovk', '$inta', '$intel', '$hp', 0, 1, 1, 'mask".rand(1,19).".gif',8,'РњР°СЃРєР°',1, 'РЎРЅРµРіСѓСЂРѕС‡РєР°')");
+        echo "<b><font color=red>Р’С‹ РїРѕР»СѓС‡РёР»Рё РјР°СЃРєСѓ.<br>".($user["stats"]?"Рў. Рє. Сѓ Р’Р°СЃ РёРјРµСЋС‚СЃСЏ РЅРµСЂР°СЃРїСЂРµРґРµР»С‘РЅРЅС‹Рµ СЃС‚Р°С‚С‹, РµС‘ РїР°СЂР°РјРµС‚СЂС‹ РЅРёР¶Рµ.":"")."<br><br></font></b>";
         makequest(4);
       } else {
-        echo "<b><font color=red>Можно получить не более 1 маски каждые полчаса.</font></b><br><br>";
+        echo "<b><font color=red>РњРѕР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ РЅРµ Р±РѕР»РµРµ 1 РјР°СЃРєРё РєР°Р¶РґС‹Рµ РїРѕР»С‡Р°СЃР°.</font></b><br><br>";
       }
     }
     if (@$_GET["snow"]) {
-      echo "За подарками - к Деду Морозу, за закалкой, варежками, ёлочными украшениями или новогодним кольцом мороза - в ледяную пещеру.<br><br>";
+      echo "Р—Р° РїРѕРґР°СЂРєР°РјРё - Рє Р”РµРґСѓ РњРѕСЂРѕР·Сѓ, Р·Р° Р·Р°РєР°Р»РєРѕР№, РІР°СЂРµР¶РєР°РјРё, С‘Р»РѕС‡РЅС‹РјРё СѓРєСЂР°С€РµРЅРёСЏРјРё РёР»Рё РЅРѕРІРѕРіРѕРґРЅРёРј РєРѕР»СЊС†РѕРј РјРѕСЂРѕР·Р° - РІ Р»РµРґСЏРЅСѓСЋ РїРµС‰РµСЂСѓ.<br><br>";
     }
     if (@$_GET["open"]){
       $tme=localtime();
@@ -137,50 +137,50 @@ hr { height: 1px; }
        $q=mqfa1("select step from quests where user='$user[id]' and quest=7");
         if (!$q) {
           $money=$user["level"]*50;
-          echo "Дед Мороз дал вам $money кр. и кое-какие вещички:<br>";
-          $ret=takeshopitem(1392,"shop","Дед Мороз", "", 0, array("goden"=>30));
+          echo "Р”РµРґ РњРѕСЂРѕР· РґР°Р» РІР°Рј $money РєСЂ. Рё РєРѕРµ-РєР°РєРёРµ РІРµС‰РёС‡РєРё:<br>";
+          $ret=takeshopitem(1392,"shop","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(1391,"shop","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(1391,"shop","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(1539,"shop","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(1539,"shop","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(1971,"shop","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(1971,"shop","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(1986,"shop","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(1986,"shop","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(1985,"shop","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(1985,"shop","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(1984,"shop","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(1984,"shop","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(1592,"shop","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(1592,"shop","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(1537,"shop","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(1537,"shop","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(1536,"shop","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(1536,"shop","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(1535,"shop","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(1535,"shop","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(1777,"shop","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(1777,"shop","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(101716,"berezka","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(101716,"berezka","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(101764,"berezka","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(101764,"berezka","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(101765,"berezka","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(101765,"berezka","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(101766,"berezka","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(101766,"berezka","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(100615,"berezka","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(100615,"berezka","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
-          $ret=takeshopitem(101618,"berezka","Дед Мороз", "", 0, array("goden"=>30));
+          $ret=takeshopitem(101618,"berezka","Р”РµРґ РњРѕСЂРѕР·", "", 0, array("goden"=>30));
           echo "<img src=\"".IMGBASE."/i/sh/$ret[img]\" title=\"$ret[name]\">";
           mq("update users set money=money+$money where id='$user[id]'");
           echo "<br><br>";
           addqueststep($user["id"],7);
-        } else echo "<b><font color=red>Не более одного подарка в одни руки.</font></b><br><br>";
-      } else echo "<b><font color=red>До Нового Года подарков не положено.</font></b><br><br>";
+        } else echo "<b><font color=red>РќРµ Р±РѕР»РµРµ РѕРґРЅРѕРіРѕ РїРѕРґР°СЂРєР° РІ РѕРґРЅРё СЂСѓРєРё.</font></b><br><br>";
+      } else echo "<b><font color=red>Р”Рѕ РќРѕРІРѕРіРѕ Р“РѕРґР° РїРѕРґР°СЂРєРѕРІ РЅРµ РїРѕР»РѕР¶РµРЅРѕ.</font></b><br><br>";
     }
-    echo "<u>Посетители оставили надписи на стволе елки:</u>";
+    echo "<u>РџРѕСЃРµС‚РёС‚РµР»Рё РѕСЃС‚Р°РІРёР»Рё РЅР°РґРїРёСЃРё РЅР° СЃС‚РІРѕР»Рµ РµР»РєРё:</u>";
     $pgs = ceil(mysql_num_rows($data1)/20);
     for ($i=0;$i<$pgs;++$i) {
         echo ' <a href="?page=',$i,'">',($i+1),'</a> ';
@@ -192,43 +192,43 @@ hr { height: 1px; }
       echo $row['who'],' - ',$row['text'],'<BR>';
     }
     echo "<form action='elka.php' method='post'>
-    Оставить сообщение: <INPUT TYPE=\"text\" name=\"comment\" SIZE=\"50\" VALUE=\"\" maxlength=150>
-    <input type=\"submit\" name=\"\" value=\"Добавить\">
+    РћСЃС‚Р°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ: <INPUT TYPE=\"text\" name=\"comment\" SIZE=\"50\" VALUE=\"\" maxlength=150>
+    <input type=\"submit\" name=\"\" value=\"Р”РѕР±Р°РІРёС‚СЊ\">
     </form>
     </td><td valign=top width=530>
     <div>
     <div id=\"ione\" style=\"width:500px;height:270px;background-image:url(/i/city/ctree1.gif);position:relative;\">";
-    buildset(90,"left",172,20,"Ледяная пещера");
-    buildset(20,"right",182,448,"Центральная площадь");
-	buildset(1666,"cap_215_elka",63,257,"Новогодняя Елка");
-	buildset(1666,"cap_215_bench_1",188,183,"Маленькая скамейка");
-	buildset(1666,"cap_215_bench_2",190,265,"Средняя скамейка");
-	buildset(1666,"cap_215_bench_3",186,378,"Большая скамейка");
-    buildset(1,"snowwhite",25,320,"Снегурочка","elka.php?snow=1");
-    buildset(1,"dead",25,70,"Дед Мороз","elka.php?open=1");
+    buildset(90,"left",172,20,"Р›РµРґСЏРЅР°СЏ РїРµС‰РµСЂР°");
+    buildset(20,"right",182,448,"Р¦РµРЅС‚СЂР°Р»СЊРЅР°СЏ РїР»РѕС‰Р°РґСЊ");
+	buildset(1666,"cap_215_elka",63,257,"РќРѕРІРѕРіРѕРґРЅСЏСЏ Р•Р»РєР°");
+	buildset(1666,"cap_215_bench_1",188,183,"РњР°Р»РµРЅСЊРєР°СЏ СЃРєР°РјРµР№РєР°");
+	buildset(1666,"cap_215_bench_2",190,265,"РЎСЂРµРґРЅСЏСЏ СЃРєР°РјРµР№РєР°");
+	buildset(1666,"cap_215_bench_3",186,378,"Р‘РѕР»СЊС€Р°СЏ СЃРєР°РјРµР№РєР°");
+    buildset(1,"snowwhite",25,320,"РЎРЅРµРіСѓСЂРѕС‡РєР°","elka.php?snow=1");
+    buildset(1,"dead",25,70,"Р”РµРґ РњРѕСЂРѕР·","elka.php?open=1");
     echo "</div>";
   } else {
-    echo "<h3>Танцевальный зал</h3>";
+    echo "<h3>РўР°РЅС†РµРІР°Р»СЊРЅС‹Р№ Р·Р°Р»</h3>";
     echo "<table width=\"100%\"><tr><td valign=\"top\">";
     if (@$_GET["join"]) {
       $m=mqfa1("select prototype from inventory where id='$user[helm]'");
       if ($m==1) {
         mq("insert into dance (user) values ('$_SESSION[uid]')");
-      } else echo "<b><font color=red>Для участия в бале вам необходимо надеть маску!</font></b><br><br>";
+      } else echo "<b><font color=red>Р”Р»СЏ СѓС‡Р°СЃС‚РёСЏ РІ Р±Р°Р»Рµ РІР°Рј РЅРµРѕР±С…РѕРґРёРјРѕ РЅР°РґРµС‚СЊ РјР°СЃРєСѓ!</font></b><br><br>";
     }
-    echo "Для участия в бале-маскараде, возьмите маску у Снегурочки и оденьте её. Если во время начала бала вы будете без маски, то участие принять не сможете.<br>
-    Так же во время начала бала пропадёт действие всех эликсиров и заклятий.<br>
-    Бал не начнётся, если в нём будут участвовать менее 5 человек. Так же строго запрещено выносить маски за пределы зала, поэтому на выходе все маски будут изъяты.
-    Если Вы возьмёте маску и покинете зал, то следующую сможете взять только через полчаса.
-    <br><br><br>Следующий бал-маскарад начнётся в ".date("H:i",mqfa1("select value from variables where var='dance'")).".<br><br>";
+    echo "Р”Р»СЏ СѓС‡Р°СЃС‚РёСЏ РІ Р±Р°Р»Рµ-РјР°СЃРєР°СЂР°РґРµ, РІРѕР·СЊРјРёС‚Рµ РјР°СЃРєСѓ Сѓ РЎРЅРµРіСѓСЂРѕС‡РєРё Рё РѕРґРµРЅСЊС‚Рµ РµС‘. Р•СЃР»Рё РІРѕ РІСЂРµРјСЏ РЅР°С‡Р°Р»Р° Р±Р°Р»Р° РІС‹ Р±СѓРґРµС‚Рµ Р±РµР· РјР°СЃРєРё, С‚Рѕ СѓС‡Р°СЃС‚РёРµ РїСЂРёРЅСЏС‚СЊ РЅРµ СЃРјРѕР¶РµС‚Рµ.<br>
+    РўР°Рє Р¶Рµ РІРѕ РІСЂРµРјСЏ РЅР°С‡Р°Р»Р° Р±Р°Р»Р° РїСЂРѕРїР°РґС‘С‚ РґРµР№СЃС‚РІРёРµ РІСЃРµС… СЌР»РёРєСЃРёСЂРѕРІ Рё Р·Р°РєР»СЏС‚РёР№.<br>
+    Р‘Р°Р» РЅРµ РЅР°С‡РЅС‘С‚СЃСЏ, РµСЃР»Рё РІ РЅС‘Рј Р±СѓРґСѓС‚ СѓС‡Р°СЃС‚РІРѕРІР°С‚СЊ РјРµРЅРµРµ 5 С‡РµР»РѕРІРµРє. РўР°Рє Р¶Рµ СЃС‚СЂРѕРіРѕ Р·Р°РїСЂРµС‰РµРЅРѕ РІС‹РЅРѕСЃРёС‚СЊ РјР°СЃРєРё Р·Р° РїСЂРµРґРµР»С‹ Р·Р°Р»Р°, РїРѕСЌС‚РѕРјСѓ РЅР° РІС‹С…РѕРґРµ РІСЃРµ РјР°СЃРєРё Р±СѓРґСѓС‚ РёР·СЉСЏС‚С‹.
+    Р•СЃР»Рё Р’С‹ РІРѕР·СЊРјС‘С‚Рµ РјР°СЃРєСѓ Рё РїРѕРєРёРЅРµС‚Рµ Р·Р°Р», С‚Рѕ СЃР»РµРґСѓСЋС‰СѓСЋ СЃРјРѕР¶РµС‚Рµ РІР·СЏС‚СЊ С‚РѕР»СЊРєРѕ С‡РµСЂРµР· РїРѕР»С‡Р°СЃР°.
+    <br><br><br>РЎР»РµРґСѓСЋС‰РёР№ Р±Р°Р»-РјР°СЃРєР°СЂР°Рґ РЅР°С‡РЅС‘С‚СЃСЏ РІ ".date("H:i",mqfa1("select value from variables where var='dance'")).".<br><br>";
     $j=mqfa1("select user from dance where user='$user[id]'");
-    if ($j) echo "Вы подали заявку на участие в бале. Наденьте маску и ждите начала.<br><br>
-    <center><input type=\"button\" value=\"Обновить\" onclick=\"document.location.href='elka.php?".time()."'\"></center>";
-    else echo "<center><input type=button onclick=\"document.location.href='elka.php?join=1';\" value=\"Принять участие\"></center>";
+    if ($j) echo "Р’С‹ РїРѕРґР°Р»Рё Р·Р°СЏРІРєСѓ РЅР° СѓС‡Р°СЃС‚РёРµ РІ Р±Р°Р»Рµ. РќР°РґРµРЅСЊС‚Рµ РјР°СЃРєСѓ Рё Р¶РґРёС‚Рµ РЅР°С‡Р°Р»Р°.<br><br>
+    <center><input type=\"button\" value=\"РћР±РЅРѕРІРёС‚СЊ\" onclick=\"document.location.href='elka.php?".time()."'\"></center>";
+    else echo "<center><input type=button onclick=\"document.location.href='elka.php?join=1';\" value=\"РџСЂРёРЅСЏС‚СЊ СѓС‡Р°СЃС‚РёРµ\"></center>";
     echo "</td><td valign=top width=530>
     <div>
     <div id=\"ione\" style=\"width:530px;height:260px;background-image:url(/i/city/dancehall.gif);position:relative;\">";
-    buildset(24,"right",165,385,"Новогодняя ёлка");
+    buildset(24,"right",165,385,"РќРѕРІРѕРіРѕРґРЅСЏСЏ С‘Р»РєР°");
     echo "</div>";
   }
   echo "<div id=\"btransfers\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" id=\"bmoveto\">
@@ -236,7 +236,7 @@ hr { height: 1px; }
   //echo $loclinks;
 ?></td></tr></table>
 <?
-  echo "<br><h3>Больше всего ёлку украшали:</h3>";
+  echo "<br><h3>Р‘РѕР»СЊС€Рµ РІСЃРµРіРѕ С‘Р»РєСѓ СѓРєСЂР°С€Р°Р»Рё:</h3>";
   $r=mq("select sum(step), users.login, users.klan, users.level, quests.user from quests left join users on quests.user=users.id where quest='2' group by quests.user order by 1 desc limit 0, 10");
   echo "<table>";
   $i=0;
@@ -321,7 +321,7 @@ hr { height: 1px; }
     $i=0;
     while ($rec=mysql_fetch_assoc($r)) {
       $i++;
-      echo itemrow($rec, "elka.php?puton=$rec[id]", "украсить", $i);
+      echo itemrow($rec, "elka.php?puton=$rec[id]", "СѓРєСЂР°СЃРёС‚СЊ", $i);
     }
   }
   echo "</table></td><td width=\"530\" valign=\"top\">";

@@ -23,7 +23,7 @@ if ($user['id'] == 7) echo $stloc;
 if ($stloc[0]=="i") {
   $tmp=explode("-", $stloc);
   $i=0;
-  echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
+  echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
   foreach ($tmp as $k=>$v) {
     $i++;
     if ($i==1) continue;
@@ -32,127 +32,127 @@ if ($stloc[0]=="i") {
   }
 }
 
-if($stloc=='511' and $mir['name']=='Ледяная пещера'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/carrot.gif" width="60" border="0" height="60" alt="Морковка"></a>';
+if($stloc=='511' and $mir['name']=='Р›РµРґСЏРЅР°СЏ РїРµС‰РµСЂР°'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/carrot.gif" width="60" border="0" height="60" alt="РњРѕСЂРєРѕРІРєР°"></a>';
 }
 
 
-if($stloc=='503' and $mir['name']=='Канализация 1 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/g.gif" width="60" border="0" height="60" alt="Гайка"></a>';
-print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/g.gif" width="60" border="0" height="60" alt="Гайка"></a>';
-print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/g.gif" width="60" border="0" height="60" alt="Гайка"></a>';
+if($stloc=='503' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/g.gif" width="60" border="0" height="60" alt="Р“Р°Р№РєР°"></a>';
+print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/g.gif" width="60" border="0" height="60" alt="Р“Р°Р№РєР°"></a>';
+print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/g.gif" width="60" border="0" height="60" alt="Р“Р°Р№РєР°"></a>';
 }
-if($stloc=='502' and $mir['name']=='Канализация 1 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/g.gif" width="60" border="0" height="60" alt="Гайка"></a>';
-print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/g.gif" width="60" border="0" height="60" alt="Гайка"></a>';
+if($stloc=='502' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/g.gif" width="60" border="0" height="60" alt="Р“Р°Р№РєР°"></a>';
+print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/g.gif" width="60" border="0" height="60" alt="Р“Р°Р№РєР°"></a>';
 }
-if($stloc=='501' and $mir['name']=='Канализация 1 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/g.gif" width="60" border="0" height="60" alt="Гайка"></a>';
-}
-
-if($stloc=='506' and $mir['name']=='Канализация 1 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=ventil"><img src="'.IMGBASE.'/img/podzem/v.gif" width="60" border="0" height="60" alt="Вентиль"></a>';
-print'&nbsp;<a href="?sun=ventil"><img src="'.IMGBASE.'/img/podzem/v.gif" width="60" border="0" height="60" alt="Вентиль"></a>';
-print'&nbsp;<a href="?sun=ventil"><img src="'.IMGBASE.'/img/podzem/v.gif" width="60" border="0" height="60" alt="Вентиль"></a>';
-}
-if($stloc=='505' and $mir['name']=='Канализация 1 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=ventil"><img src="'.IMGBASE.'/img/podzem/v.gif" width="60" border="0" height="60" alt="Вентиль"></a>';
-print'&nbsp;<a href="?sun=ventil"><img src="'.IMGBASE.'/img/podzem/v.gif" width="60" border="0" height="60" alt="Вентиль"></a>';
-}
-if($stloc=='504' and $mir['name']=='Канализация 1 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=ventil"><img src="'.IMGBASE.'/img/podzem/v.gif" width="60" border="0" height="60" alt="Вентиль"></a>';
+if($stloc=='501' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=gaika"><img src="'.IMGBASE.'/img/podzem/g.gif" width="60" border="0" height="60" alt="Р“Р°Р№РєР°"></a>';
 }
 
-
-if($stloc=='509' and $mir['name']=='Канализация 1 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=bolt"><img src="'.IMGBASE.'/img/podzem/bolt.gif" width="60" border="0" height="60" alt="Болт"></a>';
-print'&nbsp;<a href="?sun=bolt"><img src="'.IMGBASE.'/img/podzem/bolt.gif" width="60" border="0" height="60" alt="Болт"></a>';
-print'&nbsp;<a href="?sun=bolt"><img src="'.IMGBASE.'/img/podzem/bolt.gif" width="60" border="0" height="60" alt="Болт"></a>';
+if($stloc=='506' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=ventil"><img src="'.IMGBASE.'/img/podzem/v.gif" width="60" border="0" height="60" alt="Р’РµРЅС‚РёР»СЊ"></a>';
+print'&nbsp;<a href="?sun=ventil"><img src="'.IMGBASE.'/img/podzem/v.gif" width="60" border="0" height="60" alt="Р’РµРЅС‚РёР»СЊ"></a>';
+print'&nbsp;<a href="?sun=ventil"><img src="'.IMGBASE.'/img/podzem/v.gif" width="60" border="0" height="60" alt="Р’РµРЅС‚РёР»СЊ"></a>';
 }
-if($stloc=='508' and $mir['name']=='Канализация 1 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=bolt"><img src="'.IMGBASE.'/img/podzem/bolt.gif" width="60" border="0" height="60" alt="Болт"></a>';
-print'&nbsp;<a href="?sun=bolt"><img src="'.IMGBASE.'/img/podzem/bolt.gif" width="60" border="0" height="60" alt="Болт"></a>';
+if($stloc=='505' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=ventil"><img src="'.IMGBASE.'/img/podzem/v.gif" width="60" border="0" height="60" alt="Р’РµРЅС‚РёР»СЊ"></a>';
+print'&nbsp;<a href="?sun=ventil"><img src="'.IMGBASE.'/img/podzem/v.gif" width="60" border="0" height="60" alt="Р’РµРЅС‚РёР»СЊ"></a>';
 }
-if($stloc=='507' and $mir['name']=='Канализация 1 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=bolt"><img src="'.IMGBASE.'/img/podzem/bolt.gif" width="60" border="0" height="60" alt="Болт"></a>';
+if($stloc=='504' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=ventil"><img src="'.IMGBASE.'/img/podzem/v.gif" width="60" border="0" height="60" alt="Р’РµРЅС‚РёР»СЊ"></a>';
 }
 
 
-
-if($stloc=='510' and $mir['name']=='Канализация 1 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=kluchiik"><img src="'.IMGBASE.'/img/podzem/kluchik.gif" width="60" border="0" height="60" alt="Ключиик"></a>';
+if($stloc=='509' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=bolt"><img src="'.IMGBASE.'/img/podzem/bolt.gif" width="60" border="0" height="60" alt="Р‘РѕР»С‚"></a>';
+print'&nbsp;<a href="?sun=bolt"><img src="'.IMGBASE.'/img/podzem/bolt.gif" width="60" border="0" height="60" alt="Р‘РѕР»С‚"></a>';
+print'&nbsp;<a href="?sun=bolt"><img src="'.IMGBASE.'/img/podzem/bolt.gif" width="60" border="0" height="60" alt="Р‘РѕР»С‚"></a>';
 }
-if($Location == '29' and $mir['name']=='Канализация 1 этаж'){
+if($stloc=='508' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=bolt"><img src="'.IMGBASE.'/img/podzem/bolt.gif" width="60" border="0" height="60" alt="Р‘РѕР»С‚"></a>';
+print'&nbsp;<a href="?sun=bolt"><img src="'.IMGBASE.'/img/podzem/bolt.gif" width="60" border="0" height="60" alt="Р‘РѕР»С‚"></a>';
+}
+if($stloc=='507' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=bolt"><img src="'.IMGBASE.'/img/podzem/bolt.gif" width="60" border="0" height="60" alt="Р‘РѕР»С‚"></a>';
+}
+
+
+
+if($stloc=='510' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=kluchiik"><img src="'.IMGBASE.'/img/podzem/kluchik.gif" width="60" border="0" height="60" alt="РљР»СЋС‡РёРёРє"></a>';
+}
+if($Location == '29' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶'){
 mysql_query("UPDATE `users`,`online` SET `users`.`room` = '404',`online`.`room` = '404' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
 print "<script>location.href='shop_luka.php'</script>";
 exit;
 }
 ////////////////////////2 etaz///////////////////////////
-if(($stloc=='609' || $stloc=='603') and $mir['name']=='Канализация 2 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_c"><img src="'.IMGBASE.'/img/podzem/g_c.gif" width="60" border="0" height="60" alt="Чистая гайка"></a>';
-print'&nbsp;<a href="?sun=se_gaika_c"><img src="'.IMGBASE.'/img/podzem/g_c.gif" width="60" border="0" height="60" alt="Чистая гайка"></a>';
-print'&nbsp;<a href="?sun=se_gaika_c"><img src="'.IMGBASE.'/img/podzem/g_c.gif" width="60" border="0" height="60" alt="Чистая гайка"></a>';
+if(($stloc=='609' || $stloc=='603') and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 2 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_c"><img src="'.IMGBASE.'/img/podzem/g_c.gif" width="60" border="0" height="60" alt="Р§РёСЃС‚Р°СЏ РіР°Р№РєР°"></a>';
+print'&nbsp;<a href="?sun=se_gaika_c"><img src="'.IMGBASE.'/img/podzem/g_c.gif" width="60" border="0" height="60" alt="Р§РёСЃС‚Р°СЏ РіР°Р№РєР°"></a>';
+print'&nbsp;<a href="?sun=se_gaika_c"><img src="'.IMGBASE.'/img/podzem/g_c.gif" width="60" border="0" height="60" alt="Р§РёСЃС‚Р°СЏ РіР°Р№РєР°"></a>';
 }
-if(($stloc=='608' || $stloc=='602') and $mir['name']=='Канализация 2 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_c"><img src="'.IMGBASE.'/img/podzem/g_c.gif" width="60" border="0" height="60" alt="Чистая гайка"></a>';
-print'&nbsp;<a href="?sun=se_gaika_c"><img src="'.IMGBASE.'/img/podzem/g_c.gif" width="60" border="0" height="60" alt="Чистая гайка"></a>';
+if(($stloc=='608' || $stloc=='602') and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 2 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_c"><img src="'.IMGBASE.'/img/podzem/g_c.gif" width="60" border="0" height="60" alt="Р§РёСЃС‚Р°СЏ РіР°Р№РєР°"></a>';
+print'&nbsp;<a href="?sun=se_gaika_c"><img src="'.IMGBASE.'/img/podzem/g_c.gif" width="60" border="0" height="60" alt="Р§РёСЃС‚Р°СЏ РіР°Р№РєР°"></a>';
 }
-if(($stloc=='607' || $stloc=='601') and $mir['name']=='Канализация 2 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_c"><img src="'.IMGBASE.'/img/podzem/g_c.gif" width="60" border="0" height="60" alt="Чистая гайка"></a>';
+if(($stloc=='607' || $stloc=='601') and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 2 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_c"><img src="'.IMGBASE.'/img/podzem/g_c.gif" width="60" border="0" height="60" alt="Р§РёСЃС‚Р°СЏ РіР°Р№РєР°"></a>';
 }
-if(($stloc=='606') and ($mir['name']=='Канализация 2 этаж' || $mir['name']=='Канализация 3 этаж')){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_bd"><img src="'.IMGBASE.'/img/podzem/bolt_d.gif" width="60" border="0" height="60" alt="Длинный болт"></a>';
-print'&nbsp;<a href="?sun=se_gaika_bd"><img src="'.IMGBASE.'/img/podzem/bolt_d.gif" width="60" border="0" height="60" alt="Длинный болт"></a>';
-print'&nbsp;<a href="?sun=se_gaika_bd"><img src="'.IMGBASE.'/img/podzem/bolt_d.gif" width="60" border="0" height="60" alt="Длинный болт"></a>';
+if(($stloc=='606') and ($mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 2 СЌС‚Р°Р¶' || $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 3 СЌС‚Р°Р¶')){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_bd"><img src="'.IMGBASE.'/img/podzem/bolt_d.gif" width="60" border="0" height="60" alt="Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚"></a>';
+print'&nbsp;<a href="?sun=se_gaika_bd"><img src="'.IMGBASE.'/img/podzem/bolt_d.gif" width="60" border="0" height="60" alt="Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚"></a>';
+print'&nbsp;<a href="?sun=se_gaika_bd"><img src="'.IMGBASE.'/img/podzem/bolt_d.gif" width="60" border="0" height="60" alt="Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚"></a>';
 }
-if(($stloc=='605') and ($mir['name']=='Канализация 2 этаж' || $mir['name']=='Канализация 3 этаж')){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_bd"><img src="'.IMGBASE.'/img/podzem/bolt_d.gif" width="60" border="0" height="60" alt="Длинный болт"></a>';
-print'&nbsp;<a href="?sun=se_gaika_bd"><img src="'.IMGBASE.'/img/podzem/bolt_d.gif" width="60" border="0" height="60" alt="Длинный болт"></a>';
+if(($stloc=='605') and ($mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 2 СЌС‚Р°Р¶' || $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 3 СЌС‚Р°Р¶')){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_bd"><img src="'.IMGBASE.'/img/podzem/bolt_d.gif" width="60" border="0" height="60" alt="Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚"></a>';
+print'&nbsp;<a href="?sun=se_gaika_bd"><img src="'.IMGBASE.'/img/podzem/bolt_d.gif" width="60" border="0" height="60" alt="Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚"></a>';
 }
-if(($stloc=='604') and ($mir['name']=='Канализация 2 этаж' || $mir['name']=='Канализация 3 этаж')){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_bd"><img src="'.IMGBASE.'/img/podzem/bolt_d.gif" width="60" border="0" height="60" alt="Длинный болт"></a>';
-}
-
-if($stloc=='612' and $mir['name']=='Канализация 3 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_rez"><img src="'.IMGBASE.'/img/podzem/g_r.gif" width="60" border="0" height="60" alt="Гайка с резьбой"></a>';
-print'&nbsp;<a href="?sun=se_gaika_rez"><img src="'.IMGBASE.'/img/podzem/g_r.gif" width="60" border="0" height="60" alt="Гайка с резьбой"></a>';
-print'&nbsp;<a href="?sun=se_gaika_rez"><img src="'.IMGBASE.'/img/podzem/g_r.gif" width="60" border="0" height="60" alt="Гайка с резьбой"></a>';
-}
-if($stloc=='611' and $mir['name']=='Канализация 3 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_rez"><img src="'.IMGBASE.'/img/podzem/g_r.gif" width="60" border="0" height="60" alt="Гайка с резьбой"></a>';
-print'&nbsp;<a href="?sun=se_gaika_rez"><img src="'.IMGBASE.'/img/podzem/g_r.gif" width="60" border="0" height="60" alt="Гайка с резьбой"></a>';
-}
-if($stloc=='610' and $mir['name']=='Канализация 3 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_rez"><img src="'.IMGBASE.'/img/podzem/g_r.gif" width="60" border="0" height="60" alt="Гайка с резьбой"></a>';
+if(($stloc=='604') and ($mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 2 СЌС‚Р°Р¶' || $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 3 СЌС‚Р°Р¶')){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_bd"><img src="'.IMGBASE.'/img/podzem/bolt_d.gif" width="60" border="0" height="60" alt="Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚"></a>';
 }
 
-
-
-
-if(($stloc=='612') and $mir['name']=='Канализация 2 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_rv"><img src="'.IMGBASE.'/img/podzem/rv.gif" width="60" border="0" height="60" alt="Рабочий вентиль"></a>';
-print'&nbsp;<a href="?sun=se_gaika_rv"><img src="'.IMGBASE.'/img/podzem/rv.gif" width="60" border="0" height="60" alt="Рабочий вентиль"></a>';
-print'&nbsp;<a href="?sun=se_gaika_rv"><img src="'.IMGBASE.'/img/podzem/rv.gif" width="60" border="0" height="60" alt="Рабочий вентиль"></a>';
+if($stloc=='612' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 3 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_rez"><img src="'.IMGBASE.'/img/podzem/g_r.gif" width="60" border="0" height="60" alt="Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№"></a>';
+print'&nbsp;<a href="?sun=se_gaika_rez"><img src="'.IMGBASE.'/img/podzem/g_r.gif" width="60" border="0" height="60" alt="Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№"></a>';
+print'&nbsp;<a href="?sun=se_gaika_rez"><img src="'.IMGBASE.'/img/podzem/g_r.gif" width="60" border="0" height="60" alt="Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№"></a>';
 }
-if(($stloc=='611') and ($mir['name']=='Канализация 2 этаж')){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_rv"><img src="'.IMGBASE.'/img/podzem/rv.gif" width="60" border="0" height="60" alt="Рабочий вентиль"></a>';
-print'&nbsp;<a href="?sun=se_gaika_rv"><img src="'.IMGBASE.'/img/podzem/rv.gif" width="60" border="0" height="60" alt="Рабочий вентиль"></a>';
+if($stloc=='611' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 3 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_rez"><img src="'.IMGBASE.'/img/podzem/g_r.gif" width="60" border="0" height="60" alt="Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№"></a>';
+print'&nbsp;<a href="?sun=se_gaika_rez"><img src="'.IMGBASE.'/img/podzem/g_r.gif" width="60" border="0" height="60" alt="Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№"></a>';
 }
-if(($stloc=='610') and ($mir['name']=='Канализация 2 этаж')){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_rv"><img src="'.IMGBASE.'/img/podzem/rv.gif" width="60" border="0" height="60" alt="Рабочий вентиль"></a>';
+if($stloc=='610' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 3 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_rez"><img src="'.IMGBASE.'/img/podzem/g_r.gif" width="60" border="0" height="60" alt="Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№"></a>';
+}
+
+
+
+
+if(($stloc=='612') and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 2 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_rv"><img src="'.IMGBASE.'/img/podzem/rv.gif" width="60" border="0" height="60" alt="Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ"></a>';
+print'&nbsp;<a href="?sun=se_gaika_rv"><img src="'.IMGBASE.'/img/podzem/rv.gif" width="60" border="0" height="60" alt="Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ"></a>';
+print'&nbsp;<a href="?sun=se_gaika_rv"><img src="'.IMGBASE.'/img/podzem/rv.gif" width="60" border="0" height="60" alt="Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ"></a>';
+}
+if(($stloc=='611') and ($mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 2 СЌС‚Р°Р¶')){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_rv"><img src="'.IMGBASE.'/img/podzem/rv.gif" width="60" border="0" height="60" alt="Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ"></a>';
+print'&nbsp;<a href="?sun=se_gaika_rv"><img src="'.IMGBASE.'/img/podzem/rv.gif" width="60" border="0" height="60" alt="Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ"></a>';
+}
+if(($stloc=='610') and ($mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 2 СЌС‚Р°Р¶')){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_rv"><img src="'.IMGBASE.'/img/podzem/rv.gif" width="60" border="0" height="60" alt="Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ"></a>';
 }
 /////////////////////////////////////////////////////////
-if($stloc=='615' and $mir['name']=='Канализация 3 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="Нужный болт"></a>';
-print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="Нужный болт"></a>';
-print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="Нужный болт"></a>';
+if($stloc=='615' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 3 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="РќСѓР¶РЅС‹Р№ Р±РѕР»С‚"></a>';
+print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="РќСѓР¶РЅС‹Р№ Р±РѕР»С‚"></a>';
+print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="РќСѓР¶РЅС‹Р№ Р±РѕР»С‚"></a>';
 }
-if($stloc=='614' and $mir['name']=='Канализация 3 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="Нужный болт"></a>';
-print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="Нужный болт"></a>';
+if($stloc=='614' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 3 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="РќСѓР¶РЅС‹Р№ Р±РѕР»С‚"></a>';
+print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="РќСѓР¶РЅС‹Р№ Р±РѕР»С‚"></a>';
 }
-if($stloc=='613' and $mir['name']=='Канализация 3 этаж'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;В комнате разбросаны вещи:</b></font><br>';
-print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="Нужный болт"></a>';
+if($stloc=='613' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 3 СЌС‚Р°Р¶'){echo'<font style="font-size:15px; color:#600"> <b>&nbsp;&nbsp;Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</b></font><br>';
+print'&nbsp;<a href="?sun=se_gaika_nb"><img src="'.IMGBASE.'/img/podzem/nb.gif" width="60" border="0" height="60" alt="РќСѓР¶РЅС‹Р№ Р±РѕР»С‚"></a>';
 }
 echo $mir['glava_id'];
 $drop = mysql_query("SELECT * FROM `podzem_drop` WHERE `location`='".$mesto."'  and `etaj`='".$mir['name']."'  and `glava_id`='".$mir['glav_id']."' ");

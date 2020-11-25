@@ -12,7 +12,7 @@
 <link rel="icon" href="/i/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/i/favicon.ico" type="image/x-icon"> 
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-<title>Новости и события Bkwar</title>
+<title>РќРѕРІРѕСЃС‚Рё Рё СЃРѕР±С‹С‚РёСЏ Bkwar</title>
 <link href="/css/event.css" rel="stylesheet" type="text/css">
 <SCRIPT language="JavaScript" src="/js/event.js"></SCRIPT>
 <SCRIPT language="JavaScript" src="/js/dm.js"></SCRIPT>
@@ -34,7 +34,7 @@
 <table border="0" width="100%">
 <FORM method=post>
 <TR>
-<TD><font color=white><?if(!empty($user['login'])){echo nick5_1($user['id']);}else{echo'Гость';}?></font></TD></TR>
+<TD><font color=white><?if(!empty($user['login'])){echo nick5_1($user['id']);}else{echo'Р“РѕСЃС‚СЊ';}?></font></TD></TR>
 <TR>
 <TD>&nbsp;</TD></TR></FORM>
  
@@ -51,7 +51,7 @@
   <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
    <TR>
    <TD width=1 bgColor=#000000><IMG height=1 src="/i/spacer.gif" width=1></TD>
-   <TD align=left background=/i/menu1at1.gif bgColor=#aa0000 style="padding-left:75px;"><A onmouseover="MM_swapImage('news','','/i/menu1at2.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/"><IMG height=36 src="/i/menu1ps2.gif" width=47 border=0 name=news alt="Новости"></A><A onmouseover="MM_swapImage('#','','/i/menu1at3.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps3.gif" width=42 border=0 name="history" alt="История"></A><A onmouseover="MM_swapImage('status','','/i/menu1at4.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/news/status/"><IMG height=36 src="/i/menu1ps4.gif" width=42 border=0 name="status" alt="Состояние серверов"></A><A onmouseover="MM_swapImage('gallery','','/i/menu1at5.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps5.gif" width=42 border=0 name="gallery" alt="Галерея"></A><A onmouseover="MM_swapImage('vote','','/i/menu1at7.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps7.gif" width=41 border=0 name="vote" alt="Голосования"></A><A onmouseover="MM_swapImage('inwork','','/i/menu1at8.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps8.gif" width=41 border=0 name="inwork" alt="В разработке"></A><A onmouseover="MM_swapImage('release','','/i/menu1at9.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps9.gif" width=48 border=0 name="release" alt="Вестник Администрации"></A></TD>
+   <TD align=left background=/i/menu1at1.gif bgColor=#aa0000 style="padding-left:75px;"><A onmouseover="MM_swapImage('news','','/i/menu1at2.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/"><IMG height=36 src="/i/menu1ps2.gif" width=47 border=0 name=news alt="РќРѕРІРѕСЃС‚Рё"></A><A onmouseover="MM_swapImage('#','','/i/menu1at3.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps3.gif" width=42 border=0 name="history" alt="РСЃС‚РѕСЂРёСЏ"></A><A onmouseover="MM_swapImage('status','','/i/menu1at4.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/news/status/"><IMG height=36 src="/i/menu1ps4.gif" width=42 border=0 name="status" alt="РЎРѕСЃС‚РѕСЏРЅРёРµ СЃРµСЂРІРµСЂРѕРІ"></A><A onmouseover="MM_swapImage('gallery','','/i/menu1at5.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps5.gif" width=42 border=0 name="gallery" alt="Р“Р°Р»РµСЂРµСЏ"></A><A onmouseover="MM_swapImage('vote','','/i/menu1at7.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps7.gif" width=41 border=0 name="vote" alt="Р“РѕР»РѕСЃРѕРІР°РЅРёСЏ"></A><A onmouseover="MM_swapImage('inwork','','/i/menu1at8.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps8.gif" width=41 border=0 name="inwork" alt="Р’ СЂР°Р·СЂР°Р±РѕС‚РєРµ"></A><A onmouseover="MM_swapImage('release','','/i/menu1at9.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps9.gif" width=48 border=0 name="release" alt="Р’РµСЃС‚РЅРёРє РђРґРјРёРЅРёСЃС‚СЂР°С†РёРё"></A></TD>
    <TD width=1 bgColor=#000000><IMG height=1 src="/i/spacer.gif" width=1></TD>
    </TR>
   </TABLE>
@@ -88,7 +88,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                    <B>Горячие ссылки</B>
+                    <B>Р“РѕСЂСЏС‡РёРµ СЃСЃС‹Р»РєРё</B>
                    </TD>
                    <TD width=1>
                     <IMG height=22 src="/i/lmenu_3.gif" width=1>
@@ -111,11 +111,11 @@
                      <TBODY>
                       <TR>
                        <TD align=left>  
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/news">Главная страница</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/news">Р“Р»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°</a></div>
   
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/forum.php">Форум</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/forum.php">Р¤РѕСЂСѓРј</a></div>
   
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/scrolls">Скроллы</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/scrolls">РЎРєСЂРѕР»Р»С‹</a></div>
   
   <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/">Support</a></div>
   
@@ -146,7 +146,7 @@
       </TR>
      </TBODY>
     </TABLE><BR>    
-<!-- 2 меню -->	
+<!-- 2 РјРµРЅСЋ -->	
 	<TABLE cellSpacing=0 cellPadding=0 width=195 border=0>
      <TBODY>
       <TR>
@@ -168,7 +168,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                   <B>Библиотека:</B>
+                   <B>Р‘РёР±Р»РёРѕС‚РµРєР°:</B>
                    <br><br>
                    </TD>
                    <TD width=1>
@@ -220,7 +220,7 @@
 </TR>
 </TBODY></TABLE><BR>
 
-<!-- 3 меню) -->
+<!-- 3 РјРµРЅСЋ) -->
 <TABLE cellSpacing=0 cellPadding=0 width=195 border=0>
      <TBODY>
       <TR>
@@ -242,7 +242,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                   <B>Статистика:</B>
+                   <B>РЎС‚Р°С‚РёСЃС‚РёРєР°:</B>
                    <br><br>
                    </TD>
                    <TD width=1>
@@ -309,45 +309,45 @@
 <TR>
 <TD class=normaltext align=left valign="top">
  
-<div class="page_title"><B>VIP Клуб</B></div>													  														  
+<div class="page_title"><B>VIP РљР»СѓР±</B></div>													  														  
 </TD>
 </tr>
 <tr>
 <td>
-<ul><li> У нашего алхимика <Img src="http://bestcombats.net/i/align_5.gif"> Дилер <a href="http://bestcombats.net/inf.php?1" Target="_blank"><Img src="http://bestcombats.net/i/inf.gif"></a> Вы можете приобрести VIP-значок <Img src="http://bestcombats.net/i/vip2.gif"> Нашего Клуба. <br><br>
-<li> Какими возможностями наделяет Вас членство в VIP-Клубе:<br></ul>
+<ul><li> РЈ РЅР°С€РµРіРѕ Р°Р»С…РёРјРёРєР° <Img src="http://bestcombats.net/i/align_5.gif"> Р”РёР»РµСЂ <a href="http://bestcombats.net/inf.php?1" Target="_blank"><Img src="http://bestcombats.net/i/inf.gif"></a> Р’С‹ РјРѕР¶РµС‚Рµ РїСЂРёРѕР±СЂРµСЃС‚Рё VIP-Р·РЅР°С‡РѕРє <Img src="http://bestcombats.net/i/vip2.gif"> РќР°С€РµРіРѕ РљР»СѓР±Р°. <br><br>
+<li> РљР°РєРёРјРё РІРѕР·РјРѕР¶РЅРѕСЃС‚СЏРјРё РЅР°РґРµР»СЏРµС‚ Р’Р°СЃ С‡Р»РµРЅСЃС‚РІРѕ РІ VIP-РљР»СѓР±Рµ:<br></ul>
 <ul>
-<li> Сбросить все статы.
-<li> Сбросить все умения.<br>
-<li> Сбросить все Особенности.<br>
-<li> Сменить логин.
-<li> Установить редирект.<br>
-<li> Сменить образ.<br>
-<li> Абилки.<br>
-<li> Скидка 30% на все товары из магазина "березка".<br>
+<li> РЎР±СЂРѕСЃРёС‚СЊ РІСЃРµ СЃС‚Р°С‚С‹.
+<li> РЎР±СЂРѕСЃРёС‚СЊ РІСЃРµ СѓРјРµРЅРёСЏ.<br>
+<li> РЎР±СЂРѕСЃРёС‚СЊ РІСЃРµ РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё.<br>
+<li> РЎРјРµРЅРёС‚СЊ Р»РѕРіРёРЅ.
+<li> РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СЂРµРґРёСЂРµРєС‚.<br>
+<li> РЎРјРµРЅРёС‚СЊ РѕР±СЂР°Р·.<br>
+<li> РђР±РёР»РєРё.<br>
+<li> РЎРєРёРґРєР° 30% РЅР° РІСЃРµ С‚РѕРІР°СЂС‹ РёР· РјР°РіР°Р·РёРЅР° "Р±РµСЂРµР·РєР°".<br>
 
 <br>
 <br>
-<!--Составление букета-->
-<b>Подробное описание.</b><br><br>
+<!--РЎРѕСЃС‚Р°РІР»РµРЅРёРµ Р±СѓРєРµС‚Р°-->
+<b>РџРѕРґСЂРѕР±РЅРѕРµ РѕРїРёСЃР°РЅРёРµ.</b><br><br>
 
-<b>1. Сменить логин:<br></b>
+<b>1. РЎРјРµРЅРёС‚СЊ Р»РѕРіРёРЅ:<br></b>
 <br><img src="http://bestcombats.net/news/i/1354674884-clip-2kb.png" alt=""><br><br>
 
-<b>2. Установить редирект:<br></b>
+<b>2. РЈСЃС‚Р°РЅРѕРІРёС‚СЊ СЂРµРґРёСЂРµРєС‚:<br></b>
 <br><img src="http://bestcombats.net/news/i/1354674938-clip-2kb.png" alt=""><br>
 
 
-<b>3. Сменить образ:<br></b>
+<b>3. РЎРјРµРЅРёС‚СЊ РѕР±СЂР°Р·:<br></b>
 <br><img src="http://bestcombats.net/news/i/1354675090-clip-67kb.jpg" alt=""><br>
 
-<b>4. Абилки:<br></b>
+<b>4. РђР±РёР»РєРё:<br></b>
 <br><img src="http://bestcombats.net/news/i/1354675175-clip-6kb.jpg" alt=""><br>
 
-<b>5. Скидка 30% на все товары из магазина "березка":<br></b>
+<b>5. РЎРєРёРґРєР° 30% РЅР° РІСЃРµ С‚РѕРІР°СЂС‹ РёР· РјР°РіР°Р·РёРЅР° "Р±РµСЂРµР·РєР°":<br></b>
 <br><img src="http://bestcombats.net/news/i/1354675273-clip-37kb.jpg" alt=""><br><br>
 <ul>
-<li> VIP магазин находится в Old City на Центральной площади <br>
+<li> VIP РјР°РіР°Р·РёРЅ РЅР°С…РѕРґРёС‚СЃСЏ РІ Old City РЅР° Р¦РµРЅС‚СЂР°Р»СЊРЅРѕР№ РїР»РѕС‰Р°РґРё <br>
 
  
  

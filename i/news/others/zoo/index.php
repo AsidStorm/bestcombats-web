@@ -12,7 +12,7 @@
 <link rel="icon" href="/i/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/i/favicon.ico" type="image/x-icon"> 
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-<title>Новости и события Bkwar</title>
+<title>РќРѕРІРѕСЃС‚Рё Рё СЃРѕР±С‹С‚РёСЏ Bkwar</title>
 <link href="/css/event.css" rel="stylesheet" type="text/css">
 <SCRIPT language="JavaScript" src="/js/event.js"></SCRIPT>
 <SCRIPT language="JavaScript" src="/js/dm.js"></SCRIPT>
@@ -34,7 +34,7 @@
 <table border="0" width="100%">
 <FORM method=post>
 <TR>
-<TD><font color=white><?if(!empty($user['login'])){echo nick5_1($user['id']);}else{echo'Гость';}?></font></TD></TR>
+<TD><font color=white><?if(!empty($user['login'])){echo nick5_1($user['id']);}else{echo'Р“РѕСЃС‚СЊ';}?></font></TD></TR>
 <TR>
 <TD>&nbsp;</TD></TR></FORM>
  
@@ -51,7 +51,7 @@
   <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
    <TR>
    <TD width=1 bgColor=#000000><IMG height=1 src="/i/spacer.gif" width=1></TD>
-   <TD align=left background=/i/menu1at1.gif bgColor=#aa0000 style="padding-left:75px;"><A onmouseover="MM_swapImage('news','','/i/menu1at2.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/"><IMG height=36 src="/i/menu1ps2.gif" width=47 border=0 name=news alt="Новости"></A><A onmouseover="MM_swapImage('#','','/i/menu1at3.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps3.gif" width=42 border=0 name="history" alt="История"></A><A onmouseover="MM_swapImage('status','','/i/menu1at4.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/news/status/"><IMG height=36 src="/i/menu1ps4.gif" width=42 border=0 name="status" alt="Состояние серверов"></A><A onmouseover="MM_swapImage('gallery','','/i/menu1at5.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps5.gif" width=42 border=0 name="gallery" alt="Галерея"></A><A onmouseover="MM_swapImage('vote','','/i/menu1at7.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps7.gif" width=41 border=0 name="vote" alt="Голосования"></A><A onmouseover="MM_swapImage('inwork','','/i/menu1at8.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps8.gif" width=41 border=0 name="inwork" alt="В разработке"></A><A onmouseover="MM_swapImage('release','','/i/menu1at9.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps9.gif" width=48 border=0 name="release" alt="Вестник Администрации"></A></TD>
+   <TD align=left background=/i/menu1at1.gif bgColor=#aa0000 style="padding-left:75px;"><A onmouseover="MM_swapImage('news','','/i/menu1at2.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/"><IMG height=36 src="/i/menu1ps2.gif" width=47 border=0 name=news alt="РќРѕРІРѕСЃС‚Рё"></A><A onmouseover="MM_swapImage('#','','/i/menu1at3.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps3.gif" width=42 border=0 name="history" alt="РСЃС‚РѕСЂРёСЏ"></A><A onmouseover="MM_swapImage('status','','/i/menu1at4.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/news/status/"><IMG height=36 src="/i/menu1ps4.gif" width=42 border=0 name="status" alt="РЎРѕСЃС‚РѕСЏРЅРёРµ СЃРµСЂРІРµСЂРѕРІ"></A><A onmouseover="MM_swapImage('gallery','','/i/menu1at5.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps5.gif" width=42 border=0 name="gallery" alt="Р“Р°Р»РµСЂРµСЏ"></A><A onmouseover="MM_swapImage('vote','','/i/menu1at7.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps7.gif" width=41 border=0 name="vote" alt="Р“РѕР»РѕСЃРѕРІР°РЅРёСЏ"></A><A onmouseover="MM_swapImage('inwork','','/i/menu1at8.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps8.gif" width=41 border=0 name="inwork" alt="Р’ СЂР°Р·СЂР°Р±РѕС‚РєРµ"></A><A onmouseover="MM_swapImage('release','','/i/menu1at9.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps9.gif" width=48 border=0 name="release" alt="Р’РµСЃС‚РЅРёРє РђРґРјРёРЅРёСЃС‚СЂР°С†РёРё"></A></TD>
    <TD width=1 bgColor=#000000><IMG height=1 src="/i/spacer.gif" width=1></TD>
    </TR>
   </TABLE>
@@ -90,7 +90,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                    <B>Горячие ссылки</B>
+                    <B>Р“РѕСЂСЏС‡РёРµ СЃСЃС‹Р»РєРё</B>
                    </TD>
                    <TD width=1>
                     <IMG height=22 src="/i/lmenu_3.gif" width=1>
@@ -113,11 +113,11 @@
                      <TBODY>
                       <TR>
                        <TD align=left>  
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/news">Главная страница</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/news">Р“Р»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°</a></div>
   
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/forum.php">Форум</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/forum.php">Р¤РѕСЂСѓРј</a></div>
   
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/scrolls">Скроллы</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/scrolls">РЎРєСЂРѕР»Р»С‹</a></div>
   
   <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/">Support</a></div>
   
@@ -148,7 +148,7 @@
       </TR>
      </TBODY>
     </TABLE><BR>    
-<!-- 2 меню -->	
+<!-- 2 РјРµРЅСЋ -->	
 	<TABLE cellSpacing=0 cellPadding=0 width=195 border=0>
      <TBODY>
       <TR>
@@ -170,7 +170,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                   <B>Библиотека:</B>
+                   <B>Р‘РёР±Р»РёРѕС‚РµРєР°:</B>
                    <br><br>
                    </TD>
                    <TD width=1>
@@ -222,7 +222,7 @@
 </TR>
 </TBODY></TABLE><BR>
 
-<!-- 3 меню) -->
+<!-- 3 РјРµРЅСЋ) -->
 <TABLE cellSpacing=0 cellPadding=0 width=195 border=0>
      <TBODY>
       <TR>
@@ -244,7 +244,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                   <B>Статистика:</B>
+                   <B>РЎС‚Р°С‚РёСЃС‚РёРєР°:</B>
                    <br><br>
                    </TD>
                    <TD width=1>
@@ -311,7 +311,7 @@
 <TR>
 <TD class=normaltext align=left valign="top">
  
-<div class="page_title"><B>Животноводство</B></div>
+<div class="page_title"><B>Р–РёРІРѕС‚РЅРѕРІРѕРґСЃС‚РІРѕ</B></div>
 <HR align=center width="90%" color=#aa0000 noShade SIZE=0.1><TABLE width=100% border="0">													  														  
 </TD>
 </tr>
@@ -319,105 +319,105 @@
 <td>
 
 <br>
-С недавних пор в <b>Бойцовском Клубе</b> стало возможным завести зверя в качестве спутника своему персонажу. Если Вы будете растить своего питомца - то, с временем, он сможет оказывать Вам значительную помощь в боях.<br />
+РЎ РЅРµРґР°РІРЅРёС… РїРѕСЂ РІ <b>Р‘РѕР№С†РѕРІСЃРєРѕРј РљР»СѓР±Рµ</b> СЃС‚Р°Р»Рѕ РІРѕР·РјРѕР¶РЅС‹Рј Р·Р°РІРµСЃС‚Рё Р·РІРµСЂСЏ РІ РєР°С‡РµСЃС‚РІРµ СЃРїСѓС‚РЅРёРєР° СЃРІРѕРµРјСѓ РїРµСЂСЃРѕРЅР°Р¶Сѓ. Р•СЃР»Рё Р’С‹ Р±СѓРґРµС‚Рµ СЂР°СЃС‚РёС‚СЊ СЃРІРѕРµРіРѕ РїРёС‚РѕРјС†Р° - С‚Рѕ, СЃ РІСЂРµРјРµРЅРµРј, РѕРЅ СЃРјРѕР¶РµС‚ РѕРєР°Р·С‹РІР°С‚СЊ Р’Р°Рј Р·РЅР°С‡РёС‚РµР»СЊРЅСѓСЋ РїРѕРјРѕС‰СЊ РІ Р±РѕСЏС….<br />
 <br />
-Чтобы получить зверя, его необходимо призвать. Свитки призыва продаются в <b>Зоомагазине</b>, расположенном на <b>Центральной Площади</b>  <img src='http://img.bestcombats.net/i/sh/fo1.gif'><b>CapitalCity</br>
+Р§С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ Р·РІРµСЂСЏ, РµРіРѕ РЅРµРѕР±С…РѕРґРёРјРѕ РїСЂРёР·РІР°С‚СЊ. РЎРІРёС‚РєРё РїСЂРёР·С‹РІР° РїСЂРѕРґР°СЋС‚СЃСЏ РІ <b>Р—РѕРѕРјР°РіР°Р·РёРЅРµ</b>, СЂР°СЃРїРѕР»РѕР¶РµРЅРЅРѕРј РЅР° <b>Р¦РµРЅС‚СЂР°Р»СЊРЅРѕР№ РџР»РѕС‰Р°РґРё</b>  <img src='http://img.bestcombats.net/i/sh/fo1.gif'><b>CapitalCity</br>
 <center><img src="http://bestcombats.net/i/city/1_Steads.gif" border="0" alt="" style="vertical-align:text-bottom;"><br />
 
-<center><b><h2>Свитки призыва</h2></b><br /><br />
+<center><b><h2>РЎРІРёС‚РєРё РїСЂРёР·С‹РІР°</h2></b><br /><br />
 <table width='70%' border='0' cellspacing='0' cellpadding='0' class='summonTbl'>
 	<tr>
-		<th width='40%' align=left><b>название животного</b></th>
-		<th width='30%' align=left><b>стоимость свитка</b></th>
-		<th width='30%' align=left><b>город призыва</b></th>
+		<th width='40%' align=left><b>РЅР°Р·РІР°РЅРёРµ Р¶РёРІРѕС‚РЅРѕРіРѕ</b></th>
+		<th width='30%' align=left><b>СЃС‚РѕРёРјРѕСЃС‚СЊ СЃРІРёС‚РєР°</b></th>
+		<th width='30%' align=left><b>РіРѕСЂРѕРґ РїСЂРёР·С‹РІР°</b></th>
 	</tr>
 	<tr>
-		<td><img src="http://img.combats.ru/i/items/summon_pet_demon.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Чёрт</b></td>
-		<td>50 кр</td>
-		<td><b>любой</b></td>
+		<td><img src="http://img.combats.ru/i/items/summon_pet_demon.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Р§С‘СЂС‚</b></td>
+		<td>50 РєСЂ</td>
+		<td><b>Р»СЋР±РѕР№</b></td>
 	</tr>
 	<tr>
-		<td><img src="http://img.combats.ru/i/items/summon_pet_cat.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Кот</b></td>
-		<td>50 кр</td>
-		<td>любой</td>
+		<td><img src="http://img.combats.ru/i/items/summon_pet_cat.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>РљРѕС‚</b></td>
+		<td>50 РєСЂ</td>
+		<td>Р»СЋР±РѕР№</td>
 	</tr>
 	<tr>
-		<td><img src="http://img.combats.ru/i/items/summon_pet_owl.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Сова</b></td>
-		<td>50 кр</td>
-		<td>любой</td>
+		<td><img src="http://img.combats.ru/i/items/summon_pet_owl.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>РЎРѕРІР°</b></td>
+		<td>50 РєСЂ</td>
+		<td>Р»СЋР±РѕР№</td>
 	</tr>
 	<tr>
-		<td><img src="http://img.combats.ru/i/items/summon_pet_dog.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Пёс</b></td>
-		<td>75 кр</td>
-		<td>любой</td>
+		<td><img src="http://img.combats.ru/i/items/summon_pet_dog.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>РџС‘СЃ</b></td>
+		<td>75 РєСЂ</td>
+		<td>Р»СЋР±РѕР№</td>
 	</tr>
 	<tr>
-		<td><img src="http://img.combats.ru/i/items/summon_pet_pig.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Свин</b></td>
-		<td>75 кр</td>
-		<td>любой</td>
+		<td><img src="http://img.combats.ru/i/items/summon_pet_pig.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>РЎРІРёРЅ</b></td>
+		<td>75 РєСЂ</td>
+		<td>Р»СЋР±РѕР№</td>
 	</tr>
 	<tr>
-		<td><img src="http://img.combats.ru/i/items/summon_pet_wisp.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Светляк</b></td>
-		<td>75 кр</td>
-		<td><b>любой</b></td>
+		<td><img src="http://img.combats.ru/i/items/summon_pet_wisp.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>РЎРІРµС‚Р»СЏРє</b></td>
+		<td>75 РєСЂ</td>
+		<td><b>Р»СЋР±РѕР№</b></td>
 	</tr>
 </table></center>
 <br />
 <br />
 <br />
-Купив подходящий свиток призыва, смело можете его использовать . Для этого зайдите в свой инвентарь, раздел <b>Заклятия</b>, найдите свиток и нажмите на нем <b>Использовать</b>. На всплывающем подтверждении с вопросом <b>&quot;Использовать сейчас?&quot;</b> нажите <b>&quot;Да&quot;</b>. После использовании Вы увидите напись о появлении зверя.<br />
-Если у Вас есть зверь, то в в Инвенторе появляется соответствующий раздел. Зайдя в него, Вы увидите: характеристики Вашего животного, сытость, освоенные навыки и доступную для Вашего зверька еду. Образ животному дается случайным образом, и сменить его можно только вместе со зверем. <br />
-С помощью кнопки <b>Кличка</b> Вы можете дать Вашему зверю имя. Оно должно состоять не более чем из 10 символов и только из одного слова. При выборе некорректного имени вы увидите надпись: <b>&quot;Эта кличка не подходит&quot;</b>. <br />
+РљСѓРїРёРІ РїРѕРґС…РѕРґСЏС‰РёР№ СЃРІРёС‚РѕРє РїСЂРёР·С‹РІР°, СЃРјРµР»Рѕ РјРѕР¶РµС‚Рµ РµРіРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ . Р”Р»СЏ СЌС‚РѕРіРѕ Р·Р°Р№РґРёС‚Рµ РІ СЃРІРѕР№ РёРЅРІРµРЅС‚Р°СЂСЊ, СЂР°Р·РґРµР» <b>Р—Р°РєР»СЏС‚РёСЏ</b>, РЅР°Р№РґРёС‚Рµ СЃРІРёС‚РѕРє Рё РЅР°Р¶РјРёС‚Рµ РЅР° РЅРµРј <b>РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ</b>. РќР° РІСЃРїР»С‹РІР°СЋС‰РµРј РїРѕРґС‚РІРµСЂР¶РґРµРЅРёРё СЃ РІРѕРїСЂРѕСЃРѕРј <b>&quot;РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРµР№С‡Р°СЃ?&quot;</b> РЅР°Р¶РёС‚Рµ <b>&quot;Р”Р°&quot;</b>. РџРѕСЃР»Рµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё Р’С‹ СѓРІРёРґРёС‚Рµ РЅР°РїРёСЃСЊ Рѕ РїРѕСЏРІР»РµРЅРёРё Р·РІРµСЂСЏ.<br />
+Р•СЃР»Рё Сѓ Р’Р°СЃ РµСЃС‚СЊ Р·РІРµСЂСЊ, С‚Рѕ РІ РІ РРЅРІРµРЅС‚РѕСЂРµ РїРѕСЏРІР»СЏРµС‚СЃСЏ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёР№ СЂР°Р·РґРµР». Р—Р°Р№РґСЏ РІ РЅРµРіРѕ, Р’С‹ СѓРІРёРґРёС‚Рµ: С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё Р’Р°С€РµРіРѕ Р¶РёРІРѕС‚РЅРѕРіРѕ, СЃС‹С‚РѕСЃС‚СЊ, РѕСЃРІРѕРµРЅРЅС‹Рµ РЅР°РІС‹РєРё Рё РґРѕСЃС‚СѓРїРЅСѓСЋ РґР»СЏ Р’Р°С€РµРіРѕ Р·РІРµСЂСЊРєР° РµРґСѓ. РћР±СЂР°Р· Р¶РёРІРѕС‚РЅРѕРјСѓ РґР°РµС‚СЃСЏ СЃР»СѓС‡Р°Р№РЅС‹Рј РѕР±СЂР°Р·РѕРј, Рё СЃРјРµРЅРёС‚СЊ РµРіРѕ РјРѕР¶РЅРѕ С‚РѕР»СЊРєРѕ РІРјРµСЃС‚Рµ СЃРѕ Р·РІРµСЂРµРј. <br />
+РЎ РїРѕРјРѕС‰СЊСЋ РєРЅРѕРїРєРё <b>РљР»РёС‡РєР°</b> Р’С‹ РјРѕР¶РµС‚Рµ РґР°С‚СЊ Р’Р°С€РµРјСѓ Р·РІРµСЂСЋ РёРјСЏ. РћРЅРѕ РґРѕР»Р¶РЅРѕ СЃРѕСЃС‚РѕСЏС‚СЊ РЅРµ Р±РѕР»РµРµ С‡РµРј РёР· 10 СЃРёРјРІРѕР»РѕРІ Рё С‚РѕР»СЊРєРѕ РёР· РѕРґРЅРѕРіРѕ СЃР»РѕРІР°. РџСЂРё РІС‹Р±РѕСЂРµ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРіРѕ РёРјРµРЅРё РІС‹ СѓРІРёРґРёС‚Рµ РЅР°РґРїРёСЃСЊ: <b>&quot;Р­С‚Р° РєР»РёС‡РєР° РЅРµ РїРѕРґС…РѕРґРёС‚&quot;</b>. <br />
 <br />
-<i><img src=http://img.bestcombats.net/i/align_1.99.gif><b>Орден Света</b> предупреждает: нецензурные или оскорбительные клички животных влекут за собой строгие наказания.</i><br />
+<i><img src=http://img.bestcombats.net/i/align_1.99.gif><b>РћСЂРґРµРЅ РЎРІРµС‚Р°</b> РїСЂРµРґСѓРїСЂРµР¶РґР°РµС‚: РЅРµС†РµРЅР·СѓСЂРЅС‹Рµ РёР»Рё РѕСЃРєРѕСЂР±РёС‚РµР»СЊРЅС‹Рµ РєР»РёС‡РєРё Р¶РёРІРѕС‚РЅС‹С… РІР»РµРєСѓС‚ Р·Р° СЃРѕР±РѕР№ СЃС‚СЂРѕРіРёРµ РЅР°РєР°Р·Р°РЅРёСЏ.</i><br />
 <br />
-<h3>Об опыте и сытости Вашего зверя Вы узнаете из системных сообщений в чате:</h3><br />
-<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td class="quoteheader">[цитата]</td></tr><tr><td class="quote link1"><i>01:23 Внимание! [Кличка зверя] достиг 1 уровня!</i><br />
-<i>01:25 Внимание! [Кличка зверя] нуждается в еде...</i></td></tr></table><br />
-Второе сообщение говорит о том, что Ваш зверь голоден и его нужно покормить - ведь голодным он не может войти к Вам в бой и не даёт бонусов. <br />
+<h3>РћР± РѕРїС‹С‚Рµ Рё СЃС‹С‚РѕСЃС‚Рё Р’Р°С€РµРіРѕ Р·РІРµСЂСЏ Р’С‹ СѓР·РЅР°РµС‚Рµ РёР· СЃРёСЃС‚РµРјРЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№ РІ С‡Р°С‚Рµ:</h3><br />
+<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0"><tr><td class="quoteheader">[С†РёС‚Р°С‚Р°]</td></tr><tr><td class="quote link1"><i>01:23 Р’РЅРёРјР°РЅРёРµ! [РљР»РёС‡РєР° Р·РІРµСЂСЏ] РґРѕСЃС‚РёРі 1 СѓСЂРѕРІРЅСЏ!</i><br />
+<i>01:25 Р’РЅРёРјР°РЅРёРµ! [РљР»РёС‡РєР° Р·РІРµСЂСЏ] РЅСѓР¶РґР°РµС‚СЃСЏ РІ РµРґРµ...</i></td></tr></table><br />
+Р’С‚РѕСЂРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РіРѕРІРѕСЂРёС‚ Рѕ С‚РѕРј, С‡С‚Рѕ Р’Р°С€ Р·РІРµСЂСЊ РіРѕР»РѕРґРµРЅ Рё РµРіРѕ РЅСѓР¶РЅРѕ РїРѕРєРѕСЂРјРёС‚СЊ - РІРµРґСЊ РіРѕР»РѕРґРЅС‹Рј РѕРЅ РЅРµ РјРѕР¶РµС‚ РІРѕР№С‚Рё Рє Р’Р°Рј РІ Р±РѕР№ Рё РЅРµ РґР°С‘С‚ Р±РѕРЅСѓСЃРѕРІ. <br />
 <br />
-В разделе <b>Зверь</b> есть кнопка <b>Выгнать</b>. С её помощью, при необходимости, Вы можете избавиться от Вашего питомца. <br />
+Р’ СЂР°Р·РґРµР»Рµ <b>Р—РІРµСЂСЊ</b> РµСЃС‚СЊ РєРЅРѕРїРєР° <b>Р’С‹РіРЅР°С‚СЊ</b>. РЎ РµС‘ РїРѕРјРѕС‰СЊСЋ, РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё, Р’С‹ РјРѕР¶РµС‚Рµ РёР·Р±Р°РІРёС‚СЊСЃСЏ РѕС‚ Р’Р°С€РµРіРѕ РїРёС‚РѕРјС†Р°. <br />
 <br />
-Если Вы хотите оставить себе двух зверей, то Вам необходимо снять комнату в Общежитии за 10 кредитов в неделю - в ней есть специальное место для зверя.
+Р•СЃР»Рё Р’С‹ С…РѕС‚РёС‚Рµ РѕСЃС‚Р°РІРёС‚СЊ СЃРµР±Рµ РґРІСѓС… Р·РІРµСЂРµР№, С‚Рѕ Р’Р°Рј РЅРµРѕР±С…РѕРґРёРјРѕ СЃРЅСЏС‚СЊ РєРѕРјРЅР°С‚Сѓ РІ РћР±С‰РµР¶РёС‚РёРё Р·Р° 10 РєСЂРµРґРёС‚РѕРІ РІ РЅРµРґРµР»СЋ - РІ РЅРµР№ РµСЃС‚СЊ СЃРїРµС†РёР°Р»СЊРЅРѕРµ РјРµСЃС‚Рѕ РґР»СЏ Р·РІРµСЂСЏ.
 <br />
 <br />
 
-<center><b><h2>Кормление животных</h2></b></center><br />
+<center><b><h2>РљРѕСЂРјР»РµРЅРёРµ Р¶РёРІРѕС‚РЅС‹С…</h2></b></center><br />
 
 
-Животных необохидмо своевременно кормить. Если этого не делать, то сытость питомца опустится до нуля, и он не сможет помогать Вам в боях. Чем выше уровень зверя, тем дороже обходится его кормёжка. Так же, для каждого вида зверей существует своя еда. Купить её можно там же, где и сами свитки призыва, - в зоомагазинах.<br />
+Р–РёРІРѕС‚РЅС‹С… РЅРµРѕР±РѕС…РёРґРјРѕ СЃРІРѕРµРІСЂРµРјРµРЅРЅРѕ РєРѕСЂРјРёС‚СЊ. Р•СЃР»Рё СЌС‚РѕРіРѕ РЅРµ РґРµР»Р°С‚СЊ, С‚Рѕ СЃС‹С‚РѕСЃС‚СЊ РїРёС‚РѕРјС†Р° РѕРїСѓСЃС‚РёС‚СЃСЏ РґРѕ РЅСѓР»СЏ, Рё РѕРЅ РЅРµ СЃРјРѕР¶РµС‚ РїРѕРјРѕРіР°С‚СЊ Р’Р°Рј РІ Р±РѕСЏС…. Р§РµРј РІС‹С€Рµ СѓСЂРѕРІРµРЅСЊ Р·РІРµСЂСЏ, С‚РµРј РґРѕСЂРѕР¶Рµ РѕР±С…РѕРґРёС‚СЃСЏ РµРіРѕ РєРѕСЂРјС‘Р¶РєР°. РўР°Рє Р¶Рµ, РґР»СЏ РєР°Р¶РґРѕРіРѕ РІРёРґР° Р·РІРµСЂРµР№ СЃСѓС‰РµСЃС‚РІСѓРµС‚ СЃРІРѕСЏ РµРґР°. РљСѓРїРёС‚СЊ РµС‘ РјРѕР¶РЅРѕ С‚Р°Рј Р¶Рµ, РіРґРµ Рё СЃР°РјРё СЃРІРёС‚РєРё РїСЂРёР·С‹РІР°, - РІ Р·РѕРѕРјР°РіР°Р·РёРЅР°С….<br />
 
-<h3>Максимальный уровень сытости зверя равен 50. За каждый бой зверь теряет сытость:</h3><br />
+<h3>РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СѓСЂРѕРІРµРЅСЊ СЃС‹С‚РѕСЃС‚Рё Р·РІРµСЂСЏ СЂР°РІРµРЅ 50. Р—Р° РєР°Р¶РґС‹Р№ Р±РѕР№ Р·РІРµСЂСЊ С‚РµСЂСЏРµС‚ СЃС‹С‚РѕСЃС‚СЊ:</h3><br />
 <ul>
-<li align="left"> 1 - за бой с Вашим участием, но где Вы не выпускали зверя
-<li align="left">5 - за бой с Вашим участием и с выпущенным в бой зверем
-<li align="left">Если Вы выпустите в бою зверя, он отнимет у вас 1/3 часть опыта, если уровень зверя - ниже Вашего
+<li align="left"> 1 - Р·Р° Р±РѕР№ СЃ Р’Р°С€РёРј СѓС‡Р°СЃС‚РёРµРј, РЅРѕ РіРґРµ Р’С‹ РЅРµ РІС‹РїСѓСЃРєР°Р»Рё Р·РІРµСЂСЏ
+<li align="left">5 - Р·Р° Р±РѕР№ СЃ Р’Р°С€РёРј СѓС‡Р°СЃС‚РёРµРј Рё СЃ РІС‹РїСѓС‰РµРЅРЅС‹Рј РІ Р±РѕР№ Р·РІРµСЂРµРј
+<li align="left">Р•СЃР»Рё Р’С‹ РІС‹РїСѓСЃС‚РёС‚Рµ РІ Р±РѕСЋ Р·РІРµСЂСЏ, РѕРЅ РѕС‚РЅРёРјРµС‚ Сѓ РІР°СЃ 1/3 С‡Р°СЃС‚СЊ РѕРїС‹С‚Р°, РµСЃР»Рё СѓСЂРѕРІРµРЅСЊ Р·РІРµСЂСЏ - РЅРёР¶Рµ Р’Р°С€РµРіРѕ
 </ul>
-Случаев, когда голодный зверь сбежал бы от хозяина - не отмечено.<br />
+РЎР»СѓС‡Р°РµРІ, РєРѕРіРґР° РіРѕР»РѕРґРЅС‹Р№ Р·РІРµСЂСЊ СЃР±РµР¶Р°Р» Р±С‹ РѕС‚ С…РѕР·СЏРёРЅР° - РЅРµ РѕС‚РјРµС‡РµРЅРѕ.<br />
 <br />
-<h3>Покормить зверя Вы можете через раздел <b>Зверь</b> инвентаря. Каждая порция еды прибавляет:</h3><br />
+<h3>РџРѕРєРѕСЂРјРёС‚СЊ Р·РІРµСЂСЏ Р’С‹ РјРѕР¶РµС‚Рµ С‡РµСЂРµР· СЂР°Р·РґРµР» <b>Р—РІРµСЂСЊ</b> РёРЅРІРµРЅС‚Р°СЂСЏ. РљР°Р¶РґР°СЏ РїРѕСЂС†РёСЏ РµРґС‹ РїСЂРёР±Р°РІР»СЏРµС‚:</h3><br />
 <ul>
-<li align="left">20 cытости - если она предназначена того же уровня, что и зверь
-<li align="left">16 cытости - при разнице в один уровень со зверем
-<li align="left">12 cытости - при разнице в два уровеня со зверем
-<li align="left">8 cытости - при разнице в три уровеня со зверем
+<li align="left">20 cС‹С‚РѕСЃС‚Рё - РµСЃР»Рё РѕРЅР° РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅР° С‚РѕРіРѕ Р¶Рµ СѓСЂРѕРІРЅСЏ, С‡С‚Рѕ Рё Р·РІРµСЂСЊ
+<li align="left">16 cС‹С‚РѕСЃС‚Рё - РїСЂРё СЂР°Р·РЅРёС†Рµ РІ РѕРґРёРЅ СѓСЂРѕРІРµРЅСЊ СЃРѕ Р·РІРµСЂРµРј
+<li align="left">12 cС‹С‚РѕСЃС‚Рё - РїСЂРё СЂР°Р·РЅРёС†Рµ РІ РґРІР° СѓСЂРѕРІРµРЅСЏ СЃРѕ Р·РІРµСЂРµРј
+<li align="left">8 cС‹С‚РѕСЃС‚Рё - РїСЂРё СЂР°Р·РЅРёС†Рµ РІ С‚СЂРё СѓСЂРѕРІРµРЅСЏ СЃРѕ Р·РІРµСЂРµРј
 </ul>
 <br />
 <center>
-	<b>Корм для животных</b><br />
+	<b>РљРѕСЂРј РґР»СЏ Р¶РёРІРѕС‚РЅС‹С…</b><br />
 	<table class='petFoodTbl' border="1" width="500" align="center" valign="center" cellpadding="7" cellspacing="3">
 		<tr>
-			<th>зверь</th>
-			<th>0й уровень</th>
-			<th>2й уровень</th>
-			<th>3й уровень</th>
-			<th>4й уровень</th>
-			<th>6й уровень</th>
-			<th>8й уровень</th>
-			<th>10й уровень</th>
+			<th>Р·РІРµСЂСЊ</th>
+			<th>0Р№ СѓСЂРѕРІРµРЅСЊ</th>
+			<th>2Р№ СѓСЂРѕРІРµРЅСЊ</th>
+			<th>3Р№ СѓСЂРѕРІРµРЅСЊ</th>
+			<th>4Р№ СѓСЂРѕРІРµРЅСЊ</th>
+			<th>6Р№ СѓСЂРѕРІРµРЅСЊ</th>
+			<th>8Р№ СѓСЂРѕРІРµРЅСЊ</th>
+			<th>10Р№ СѓСЂРѕРІРµРЅСЊ</th>
 		</tr>
 		<tr>
-			<td><img src="http://img.combats.ru/i/items/summon_pet_demon.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Чёрт</b></td>
+			<td><img src="http://img.combats.ru/i/items/summon_pet_demon.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Р§С‘СЂС‚</b></td>
 			<td><img src="http://img.bestcombats.net/i/sh/pepel.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_chrt20_3.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20_3");' onMouseOut='onOut(event);'></td>
@@ -427,7 +427,7 @@
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_chrt20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_chrt20_10");' onMouseOut='onOut(event);'></td>
 		</tr>
 		<tr>
-			<td><img src="http://img.combats.ru/i/items/summon_pet_cat.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Кот</b></th>
+			<td><img src="http://img.combats.ru/i/items/summon_pet_cat.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>РљРѕС‚</b></th>
 			<td><img src="http://img.bestcombats.net/i/sh/poxlebka.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20");' onMouseOut='onOut(event);'></td>
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_2");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
@@ -437,7 +437,7 @@
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_10");' onMouseOut='onOut(event);'></td>
 		</tr>
 		<tr>
-			<td><img src="http://img.combats.ru/i/items/summon_pet_owl.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Сова</b></th>
+			<td><img src="http://img.combats.ru/i/items/summon_pet_owl.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>РЎРѕРІР°</b></th>
 			<td><img src="http://img.bestcombats.net/i/sh/nasek.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_owl20");' onMouseOut='onOut(event);'></td>
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_2");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
@@ -447,7 +447,7 @@
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_cat20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_cat20_10");' onMouseOut='onOut(event);'></td>
 		</tr>
 		<tr>
-			<td><img src="http://img.combats.ru/i/items/summon_pet_dog.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Собака</b></th>
+			<td><img src="http://img.combats.ru/i/items/summon_pet_dog.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>РЎРѕР±Р°РєР°</b></th>
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_dog20.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_dog20");' onMouseOut='onOut(event);'></td>
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_dog20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_dog20_2");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
@@ -457,7 +457,7 @@
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_dog20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_dog20_10");' onMouseOut='onOut(event);'></td>
 		</tr>
 		<tr>
-			<td><img src="http://img.combats.ru/i/items/summon_pet_pig.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Свин</b></th>
+			<td><img src="http://img.combats.ru/i/items/summon_pet_pig.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>РЎРІРёРЅ</b></th>
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_pig20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20");' onMouseOut='onOut(event);'></td>
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_pig20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20_2");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
@@ -467,7 +467,7 @@
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_pig20_10.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_pig20_10");' onMouseOut='onOut(event);'></td>
 		</tr>
 		<tr>
-			<td><img src="http://img.combats.ru/i/items/summon_pet_wisp.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>Светляк</b></th>
+			<td><img src="http://img.combats.ru/i/items/summon_pet_wisp.gif" border="0" alt="" style="vertical-align:text-bottom;"><br /><b>РЎРІРµС‚Р»СЏРє</b></th>
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_wisp20.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_wisp20");' onMouseOut='onOut(event);'></td>
 			<td align="center">-</td>
 			<td><img src="http://img.bestcombats.net/i/sh/pet_food_wisp20_2.gif" border="0" alt="" style="vertical-align:text-bottom;" onMouseOver='onOver(event, "pet_food_wisp20_2");' onMouseOut='onOut(event);'></td>
@@ -480,391 +480,391 @@
 </center>
 <br />
 
-<br /><center><b>Бонусы от Зверей</b></center><br /><br />
-Если Ваш зверь накормлен и сыт, то в начале боя он даст Вам бонус, зависящий от его типа и уровня. Голодный зверь бонусов не даёт. Так же, Вы можете выпустить зверя в свой бой - в этом случае он будет сражаться на Вашей стороне и, при успешном исходе боя, получит опыт. Зверь получает часть Вашего опыта, но не больше своей базыю. Выпускать зверя в бой, где вы нанесли мало урона - бесполезно, он почти ничего не получит. Зверь не может быть старше Вам уровнем - как только он сравнивается с Вами, он перестаёт получать опыт (но и отнимать в боях - тоже). Оптимальный метод прокачки зверя - в тех пещерах, где Вы ещё получаете опыт.<br />
+<br /><center><b>Р‘РѕРЅСѓСЃС‹ РѕС‚ Р—РІРµСЂРµР№</b></center><br /><br />
+Р•СЃР»Рё Р’Р°С€ Р·РІРµСЂСЊ РЅР°РєРѕСЂРјР»РµРЅ Рё СЃС‹С‚, С‚Рѕ РІ РЅР°С‡Р°Р»Рµ Р±РѕСЏ РѕРЅ РґР°СЃС‚ Р’Р°Рј Р±РѕРЅСѓСЃ, Р·Р°РІРёСЃСЏС‰РёР№ РѕС‚ РµРіРѕ С‚РёРїР° Рё СѓСЂРѕРІРЅСЏ. Р“РѕР»РѕРґРЅС‹Р№ Р·РІРµСЂСЊ Р±РѕРЅСѓСЃРѕРІ РЅРµ РґР°С‘С‚. РўР°Рє Р¶Рµ, Р’С‹ РјРѕР¶РµС‚Рµ РІС‹РїСѓСЃС‚РёС‚СЊ Р·РІРµСЂСЏ РІ СЃРІРѕР№ Р±РѕР№ - РІ СЌС‚РѕРј СЃР»СѓС‡Р°Рµ РѕРЅ Р±СѓРґРµС‚ СЃСЂР°Р¶Р°С‚СЊСЃСЏ РЅР° Р’Р°С€РµР№ СЃС‚РѕСЂРѕРЅРµ Рё, РїСЂРё СѓСЃРїРµС€РЅРѕРј РёСЃС…РѕРґРµ Р±РѕСЏ, РїРѕР»СѓС‡РёС‚ РѕРїС‹С‚. Р—РІРµСЂСЊ РїРѕР»СѓС‡Р°РµС‚ С‡Р°СЃС‚СЊ Р’Р°С€РµРіРѕ РѕРїС‹С‚Р°, РЅРѕ РЅРµ Р±РѕР»СЊС€Рµ СЃРІРѕРµР№ Р±Р°Р·С‹СЋ. Р’С‹РїСѓСЃРєР°С‚СЊ Р·РІРµСЂСЏ РІ Р±РѕР№, РіРґРµ РІС‹ РЅР°РЅРµСЃР»Рё РјР°Р»Рѕ СѓСЂРѕРЅР° - Р±РµСЃРїРѕР»РµР·РЅРѕ, РѕРЅ РїРѕС‡С‚Рё РЅРёС‡РµРіРѕ РЅРµ РїРѕР»СѓС‡РёС‚. Р—РІРµСЂСЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ СЃС‚Р°СЂС€Рµ Р’Р°Рј СѓСЂРѕРІРЅРµРј - РєР°Рє С‚РѕР»СЊРєРѕ РѕРЅ СЃСЂР°РІРЅРёРІР°РµС‚СЃСЏ СЃ Р’Р°РјРё, РѕРЅ РїРµСЂРµСЃС‚Р°С‘С‚ РїРѕР»СѓС‡Р°С‚СЊ РѕРїС‹С‚ (РЅРѕ Рё РѕС‚РЅРёРјР°С‚СЊ РІ Р±РѕСЏС… - С‚РѕР¶Рµ). РћРїС‚РёРјР°Р»СЊРЅС‹Р№ РјРµС‚РѕРґ РїСЂРѕРєР°С‡РєРё Р·РІРµСЂСЏ - РІ С‚РµС… РїРµС‰РµСЂР°С…, РіРґРµ Р’С‹ РµС‰С‘ РїРѕР»СѓС‡Р°РµС‚Рµ РѕРїС‹С‚.<br />
 <br />
 
-<img src="http://img.combats.ru/i/items/summon_pet_demon.gif" border="0" alt="" style="vertical-align:text-bottom;"><b>Черт</b> - даёт в бою +Х силы, где Х - его уровень<br />
-<img src="http://img.combats.ru/i/items/summon_pet_cat.gif" border="0" alt="" style="vertical-align:text-bottom;"><b>Кот</b> - даёт в бою +Х ловкости, где Х - его уровень<br />
-<img src="http://img.combats.ru/i/items/summon_pet_owl.gif" border="0" alt="" style="vertical-align:text-bottom;"><b>Сова</b> - даёт в бою +Х интуиции, где Х - его уровень<br />
-<img src="http://img.combats.ru/i/items/summon_pet_dog.gif" border="0" alt="" style="vertical-align:text-bottom;"><b>Пес</b> - даёт в бою +Х*6 хп, где Х - его уровень<br />
-<img src="http://img.combats.ru/i/items/summon_pet_pig.gif" border="0" alt="" style="vertical-align:text-bottom;"><b>Свин</b> - даёт в бою +Х*2 брони, где Х - его уровень<br />
-<img src="http://img.combats.ru/i/items/summon_pet_wisp.gif" border="0" alt="" style="vertical-align:text-bottom;"><b>Светляк</b> - даёт в бою +Х% мощности магии стихий, где Х - его уровень<br />
+<img src="http://img.combats.ru/i/items/summon_pet_demon.gif" border="0" alt="" style="vertical-align:text-bottom;"><b>Р§РµСЂС‚</b> - РґР°С‘С‚ РІ Р±РѕСЋ +РҐ СЃРёР»С‹, РіРґРµ РҐ - РµРіРѕ СѓСЂРѕРІРµРЅСЊ<br />
+<img src="http://img.combats.ru/i/items/summon_pet_cat.gif" border="0" alt="" style="vertical-align:text-bottom;"><b>РљРѕС‚</b> - РґР°С‘С‚ РІ Р±РѕСЋ +РҐ Р»РѕРІРєРѕСЃС‚Рё, РіРґРµ РҐ - РµРіРѕ СѓСЂРѕРІРµРЅСЊ<br />
+<img src="http://img.combats.ru/i/items/summon_pet_owl.gif" border="0" alt="" style="vertical-align:text-bottom;"><b>РЎРѕРІР°</b> - РґР°С‘С‚ РІ Р±РѕСЋ +РҐ РёРЅС‚СѓРёС†РёРё, РіРґРµ РҐ - РµРіРѕ СѓСЂРѕРІРµРЅСЊ<br />
+<img src="http://img.combats.ru/i/items/summon_pet_dog.gif" border="0" alt="" style="vertical-align:text-bottom;"><b>РџРµСЃ</b> - РґР°С‘С‚ РІ Р±РѕСЋ +РҐ*6 С…Рї, РіРґРµ РҐ - РµРіРѕ СѓСЂРѕРІРµРЅСЊ<br />
+<img src="http://img.combats.ru/i/items/summon_pet_pig.gif" border="0" alt="" style="vertical-align:text-bottom;"><b>РЎРІРёРЅ</b> - РґР°С‘С‚ РІ Р±РѕСЋ +РҐ*2 Р±СЂРѕРЅРё, РіРґРµ РҐ - РµРіРѕ СѓСЂРѕРІРµРЅСЊ<br />
+<img src="http://img.combats.ru/i/items/summon_pet_wisp.gif" border="0" alt="" style="vertical-align:text-bottom;"><b>РЎРІРµС‚Р»СЏРє</b> - РґР°С‘С‚ РІ Р±РѕСЋ +РҐ% РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё СЃС‚РёС…РёР№, РіРґРµ РҐ - РµРіРѕ СѓСЂРѕРІРµРЅСЊ<br />
 <br />
-<br /><center><b>Характеристики Зверей</b><br /><br />
+<br /><center><b>РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё Р—РІРµСЂРµР№</b><br /><br />
 <br />
 <table border="1" width="500" align="center" cellpadding="20" cellspacing="5">
 	<tr>
-		<th width='60px'>Уровень (опыт)</th>
-		<th width='120px'>Чёрт</th>
-		<th width='120px'>Сова</th>
-		<th width='120px'>Кот</th>
-		<th width='120px'>Светляк</th>
-		<th width='120px'>Собака</th>
-		<th width='120px'>Свин</th>
+		<th width='60px'>РЈСЂРѕРІРµРЅСЊ (РѕРїС‹С‚)</th>
+		<th width='120px'>Р§С‘СЂС‚</th>
+		<th width='120px'>РЎРѕРІР°</th>
+		<th width='120px'>РљРѕС‚</th>
+		<th width='120px'>РЎРІРµС‚Р»СЏРє</th>
+		<th width='120px'>РЎРѕР±Р°РєР°</th>
+		<th width='120px'>РЎРІРёРЅ</th>
 	</tr>
 	<tr>
-		<td align="center">0й<br /></td>
-		<td>Сила: 5<br />
-Ловкость: 3<br />
-Интуиция: 3<br />
-Выносливость: 5<br />
-НР: 30</td>
-		<td>Сила: 2<br />
-Ловкость: 2<br />
-Интуиция: 5<br />
-Выносливость: 5<br />
-НР: 30</td>
-		<td>Сила: 2<br />
-Ловкость: 5<br />
-Интуиция: 5<br />
-Выносливость: 5<br />
-НР: 30</td>
-		<td>Сила: 3<br />
-Ловкость: 10<br />
-Интуиция: 3<br />
-Выносливость: 4<br />
-НР: 24</td>
-		<td>Сила: 5<br />
-Ловкость: 3<br />
-Интуиция: 3<br />
-Выносливость: 3<br />
-НР: 30</td>
-		<td>Сила: 5<br />
-Ловкость: 3<br />
-Интуиция: 3<br />
-Выносливость: 5<br />
-НР: 30</td>
+		<td align="center">0Р№<br /></td>
+		<td>РЎРёР»Р°: 5<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 3<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 5<br />
+РќР : 30</td>
+		<td>РЎРёР»Р°: 2<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 2<br />
+РРЅС‚СѓРёС†РёСЏ: 5<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 5<br />
+РќР : 30</td>
+		<td>РЎРёР»Р°: 2<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 5<br />
+РРЅС‚СѓРёС†РёСЏ: 5<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 5<br />
+РќР : 30</td>
+		<td>РЎРёР»Р°: 3<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 10<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 4<br />
+РќР : 24</td>
+		<td>РЎРёР»Р°: 5<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 3<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 3<br />
+РќР : 30</td>
+		<td>РЎРёР»Р°: 5<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 3<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 5<br />
+РќР : 30</td>
 	</tr>
 	<tr>
-		<td>1й (110)</td>
-		<td>Сила: 10<br />
-Ловкость: 6<br />
-Интуиция: 6<br />
-Выносливость: 10<br />
-НР: 60</td>
-		<td>Сила: 4<br />
-Ловкость: 4<br />
-Интуиция: 10<br />
-Выносливость: 10<br />
-НР: 60</td>
-		<td>Сила: 4<br />
-Ловкость: 10<br />
-Интуиция: 10<br />
-Выносливость: 10<br />
-НР: 60</td>
-		<td>Сила: 3<br />
-Ловкость: 20<br />
-Интуиция: 3<br />
-Выносливость: 8<br />
-НР: 48</td>
-		<td>Сила: 10<br />
-Ловкость: 6<br />
-Интуиция: 6<br />
-Выносливость: 10<br />
-НР: 60</td>
-		<td>Сила: 10<br />
-Ловкость: 5<br />
-Интуиция: 12<br />
-Выносливость: 10<br />
-НР: 60</td>
+		<td>1Р№ (110)</td>
+		<td>РЎРёР»Р°: 10<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 6<br />
+РРЅС‚СѓРёС†РёСЏ: 6<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 10<br />
+РќР : 60</td>
+		<td>РЎРёР»Р°: 4<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 4<br />
+РРЅС‚СѓРёС†РёСЏ: 10<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 10<br />
+РќР : 60</td>
+		<td>РЎРёР»Р°: 4<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 10<br />
+РРЅС‚СѓРёС†РёСЏ: 10<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 10<br />
+РќР : 60</td>
+		<td>РЎРёР»Р°: 3<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 20<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 8<br />
+РќР : 48</td>
+		<td>РЎРёР»Р°: 10<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 6<br />
+РРЅС‚СѓРёС†РёСЏ: 6<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 10<br />
+РќР : 60</td>
+		<td>РЎРёР»Р°: 10<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 5<br />
+РРЅС‚СѓРёС†РёСЏ: 12<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 10<br />
+РќР : 60</td>
 	</tr>
 	<tr>
-		<td>2й (440)</td>
-		<td>Сила: 15<br />
-Ловкость: 9<br />
-Интуиция: 9<br />
-Выносливость: 15<br />
-НР: 90</td>
-		<td>Сила: 6<br />
-Ловкость: 7<br />
-Интуиция: 15<br />
-Выносливость: 15<br />
-НР: 90</td>
-		<td>Сила: 7<br />
-Ловкость: 20<br />
-Интуиция: 15<br />
-Выносливость: 15<br />
-НР: 90</td>
-		<td>Сила: 3<br />
-Ловкость: 40<br />
-Интуиция: 3<br />
-Выносливость: 12<br />
-НР: 72</td>
-		<td>Сила: 16<br />
-Ловкость: 10<br />
-Интуиция: 10<br />
-Выносливость: 17<br />
-НР: 102</td>
-		<td>Сила: 15<br />
-Ловкость: 7<br />
-Интуиция: 18<br />
-Выносливость: 15<br />
-НР: 90</td>
+		<td>2Р№ (440)</td>
+		<td>РЎРёР»Р°: 15<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 9<br />
+РРЅС‚СѓРёС†РёСЏ: 9<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 15<br />
+РќР : 90</td>
+		<td>РЎРёР»Р°: 6<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 7<br />
+РРЅС‚СѓРёС†РёСЏ: 15<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 15<br />
+РќР : 90</td>
+		<td>РЎРёР»Р°: 7<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 20<br />
+РРЅС‚СѓРёС†РёСЏ: 15<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 15<br />
+РќР : 90</td>
+		<td>РЎРёР»Р°: 3<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 40<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 12<br />
+РќР : 72</td>
+		<td>РЎРёР»Р°: 16<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 10<br />
+РРЅС‚СѓРёС†РёСЏ: 10<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 17<br />
+РќР : 102</td>
+		<td>РЎРёР»Р°: 15<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 7<br />
+РРЅС‚СѓРёС†РёСЏ: 18<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 15<br />
+РќР : 90</td>
 	</tr>
 	<tr>
-		<td>3й (1300)</td>
-		<td>Сила: 20<br />
-Ловкость: 12<br />
-Интуиция: 12<br />
-Выносливость: 20<br />
-НР: 120</td>
-		<td>Сила: 10<br />
-Ловкость: 30<br />
-Интуиция: 20<br />
-Выносливость: 20<br />
-НР: 120</td>
-		<td>Сила: 10<br />
-Ловкость: 30<br />
-Интуиция: 20<br />
-Выносливость: 20<br />
-НР: 120</td>
-		<td>Сила: 3<br />
-Ловкость: 60<br />
-Интуиция: 3<br />
-Выносливость: 16<br />
-НР: 96</td>
-		<td>Сила: 23<br />
-Ловкость: 14<br />
-Интуиция: 14<br />
-Выносливость: 25<br />
-НР: 150</td>
-		<td>Сила: 20<br />
-Ловкость: 10<br />
-Интуиция: 24<br />
-Выносливость: 20<br />
-НР: 120</td>
+		<td>3Р№ (1300)</td>
+		<td>РЎРёР»Р°: 20<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 12<br />
+РРЅС‚СѓРёС†РёСЏ: 12<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 20<br />
+РќР : 120</td>
+		<td>РЎРёР»Р°: 10<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 30<br />
+РРЅС‚СѓРёС†РёСЏ: 20<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 20<br />
+РќР : 120</td>
+		<td>РЎРёР»Р°: 10<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 30<br />
+РРЅС‚СѓРёС†РёСЏ: 20<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 20<br />
+РќР : 120</td>
+		<td>РЎРёР»Р°: 3<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 60<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 16<br />
+РќР : 96</td>
+		<td>РЎРёР»Р°: 23<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 14<br />
+РРЅС‚СѓРёС†РёСЏ: 14<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 25<br />
+РќР : 150</td>
+		<td>РЎРёР»Р°: 20<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 10<br />
+РРЅС‚СѓРёС†РёСЏ: 24<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 20<br />
+РќР : 120</td>
 	</tr>
 	<tr>
-		<td>4й (2500)</td>
-		<td>Сила: 30<br />
-Ловкость: 15<br />
-Интуиция: 15<br />
-Выносливость: 30<br />
-НР: 180</td>
-		<td>Сила: 12<br />
-Ловкость: 15<br />
-Интуиция: 30<br />
-Выносливость: 30<br />
-НР: 180</td>
-		<td>Сила: 15<br />
-Ловкость: 40<br />
-Интуиция: 30<br />
-Выносливость: 30<br />
-НР: 180</td>
-		<td>Сила: 3<br />
-Ловкость: 80<br />
-Интуиция: 3<br />
-Выносливость: 24<br />
-НР: 144</td>
-		<td>Сила: 30<br />
-Ловкость: 19<br />
-Интуиция: 19<br />
-Выносливость: 35<br />
-НР: 210</td>
-		<td>Сила: 25<br />
-Ловкость: 13<br />
-Интуиция: 32<br />
-Выносливость: 30<br />
-НР: 180</td>
+		<td>4Р№ (2500)</td>
+		<td>РЎРёР»Р°: 30<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 15<br />
+РРЅС‚СѓРёС†РёСЏ: 15<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 30<br />
+РќР : 180</td>
+		<td>РЎРёР»Р°: 12<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 15<br />
+РРЅС‚СѓРёС†РёСЏ: 30<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 30<br />
+РќР : 180</td>
+		<td>РЎРёР»Р°: 15<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 40<br />
+РРЅС‚СѓРёС†РёСЏ: 30<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 30<br />
+РќР : 180</td>
+		<td>РЎРёР»Р°: 3<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 80<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 24<br />
+РќР : 144</td>
+		<td>РЎРёР»Р°: 30<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 19<br />
+РРЅС‚СѓРёС†РёСЏ: 19<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 35<br />
+РќР : 210</td>
+		<td>РЎРёР»Р°: 25<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 13<br />
+РРЅС‚СѓРёС†РёСЏ: 32<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 30<br />
+РќР : 180</td>
 	</tr>
 	<tr>
-		<td>5й (5000)</td>
-		<td>Сила: 40<br />
-Ловкость: 20<br />
-Интуиция: 20<br />
-Выносливость: 40<br />
-НР: 240</td>
-		<td>Сила: 15<br />
-Ловкость: 20<br />
-Интуиция: 40<br />
-Выносливость: 40<br />
-НР: 240</td>
-		<td>Сила: 20<br />
-Ловкость: 50<br />
-Интуиция: 40<br />
-Выносливость: 40<br />
-НР: 240</td>
-		<td>Сила: 3<br />
-Ловкость: 100<br />
-Интуиция: 3<br />
-Выносливость: 32<br />
-НР: 192</td>
-		<td>Сила: 38<br />
-Ловкость: 25<br />
-Интуиция: 25<br />
-Выносливость: 45<br />
-НР: 270</td>
-		<td>Сила: 32<br />
-Ловкость: 17<br />
-Интуиция: 40<br />
-Выносливость: 40<br />
-НР: 240</td>
+		<td>5Р№ (5000)</td>
+		<td>РЎРёР»Р°: 40<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 20<br />
+РРЅС‚СѓРёС†РёСЏ: 20<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 40<br />
+РќР : 240</td>
+		<td>РЎРёР»Р°: 15<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 20<br />
+РРЅС‚СѓРёС†РёСЏ: 40<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 40<br />
+РќР : 240</td>
+		<td>РЎРёР»Р°: 20<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 50<br />
+РРЅС‚СѓРёС†РёСЏ: 40<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 40<br />
+РќР : 240</td>
+		<td>РЎРёР»Р°: 3<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 100<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 32<br />
+РќР : 192</td>
+		<td>РЎРёР»Р°: 38<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 25<br />
+РРЅС‚СѓРёС†РёСЏ: 25<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 45<br />
+РќР : 270</td>
+		<td>РЎРёР»Р°: 32<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 17<br />
+РРЅС‚СѓРёС†РёСЏ: 40<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 40<br />
+РќР : 240</td>
 	</tr>
 	<tr>
-		<td>6й (12500)</td>
-		<td>Сила: 50<br />
-Ловкость: 25<br />
-Интуиция: 25<br />
-Выносливость: 50<br />
-НР: 300</td>
-		<td>Сила: 25<br />
-Ловкость: 25<br />
-Интуиция: 60<br />
-Выносливость: 50<br />
-НР: 300</td>
-		<td>Сила: 25<br />
-Ловкость: 70<br />
-Интуиция: 50<br />
-Выносливость: 50<br />
-НР: 300</td>
-		<td>Сила: 3<br />
-Ловкость: 140<br />
-Интуиция: 3<br />
-Выносливость: 40<br />
-НР: 240</td>
-		<td>Сила: 47<br />
-Ловкость: 31<br />
-Интуиция: 31<br />
-Выносливость: 60<br />
-НР: 360</td>
-		<td>Сила: 39<br />
-Ловкость: 21<br />
-Интуиция: 50<br />
-Выносливость: 60<br />
-НР: 360</td>
+		<td>6Р№ (12500)</td>
+		<td>РЎРёР»Р°: 50<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 25<br />
+РРЅС‚СѓРёС†РёСЏ: 25<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 50<br />
+РќР : 300</td>
+		<td>РЎРёР»Р°: 25<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 25<br />
+РРЅС‚СѓРёС†РёСЏ: 60<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 50<br />
+РќР : 300</td>
+		<td>РЎРёР»Р°: 25<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 70<br />
+РРЅС‚СѓРёС†РёСЏ: 50<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 50<br />
+РќР : 300</td>
+		<td>РЎРёР»Р°: 3<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 140<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 40<br />
+РќР : 240</td>
+		<td>РЎРёР»Р°: 47<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 31<br />
+РРЅС‚СѓРёС†РёСЏ: 31<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 60<br />
+РќР : 360</td>
+		<td>РЎРёР»Р°: 39<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 21<br />
+РРЅС‚СѓРёС†РёСЏ: 50<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 60<br />
+РќР : 360</td>
 	</tr>
 	<tr>
-		<td>7й (30000)</td>
-		<td>Сила: 70<br />
-Ловкость: 30<br />
-Интуиция: 30<br />
-Выносливость: 60<br />
-НР: 360</td>
-		<td>Сила: 25<br />
-Ловкость: 30<br />
-Интуиция: 80<br />
-Выносливость: 60<br />
-НР: 360</td>
-		<td>Сила: 30<br />
-Ловкость: 90<br />
-Интуиция: 60<br />
-Выносливость: 60<br />
-НР: 360</td>
-		<td>Сила: 3<br />
-Ловкость: 180<br />
-Интуиция: 3<br />
-Выносливость: 48<br />
-НР: 288</td>
-		<td>Сила: 57<br />
-Ловкость: 38<br />
-Интуиция: 38<br />
-Выносливость: 80<br />
-НР: 480</td>
-		<td>Сила: 47<br />
-Ловкость: 25<br />
-Интуиция: 60<br />
-Выносливость: 80<br />
-НР: 480</td>
+		<td>7Р№ (30000)</td>
+		<td>РЎРёР»Р°: 70<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 30<br />
+РРЅС‚СѓРёС†РёСЏ: 30<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 60<br />
+РќР : 360</td>
+		<td>РЎРёР»Р°: 25<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 30<br />
+РРЅС‚СѓРёС†РёСЏ: 80<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 60<br />
+РќР : 360</td>
+		<td>РЎРёР»Р°: 30<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 90<br />
+РРЅС‚СѓРёС†РёСЏ: 60<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 60<br />
+РќР : 360</td>
+		<td>РЎРёР»Р°: 3<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 180<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 48<br />
+РќР : 288</td>
+		<td>РЎРёР»Р°: 57<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 38<br />
+РРЅС‚СѓРёС†РёСЏ: 38<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 80<br />
+РќР : 480</td>
+		<td>РЎРёР»Р°: 47<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 25<br />
+РРЅС‚СѓРёС†РёСЏ: 60<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 80<br />
+РќР : 480</td>
 	</tr>
 	<tr>
-		<td>8й (300000)</td>
-		<td>Сила: 90<br />
-Ловкость: 40<br />
-Интуиция: 40<br />
-Выносливость: 80<br />
-НР: 480</td>
-		<td>Сила: 32<br />
-Ловкость: 40<br />
-Интуиция: 110<br />
-Выносливость: 80<br />
-НР: 480</td>
-		<td>Сила: 40<br />
-Ловкость: 120<br />
-Интуиция: 80<br />
-Выносливость: 80<br />
-НР: 480</td>
-		<td>Сила: 3<br />
-Ловкость: 240<br />
-Интуиция: 3<br />
-Выносливость: 64<br />
-НР: 384</td>
-		<td>Сила: 67<br />
-Ловкость: 46<br />
-Интуиция: 46<br />
-Выносливость: 100<br />
-НР: 600</td>
-		<td>Сила: 55<br />
-Ловкость: 30<br />
-Интуиция: 70<br />
-Выносливость: 100<br />
-НР: 600</td>
+		<td>8Р№ (300000)</td>
+		<td>РЎРёР»Р°: 90<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 40<br />
+РРЅС‚СѓРёС†РёСЏ: 40<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 80<br />
+РќР : 480</td>
+		<td>РЎРёР»Р°: 32<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 40<br />
+РРЅС‚СѓРёС†РёСЏ: 110<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 80<br />
+РќР : 480</td>
+		<td>РЎРёР»Р°: 40<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 120<br />
+РРЅС‚СѓРёС†РёСЏ: 80<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 80<br />
+РќР : 480</td>
+		<td>РЎРёР»Р°: 3<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 240<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 64<br />
+РќР : 384</td>
+		<td>РЎРёР»Р°: 67<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 46<br />
+РРЅС‚СѓРёС†РёСЏ: 46<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 100<br />
+РќР : 600</td>
+		<td>РЎРёР»Р°: 55<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 30<br />
+РРЅС‚СѓРёС†РёСЏ: 70<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 100<br />
+РќР : 600</td>
 	</tr>
 	<tr>
-		<td>9й (30000000)</td>
-		<td>Сила: 110<br />
-Ловкость: 50<br />
-Интуиция: 50<br />
-Выносливость: 100<br />
-НР: 600</td>
-		<td>Сила: 41<br />
-Ловкость: 90<br />
-Интуиция: 140<br />
-Выносливость: 100<br />
-НР: 600</td>
-		<td>Сила: 50<br />
-Ловкость: 150<br />
-Интуиция: 100<br />
-Выносливость: 100<br />
-НР: 600</td>
-		<td>Сила: 3<br />
-Ловкость: 300<br />
-Интуиция: 3<br />
-Выносливость: 80<br />
-НР: 480</td>
-		<td>Сила: 80<br />
-Ловкость: 56<br />
-Интуиция: 56<br />
-Выносливость: 125<br />
+		<td>9Р№ (30000000)</td>
+		<td>РЎРёР»Р°: 110<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 50<br />
+РРЅС‚СѓРёС†РёСЏ: 50<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 100<br />
+РќР : 600</td>
+		<td>РЎРёР»Р°: 41<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 90<br />
+РРЅС‚СѓРёС†РёСЏ: 140<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 100<br />
+РќР : 600</td>
+		<td>РЎРёР»Р°: 50<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 150<br />
+РРЅС‚СѓРёС†РёСЏ: 100<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 100<br />
+РќР : 600</td>
+		<td>РЎРёР»Р°: 3<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 300<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 80<br />
+РќР : 480</td>
+		<td>РЎРёР»Р°: 80<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 56<br />
+РРЅС‚СѓРёС†РёСЏ: 56<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 125<br />
 HP: 750</td>
-		<td>Сила: 65<br />
-Ловкость: 35<br />
-Интуиция: 90<br />
-Выносливость: 125<br />
+		<td>РЎРёР»Р°: 65<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 35<br />
+РРЅС‚СѓРёС†РёСЏ: 90<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 125<br />
 HP: 750</td>
 	</tr>
 	<tr>
-		<td>10й (10000000)</td>
-		<td>Сила: 135<br />
-Ловкость: 60<br />
-Интуиция: 60<br />
-Выносливость: 120<br />
-НР: 720</td>
-		<td>Сила: 51<br />
-Ловкость: 60<br />
-Интуиция: 170<br />
-Выносливость: 120<br />
-НР: 720</td>
-		<td>Сила: 60<br />
-Ловкость: 180<br />
-Интуиция: 120<br />
-Выносливость: 120<br />
-НР: 720</td>
-		<td>Сила: 3<br />
-Ловкость: 300<br />
-Интуиция: 3<br />
-Выносливость: 96<br />
-НР: 576</td>
-		<td>Сила: 93<br />
-Ловкость: 66<br />
-Интуиция: 66<br />
-Выносливость: 150<br />
+		<td>10Р№ (10000000)</td>
+		<td>РЎРёР»Р°: 135<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 60<br />
+РРЅС‚СѓРёС†РёСЏ: 60<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 120<br />
+РќР : 720</td>
+		<td>РЎРёР»Р°: 51<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 60<br />
+РРЅС‚СѓРёС†РёСЏ: 170<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 120<br />
+РќР : 720</td>
+		<td>РЎРёР»Р°: 60<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 180<br />
+РРЅС‚СѓРёС†РёСЏ: 120<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 120<br />
+РќР : 720</td>
+		<td>РЎРёР»Р°: 3<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 300<br />
+РРЅС‚СѓРёС†РёСЏ: 3<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 96<br />
+РќР : 576</td>
+		<td>РЎРёР»Р°: 93<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 66<br />
+РРЅС‚СѓРёС†РёСЏ: 66<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 150<br />
 HP: 900</td>
-		<td>Сила: 75<br />
-Ловкость: 40<br />
-Интуиция: 110<br />
-Выносливость: 150<br />
-НР: 900</td>
+		<td>РЎРёР»Р°: 75<br />
+Р›РѕРІРєРѕСЃС‚СЊ: 40<br />
+РРЅС‚СѓРёС†РёСЏ: 110<br />
+Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 150<br />
+РќР : 900</td>
 	</tr>
 </table>
 </center>

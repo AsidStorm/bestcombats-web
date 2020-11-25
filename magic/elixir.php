@@ -1,14 +1,14 @@
 <?
-  $uses_zel = mysql_fetch_array(mysql_query("SELECT name FROM `effects` WHERE `owner` = ".$user['id']." AND `type`=188 and name like 'Ñàìîäåëüíûé ýëèêñèð%'"));
+  $uses_zel = mysql_fetch_array(mysql_query("SELECT name FROM `effects` WHERE `owner` = ".$user['id']." AND `type`=188 and name like 'Ð¡Ð°Ð¼Ð¾Ð´ÐµÐ»ÑŒÐ½Ñ‹Ð¹ ÑÐ»Ð¸ÐºÑÐ¸Ñ€%'"));
   $ins_time = floor($magic['time']*60);
 
   global $nodrink;
   if (in_array($user["room"],$nodrink)) {
-    echo "Çäåñü çàïðåùåíî ïèòü ýëèêñèðû!";
+    echo "Ð—Ð´ÐµÑÑŒ Ð·Ð°Ð¿Ñ€ÐµÑ‰ÐµÐ½Ð¾ Ð¿Ð¸Ñ‚ÑŒ ÑÐ»Ð¸ÐºÑÐ¸Ñ€Ñ‹!";
   } elseif ($user['battle'] > 0) {
-      echo "Íå â áîþ...";
+      echo "ÐÐµ Ð² Ð±Ð¾ÑŽ...";
   } elseif($uses_zel) {
-      echo "Åùå íå ïðîøëî äåéñòâèå ñòàðîãî ýëèêñèðà.";
+      echo "Ð•Ñ‰Ðµ Ð½Ðµ Ð¿Ñ€Ð¾ÑˆÐ»Ð¾ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ ÑÑ‚Ð°Ñ€Ð¾Ð³Ð¾ ÑÐ»Ð¸ÐºÑÐ¸Ñ€Ð°.";
   } else {
     $mfs=array("mfuvorot", "mfauvorot", "mfakrit", "mfkrit", "mfparir", "mfcontr", "mfdhit", "mfdmag", "manausage", "mfmagp", "mfhitp", "minusmfdmag", "mfproboj", "mfshieldblock");
     $mf="";
@@ -22,7 +22,7 @@
       }
     }
     mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`, type, `mf`,`mfval`) values ('".$user['id']."','".$row['name']."',".(time()+$ins_time).",188, '$mf', '$mfval');");
-    echo "Âûïèò ýëèêñèð &quot;".$row['name']."&quot;.";
+    echo "Ð’Ñ‹Ð¿Ð¸Ñ‚ ÑÐ»Ð¸ÐºÑÐ¸Ñ€ &quot;".$row['name']."&quot;.";
     $bet=1;
   }
 ?>

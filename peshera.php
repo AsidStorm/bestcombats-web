@@ -18,33 +18,33 @@
 	if ($hellround['volna']>1 and $hellround['end']==0 and $user['lose']>$hellround['user_lose']){
 	    if ($user['level'] == '7') { 
 		$obrazti=rand(1,15);
-		mysql_query("insert into inventory (`name`,`owner`,`maxdur`,`koll`,`massa`,`img`,`destinyinv`,`type`,`made`,`isrep`) values ('Образец',".$user['id'].",'1',".$obrazti.",".($obrazti/10).",'mater_suv_drop.gif','0','190','suburb','0')");		
-        addchp ('<font color=red><b>Внимание!</b></font> Вы создали предмет "Образец"x'.$obrazti.' ','{[]}'.$user['login'].'{[]}');		
+		mysql_query("insert into inventory (`name`,`owner`,`maxdur`,`koll`,`massa`,`img`,`destinyinv`,`type`,`made`,`isrep`) values ('РћР±СЂР°Р·РµС†',".$user['id'].",'1',".$obrazti.",".($obrazti/10).",'mater_suv_drop.gif','0','190','suburb','0')");		
+        addchp ('<font color=red><b>Р’РЅРёРјР°РЅРёРµ!</b></font> Р’С‹ СЃРѕР·РґР°Р»Рё РїСЂРµРґРјРµС‚ "РћР±СЂР°Р·РµС†"x'.$obrazti.' ','{[]}'.$user['login'].'{[]}');		
 		ist($user['id']); }
 		if ($user['level'] == '8') { 
 		$obraztic=rand(1,15);
-		mysql_query("insert into inventory (`name`,`owner`,`maxdur`,`koll`,`massa`,`img`,`destinyinv`,`type`,`made`,`isrep`) values ('Образец',".$user['id'].",'1',".$obraztic.",".($obraztic/10).",'mater_suv_drop.gif','0','190','suburb','0')");		
-        addchp ('<font color=red><b>Внимание!</b></font> Вы создали предмет "Образец"x'.$obraztic.' ','{[]}'.$user['login'].'{[]}');		
+		mysql_query("insert into inventory (`name`,`owner`,`maxdur`,`koll`,`massa`,`img`,`destinyinv`,`type`,`made`,`isrep`) values ('РћР±СЂР°Р·РµС†',".$user['id'].",'1',".$obraztic.",".($obraztic/10).",'mater_suv_drop.gif','0','190','suburb','0')");		
+        addchp ('<font color=red><b>Р’РЅРёРјР°РЅРёРµ!</b></font> Р’С‹ СЃРѕР·РґР°Р»Рё РїСЂРµРґРјРµС‚ "РћР±СЂР°Р·РµС†"x'.$obraztic.' ','{[]}'.$user['login'].'{[]}');		
 		ist($user['id']); }
 		if ($user['level'] == '9') { 
 		$obraztia=rand(5,20);
-		mysql_query("insert into inventory (`name`,`owner`,`maxdur`,`koll`,`massa`,`img`,`destinyinv`,`type`,`made`,`isrep`) values ('Образец',".$user['id'].",'1',".$obraztia.",".($obraztia/10).",'mater_suv_drop.gif','0','190','suburb','0')");		
-        addchp ('<font color=red><b>Внимание!</b></font> Вы создали предмет "Образец"x'.$obraztia.' ','{[]}'.$user['login'].'{[]}');		
+		mysql_query("insert into inventory (`name`,`owner`,`maxdur`,`koll`,`massa`,`img`,`destinyinv`,`type`,`made`,`isrep`) values ('РћР±СЂР°Р·РµС†',".$user['id'].",'1',".$obraztia.",".($obraztia/10).",'mater_suv_drop.gif','0','190','suburb','0')");		
+        addchp ('<font color=red><b>Р’РЅРёРјР°РЅРёРµ!</b></font> Р’С‹ СЃРѕР·РґР°Р»Рё РїСЂРµРґРјРµС‚ "РћР±СЂР°Р·РµС†"x'.$obraztia.' ','{[]}'.$user['login'].'{[]}');		
 		ist($user['id']); }
 		if ($user['level'] == '10') { 
 		$obraztid=rand(5,20);
-		mysql_query("insert into inventory (`name`,`owner`,`maxdur`,`koll`,`massa`,`img`,`destinyinv`,`type`,`made`,`isrep`) values ('Образец',".$user['id'].",'1',".$obraztid.",".($obraztid/10).",'mater_suv_drop.gif','0','190','suburb','0')");		
-        addchp ('<font color=red><b>Внимание!</b></font> Вы создали предмет "Образец"x'.$obraztid.' ','{[]}'.$user['login'].'{[]}');		
+		mysql_query("insert into inventory (`name`,`owner`,`maxdur`,`koll`,`massa`,`img`,`destinyinv`,`type`,`made`,`isrep`) values ('РћР±СЂР°Р·РµС†',".$user['id'].",'1',".$obraztid.",".($obraztid/10).",'mater_suv_drop.gif','0','190','suburb','0')");		
+        addchp ('<font color=red><b>Р’РЅРёРјР°РЅРёРµ!</b></font> Р’С‹ СЃРѕР·РґР°Р»Рё РїСЂРµРґРјРµС‚ "РћР±СЂР°Р·РµС†"x'.$obraztid.' ','{[]}'.$user['login'].'{[]}');		
 		ist($user['id']); }
 		if ($user['level'] == '11') { 
 		$obraztib=rand(10,30);
-		mysql_query("insert into inventory (`name`,`owner`,`maxdur`,`koll`,`massa`,`img`,`destinyinv`,`type`,`made`,`isrep`) values ('Образец',".$user['id'].",'1',".$obraztib.",".($obraztib/10).",'mater_suv_drop.gif','0','190','suburb','0')");		
-        addchp ('<font color=red><b>Внимание!</b></font> Вы создали предмет "Образец"x'.$obraztib.' ','{[]}'.$user['login'].'{[]}');		
+		mysql_query("insert into inventory (`name`,`owner`,`maxdur`,`koll`,`massa`,`img`,`destinyinv`,`type`,`made`,`isrep`) values ('РћР±СЂР°Р·РµС†',".$user['id'].",'1',".$obraztib.",".($obraztib/10).",'mater_suv_drop.gif','0','190','suburb','0')");		
+        addchp ('<font color=red><b>Р’РЅРёРјР°РЅРёРµ!</b></font> Р’С‹ СЃРѕР·РґР°Р»Рё РїСЂРµРґРјРµС‚ "РћР±СЂР°Р·РµС†"x'.$obraztib.' ','{[]}'.$user['login'].'{[]}');		
 		ist($user['id']); }
 		if ($user['level'] == '12') { 
 		$obraztie=rand(10,30);
-		mysql_query("insert into inventory (`name`,`owner`,`maxdur`,`koll`,`massa`,`img`,`destinyinv`,`type`,`made`,`isrep`) values ('Образец',".$user['id'].",'1',".$obraztie.",".($obraztie/10).",'mater_suv_drop.gif','0','190','suburb','0')");		
-        addchp ('<font color=red><b>Внимание!</b></font> Вы создали предмет "Образец"x'.$obraztie.' ','{[]}'.$user['login'].'{[]}');		
+		mysql_query("insert into inventory (`name`,`owner`,`maxdur`,`koll`,`massa`,`img`,`destinyinv`,`type`,`made`,`isrep`) values ('РћР±СЂР°Р·РµС†',".$user['id'].",'1',".$obraztie.",".($obraztie/10).",'mater_suv_drop.gif','0','190','suburb','0')");		
+        addchp ('<font color=red><b>Р’РЅРёРјР°РЅРёРµ!</b></font> Р’С‹ СЃРѕР·РґР°Р»Рё РїСЂРµРґРјРµС‚ "РћР±СЂР°Р·РµС†"x'.$obraztie.' ','{[]}'.$user['login'].'{[]}');		
 		ist($user['id']); }
 	}
 	
@@ -63,21 +63,21 @@
 	}
 	
 	header("Cache-Control: no-cache");
-    // демон, запускающий волны
-    $names = array("Рабочий Мглы",
-				   "Проклятие Глубин",
-				   "Кошмар Глубин",
-				   "Кошмар Глубин",
-				   "Лука",
-				   "Сила Крoггентайла",
-				   "Большой Тяжёлый Молот",
-				   "Гарл Йонни Салистон",
+    // РґРµРјРѕРЅ, Р·Р°РїСѓСЃРєР°СЋС‰РёР№ РІРѕР»РЅС‹
+    $names = array("Р Р°Р±РѕС‡РёР№ РњРіР»С‹",
+				   "РџСЂРѕРєР»СЏС‚РёРµ Р“Р»СѓР±РёРЅ",
+				   "РљРѕС€РјР°СЂ Р“Р»СѓР±РёРЅ",
+				   "РљРѕС€РјР°СЂ Р“Р»СѓР±РёРЅ",
+				   "Р›СѓРєР°",
+				   "РЎРёР»Р° РљСЂoРіРіРµРЅС‚Р°Р№Р»Р°",
+				   "Р‘РѕР»СЊС€РѕР№ РўСЏР¶С‘Р»С‹Р№ РњРѕР»РѕС‚",
+				   "Р“Р°СЂР» Р™РѕРЅРЅРё РЎР°Р»РёСЃС‚РѕРЅ",
 				   
-				   "Древний Страж",
-				   "Pабочий мглы",
-				   "Нaдзиратель глубин",
-				   "Душа Кроггентaйла",
-				   "Древний Страж");
+				   "Р”СЂРµРІРЅРёР№ РЎС‚СЂР°Р¶",
+				   "PР°Р±РѕС‡РёР№ РјРіР»С‹",
+				   "РќaРґР·РёСЂР°С‚РµР»СЊ РіР»СѓР±РёРЅ",
+				   "Р”СѓС€Р° РљСЂРѕРіРіРµРЅС‚aР№Р»Р°",
+				   "Р”СЂРµРІРЅРёР№ РЎС‚СЂР°Р¶");
 	$bots = array(20450,21302,85,24,89,21055,21454,21455,
 					20760,19586,19587,21304,20761);
 	$shema = array ( "20450" => 4, //0
@@ -99,13 +99,13 @@
 	}
 	
 	if ($_POST['start']) {
-		//mysql_query("DELETE FROM inventory WHERE name='Пропуск' and owner='".$user['id']."' LIMIT 1");
+		//mysql_query("DELETE FROM inventory WHERE name='РџСЂРѕРїСѓСЃРє' and owner='".$user['id']."' LIMIT 1");
 		$H=24-date("H");
 		$M=60-date("i");
 		$S=60-date("s");
 		$zader_time=$H*60*60+$M*60+$S;
 		
-		mysql_query("insert into effects (`owner`,`type`,`time`,`name`) values (".$_SESSION['uid'].",9997,".(time()+$zader_time).",'Касание хаоса')");
+		mysql_query("insert into effects (`owner`,`type`,`time`,`name`) values (".$_SESSION['uid'].",9997,".(time()+$zader_time).",'РљР°СЃР°РЅРёРµ С…Р°РѕСЃР°')");
 		$pohod1=mysql_fetch_array(mysql_query("SELECT * FROM hellround_pohod WHERE owner='".$user['id']."'"));
 		$l=time()-60*60*24;
 		if ($pohod1['date_out']<=$l){
@@ -136,7 +136,7 @@
 			$rand_bos=rand(5,9);
 			$_SESSION['cash']=1;
 			$botz = mysql_fetch_array(mysql_query("SELECT `maxhp`,`id` FROM `users` WHERE `id` = '".$bots[$rand_bos]."' LIMIT 1;"));
-			mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$names[$rand_bos]." (проекция ".($n).")','".$bots[$rand_bos]."','','".$botz['maxhp']."');");
+			mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$names[$rand_bos]." (РїСЂРѕРµРєС†РёСЏ ".($n).")','".$bots[$rand_bos]."','','".$botz['maxhp']."');");
 			$botw = mysql_insert_id();
 			$enemys[] = $botw;
 			$teams = array();
@@ -148,7 +148,7 @@
 			for($n = 1; $n <= $pohod['volna']; $n++) {
 				$gg=rand(0,4);
 				$botz = mysql_fetch_array(mysql_query("SELECT `maxhp`,`id` FROM `users` WHERE `id` = '".$bots[$gg]."' LIMIT 1;"));
-				mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$names[$gg]." (проекция ".($n).")','".$bots[$gg]."','','".$botz['maxhp']."');");
+				mysql_query("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('".$names[$gg]." (РїСЂРѕРµРєС†РёСЏ ".($n).")','".$bots[$gg]."','','".$botz['maxhp']."');");
 				$botw = mysql_insert_id();
 				$enemys[] = $botw;
 			}
@@ -162,17 +162,17 @@
 		mysql_query("INSERT INTO `battle` (`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`)
 								   VALUES ('','".serialize($teams)."','3','1','0','".$user['id']."','".implode(";",$enemys)."','".time()."','".time()."')");
 		$id = mysql_insert_id();
-		// апдейтим бота
+		// Р°РїРґРµР№С‚РёРј Р±РѕС‚Р°
 		foreach($enemys as $v) {
 			mysql_query("UPDATE `bots` SET `battle` = ".$id." WHERE `id` = ".$v." LIMIT 1;");
 		}
-		addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда <b>".nick3($user['id'])."</b> вышел на битву с Адом... <BR>");
+		addlog($id,"Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° <b>".nick3($user['id'])."</b> РІС‹С€РµР» РЅР° Р±РёС‚РІСѓ СЃ РђРґРѕРј... <BR>");
 		//chown ("/backup/logs/battle".$id.".txt" , "www-data" );
 		//chgrp ("/backup/logs/battle".$id.".txt" , "www-data" );
 
 		mysql_query("UPDATE users SET `battle` =".$id.",`zayavka`=0 WHERE `id`= ".$user['id'].";");
 		$volna=mysql_result(mysql_query("SELECT volna FROM hellround_pohod WHERE owner='".$user['id']."'"),0);
-        addchp ('<font color=red><b>Внимание!</b></font> Надвигается <font color=blue><b>'.$volna.'</b></font> волна! ','{[]}'.$user['login'].'{[]}');
+        addchp ('<font color=red><b>Р’РЅРёРјР°РЅРёРµ!</b></font> РќР°РґРІРёРіР°РµС‚СЃСЏ <font color=blue><b>'.$volna.'</b></font> РІРѕР»РЅР°! ','{[]}'.$user['login'].'{[]}');
 		mysql_query("UPDATE `hellround_pohod` SET `volna`=`volna`+1, `repa`=`repa`+1 WHERE `owner` = ".$user['id']." LIMIT 1;");
 		mysql_query("UPDATE daily_kwest SET taked=taked+1 WHERE user_id='".$user['id']."' and kwest_id=7");	
 		If($pohod['volna']>$pohod['max_volna']){
@@ -199,12 +199,12 @@
 	<tr>
 	<td>
 	<form action=""  method=post >
-<input type=submit id=st1 name=letsgo value="Пошли на <? echo $pohod['volna'];?> Волну"><br>
+<input type=submit id=st1 name=letsgo value="РџРѕС€Р»Рё РЅР° <? echo $pohod['volna'];?> Р’РѕР»РЅСѓ"><br>
 </form>
 <form action=""  method=post >
-<INPUT TYPE="submit" value="Здатся" name="dal">
+<INPUT TYPE="submit" value="Р—РґР°С‚СЃСЏ" name="dal">
 </form>
-<span id=st2 style="display:none;" >Осталось:<b id=st3></b></span>
+<span id=st2 style="display:none;" >РћСЃС‚Р°Р»РѕСЃСЊ:<b id=st3></b></span>
 
 <?
 if (($pohod['volna']==21 or $pohod['volna']==26 or $pohod['volna']==31) and $_SESSION['cash']==1)
@@ -212,7 +212,7 @@ if (($pohod['volna']==21 or $pohod['volna']==26 or $pohod['volna']==31) and $_SE
 $_SESSION['cash']=0;
 $gr=400; ?>
 <form method=post action=''>
-В Комнате Валяеться<? echo $gr; ?>Кр <br>
+Р’ РљРѕРјРЅР°С‚Рµ Р’Р°Р»СЏРµС‚СЊСЃСЏ<? echo $gr; ?>РљСЂ <br>
 <input type=submit name=cash value='podnet'>
 </form>
 <?

@@ -3,52 +3,52 @@
 	var imgSRC = '';
 	var sections = [
 		{	
-			name:'Карты', 
+			name:'РљР°СЂС‚С‹', 
 			id:'undergroundMaps',
 			active: true,
-			desc:'Карты подземелий',
+			desc:'РљР°СЂС‚С‹ РїРѕРґР·РµРјРµР»РёР№',
 			hash: '#maps'
 		},
 		{	
-			name:'Монстры', 
+			name:'РњРѕРЅСЃС‚СЂС‹', 
 			id:'undergroundMonsters',
 			active: true,
-			desc:'Монстры которых можно встретить в пещере',
+			desc:'РњРѕРЅСЃС‚СЂС‹ РєРѕС‚РѕСЂС‹С… РјРѕР¶РЅРѕ РІСЃС‚СЂРµС‚РёС‚СЊ РІ РїРµС‰РµСЂРµ',
 			hash: '#bots'
 		},
 		{	
-			name:'Предметы', 
+			name:'РџСЂРµРґРјРµС‚С‹', 
 			id:'undergroundItems',
 			active: true,
-			desc:'Предметы которые могут вам встретиться в пещере',
+			desc:'РџСЂРµРґРјРµС‚С‹ РєРѕС‚РѕСЂС‹Рµ РјРѕРіСѓС‚ РІР°Рј РІСЃС‚СЂРµС‚РёС‚СЊСЃСЏ РІ РїРµС‰РµСЂРµ',
 			hash: '#maters'
 		},
 		{	
-			name:'Рецепты', 
+			name:'Р РµС†РµРїС‚С‹', 
 			id:'undergroundRecipes',
 			active: true,
-			desc:'Конструктор диггера',
+			desc:'РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґРёРіРіРµСЂР°',
 			hash: '#diggerconst'
 		},
 		{	
-			name:'Задания', 
+			name:'Р—Р°РґР°РЅРёСЏ', 
 			id:'undergroundJob',
 			active: true,
-			desc:'Задания получаемые в пещерах и опыт получаемый за них',
+			desc:'Р—Р°РґР°РЅРёСЏ РїРѕР»СѓС‡Р°РµРјС‹Рµ РІ РїРµС‰РµСЂР°С… Рё РѕРїС‹С‚ РїРѕР»СѓС‡Р°РµРјС‹Р№ Р·Р° РЅРёС…',
 			hash: '#jobs'
 		},
 		{	
-			name:'Магазины', 
+			name:'РњР°РіР°Р·РёРЅС‹', 
 			id:'undergroundShop',
 			active: true,
-			desc:'Рыцарские магазины и их ассортимент',
+			desc:'Р С‹С†Р°СЂСЃРєРёРµ РјР°РіР°Р·РёРЅС‹ Рё РёС… Р°СЃСЃРѕСЂС‚РёРјРµРЅС‚',
 			hash: '#knightshop'
 		},
-		/*{	Здесь ёбаные статьи открыть надо
-			name:'Статьи', 
+		/*{	Р—РґРµСЃСЊ С‘Р±Р°РЅС‹Рµ СЃС‚Р°С‚СЊРё РѕС‚РєСЂС‹С‚СЊ РЅР°РґРѕ
+			name:'РЎС‚Р°С‚СЊРё', 
 			id:'sol',
 			active: true,
-			desc:'Статьи о Подземельях',
+			desc:'РЎС‚Р°С‚СЊРё Рѕ РџРѕРґР·РµРјРµР»СЊСЏС…',
 			hash: '#sol'
 		}*/         
 	];
@@ -57,16 +57,16 @@
 		currentUnderground: 0,
 		currentFloor:0,
 		zoom: 100,
-		direct: 0, // Направление сторон света: 0 - Север, 1 - Восток, 2 - Юг, 3 - Запад
-		cellSize: 40, // Размер генерируемых ячеек, влияет и на размер общую ширину таблицы
+		direct: 0, // РќР°РїСЂР°РІР»РµРЅРёРµ СЃС‚РѕСЂРѕРЅ СЃРІРµС‚Р°: 0 - РЎРµРІРµСЂ, 1 - Р’РѕСЃС‚РѕРє, 2 - Р®Рі, 3 - Р—Р°РїР°Рґ
+		cellSize: 40, // Р Р°Р·РјРµСЂ РіРµРЅРµСЂРёСЂСѓРµРјС‹С… СЏС‡РµРµРє, РІР»РёСЏРµС‚ Рё РЅР° СЂР°Р·РјРµСЂ РѕР±С‰СѓСЋ С€РёСЂРёРЅСѓ С‚Р°Р±Р»РёС†С‹
 		delay: 200,
 		duration: 8,
-		cellBorderColor: ['#7d8699','#608399','#978c6e','#906c6c','#70906a','#777777','#546A04','#336699','#669999','#6666CC','#837610'],    //граница ячеек
-		cellBackgroundColor: ['#e0e5e9','#e0ebf0','#e8e7d1','#e9d7d7','#c4e5c1','#dddddd','#CEE3AC','#CCddFF','#CCCCFF','#CCCCFF','#ddcf9f'],  //фон ячейки
+		cellBorderColor: ['#7d8699','#608399','#978c6e','#906c6c','#70906a','#777777','#546A04','#336699','#669999','#6666CC','#837610'],    //РіСЂР°РЅРёС†Р° СЏС‡РµРµРє
+		cellBackgroundColor: ['#e0e5e9','#e0ebf0','#e8e7d1','#e9d7d7','#c4e5c1','#dddddd','#CEE3AC','#CCddFF','#CCCCFF','#CCCCFF','#ddcf9f'],  //С„РѕРЅ СЏС‡РµР№РєРё
 		mapBackgroundColor: '#ffffff',
 		mapBorderColor: '#cccccc',
 		mapBackgroundImage: imP1+'ugcell.gif',
-		coordBackgroundColor: ['#55627a','#335e79','#7a6b4b','#734747','#4c6f45','#999999','#507026','#336699','#336666','#6666CC','#a99348'],   //фон шкалы
+		coordBackgroundColor: ['#55627a','#335e79','#7a6b4b','#734747','#4c6f45','#999999','#507026','#336699','#336666','#6666CC','#a99348'],   //С„РѕРЅ С€РєР°Р»С‹
 		compassBG: imP11+'compass_gr.gif',
 		tooltipBG: imP1+'tooltip_bg.png',
 		imageBlank: imP1+'blank.gif',
@@ -95,68 +95,68 @@
 	};
 	
 	var area = [
-		{ name: 'Пещера тысячи проклятий', monstr: ['pg', 'pm', 'pu', 'pa', 'dk', 'im', 'sk', 'ms','dpg','zldsh','dhr','mhk','mhgol','mhub','mhohr','kstr','strsokrs','strsokrl','strsokri','strsokril','strsokrv','kzm','gzm','mgrt','brzldsh','brmhgol','odduxgol']},
-		{ name: 'Канализация', monstr: ['lka','mrtn','gmrz','tgad','obpodv','sp','bsp','stsp','bstsp','santzmb','kanzk','bkanzk','kanp','bzgsnt','bbzgsnt','bloodsnt','strkr','bstrkr','letb','bletb','slzmb','hozkan','mstngtl','glprb','strgl','tplzmb','grprn','plsnt','bplsnt','grslz','ognslz','akk','pchnk']},
-		/*{ name: 'Бездна', monstr: ['pgb', 'rg', 'ng', 'lit', 'sg', 'sb', 'sd', 'btm', 'kg', 'gjs', 'olgrt']},
-		{ name: 'Пещеры мглы', monstr: ['pgsand','rm','sm','smm','zldshsnd', 'rh', 'krpt', 'hroch' ]},
-		{ name: 'Катакомбы', monstr: ['sm','smm', 'rm', 'lit','rg', 'ng','sg','sl','zsl','hsl','chk','pp','og','zmb','bzmb','ep','bs','stg','trp','drs','prok','prp','shp','pk']},
-		{ name: 'Потерянный Вход', monstr: ['skr','bkr','dkr','pkr','kv']},
-		{ name: 'Грибница', monstr: ['muhgg','duhgg','mdgus','kolstr','mokr','skrog','plprzt','iskrprzt','upal','mgus','grmol','shup','strgrib','krlgrb','hlup','glgr','ugus','trut','posgr','kog','rog','macr','shiz','hish','gribn','pit','pozh','zash','zgig','scorp','brscorp']},
-		{ name: 'Ледяная пещера', monstr: ['otmk','otmb']},
-		{ name: 'Сторожевая Башня', monstr: ['pgab','dkrab','bloodsntab','pgk','dkk','bsk','srgnt','vncom','warsp','beshpr']},
-  { name: 'Туманные низины', monstr: ['hbld','pgbol','mrdptr','mrdrk','mrdshn','bltrl']},
-  { name: 'Гора Легиона', monstr: ['glodpr','glzadsk','glzmbmat','glgkey','glgovgol','glbuk','glferm','glmkrk','glohr','glchas','glnohr','sobt','axv','butch','leyt','bigb','glemtel','glemo','gltenm','glmgol','glprpov','glpzakl','glbrtrp','gldbrtrp','glbezr','glgmtk','glgmgl','glzmb','glvsmrt','gysna','bsob','mar','glmpo','glmrdt','glmto','glmarst','glmarst1','rkvn']}*/
+		{ name: 'РџРµС‰РµСЂР° С‚С‹СЃСЏС‡Рё РїСЂРѕРєР»СЏС‚РёР№', monstr: ['pg', 'pm', 'pu', 'pa', 'dk', 'im', 'sk', 'ms','dpg','zldsh','dhr','mhk','mhgol','mhub','mhohr','kstr','strsokrs','strsokrl','strsokri','strsokril','strsokrv','kzm','gzm','mgrt','brzldsh','brmhgol','odduxgol']},
+		{ name: 'РљР°РЅР°Р»РёР·Р°С†РёСЏ', monstr: ['lka','mrtn','gmrz','tgad','obpodv','sp','bsp','stsp','bstsp','santzmb','kanzk','bkanzk','kanp','bzgsnt','bbzgsnt','bloodsnt','strkr','bstrkr','letb','bletb','slzmb','hozkan','mstngtl','glprb','strgl','tplzmb','grprn','plsnt','bplsnt','grslz','ognslz','akk','pchnk']},
+		/*{ name: 'Р‘РµР·РґРЅР°', monstr: ['pgb', 'rg', 'ng', 'lit', 'sg', 'sb', 'sd', 'btm', 'kg', 'gjs', 'olgrt']},
+		{ name: 'РџРµС‰РµСЂС‹ РјРіР»С‹', monstr: ['pgsand','rm','sm','smm','zldshsnd', 'rh', 'krpt', 'hroch' ]},
+		{ name: 'РљР°С‚Р°РєРѕРјР±С‹', monstr: ['sm','smm', 'rm', 'lit','rg', 'ng','sg','sl','zsl','hsl','chk','pp','og','zmb','bzmb','ep','bs','stg','trp','drs','prok','prp','shp','pk']},
+		{ name: 'РџРѕС‚РµСЂСЏРЅРЅС‹Р№ Р’С…РѕРґ', monstr: ['skr','bkr','dkr','pkr','kv']},
+		{ name: 'Р“СЂРёР±РЅРёС†Р°', monstr: ['muhgg','duhgg','mdgus','kolstr','mokr','skrog','plprzt','iskrprzt','upal','mgus','grmol','shup','strgrib','krlgrb','hlup','glgr','ugus','trut','posgr','kog','rog','macr','shiz','hish','gribn','pit','pozh','zash','zgig','scorp','brscorp']},
+		{ name: 'Р›РµРґСЏРЅР°СЏ РїРµС‰РµСЂР°', monstr: ['otmk','otmb']},
+		{ name: 'РЎС‚РѕСЂРѕР¶РµРІР°СЏ Р‘Р°С€РЅСЏ', monstr: ['pgab','dkrab','bloodsntab','pgk','dkk','bsk','srgnt','vncom','warsp','beshpr']},
+  { name: 'РўСѓРјР°РЅРЅС‹Рµ РЅРёР·РёРЅС‹', monstr: ['hbld','pgbol','mrdptr','mrdrk','mrdshn','bltrl']},
+  { name: 'Р“РѕСЂР° Р›РµРіРёРѕРЅР°', monstr: ['glodpr','glzadsk','glzmbmat','glgkey','glgovgol','glbuk','glferm','glmkrk','glohr','glchas','glnohr','sobt','axv','butch','leyt','bigb','glemtel','glemo','gltenm','glmgol','glprpov','glpzakl','glbrtrp','gldbrtrp','glbezr','glgmtk','glgmgl','glzmb','glvsmrt','gysna','bsob','mar','glmpo','glmrdt','glmto','glmarst','glmarst1','rkvn']}*/
  	];
 
 	var citys = [
-		{ name: 'Пещера тысячи проклятий', city: 'Capital city', id: 1},
-		{ name: 'Канализация', city: 'Moon, Dreams, Low, Old City', id: 2},
-		/*{ name: 'Бездна', city: 'Angels City', id: 2},
-		{ name: 'Пещеры Мглы', city: 'Sand City', id: 3},
-		{ name: 'Катакомбы', city: 'Demons City', id: 4},
-		{ name: 'Потерянный Вход', city: 'Emerald City', id: 5},
-		{ name: 'Канализация', city: 'Moon, Dreams, Low, Old City', id: 6},
-		{ name: 'Грибница', city: 'Sun City', id: 7},
-		{ name: 'Ледяная пещера', city: 'Все города', id: 8},
-		{ name: 'Сторожевая Башня', city: 'Abandoned Plains', id: 9},
-		{ name: 'Туманные низины', city: 'Devils City', id: 10},
-		{ name: 'Гора Легиона', city: 'Abandoned Plains', id: 11}*/
+		{ name: 'РџРµС‰РµСЂР° С‚С‹СЃСЏС‡Рё РїСЂРѕРєР»СЏС‚РёР№', city: 'Capital city', id: 1},
+		{ name: 'РљР°РЅР°Р»РёР·Р°С†РёСЏ', city: 'Moon, Dreams, Low, Old City', id: 2},
+		/*{ name: 'Р‘РµР·РґРЅР°', city: 'Angels City', id: 2},
+		{ name: 'РџРµС‰РµСЂС‹ РњРіР»С‹', city: 'Sand City', id: 3},
+		{ name: 'РљР°С‚Р°РєРѕРјР±С‹', city: 'Demons City', id: 4},
+		{ name: 'РџРѕС‚РµСЂСЏРЅРЅС‹Р№ Р’С…РѕРґ', city: 'Emerald City', id: 5},
+		{ name: 'РљР°РЅР°Р»РёР·Р°С†РёСЏ', city: 'Moon, Dreams, Low, Old City', id: 6},
+		{ name: 'Р“СЂРёР±РЅРёС†Р°', city: 'Sun City', id: 7},
+		{ name: 'Р›РµРґСЏРЅР°СЏ РїРµС‰РµСЂР°', city: 'Р’СЃРµ РіРѕСЂРѕРґР°', id: 8},
+		{ name: 'РЎС‚РѕСЂРѕР¶РµРІР°СЏ Р‘Р°С€РЅСЏ', city: 'Abandoned Plains', id: 9},
+		{ name: 'РўСѓРјР°РЅРЅС‹Рµ РЅРёР·РёРЅС‹', city: 'Devils City', id: 10},
+		{ name: 'Р“РѕСЂР° Р›РµРіРёРѕРЅР°', city: 'Abandoned Plains', id: 11}*/
 	];	
 
 	var all_maps = [
-			{name:'Пещера тысячи проклятий', city: 'Capital city', src: initvars.city.capital},
-			{name:'Канализация', city: 'Moon, Dreams, Low, Old City', src: initvars.city.novice},
-			/*{name:'Бездна', city: 'Angel City', src: initvars.city.angel},
-			{name:'Пещеры Мглы', city: 'Sand City',  src: initvars.city.sand},
-			{name:'Катакомбы', city: 'Demons City', src: initvars.city.demons},
-			{name:'Потерянный Вход', city: 'Emerald City', src: initvars.city.emerald},
-			{name:'Канализация', city: 'Moon, Dreams, Low, Old City', src: initvars.city.novice},
-			{name:'Грибница', city: 'Sun City', src: initvars.city.sun},
-			{name:'Ледяная пещера', city: 'Все города', src: initvars.city.ice},
-			{name:'Сторожевая Башня', city: 'Abandoned Plains', src: initvars.city.abdon},
-			{name:'Туманные низины', city: 'Devils City', src: initvars.city.devils},
-			{name:'Гора Легиона', city: 'Abandoned Plains', src: initvars.city.abdon2}*/
+			{name:'РџРµС‰РµСЂР° С‚С‹СЃСЏС‡Рё РїСЂРѕРєР»СЏС‚РёР№', city: 'Capital city', src: initvars.city.capital},
+			{name:'РљР°РЅР°Р»РёР·Р°С†РёСЏ', city: 'Moon, Dreams, Low, Old City', src: initvars.city.novice},
+			/*{name:'Р‘РµР·РґРЅР°', city: 'Angel City', src: initvars.city.angel},
+			{name:'РџРµС‰РµСЂС‹ РњРіР»С‹', city: 'Sand City',  src: initvars.city.sand},
+			{name:'РљР°С‚Р°РєРѕРјР±С‹', city: 'Demons City', src: initvars.city.demons},
+			{name:'РџРѕС‚РµСЂСЏРЅРЅС‹Р№ Р’С…РѕРґ', city: 'Emerald City', src: initvars.city.emerald},
+			{name:'РљР°РЅР°Р»РёР·Р°С†РёСЏ', city: 'Moon, Dreams, Low, Old City', src: initvars.city.novice},
+			{name:'Р“СЂРёР±РЅРёС†Р°', city: 'Sun City', src: initvars.city.sun},
+			{name:'Р›РµРґСЏРЅР°СЏ РїРµС‰РµСЂР°', city: 'Р’СЃРµ РіРѕСЂРѕРґР°', src: initvars.city.ice},
+			{name:'РЎС‚РѕСЂРѕР¶РµРІР°СЏ Р‘Р°С€РЅСЏ', city: 'Abandoned Plains', src: initvars.city.abdon},
+			{name:'РўСѓРјР°РЅРЅС‹Рµ РЅРёР·РёРЅС‹', city: 'Devils City', src: initvars.city.devils},
+			{name:'Р“РѕСЂР° Р›РµРіРёРѕРЅР°', city: 'Abandoned Plains', src: initvars.city.abdon2}*/
 		];
 
 var all_shops = [
-{name:'Пещера тысячи проклятий', city: 'Capital City', src: initvars.city.capital, id: 1},
-//{name:'Бездна', city: 'Angel City', src: initvars.city.angel, id: 2},
-{name:'Магазин Грибоеда', city: 'Sun City', src: initvars.city.sun, id: 7},
-{name:'Магазин Фелико', city: 'Sand City',  src: initvars.city.sand, id: 3},
-//{name:'Катакомбы', city: 'Demons City',  src: initvars.city.demons, id: 4},
-{name:'Магазин Луки', city: 'Moon, Dreams, Low, Old City',  src: initvars.city.novice, id: 6}
+{name:'РџРµС‰РµСЂР° С‚С‹СЃСЏС‡Рё РїСЂРѕРєР»СЏС‚РёР№', city: 'Capital City', src: initvars.city.capital, id: 1},
+//{name:'Р‘РµР·РґРЅР°', city: 'Angel City', src: initvars.city.angel, id: 2},
+{name:'РњР°РіР°Р·РёРЅ Р“СЂРёР±РѕРµРґР°', city: 'Sun City', src: initvars.city.sun, id: 7},
+{name:'РњР°РіР°Р·РёРЅ Р¤РµР»РёРєРѕ', city: 'Sand City',  src: initvars.city.sand, id: 3},
+//{name:'РљР°С‚Р°РєРѕРјР±С‹', city: 'Demons City',  src: initvars.city.demons, id: 4},
+{name:'РњР°РіР°Р·РёРЅ Р›СѓРєРё', city: 'Moon, Dreams, Low, Old City',  src: initvars.city.novice, id: 6}
 ];
 	
 
 	function createBaseDiv(){
- var htmlStr  = '<div style="font:italic 12px Arial, sans-serif;text-align: right;color:#666666;"><em>&laquo;Оставь надежды, всяк сюда входящий&raquo;</div>';
+ var htmlStr  = '<div style="font:italic 12px Arial, sans-serif;text-align: right;color:#666666;"><em>&laquo;РћСЃС‚Р°РІСЊ РЅР°РґРµР¶РґС‹, РІСЃСЏРє СЃСЋРґР° РІС…РѕРґСЏС‰РёР№&raquo;</div>';
 			htmlStr += createDivs();
-			/*htmlStr += '<p>Все предложения и замечания, пожалуйста, оставляйте <a class="TLink" target="_blank" href="'+forumLink+'">тут</a>.</p>';
-   htmlStr += '<p>Все вопросы, пожалуйста, оставляйте <a class="TLink" target="_blank" href="'+forumLink1+'">тут</a>.</p>';
-			htmlStr += '<p>Все права на данный продукт и на использованную символику принадлежат <strong><img height="15" alt="Темная склонность" src="' + imP2 + 'align3.gif" width="12" border="0" /><img src="' + imP4 + 'DarkClan.gif" alt="DarkClan" width="24" height="15" border="0" />DarkClan</strong>. </p>';
-			htmlStr += '<p>При разработке использованы технологии игры <a href="http://www.combats.ru/" target="_blank">Бойцовский клуб</a> и клана <strong><img height="15" alt="Темная склонность" src="' + imP2 + 'align3.gif" width="12" border="0" /><img src="' + imP4 + 'DarkClan.gif" alt="DarkClan" width="24" height="15" border="0" />DarkClan</strong>.</p>';
-			htmlStr += '<p>Благодарим за оказанную помощь в разработке продукта:  <b>Proshka, ландыши, Stary Voin, Rakoth, Gorby~DS~, Metrix, mcLander, kirillica, ferm, star_iK, MuL, Ossiris, Элибер, Тарк-Таркас, Tangera, StarryElves, dagenham, Seriyoga, Zigel, hombre nuevo, Deel</b> и всех остальных.</p>';
-  	htmlStr += '<p>Выражаем признательность <B><IMG title="Гвардия Мироздателя" height=15 alt="" src="' + imP2 + 'align1.01.gif" width=12 border=0> Саттва [10]</B> <A href="http://mooncity.combats.ru/inf.pl?login=Саттва" target=_blank><IMG title="Инф. о Саттва" height=11 alt=[i] src="' + imP2 + 'inf.gif" width=12 border=0></A> за  помощь в сборе информации по подземелью "Туманные низины". </p>';
+			/*htmlStr += '<p>Р’СЃРµ РїСЂРµРґР»РѕР¶РµРЅРёСЏ Рё Р·Р°РјРµС‡Р°РЅРёСЏ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РѕСЃС‚Р°РІР»СЏР№С‚Рµ <a class="TLink" target="_blank" href="'+forumLink+'">С‚СѓС‚</a>.</p>';
+   htmlStr += '<p>Р’СЃРµ РІРѕРїСЂРѕСЃС‹, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РѕСЃС‚Р°РІР»СЏР№С‚Рµ <a class="TLink" target="_blank" href="'+forumLink1+'">С‚СѓС‚</a>.</p>';
+			htmlStr += '<p>Р’СЃРµ РїСЂР°РІР° РЅР° РґР°РЅРЅС‹Р№ РїСЂРѕРґСѓРєС‚ Рё РЅР° РёСЃРїРѕР»СЊР·РѕРІР°РЅРЅСѓСЋ СЃРёРјРІРѕР»РёРєСѓ РїСЂРёРЅР°РґР»РµР¶Р°С‚ <strong><img height="15" alt="РўРµРјРЅР°СЏ СЃРєР»РѕРЅРЅРѕСЃС‚СЊ" src="' + imP2 + 'align3.gif" width="12" border="0" /><img src="' + imP4 + 'DarkClan.gif" alt="DarkClan" width="24" height="15" border="0" />DarkClan</strong>. </p>';
+			htmlStr += '<p>РџСЂРё СЂР°Р·СЂР°Р±РѕС‚РєРµ РёСЃРїРѕР»СЊР·РѕРІР°РЅС‹ С‚РµС…РЅРѕР»РѕРіРёРё РёРіСЂС‹ <a href="http://www.combats.ru/" target="_blank">Р‘РѕР№С†РѕРІСЃРєРёР№ РєР»СѓР±</a> Рё РєР»Р°РЅР° <strong><img height="15" alt="РўРµРјРЅР°СЏ СЃРєР»РѕРЅРЅРѕСЃС‚СЊ" src="' + imP2 + 'align3.gif" width="12" border="0" /><img src="' + imP4 + 'DarkClan.gif" alt="DarkClan" width="24" height="15" border="0" />DarkClan</strong>.</p>';
+			htmlStr += '<p>Р‘Р»Р°РіРѕРґР°СЂРёРј Р·Р° РѕРєР°Р·Р°РЅРЅСѓСЋ РїРѕРјРѕС‰СЊ РІ СЂР°Р·СЂР°Р±РѕС‚РєРµ РїСЂРѕРґСѓРєС‚Р°:  <b>Proshka, Р»Р°РЅРґС‹С€Рё, Stary Voin, Rakoth, Gorby~DS~, Metrix, mcLander, kirillica, ferm, star_iK, MuL, Ossiris, Р­Р»РёР±РµСЂ, РўР°СЂРє-РўР°СЂРєР°СЃ, Tangera, StarryElves, dagenham, Seriyoga, Zigel, hombre nuevo, Deel</b> Рё РІСЃРµС… РѕСЃС‚Р°Р»СЊРЅС‹С….</p>';
+  	htmlStr += '<p>Р’С‹СЂР°Р¶Р°РµРј РїСЂРёР·РЅР°С‚РµР»СЊРЅРѕСЃС‚СЊ <B><IMG title="Р“РІР°СЂРґРёСЏ РњРёСЂРѕР·РґР°С‚РµР»СЏ" height=15 alt="" src="' + imP2 + 'align1.01.gif" width=12 border=0> РЎР°С‚С‚РІР° [10]</B> <A href="http://mooncity.combats.ru/inf.pl?login=РЎР°С‚С‚РІР°" target=_blank><IMG title="РРЅС„. Рѕ РЎР°С‚С‚РІР°" height=11 alt=[i] src="' + imP2 + 'inf.gif" width=12 border=0></A> Р·Р°  РїРѕРјРѕС‰СЊ РІ СЃР±РѕСЂРµ РёРЅС„РѕСЂРјР°С†РёРё РїРѕ РїРѕРґР·РµРјРµР»СЊСЋ "РўСѓРјР°РЅРЅС‹Рµ РЅРёР·РёРЅС‹". </p>';
 	*/
 
 		document.getElementById('baseDiv').innerHTML = htmlStr;
@@ -217,10 +217,10 @@ var all_shops = [
 		ul.innerHTML = li_str;
 	}
 	function drawMonsters(id){
-		var i, j, temp_str = '<h3 style="margin:0px; padding:8px; font-size:18px; text-align:center;">Монстры</h3>';
+		var i, j, temp_str = '<h3 style="margin:0px; padding:8px; font-size:18px; text-align:center;">РњРѕРЅСЃС‚СЂС‹</h3>';
 		temp_str += '<table border="0" cellpadding="0" cellspacing="0"><tr><td width="250" height="500" valign="top">';
 		temp_str += '<select id="mnstrFilter" onchange="drawMonsters(this.options[this.selectedIndex].value)" style="margin-left:30px">';
-		temp_str += '<option '+((id == '')?'selected="selected"':'')+'>Показать всех</option>';
+		temp_str += '<option '+((id == '')?'selected="selected"':'')+'>РџРѕРєР°Р·Р°С‚СЊ РІСЃРµС…</option>';
 		for(i = 0; i < area.length; i++){
 			
 			temp_str += '<option value="'+i+'" '+((i == id && id != '')?'selected="selected"':'')+'>'+area[i].name+'</option>';
@@ -258,16 +258,16 @@ var all_shops = [
 		
 		var feature = creatures[id].levels;
 		var lvl   = '<td>&nbsp;</td>';
-		var str   = '<td>Сила:</td>';
-		var dex   = '<td>Ловкость:</td>';
-		var inst  = '<td>Интуиция:</td>';
-		var power = '<td>Выносливость:</td>';
-		var intel = '<td>Интеллект:</td>';
-		var wis = '<td>Мудрость:</td>';
+		var str   = '<td>РЎРёР»Р°:</td>';
+		var dex   = '<td>Р›РѕРІРєРѕСЃС‚СЊ:</td>';
+		var inst  = '<td>РРЅС‚СѓРёС†РёСЏ:</td>';
+		var power = '<td>Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ:</td>';
+		var intel = '<td>РРЅС‚РµР»Р»РµРєС‚:</td>';
+		var wis = '<td>РњСѓРґСЂРѕСЃС‚СЊ:</td>';
 		var hp = '<td>HP:</td>';
-		var bonus = creatures[id].job?'<td>Награда:</td>':'';
+		var bonus = creatures[id].job?'<td>РќР°РіСЂР°РґР°:</td>':'';
 		
-		temp_str += '<td>Характеристики:';
+		temp_str += '<td>РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё:';
 		
 		for(var i = 0; i < feature.length; i++){
 			lvl   += '<td width="40" style="text-align:right;font:bold;">';
@@ -294,12 +294,12 @@ var all_shops = [
 		temp_str += creatures[id].job?'<tr style="font:bold;">'+bonus+'</tr>':'';
 		temp_str += '</table>';
 				
-		temp_str += 'Место рождения: '+creatures[id].birthplace+'</td></tr>';
+		temp_str += 'РњРµСЃС‚Рѕ СЂРѕР¶РґРµРЅРёСЏ: '+creatures[id].birthplace+'</td></tr>';
 		temp_str += '<tr><td colspan="2"><br />'+creatures[id].descr+'</td></tr>';
 		document.getElementById('monsterPlace').innerHTML = temp_str+'</table>';
 	}
 	function drawItems(){
-		var i, j, temp_str = '<h3 style="margin:0px; padding:8px; font-size:18px; text-align:center;">Предметы из подземелий</h3>';
+		var i, j, temp_str = '<h3 style="margin:0px; padding:8px; font-size:18px; text-align:center;">РџСЂРµРґРјРµС‚С‹ РёР· РїРѕРґР·РµРјРµР»РёР№</h3>';
 		
 		temp_str += '<table border="0" cellpadding="0" cellspacing="0"><tr><td width="200" height="500" valign="top">';
 		temp_str += '<ul>';
@@ -320,31 +320,31 @@ var all_shops = [
 		for(var i in items[id]){
 			temp_str += '<tr><td width="60" valign="top" align="center"><img src="'+items[id][i].src+'" /></td>';
 			temp_str += '<td valign="top" style="font:12px Arial,sans-serif;"><strong>'+items[id][i].name+'</strong><br />';
-			temp_str += '<a href="#" onclick="openCloseDesr(\'item'+id+i+'\', this);return false;" >Показать параметры</a>';
+			temp_str += '<a href="#" onclick="openCloseDesr(\'item'+id+i+'\', this);return false;" >РџРѕРєР°Р·Р°С‚СЊ РїР°СЂР°РјРµС‚СЂС‹</a>';
 			temp_str += '<div id="item'+id+i+'" style="display:none; padding-left:15px;">';
 			temp_str += items[id][i].descr ? items[id][i].descr : '';
 			
 			if(items[id][i].recipes){
 				temp_str += '<br />';
-				if(id=='Ингредиенты'){
-					temp_str += '<b>Входит в состав:</b><br />';
+				if(id=='РРЅРіСЂРµРґРёРµРЅС‚С‹'){
+					temp_str += '<b>Р’С…РѕРґРёС‚ РІ СЃРѕСЃС‚Р°РІ:</b><br />';
 					for(var j in items[id][i].recipes){
 						for(var k = 0; k < recipes.length; k++){
 							if(j == recipes[k][0]){
-								temp_str += '<strong style="color:#006600">'+recipes[k][1]+'</strong> &ndash; '+items[id][i].recipes[j]+'&nbsp;шт.  ';
+								temp_str += '<strong style="color:#006600">'+recipes[k][1]+'</strong> &ndash; '+items[id][i].recipes[j]+'&nbsp;С€С‚.  ';
 							}
 						}
 					}
 					
 				}else{
-					temp_str += 'Рецепт:<br />';
+					temp_str += 'Р РµС†РµРїС‚:<br />';
 					for(var j in items[id][i].recipes){
-						temp_str += '<strong style="color:#006600">'+maters[j].name+'</strong> &ndash; '+items[id][i].recipes[j]+'&nbsp;шт. ';
+						temp_str += '<strong style="color:#006600">'+maters[j].name+'</strong> &ndash; '+items[id][i].recipes[j]+'&nbsp;С€С‚. ';
 					}
 				}
 			}
-			if(id=='Ингредиенты' && items[id][i].cena)
-				temp_str += '<br /><br />Сдав в государственный магазин вы получите: <strong>'+items[id][i].cena+' кр.</strong>';
+			if(id=='РРЅРіСЂРµРґРёРµРЅС‚С‹' && items[id][i].cena)
+				temp_str += '<br /><br />РЎРґР°РІ РІ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅС‹Р№ РјР°РіР°Р·РёРЅ РІС‹ РїРѕР»СѓС‡РёС‚Рµ: <strong>'+items[id][i].cena+' РєСЂ.</strong>';
 			temp_str += '</div>';
 			temp_str += '</td></tr>';
 		}
@@ -352,11 +352,11 @@ var all_shops = [
 	}
 	function openCloseDesr(id, source){
 		document.getElementById(id).style.display =(document.getElementById(id).style.display == 'none')?'':'none';
-		source.innerHTML = (document.getElementById(id).style.display == 'none')?'Показать параметры':'Скрыть параметры';
+		source.innerHTML = (document.getElementById(id).style.display == 'none')?'РџРѕРєР°Р·Р°С‚СЊ РїР°СЂР°РјРµС‚СЂС‹':'РЎРєСЂС‹С‚СЊ РїР°СЂР°РјРµС‚СЂС‹';
 	}
 	
 	function drawRecepts(){
-		var i, j, temp_str = '<h3 style="margin:0px; padding:8px; font-size:18px; text-align:center;">Конструктор диггера </h3>';
+		var i, j, temp_str = '<h3 style="margin:0px; padding:8px; font-size:18px; text-align:center;">РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґРёРіРіРµСЂР° </h3>';
 		
 		
 		temp_str += '<div id="constructor" style="padding-right:10px;"></div>';
@@ -364,19 +364,19 @@ var all_shops = [
 		makeConstructor();
 	}
 	function drawJobs(id){
-		var i, j, temp_str = '<h3 style="margin:0px; padding:8px; font-size:18px; text-align:center;">Задания</h3>';
+		var i, j, temp_str = '<h3 style="margin:0px; padding:8px; font-size:18px; text-align:center;">Р—Р°РґР°РЅРёСЏ</h3>';
 		temp_str += '<table border="0" cellpadding="0" cellspacing="0"><tr><td width="250" height="500" valign="top">';
 		temp_str += '<select id="jobsFilter" onchange="drawJobs(this.options[this.selectedIndex].value)" style="margin-left:30px">';
-		temp_str += '<option '+((id == '')?'selected="selected"':'')+'>Показать все</option>';
+		temp_str += '<option '+((id == '')?'selected="selected"':'')+'>РџРѕРєР°Р·Р°С‚СЊ РІСЃРµ</option>';
 		for(i = 0; i < citys.length; i++){
 			temp_str += '<option value="'+citys[i].id+'" '+((i == id-1 && id != '')?'selected="selected"':'')+'>'+citys[i].name+'</option>';
 		}
 		temp_str += '</select>';
 		temp_str += '<ul>';
-		temp_str += '<li><a href="javascript:showJobs( 1, '+(id?id:0)+')">Убийство монстров</a></li>';
-		temp_str += '<li><a href="javascript:showJobs( 2, '+(id?id:0)+')">Собирание трофеев</a></li>';
-		temp_str += '<li><a href="javascript:showJobs( 3, '+(id?id:0)+')">Собирание</a></li>';
-		temp_str += '<li><a href="javascript:showJobs( 4, '+(id?id:0)+')">Рыцарские задания</a></li>';
+		temp_str += '<li><a href="javascript:showJobs( 1, '+(id?id:0)+')">РЈР±РёР№СЃС‚РІРѕ РјРѕРЅСЃС‚СЂРѕРІ</a></li>';
+		temp_str += '<li><a href="javascript:showJobs( 2, '+(id?id:0)+')">РЎРѕР±РёСЂР°РЅРёРµ С‚СЂРѕС„РµРµРІ</a></li>';
+		temp_str += '<li><a href="javascript:showJobs( 3, '+(id?id:0)+')">РЎРѕР±РёСЂР°РЅРёРµ</a></li>';
+		temp_str += '<li><a href="javascript:showJobs( 4, '+(id?id:0)+')">Р С‹С†Р°СЂСЃРєРёРµ Р·Р°РґР°РЅРёСЏ</a></li>';
 		temp_str += '</ul></td>';
 		temp_str += '<td valign="top"><div id="jobsPlace" style="padding-right:10px;"></div></td></tr></table>';
 		document.getElementById(sections[4].id).innerHTML = temp_str;
@@ -392,8 +392,8 @@ var all_shops = [
 			temp_str += ((obj.target.alignment)?'<img src="' + imP2 + 'align'+((obj.target.alignment==1)?9:3)+'.gif" align="absmiddle" />':'');
 			temp_str += '<strong>'+obj.target.name+'</strong><br />';
 			temp_str += '<ul style="list-style:none;margin:6px;">';
-			temp_str += '<li style="margin:5px;">Введите количество монстров:</li>';
-			temp_str += '<li style="margin:5px;"><input type="text" '+((obj.count == 1)?'disabled':'')+' id="count_'+obj.id+'" value="'+obj.count+'" style="width:30px;border:1px solid #999999;color:#333333;" onchange="changeJobCount(\''+obj.id+'\', this.value, '+levels.length+')" /> шт.</li>';
+			temp_str += '<li style="margin:5px;">Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РјРѕРЅСЃС‚СЂРѕРІ:</li>';
+			temp_str += '<li style="margin:5px;"><input type="text" '+((obj.count == 1)?'disabled':'')+' id="count_'+obj.id+'" value="'+obj.count+'" style="width:30px;border:1px solid #999999;color:#333333;" onchange="changeJobCount(\''+obj.id+'\', this.value, '+levels.length+')" /> С€С‚.</li>';
 			
 			for(var i = 0; i <= obj.count; i++){
 				select_str += '<option value="'+i+'">'+i+'</option>';
@@ -409,7 +409,7 @@ var all_shops = [
 					temp_str += levels[i].align?'<img src="' + imP2 + 'align'+((levels[i].align==1)?9:3)+'.gif" align="absmiddle" />':'';
 					temp_str += (!levels[i].align?'&nbsp;&nbsp;&nbsp;':'')+levels[i].level;
 					temp_str += ' <select id="select_'+obj.id+'_'+i+'" style="width:40px;" onchange="redrawSelestJob(\''+obj.id+'\', '+levels.length+', this, ['+bonus.toString()+'])" >'+select_str+'</select>';
-					temp_str += ' - награда: '+levels[i].bonus+' ед./шт.</li>';
+					temp_str += ' - РЅР°РіСЂР°РґР°: '+levels[i].bonus+' РµРґ./С€С‚.</li>';
 				}
 			}
 			temp_str += '</ul>';
@@ -420,11 +420,11 @@ var all_shops = [
 		}else{
 			temp_str += '<td width="20%" valign="top"><img src="' + imP3 + obj.target+'.gif" border="0"/><br />';
 			temp_str += '<ul style="list-style:none;margin:6px;">';
-			temp_str += '<li style="margin:5px;">Введите количество:</li>';
-			temp_str += '<li style="margin:5px;"><input type="text" id="count_'+obj.target+'" value="'+obj.count+'" style="width:30px;border:1px solid #999999;color:#333333;" onchange="changeJobCount2(\''+obj.target+''+obj.city+'\', this.value, '+obj.bonus+')" /> шт.</li>';
+			temp_str += '<li style="margin:5px;">Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ:</li>';
+			temp_str += '<li style="margin:5px;"><input type="text" id="count_'+obj.target+'" value="'+obj.count+'" style="width:30px;border:1px solid #999999;color:#333333;" onchange="changeJobCount2(\''+obj.target+''+obj.city+'\', this.value, '+obj.bonus+')" /> С€С‚.</li>';
 			temp_str += '</ul></td>';
 			temp_str += '<td><strong>'+obj.name+'</strong><br />'+obj.descr+'</div>';
-			temp_str += '<div id="bonus_'+obj.target+''+obj.city+'" style="color:green;height:25px;">Вы получите: <strong>'+(obj.count*obj.bonus)+'</strong> ед. награды.</div>';
+			temp_str += '<div id="bonus_'+obj.target+''+obj.city+'" style="color:green;height:25px;">Р’С‹ РїРѕР»СѓС‡РёС‚Рµ: <strong>'+(obj.count*obj.bonus)+'</strong> РµРґ. РЅР°РіСЂР°РґС‹.</div>';
 			temp_str += '</td>';
 		}
 		temp_str += '</tr>';
@@ -445,7 +445,7 @@ var all_shops = [
 				summ += bot[i]*targ.selectedIndex;
 			}
 		}
-		document.getElementById('bonus_'+id).innerHTML = 'Вы получите: <strong>'+summ+'</strong>ед. награды';
+		document.getElementById('bonus_'+id).innerHTML = 'Р’С‹ РїРѕР»СѓС‡РёС‚Рµ: <strong>'+summ+'</strong>РµРґ. РЅР°РіСЂР°РґС‹';
 		for( i = 0; i < length; i++){
 			if(document.getElementById('select_'+id+'_'+i)){
 				document.getElementById('select_'+id+'_'+i).options.length = 0;
@@ -474,11 +474,11 @@ var all_shops = [
 	function changeJobCount2( obj, val, bonus){
 		
 		document.getElementById('descr_'+obj).innerHTML = val;
-		document.getElementById('bonus_'+obj).innerHTML = 'Вы получите: <strong>'+(val*bonus)+'</strong> ед. награды.';
+		document.getElementById('bonus_'+obj).innerHTML = 'Р’С‹ РїРѕР»СѓС‡РёС‚Рµ: <strong>'+(val*bonus)+'</strong> РµРґ. РЅР°РіСЂР°РґС‹.';
 	}
 	
 	function showJobs(id, city){
-		var job_name = ['Убийство монстров','Собирание трофеев','Собирание','Рыцарское задание'];
+		var job_name = ['РЈР±РёР№СЃС‚РІРѕ РјРѕРЅСЃС‚СЂРѕРІ','РЎРѕР±РёСЂР°РЅРёРµ С‚СЂРѕС„РµРµРІ','РЎРѕР±РёСЂР°РЅРёРµ','Р С‹С†Р°СЂСЃРєРѕРµ Р·Р°РґР°РЅРёРµ'];
 		var temp_str = '';
 		var temp_id = -1;
 		temp_str += '<table border="0" cellpadding="0" cellspacing="10">';
@@ -491,7 +491,7 @@ var all_shops = [
 					if (chap != '')
 					{
 						var s = '<tr><td colspan="2">';
-						s += '<h4>'+job_name[id-1]+' в &laquo;'+citys[temp_id-1].name+'&raquo; ('+citys[temp_id-1].city+')</h4>';
+						s += '<h4>'+job_name[id-1]+' РІ &laquo;'+citys[temp_id-1].name+'&raquo; ('+citys[temp_id-1].city+')</h4>';
 						s += '</td></tr>';
 						chap = s + chap;
 						temp_str += chap;
@@ -505,7 +505,7 @@ var all_shops = [
 			if (chap != '')
 			{
 				var s = '<tr><td colspan="2">';
-				s += '<h4>'+job_name[id-1]+' в &laquo;'+citys[temp_id-1].name+'&raquo; ('+citys[temp_id-1].city+')</h4>';
+				s += '<h4>'+job_name[id-1]+' РІ &laquo;'+citys[temp_id-1].name+'&raquo; ('+citys[temp_id-1].city+')</h4>';
 				s += '</td></tr>';
 				chap = s + chap;
 				temp_str += chap;
@@ -513,7 +513,7 @@ var all_shops = [
 			
 		}else{
 			temp_str += '<tr><td colspan="2">';
-			temp_str += '<h4>'+job_name[id-1]+' в &laquo;'+citys[city-1].name+'&raquo; ('+citys[city-1].city+')</h4>';
+			temp_str += '<h4>'+job_name[id-1]+' РІ &laquo;'+citys[city-1].name+'&raquo; ('+citys[city-1].city+')</h4>';
 			temp_str += '</td></tr>';
 			for(var i = 0; i < jobs_list.length; i++){	
 				if(jobs_list[i].type == id && jobs_list[i].city == city){
@@ -524,8 +524,8 @@ var all_shops = [
 		document.getElementById('jobsPlace').innerHTML = temp_str+'</table>';
 	}
 	function drawShops(){
-		var i, j, temp_str = '<h3 style="margin:0px; padding:8px; font-size:18px; text-align:center;">Рыцарские магазины</h3>';
-		temp_str += '<div align="left" style="margin: 25px 45px;">Достижение 10000 (десять тысяч) очков репутации в конкретном городе дает возможность входа в Рыцарский магазин этого города. <br /></div>';
+		var i, j, temp_str = '<h3 style="margin:0px; padding:8px; font-size:18px; text-align:center;">Р С‹С†Р°СЂСЃРєРёРµ РјР°РіР°Р·РёРЅС‹</h3>';
+		temp_str += '<div align="left" style="margin: 25px 45px;">Р”РѕСЃС‚РёР¶РµРЅРёРµ 10000 (РґРµСЃСЏС‚СЊ С‚С‹СЃСЏС‡) РѕС‡РєРѕРІ СЂРµРїСѓС‚Р°С†РёРё РІ РєРѕРЅРєСЂРµС‚РЅРѕРј РіРѕСЂРѕРґРµ РґР°РµС‚ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РІС…РѕРґР° РІ Р С‹С†Р°СЂСЃРєРёР№ РјР°РіР°Р·РёРЅ СЌС‚РѕРіРѕ РіРѕСЂРѕРґР°. <br /></div>';
 		temp_str += '<table border="0" cellpadding="0" cellspacing="0"><tr><td width="250" height="500" valign="top">';
 		temp_str += '<ul style="list-style:none;">';
 		for(var i = 0; i < all_shops.length; i++){
@@ -548,7 +548,7 @@ var all_shops = [
 			if(shop[i].city == id){
 				temp_str += '<tr><td width="60" valign="top" align="center"><img src="'+shop[i].src+'" border="0" /></td>';
 				temp_str += '<td valign="top" style="font:12px Arial,sans-serif;"><strong>'+shop[i].name+'</strong><br />';
-				temp_str += '<a href="#" onclick="openCloseDesr(\'item'+id+i+'\', this);return false;" >Показать параметры</a>';
+				temp_str += '<a href="#" onclick="openCloseDesr(\'item'+id+i+'\', this);return false;" >РџРѕРєР°Р·Р°С‚СЊ РїР°СЂР°РјРµС‚СЂС‹</a>';
 				temp_str += '<div id="item'+id+i+'" style="display:none; padding-left:15px;">';
 				temp_str += shop[i].descr ? shop[i].descr : '';
 				temp_str += '</div>';

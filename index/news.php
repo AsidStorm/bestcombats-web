@@ -9,12 +9,12 @@ $data['text'] = preg_replace('#\$((.+?)\.(jpg|png|gif))\$#i', '<img src="http://
 	<td class="news_title"><?=$data['topic']?></td>
 </tr>
 <tr>
-	<td class="news_info"><b>Автор:</b> <?=$data['author']?>  <a href='/inf.php?login=<?=$data['author']?>' target='_blank' title='Информация о <?=$data['author']?>'>
-<img src='http://img.bestcombats.net/chat/inf.gif'/></a> &nbsp; <b>Дата:</b> <?=$data['date']?></td>
+	<td class="news_info"><b>РђРІС‚РѕСЂ:</b> <?=$data['author']?>  <a href='/inf.php?login=<?=$data['author']?>' target='_blank' title='РРЅС„РѕСЂРјР°С†РёСЏ Рѕ <?=$data['author']?>'>
+<img src='http://img.bestcombats.net/chat/inf.gif'/></a> &nbsp; <b>Р”Р°С‚Р°:</b> <?=$data['date']?></td>
 </tr>
 <tr>
 	<td class="news_content" colspan="2"><?=$data['text']?></td><hr>
 </tr>
 </table>
 <?}?>
-<hr><br><center><a href="http://events.bestcombats.net/">Все новости</a></center>
+<hr><br><center><a href="http://events.bestcombats.net/">Р’СЃРµ РЅРѕРІРѕСЃС‚Рё</a></center>

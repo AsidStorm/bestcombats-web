@@ -37,7 +37,7 @@ function DrawWeather(room) {
 	var div = '';
 	for (i = 0; i < no; ++ i) {  
 		SetVariable(i);
-		div += "<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: 0" + i +"; VISIBILITY: visible; TOP: " + 0 + "px; LEFT: " + 0 + "px;\"><img id=\"im"+ i +"\" src=\"" + (sty[i]<sp_rel ? snowflake2 : snowflake1 ) + "\" border=\"0\" alt=\"Ñíåæèíêà\"></div>";
+		div += "<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: 0" + i +"; VISIBILITY: visible; TOP: " + 0 + "px; LEFT: " + 0 + "px;\"><img id=\"im"+ i +"\" src=\"" + (sty[i]<sp_rel ? snowflake2 : snowflake1 ) + "\" border=\"0\" alt=\"Ð¡Ð½ÐµÐ¶Ð¸Ð½ÐºÐ°\"></div>";
 	}	
 	document.getElementById('snow').innerHTML = div;	
 	return 1;

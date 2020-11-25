@@ -6,9 +6,9 @@ function DrawBar(title, id, flags, link_text, link){
   var rnd = Math.random();
   s += '<a name="bar__'+id+'" href="?edit='+rnd+'&bar='+id+'&a=explore&is_open='+(1-(flags & 1))+'#bar_'+id+'">';
   if (flags & 1) {
-    s+= '<img width='+sz+' height=9 alt="Скрыть" border=0 src="/i/icon/'+num+'minus.gif">';
+    s+= '<img width='+sz+' height=9 alt="РЎРєСЂС‹С‚СЊ" border=0 src="/i/icon/'+num+'minus.gif">';
   } else {
-    s+= '<img width='+sz+' height=9 alt="Показать" border=0 src="/i/icon/'+num+'plus.gif">';
+    s+= '<img width='+sz+' height=9 alt="РџРѕРєР°Р·Р°С‚СЊ" border=0 src="/i/icon/'+num+'plus.gif">';
   }
   s += '</a> </td>';
   s += '<td>&nbsp;</td><td bgcolor="#e2e0e0"><small>&nbsp;<b>'+title+':<b>&nbsp;</small></td>';
@@ -17,12 +17,12 @@ function DrawBar(title, id, flags, link_text, link){
   }
   s += '<td align=right valign=top width="100%">';
   if (!(flags&2)){
-     s += '<a href="?edit='+rnd+'&bar='+id+'&a=up#bar_'+id+'"><img border=0 width='+sz+' height=9 alt="Поднять блок наверх" src="/i/icon/'+num+'up.gif"></a>';
+     s += '<a href="?edit='+rnd+'&bar='+id+'&a=up#bar_'+id+'"><img border=0 width='+sz+' height=9 alt="РџРѕРґРЅСЏС‚СЊ Р±Р»РѕРє РЅР°РІРµСЂС…" src="/i/icon/'+num+'up.gif"></a>';
   } else {
     s+= '<img border=0 width='+sz+' height=9 alt="" src="/i/icon/'+num+'up-grey.gif">';
   }
   if (!(flags&4)){
-    s += '<a href="?edit='+rnd+'&bar='+id+'&a=down#bar_'+id+'"><img border=0 width='+sz+' height=9 alt="Опустить блок вниз" src="/i/icon/'+num+'down.gif"></a>';
+    s += '<a href="?edit='+rnd+'&bar='+id+'&a=down#bar_'+id+'"><img border=0 width='+sz+' height=9 alt="РћРїСѓСЃС‚РёС‚СЊ Р±Р»РѕРє РІРЅРёР·" src="/i/icon/'+num+'down.gif"></a>';
   } else {
     s+= '<img border=0 width='+sz+' height=9 alt="" src="/i/icon/'+num+'down-grey.gif">';
   }
@@ -66,9 +66,9 @@ function UseMagick(title, script, name, extparam, n, extparam2, mtype, dress) {
     document.all("param").focus();
     Hint3Name = 'param';
    } else {
-     if (dress==1) quest='Вы действительно хотите надеть эту вещь? Предмет свяжется с вами общей судьбой.';
-     else quest='Использовать сейчас?';
-        dialogconfirm('Подтверждение', script, '<TABLE width=100%><TD><IMG src="/i/sh/'+image+'"></TD><TD>'+quest+'</TABLE>'+
+     if (dress==1) quest='Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ РЅР°РґРµС‚СЊ СЌС‚Сѓ РІРµС‰СЊ? РџСЂРµРґРјРµС‚ СЃРІСЏР¶РµС‚СЃСЏ СЃ РІР°РјРё РѕР±С‰РµР№ СЃСѓРґСЊР±РѕР№.';
+     else quest='РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРµР№С‡Р°СЃ?';
+        dialogconfirm('РџРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ', script, '<TABLE width=100%><TD><IMG src="/i/sh/'+image+'"></TD><TD>'+quest+'</TABLE>'+
         '<input type=hidden name="use" id="use" value="'+name+'"><input type=hidden name="n" value="'+n+'">', mtype);
    }
 }
@@ -77,12 +77,12 @@ function splitstack(title, script, img, st) {
     var s;
     if (st==1) {
       s='<table border=0 width=100% cellspacing="0" cellpadding="2"><tr><form action="'+script+'" method=POST name=slform><td colspan=2>'+
-      '<TABLE width=100%><TD><IMG src="/i/sh/'+img+'"></TD><TD>Разделить предмет <b>'+title+'</b></TABLE> Количество: <input type="text" name="qty" value="1"> </TD></TR><TR><TD width=50% align=left><INPUT TYPE="button" name="tmpname423" value="Да" style="width:70%" onclick="if (!top.is_qlaunch) { slform.submit(); } else { top.QLaunchQuery(slform.use.value); closehint3(); } "></TD><TD width=50% align=right><INPUT type=button style="width:70%" value="Нет" onclick="closehint3();"></TD></TR></FORM></TABLE>';
-      s = crtmagic(0, 'Разделить предмет?', s);
+      '<TABLE width=100%><TD><IMG src="/i/sh/'+img+'"></TD><TD>Р Р°Р·РґРµР»РёС‚СЊ РїСЂРµРґРјРµС‚ <b>'+title+'</b></TABLE> РљРѕР»РёС‡РµСЃС‚РІРѕ: <input type="text" name="qty" value="1"> </TD></TR><TR><TD width=50% align=left><INPUT TYPE="button" name="tmpname423" value="Р”Р°" style="width:70%" onclick="if (!top.is_qlaunch) { slform.submit(); } else { top.QLaunchQuery(slform.use.value); closehint3(); } "></TD><TD width=50% align=right><INPUT type=button style="width:70%" value="РќРµС‚" onclick="closehint3();"></TD></TR></FORM></TABLE>';
+      s = crtmagic(0, 'Р Р°Р·РґРµР»РёС‚СЊ РїСЂРµРґРјРµС‚?', s);
     } else {
       s='<table border=0 width=100% cellspacing="0" cellpadding="2"><tr><form action="'+script+'" method=POST name=slform><td colspan=2>'+
-      '<TABLE width=100%><TD><IMG src="/i/sh/'+img+'"></TD><TD>Разделить на равные части <b>'+title+'</b></TABLE> Количество частей: <input type="text" name="qty" value="2"> </TD></TR><TR><TD width=50% align=left><INPUT TYPE="button" name="tmpname423" value="Да" style="width:70%" onclick="if (!top.is_qlaunch) { slform.submit(); } else { top.QLaunchQuery(slform.use.value); closehint3(); } "></TD><TD width=50% align=right><INPUT type=button style="width:70%" value="Нет" onclick="closehint3();"></TD></TR></FORM></TABLE>';
-      s = crtmagic(0, 'Разделить на равные?', s);
+      '<TABLE width=100%><TD><IMG src="/i/sh/'+img+'"></TD><TD>Р Р°Р·РґРµР»РёС‚СЊ РЅР° СЂР°РІРЅС‹Рµ С‡Р°СЃС‚Рё <b>'+title+'</b></TABLE> РљРѕР»РёС‡РµСЃС‚РІРѕ С‡Р°СЃС‚РµР№: <input type="text" name="qty" value="2"> </TD></TR><TR><TD width=50% align=left><INPUT TYPE="button" name="tmpname423" value="Р”Р°" style="width:70%" onclick="if (!top.is_qlaunch) { slform.submit(); } else { top.QLaunchQuery(slform.use.value); closehint3(); } "></TD><TD width=50% align=right><INPUT type=button style="width:70%" value="РќРµС‚" onclick="closehint3();"></TD></TR></FORM></TABLE>';
+      s = crtmagic(0, 'Р Р°Р·РґРµР»РёС‚СЊ РЅР° СЂР°РІРЅС‹Рµ?', s);
     }
     document.all("hint3").innerHTML = s;
 
@@ -96,7 +96,7 @@ function splitstack(title, script, img, st) {
 function dialogconfirm(title, script, text, mtype) {
     var s;
     s='<table border=0 width=100% cellspacing="0" cellpadding="2"><tr><form action="'+script+'" method=POST name=slform><td colspan=2>'+
-    text+'</TD></TR><TR><TD width=50% align=left><INPUT TYPE="button" name="tmpname423" value="Да" style="width:70%" onclick="if (!top.is_qlaunch) { slform.submit(); } else { top.QLaunchQuery(slform.use.value);} closehint3();"></TD><TD width=50% align=right><INPUT type=button style="width:70%" value="Нет" onclick="closehint3();"></TD></TR></FORM></TABLE>';
+    text+'</TD></TR><TR><TD width=50% align=left><INPUT TYPE="button" name="tmpname423" value="Р”Р°" style="width:70%" onclick="if (!top.is_qlaunch) { slform.submit(); } else { top.QLaunchQuery(slform.use.value);} closehint3();"></TD><TD width=50% align=right><INPUT type=button style="width:70%" value="РќРµС‚" onclick="closehint3();"></TD></TR></FORM></TABLE>';
 
     s = crtmagic(mtype, title, s);
     document.getElementById("hint3").innerHTML = s;

@@ -4,12 +4,12 @@ if ($b) {
 mysql_query("UPDATE users SET `battle` =0, `nich` = `nich`+'1',`fullhptime` = ".time().",`fullmptime` = ".time().",`udar` = '0' WHERE `battle` = $b");
 mq("update battle set win=0 where id='$b'");
 mq("delete from bots where battle='$b'");
-$fp = fopen ("backup/logs/battle$b.txt","a"); //открытие
-flock ($fp,LOCK_EX); //БЛОКИРОВКА ФАЙЛА
-fputs($fp , '<hr><span class=date>'.date("H:i").'</span> Бой закончен. Ничья.<BR>'); //работа с файлом
-fflush ($fp); //ОЧИЩЕНИЕ ФАЙЛОВОГО БУФЕРА И ЗАПИСЬ В ФАЙЛ
-flock ($fp,LOCK_UN); //СНЯТИЕ БЛОКИРОВКИ
-fclose ($fp); //закрытие
-echo "<b>Бой персонажа $_POST[target] удалён.</b>";
-} else echo "<b><font color=red>Персонаж $_POST[target] не в бою.</font></b>";
+$fp = fopen ("backup/logs/battle$b.txt","a"); //РѕС‚РєСЂС‹С‚РёРµ
+flock ($fp,LOCK_EX); //Р‘Р›РћРљРР РћР’РљРђ Р¤РђР™Р›Рђ
+fputs($fp , '<hr><span class=date>'.date("H:i").'</span> Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ. РќРёС‡СЊСЏ.<BR>'); //СЂР°Р±РѕС‚Р° СЃ С„Р°Р№Р»РѕРј
+fflush ($fp); //РћР§РР©Р•РќРР• Р¤РђР™Р›РћР’РћР“Рћ Р‘РЈР¤Р•Р Рђ Р Р—РђРџРРЎР¬ Р’ Р¤РђР™Р›
+flock ($fp,LOCK_UN); //РЎРќРЇРўРР• Р‘Р›РћРљРР РћР’РљР
+fclose ($fp); //Р·Р°РєСЂС‹С‚РёРµ
+echo "<b>Р‘РѕР№ РїРµСЂСЃРѕРЅР°Р¶Р° $_POST[target] СѓРґР°Р»С‘РЅ.</b>";
+} else echo "<b><font color=red>РџРµСЂСЃРѕРЅР°Р¶ $_POST[target] РЅРµ РІ Р±РѕСЋ.</font></b>";
 ?>

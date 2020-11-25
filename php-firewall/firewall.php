@@ -41,26 +41,26 @@ if ( count( $IP_ALLOW ) > 0 ) {
 //exit;
 /** LANGUAGE */
 if ( PHP_FIREWALL_LANGUAGE === 'french' ) {
-	define('_PHPF_PROTECTION_DEDIBOX', 'Protection contre les serveurs DEDIBOX active, cette IP range n\'est pas autorisÈe !');
-	define('_PHPF_PROTECTION_DEDIBOX_IP', 'Protection contre les serveurs DEDIBOX active, cette IP range n\'est pas autorisÈe !');
+	define('_PHPF_PROTECTION_DEDIBOX', 'Protection contre les serveurs DEDIBOX active, cette IP range n\'est pas autoris–πe !');
+	define('_PHPF_PROTECTION_DEDIBOX_IP', 'Protection contre les serveurs DEDIBOX active, cette IP range n\'est pas autoris–πe !');
 
 	define('_PHPF_PROTECTION_DIGICUBE', 'Protection contre les serveurs DIGICUBE active, this IP range is not allowed !');
-	define('_PHPF_PROTECTION_DIGICUBE_IP', 'Protection contre les serveurs DIGICUBE active, cette IP n\'est pas autorisÈe !');
+	define('_PHPF_PROTECTION_DIGICUBE_IP', 'Protection contre les serveurs DIGICUBE active, cette IP n\'est pas autoris–πe !');
 
-	define('_PHPF_PROTECTION_KIMSUFI', 'Protection contre les serveurs KIMSUFI active, cette IP range n\'est pas autorisÈe !');
-	define('_PHPF_PROTECTION_OVH', 'Protection contre les serveurs OVH active, cette IP range n\'est pas autorisÈe !');
+	define('_PHPF_PROTECTION_KIMSUFI', 'Protection contre les serveurs KIMSUFI active, cette IP range n\'est pas autoris–πe !');
+	define('_PHPF_PROTECTION_OVH', 'Protection contre les serveurs OVH active, cette IP range n\'est pas autoris–πe !');
 
-	define('_PHPF_PROTECTION_BOTS', 'Attaque Bot dÈtectÈe ! stop it ...');
-	define('_PHPF_PROTECTION_CLICK', 'Click attaque dÈtectÈe ! stop it .....');
+	define('_PHPF_PROTECTION_BOTS', 'Attaque Bot d–πtect–πe ! stop it ...');
+	define('_PHPF_PROTECTION_CLICK', 'Click attaque d–πtect–πe ! stop it .....');
 	define('_PHPF_PROTECTION_DOS', 'Invalide user agent ! Stop it ...');
 	define('_PHPF_PROTECTION_OTHER_SERVER', 'Poster depuis un autre serveur est interdit !');
-	define('_PHPF_PROTECTION_REQUEST', 'MÈthode de requÍte interdite ! Stop it ...');
-	define('_PHPF_PROTECTION_SANTY', 'Attaque Santy detectÈe ! Stop it ...');
-	define('_PHPF_PROTECTION_SPAM', 'Protection SPAM IPs active, cette IP range n\'est pas autorisÈe !');
-	define('_PHPF_PROTECTION_SPAM_IP', 'Protection SPAM IPs active, cette IP range n\'est pas autorisÈe !');
+	define('_PHPF_PROTECTION_REQUEST', 'M–πthode de requ–∫te interdite ! Stop it ...');
+	define('_PHPF_PROTECTION_SANTY', 'Attaque Santy detect–πe ! Stop it ...');
+	define('_PHPF_PROTECTION_SPAM', 'Protection SPAM IPs active, cette IP range n\'est pas autoris–πe !');
+	define('_PHPF_PROTECTION_SPAM_IP', 'Protection SPAM IPs active, cette IP range n\'est pas autoris–πe !');
 	define('_PHPF_PROTECTION_UNION', '');
-	define('_PHPF_PROTECTION_URL', 'Protection url active, string non autorisÈe !');
-	define('_PHPF_PROTECTION_XSS', 'Attaque XSS dÈtectÈe ! stop it ...');
+	define('_PHPF_PROTECTION_URL', 'Protection url active, string non autoris–πe !');
+	define('_PHPF_PROTECTION_XSS', 'Attaque XSS d–πtect–πe ! stop it ...');
 } else {
 	define('_PHPF_PROTECTION_DEDIBOX', 'Protection DEDIBOX Server active, this IP range is not allowed !');
 	define('_PHPF_PROTECTION_DEDIBOX_IP', 'Protection DEDIBOX Server active, this IP is not allowed !');
@@ -79,7 +79,7 @@ if ( PHP_FIREWALL_LANGUAGE === 'french' ) {
 	define('_PHPF_PROTECTION_SANTY', 'Attack Santy detected ! Stop it ...');
 	define('_PHPF_PROTECTION_SPAM', 'Protection SPAM IPs active, this IP range is not allowed !');
 	define('_PHPF_PROTECTION_SPAM_IP', 'Protection died IPs active, this IP range is not allowed !');
-	define('_PHPF_PROTECTION_UNION', '«‰ÂÒ¸ ÒÍÛÎÂÈ ÌÂÚÛ!');
+	define('_PHPF_PROTECTION_UNION', '–ó–¥–µ—Å—å —Å–∫—É–ª–µ–π –Ω–µ—Ç—É!');
 	define('_PHPF_PROTECTION_URL', 'Protection url active, string not allowed !');
 	define('_PHPF_PROTECTION_XSS', 'XSS attack detected ! stop it ...');
 }

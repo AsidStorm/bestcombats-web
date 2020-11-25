@@ -10,7 +10,7 @@
 
 <input name="data" type="text" autocomplete="off"/>
 </table>
-<INPUT TYPE="submit" value=" Добавить ">
+<INPUT TYPE="submit" value=" Р”РѕР±Р°РІРёС‚СЊ ">
 </form>
 <?php
 
@@ -83,7 +83,7 @@ echo '
 ';
 $map = unserialize(mysql_result(mysql_query("SELECT map FROM cavemaps WHERE id = 29"), 0, 0));
 $map[$_POST['x']][$_POST['y']]=$_POST['data'];
-if (mq('UPDATE cavemaps SET `map`= \''.serialize($map).'\' WHERE id = 29')); echo "Карта удачно сохранена";
+if (mq('UPDATE cavemaps SET `map`= \''.serialize($map).'\' WHERE id = 29')); echo "РљР°СЂС‚Р° СѓРґР°С‡РЅРѕ СЃРѕС…СЂР°РЅРµРЅР°";
  
 printMap($map);
 

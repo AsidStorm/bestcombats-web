@@ -9,12 +9,12 @@ function fixspaces(s)
   return(s);
 }
 
-// Заголовок, название скрипта, имя поля с логином
+// Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РёРјСЏ РїРѕР»СЏ СЃ Р»РѕРіРёРЅРѕРј
 function findlogin(title, script, name)
 {
 	document.all("hint3").innerHTML = '<table border=0 width=100% cellspacing="1" cellpadding="0" bgcolor="#CCC3AA"><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
 	'<table border=0 width=100% cellspacing="0" cellpadding="2" bgcolor="#FFF6DD"><tr><form action="'+script+'" method=POST name=slform><td colspan=2>'+
-	'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE="text" NAME="'+name+'"></TD><TD width=50%><INPUT type=image SRC="/i/b__ok.gif" WIDTH="25" HEIGHT="18" BORDER=0 ALT="" onclick="slform.'+name+'.value=fixspaces(slform.'+name+'.value);"></TD></TR></FORM></TABLE></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE="text" NAME="'+name+'"></TD><TD width=50%><INPUT type=image SRC="/i/b__ok.gif" WIDTH="25" HEIGHT="18" BORDER=0 ALT="" onclick="slform.'+name+'.value=fixspaces(slform.'+name+'.value);"></TD></TR></FORM></TABLE></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 60;
@@ -22,12 +22,12 @@ function findlogin(title, script, name)
 	Hint3Name = name;
 }
 
-// Для магии. Заголовок, название скрипта, название магии, номер вещицы в рюкзаке
+// Р”Р»СЏ РјР°РіРёРё. Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РЅР°Р·РІР°РЅРёРµ РјР°РіРёРё, РЅРѕРјРµСЂ РІРµС‰РёС†С‹ РІ СЂСЋРєР·Р°РєРµ
 function magicklogin(title, script, magickname, n)
 {
 	document.all("hint3").innerHTML = '<table border=0 width=100% cellspacing="1" cellpadding="0" bgcolor="#CCC3AA"><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
 	'<table border=0 width=100% cellspacing="0" cellpadding="2" bgcolor="#FFF6DD"><tr><form action="'+script+'" method=POST name=slform><input type=hidden name="use" value="'+magickname+'"><input type=hidden name="n" value="'+n+'"><td colspan=2>'+
-	'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE="text" NAME="param"></TD><TD width=50%><INPUT type=image SRC="/i/b__ok.gif" WIDTH="25" HEIGHT="18" BORDER=0 ALT="" onclick="slform.param.value=fixspaces(slform.param.value);"></TD></TR></FORM></TABLE></td></tr></table>';
+	'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE="text" NAME="param"></TD><TD width=50%><INPUT type=image SRC="/i/b__ok.gif" WIDTH="25" HEIGHT="18" BORDER=0 ALT="" onclick="slform.param.value=fixspaces(slform.param.value);"></TD></TR></FORM></TABLE></td></tr></table>';
 	document.all("hint3").style.visibility = "visible";
 	document.all("hint3").style.left = 100;
 	document.all("hint3").style.top = 60;
@@ -35,14 +35,14 @@ function magicklogin(title, script, magickname, n)
 	Hint3Name = 'param';
 }
 
-// Закрывает окно ввода логина
+// Р—Р°РєСЂС‹РІР°РµС‚ РѕРєРЅРѕ РІРІРѕРґР° Р»РѕРіРёРЅР°
 function closehint3()
 {
 	document.all("hint3").style.visibility="hidden"; 
     Hint3Name='';
 }
 
-// Магия
+// РњР°РіРёСЏ
 function UseMagick(script, name, extparam, n) {
    if ((extparam != null)&&(extparam != '')) {
      var s = prompt(extparam+':', '');
@@ -55,6 +55,6 @@ function UseMagick(script, name, extparam, n) {
        window.location.href=script+'?use='+name+'&param='+s+'&n='+n;
 	 }
    } else {
-     if (confirm('Использовать сейчас?')) { location=script+'?use='+name+'&n='+n; }
+     if (confirm('РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРµР№С‡Р°СЃ?')) { location=script+'?use='+name+'&n='+n; }
    }
 }

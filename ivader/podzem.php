@@ -1,7 +1,7 @@
 <?php
 include "../connect.php";
 
-$name_podzem='Бездна 3-Этаж'; 
+$name_podzem='Р‘РµР·РґРЅР° 3-Р­С‚Р°Р¶'; 
 
 $podzem2=mysql_fetch_array(mysql_query("SELECT * from `podzem2` where `name`='".$name_podzem."' LIMIT 1;"));
 $podzem3=mysql_fetch_array(mysql_query("SELECT * from `podzem3` where `name`='".$name_podzem."' and `glava`='default' LIMIT 1;"));
@@ -28,9 +28,9 @@ for ($i=20;$i>=1;$i--){
 }
 echo "</table>";
 
-echo "<b>Зоны где нет предметов:</b> ".substr($free1,0,strlen($free1)-1)."<br/>";
-echo "<b>Зоны где нет монстров:</b> ".substr($free2,0,strlen($free2)-1)."<br/>";
-echo "<b>Зоны где нет пр. и мо.: </b> ".substr($free3,0,strlen($free3)-1)."<br/>";
-echo "<b>Зоны где монстры: </b> ".substr($free4,0,strlen($free4)-1)."<br/>";
-echo "<b>Зоны: </b> ".substr($free5,0,strlen($free5)-1)."<br/>";
+echo "<b>Р—РѕРЅС‹ РіРґРµ РЅРµС‚ РїСЂРµРґРјРµС‚РѕРІ:</b> ".substr($free1,0,strlen($free1)-1)."<br/>";
+echo "<b>Р—РѕРЅС‹ РіРґРµ РЅРµС‚ РјРѕРЅСЃС‚СЂРѕРІ:</b> ".substr($free2,0,strlen($free2)-1)."<br/>";
+echo "<b>Р—РѕРЅС‹ РіРґРµ РЅРµС‚ РїСЂ. Рё РјРѕ.: </b> ".substr($free3,0,strlen($free3)-1)."<br/>";
+echo "<b>Р—РѕРЅС‹ РіРґРµ РјРѕРЅСЃС‚СЂС‹: </b> ".substr($free4,0,strlen($free4)-1)."<br/>";
+echo "<b>Р—РѕРЅС‹: </b> ".substr($free5,0,strlen($free5)-1)."<br/>";
 ?>

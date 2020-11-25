@@ -17,12 +17,12 @@
 <META Http-Equiv=Expires Content=0>
 </HEAD>
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=#e0e0e0>
-<table align=right><tr><td><INPUT type='button' value='Обновить' style='width: 75px' onclick='location="/ktogde77.php"'>&nbsp;&nbsp;&nbsp;<INPUT TYPE="button" onclick="location.href='main.php';" value="Вернуться" title="Вернуться"></table>
+<table align=right><tr><td><INPUT type='button' value='РћР±РЅРѕРІРёС‚СЊ' style='width: 75px' onclick='location="/ktogde77.php"'>&nbsp;&nbsp;&nbsp;<INPUT TYPE="button" onclick="location.href='main.php';" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" title="Р’РµСЂРЅСѓС‚СЊСЃСЏ"></table>
 
 <table>
 <tr>
-	<th>Онлайн</td>
-	<th>Зарегистрированные за 24 часа</td>
+	<th>РћРЅР»Р°Р№РЅ</td>
+	<th>Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Рµ Р·Р° 24 С‡Р°СЃР°</td>
 </tr>
 
 <tr>
@@ -31,7 +31,7 @@
 	$online = mysql_query("select id from `online`  WHERE `real_time` >= ".(time()-60).";");
 	$i=0;
 	echo "<table border=1 cellspacing=0 cellpadding=2>
-			<tr align=center bgcolor=#A5A5A5><td><b>№</b></td><td><b>Ник</b></td><td><b>Локация</b></td><td><b>Город</b></td></tr>";
+			<tr align=center bgcolor=#A5A5A5><td><b>в„–</b></td><td><b>РќРёРє</b></td><td><b>Р›РѕРєР°С†РёСЏ</b></td><td><b>Р“РѕСЂРѕРґ</b></td></tr>";
 	while($ON = mysql_fetch_array($online)){
 		$USER = mysql_fetch_array(mysql_query("SELECT login,id,align,klan,level,deal,battle,room,incity FROM `users` WHERE `id` = '{$ON['id']}' "));
 		$rrm = $rooms[$USER['room']];
@@ -66,7 +66,7 @@
 	$online = mysql_query("select *  from `users`  WHERE `user_id`=0 and `vid`=0 and `borntime` BETWEEN '".date("Y-m-d H:i:s" ,(time()-86400))."' and '".date("Y-m-d H:i:s" ,time())."' Order by borntime ASC;"); 
 	$i=0;
 	echo "<table border=1 cellspacing=0 cellpadding=2>
-			<tr align=center bgcolor=#A5A5A5><td><b>№</b></td><td><b>Ник</b></td><td><b>Локация</b></td><td><b>Город</b></td></tr>";
+			<tr align=center bgcolor=#A5A5A5><td><b>в„–</b></td><td><b>РќРёРє</b></td><td><b>Р›РѕРєР°С†РёСЏ</b></td><td><b>Р“РѕСЂРѕРґ</b></td></tr>";
 	while($ON = mysql_fetch_array($online)){
 		$rrm = $rooms[$ON['room']];
 		$i++;

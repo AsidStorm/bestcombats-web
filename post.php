@@ -16,11 +16,11 @@
 <SCRIPT src='http://img.bestcombats.net/js/commoninf.js'></SCRIPT>
 <SCRIPT>
 var Hint3Name = '';
-// Заголовок, название скрипта, имя поля с логином
+// Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РёРјСЏ РїРѕР»СЏ СЃ Р»РѕРіРёРЅРѕРј
 function findlogin(title, script, name){
     document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
     '<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><form action="'+script+'" method=POST><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"><td colspan=2>'+
-    'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" »» "></TD></TR></FORM></TABLE></td></tr></table>';
+    'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" В»В» "></TD></TR></FORM></TABLE></td></tr></table>';
     document.all("hint3").style.visibility = "visible";
     document.all("hint3").style.left = 100;
     document.all("hint3").style.top = 100;
@@ -63,19 +63,19 @@ if (@$_REQUEST['to_id']) {
 if (@$step==3){
     $step=0;
     $id_person_x=$res['id'];
-    if (@!$id_person_x) $mess='Персонаж не найден';
-    elseif ($id_person_x==$user['id'] && $user['align'] != 2.5) $mess='Незачем передавать самому себе';
-    elseif ($res['align']==4) $mess='Со склонностью хаос передачи предметов запрещены';
-    elseif ($user['align']==4) $mess='Со склонностью хаос передачи предметов запрещены';
-    elseif ($res['level']<4) $mess='К персонажам до 4-го уровня передачи предметов запрещены';
-    elseif ($res['in_tower']>0) $mess='Персонаж находится в Башне Смерти или на поле битвы';
+    if (@!$id_person_x) $mess='РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ';
+    elseif ($id_person_x==$user['id'] && $user['align'] != 2.5) $mess='РќРµР·Р°С‡РµРј РїРµСЂРµРґР°РІР°С‚СЊ СЃР°РјРѕРјСѓ СЃРµР±Рµ';
+    elseif ($res['align']==4) $mess='РЎРѕ СЃРєР»РѕРЅРЅРѕСЃС‚СЊСЋ С…Р°РѕСЃ РїРµСЂРµРґР°С‡Рё РїСЂРµРґРјРµС‚РѕРІ Р·Р°РїСЂРµС‰РµРЅС‹';
+    elseif ($user['align']==4) $mess='РЎРѕ СЃРєР»РѕРЅРЅРѕСЃС‚СЊСЋ С…Р°РѕСЃ РїРµСЂРµРґР°С‡Рё РїСЂРµРґРјРµС‚РѕРІ Р·Р°РїСЂРµС‰РµРЅС‹';
+    elseif ($res['level']<4) $mess='Рљ РїРµСЂСЃРѕРЅР°Р¶Р°Рј РґРѕ 4-РіРѕ СѓСЂРѕРІРЅСЏ РїРµСЂРµРґР°С‡Рё РїСЂРµРґРјРµС‚РѕРІ Р·Р°РїСЂРµС‰РµРЅС‹';
+    elseif ($res['in_tower']>0) $mess='РџРµСЂСЃРѕРЅР°Р¶ РЅР°С…РѕРґРёС‚СЃСЏ РІ Р‘Р°С€РЅРµ РЎРјРµСЂС‚Рё РёР»Рё РЅР° РїРѕР»Рµ Р±РёС‚РІС‹';
     else{
         $idkomu=$id_person_x;
         $komu=mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` ='".$idkomu."';"));
         $mess=$_REQUEST['FindLogin'];
         $step=3;
     }
-} else $mess='К персонажам до 4-го уровня передачи предметов запрещены';
+} else $mess='Рљ РїРµСЂСЃРѕРЅР°Р¶Р°Рј РґРѕ 4-РіРѕ СѓСЂРѕРІРЅСЏ РїРµСЂРµРґР°С‡Рё РїСЂРµРґРјРµС‚РѕРІ Р·Р°РїСЂРµС‰РµРЅС‹';
 
 if ($step==3) {
   if ($_REQUEST['sendMessage']) {
@@ -90,64 +90,64 @@ if ($step==3) {
         $f=fopen("logs/autosleep.txt","ab");
         fwrite($f, "$user[login]: $_REQUEST[message]\r\n");
         fclose($f);
-        mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','Заклятие молчания',".(time()+1800).",2);");
-        reportadms("<br><b>$user[login]</b>: $_REQUEST[message]", "Комментатор");
-        addch("<img src=i/magic/sleep.gif> Комментатор наложил заклятие молчания на &quot;{$user['login']}&quot;, сроком 30 мин. Причина: РВС.");
+        mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$user['id']."','Р—Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ',".(time()+1800).",2);");
+        reportadms("<br><b>$user[login]</b>: $_REQUEST[message]", "РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ");
+        addch("<img src=i/magic/sleep.gif> РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ РЅР° &quot;{$user['login']}&quot;, СЃСЂРѕРєРѕРј 30 РјРёРЅ. РџСЂРёС‡РёРЅР°: Р Р’РЎ.");
       } else {
         mysql_query("UPDATE `users` set money=money-'0.1' where id='".$user['id']."'");
-        mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`letter`,`maxdur`,`isrep`)VALUES('".$idkomu."','Сообщение телеграфом','200',1,0,'paper100.gif','От персонажа \"{$user['login']}\": \n ".$_REQUEST['message']."',1,0) ;");
+        mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`letter`,`maxdur`,`isrep`)VALUES('".$idkomu."','РЎРѕРѕР±С‰РµРЅРёРµ С‚РµР»РµРіСЂР°С„РѕРј','200',1,0,'paper100.gif','РћС‚ РїРµСЂСЃРѕРЅР°Р¶Р° \"{$user['login']}\": \n ".$_REQUEST['message']."',1,0) ;");
         tele_check($komu['login'],$_REQUEST['message']);
-        $mess='Сообщение персонажу "'.$komu['login'].'" будет доставлено.';
+        $mess='РЎРѕРѕР±С‰РµРЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Сѓ "'.$komu['login'].'" Р±СѓРґРµС‚ РґРѕСЃС‚Р°РІР»РµРЅРѕ.';
       }
     } elseif ($_REQUEST['setkredit']>=1 && $_REQUEST['to_id'] && $_REQUEST['sd4']==$user['id']) {
         $_REQUEST['setkredit'] = round($_REQUEST['setkredit'],2);
         if (is_numeric($_REQUEST['setkredit']) && ($_REQUEST['setkredit']>0) && ($_REQUEST['setkredit']*1.05 <= $user['money'])) {
             if (!cangive($_REQUEST["setkredit"])) {
-              $mess="Передаваемая сумма превышает лимит.";
+              $mess="РџРµСЂРµРґР°РІР°РµРјР°СЏ СЃСѓРјРјР° РїСЂРµРІС‹С€Р°РµС‚ Р»РёРјРёС‚.";
             } elseif (mysql_query("UPDATE `users` set money=money-".strval($_REQUEST["setkredit"]*1.05)." where id='".$user['id']."'") && mysql_query("UPDATE `users` set money=money+".strval($_REQUEST[setkredit])." where id='".$idkomu."'")) {
                 updbalance($user['id'], $idkomu, $_REQUEST["setkredit"]);
-                $mess='Удачно передано '.strval($_REQUEST[setkredit]).' кр к персонажу '.$komu['login'];
-                mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Почтой передано ".strval($_REQUEST[setkredit])." кр. от \"".$user['login']."\" к \"".$komu['login']."\" ',1,'".time()."');");
-                mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$idkomu}','Почтой передано ".strval($_REQUEST[setkredit])." кр. от \"".$user['login']."\" к \"".$komu['login']."\" ',1,'".time()."');");
+                $mess='РЈРґР°С‡РЅРѕ РїРµСЂРµРґР°РЅРѕ '.strval($_REQUEST[setkredit]).' РєСЂ Рє РїРµСЂСЃРѕРЅР°Р¶Сѓ '.$komu['login'];
+                mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РџРѕС‡С‚РѕР№ РїРµСЂРµРґР°РЅРѕ ".strval($_REQUEST[setkredit])." РєСЂ. РѕС‚ \"".$user['login']."\" Рє \"".$komu['login']."\" ',1,'".time()."');");
+                mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$idkomu}','РџРѕС‡С‚РѕР№ РїРµСЂРµРґР°РЅРѕ ".strval($_REQUEST[setkredit])." РєСЂ. РѕС‚ \"".$user['login']."\" Рє \"".$komu['login']."\" ',1,'".time()."');");
                 $user['money']-=$_REQUEST[setkredit]*1.05;
                 $us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$idkomu}' LIMIT 1;"));
                 if($us[0]){
-                    addchp ('<font color=red>Внимание!</font> Вам пришел почтовый перевод '.strval($_REQUEST[setkredit]).' кр. от <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>   ','{[]}'.$_POST['to_login'].'{[]}');
+                    addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°Рј РїСЂРёС€РµР» РїРѕС‡С‚РѕРІС‹Р№ РїРµСЂРµРІРѕРґ '.strval($_REQUEST[setkredit]).' РєСЂ. РѕС‚ <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>   ','{[]}'.$_POST['to_login'].'{[]}');
                 } else {
-                    // если в офе
-                    mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$to['id']."','','".'<font color=red>Внимание!</font> Вам пришел почтовый перевод '.strval($_REQUEST[setkredit]).' кр. от <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>  '."');");
+                    // РµСЃР»Рё РІ РѕС„Рµ
+                    mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$to['id']."','','".'<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°Рј РїСЂРёС€РµР» РїРѕС‡С‚РѕРІС‹Р№ РїРµСЂРµРІРѕРґ '.strval($_REQUEST[setkredit]).' РєСЂ. РѕС‚ <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>  '."');");
                 }
             }
             else {
-                $mess="Произошла ошибка";
+                $mess="РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°";
             }
         } else {
-            $mess="Недостаточно денег";
+            $mess="РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі";
         }
     } elseif ((is_numeric($_REQUEST['setobject']) && $_REQUEST['setobject']>0) && (is_numeric($_REQUEST['to_id']) && $_REQUEST['to_id']>0) && !$_REQUEST['gift'] && $_REQUEST['sd4']==$user['id']) {
         $res = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `id` = '{$_REQUEST['setobject']}' $cond LIMIT 1;"));
         $prc=itemprice($res);
         if (!$res['id']) {
-            $mess="Предмет не найден в рюкзаке";
+            $mess="РџСЂРµРґРјРµС‚ РЅРµ РЅР°Р№РґРµРЅ РІ СЂСЋРєР·Р°РєРµ";
         } elseif(mqfa1('SELECT COUNT(*) FROM clanstorage WHERE id_it = ' . $res['id'])) {
-            $mess="Эта вещь принадлежит Клану. Вы не можете ее передавать.";
+            $mess="Р­С‚Р° РІРµС‰СЊ РїСЂРёРЅР°РґР»РµР¶РёС‚ РљР»Р°РЅСѓ. Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РµРµ РїРµСЂРµРґР°РІР°С‚СЊ.";
         
         } elseif ($user['money']<1) {
-            $mess='Недостаточно денег на оплату передачи';
+            $mess='РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РЅР° РѕРїР»Р°С‚Сѓ РїРµСЂРµРґР°С‡Рё';
         } else {
             if (mysql_query("update `inventory` set `owner` = ".$komu['id']." where `id`='".$res['id']."' and `owner`= '".$user['id']."';")) {
                 updbalance($user['id'], $komu['id'], $prc["price"]);
                 mysql_query("update `users` set `money`=`money`-1 where `id`='".$user['id']."'");
-                mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','Почтой передан предмет \"".$res['name']."\" id:(cap".$res['id'].") [".$res['duration']."/".$res['maxdur']."] от \"".$user['login']."\" к \"".$komu['login']."\", налог 1 кр.','1','".time()."');");
-                mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$idkomu}','Почтой передан предмет \"".$res['name']."\" id:(cap".$res['id'].") [".$res['duration']."/".$res['maxdur']."] от \"".$user['login']."\" к \"".$komu['login']."\", налог 1 кр.','1','".time()."');");
-                $mess='Удачно передано "'.$res['name'].'" к персонажу '.$komu['login'];
+                mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','РџРѕС‡С‚РѕР№ РїРµСЂРµРґР°РЅ РїСЂРµРґРјРµС‚ \"".$res['name']."\" id:(cap".$res['id'].") [".$res['duration']."/".$res['maxdur']."] РѕС‚ \"".$user['login']."\" Рє \"".$komu['login']."\", РЅР°Р»РѕРі 1 РєСЂ.','1','".time()."');");
+                mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$idkomu}','РџРѕС‡С‚РѕР№ РїРµСЂРµРґР°РЅ РїСЂРµРґРјРµС‚ \"".$res['name']."\" id:(cap".$res['id'].") [".$res['duration']."/".$res['maxdur']."] РѕС‚ \"".$user['login']."\" Рє \"".$komu['login']."\", РЅР°Р»РѕРі 1 РєСЂ.','1','".time()."');");
+                $mess='РЈРґР°С‡РЅРѕ РїРµСЂРµРґР°РЅРѕ "'.$res['name'].'" Рє РїРµСЂСЃРѕРЅР°Р¶Сѓ '.$komu['login'];
                 $user['money']-=1;
                 $us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$komu['id']}' LIMIT 1;"));
                 if($us[0]){
-                    addchp ('<font color=red>Внимание!</font> Вам почтой передан предмет <b>'.$res['name'].'</b> от <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>   ','{[]}'.$_POST['to_login'].'{[]}');
+                    addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°Рј РїРѕС‡С‚РѕР№ РїРµСЂРµРґР°РЅ РїСЂРµРґРјРµС‚ <b>'.$res['name'].'</b> РѕС‚ <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>   ','{[]}'.$_POST['to_login'].'{[]}');
                 } else {
-                    // если в офе
-                    mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$to['id']."','','".'<font color=red>Внимание!</font> Вам почтой передан предмет <b>'.$res['name'].'</b> от <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>  '."');");
+                    // РµСЃР»Рё РІ РѕС„Рµ
+                    mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$to['id']."','','".'<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°Рј РїРѕС‡С‚РѕР№ РїРµСЂРµРґР°РЅ РїСЂРµРґРјРµС‚ <b>'.$res['name'].'</b> РѕС‚ <span oncontextmenu=OpenMenu()>'.$user['login'].'</span>  '."');");
                 }
             }
         }
@@ -164,17 +164,17 @@ function reloadit(){
 </SCRIPT>
 </HEAD>
 <body bgcolor=e2e0e0><div id=hint3 class=ahint></div><div id=hint4 class=ahint></div>
-<H3>Почта</H3>
+<H3>РџРѕС‡С‚Р°</H3>
 <TABLE width=100% cellspacing=0 cellpadding=0>
 <TR><TD>
 <? if ($step==3) {
-echo 'К кому передавать: <font color=red><SCRIPT>drwfl("'.@$komu['login'].'",'.@$komu['id'].',"'.@$komu['level'].'","'.@$komu['align'].'","'.@$komu['klan'].'")</SCRIPT></font>';
-?> <INPUT TYPE=button value="Сменить" onClick="findlogin('Передача предметов','post.php','FindLogin')"><BR><?
+echo 'Рљ РєРѕРјСѓ РїРµСЂРµРґР°РІР°С‚СЊ: <font color=red><SCRIPT>drwfl("'.@$komu['login'].'",'.@$komu['id'].',"'.@$komu['level'].'","'.@$komu['align'].'","'.@$komu['klan'].'")</SCRIPT></font>';
+?> <INPUT TYPE=button value="РЎРјРµРЅРёС‚СЊ" onClick="findlogin('РџРµСЂРµРґР°С‡Р° РїСЂРµРґРјРµС‚РѕРІ','post.php','FindLogin')"><BR><?
 }else{
     $roww = mysql_fetch_array(mysql_query("SELECT * FROM `trade` WHERE `baer` = {$user['id']} LIMIT 1;"));
     mysql_query("DELETE FROM `trade` WHERE `baer` = {$user['id']} LIMIT 1;");
     if (!$roww['id']) {
-?> <SCRIPT>findlogin('Передача предметов','post.php','FindLogin');</SCRIPT><? }
+?> <SCRIPT>findlogin('РџРµСЂРµРґР°С‡Р° РїСЂРµРґРјРµС‚РѕРІ','post.php','FindLogin');</SCRIPT><? }
 else
  {
     ?> <SCRIPT>transfer(<?=$roww['to_id']?>, '<?=$roww['login']?>', '<?=str_replace("\r\n","",$roww['txt'])?>', <?=$roww['kr']?>, <?=$roww['id']?>, '');</SCRIPT><?
@@ -183,7 +183,7 @@ else
 ?>
 
 </td><TD align=right>
-    <INPUT TYPE=button value="Вернуться" onClick="location.href='city.php?cp=3';">
+    <INPUT TYPE=button value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" onClick="location.href='city.php?cp=3';">
 </td></tr><tr><td colspan=2 align=right><? if ($step!=4) {?> <FONT COLOR=red><B><? echo $mess; ?></B></FONT> <? } ?></td></tr></table>
 
 <TABLE width=100% cellspacing=0 cellpadding=0>
@@ -197,22 +197,22 @@ else
     <br/>
                         <br/>
                         <fieldset>
-                        <legend><b>Передать кредиты</b></legend>
-                            <BR>У вас на счету: <FONT COLOR=339900><B><? echo $user['money']; ?></B></FONT> кр.<BR>
-                            Передать кредиты, минимально 1 кр. Комиссия составит 5% <br/>
-                            Укажите передаваемую сумму: <INPUT TYPE=text NAME=setkredit maxlength=8 size=6>&nbsp;<INPUT TYPE=submit onClick="if(!confirm('Перевести деньги?')) { return false; }" VALUE="Передать">
+                        <legend><b>РџРµСЂРµРґР°С‚СЊ РєСЂРµРґРёС‚С‹</b></legend>
+                            <BR>РЈ РІР°СЃ РЅР° СЃС‡РµС‚Сѓ: <FONT COLOR=339900><B><? echo $user['money']; ?></B></FONT> РєСЂ.<BR>
+                            РџРµСЂРµРґР°С‚СЊ РєСЂРµРґРёС‚С‹, РјРёРЅРёРјР°Р»СЊРЅРѕ 1 РєСЂ. РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІРёС‚ 5% <br/>
+                            РЈРєР°Р¶РёС‚Рµ РїРµСЂРµРґР°РІР°РµРјСѓСЋ СЃСѓРјРјСѓ: <INPUT TYPE=text NAME=setkredit maxlength=8 size=6>&nbsp;<INPUT TYPE=submit onClick="if(!confirm('РџРµСЂРµРІРµСЃС‚Рё РґРµРЅСЊРіРё?')) { return false; }" VALUE="РџРµСЂРµРґР°С‚СЊ">
                         </fieldset>
                         <br/>
         <? $e=mqfa1("select id from effects where owner='$user[id]' and type=2");
            if (!$e) { ?>
                         <fieldset>
-                        <legend><b>Телеграф</b></legend>
-                        Вы можете отправить короткое сообщение любому персонажу, даже если он находится в offline или другом городе.<br/>
-                        Услуга платная: <b>0.1 кр.</b> <br/>
-                        Сообщение: (Максимум 100 символов)
-                        <input type="text" name="message" id="message" size="52"> <input type="submit"  id="sendMessage" name="sendMessage" value="Отправить" onClick="if(!confirm('Послать сообщение?')) { return false; }">
+                        <legend><b>РўРµР»РµРіСЂР°С„</b></legend>
+                        Р’С‹ РјРѕР¶РµС‚Рµ РѕС‚РїСЂР°РІРёС‚СЊ РєРѕСЂРѕС‚РєРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ Р»СЋР±РѕРјСѓ РїРµСЂСЃРѕРЅР°Р¶Сѓ, РґР°Р¶Рµ РµСЃР»Рё РѕРЅ РЅР°С…РѕРґРёС‚СЃСЏ РІ offline РёР»Рё РґСЂСѓРіРѕРј РіРѕСЂРѕРґРµ.<br/>
+                        РЈСЃР»СѓРіР° РїР»Р°С‚РЅР°СЏ: <b>0.1 РєСЂ.</b> <br/>
+                        РЎРѕРѕР±С‰РµРЅРёРµ: (РњР°РєСЃРёРјСѓРј 100 СЃРёРјРІРѕР»РѕРІ)
+                        <input type="text" name="message" id="message" size="52"> <input type="submit"  id="sendMessage" name="sendMessage" value="РћС‚РїСЂР°РІРёС‚СЊ" onClick="if(!confirm('РџРѕСЃР»Р°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ?')) { return false; }">
                         </fieldset>
-        <? } else echo "<b><font color=\"red\">Вы не можете слать сообщения телеграфом во время действия заклятия молчания.</font></b>";
+        <? } else echo "<b><font color=\"red\">Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СЃР»Р°С‚СЊ СЃРѕРѕР±С‰РµРЅРёСЏ С‚РµР»РµРіСЂР°С„РѕРј РІРѕ РІСЂРµРјСЏ РґРµР№СЃС‚РІРёСЏ Р·Р°РєР»СЏС‚РёСЏ РјРѕР»С‡Р°РЅРёСЏ.</font></b>";
     }
 ?>
     </TD>
@@ -235,21 +235,21 @@ if ($step==3) {
 <TABLE border=0 width=100% cellspacing="0" cellpadding="0" bgcolor="#A5A5A5">
 <TR><TD>
     <TABLE border=0 width=100% cellspacing="0" cellpadding="3" bgcolor=#d4d2d2><TR>
-    <TD  align=center bgcolor="<?=($_SESSION['razdel']==null)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=0&sd4=<? echo $user['id']; ?>">Обмундирование</A></TD>
-    <TD  align=center bgcolor="<?=($_SESSION['razdel']==1)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=1&sd4=<? echo $user['id']; ?>">Заклятия</A></TD>
-    <TD  align=center bgcolor="<?=($_SESSION['razdel']==3)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=3&sd4=<? echo $user['id']; ?>">Еда</A></TD>
-    <TD  align=center bgcolor="<?=($_SESSION['razdel']==2)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=2&sd4=<? echo $user['id']; ?>">Прочее</A></TD>
+    <TD  align=center bgcolor="<?=($_SESSION['razdel']==null)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=0&sd4=<? echo $user['id']; ?>">РћР±РјСѓРЅРґРёСЂРѕРІР°РЅРёРµ</A></TD>
+    <TD  align=center bgcolor="<?=($_SESSION['razdel']==1)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=1&sd4=<? echo $user['id']; ?>">Р—Р°РєР»СЏС‚РёСЏ</A></TD>
+    <TD  align=center bgcolor="<?=($_SESSION['razdel']==3)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=3&sd4=<? echo $user['id']; ?>">Р•РґР°</A></TD>
+    <TD  align=center bgcolor="<?=($_SESSION['razdel']==2)?"#A5A5A5":"#C7C7C7"?>"><A HREF="?to_id=<? echo $idkomu; ?>&edit=1&razdel=2&sd4=<? echo $user['id']; ?>">РџСЂРѕС‡РµРµ</A></TD>
     </TR></TABLE>
 </TD></TR>
 <TR>
-    <TD align=center><B>Рюкзак (масса: <?php
+    <TD align=center><B>Р СЋРєР·Р°Рє (РјР°СЃСЃР°: <?php
 
     $d = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0; "));
 
     echo $d[0];
     ?>/<?=$user['sila']*4?>)</B></TD>
 </TR>
-<TR><TD align=center><!--Рюкзак-->
+<TR><TD align=center><!--Р СЋРєР·Р°Рє-->
 <TABLE BORDER=0 WIDTH=100% CELLSPACING="1" CELLPADDING="2" BGCOLOR="#A5A5A5">
 <?php
     if ($_SESSION['razdel']==null) {
@@ -271,7 +271,7 @@ if ($step==3) {
         echo "<TR bgcolor={$color}><TD align=center ><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
         ?>
         <BR>
-            <? echo "<A HREF=\"post.php?to_id=".$idkomu."&id_th=".$row['id']."&setobject=".$row['id']."&sd4=".$user['id']."&tmp=".rand(0,50000000)."\"".'onclick="return confirm(\'Передать предмет '.$row['name'].'?\')">передать&nbsp;за&nbsp;1&nbsp;кр.</A>';
+            <? echo "<A HREF=\"post.php?to_id=".$idkomu."&id_th=".$row['id']."&setobject=".$row['id']."&sd4=".$user['id']."&tmp=".rand(0,50000000)."\"".'onclick="return confirm(\'РџРµСЂРµРґР°С‚СЊ РїСЂРµРґРјРµС‚ '.$row['name'].'?\')">РїРµСЂРµРґР°С‚СЊ&nbsp;Р·Р°&nbsp;1&nbsp;РєСЂ.</A>';
 ?>
 
         </TD>
@@ -281,7 +281,7 @@ if ($step==3) {
         echo "</TD></TR>";
     }
     if (mysql_num_rows($data) == 0) {
-        echo "<tr><td align=center bgcolor=#C7C7C7>Пусто</td></tr>";
+        echo "<tr><td align=center bgcolor=#C7C7C7>РџСѓСЃС‚Рѕ</td></tr>";
     }
 ?>
 

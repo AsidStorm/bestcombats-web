@@ -3,18 +3,18 @@
 global $caverooms, $canalrooms;
 
 if ($user['battle'] > 0) {
-    echo "Íå â áîþ...";
-} elseif (($row['name'] == 'Çàæèâëÿþùàÿ Íàñòîéêà' || $row['name'] == 'Çàæèâëÿþùèé Ýëèêñèð' || $row['name'] == 'Ôëàêîí÷èê ìàíû' || $row['name'] == 'Áóòûëåê ìàíû') && !in_array($user['room'], $canalrooms) && !in_array($user['room'], $caverooms)) {
-    echo "Ìîæíî èñïîëüçîâàòü òîëüêî â òåìíîòå ïîäçåìåëèé.";
+    echo "ÐÐµ Ð² Ð±Ð¾ÑŽ...";
+} elseif (($row['name'] == 'Ð—Ð°Ð¶Ð¸Ð²Ð»ÑÑŽÑ‰Ð°Ñ ÐÐ°ÑÑ‚Ð¾Ð¹ÐºÐ°' || $row['name'] == 'Ð—Ð°Ð¶Ð¸Ð²Ð»ÑÑŽÑ‰Ð¸Ð¹ Ð­Ð»Ð¸ÐºÑÐ¸Ñ€' || $row['name'] == 'Ð¤Ð»Ð°ÐºÐ¾Ð½Ñ‡Ð¸Ðº Ð¼Ð°Ð½Ñ‹' || $row['name'] == 'Ð‘ÑƒÑ‚Ñ‹Ð»ÐµÐº Ð¼Ð°Ð½Ñ‹') && !in_array($user['room'], $canalrooms) && !in_array($user['room'], $caverooms)) {
+    echo "ÐœÐ¾Ð¶Ð½Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð² Ñ‚ÐµÐ¼Ð½Ð¾Ñ‚Ðµ Ð¿Ð¾Ð´Ð·ÐµÐ¼ÐµÐ»Ð¸Ð¹.";
 } else {
-  if($row['name']=='Çåëüå Æèçíè' || $row['name']=='Çåëüå æèçíè') $deltahp=100;
-  if($row['name']=='Ýëèêñèð Æèçíè') $deltahp=250;
-  if($row['name']=='Çåëüå Ìàíû') $deltamana=200;
-  if($row['name']=='Ýëèêñèð Ìàíû') $deltamana=500;
-  if($row['name']=='Çàæèâëÿþùàÿ Íàñòîéêà') $deltahp=150;
-  if($row['name']=='Çàæèâëÿþùèé Ýëèêñèð') $deltahp=300;
-  if($row['name']=='Ôëàêîí÷èê ìàíû') $deltamana=250;
-  if($row['name']=='Áóòûëåê ìàíû') $deltamana=500;
+  if($row['name']=='Ð—ÐµÐ»ÑŒÐµ Ð–Ð¸Ð·Ð½Ð¸' || $row['name']=='Ð—ÐµÐ»ÑŒÐµ Ð¶Ð¸Ð·Ð½Ð¸') $deltahp=100;
+  if($row['name']=='Ð­Ð»Ð¸ÐºÑÐ¸Ñ€ Ð–Ð¸Ð·Ð½Ð¸') $deltahp=250;
+  if($row['name']=='Ð—ÐµÐ»ÑŒÐµ ÐœÐ°Ð½Ñ‹') $deltamana=200;
+  if($row['name']=='Ð­Ð»Ð¸ÐºÑÐ¸Ñ€ ÐœÐ°Ð½Ñ‹') $deltamana=500;
+  if($row['name']=='Ð—Ð°Ð¶Ð¸Ð²Ð»ÑÑŽÑ‰Ð°Ñ ÐÐ°ÑÑ‚Ð¾Ð¹ÐºÐ°') $deltahp=150;
+  if($row['name']=='Ð—Ð°Ð¶Ð¸Ð²Ð»ÑÑŽÑ‰Ð¸Ð¹ Ð­Ð»Ð¸ÐºÑÐ¸Ñ€') $deltahp=300;
+  if($row['name']=='Ð¤Ð»Ð°ÐºÐ¾Ð½Ñ‡Ð¸Ðº Ð¼Ð°Ð½Ñ‹') $deltamana=250;
+  if($row['name']=='Ð‘ÑƒÑ‚Ñ‹Ð»ÐµÐº Ð¼Ð°Ð½Ñ‹') $deltamana=500;
   if($row['prototype']==2461) $deltahp=600;
   getadditdata($user);
   if ($deltahp) {
@@ -28,8 +28,8 @@ if ($user['battle'] > 0) {
   if ($need) {
     mq("update users set ".($deltahp?"hp=if(hp+$deltahp>maxhp, maxhp, hp+$deltahp), `fullhptime` = ".time()."":"")." ".($deltamana?"mana=if(mana+$deltamana>maxmana, maxmana, mana+$deltamana), `fullmptime` = ".time()."":"")." where id='$user[id]'");
 
-    if ($deltahp) echo "Âûïèò ýëèêñèð &quot;".$row['name']."&quot;. Óñïåøíî âîññòàíîâëåíî ".min($deltahp,$user["maxhp"]-$user["hp"])." åä. óðîâíÿ æèçíè.";
-    if ($deltamana) echo "Âûïèò ýëèêñèð &quot;".$row['name']."&quot;. Óñïåøíî âîññòàíîâëåíî ".min($deltamana,$user["maxmana"]-$user["mana"])." åä. óðîâíÿ ìàíû.";
+    if ($deltahp) echo "Ð’Ñ‹Ð¿Ð¸Ñ‚ ÑÐ»Ð¸ÐºÑÐ¸Ñ€ &quot;".$row['name']."&quot;. Ð£ÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ ".min($deltahp,$user["maxhp"]-$user["hp"])." ÐµÐ´. ÑƒÑ€Ð¾Ð²Ð½Ñ Ð¶Ð¸Ð·Ð½Ð¸.";
+    if ($deltamana) echo "Ð’Ñ‹Ð¿Ð¸Ñ‚ ÑÐ»Ð¸ÐºÑÐ¸Ñ€ &quot;".$row['name']."&quot;. Ð£ÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ð¾ÑÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð¾ ".min($deltamana,$user["maxmana"]-$user["mana"])." ÐµÐ´. ÑƒÑ€Ð¾Ð²Ð½Ñ Ð¼Ð°Ð½Ñ‹.";
 
     $user["hp"]=min($user["hp"]+$deltahp, $user["maxhp"]);
     $user["mana"]=min($user["mana"]+$deltamana, $user["maxmana"]);
@@ -38,7 +38,7 @@ if ($user['battle'] > 0) {
     //mysql_query("UPDATE `users` SET `hp` = `hp`, `fullhptime` = ".time()." WHERE  `hp` > `maxhp` AND `id` = '".$user['id']."' LIMIT 1;");
 
     $bet=1;
-  } elseif ($deltahp) echo "Âû è òàê çäîðîâû.";
-  elseif ($deltamana) echo "Âàøà ìàíà è òàê ïîëíàÿ.";
+  } elseif ($deltahp) echo "Ð’Ñ‹ Ð¸ Ñ‚Ð°Ðº Ð·Ð´Ð¾Ñ€Ð¾Ð²Ñ‹.";
+  elseif ($deltamana) echo "Ð’Ð°ÑˆÐ° Ð¼Ð°Ð½Ð° Ð¸ Ñ‚Ð°Ðº Ð¿Ð¾Ð»Ð½Ð°Ñ.";
 }
 ?>

@@ -27,7 +27,7 @@ var Hint3Name = '';
 function runmagic1(title, magic, name){
 document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=B1A993><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><BIG><B><IMG src="/i/clear.gif" width=13 height=13>&nbsp;</td></tr><tr><td colspan=2>'+
 '<form action="vip.php" method=POST><table width=100% cellspacing=0 cellpadding=2 bgcolor=DDD5BF><tr><td colspan=2><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"> <INPUT TYPE=hidden NAME="use" value="'+magic+'">'+
-'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
+'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD align=left><INPUT TYPE=text NAME="'+name+'">'+
 '</TD><TD width=120><INPUT TYPE="image" src="http://img.bestcombats.net/func/b__ok.gif"></TD></TR></TABLE></FORM></td></tr></table>';
 document.all("hint3").style.visibility = "visible";
 document.all("hint3").style.left = 500;
@@ -41,8 +41,8 @@ Hint3Name='';
 }
 </SCRIPT>
 <body leftmargin=5 topmargin=5 marginwidth=0 marginheight=0 bgcolor=#e2e0e0 >
-<table align=right><tr><td><INPUT TYPE="button" class=btn onclick="location.href='vip.php';" value="Обновить" title="Обновить"> 
-<INPUT TYPE="button" class=btn onclick="location.href='../main.php';" value="Вернуться" title="Вернуться"></table>
+<table align=right><tr><td><INPUT TYPE="button" class=btn onclick="location.href='vip.php';" value="РћР±РЅРѕРІРёС‚СЊ" title="РћР±РЅРѕРІРёС‚СЊ"> 
+<INPUT TYPE="button" class=btn onclick="location.href='../main.php';" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" title="Р’РµСЂРЅСѓС‚СЊСЃСЏ"></table>
 <h3>Silver Account</h3>
 </HEAD>
 <?
@@ -76,12 +76,12 @@ echo "<table>";
 echo "<tr><td align=center><br>";
 foreach($moj as $k => $v) {
 switch($k) {
-case "defence": $script_name="runmagic1"; $magic_name="Защита от Оружия"; break;
-case "power_hp6": $script_name="runmagic1"; $magic_name="Жажда Жизни+6"; break;
-case "devastate": $script_name="runmagic1"; $magic_name="Сокрушение"; break;
-case "blago": $script_name="runmagic1"; $magic_name="Благословление Ангела"; break;
-case "battack": $script_name="runmagic1"; $magic_name="Кровавое нападение"; break;
-case "hidden": $script_name="runmagic1"; $magic_name="Невидимость"; break;
+case "defence": $script_name="runmagic1"; $magic_name="Р—Р°С‰РёС‚Р° РѕС‚ РћСЂСѓР¶РёСЏ"; break;
+case "power_hp6": $script_name="runmagic1"; $magic_name="Р–Р°Р¶РґР° Р–РёР·РЅРё+6"; break;
+case "devastate": $script_name="runmagic1"; $magic_name="РЎРѕРєСЂСѓС€РµРЅРёРµ"; break;
+case "blago": $script_name="runmagic1"; $magic_name="Р‘Р»Р°РіРѕСЃР»РѕРІР»РµРЅРёРµ РђРЅРіРµР»Р°"; break;
+case "battack": $script_name="runmagic1"; $magic_name="РљСЂРѕРІР°РІРѕРµ РЅР°РїР°РґРµРЅРёРµ"; break;
+case "hidden": $script_name="runmagic1"; $magic_name="РќРµРІРёРґРёРјРѕСЃС‚СЊ"; break;
 }
 if ($script_name) {print "<a onclick=\"javascript:$script_name('$magic_name','$k','target','target1') \" href='#'><img src='http://bestcombats.net/i/magic/".$k.".gif' title='".$magic_name."'></a> ";}
 }

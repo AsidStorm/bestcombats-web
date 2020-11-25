@@ -8,7 +8,7 @@ function punkt(title,msg, w, h){
   }
   msgWindow = window.open("","msgWindow", styleStr);
   var head = '<head><title>'+title+'</title></head>';
-  var body = '<body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0><center><a href="#" title="закрыть"><img src='+msg+' width='+w+' height='+h+' onClick="self.close();return false;" border="0"></a>';
+  var body = '<body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0><center><a href="#" title="Р·Р°РєСЂС‹С‚СЊ"><img src='+msg+' width='+w+' height='+h+' onClick="self.close();return false;" border="0"></a>';
   msgWindow.document.write('<html>' + head + body + '</html>');
   msgWindow.focus();
 }
@@ -92,10 +92,10 @@ var oneclick=false;
 function getalign(al)
 {
   al+="";
-  if (al=="3") return("Темное братство");
-  if (al=="2") return("Хаос");
-  if (al.substring(0,1)=="1") return("Белое братство");
-  if (al=="0.5") return("Нейтрал");
+  if (al=="3") return("РўРµРјРЅРѕРµ Р±СЂР°С‚СЃС‚РІРѕ");
+  if (al=="2") return("РҐР°РѕСЃ");
+  if (al.substring(0,1)=="1") return("Р‘РµР»РѕРµ Р±СЂР°С‚СЃС‚РІРѕ");
+  if (al=="0.5") return("РќРµР№С‚СЂР°Р»");
   return("");
 }
 
@@ -107,7 +107,7 @@ function drwfl(name, id, level, align, klan)
   if (klan) s+="<A HREF='/encicl/klan/"+klan+".html' target=_blank><IMG SRC='http://img.combats.ru/i/klan/"+klan+".gif' WIDTH=24 HEIGHT=15 ALT=''></A>";
   s+="<B>"+name+"</B> ";
   if (level!=-1) s+="["+level+"]";
-  if (id!=-1) s+="<A HREF='/inf.php?"+id+"' target='_blank'><IMG SRC=http://img.combats.ru/i/inf.gif WIDTH=12 HEIGHT=11 ALT='Инф. о "+name+"'></A>";
+  if (id!=-1) s+="<A HREF='/inf.php?"+id+"' target='_blank'><IMG SRC=http://img.combats.ru/i/inf.gif WIDTH=12 HEIGHT=11 ALT='РРЅС„. Рѕ "+name+"'></A>";
 
   document.write(s);
 }
@@ -121,7 +121,7 @@ function drwflname(name, level, align, klan, realname)
   s+="<B>"+name+"</B> ";
   if (realname) s+="("+realname+") ";
   if (level) if (level!=-1) s+="["+level+"]";
-  s+=" <A HREF='http://recombats.com/inf.php?login="+name+"' target='_blank'><IMG border=0 SRC=http://img.combats.ru/i/inf.gif WIDTH=12 HEIGHT=11 ALT='Инф. о "+name+"' align=middle></A>";
+  s+=" <A HREF='http://recombats.com/inf.php?login="+name+"' target='_blank'><IMG border=0 SRC=http://img.combats.ru/i/inf.gif WIDTH=12 HEIGHT=11 ALT='РРЅС„. Рѕ "+name+"' align=middle></A>";
   
   document.write(s);
 }
@@ -130,7 +130,7 @@ function drwflogin(name)
 {
   var s="";
 
-  if (name!="") s+="<A class=menu HREF='http://recombats.com/inf.php?login="+name+"' target='_blank'><IMG SRC=http://img.combats.ru/i/inf.gif WIDTH=12 HEIGHT=11 border=0 ALT='Инф. о "+name+"'></A>";
+  if (name!="") s+="<A class=menu HREF='http://recombats.com/inf.php?login="+name+"' target='_blank'><IMG SRC=http://img.combats.ru/i/inf.gif WIDTH=12 HEIGHT=11 border=0 ALT='РРЅС„. Рѕ "+name+"'></A>";
 
   document.write(s);
 }

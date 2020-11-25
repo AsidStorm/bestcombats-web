@@ -24,11 +24,11 @@ if(in_array($user["room"], $canalenters)){
 <?php if ($user['align'] != 2.5) { ?>
 <script LANGUAGE='JavaScript'>
 document.ondragstart = test;
-//запрет на перетаскивание
+//Р·Р°РїСЂРµС‚ РЅР° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ
 document.onselectstart = test;
-//запрет на выделение элементов страницы
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂР°РЅРёС†С‹
 document.oncontextmenu = test;
-//запрет на выведение контекстного меню
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РІРµРґРµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 function test() {
  return false
 }
@@ -39,11 +39,11 @@ function test() {
   if (@$_GET["start"] && $user["room"]==64 && time()<1318780801) {
     unset($_GET["start"]);
     $diff=1318780801-time();
-    echo "<b><font color=red>Викторина начнётся через ".secs2hrs($diff)."</font></b>";
+    echo "<b><font color=red>Р’РёРєС‚РѕСЂРёРЅР° РЅР°С‡РЅС‘С‚СЃСЏ С‡РµСЂРµР· ".secs2hrs($diff)."</font></b>";
   }
   if (@$_GET["start"] && $user["room"]==71) {
     unset($_GET["start"]);
-    echo "<b><font color=red>Не стоит туда входить, маги в любой момент могут начать читсть заклинание.</font></b>";
+    echo "<b><font color=red>РќРµ СЃС‚РѕРёС‚ С‚СѓРґР° РІС…РѕРґРёС‚СЊ, РјР°РіРё РІ Р»СЋР±РѕР№ РјРѕРјРµРЅС‚ РјРѕРіСѓС‚ РЅР°С‡Р°С‚СЊ С‡РёС‚СЃС‚СЊ Р·Р°РєР»РёРЅР°РЅРёРµ.</font></b>";
 }
 ?>
 <div id=hint4 class=ahint></div>
@@ -66,18 +66,18 @@ if($el = mysql_fetch_array ($select)) {
     if (@$_GET["donate"]) {
       if ($user["money"]>=$podzemdata[$podzemroom]["passprice"]) {
         mq("update users set money=money-".$podzemdata[$podzemroom]["passprice"]." where id='$user[id]'");
-        mq("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" пожертвовал на благоустройство пещеры \"".$podzemdata[$podzemroom]["passprice"]."\" кр. ($user[money]/$user[ekr]). ',7,'".time()."');");
+        mq("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" РїРѕР¶РµСЂС‚РІРѕРІР°Р» РЅР° Р±Р»Р°РіРѕСѓСЃС‚СЂРѕР№СЃС‚РІРѕ РїРµС‰РµСЂС‹ \"".$podzemdata[$podzemroom]["passprice"]."\" РєСЂ. ($user[money]/$user[ekr]). ',7,'".time()."');");
         $wait_sec=0;
       } else {
-        echo "<b><font color=red>У вас недостаточно денег</font></b>";
+        echo "<b><font color=red>РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі</font></b>";
       }
     }
   }
   if($wait_sec>$new_t) {
-    print" <font style='font-size:12px'>Вы можете посетить ".$podzemdata[$podzemroom]["name1"]." через
+    print" <font style='font-size:12px'>Р’С‹ РјРѕР¶РµС‚Рµ РїРѕСЃРµС‚РёС‚СЊ ".$podzemdata[$podzemroom]["name1"]." С‡РµСЂРµР·
     <font style='font-size:11px; color:#000;'> ".secs2hrs($left_time)."</font><br>";
     if (@$podzemdata[$podzemroom]["passprice"]) {
-      echo "Пожертвовав ".$podzemdata[$podzemroom]["passprice"]." кр. на благоустройство ".$podzemdata[$podzemroom]["name2"].", это можно сделать прямо сейчас. <a onclick=\"return confirm('Пожертвовать ".$podzemdata[$podzemroom]["passprice"]." кр. на благоустройство ".$podzemdata[$podzemroom]["name2"]."?');\" href=\"vxod.php?donate=1\">Пожертвовать</a>.";
+      echo "РџРѕР¶РµСЂС‚РІРѕРІР°РІ ".$podzemdata[$podzemroom]["passprice"]." РєСЂ. РЅР° Р±Р»Р°РіРѕСѓСЃС‚СЂРѕР№СЃС‚РІРѕ ".$podzemdata[$podzemroom]["name2"].", СЌС‚Рѕ РјРѕР¶РЅРѕ СЃРґРµР»Р°С‚СЊ РїСЂСЏРјРѕ СЃРµР№С‡Р°СЃ. <a onclick=\"return confirm('РџРѕР¶РµСЂС‚РІРѕРІР°С‚СЊ ".$podzemdata[$podzemroom]["passprice"]." РєСЂ. РЅР° Р±Р»Р°РіРѕСѓСЃС‚СЂРѕР№СЃС‚РІРѕ ".$podzemdata[$podzemroom]["name2"]."?');\" href=\"vxod.php?donate=1\">РџРѕР¶РµСЂС‚РІРѕРІР°С‚СЊ</a>.";
     }
   } else {
     mysql_query("DELETE FROM visit_podzem WHERE login='".$user['login']."' and room='$podzemroom'");
@@ -96,18 +96,18 @@ if($el = mysql_fetch_array ($select)) {
   $est=mysql_fetch_array($rt);
   $user_id = $est["id"];
   $user_lvl = $est["level"];
-  if($_GET['warning']==1){print"<font style='color:#CC0000'>&nbsp;Вы покинули группу</font>";}
-  if($_GET['warning']==2){print"<font style='color:#CC0000'>&nbsp;Увы! Не угадали пароль!</font>";}
-  if($_GET['warning']==3){print"<font style='color:#CC0000'>&nbsp;Вы подали заявку, сначала отзовите её!</font>";}
-  if($_GET['warning']==4){print"<font style='color:#CC0000'>&nbsp;Вы уже в группе!</font>";}
-  if($_GET['warning']==5){print"<font style='color:#CC0000'>&nbsp;Группа уже собранна!</font>";}
-  if($_GET['warning']==6){print"<font style='color:#CC0000'>&nbsp;Максимальная плата для вашего уровня: ";
-  if ($user["level"]<5) echo "15 кр";
-  elseif ($user["level"]<7) echo "35 кр";
-  else echo "65 кр";
+  if($_GET['warning']==1){print"<font style='color:#CC0000'>&nbsp;Р’С‹ РїРѕРєРёРЅСѓР»Рё РіСЂСѓРїРїСѓ</font>";}
+  if($_GET['warning']==2){print"<font style='color:#CC0000'>&nbsp;РЈРІС‹! РќРµ СѓРіР°РґР°Р»Рё РїР°СЂРѕР»СЊ!</font>";}
+  if($_GET['warning']==3){print"<font style='color:#CC0000'>&nbsp;Р’С‹ РїРѕРґР°Р»Рё Р·Р°СЏРІРєСѓ, СЃРЅР°С‡Р°Р»Р° РѕС‚Р·РѕРІРёС‚Рµ РµС‘!</font>";}
+  if($_GET['warning']==4){print"<font style='color:#CC0000'>&nbsp;Р’С‹ СѓР¶Рµ РІ РіСЂСѓРїРїРµ!</font>";}
+  if($_GET['warning']==5){print"<font style='color:#CC0000'>&nbsp;Р“СЂСѓРїРїР° СѓР¶Рµ СЃРѕР±СЂР°РЅРЅР°!</font>";}
+  if($_GET['warning']==6){print"<font style='color:#CC0000'>&nbsp;РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ РїР»Р°С‚Р° РґР»СЏ РІР°С€РµРіРѕ СѓСЂРѕРІРЅСЏ: ";
+  if ($user["level"]<5) echo "15 РєСЂ";
+  elseif ($user["level"]<7) echo "35 РєСЂ";
+  else echo "65 РєСЂ";
   echo "!</font>";}
-  if($_GET['warning']==7){print"<font style='color:#CC0000'>&nbsp;Недостаточно денег для оплаты.</font>";}
-  if($_GET['warning']==8){print"<font style='color:#CC0000'>&nbsp;Со склонностью хаос оплата походов запрещена.</font>";}
+  if($_GET['warning']==7){print"<font style='color:#CC0000'>&nbsp;РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РґР»СЏ РѕРїР»Р°С‚С‹.</font>";}
+  if($_GET['warning']==8){print"<font style='color:#CC0000'>&nbsp;РЎРѕ СЃРєР»РѕРЅРЅРѕСЃС‚СЊСЋ С…Р°РѕСЃ РѕРїР»Р°С‚Р° РїРѕС…РѕРґРѕРІ Р·Р°РїСЂРµС‰РµРЅР°.</font>";}
   print"<TABLE cellpadding=1 cellspacing=0>";
 
 $i=0;
@@ -135,7 +135,7 @@ while($DATA=mysql_fetch_array($Q)){/////////////1
                                    }///////////////1
 
 for($n=0;$n<$i;$n++)
-{/////////////открытие
+{/////////////РѕС‚РєСЂС‹С‚РёРµ
 print "<FORM id='REQUEST'>
 <TR><TD>
 <font class=date>$date[$n]</font><font style='font-size:12px; color:#000000;'>";
@@ -155,7 +155,7 @@ print "<FORM id='REQUEST'>
   $p_login=$DATAS["login"];
   $p_lvl=$DATAS["lvl"];
      if($p1!=""){
-$p1="<b>$p1</b> [$p_lvl] ".($DATAS["fee"]?" <font color=blue>за $DATAS[fee] кр.</font>":"")."<a href='inf.php?login=$p1' target='_blank'><img src='i/inf.gif' border=0></a> ";
+$p1="<b>$p1</b> [$p_lvl] ".($DATAS["fee"]?" <font color=blue>Р·Р° $DATAS[fee] РєСЂ.</font>":"")."<a href='inf.php?login=$p1' target='_blank'><img src='i/inf.gif' border=0></a> ";
 if($t1_all[$n]==1){print "$p1";}else{print "$p1,";}
 
                 }
@@ -166,13 +166,13 @@ if($wawe=='0'){
 
   if(!empty($password[$n])){print"<INPUT style=\"font-size:12px;\" type='password' name='pass' size=5> ";}
   print"<input style=\"font-size:12px;\" name='naw_id' type='hidden' value='$creator[$n]'>  
-  <INPUT style='font-size:12px;' TYPE=submit name=add value='Присоед.'>
-  плата: <input type=\"text\"  name=\"fee\" style='font-size:12px;width:20px' maxlength=2> кр.
+  <INPUT style='font-size:12px;' TYPE=submit name=add value='РџСЂРёСЃРѕРµРґ.'>
+  РїР»Р°С‚Р°: <input type=\"text\"  name=\"fee\" style='font-size:12px;width:20px' maxlength=2> РєСЂ.
   ";}
 print "</TD>
 </TR></FORM>";
 
-}/////////закрытие
+}/////////Р·Р°РєСЂС‹С‚РёРµ
 ?>
 
 <TR><TD>
@@ -193,12 +193,12 @@ print "</TD>
 if($wawe=='0'){
 print"<FORM id='REQUEST'>
 <FIELDSET style='padding-left: 5; width=50%; color:#000000;'>
-<LEGEND><B> Группа </B> </LEGEND>
-Пароль <INPUT style=\"font-size:12px;\" TYPE=password NAME=pass maxlength=6 size=25><BR>
+<LEGEND><B> Р“СЂСѓРїРїР° </B> </LEGEND>
+РџР°СЂРѕР»СЊ <INPUT style=\"font-size:12px;\" TYPE=password NAME=pass maxlength=6 size=25><BR>
 <!--<input type=checkbox name=bistrob value=bistrob>
-<IMG SRC='/i/misc/commut/noblock.gif' WIDTH=20 HEIGHT=20 ALT='Быстрый Бой
-(Бой идет со случайно назначенными ударами/блоками и средним уровнем брони)'>Быстрый бой<br>-->
-<INPUT style='font-size:12px;' TYPE=submit name=open value='Создать группу'>&nbsp;<BR>
+<IMG SRC='/i/misc/commut/noblock.gif' WIDTH=20 HEIGHT=20 ALT='Р‘С‹СЃС‚СЂС‹Р№ Р‘РѕР№
+(Р‘РѕР№ РёРґРµС‚ СЃРѕ СЃР»СѓС‡Р°Р№РЅРѕ РЅР°Р·РЅР°С‡РµРЅРЅС‹РјРё СѓРґР°СЂР°РјРё/Р±Р»РѕРєР°РјРё Рё СЃСЂРµРґРЅРёРј СѓСЂРѕРІРЅРµРј Р±СЂРѕРЅРё)'>Р‘С‹СЃС‚СЂС‹Р№ Р±РѕР№<br>-->
+<INPUT style='font-size:12px;' TYPE=submit name=open value='РЎРѕР·РґР°С‚СЊ РіСЂСѓРїРїСѓ'>&nbsp;<BR>
 
 </FIELDSET>
 </FORM>";
@@ -206,13 +206,13 @@ print"<FORM id='REQUEST'>
 
 print"<FORM id='REQUEST'>
 <FIELDSET style='padding-left: 5; width=50%'>
-<LEGEND><B> Группа </B> </LEGEND>";
-if($nawe==1){print"<INPUT style=\"font-size:12px;\" type='submit' name='start' value='Начать'> &nbsp;";}
-print"<INPUT style=\"font-size:12px;\" type='submit' name='del' value='Покинуть группу'>
+<LEGEND><B> Р“СЂСѓРїРїР° </B> </LEGEND>";
+if($nawe==1){print"<INPUT style=\"font-size:12px;\" type='submit' name='start' value='РќР°С‡Р°С‚СЊ'> &nbsp;";}
+print"<INPUT style=\"font-size:12px;\" type='submit' name='del' value='РџРѕРєРёРЅСѓС‚СЊ РіСЂСѓРїРїСѓ'>
 </FIELDSET>
 </FORM>";}
 
-///////////////Подача заявки////////////////////
+///////////////РџРѕРґР°С‡Р° Р·Р°СЏРІРєРё////////////////////
 if($_GET['open'])
 {
 $der=mysql_query("SELECT glav_id FROM vxodd WHERE login='".$user['login']."'");
@@ -225,9 +225,9 @@ $SQL2 = mysql_query("INSERT INTO vxod(date,login,glav_id,comment,pass,room) VALU
 $SQL2 = mysql_query("INSERT INTO vxodd(login,glav_id,lvl) VALUES('$login','$user_id','$user_lvl')");
 if($SQL2){
 print "<script>location.href='main.php?act=none'</script>";
-exit;}else{print"Ошибка!!! Сообщите администратору!";}
+exit;}else{print"РћС€РёР±РєР°!!! РЎРѕРѕР±С‰РёС‚Рµ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ!";}
 }
-//////////////Удаление заявки//////////////////////
+//////////////РЈРґР°Р»РµРЅРёРµ Р·Р°СЏРІРєРё//////////////////////
 if($_GET['del'])
 {
 $e = mysql_query("DELETE FROM vxod WHERE login='$login'");
@@ -236,9 +236,9 @@ $ed = mysql_query("DELETE FROM vxodd WHERE login='$login'");
 if($e){
 print "<script>location.href='?warning=1'</script>";
 exit;
-}else{print"Ошибка!!! Сообщите администратору!";}
+}else{print"РћС€РёР±РєР°!!! РЎРѕРѕР±С‰РёС‚Рµ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ!";}
 }
-/////////////Присоединится///////////////
+/////////////РџСЂРёСЃРѕРµРґРёРЅРёС‚СЃСЏ///////////////
 if($_GET['add'])
 {
 $der=mysql_query("SELECT glav_id,id FROM vxodd WHERE login='".$user['login']."'");
@@ -273,7 +273,7 @@ exit;
         print "<script>location.href='?act=none'</script>";
         exit;
       } else {
-        print"Ошибка!!! Сообщите администратору!";
+        print"РћС€РёР±РєР°!!! РЎРѕРѕР±С‰РёС‚Рµ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ!";
       }
     } else {
       print "<script>location.href='?warning=2'</script>";
@@ -284,7 +284,7 @@ exit;
     exit;
   }
 }
-//////////////////Начинаем////////////////////
+//////////////////РќР°С‡РёРЅР°РµРј////////////////////
 if($_GET['start']){
   if (in_array($user["room"]+1, $caverooms)) {
     $nc=1; 
@@ -302,8 +302,8 @@ if($_GET['start']){
       mq("update users set money=money-$nana[fee] where id='$esth[id]'");
       $user["money"]+=$nana["fee"];
       $esth["money"]-=$nana["fee"];
-      adddelo($user["id"], "Персонаж $user[login] получил $nana[fee] кр. за поход по локации \"".$rooms[$user["room"]+1]."\" от персонажа $esth[login] ($user[money]/$user[ekr]).", 1);
-      adddelo($esth["id"], "Персонаж $esth[login] заплатил $nana[fee] кр. за поход по локации \"".$rooms[$user["room"]+1]."\" персонажу $user[login] ($esth[money]/$esth[ekr]).", 1);
+      adddelo($user["id"], "РџРµСЂСЃРѕРЅР°Р¶ $user[login] РїРѕР»СѓС‡РёР» $nana[fee] РєСЂ. Р·Р° РїРѕС…РѕРґ РїРѕ Р»РѕРєР°С†РёРё \"".$rooms[$user["room"]+1]."\" РѕС‚ РїРµСЂСЃРѕРЅР°Р¶Р° $esth[login] ($user[money]/$user[ekr]).", 1);
+      adddelo($esth["id"], "РџРµСЂСЃРѕРЅР°Р¶ $esth[login] Р·Р°РїР»Р°С‚РёР» $nana[fee] РєСЂ. Р·Р° РїРѕС…РѕРґ РїРѕ Р»РѕРєР°С†РёРё \"".$rooms[$user["room"]+1]."\" РїРµСЂСЃРѕРЅР°Р¶Сѓ $user[login] ($esth[money]/$esth[ekr]).", 1);
     }
     if ($esth["level"]>$level) $level=$esth["level"];
     $est_id = $esth["id"];
@@ -382,9 +382,9 @@ exit;
   echo moveline($links);
 ?>
 <BR>
-<DIV align=right><INPUT onClick="document.location.href='vxod.php?<? echo time(); ?>'" value=Обновить type=button>
-<? if ($user["room"]==51) { ?><INPUT style="font-size:12px;" type='button' onClick="location='zadaniya.php'" value="Задания"><? } ?>
-<? if ($user["room"]==82) { ?><INPUT style="font-size:12px;" type='button' onClick="location='zadaniya_bezdna.php'" value="Задания"><? } ?>
+<DIV align=right><INPUT onClick="document.location.href='vxod.php?<? echo time(); ?>'" value=РћР±РЅРѕРІРёС‚СЊ type=button>
+<? if ($user["room"]==51) { ?><INPUT style="font-size:12px;" type='button' onClick="location='zadaniya.php'" value="Р—Р°РґР°РЅРёСЏ"><? } ?>
+<? if ($user["room"]==82) { ?><INPUT style="font-size:12px;" type='button' onClick="location='zadaniya_bezdna.php'" value="Р—Р°РґР°РЅРёСЏ"><? } ?>
 </DIV></TD></TR></TBODY></TABLE>
 </TD>
 </TR>
@@ -394,34 +394,34 @@ exit;
   if (@$_POST["stroke"]) {
     $_POST["stroke"]=(int)$_POST["stroke"];
     $s=mqfa1("select stones from buystrokes where id='$_POST[stroke]'");
-    $tg=mqfa("select sum(koll) as koll from inventory where name='Алхимические камни' and owner='$user[id]'");
+    $tg=mqfa("select sum(koll) as koll from inventory where name='РђР»С…РёРјРёС‡РµСЃРєРёРµ РєР°РјРЅРё' and owner='$user[id]'");
     if ($tg["koll"]<500-$s) {
       mq("update buystrokes set stones=stones+$tg[koll] where id='$_POST[stroke]'");
       addqueststep($user["id"], 20, $tg["koll"]);
-      mq("delete from inventory where owner='$user[id]' and name='Алхимические камни'");
+      mq("delete from inventory where owner='$user[id]' and name='РђР»С…РёРјРёС‡РµСЃРєРёРµ РєР°РјРЅРё'");
     } else {
-      takesmallitems("Алхимические камни", 500-$s, $user["id"]);
+      takesmallitems("РђР»С…РёРјРёС‡РµСЃРєРёРµ РєР°РјРЅРё", 500-$s, $user["id"]);
       mq("update buystrokes set stones=500 where id='$_POST[stroke]'");
       addqueststep($user["id"], 20, 500-$s);
     }
   }
   if (@$_POST["changeto"]) {
-    $n=mqfa("select name, img from smallitems where id='$_POST[changeto]' and name like '%Эссенция%'");
-    if ($n) mq("update inventory set name='$n[name]', img='$n[img]' where name='Камень затаённого солнца' and owner='$user[id]'");
-    echo "<b>Обмен выполнен успешно.</b>";
+    $n=mqfa("select name, img from smallitems where id='$_POST[changeto]' and name like '%Р­СЃСЃРµРЅС†РёСЏ%'");
+    if ($n) mq("update inventory set name='$n[name]', img='$n[img]' where name='РљР°РјРµРЅСЊ Р·Р°С‚Р°С‘РЅРЅРѕРіРѕ СЃРѕР»РЅС†Р°' and owner='$user[id]'");
+    echo "<b>РћР±РјРµРЅ РІС‹РїРѕР»РЅРµРЅ СѓСЃРїРµС€РЅРѕ.</b>";
   }
   if ($user["room"]==301) {
-    $s=mqfa1("select sum(koll) from inventory where owner='$user[id]' and name='Камень затаённого солнца'");
+    $s=mqfa1("select sum(koll) from inventory where owner='$user[id]' and name='РљР°РјРµРЅСЊ Р·Р°С‚Р°С‘РЅРЅРѕРіРѕ СЃРѕР»РЅС†Р°'");
     if ($s) {
       echo "<form action=\"vxod.php\" method=\"post\">
-      Вы можете обменять у алхимика камни затаённого солнца на любую эссенцию.<br>
-      Обменять на: <select name=\"changeto\">";
-      $r=mq("select id, name from smallitems where name like '%Эссенция%' order by name");
+      Р’С‹ РјРѕР¶РµС‚Рµ РѕР±РјРµРЅСЏС‚СЊ Сѓ Р°Р»С…РёРјРёРєР° РєР°РјРЅРё Р·Р°С‚Р°С‘РЅРЅРѕРіРѕ СЃРѕР»РЅС†Р° РЅР° Р»СЋР±СѓСЋ СЌСЃСЃРµРЅС†РёСЋ.<br>
+      РћР±РјРµРЅСЏС‚СЊ РЅР°: <select name=\"changeto\">";
+      $r=mq("select id, name from smallitems where name like '%Р­СЃСЃРµРЅС†РёСЏ%' order by name");
       while ($rec=mysql_fetch_assoc($r)) {
         echo "<option value=\"$rec[id]\">$rec[name]</option>";
       }
       echo "</select>
-      <input type=submit value=\"Обменять\">
+      <input type=submit value=\"РћР±РјРµРЅСЏС‚СЊ\">
       </form>";
     }
   }

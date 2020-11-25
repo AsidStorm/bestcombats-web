@@ -40,14 +40,14 @@
     $ret.="<TABLE border=1 cellSpacing=0 cellPadding=4>
     <TBODY>
     <TR>
-    <TD align=middle>Логин</TD>
-    <TD>Удары</TD>
-    <TD>Блоки</TD>
-    <TD>Попадания</TD>
-    <TD>Защита</TD>
-    <TD>Урон</TD>
-    <TD>Потери</TD>
-    <!--<TD>Вылечено</TD>--></TR>";
+    <TD align=middle>Р›РѕРіРёРЅ</TD>
+    <TD>РЈРґР°СЂС‹</TD>
+    <TD>Р‘Р»РѕРєРё</TD>
+    <TD>РџРѕРїР°РґР°РЅРёСЏ</TD>
+    <TD>Р—Р°С‰РёС‚Р°</TD>
+    <TD>РЈСЂРѕРЅ</TD>
+    <TD>РџРѕС‚РµСЂРё</TD>
+    <!--<TD>Р’С‹Р»РµС‡РµРЅРѕ</TD>--></TR>";
     function redzero($n) {
       if ($n<=0) return "<font color=red>$n</font>";
       else return "<font color=black>$n</font>";
@@ -56,7 +56,7 @@
     $totalmax=0;
     foreach ($t1 as $k=>$v) {
       if ($userdata[$v]["hp"]<0) $userdata[$v]["hp"]=0;
-      if ($userdata[$v]["login"]!="невидимка") {
+      if ($userdata[$v]["login"]!="РЅРµРІРёРґРёРјРєР°") {
         $total+=$userdata[$v]["hp"];
         $totalmax+=$userdata[$v]["maxhp"];
       } else {
@@ -65,7 +65,7 @@
       }
       $ret.="<TR>
       <TD align=right><FONT class=B1>
-      <SPAN style=\"CURSOR: hand\" class=B1>".$userdata[$v]["login"]."</SPAN> ".($userdata[$v]["login"]!="невидимка"?"<A href=\"/inf.php?$v\" target=_blank><IMG alt=\"Инф. о ".$userdata[$v]["login"]."\" src=\"".IMGBASE."/i/inf.gif\" width=12 height=11></A>":"")."</FONT> [".redzero($userdata[$v]["hp"])."</FONT>/".$userdata[$v]["maxhp"]."]</TD>
+      <SPAN style=\"CURSOR: hand\" class=B1>".$userdata[$v]["login"]."</SPAN> ".($userdata[$v]["login"]!="РЅРµРІРёРґРёРјРєР°"?"<A href=\"/inf.php?$v\" target=_blank><IMG alt=\"РРЅС„. Рѕ ".$userdata[$v]["login"]."\" src=\"".IMGBASE."/i/inf.gif\" width=12 height=11></A>":"")."</FONT> [".redzero($userdata[$v]["hp"])."</FONT>/".$userdata[$v]["maxhp"]."]</TD>
       <TD>";
       $ret.=(int)$stats[$v]["hit1"];
       $ret.="/";
@@ -127,7 +127,7 @@
     if ($brec["type"]!=11) {
     $ret.="
     <TR bgColor=#d2d0d0>
-    <TD align=right><FONT class=B3><FONT class=B1><SPAN style=\"CURSOR: hand\">Всего [$total/$totalmax], ".count($t1)." чел.</SPAN></FONT></FONT></TD>
+    <TD align=right><FONT class=B3><FONT class=B1><SPAN style=\"CURSOR: hand\">Р’СЃРµРіРѕ [$total/$totalmax], ".count($t1)." С‡РµР».</SPAN></FONT></FONT></TD>
     <TD>&nbsp;</TD>
     <TD>&nbsp;</TD>
     <TD align=middle>$totalrow[0](<FONT color=red>$totalrow[1]</FONT>)/$totalrow[2]</TD>
@@ -141,7 +141,7 @@
     }
     foreach ($t2 as $k=>$v) {
       if ($userdata[$v]["hp"]<0) $userdata[$v]["hp"]=0;
-      if ($userdata[$v]["login"]!="невидимка") {
+      if ($userdata[$v]["login"]!="РЅРµРІРёРґРёРјРєР°") {
         $total+=$userdata[$v]["hp"];
         $totalmax+=$userdata[$v]["maxhp"];
       } else {
@@ -151,7 +151,7 @@
 
       $ret.="<TR>
       <TD align=right><FONT class=B1>
-      <SPAN style=\"CURSOR: hand\" class=B1>".$userdata[$v]["login"]."</SPAN> ".($userdata[$v]["login"]!="невидимка"?"<A href=\"/inf.php?$v\" target=_blank><IMG alt=\"Инф. о ".$userdata[$v]["login"]."\" src=\"".IMGBASE."/i/inf.gif\" width=12 height=11></A>":"")."</FONT> [".redzero($userdata[$v]["hp"])."</FONT>/".$userdata[$v]["maxhp"]."]</TD>
+      <SPAN style=\"CURSOR: hand\" class=B1>".$userdata[$v]["login"]."</SPAN> ".($userdata[$v]["login"]!="РЅРµРІРёРґРёРјРєР°"?"<A href=\"/inf.php?$v\" target=_blank><IMG alt=\"РРЅС„. Рѕ ".$userdata[$v]["login"]."\" src=\"".IMGBASE."/i/inf.gif\" width=12 height=11></A>":"")."</FONT> [".redzero($userdata[$v]["hp"])."</FONT>/".$userdata[$v]["maxhp"]."]</TD>
       <TD>";
       $ret.=(int)$stats[$v]["hit1"];
       $ret.="/";
@@ -215,10 +215,10 @@
     }
     $ret.="
     <TR bgColor=#d2d0d0>
-    <TD align=right><FONT class=B3><FONT class=B1><SPAN style=\"CURSOR: hand\">Всего [$total/$totalmax], ";
+    <TD align=right><FONT class=B3><FONT class=B1><SPAN style=\"CURSOR: hand\">Р’СЃРµРіРѕ [$total/$totalmax], ";
     if ($brec["type"]==11) $ret.=count($t1)+count($t2);
     else $ret.=count($t2);
-    $ret.=" чел.</SPAN></FONT></FONT></TD>
+    $ret.=" С‡РµР».</SPAN></FONT></FONT></TD>
     <TD>&nbsp;</TD>
     <TD>&nbsp;</TD>
     <TD align=middle>$totalrow[0](<FONT color=red>$totalrow[1]</FONT>)/$totalrow[2]</TD>
@@ -228,8 +228,8 @@
     <!--<TD align=middle>$totalrow[9]</TD>--></TR>";
 
     $ret.="
-    </TBODY></TABLE>Логин - имя персонажа и уровень жизни: [сейчас/всего]<BR>Удары - статистика ударов по областям: голова/грудь/живот/пояс/ноги<BR>Блоки - статистика блоков по областям: голова/грудь/живот/пояс/ноги<BR>Попадания - удачных попаданий <FONT color=red>(из них критов)</FONT> / всего ударов<BR>Защита - ударов заблокировано / уворотов / пропущено ударов<BR>Урон - выбито HP из противников / из них <FONT color=red>критами</FONT><BR>Потери - получено повреждений <BR>
-    <!--Вылечено - восстановлено HP<BR>-->";
+    </TBODY></TABLE>Р›РѕРіРёРЅ - РёРјСЏ РїРµСЂСЃРѕРЅР°Р¶Р° Рё СѓСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: [СЃРµР№С‡Р°СЃ/РІСЃРµРіРѕ]<BR>РЈРґР°СЂС‹ - СЃС‚Р°С‚РёСЃС‚РёРєР° СѓРґР°СЂРѕРІ РїРѕ РѕР±Р»Р°СЃС‚СЏРј: РіРѕР»РѕРІР°/РіСЂСѓРґСЊ/Р¶РёРІРѕС‚/РїРѕСЏСЃ/РЅРѕРіРё<BR>Р‘Р»РѕРєРё - СЃС‚Р°С‚РёСЃС‚РёРєР° Р±Р»РѕРєРѕРІ РїРѕ РѕР±Р»Р°СЃС‚СЏРј: РіРѕР»РѕРІР°/РіСЂСѓРґСЊ/Р¶РёРІРѕС‚/РїРѕСЏСЃ/РЅРѕРіРё<BR>РџРѕРїР°РґР°РЅРёСЏ - СѓРґР°С‡РЅС‹С… РїРѕРїР°РґР°РЅРёР№ <FONT color=red>(РёР· РЅРёС… РєСЂРёС‚РѕРІ)</FONT> / РІСЃРµРіРѕ СѓРґР°СЂРѕРІ<BR>Р—Р°С‰РёС‚Р° - СѓРґР°СЂРѕРІ Р·Р°Р±Р»РѕРєРёСЂРѕРІР°РЅРѕ / СѓРІРѕСЂРѕС‚РѕРІ / РїСЂРѕРїСѓС‰РµРЅРѕ СѓРґР°СЂРѕРІ<BR>РЈСЂРѕРЅ - РІС‹Р±РёС‚Рѕ HP РёР· РїСЂРѕС‚РёРІРЅРёРєРѕРІ / РёР· РЅРёС… <FONT color=red>РєСЂРёС‚Р°РјРё</FONT><BR>РџРѕС‚РµСЂРё - РїРѕР»СѓС‡РµРЅРѕ РїРѕРІСЂРµР¶РґРµРЅРёР№ <BR>
+    <!--Р’С‹Р»РµС‡РµРЅРѕ - РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРѕ HP<BR>-->";
     return $ret;
   }
 ?>

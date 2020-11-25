@@ -22,9 +22,9 @@ exit;
         if ($_GET['set']) { $set = $_GET['set']; }
         if ($_POST['set']) { $set = $_POST['set']; }
         $zrec=mqfa("select zeton, goldzeton, silverzeton from shop_luka where id='$set'");
-        if ($zrec["zeton"]) {$zetonname="Жетон";$zetonfield="zeton";}
-        if ($zrec["silverzeton"]) {$zetonname="Серебряный Жетон";$zetonfield="silverzeton";}
-        if ($zrec["goldzeton"]) {$zetonname="Золотой Жетон";$zetonfield="goldzeton";}
+        if ($zrec["zeton"]) {$zetonname="Р–РµС‚РѕРЅ";$zetonfield="zeton";}
+        if ($zrec["silverzeton"]) {$zetonname="РЎРµСЂРµР±СЂСЏРЅС‹Р№ Р–РµС‚РѕРЅ";$zetonfield="silverzeton";}
+        if ($zrec["goldzeton"]) {$zetonname="Р—РѕР»РѕС‚РѕР№ Р–РµС‚РѕРЅ";$zetonfield="goldzeton";}
         if (!$_POST['count']) { $_POST['count'] =1; }
 $vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='$zetonname' and owner='".$user["id"]."'");
  while($vls = mysql_fetch_array($vear))
@@ -35,7 +35,7 @@ $vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `nam
 
         $dress = mysql_fetch_array(mysql_query("SELECT * FROM `shop_luka` WHERE `id` = '{$set}' LIMIT 1;"));
         if (($dress['massa']*$_POST['count']+$d[0]) > (get_meshok())) {
-            echo "<font color=red><b>Недостаточно места в рюкзаке.</b></font>";
+            echo "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РјРµСЃС‚Р° РІ СЂСЋРєР·Р°РєРµ.</b></font>";
         }
         elseif(($zetons >= ($dress[$zetonfield]*$_POST['count'])) && ($dress['count'] >= $_POST['count'])) {
 
@@ -60,7 +60,7 @@ $vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `nam
             }
             if ($good) {
                 mysql_query("UPDATE `shop_luka` SET `count`=`count`-{$_POST['count']} WHERE `id` = '{$set}' LIMIT 1;");
-                echo "<font color=red><b>Вы купили {$_POST['count']} шт. \"{$dress['name']}\".</b></font>";
+                echo "<font color=red><b>Р’С‹ РєСѓРїРёР»Рё {$_POST['count']} С€С‚. \"{$dress['name']}\".</b></font>";
             $vsego = $zetons-($_POST['count']*$dress[$zetonfield]);
 if($vsego<='0'){
 mysql_query("DELETE FROM `inventory` WHERE `type`='200' and `name`='$zetonname' and owner='".$user["id"]."'");
@@ -86,11 +86,11 @@ mysql_query("DELETE FROM `inventory` WHERE `type`='200' and `name`='$zetonname' 
                     $dresscount="(x".$_POST['count'].") ";
                 }
                 $allcost=$_POST['count']*$dress[$zetonfield];
-                mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" купил товар: \"".$dress['name']."\" ".$dresscount."id:(".$dressid.") [0/".$dress['maxdur']."] за ".$allcost." $zetonname. ',1,'".time()."');");
+                mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" РєСѓРїРёР» С‚РѕРІР°СЂ: \"".$dress['name']."\" ".$dresscount."id:(".$dressid.") [0/".$dress['maxdur']."] Р·Р° ".$allcost." $zetonname. ',1,'".time()."');");
             }
         }
         else {
-            echo "<font color=red><b>Недостаточно денег или нет вещей в наличии.</b></font>";
+            echo "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РёР»Рё РЅРµС‚ РІРµС‰РµР№ РІ РЅР°Р»РёС‡РёРё.</b></font>";
         }
     }
 
@@ -104,16 +104,16 @@ mysql_query("DELETE FROM `inventory` WHERE `type`='200' and `name`='$zetonname' 
 <SCRIPT LANGUAGE="JavaScript">
 function AddCount(name, txt)
 {
-    document.all("hint3").innerHTML = '<table border=0 width=100% cellspacing=1 cellpadding=0 bgcolor="#CCC3AA"><tr><td align=center><B>Купить неск. штук</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</TD></tr><tr><td colspan=2>'+
+    document.all("hint3").innerHTML = '<table border=0 width=100% cellspacing=1 cellpadding=0 bgcolor="#CCC3AA"><tr><td align=center><B>РљСѓРїРёС‚СЊ РЅРµСЃРє. С€С‚СѓРє</td><td width=20 align=right valign=top style="cursor: hand" onclick="closehint3();"><BIG><B>x</TD></tr><tr><td colspan=2>'+
     '<table border=0 width=100% cellspacing=0 cellpadding=0 bgcolor="#FFF6DD"><tr><INPUT TYPE="hidden" name="set" value="'+name+'"><td colspan=2 align=center><B><I>'+txt+'</td></tr><tr><td width=80% align=right>'+
-    'Количество (шт.) <INPUT TYPE="text" NAME="count" size=4></td><td width=20%>&nbsp;<INPUT TYPE="submit" value=" »» ">'+
+    'РљРѕР»РёС‡РµСЃС‚РІРѕ (С€С‚.) <INPUT TYPE="text" NAME="count" size=4></td><td width=20%>&nbsp;<INPUT TYPE="submit" value=" В»В» ">'+
     '</TD></TR></TABLE></td></tr></table>';
     document.all("hint3").style.visibility = "visible";
     document.all("hint3").style.left = event.x+document.body.scrollLeft-20;
     document.all("hint3").style.top = event.y+document.body.scrollTop+5;
     document.all("count").focus();
 }
-// Закрывает окно
+// Р—Р°РєСЂС‹РІР°РµС‚ РѕРєРЅРѕ
 function closehint3()
 {
     document.all("hint3").style.visibility="hidden";
@@ -123,9 +123,9 @@ function closehint3()
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=#e0e0e0>
 <TABLE border=0 width=100% cellspacing="0" cellpadding="0">
 <FORM action="shop_luka.php" method=GET>
-<tr><td><h3>Магазин Луки</td><td align=right>
-<INPUT TYPE="button" value="Подсказка" style="background-color:#A9AFC0" onClick="window.open('help/shop.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">
-<INPUT TYPE="submit" value="Вернуться" name="naz"></td></tr>
+<tr><td><h3>РњР°РіР°Р·РёРЅ Р›СѓРєРё</td><td align=right>
+<INPUT TYPE="button" value="РџРѕРґСЃРєР°Р·РєР°" style="background-color:#A9AFC0" onClick="window.open('help/shop.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">
+<INPUT TYPE="submit" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" name="naz"></td></tr>
 </FORM>
 </table>
 <TABLE border=0 width=100% cellspacing="0" cellpadding="4">
@@ -134,104 +134,104 @@ function closehint3()
     <INPUT TYPE="hidden" name="sid" value="">
     <INPUT TYPE="hidden" name="id" value="1">
     <TD valign=top align=left>
-<!--Магазин-->
+<!--РњР°РіР°Р·РёРЅ-->
 <TABLE border=0 width=100% cellspacing="0" cellpadding="0" bgcolor="#A5A5A5">
 <TR>
-    <TD align=center><B>Отдел "<?php
+    <TD align=center><B>РћС‚РґРµР» "<?php
     if ($_POST['sale']) {
-        echo "Скупка";
+        echo "РЎРєСѓРїРєР°";
     } else
 switch ($_GET['otdel']) {
     case null:
-        echo "Оружие: кастеты,ножи";
+        echo "РћСЂСѓР¶РёРµ: РєР°СЃС‚РµС‚С‹,РЅРѕР¶Рё";
         $_GET['otdel'] = 1;
     break;
     case 1:
-        echo "Оружие: кастеты,ножи";
+        echo "РћСЂСѓР¶РёРµ: РєР°СЃС‚РµС‚С‹,РЅРѕР¶Рё";
     break;
 
     case 11:
-        echo "Оружие: топоры";
+        echo "РћСЂСѓР¶РёРµ: С‚РѕРїРѕСЂС‹";
     break;
 
     case 12:
-        echo "Оружие: дубины,булавы";
+        echo "РћСЂСѓР¶РёРµ: РґСѓР±РёРЅС‹,Р±СѓР»Р°РІС‹";
     break;
 
     case 13:
-        echo "Оружие: мечи";
+        echo "РћСЂСѓР¶РёРµ: РјРµС‡Рё";
     break;
 
     case 14:
-        echo "Оружие: луки и арбалеты";
+        echo "РћСЂСѓР¶РёРµ: Р»СѓРєРё Рё Р°СЂР±Р°Р»РµС‚С‹";
     break;
 
     case 30:
-        echo "Оружие: магические посохи";
+        echo "РћСЂСѓР¶РёРµ: РјР°РіРёС‡РµСЃРєРёРµ РїРѕСЃРѕС…Рё";
     break;
 
     case 2:
-        echo "Одежда: сапоги";
+        echo "РћРґРµР¶РґР°: СЃР°РїРѕРіРё";
     break;
     case 8:
-        echo "Одежда: рубашки, футболки";
+        echo "РћРґРµР¶РґР°: СЂСѓР±Р°С€РєРё, С„СѓС‚Р±РѕР»РєРё";
     break;
     case 9:
-        echo "Одежда: плащи, накидки";
+        echo "РћРґРµР¶РґР°: РїР»Р°С‰Рё, РЅР°РєРёРґРєРё";
     break;
     case 21:
-        echo "Одежда: перчатки";
+        echo "РћРґРµР¶РґР°: РїРµСЂС‡Р°С‚РєРё";
     break;
 
     case 22:
-        echo "&Одежда: легкая броня";
+        echo "&РћРґРµР¶РґР°: Р»РµРіРєР°СЏ Р±СЂРѕРЅСЏ";
     break;
 
     case 23:
-        echo "Одежда: тяжелая броня";
+        echo "РћРґРµР¶РґР°: С‚СЏР¶РµР»Р°СЏ Р±СЂРѕРЅСЏ";
     break;
 
     case 24:
-        echo "Одежда: шлемы";
+        echo "РћРґРµР¶РґР°: С€Р»РµРјС‹";
     break;
 
     case 25:
-        echo "Наручи";
+        echo "РќР°СЂСѓС‡Рё";
     break;
 
     case 26:
-        echo "Пояса";
+        echo "РџРѕСЏСЃР°";
     break;
 
     case 27:
-        echo "Поножи";
+        echo "РџРѕРЅРѕР¶Рё";
     break;
 
     case 3:
-        echo "Щиты";
+        echo "Р©РёС‚С‹";
     break;
 
     case 4:
-        echo "Ювелирные товары: серьги";
+        echo "Р®РІРµР»РёСЂРЅС‹Рµ С‚РѕРІР°СЂС‹: СЃРµСЂСЊРіРё";
     break;
 
     case 41:
-        echo "Ювелирные товары: ожерелья";
+        echo "Р®РІРµР»РёСЂРЅС‹Рµ С‚РѕРІР°СЂС‹: РѕР¶РµСЂРµР»СЊСЏ";
     break;
 
     case 42:
-        echo "Ювелирные товары: кольца";
+        echo "Р®РІРµР»РёСЂРЅС‹Рµ С‚РѕРІР°СЂС‹: РєРѕР»СЊС†Р°";
     break;
 
     case 5:
-        echo "Заклинания: нейтральные";
+        echo "Р—Р°РєР»РёРЅР°РЅРёСЏ: РЅРµР№С‚СЂР°Р»СЊРЅС‹Рµ";
     break;
 
     case 51:
-        echo "Заклинания: боевые и защитные";
+        echo "Р—Р°РєР»РёРЅР°РЅРёСЏ: Р±РѕРµРІС‹Рµ Рё Р·Р°С‰РёС‚РЅС‹Рµ";
     break;
     case 6:
-        echo "Амуниция";
+        echo "РђРјСѓРЅРёС†РёСЏ";
     break;
 
 }
@@ -241,7 +241,7 @@ switch ($_GET['otdel']) {
 
     </TD>
 </TR>
-<TR><TD><!--Рюкзак-->
+<TR><TD><!--Р СЋРєР·Р°Рє-->
 <TABLE BORDER=1 WIDTH=100% CELLSPACING="0" CELLPADDING="0" BGCOLOR="#A5A5A5">
 <?
     $data = mysql_query("SELECT * FROM `shop_luka` WHERE `count` > 0 AND `razdel` = '{$_GET['otdel']}' AND (`zeton` != '0' or `silverzeton` != '0' or `goldzeton` != '0')");
@@ -249,8 +249,8 @@ switch ($_GET['otdel']) {
         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
         echo "<TR bordercolor='#000000' bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"".IMGBASE."/i/sh/{$row['img']}\" BORDER=0>";
         ?>
-        <BR><A HREF="shop_luka.php?otdel=<?=$_GET['otdel']?>&set=<?=$row['id']?>&sid=">купить</A>
-        <IMG SRC="<?=IMGBASE?>/i/up.gif" WIDTH=11 HEIGHT=11 BORDER=0 ALT="Купить несколько штук" style="cursor:hand" onClick="AddCount('<?=$row['id']?>', '<?=$row['name']?>')"></TD>
+        <BR><A HREF="shop_luka.php?otdel=<?=$_GET['otdel']?>&set=<?=$row['id']?>&sid=">РєСѓРїРёС‚СЊ</A>
+        <IMG SRC="<?=IMGBASE?>/i/up.gif" WIDTH=11 HEIGHT=11 BORDER=0 ALT="РљСѓРїРёС‚СЊ РЅРµСЃРєРѕР»СЊРєРѕ С€С‚СѓРє" style="cursor:hand" onClick="AddCount('<?=$row['id']?>', '<?=$row['name']?>')"></TD>
         <?php
         echo "<TD valign=top style=\"padding-left:10px;padding-bottom:5px\">";
         showitem ($row);
@@ -265,8 +265,8 @@ switch ($_GET['otdel']) {
     </TD>
     <TD valign=top width=280>
 
-    <CENTER><B>Масса всех ваших вещей: <?php
-$vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Житон' and owner='".$user["id"]."'");
+    <CENTER><B>РњР°СЃСЃР° РІСЃРµС… РІР°С€РёС… РІРµС‰РµР№: <?php
+$vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Р–РёС‚РѕРЅ' and owner='".$user["id"]."'");
  while($vls = mysql_fetch_array($vear))
 {
       $zetons += $vls['koll'];
@@ -279,30 +279,30 @@ $vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `nam
     <div style="MARGIN-LEFT:15px; MARGIN-TOP: 10px;">
 
 
-<div style="background-color:#d2d0d0;padding:1;"><center><font color="#oooo"><B>Отделы магазина</B></center></div>
+<div style="background-color:#d2d0d0;padding:1;"><center><font color="#oooo"><B>РћС‚РґРµР»С‹ РјР°РіР°Р·РёРЅР°</B></center></div>
 <div style="text-align:left">
-<A HREF="shop_luka.php?otdel=1&sid=&0.162486541405194">Оружие: кастеты,ножи</A><BR>
-<A HREF="shop_luka.php?otdel=11&sid=&0.337606814894404">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;топоры</A><BR>
-<A HREF="shop_luka.php?otdel=12&sid=&0.286790872806733">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;дубины,булавы</A><BR>
-<A HREF="shop_luka.php?otdel=13&sid=&0.0943516060419363">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;мечи</A><BR>
-<A HREF="shop_luka.php?otdel=30&sid=&0.0943516060419363">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;магические посохи</A><BR>
-<A HREF="shop_luka.php?otdel=2&sid=&0.76205958316951">Одежда: сапоги</A><BR>
-<A HREF="shop_luka.php?otdel=21&sid=&0.648260824682342">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;перчатки</A><BR>
-<A HREF="shop_luka.php?otdel=8&sid=&0.520447517792988">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;рубашки, футболки</A><BR>
-<A HREF="shop_luka.php?otdel=9&sid=&0.520447517792988">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;плащи, накидки</A><BR>
-<A HREF="shop_luka.php?otdel=22&sid=&0.520447517792988">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;легкая броня</A><BR>
-<A HREF="shop_luka.php?otdel=23&sid=&0.99133839275569">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;тяжелая броня</A><BR>
-<A HREF="shop_luka.php?otdel=24&sid=&0.567932791291376">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;шлемы</A><BR>
-<A HREF="shop_luka.php?otdel=25&sid=&0.567932791291376">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;наручи</A><BR>
-<A HREF="shop_luka.php?otdel=26&sid=&0.567932791291376">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;пояса</A><BR>
-<A HREF="shop_luka.php?otdel=27&sid=&0.567932791291376">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;поножи</A><BR>
-<A HREF="shop_luka.php?otdel=3&sid=&0.725667864710179">Щиты</A><BR>
-<A HREF="shop_luka.php?otdel=4&sid=&0.321709306035984">Ювелирные товары: серьги</A><BR>
-<A HREF="shop_luka.php?otdel=41&sid=&0.902093651333512">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ожерелья</A><BR>
-<A HREF="shop_luka.php?otdel=42&sid=&0.510210803380268">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;кольца</A><BR>
-<A HREF="shop_luka.php?otdel=5&sid=&0.648834385828923">Заклинания: нейтральные</A><BR>
-<A HREF="shop_luka.php?otdel=51&sid=&0.722009624500359">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;боевые и защитные</A><BR>
-<A HREF="shop_luka.php?otdel=6&sid=&0.925798340638547">Амуниция</A><BR>
+<A HREF="shop_luka.php?otdel=1&sid=&0.162486541405194">РћСЂСѓР¶РёРµ: РєР°СЃС‚РµС‚С‹,РЅРѕР¶Рё</A><BR>
+<A HREF="shop_luka.php?otdel=11&sid=&0.337606814894404">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;С‚РѕРїРѕСЂС‹</A><BR>
+<A HREF="shop_luka.php?otdel=12&sid=&0.286790872806733">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РґСѓР±РёРЅС‹,Р±СѓР»Р°РІС‹</A><BR>
+<A HREF="shop_luka.php?otdel=13&sid=&0.0943516060419363">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РјРµС‡Рё</A><BR>
+<A HREF="shop_luka.php?otdel=30&sid=&0.0943516060419363">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РјР°РіРёС‡РµСЃРєРёРµ РїРѕСЃРѕС…Рё</A><BR>
+<A HREF="shop_luka.php?otdel=2&sid=&0.76205958316951">РћРґРµР¶РґР°: СЃР°РїРѕРіРё</A><BR>
+<A HREF="shop_luka.php?otdel=21&sid=&0.648260824682342">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РїРµСЂС‡Р°С‚РєРё</A><BR>
+<A HREF="shop_luka.php?otdel=8&sid=&0.520447517792988">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;СЂСѓР±Р°С€РєРё, С„СѓС‚Р±РѕР»РєРё</A><BR>
+<A HREF="shop_luka.php?otdel=9&sid=&0.520447517792988">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РїР»Р°С‰Рё, РЅР°РєРёРґРєРё</A><BR>
+<A HREF="shop_luka.php?otdel=22&sid=&0.520447517792988">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Р»РµРіРєР°СЏ Р±СЂРѕРЅСЏ</A><BR>
+<A HREF="shop_luka.php?otdel=23&sid=&0.99133839275569">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;С‚СЏР¶РµР»Р°СЏ Р±СЂРѕРЅСЏ</A><BR>
+<A HREF="shop_luka.php?otdel=24&sid=&0.567932791291376">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;С€Р»РµРјС‹</A><BR>
+<A HREF="shop_luka.php?otdel=25&sid=&0.567932791291376">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РЅР°СЂСѓС‡Рё</A><BR>
+<A HREF="shop_luka.php?otdel=26&sid=&0.567932791291376">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РїРѕСЏСЃР°</A><BR>
+<A HREF="shop_luka.php?otdel=27&sid=&0.567932791291376">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РїРѕРЅРѕР¶Рё</A><BR>
+<A HREF="shop_luka.php?otdel=3&sid=&0.725667864710179">Р©РёС‚С‹</A><BR>
+<A HREF="shop_luka.php?otdel=4&sid=&0.321709306035984">Р®РІРµР»РёСЂРЅС‹Рµ С‚РѕРІР°СЂС‹: СЃРµСЂСЊРіРё</A><BR>
+<A HREF="shop_luka.php?otdel=41&sid=&0.902093651333512">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РѕР¶РµСЂРµР»СЊСЏ</A><BR>
+<A HREF="shop_luka.php?otdel=42&sid=&0.510210803380268">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РєРѕР»СЊС†Р°</A><BR>
+<A HREF="shop_luka.php?otdel=5&sid=&0.648834385828923">Р—Р°РєР»РёРЅР°РЅРёСЏ: РЅРµР№С‚СЂР°Р»СЊРЅС‹Рµ</A><BR>
+<A HREF="shop_luka.php?otdel=51&sid=&0.722009624500359">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Р±РѕРµРІС‹Рµ Рё Р·Р°С‰РёС‚РЅС‹Рµ</A><BR>
+<A HREF="shop_luka.php?otdel=6&sid=&0.925798340638547">РђРјСѓРЅРёС†РёСЏ</A><BR>
 </div>
     </div>
 <div id="hint3" class="ahint"></div>

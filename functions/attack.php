@@ -15,14 +15,14 @@
       header("Location:fbattle.php");
       die("<script>location.href='fbattle.php';</script>");
     } elseif (!$jert) {
-      $ret='Такого персонажа не существует.';
+      $ret='РўР°РєРѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.';
     } elseif ($jert["hp"]<=0 && $help) {
-      $ret='Мёртвому помощь уже не нужна.';
+      $ret='РњС‘СЂС‚РІРѕРјСѓ РїРѕРјРѕС‰СЊ СѓР¶Рµ РЅРµ РЅСѓР¶РЅР°.';
     } elseif(($jert['room'] == $user['room'] || $jert["room"]==$extraroom) && $jert['id']!=$user['id']) {
       if($jert['battle'] > 0) {
         $joinedbattle=$jert['battle'];
         if (!$bd) $bd = mysql_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$jert['battle'].' LIMIT 1;'));
-        //if ($bd["coment"]=="Кулачный поединок") undressall($user['id']);
+        //if ($bd["coment"]=="РљСѓР»Р°С‡РЅС‹Р№ РїРѕРµРґРёРЅРѕРє") undressall($user['id']);
         $battle = unserialize($bd['teams']);
         if ($help) {
           $battle[$user['id']]=$battle[$jert["id"]];
@@ -41,7 +41,7 @@
           }
         }
         $t1 = explode(";",$bd['t1']);
-        // проставляем кто-где
+        // РїСЂРѕСЃС‚Р°РІР»СЏРµРј РєС‚Рѕ-РіРґРµ
         if (in_array ($jert['id'],$t1)) {
           if ($help) {
             $ttt = 1;$ttt2 = 2;
@@ -55,24 +55,24 @@
             $ttt=1;$ttt2=2;
           }
         }
-        //addch ("<b>".nick7($user['id'])."</b> вмешал".($jert["sex"]==1?"ся":"ась")." в <a href=logs.php?log=".$id." target=_blank>поединок »»</a>.  ",$user['room']);
+        //addch ("<b>".nick7($user['id'])."</b> РІРјРµС€Р°Р»".($jert["sex"]==1?"СЃСЏ":"Р°СЃСЊ")." РІ <a href=logs.php?log=".$id." target=_blank>РїРѕРµРґРёРЅРѕРє В»В»</a>.  ",$user['room']);
 
-        //mq('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' вмешался в поединок!<BR>\') WHERE `id` = '.$jert['battle'].'');
+        //mq('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' РІРјРµС€Р°Р»СЃСЏ РІ РїРѕРµРґРёРЅРѕРє!<BR>\') WHERE `id` = '.$jert['battle'].'');
         
-        addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> '.fullnick($user, 1, "B".$ttt).' вмешал'.($jert["sex"]==1?"ся":"ась").' в поединок!<BR>');
+        addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> '.fullnick($user, 1, "B".$ttt).' РІРјРµС€Р°Р»'.($jert["sex"]==1?"СЃСЏ":"Р°СЃСЊ").' РІ РїРѕРµРґРёРЅРѕРє!<BR>');
         mq('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t'.$ttt.'`=CONCAT(`t'.$ttt.'`,\';'.$user['id'].'\'), `to'.$ttt.'` = \''.time().'\', `to'.$ttt2.'` = \''.(time()-1).'\'  WHERE `id` = '.$jert['battle'].' ;');
         mq("UPDATE users SET `battle` =".$jert['battle'].",`zayavka`=0 WHERE `id`= ".$user['id']);
-        //mq('UPDATE `deztow_turnir` SET `log` = CONCAT(`log`,\''."<span class=date>".date("d.m.y H:i")."</span>  ".nick3($user['id'])." вмешался в поединок против ".nick3($jert['id'])." <a href=\"logs.php?log={$jert['battle']}\" target=_blank>»»</a><BR>".'\') WHERE `active` = TRUE;');
+        //mq('UPDATE `deztow_turnir` SET `log` = CONCAT(`log`,\''."<span class=date>".date("d.m.y H:i")."</span>  ".nick3($user['id'])." РІРјРµС€Р°Р»СЃСЏ РІ РїРѕРµРґРёРЅРѕРє РїСЂРѕС‚РёРІ ".nick3($jert['id'])." <a href=\"logs.php?log={$jert['battle']}\" target=_blank>В»В»</a><BR>".'\') WHERE `active` = TRUE;');
         if (!$noredir) {
           @header("Location:fbattle.php");
           die("<script>location.href='fbattle.php';</script>");
         }
       } elseif ($jert["hp"]<=0) {
-        $ret="Не стоит издеваться над трупами.";
+        $ret="РќРµ СЃС‚РѕРёС‚ РёР·РґРµРІР°С‚СЊСЃСЏ РЅР°Рґ С‚СЂСѓРїР°РјРё.";
       } elseif ($help) {
-        $ret="Персонаж не в бою.";
+        $ret="РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ Р±РѕСЋ.";
       } else {
-        // начинаем бой
+        // РЅР°С‡РёРЅР°РµРј Р±РѕР№
 
         if($bot) {
           mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('$jert[login]','$jert[id]','0','$jert[maxhp]');");
@@ -91,11 +91,11 @@
 
         mq("update bots set battle='$id' where id='$jert[id]'");
 
-        $rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($jert['id'])."</b>";
+        $rr = "<b>".nick3($user['id'])."</b> Рё <b>".nick3($jert['id'])."</b>";
 
-        //addch ("<B><b>".nick7($user['id'])."</b> , применив магию нападения, внезапно напал на <b>".nick7($jert['id'])."</b>.   ",$user['room']);
-        //mq("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
-        addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
+        //addch ("<B><b>".nick7($user['id'])."</b> , РїСЂРёРјРµРЅРёРІ РјР°РіРёСЋ РЅР°РїР°РґРµРЅРёСЏ, РІРЅРµР·Р°РїРЅРѕ РЅР°РїР°Р» РЅР° <b>".nick7($jert['id'])."</b>.   ",$user['room']);
+        //mq("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>');");
+        addlog($id,"Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>");
 
         mq("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']} OR `id` = {$jert['id']}");
         if (!$noredir) {
@@ -104,9 +104,9 @@
         }
       }
     } elseif ($jser==$user["id"]) {
-      $ret='Вы действительно хотите убить себя?';
+      $ret='Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ СѓР±РёС‚СЊ СЃРµР±СЏ?';
     } else {
-      $ret='Жертва ускользнула из комнаты...';
+      $ret='Р–РµСЂС‚РІР° СѓСЃРєРѕР»СЊР·РЅСѓР»Р° РёР· РєРѕРјРЅР°С‚С‹...';
     }
     if ($lock) mq("UNLOCK TABLES");
     return $ret;
@@ -116,27 +116,27 @@
 
     if (!@$battle["id"]) return false;
 
-    if ($battle['closed']==1) return "Этот бой изолирован от внешнего мира";
+    if ($battle['closed']==1) return "Р­С‚РѕС‚ Р±РѕР№ РёР·РѕР»РёСЂРѕРІР°РЅ РѕС‚ РІРЅРµС€РЅРµРіРѕ РјРёСЂР°";
     if ($battle["blood"]) {
       $e=mqfa1("select id from effects where owner='$user[id]' and type=".TRAVMARESISTANCE2);
-      if ($e) return "Вы находитесь под защитой Мироздетеля и не можете вступать в кровавые поединки.";
+      if ($e) return "Р’С‹ РЅР°С…РѕРґРёС‚РµСЃСЊ РїРѕРґ Р·Р°С‰РёС‚РѕР№ РњРёСЂРѕР·РґРµС‚РµР»СЏ Рё РЅРµ РјРѕР¶РµС‚Рµ РІСЃС‚СѓРїР°С‚СЊ РІ РєСЂРѕРІР°РІС‹Рµ РїРѕРµРґРёРЅРєРё.";
     }
     if (!$user["klan"]) return false;
 
-    if ($user["klan"]==$enemy["klan"]) return "Чтите честь ваших сокланов.";
+    if ($user["klan"]==$enemy["klan"]) return "Р§С‚РёС‚Рµ С‡РµСЃС‚СЊ РІР°С€РёС… СЃРѕРєР»Р°РЅРѕРІ.";
     $t1=explode(";", $battle["t1"]);
     $t2=explode(";", $battle["t2"]);
-    if (in_array($user["id"],$t1) || in_array($user["id"],$t2)) return "Вы не можете вступить в этот бой.";
+    if (in_array($user["id"],$t1) || in_array($user["id"],$t2)) return "Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РІСЃС‚СѓРїРёС‚СЊ РІ СЌС‚РѕС‚ Р±РѕР№.";
     if (in_array($enemy["id"],$t2) || $enemy["id"]==99) $team=$t2;
     else $team=$t1;
     $i=mqfa1("select id from users where klan='$user[klan]' and (id=".implode(" or id=", $team).")");
-    if ($i) return "Чтите честь ваших сокланов.";
+    if ($i) return "Р§С‚РёС‚Рµ С‡РµСЃС‚СЊ РІР°С€РёС… СЃРѕРєР»Р°РЅРѕРІ.";
 
     return false;
   }
 
   function cantattack($us, $blood=0, $unhealable=0, $canbeoff=0) {
-    if (!$us) return "Такого персонажа не существует.";
+    if (!$us) return "РўР°РєРѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.";
     global $user, $testusers, $noattackrooms, $caverooms;
     include "config/extrausers.php";
     $nic1=0;
@@ -151,44 +151,44 @@
     }
     if ($blood) {
       $e=mqfa1("select id from effects where owner='$user[id]' and type=".TRAVMARESISTANCE2);
-      if ($e) return "Вы находитесь под защитой Мироздетеля и не можете вступать в кровавые поединки.";
+      if ($e) return "Р’С‹ РЅР°С…РѕРґРёС‚РµСЃСЊ РїРѕРґ Р·Р°С‰РёС‚РѕР№ РњРёСЂРѕР·РґРµС‚РµР»СЏ Рё РЅРµ РјРѕР¶РµС‚Рµ РІСЃС‚СѓРїР°С‚СЊ РІ РєСЂРѕРІР°РІС‹Рµ РїРѕРµРґРёРЅРєРё.";
     }
     if ($user["klan"] && $user["klan"]==$us["klan"]) {
-      return "Чтите честь ваших сокланов.";
+      return "Р§С‚РёС‚Рµ С‡РµСЃС‚СЊ РІР°С€РёС… СЃРѕРєР»Р°РЅРѕРІ.";
     } elseif ($nic1) {
-      return "Для начала надо разобраться с защитниками замка.";
+      return "Р”Р»СЏ РЅР°С‡Р°Р»Р° РЅР°РґРѕ СЂР°Р·РѕР±СЂР°С‚СЊСЃСЏ СЃ Р·Р°С‰РёС‚РЅРёРєР°РјРё Р·Р°РјРєР°.";
     } elseif ($nic2) {
-      return "До начала осады нападения в этой локации запрещены.";
+      return "Р”Рѕ РЅР°С‡Р°Р»Р° РѕСЃР°РґС‹ РЅР°РїР°РґРµРЅРёСЏ РІ СЌС‚РѕР№ Р»РѕРєР°С†РёРё Р·Р°РїСЂРµС‰РµРЅС‹.";
     } elseif (mqfa("SELECT id FROM `effects` WHERE `owner` = ".$user['id']." AND (type=13 OR type=12 OR  type=14)")) {
-      return "Вы не можете нападать имея травму.";
+      return "Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РЅР°РїР°РґР°С‚СЊ РёРјРµСЏ С‚СЂР°РІРјСѓ.";
     } elseif (in_array($user["id"], $noattack) || in_array($user["id"], $testusers)) {
-      return "Для вас нападения запрещены.";
+      return "Р”Р»СЏ РІР°СЃ РЅР°РїР°РґРµРЅРёСЏ Р·Р°РїСЂРµС‰РµРЅС‹.";
     } elseif ($user['battle'] > 0) {
-      return "Не в бою...";
+      return "РќРµ РІ Р±РѕСЋ...";
     } elseif ($unhealable && $pregn) {
-      return "Нелечимые нападения на беременных запрещены.";
+      return "РќРµР»РµС‡РёРјС‹Рµ РЅР°РїР°РґРµРЅРёСЏ РЅР° Р±РµСЂРµРјРµРЅРЅС‹С… Р·Р°РїСЂРµС‰РµРЅС‹.";
     } elseif ((!$us['online'] && !$canbeoff) || $us['invis']) {
-      return "Персонаж не в игре!";
+      return "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РёРіСЂРµ!";
     } elseif ($user['zayavka'] > 0) {
-      return "Вы ожидаете поединка...";
+      return "Р’С‹ РѕР¶РёРґР°РµС‚Рµ РїРѕРµРґРёРЅРєР°...";
     } elseif ($blood && $user["level"]-$us["level"]>1 && $us["level"]<9) {
-      return "Если уровнь персонажа ниже 9-го, то кровавым нападением может нападать персонаж, который не более чем на 1 уровень старше.";
+      return "Р•СЃР»Рё СѓСЂРѕРІРЅСЊ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРёР¶Рµ 9-РіРѕ, С‚Рѕ РєСЂРѕРІР°РІС‹Рј РЅР°РїР°РґРµРЅРёРµРј РјРѕР¶РµС‚ РЅР°РїР°РґР°С‚СЊ РїРµСЂСЃРѕРЅР°Р¶, РєРѕС‚РѕСЂС‹Р№ РЅРµ Р±РѕР»РµРµ С‡РµРј РЅР° 1 СѓСЂРѕРІРµРЅСЊ СЃС‚Р°СЂС€Рµ.";
     } elseif (!$us['battle'] && mqfa("SELECT id FROM `effects` WHERE `owner` = ".$us['id']." AND (type=13 OR type=12 OR  type=14)")) {
-      return "Персонаж тяжело травмирован...";
+      return "РџРµСЂСЃРѕРЅР°Р¶ С‚СЏР¶РµР»Рѕ С‚СЂР°РІРјРёСЂРѕРІР°РЅ...";
     } elseif ($user['room'] != $us['room']) {
-      return "Персонаж в другой комнате!";
+      return "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!";
     } elseif (in_array($us["room"], $noattackrooms) || in_array($us["room"], $caverooms)) {
-      return "Нападения в этой локации запрещены!";
+      return "РќР°РїР°РґРµРЅРёСЏ РІ СЌС‚РѕР№ Р»РѕРєР°С†РёРё Р·Р°РїСЂРµС‰РµРЅС‹!";
     } elseif ($us['level'] < 1) {
-      return "Новички находятся под защитой мироздателя!";
+      return "РќРѕРІРёС‡РєРё РЅР°С…РѕРґСЏС‚СЃСЏ РїРѕРґ Р·Р°С‰РёС‚РѕР№ РјРёСЂРѕР·РґР°С‚РµР»СЏ!";
     } elseif ($us['hp'] < $us['maxhp']*0.33  && !$us['battle']) {
-      return "Жертва слишком слаба!";
+      return "Р–РµСЂС‚РІР° СЃР»РёС€РєРѕРј СЃР»Р°Р±Р°!";
     } elseif ($user['hp'] < $user['maxhp']*0.33) {
-      return "Вы слишком ослаблены для нападения!";
+      return "Р’С‹ СЃР»РёС€РєРѕРј РѕСЃР»Р°Р±Р»РµРЅС‹ РґР»СЏ РЅР°РїР°РґРµРЅРёСЏ!";
     } elseif ($us['hp'] < 1  && $us['battle']) {
-      return "Вы не можете напасть на погибшего!";
+      return "Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РЅР°РїР°СЃС‚СЊ РЅР° РїРѕРіРёР±С€РµРіРѕ!";
     } elseif ($t=mqfa1("select time from effects where owner='$us[id]' and type=".PROTFROMATTACK)) {
-      return "Этот персонаж защищён от нападений ещё ".($t-time())." сек.";
+      return "Р­С‚РѕС‚ РїРµСЂСЃРѕРЅР°Р¶ Р·Р°С‰РёС‰С‘РЅ РѕС‚ РЅР°РїР°РґРµРЅРёР№ РµС‰С‘ ".($t-time())." СЃРµРє.";
     }
   }
 ?>

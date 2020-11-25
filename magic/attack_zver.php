@@ -1,9 +1,9 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
 if ($_SESSION['uid'] == null) header("Location: index.php");
 
 if ($user['battle'] == 0) {
-	echo "Это боевая магия...";
+	echo "Р­С‚Рѕ Р±РѕРµРІР°СЏ РјР°РіРёСЏ...";
 } else {
 	$magic = mysql_fetch_array(mysql_query("SELECT `chanse` FROM `magic` WHERE `id` = '202' ;"));			
 	if ($user['intel'] >= 4) {
@@ -29,20 +29,20 @@ if ($user['battle'] == 0) {
 		}
 		$t1 = explode(";",$bd['t1']);		
 		if (in_array ($user['id'],$t1)) {$ttt = 1;} else {	$ttt = 2;}					
-		addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' призвал своего зверя '.nick5($bot,"B".$ttt).'<BR>');
+		addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' РїСЂРёР·РІР°Р» СЃРІРѕРµРіРѕ Р·РІРµСЂСЏ '.nick5($bot,"B".$ttt).'<BR>');
 					
 		mysql_query('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t'.$ttt.'`=CONCAT(`t'.$ttt.'`,\';'.$bot.'\')  WHERE `id` = '.$user['battle'].' ;');
 		
 		mysql_query("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = ".$user['battle']." LIMIT 1;");							
 				
 		$bet=1;
-		echo "Ваш зверь призван в бой.";
+		echo "Р’Р°С€ Р·РІРµСЂСЊ РїСЂРёР·РІР°РЅ РІ Р±РѕР№.";
 		
-		}else{echo "Ваш зверь уже был призван в бой.";}
-		}else{echo "Ваш зверь слишком голодный.";}
-		}else{echo "У вас нет зверя!";}
+		}else{echo "Р’Р°С€ Р·РІРµСЂСЊ СѓР¶Рµ Р±С‹Р» РїСЂРёР·РІР°РЅ РІ Р±РѕР№.";}
+		}else{echo "Р’Р°С€ Р·РІРµСЂСЊ СЃР»РёС€РєРѕРј РіРѕР»РѕРґРЅС‹Р№.";}
+		}else{echo "РЈ РІР°СЃ РЅРµС‚ Р·РІРµСЂСЏ!";}
 //	} //else {
-		//echo "Свиток рассыпался в ваших руках...";
+		//echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
 		//$bet=1;
 	//}
 }

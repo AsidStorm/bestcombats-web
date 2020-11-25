@@ -35,7 +35,7 @@
 ?>
 <HTML>
 <link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
-<HEAD><TITLE>Форум Бойцовского Клуба</TITLE>
+<HEAD><TITLE>Р¤РѕСЂСѓРј Р‘РѕР№С†РѕРІСЃРєРѕРіРѕ РљР»СѓР±Р°</TITLE>
 <META content="INDEX,FOLLOW" name="robots">
 <META content="1 days" name="revisit-after">
 <META http-equiv="Content-type" content="text/html; charset=windows-1251">
@@ -50,7 +50,7 @@
 <SCRIPT language=JavaScript>
 function cs(s1, s2)
 {
-   if (document.getSelection) { alert("Под NN не работает!"); }
+   if (document.getSelection) { alert("РџРѕРґ NN РЅРµ СЂР°Р±РѕС‚Р°РµС‚!"); }
    if (document.selection) {
      var str = document.selection.createRange();
      var s = document.F1.text.value;
@@ -65,7 +65,7 @@ function cs(s1, s2)
          }
          document.F1.text.value = s+"<I>\n"+str2+"\n</I>\n";
        } else {
-         alert("Не выделен текст!\nДля вставки цитаты, сначала выделите на странице нужный текст, а затем нажмите эту кнопку.");
+         alert("РќРµ РІС‹РґРµР»РµРЅ С‚РµРєСЃС‚!\nР”Р»СЏ РІСЃС‚Р°РІРєРё С†РёС‚Р°С‚С‹, СЃРЅР°С‡Р°Р»Р° РІС‹РґРµР»РёС‚Рµ РЅР° СЃС‚СЂР°РЅРёС†Рµ РЅСѓР¶РЅС‹Р№ С‚РµРєСЃС‚, Р° Р·Р°С‚РµРј РЅР°Р¶РјРёС‚Рµ СЌС‚Сѓ РєРЅРѕРїРєСѓ.");
        }
      } else {
       if ((str.text != "") && (s.indexOf(str.text)>=0)) {
@@ -96,11 +96,11 @@ function replasetopic(reptopic,numtopic){
 <?php if ($user['align'] != 2.5) { ?>
 <script LANGUAGE='JavaScript'>
 document.ondragstart = test;
-//запрет на перетаскивание
+//Р·Р°РїСЂРµС‚ РЅР° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ
 //document.onselectstart = test;
-//запрет на выделение элементов страницы
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂР°РЅРёС†С‹
 document.oncontextmenu = test;
-//запрет на выведение контекстного меню
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РІРµРґРµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 function test() {
  return false
 }
@@ -150,7 +150,7 @@ function test() {
                                         echo "<tr valign=top><td><br></td></tr>";
                             }
                             else $replasepost.="<option value='".$row['id']."'>".$row['topic']."</option>";
-                            echo "<tR valign=top><td>&nbsp;&nbsp;•</td><td><a href='?conf={$row['id']}'>{$row['topic']}</a></td></tr>";
+                            echo "<tR valign=top><td>&nbsp;&nbsp;вЂў</td><td><a href='?conf={$row['id']}'>{$row['topic']}</a></td></tr>";
                         }
                     }
                 }
@@ -169,7 +169,7 @@ function test() {
           return $s;
         }
         if ($_POST["add"] || $_POST["add2"]) {
-          $effect = mqfa("SELECT `time` FROM `effects` WHERE (`owner` = '{$user['id']}' or owner=$user[id]+"._BOTSEPARATOR_.") and (`name` = 'Заклятие форумного молчания' or type=3)");
+          $effect = mqfa("SELECT `time` FROM `effects` WHERE (`owner` = '{$user['id']}' or owner=$user[id]+"._BOTSEPARATOR_.") and (`name` = 'Р—Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ' or type=3)");
           if ($effect) {
             unset($_POST["add"]);
             unset($_POST["add2"]);
@@ -202,15 +202,15 @@ function test() {
             $min_align=$minmax['min_align'];
             $max_align=$minmax['max_align'];
             if ($_POST['title'] == "" or $_POST['title'] == " " or $_POST['text'] == "" or $_POST['text']== " ") {
-                echo "<font color=red><b>Заголовок или текст не могут быть пустыми</b></font>";
+                echo "<font color=red><b>Р—Р°РіРѕР»РѕРІРѕРє РёР»Рё С‚РµРєСЃС‚ РЅРµ РјРѕРіСѓС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹РјРё</b></font>";
             }
             elseif (!(is_numeric($_GET['conf'])) || !($_GET['conf'] > 0 && $_GET['conf'] <70)) {
-                echo "<font color=red><b>Не надо так делать</b></font>";
+                echo "<font color=red><b>РќРµ РЅР°РґРѕ С‚Р°Рє РґРµР»Р°С‚СЊ</b></font>";
             }
             elseif (($minmax['min_align'] == 0 && $minmax['max_align'] == 0) || ($user['align']>=$minmax['min_align'] && $user['align']<=$minmax['max_align']) || ($minmax['min_align']==5 && $minmax['max_align']==5 && $user['deal']==1) || ($minmax['min_align']==172 && $minmax['max_align']==777 && ($user['align']=="1.2" or $user['align']=="1.99" or $user['align']="3.99")) || ($user['align']>2 && $user['align']<3)) {
                 if ($user['invis']=='1' && $user["align"]!=2.5) {
                 mysql_query("INSERT INTO `forum` (`type`,`topic`,`text`,`parent`,`author`,`date`,`min_align`,`max_align`,`icon`)
-                VALUES (2,'{$text2}','".strip_tags(nl2br($text1),"<b><i><u><code><BR>")."','{$_GET['conf']}','<b>невидимка</b>','".date("d.m.y H:i:s")."','$min_align','$max_align','{$icon}') ;");
+                VALUES (2,'{$text2}','".strip_tags(nl2br($text1),"<b><i><u><code><BR>")."','{$_GET['conf']}','<b>РЅРµРІРёРґРёРјРєР°</b>','".date("d.m.y H:i:s")."','$min_align','$max_align','{$icon}') ;");
                 }else
                 mysql_query("INSERT INTO `forum` (`type`,`topic`,`text`,`parent`,`author`,`date`,`min_align`,`max_align`,`icon`)
                 VALUES (2,'{$text2}','".strip_tags(nl2br($text1),"<b><i><u><code><BR>")."','{$_GET['conf']}','".nick3($_SESSION['uid'])."','".date("d.m.y H:i:s")."','$min_align','$max_align','{$icon}') ;");
@@ -218,7 +218,7 @@ function test() {
                 die;
             }
             else {
-                echo "<font color=red><b>Вы не можете писать в этой конференции</b></font>";
+                echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РїРёСЃР°С‚СЊ РІ СЌС‚РѕР№ РєРѕРЅС„РµСЂРµРЅС†РёРё</b></font>";
             }
             $_POST['add']="";
         }
@@ -250,16 +250,16 @@ function test() {
             $max_align=$minmax['max_align'];
 
             if ($_POST['text'] == "") {
-                echo "<font color=red><b>Текст не может быть пустыми</b></font>";
+                echo "<font color=red><b>РўРµРєСЃС‚ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹РјРё</b></font>";
             }
             elseif (!(is_numeric($_GET['topic']))) {
-                echo "<font color=red><b>Не надо так делать</b></font>";
+                echo "<font color=red><b>РќРµ РЅР°РґРѕ С‚Р°Рє РґРµР»Р°С‚СЊ</b></font>";
             }
             if (($minmax['min_align'] == 0 && $minmax['max_align'] == 0) || ($user['align']>=$minmax['min_align'] && $user['align']<=$minmax['max_align']) || ($minmax['min_align']==5 && $minmax['max_align']==5 && $user['deal']==1) || ($minmax['min_align']==175 && $minmax['max_align']==777 && ($user['align']=="1.2" or $user['align']=="1.99" or $user['align']="3.99")) || ($user['align']>2 && $user['align']<3)) {
-            if ($user['level'] < 4 or $user['align'] == 4 or $minmax['close'] == 1){echo "<font color=red><b>Не выйдет...</b></font>";}else{
+            if ($user['level'] < 4 or $user['align'] == 4 or $minmax['close'] == 1){echo "<font color=red><b>РќРµ РІС‹Р№РґРµС‚...</b></font>";}else{
             if ($user['invis']=='1' && $user["align"]!=2.5) {
                 mysql_query("INSERT INTO `forum` (`type`,`topic`,`text`,`parent`,`author`,`date`,`min_align`,`max_align`)
-                VALUES (2,'{$text2}','".strip_tags(nl2br($text1),"<b><i><u><code><BR><a>")."','{$_GET['topic']}','<b>невидимка</b>','".date("d.m.y H:i:s")."','$min_align','$max_align') ;");
+                VALUES (2,'{$text2}','".strip_tags(nl2br($text1),"<b><i><u><code><BR><a>")."','{$_GET['topic']}','<b>РЅРµРІРёРґРёРјРєР°</b>','".date("d.m.y H:i:s")."','$min_align','$max_align') ;");
             }else
                 mysql_query("INSERT INTO `forum` (`type`,`topic`,`text`,`parent`,`author`,`date`,`min_align`,`max_align`)
                 VALUES (2,'{$text2}','".strip_tags(nl2br($text1),"<b><i><u><code><BR><a>")."','{$_GET['topic']}','".nick3($_SESSION['uid'])."','".date("d.m.y H:i:s")."','$min_align','$max_align') ;");
@@ -269,19 +269,19 @@ function test() {
               die;
             }
             else {
-                echo "<font color=red><b>Вы не можете писать в этой конференции</b></font>";
+                echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РїРёСЃР°С‚СЊ РІ СЌС‚РѕР№ РєРѕРЅС„РµСЂРµРЅС†РёРё</b></font>";
             }
             $_POST['add2']="";
         }
 
         if ($_GET['dp'] && (($user['align']>1.4 && $user['align']<2) || ($user['align']>2 && $user['align']<3))  || $user['align'] == '777' || ($user['align'] > '3.05' && $user['align'] < '4'))
         {
-            if ($user['align']>1.1 && $user['align']<2) {$angel="паладином";}
-            if ($user['align']>2 && $user['align']<3) {$angel="Ангелом";}
+            if ($user['align']>1.1 && $user['align']<2) {$angel="РїР°Р»Р°РґРёРЅРѕРј";}
+            if ($user['align']>2 && $user['align']<3) {$angel="РђРЅРіРµР»РѕРј";}
             if ($user['invis']=='1' && $user["align"]!=2.5) {
-            mysql_query("UPDATE `forum` SET `text` = '<font color=red>Удалил невидимка</font>' WHERE `id` = {$_GET['dp']} LIMIT 1;");
+            mysql_query("UPDATE `forum` SET `text` = '<font color=red>РЈРґР°Р»РёР» РЅРµРІРёРґРёРјРєР°</font>' WHERE `id` = {$_GET['dp']} LIMIT 1;");
             }else
-            mysql_query("UPDATE `forum` SET `text` = '<font color=red>Удалено $angel ".nick3($_SESSION['uid'])."</font>' WHERE `id` = {$_GET['dp']} LIMIT 1;");
+            mysql_query("UPDATE `forum` SET `text` = '<font color=red>РЈРґР°Р»РµРЅРѕ $angel ".nick3($_SESSION['uid'])."</font>' WHERE `id` = {$_GET['dp']} LIMIT 1;");
         }
 
         if ($_GET['dt'] && (($user['align']>1.4 && $user['align']<2) || ($user['align']>2 && $user['align']<3))  || $user['align'] == '777' || ($user['align'] > '3.05' && $user['align'] < '4'))
@@ -292,14 +292,14 @@ function test() {
               $f=fopen("logs/forumlog.txt","ab");
               $_POST["txt"]=str_replace("\r","",$_POST["txt"]);
               $_POST["txt"]=str_replace("\n","",$_POST["txt"]);
-              fwrite($f, "".date("Y-m-d H:i:s")." <b>$user[login]</b>: Удалил тему: &quot;{$mne['topic']}&quot; из раздела &quot;{$mne2['topic']}&quot; DEBUG: {$_SERVER['REQUEST_URI']}<br>\r\n");
+              fwrite($f, "".date("Y-m-d H:i:s")." <b>$user[login]</b>: РЈРґР°Р»РёР» С‚РµРјСѓ: &quot;{$mne['topic']}&quot; РёР· СЂР°Р·РґРµР»Р° &quot;{$mne2['topic']}&quot; DEBUG: {$_SERVER['REQUEST_URI']}<br>\r\n");
               fclose($f);
         }
 
         if ($_GET['com'] && $_GET['cpr'] && (($user['align']>1.6 && $user['align']<2) || ($user['align']>2 && $user['align']<3))  || $user['align'] == '777' || ($user['align'] > '3.05' && $user['align'] < '4'))
         {
             if ($user['invis']==1 && $user["align"]!=2.5) {
-            mysql_query("UPDATE `forum` SET `text` = CONCAT(`text`,'<BR><font color=red><b>невидимка</b>: ".$_GET['cpr']."</font>') WHERE `id` = {$_GET['com']} LIMIT 1;");
+            mysql_query("UPDATE `forum` SET `text` = CONCAT(`text`,'<BR><font color=red><b>РЅРµРІРёРґРёРјРєР°</b>: ".$_GET['cpr']."</font>') WHERE `id` = {$_GET['com']} LIMIT 1;");
             }else
             mysql_query("UPDATE `forum` SET `text` = CONCAT(`text`,'<BR><font color=red>".nick3($_SESSION['uid']).": ".$_GET['cpr']."</font>') WHERE `id` = {$_GET['com']} LIMIT 1;");
 
@@ -310,12 +310,12 @@ function test() {
                 mysql_query("UPDATE `forum` SET `close` = '0' WHERE `id` = {$_GET['topic']} LIMIT 1;");
             }
             if ($_GET['do'] == "close") {
-            if ($user['align']>1.1 && $user['align']<2) {$angel="паладином";}
-            if ($user['align']>2 && $user['align']<3) {$angel="Ангелом";}
+            if ($user['align']>1.1 && $user['align']<2) {$angel="РїР°Р»Р°РґРёРЅРѕРј";}
+            if ($user['align']>2 && $user['align']<3) {$angel="РђРЅРіРµР»РѕРј";}
             if ($user['invis']=='1' && $user["align"]!=2.5) {
-                mysql_query("UPDATE `forum` SET `close` = '1', `closepal` = '<font color=red>Обсуждение закрыл невидимка</font>' WHERE `id` = {$_GET['topic']} LIMIT 1;");
+                mysql_query("UPDATE `forum` SET `close` = '1', `closepal` = '<font color=red>РћР±СЃСѓР¶РґРµРЅРёРµ Р·Р°РєСЂС‹Р» РЅРµРІРёРґРёРјРєР°</font>' WHERE `id` = {$_GET['topic']} LIMIT 1;");
 }else
-                mysql_query("UPDATE `forum` SET `close` = '1', `closepal` = '<font color=red>Обсуждение закрыто $angel ".nick3($_SESSION['uid'])."</font>' WHERE `id` = {$_GET['topic']} LIMIT 1;");
+                mysql_query("UPDATE `forum` SET `close` = '1', `closepal` = '<font color=red>РћР±СЃСѓР¶РґРµРЅРёРµ Р·Р°РєСЂС‹С‚Рѕ $angel ".nick3($_SESSION['uid'])."</font>' WHERE `id` = {$_GET['topic']} LIMIT 1;");
             }
             if ($_GET['do'] == "fix") {
                 mysql_query("UPDATE `forum` SET `fix` = '1' WHERE `id` = {$_GET['topic']} LIMIT 1;");
@@ -341,11 +341,11 @@ function test() {
               <TBODY>
               <TR>
                 <TD noWrap align=center><A
-                  href="?topic=<?echo "$prev";?>">«
-                  предыдущая ветвь</A> | <A
-                  href="forum.php?conf=<?echo "$top";?>">форум</A> | <A
-                  href="?topic=<?echo "$next";?>">следующая
-                  ветвь »</A></TD></TR></TBODY></TABLE></CENTER>
+                  href="?topic=<?echo "$prev";?>">В«
+                  РїСЂРµРґС‹РґСѓС‰Р°СЏ РІРµС‚РІСЊ</A> | <A
+                  href="forum.php?conf=<?echo "$top";?>">С„РѕСЂСѓРј</A> | <A
+                  href="?topic=<?echo "$next";?>">СЃР»РµРґСѓСЋС‰Р°СЏ
+                  РІРµС‚РІСЊ В»</A></TD></TR></TBODY></TABLE></CENTER>
             <?
 
                 $par_top=mysql_fetch_row(mysql_query("SELECT closepal, id FROM `forum` WHERE id=".(int)$_GET['topic']));
@@ -353,30 +353,30 @@ function test() {
                     {
 
                 if ($row['close'] == 1) {
-                    $close="<a href='?topic={$_GET['topic']}&do=open'>Открыть</a>";
+                    $close="<a href='?topic={$_GET['topic']}&do=open'>РћС‚РєСЂС‹С‚СЊ</a>";
                     $closed=1;
                     $closepal=$row['closepal'];
                 }else{
-                    $close="<a href='?topic={$_GET['topic']}&do=close'>Закрыть</a>";
+                    $close="<a href='?topic={$_GET['topic']}&do=close'>Р—Р°РєСЂС‹С‚СЊ</a>";
                 }
                 if ($row['fix'] == 1) {
-                    $fix="<a href='?topic={$_GET['topic']}&do=unfix'>Открепить</a>";
+                    $fix="<a href='?topic={$_GET['topic']}&do=unfix'>РћС‚РєСЂРµРїРёС‚СЊ</a>";
                 }else{
-                    $fix="<a href='?topic={$_GET['topic']}&do=fix'>Прикрепить</a>";
+                    $fix="<a href='?topic={$_GET['topic']}&do=fix'>РџСЂРёРєСЂРµРїРёС‚СЊ</a>";
                 }
 
                 if(($user['align']>1.4 && $user['align']<2) || ($user['align']>2 && $user['align']<3)  || $user['align'] == '3.092' || $user['align'] == '3.99') {
                     echo "<br><div align=right>$close $fix";
 
-                    echo " <select id='seltopic".$_GET['topic']."'>".$replasepost."</select> <input type='button' value='Переместить' onClick=\"replasetopic(".$_GET['konftop'].",".$_GET['topic'].")\"></div>";
+                    echo " <select id='seltopic".$_GET['topic']."'>".$replasepost."</select> <input type='button' value='РџРµСЂРµРјРµСЃС‚РёС‚СЊ' onClick=\"replasetopic(".$_GET['konftop'].",".$_GET['topic'].")\"></div>";
                     if ($_POST['selectt']!='' && $_POST['numt']!='')
-                            echo "<center><h3>Тема перемещена.</h3><a href='forum.php?topic=".$_POST['numt']."&konftop=".$_POST['selectt']."'>forum.php?topic=".$_POST['numt']."&konftop=".$_POST['selectt']."</a></center>";
+                            echo "<center><h3>РўРµРјР° РїРµСЂРµРјРµС‰РµРЅР°.</h3><a href='forum.php?topic=".$_POST['numt']."&konftop=".$_POST['selectt']."'>forum.php?topic=".$_POST['numt']."&konftop=".$_POST['selectt']."</a></center>";
                 }
                 $pgs = mysql_fetch_array(mysql_query("SELECT count(`id`) FROM `forum` WHERE `parent` = '{$_GET['topic']}';"));
                 if (!isset($_GET["page"])) $_GET["page"]=floor(($pgs[0]-1)/20);
                 $pgs = $pgs[0]/20;
                 if ($pgs) {
-                    echo "Страницы: ";
+                    echo "РЎС‚СЂР°РЅРёС†С‹: ";
                 }
                 $pages_str='';
                 $page = (int)$_GET['page']>0 ? (((int)$_GET['page']+1)>$pgs ? ($pgs-1):(int)$_GET['page']):0;
@@ -388,15 +388,15 @@ function test() {
                     $pages_str.=($page<$pgs-5 ? "...":"");
                     $pages_str=($page>4 ? "<a href='?topic=".$_GET['topic']."&page=".($page-1)."'> < </a> ... ":"").$pages_str.(($page<($pgs-1) ? "<a href='?topic=".$_GET['topic']."&page=".($page+1)."' > ></a>":""));
                 }
-                $FirstPage=(ceil($pgs)>4 ? $_GET['page']>0 ? "<a href='?topic=".$_GET['topic']."&page=0'>   Первая </a>":"":"");
-                $LastPage=(ceil($pgs)>4 ? (ceil($pgs)-1)!=$_GET['page'] ? "<a href='?topic=".$_GET['topic']."&page=".(ceil($pgs)-1)."'>   Последняя </a>":"":"");
+                $FirstPage=(ceil($pgs)>4 ? $_GET['page']>0 ? "<a href='?topic=".$_GET['topic']."&page=0'>   РџРµСЂРІР°СЏ </a>":"":"");
+                $LastPage=(ceil($pgs)>4 ? (ceil($pgs)-1)!=$_GET['page'] ? "<a href='?topic=".$_GET['topic']."&page=".(ceil($pgs)-1)."'>   РџРѕСЃР»РµРґРЅСЏСЏ </a>":"":"");
                 $pages_str=$FirstPage.$pages_str.$LastPage;
                 echo $pages_str;
                 echo "<H4><IMG height=15 src=\"i/icon{$icons}.gif\" width=15 border=0> {$row['topic']}</H4><BR>";
                 echo "{$row['author']} (<span class=date>{$row['date']}</span>)";
                 if(($user['align']>1.6 && $user['align']<2) || ($user['align']>2 && $user['align']<3)  || $user['align'] == '777' || ($user['align'] > '3.05' && $user['align'] < '4')) {
                         echo " <a href='?topic=".$_GET['topic']."&page=".$_GET['page']."&dp=".$row['id']."'><img src='i/clear.gif'></a>";
-                        echo " <a onclick='var obj; if (obj = prompt(\"Введите комментарий\",\"\")) { window.location=\"forum.php?topic=".$_GET['topic']."&page=".$_GET['page']."&cpr=\"+obj+\"&com=".$row['id']."\"; }' href='#'>[комментарий]</a>";
+                        echo " <a onclick='var obj; if (obj = prompt(\"Р’РІРµРґРёС‚Рµ РєРѕРјРјРµРЅС‚Р°СЂРёР№\",\"\")) { window.location=\"forum.php?topic=".$_GET['topic']."&page=".$_GET['page']."&cpr=\"+obj+\"&com=".$row['id']."\"; }' href='#'>[РєРѕРјРјРµРЅС‚Р°СЂРёР№]</a>";
                     }
                 echo "<BR>".pre($row['text'])."<HR>";
                     $data = mysql_query("SELECT * FROM `forum` WHERE `parent` = '{$_GET['topic']}'  ORDER by `id` ASC LIMIT ".max(0,(int)($_GET['page']*20)).",20;");
@@ -404,19 +404,19 @@ function test() {
                         echo "{$row['author']} (<span class=date>{$row['date']}</span>)";
                         if(($user['align']>1.6 && $user['align']<2) || ($user['align']>2 && $user['align']<3)  || $user['align'] == '777' || ($user['align'] > '3.05' && $user['align'] < '4')) {
                             echo " <a href='?topic={$_GET['topic']}&page=".$_GET['page']."&dp={$row['id']}'><img src='i/clear.gif'></a>";
-                            echo " <a onclick='var obj; if (obj = prompt(\"Введите комментарий\",\"\")) { window.location=\"forum.php?topic=".$_GET['topic']."&page=".$_GET['page']."&cpr=\"+obj+\"&com=".$row['id']."\"; }' href='#'>[комментарий]</a>";
+                            echo " <a onclick='var obj; if (obj = prompt(\"Р’РІРµРґРёС‚Рµ РєРѕРјРјРµРЅС‚Р°СЂРёР№\",\"\")) { window.location=\"forum.php?topic=".$_GET['topic']."&page=".$_GET['page']."&cpr=\"+obj+\"&com=".$row['id']."\"; }' href='#'>[РєРѕРјРјРµРЅС‚Р°СЂРёР№]</a>";
                         }
                         echo "<BR>".pre($row['text'])."<HR>";
                     }
                 if ($pgs) {
-                    echo "Страницы: ";
+                    echo "РЎС‚СЂР°РЅРёС†С‹: ";
                 }
                 echo $pages_str;
                 if ($closed==1) {
                     echo "<br><div align=center>$closepal</div><br><br>";
                 }
                 else {
-                    $effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE (`owner` = '{$user['id']}' or owner=$user[id]+"._BOTSEPARATOR_.") and (`name` = 'Заклятие форумного молчания' or type=3) LIMIT 1;"));
+                    $effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE (`owner` = '{$user['id']}' or owner=$user[id]+"._BOTSEPARATOR_.") and (`name` = 'Р—Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ' or type=3) LIMIT 1;"));
                     if ( $_SESSION['uid'] && !$effect['time'] && $user['align'] != 4 && $user['level'] > 3) {
           ?>
             <A name=answer></A>
@@ -427,7 +427,7 @@ function test() {
               <TBODY>
               <TR>
                 <TD>
-                  <H4>Написать ответ</H4></TD></TR>
+                  <H4>РќР°РїРёСЃР°С‚СЊ РѕС‚РІРµС‚</H4></TD></TR>
               <TR>
                 <TD>
                   <TABLE width="100%" border=0>
@@ -435,53 +435,53 @@ function test() {
                     <TR>
                       <TD align=middle><TEXTAREA name=text rows=12 cols=85></TEXTAREA></TD>
                       <TD><INPUT onclick="cs('<B>', '</B>');return false;"
-                        type=image height=22 alt=Жирный width=25 src="i/a4.gif "
+                        type=image height=22 alt=Р–РёСЂРЅС‹Р№ width=25 src="i/a4.gif "
                         border=0><BR><IMG height=1 alt="" src="" width=1
                         border=0><BR><INPUT
                         onclick="cs('<I>', '</I>');return false;" type=image
-                        height=22 alt=Наклонный width=25 src="i/a2.gif "
+                        height=22 alt=РќР°РєР»РѕРЅРЅС‹Р№ width=25 src="i/a2.gif "
                         border=0><BR><IMG height=1 alt="" src="" width=1
                         border=0><BR><INPUT
                         onclick="cs('<U>', '</U>');return false;" type=image
-                        height=22 alt=Подчеркнутый width=25 src="i/a3.gif "
+                        height=22 alt=РџРѕРґС‡РµСЂРєРЅСѓС‚С‹Р№ width=25 src="i/a3.gif "
                         border=0><BR><IMG height=1 alt="" src="" width=1
                         border=0><BR><INPUT
                         onclick="cs('<CODE>', '</CODE>');return false;"
-                        type=image height=22 alt="Текст программы" width=25
+                        type=image height=22 alt="РўРµРєСЃС‚ РїСЂРѕРіСЂР°РјРјС‹" width=25
                         src="i/a1.gif " border=0><BR><IMG height=1 alt="" src="" width=1
                         border=0><BR><INPUT onclick="cs('//', '');return false;"
                         type=image height=22
-                        alt="Вставка цитаты.&#10;Выделите цитируемый текст и нажмите эту кнопку."
+                        alt="Р’СЃС‚Р°РІРєР° С†РёС‚Р°С‚С‹.&#10;Р’С‹РґРµР»РёС‚Рµ С†РёС‚РёСЂСѓРµРјС‹Р№ С‚РµРєСЃС‚ Рё РЅР°Р¶РјРёС‚Рµ СЌС‚Сѓ РєРЅРѕРїРєСѓ."
                         width=25 src="i/a5.gif "
               border=0><BR></TD></TR></TBODY></TABLE></TD></TR><INPUT
               type=hidden value=0 name=n> <INPUT type=hidden value=1025804759
               name=id> <INPUT type=hidden name=redirect>
               <TR>
-                <TD align=right><INPUT type=submit value=Добавить name=add2>
-                </TD></TR></FORM></TBODY></TABLE><SMALL>Разрешается использование
-            тегов форматирования текста:<BR><FONT
-            color=#990000>&lt;b&gt;</FONT><B>жирный</B><FONT
-            color=#990000>&lt;/b&gt; &lt;i&gt;</FONT><I>наклонный</I><FONT
-            color=#990000>&lt;/i&gt; &lt;u&gt;</FONT><U>подчеркнутый</U><FONT
-            color=#990000>&lt;/u&gt;</FONT>,<BR>а для выделения текста программ,
-            используйте <FONT color=#990000>&lt;code&gt; ...
-            &lt;/code&gt;</FONT><BR>и не забывайте закрывать теги! <FONT
+                <TD align=right><INPUT type=submit value=Р”РѕР±Р°РІРёС‚СЊ name=add2>
+                </TD></TR></FORM></TBODY></TABLE><SMALL>Р Р°Р·СЂРµС€Р°РµС‚СЃСЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ
+            С‚РµРіРѕРІ С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёСЏ С‚РµРєСЃС‚Р°:<BR><FONT
+            color=#990000>&lt;b&gt;</FONT><B>Р¶РёСЂРЅС‹Р№</B><FONT
+            color=#990000>&lt;/b&gt; &lt;i&gt;</FONT><I>РЅР°РєР»РѕРЅРЅС‹Р№</I><FONT
+            color=#990000>&lt;/i&gt; &lt;u&gt;</FONT><U>РїРѕРґС‡РµСЂРєРЅСѓС‚С‹Р№</U><FONT
+            color=#990000>&lt;/u&gt;</FONT>,<BR>Р° РґР»СЏ РІС‹РґРµР»РµРЅРёСЏ С‚РµРєСЃС‚Р° РїСЂРѕРіСЂР°РјРј,
+            РёСЃРїРѕР»СЊР·СѓР№С‚Рµ <FONT color=#990000>&lt;code&gt; ...
+            &lt;/code&gt;</FONT><BR>Рё РЅРµ Р·Р°Р±С‹РІР°Р№С‚Рµ Р·Р°РєСЂС‹РІР°С‚СЊ С‚РµРіРё! <FONT
             color=#990000>&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;&lt;/code&gt;</FONT> :)
             </SMALL>
             <P> <BR><BR></P></TD></TR><?
                     }
                     elseif ($user['align'] == 4) {
-                        echo "<br><br><center>Персонажам со склонностью хаос запрещено писать на форуме!</center><br><br>";
+                        echo "<br><br><center>РџРµСЂСЃРѕРЅР°Р¶Р°Рј СЃРѕ СЃРєР»РѕРЅРЅРѕСЃС‚СЊСЋ С…Р°РѕСЃ Р·Р°РїСЂРµС‰РµРЅРѕ РїРёСЃР°С‚СЊ РЅР° С„РѕСЂСѓРјРµ!</center><br><br>";
                     }
                     elseif ($user['level'] < 7) {
-                        echo "<br><br><center>Персонажам до 7-го уровня запрещено писать на форуме!</center><br><br>";
+                        echo "<br><br><center>РџРµСЂСЃРѕРЅР°Р¶Р°Рј РґРѕ 7-РіРѕ СѓСЂРѕРІРЅСЏ Р·Р°РїСЂРµС‰РµРЅРѕ РїРёСЃР°С‚СЊ РЅР° С„РѕСЂСѓРјРµ!</center><br><br>";
                     }
                     else {
                         echo "<br><br>";
                     }
                 }
                 }
-                else echo "Тема удалена с форума, либо её не существует<br>";
+                else echo "РўРµРјР° СѓРґР°Р»РµРЅР° СЃ С„РѕСЂСѓРјР°, Р»РёР±Рѕ РµС‘ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚<br>";
             }
           }
         }
@@ -491,7 +491,7 @@ function test() {
 
             ?>
             <centeR>
-                <h3>Конференция "<?=$row['topic']?>"</h3>
+                <h3>РљРѕРЅС„РµСЂРµРЅС†РёСЏ "<?=$row['topic']?>"</h3>
                 <p style="text-align:justify; padding:10px;"><?=pre($row['text'])?></p>
             </center>
             <?
@@ -499,7 +499,7 @@ function test() {
 
             $pgs = $pgs[0]/20;
             if ($pgs) {
-                echo "Страницы: ";
+                echo "РЎС‚СЂР°РЅРёС†С‹: ";
             }
 
             $pages_str='';
@@ -512,8 +512,8 @@ function test() {
                 $pages_str.=($page<$pgs-5 ? "...":"");
                 $pages_str=($page>4 ? "<a href='?conf=".$_GET['conf']."&page=".($page-1)."'> < </a> ... ":"").$pages_str.(($page<($pgs-1) ? "<a href='?conf=".$_GET['conf']."&page=".($page+1)."' > ></a>":""));
             }
-            $FirstPage=(ceil($pgs)>4 ? $_GET['page']>0 ? "<a href='?topic=".$_GET['topic']."&page=0'>   Первая </a>":"":"");
-            $LastPage=(ceil($pgs)>4 ? (ceil($pgs)-1)!=$_GET['page'] ? "<a href='?topic=".$_GET['topic']."&page=".(ceil($pgs)-1)."'>   Последняя </a>":"":"");
+            $FirstPage=(ceil($pgs)>4 ? $_GET['page']>0 ? "<a href='?topic=".$_GET['topic']."&page=0'>   РџРµСЂРІР°СЏ </a>":"":"");
+            $LastPage=(ceil($pgs)>4 ? (ceil($pgs)-1)!=$_GET['page'] ? "<a href='?topic=".$_GET['topic']."&page=".(ceil($pgs)-1)."'>   РџРѕСЃР»РµРґРЅСЏСЏ </a>":"":"");
             $pages_str=$FirstPage.$pages_str.$LastPage;
             echo $pages_str;
             $data = mysql_query("SELECT * FROM `forum` WHERE `parent` = '{$_GET['conf']}' ORDER by `fix` DESC, `updated` DESC LIMIT ".(INT)($_GET['page']*20).",20;");
@@ -535,7 +535,7 @@ function test() {
                 $lasttimedb = mysql_fetch_array(mysql_query("SELECT `date` FROM `forum` WHERE `parent` = '{$row['id']}' ORDER by `id` DESC LIMIT 1;"));
                 $lasttime=$lasttimedb['date'];
 
-                echo "<p class=pleft>".($row['fix']?"<IMG src=\"i/fixed.gif\" alt=\"Закреплено\" title=\"Закреплено\" border=0> ":"")."<a href='?topic=".$row['id'];
+                echo "<p class=pleft>".($row['fix']?"<IMG src=\"i/fixed.gif\" alt=\"Р—Р°РєСЂРµРїР»РµРЅРѕ\" title=\"Р—Р°РєСЂРµРїР»РµРЅРѕ\" border=0> ":"")."<a href='?topic=".$row['id'];
                 if(($user['align']>1.4 && $user['align']<2) || ($user['align']>2 && $user['align']<3)  || $user['align'] == '777' || ($user['align'] > '3.05' && $user['align'] < '4')) echo "&konftop=".$_GET['conf'];
                 echo "'><IMG height=15 src=\"i/icon{$icons}.gif\" width=15 border=0> {$row['topic']}</a> {$row['author']}";
 
@@ -544,14 +544,14 @@ function test() {
                 }
 
                 echo "<BR><span class=date>{$row['date']}</span> ".strip_tags(pre(substr($row['text'],0,200)))."...
-                <BR><small>Ответов: $count ($lasttime) ...".$logi."</small></p>";
+                <BR><small>РћС‚РІРµС‚РѕРІ: $count ($lasttime) ...".$logi."</small></p>";
             }
 
             if ($pgs) {
-                echo "Страницы: ";
+                echo "РЎС‚СЂР°РЅРёС†С‹: ";
             }
             echo $pages_str;
-            $effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE (`owner` = '{$user['id']}' or owner=$user[id]+"._BOTSEPARATOR_.") and (`name` = 'Заклятие форумного молчания' or type=3) LIMIT 1;"));
+            $effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE (`owner` = '{$user['id']}' or owner=$user[id]+"._BOTSEPARATOR_.") and (`name` = 'Р—Р°РєР»СЏС‚РёРµ С„РѕСЂСѓРјРЅРѕРіРѕ РјРѕР»С‡Р°РЅРёСЏ' or type=3) LIMIT 1;"));
             if ( $_SESSION['uid'] && !$effect['time'] && $user['align'] != 4 && $user['level'] > 3 && (($_GET["conf"]!=10 && $_GET["conf"]!=3) || $user["id"]==7)) {
 
 
@@ -564,7 +564,7 @@ function test() {
               <TBODY>
               <TR>
                 <TD>
-                  <H4>Добавить свой вопрос в форум</H4> Тема сообщения <input type=text class="inup" value="<?=stripslashes(@$_POST["title"])?>" name=title size=57 maxlength=65></TD></TR>
+                  <H4>Р”РѕР±Р°РІРёС‚СЊ СЃРІРѕР№ РІРѕРїСЂРѕСЃ РІ С„РѕСЂСѓРј</H4> РўРµРјР° СЃРѕРѕР±С‰РµРЅРёСЏ <input type=text class="inup" value="<?=stripslashes(@$_POST["title"])?>" name=title size=57 maxlength=65></TD></TR>
               <TR>
                 <TD>
                   <TABLE width="100%" border=0>
@@ -572,23 +572,23 @@ function test() {
                     <TR>
                       <TD align=middle><TEXTAREA name=text rows=12 cols=85><?=stripslashes(@$_POST["text"])?></TEXTAREA></TD>
                       <TD><INPUT onclick="cs('<B>', '</B>');return false;"
-                        type=image height=22 alt=Жирный width=25 src="i/a4.gif "
+                        type=image height=22 alt=Р–РёСЂРЅС‹Р№ width=25 src="i/a4.gif "
                         border=0><BR><IMG height=1 alt="" src="" width=1
                         border=0><BR><INPUT
                         onclick="cs('<I>', '</I>');return false;" type=image
-                        height=22 alt=Наклонный width=25 src="i/a2.gif "
+                        height=22 alt=РќР°РєР»РѕРЅРЅС‹Р№ width=25 src="i/a2.gif "
                         border=0><BR><IMG height=1 alt="" src="" width=1
                         border=0><BR><INPUT
                         onclick="cs('<U>', '</U>');return false;" type=image
-                        height=22 alt=Подчеркнутый width=25 src="i/a3.gif "
+                        height=22 alt=РџРѕРґС‡РµСЂРєРЅСѓС‚С‹Р№ width=25 src="i/a3.gif "
                         border=0><BR><IMG height=1 alt="" src="" width=1
                         border=0><BR><INPUT
                         onclick="cs('<CODE>', '</CODE>');return false;"
-                        type=image height=22 alt="Текст программы" width=25
+                        type=image height=22 alt="РўРµРєСЃС‚ РїСЂРѕРіСЂР°РјРјС‹" width=25
                         src="i/a1.gif " border=0><BR><IMG height=1 alt="" src="" width=1
                         border=0><BR><INPUT onclick="cs('//', '');return false;"
                         type=image height=22
-                        alt="Вставка цитаты.&#10;Выделите цитируемый текст и нажмите эту кнопку."
+                        alt="Р’СЃС‚Р°РІРєР° С†РёС‚Р°С‚С‹.&#10;Р’С‹РґРµР»РёС‚Рµ С†РёС‚РёСЂСѓРµРјС‹Р№ С‚РµРєСЃС‚ Рё РЅР°Р¶РјРёС‚Рµ СЌС‚Сѓ РєРЅРѕРїРєСѓ."
                         width=25 src="i/a5.gif "
               border=0><BR></TD></TR></TBODY></TABLE></TD></TR><INPUT
               type=hidden value=0 name=n> <INPUT type=hidden value=1025804759
@@ -615,30 +615,30 @@ function test() {
                         <input type=radio name=icon value=8><IMG SRC=i/icon8.gif height=15 width=15>
                     </td>
                     <td align=right>
-                        <input type="submit" class="btn" value="Добавить" name="add">
+                        <input type="submit" class="btn" value="Р”РѕР±Р°РІРёС‚СЊ" name="add">
                         <input type="hidden" name="n" value="klans">
                         <input type="hidden" id="act" name="act" value="add_branch"/>
                     </td>
                 </tr>
             </table>
 
-                </TD></TR></FORM></TBODY></TABLE><SMALL>Разрешается использование
-            тегов форматирования текста:<BR><FONT
-            color=#990000>&lt;b&gt;</FONT><B>жирный</B><FONT
-            color=#990000>&lt;/b&gt; &lt;i&gt;</FONT><I>наклонный</I><FONT
-            color=#990000>&lt;/i&gt; &lt;u&gt;</FONT><U>подчеркнутый</U><FONT
-            color=#990000>&lt;/u&gt;</FONT>,<BR>а для выделения текста программ,
-            используйте <FONT color=#990000>&lt;code&gt; ...
-            &lt;/code&gt;</FONT><BR>и не забывайте закрывать теги! <FONT
+                </TD></TR></FORM></TBODY></TABLE><SMALL>Р Р°Р·СЂРµС€Р°РµС‚СЃСЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ
+            С‚РµРіРѕРІ С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёСЏ С‚РµРєСЃС‚Р°:<BR><FONT
+            color=#990000>&lt;b&gt;</FONT><B>Р¶РёСЂРЅС‹Р№</B><FONT
+            color=#990000>&lt;/b&gt; &lt;i&gt;</FONT><I>РЅР°РєР»РѕРЅРЅС‹Р№</I><FONT
+            color=#990000>&lt;/i&gt; &lt;u&gt;</FONT><U>РїРѕРґС‡РµСЂРєРЅСѓС‚С‹Р№</U><FONT
+            color=#990000>&lt;/u&gt;</FONT>,<BR>Р° РґР»СЏ РІС‹РґРµР»РµРЅРёСЏ С‚РµРєСЃС‚Р° РїСЂРѕРіСЂР°РјРј,
+            РёСЃРїРѕР»СЊР·СѓР№С‚Рµ <FONT color=#990000>&lt;code&gt; ...
+            &lt;/code&gt;</FONT><BR>Рё РЅРµ Р·Р°Р±С‹РІР°Р№С‚Рµ Р·Р°РєСЂС‹РІР°С‚СЊ С‚РµРіРё! <FONT
             color=#990000>&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;&lt;/code&gt;</FONT> :)
             </SMALL>
             <P> <BR><BR></P></TD></TR><?
                 }
                 elseif ($user['align'] == 4) {
-                    echo "<br><br><center>Персонажам со склонностью хаос запрещено писать на форуме!</center><br><br>";
+                    echo "<br><br><center>РџРµСЂСЃРѕРЅР°Р¶Р°Рј СЃРѕ СЃРєР»РѕРЅРЅРѕСЃС‚СЊСЋ С…Р°РѕСЃ Р·Р°РїСЂРµС‰РµРЅРѕ РїРёСЃР°С‚СЊ РЅР° С„РѕСЂСѓРјРµ!</center><br><br>";
                 }
                 elseif ($user['level'] < 7) {
-                    echo "<br><br><center>Персонажам до 7-го уровня запрещено писать на форуме!</center><br><br>";
+                    echo "<br><br><center>РџРµСЂСЃРѕРЅР°Р¶Р°Рј РґРѕ 7-РіРѕ СѓСЂРѕРІРЅСЏ Р·Р°РїСЂРµС‰РµРЅРѕ РїРёСЃР°С‚СЊ РЅР° С„РѕСЂСѓРјРµ!</center><br><br>";
                 }
                 else {
                     echo "<br><br>";

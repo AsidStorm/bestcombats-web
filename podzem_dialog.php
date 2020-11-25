@@ -43,114 +43,114 @@ if($user['room']==403){
 
 <table width="90%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="left" style="padding-left:20px"><H3 align="center" style="color:#000099">Лука</H3>
+    <td align="left" style="padding-left:20px"><H3 align="center" style="color:#000099">Р›СѓРєР°</H3>
 <i>
 <?
 $gag = mysql_query("SELECT * FROM qwest WHERE login='".$user['login']."'");
 while($qw = mysql_fetch_array($gag))
 {
 $name_qwest = $qw["name_items"];
-if($name_qwest=="Ключииик"){$qwest="1"; $name_qw = "kluchiik";}
+if($name_qwest=="РљР»СЋС‡РёРёРёРє"){$qwest="1"; $name_qw = "kluchiik";}
 }
 $sasd = mysql_query("SELECT * FROM `qwest` WHERE `login`='".$user['login']."' and `name_qwest`='$name_qw'");
 $qwus = mysql_fetch_array($sasd);
 $qwest_status = $qwus["status"];
-$qwes = mysql_query("SELECT * FROM `inventory` WHERE type='200' and name='Ключииик' and owner=".$user["id"]."");
+$qwes = mysql_query("SELECT * FROM `inventory` WHERE type='200' and name='РљР»СЋС‡РёРёРёРє' and owner=".$user["id"]."");
 $qwesta = mysql_fetch_array($qwes);
 if($qwesta){$ok_qwest = "1";}
 
 
-if(!$_GET['d']){print"Запах... ОНИ! Мою хороошую, мою чистую канализацию испортилиии...";}
-if($_GET['d']=='1'){print"ОН... Он был тут первым... САМЫМ! Гайки, болты, вентили... чинииил... Лука помогал ему... А он... ОН! он ПРЕДАААЛ!! Луку... ЛУКУ ОБИИИИДЕЛ! Он... он теперь не с намиии... ПОМОЙКАаа... Запаааах... Найди.. УБЕЕЙ! И принеси мне ключик... А Лука, Лука даст тебе Гайку силы или Гайку мудрости!!";}
-if($_GET['d']=='1.1'){print"Ты НАШООЛ их.? Лука хочет менять! Лука тебе даст жетоны, а ты дашь Луке ИХ! Согла-а-асен?";}
+if(!$_GET['d']){print"Р—Р°РїР°С…... РћРќР! РњРѕСЋ С…РѕСЂРѕРѕС€СѓСЋ, РјРѕСЋ С‡РёСЃС‚СѓСЋ РєР°РЅР°Р»РёР·Р°С†РёСЋ РёСЃРїРѕСЂС‚РёР»РёРёРё...";}
+if($_GET['d']=='1'){print"РћРќ... РћРЅ Р±С‹Р» С‚СѓС‚ РїРµСЂРІС‹Рј... РЎРђРњР«Рњ! Р“Р°Р№РєРё, Р±РѕР»С‚С‹, РІРµРЅС‚РёР»Рё... С‡РёРЅРёРёРёР»... Р›СѓРєР° РїРѕРјРѕРіР°Р» РµРјСѓ... Рђ РѕРЅ... РћРќ! РѕРЅ РџР Р•Р”РђРђРђР›!! Р›СѓРєСѓ... Р›РЈРљРЈ РћР‘РРРРР”Р•Р›! РћРЅ... РѕРЅ С‚РµРїРµСЂСЊ РЅРµ СЃ РЅР°РјРёРёРё... РџРћРњРћР™РљРђР°Р°... Р—Р°РїР°Р°Р°Р°С…... РќР°Р№РґРё.. РЈР‘Р•Р•Р™! Р РїСЂРёРЅРµСЃРё РјРЅРµ РєР»СЋС‡РёРє... Рђ Р›СѓРєР°, Р›СѓРєР° РґР°СЃС‚ С‚РµР±Рµ Р“Р°Р№РєСѓ СЃРёР»С‹ РёР»Рё Р“Р°Р№РєСѓ РјСѓРґСЂРѕСЃС‚Рё!!";}
+if($_GET['d']=='1.1'){print"РўС‹ РќРђРЁРћРћР› РёС….? Р›СѓРєР° С…РѕС‡РµС‚ РјРµРЅСЏС‚СЊ! Р›СѓРєР° С‚РµР±Рµ РґР°СЃС‚ Р¶РµС‚РѕРЅС‹, Р° С‚С‹ РґР°С€СЊ Р›СѓРєРµ РРҐ! РЎРѕРіР»Р°-Р°-Р°СЃРµРЅ?";}
 
 if($qwest_status!='ok'){
-if($ok_qwest=='1'){if($_GET['d']=='1.2'){print"Ооо... Лука рад... Лука очень благодарен тебе... Лука даст тебе подарок... Лука даст тебе одно из двух... Лука даст Гайку силы или Гайку мудрости... выберай...";}}
+if($ok_qwest=='1'){if($_GET['d']=='1.2'){print"РћРѕРѕ... Р›СѓРєР° СЂР°Рґ... Р›СѓРєР° РѕС‡РµРЅСЊ Р±Р»Р°РіРѕРґР°СЂРµРЅ С‚РµР±Рµ... Р›СѓРєР° РґР°СЃС‚ С‚РµР±Рµ РїРѕРґР°СЂРѕРє... Р›СѓРєР° РґР°СЃС‚ С‚РµР±Рµ РѕРґРЅРѕ РёР· РґРІСѓС…... Р›СѓРєР° РґР°СЃС‚ Р“Р°Р№РєСѓ СЃРёР»С‹ РёР»Рё Р“Р°Р№РєСѓ РјСѓРґСЂРѕСЃС‚Рё... РІС‹Р±РµСЂР°Р№...";}}
 
 if($ok_qwest=='1')
 {
 if($_GET['d']=='1.3'){
-$sql="INSERT INTO `inventory`(name,duration,maxdur,cost,nlevel,nsila,nlovk,ninta,nvinos,nintel,gsila,glovk,ginta,gintel,ghp,mfkrit,mfakrit,mfuvorot,mfauvorot,img,owner,bron1,bron2,bron3,bron4,type,massa,isrep,otdel,podzem) VALUES ('Гайка силы','0','30','90','4','15','8','10','10','','3','','','','60','50','30','','','g_sila.gif','".$user['id']."','5','5','5','5','2','2','1','41','1')";
+$sql="INSERT INTO `inventory`(name,duration,maxdur,cost,nlevel,nsila,nlovk,ninta,nvinos,nintel,gsila,glovk,ginta,gintel,ghp,mfkrit,mfakrit,mfuvorot,mfauvorot,img,owner,bron1,bron2,bron3,bron4,type,massa,isrep,otdel,podzem) VALUES ('Р“Р°Р№РєР° СЃРёР»С‹','0','30','90','4','15','8','10','10','','3','','','','60','50','30','','','g_sila.gif','".$user['id']."','5','5','5','5','2','2','1','41','1')";
 $res=mysql_query($sql);
-mysql_query("DELETE FROM `inventory` WHERE owner='".$user['id']."' and `type`='200' and `name`='Ключииик'");
+mysql_query("DELETE FROM `inventory` WHERE owner='".$user['id']."' and `type`='200' and `name`='РљР»СЋС‡РёРёРёРє'");
 mysql_query("UPDATE `qwest` SET `status`='ok' WHERE `name_qwest`='kluchiik' and `login`='".$user['login']."'");
 if(!$res){echo mysql_error();}
-print"<font style='font-size:11px; color:red;'>Вы получили 'Гайку силы'.</font><br><br>
-Лука говорит спасибо...";}
+print"<font style='font-size:11px; color:red;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р“Р°Р№РєСѓ СЃРёР»С‹'.</font><br><br>
+Р›СѓРєР° РіРѕРІРѕСЂРёС‚ СЃРїР°СЃРёР±Рѕ...";}
 }
 if($ok_qwest=='1')
 {
 if($_GET['d']=='1.4'){
-$sql="INSERT INTO `inventory`(name,duration,maxdur,cost,nlevel,nsila,nlovk,ninta,nvinos,nintel,gsila,glovk,ginta,gintel,ghp,mfkrit,mfakrit,mfuvorot,mfauvorot,img,owner,bron1,bron2,bron3,bron4,type,massa,isrep,otdel,podzem) VALUES ('Гайка силы','0','30','90','4','5','4','4','10','15','','','','3','80','','50','50','','g_mudr.gif','".$user['id']."','5','5','5','5','2','2','1','41','1')";
+$sql="INSERT INTO `inventory`(name,duration,maxdur,cost,nlevel,nsila,nlovk,ninta,nvinos,nintel,gsila,glovk,ginta,gintel,ghp,mfkrit,mfakrit,mfuvorot,mfauvorot,img,owner,bron1,bron2,bron3,bron4,type,massa,isrep,otdel,podzem) VALUES ('Р“Р°Р№РєР° СЃРёР»С‹','0','30','90','4','5','4','4','10','15','','','','3','80','','50','50','','g_mudr.gif','".$user['id']."','5','5','5','5','2','2','1','41','1')";
 $res=mysql_query($sql);
-mysql_query("DELETE FROM `inventory` WHERE owner='".$user['id']."' and `type`='200' and `name`='Ключииик'");
+mysql_query("DELETE FROM `inventory` WHERE owner='".$user['id']."' and `type`='200' and `name`='РљР»СЋС‡РёРёРёРє'");
 mysql_query("UPDATE `qwest` SET `status`='ok' WHERE `name_qwest`='kluchiik' and `login`='".$user['login']."'");
 if(!$res){echo mysql_error();}
-print"<font style='font-size:11px; color:red;'>Вы получили 'Гайку мудрости'.</font><br><br>
-Лука говарит спасибо...";}
+print"<font style='font-size:11px; color:red;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р“Р°Р№РєСѓ РјСѓРґСЂРѕСЃС‚Рё'.</font><br><br>
+Р›СѓРєР° РіРѕРІР°СЂРёС‚ СЃРїР°СЃРёР±Рѕ...";}
 }
                         }
 
 
-if($_GET['d']=='2'){print"Цена-аа... У Луки много жетонов. Лука не жаадный. Лука берет:<br />
-3 Гайки и отдает жетон.<br />
-1 Болт и отдает жетон.<br />
-1 Вентиль и отдает 3 жетона.<br />
-Серебряные, если:<br>
-3 Гайки чистые и отдает жетон.<br />
-1 Длинный Болт и отдает жетон.<br />
-1 Вентиль Рабочий и отдает  3 жетон.<br>
-А Золотые, если:<br />
-2 Гайки с Резьбой и отдает жетон.<br />
-1 Болт Нужный и отдает 2 жетон.<br />
+if($_GET['d']=='2'){print"Р¦РµРЅР°-Р°Р°... РЈ Р›СѓРєРё РјРЅРѕРіРѕ Р¶РµС‚РѕРЅРѕРІ. Р›СѓРєР° РЅРµ Р¶Р°Р°РґРЅС‹Р№. Р›СѓРєР° Р±РµСЂРµС‚:<br />
+3 Р“Р°Р№РєРё Рё РѕС‚РґР°РµС‚ Р¶РµС‚РѕРЅ.<br />
+1 Р‘РѕР»С‚ Рё РѕС‚РґР°РµС‚ Р¶РµС‚РѕРЅ.<br />
+1 Р’РµРЅС‚РёР»СЊ Рё РѕС‚РґР°РµС‚ 3 Р¶РµС‚РѕРЅР°.<br />
+РЎРµСЂРµР±СЂСЏРЅС‹Рµ, РµСЃР»Рё:<br>
+3 Р“Р°Р№РєРё С‡РёСЃС‚С‹Рµ Рё РѕС‚РґР°РµС‚ Р¶РµС‚РѕРЅ.<br />
+1 Р”Р»РёРЅРЅС‹Р№ Р‘РѕР»С‚ Рё РѕС‚РґР°РµС‚ Р¶РµС‚РѕРЅ.<br />
+1 Р’РµРЅС‚РёР»СЊ Р Р°Р±РѕС‡РёР№ Рё РѕС‚РґР°РµС‚  3 Р¶РµС‚РѕРЅ.<br>
+Рђ Р—РѕР»РѕС‚С‹Рµ, РµСЃР»Рё:<br />
+2 Р“Р°Р№РєРё СЃ Р РµР·СЊР±РѕР№ Рё РѕС‚РґР°РµС‚ Р¶РµС‚РѕРЅ.<br />
+1 Р‘РѕР»С‚ РќСѓР¶РЅС‹Р№ Рё РѕС‚РґР°РµС‚ 2 Р¶РµС‚РѕРЅ.<br />
 ";}
 ////////b/////////////
 
 if($_GET['d']=='3'){
     include_once "questfuncs.php";
-    $sear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Гайка' and owner='".$user["id"]."'");
+    $sear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Р“Р°Р№РєР°' and owner='".$user["id"]."'");
         while($alls = mysql_fetch_array($sear))
            {
                 $total_mass += $alls['koll'];
                 $alls_id = $alls['id'];
            }
-    $vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Вентиль' and owner='".$user["id"]."'");
+    $vear = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Р’РµРЅС‚РёР»СЊ' and owner='".$user["id"]."'");
         while($vls = mysql_fetch_array($vear))
            {
                 $total_mass_v += $vls['koll'];
                 $vls_id = $vls['id'];
            }
-    $vearb = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Болт' and owner='".$user["id"]."'");
+    $vearb = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Р‘РѕР»С‚' and owner='".$user["id"]."'");
         while($bls = mysql_fetch_array($vearb))
            {
                 $total_mass_b += $bls['koll'];
                 $bls_id = $bls['id'];
            }
-$vear_gr = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Чистая гайка' and owner='".$user["id"]."'");
+$vear_gr = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Р§РёСЃС‚Р°СЏ РіР°Р№РєР°' and owner='".$user["id"]."'");
 while($bls_gr = mysql_fetch_array($vear_gr))
            {
                 $total_mass_gr += $bls_gr['koll'];
                 $gr_id = $bls_gr['id'];
            }
-$vear_grez = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Гайка с резьбой' and owner='".$user["id"]."'");
+$vear_grez = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№' and owner='".$user["id"]."'");
 while($bls_grez = mysql_fetch_array($vear_grez))
            {
                 $total_mass_grez += $bls_grez['koll'];
                 $grez_id = $bls_grez['id'];
            }
-$vear_db = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Длинный болт' and owner='".$user["id"]."'");
+$vear_db = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚' and owner='".$user["id"]."'");
 while($db_db = mysql_fetch_array($vear_db))
            {
                 $total_mass_db += $db_db['koll'];
                 $db_id = $db_db['id'];
            }
-$vear_dbn = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Нужный болт' and owner='".$user["id"]."'");
+$vear_dbn = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='РќСѓР¶РЅС‹Р№ Р±РѕР»С‚' and owner='".$user["id"]."'");
 while($db_dbn = mysql_fetch_array($vear_dbn))
            {
                 $total_mass_dbn += $db_dbn['koll'];
                 $dbn_id = $db_dbn['id'];
            }
-$vear_dbnv = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Рабочий вентиль' and owner='".$user["id"]."'");
+$vear_dbnv = mysql_query("SELECT koll,id FROM `inventory` WHERE `type`='200' and `name`='Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ' and owner='".$user["id"]."'");
 while($db_dbnv = mysql_fetch_array($vear_dbnv))
            {
                 $total_mass_dbnv += $db_dbnv['koll'];
@@ -178,7 +178,7 @@ while($db_dbnv = mysql_fetch_array($vear_dbnv))
            if($total_mass>=57){$vsego="57"; $ziton="19";}
            if($total_mass>=60){$vsego="60"; $ziton="20";}
            $ostalos = $total_mass-$vsego;
-           takesmallitems("Гайка", $vsego, $user["id"]);
+           takesmallitems("Р“Р°Р№РєР°", $vsego, $user["id"]);
 
            if($total_mass_v<=0){$vsego_v="0"; $ziton_v="0";}
            if($total_mass_v>=1){$vsego_v="1"; $ziton_v="3";}
@@ -202,7 +202,7 @@ while($db_dbnv = mysql_fetch_array($vear_dbnv))
            if($total_mass_v>=19){$vsego_v="19"; $ziton_v="57";}
            if($total_mass_v>=20){$vsego_v="20"; $ziton_v="60";}
            $ostalos_v = $total_mass_v-$vsego_v;
-           takesmallitems("Вентиль", $vsego_v, $user["id"]);
+           takesmallitems("Р’РµРЅС‚РёР»СЊ", $vsego_v, $user["id"]);
 
            if($total_mass_b<=0){$vsego_b="0"; $ziton_b="0";}
            if($total_mass_b>=1){$vsego_b="1"; $ziton_b="1";}
@@ -226,7 +226,7 @@ while($db_dbnv = mysql_fetch_array($vear_dbnv))
            if($total_mass_b>=19){$vsego_b="19"; $ziton_b="19";}
            if($total_mass_b>=20){$vsego_b="20"; $ziton_b="20";}
            $ostalos_b = $total_mass_b-$vsego_b;
-           takesmallitems("Болт", $vsego_b, $user["id"]);
+           takesmallitems("Р‘РѕР»С‚", $vsego_b, $user["id"]);
 
            if($total_mass_gr<3){$vsego_gr="0"; $ziton_gr="0";}
            if($total_mass_gr>=3){$vsego_gr="3"; $ziton_gr="1";}
@@ -250,7 +250,7 @@ while($db_dbnv = mysql_fetch_array($vear_dbnv))
            if($total_mass_gr>=57){$vsego_gr="57"; $ziton_gr="19";}
            if($total_mass_gr>=60){$vsego_gr="60"; $ziton_gr="20";}
 $ostalos_gr = $total_mass_gr-$vsego_gr;
-           takesmallitems("Чистая гайка", $vsego_gr, $user["id"]);
+           takesmallitems("Р§РёСЃС‚Р°СЏ РіР°Р№РєР°", $vsego_gr, $user["id"]);
 
            if($total_mass_grez<2){$vsego_grez="0"; $ziton_grez="0";}
            if($total_mass_grez>=2){$vsego_grez="2"; $ziton_grez="1";}
@@ -275,7 +275,7 @@ $ostalos_gr = $total_mass_gr-$vsego_gr;
            if($total_mass_grez>=40){$vsego_grez="40"; $ziton_grez="20";}
 
 $ostalos_grez = $total_mass_grez-$vsego_grez;
-           takesmallitems("Гайка с резьбой", $vsego_grez, $user["id"]);
+           takesmallitems("Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№", $vsego_grez, $user["id"]);
 
 if($total_mass_db<=0){$vsego_db="0"; $ziton_db="0";}
            if($total_mass_db>=1){$vsego_db="1"; $ziton_db="1";}
@@ -299,7 +299,7 @@ if($total_mass_db<=0){$vsego_db="0"; $ziton_db="0";}
            if($total_mass_db>=19){$vsego_db="19"; $ziton_db="19";}
            if($total_mass_db>=20){$vsego_db="20"; $ziton_db="20";}
            $ostalos_db = $total_mass_db-$vsego_db;
-           takesmallitems("Длинный болт", $vsego_db, $user["id"]);
+           takesmallitems("Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚", $vsego_db, $user["id"]);
 if($total_mass_dbn<=0){$vsego_dbn="0"; $ziton_dbn="0";}
            if($total_mass_dbn>=1){$vsego_dbn="1"; $ziton_dbn="2";}
            if($total_mass_dbn>=2){$vsego_dbn="2"; $ziton_dbn="4";}
@@ -322,7 +322,7 @@ if($total_mass_dbn<=0){$vsego_dbn="0"; $ziton_dbn="0";}
            if($total_mass_dbn>=19){$vsego_dbn="19"; $ziton_dbn="38";}
            if($total_mass_dbn>=20){$vsego_dbn="20"; $ziton_dbn="40";}
            $ostalos_dbn = $total_mass_dbn-$vsego_dbn;
-           takesmallitems("Нужный болт", $vsego_dbn, $user["id"]);
+           takesmallitems("РќСѓР¶РЅС‹Р№ Р±РѕР»С‚", $vsego_dbn, $user["id"]);
 
 if($total_mass_dbnv<=0){$vsego_dbnv="0"; $ziton_dbnv="0";}
            if($total_mass_dbnv>=1){$vsego_dbnv="1"; $ziton_dbnv="3";}
@@ -346,61 +346,61 @@ if($total_mass_dbnv<=0){$vsego_dbnv="0"; $ziton_dbnv="0";}
            if($total_mass_dbnv>=19){$vsego_dbnv="19"; $ziton_dbnv="57";}
            if($total_mass_dbnv>=20){$vsego_dbnv="20"; $ziton_dbnv="60";}
            $ostalos_dbnv = $total_mass_dbnv-$vsego_dbnv;
-           takesmallitems("Рабочий вентиль", $vsego_dbnv, $user["id"]);
+           takesmallitems("Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ", $vsego_dbnv, $user["id"]);
 
 if($ziton_dbnv!='0'){//1
-takesmallitem(48, 0, "Обмен у Луки", $ziton_dbnv);
+takesmallitem(48, 0, "РћР±РјРµРЅ Сѓ Р›СѓРєРё", $ziton_dbnv);
 }
 
 if($ziton_dbn!='0'){
-takesmallitem(49, 0, "Обмен у Луки", $ziton_dbn);
+takesmallitem(49, 0, "РћР±РјРµРЅ Сѓ Р›СѓРєРё", $ziton_dbn);
 }
 
 if($ziton_db!='0'){
-takesmallitem(48, 0, "Обмен у Луки", $ziton_db);
+takesmallitem(48, 0, "РћР±РјРµРЅ Сѓ Р›СѓРєРё", $ziton_db);
 }
 
 if($ziton_grez!='0'){
-takesmallitem(49, 0, "Обмен у Луки", $ziton_grez);
+takesmallitem(49, 0, "РћР±РјРµРЅ Сѓ Р›СѓРєРё", $ziton_grez);
 }
 
 if($ziton_gr!='0'){
-takesmallitem(48, 0, "Обмен у Луки", $ziton_gr);
+takesmallitem(48, 0, "РћР±РјРµРЅ Сѓ Р›СѓРєРё", $ziton_gr);
 }
 
 if($ziton!='0'){
-takesmallitem(47, 0, "Обмен у Луки", $ziton);
+takesmallitem(47, 0, "РћР±РјРµРЅ Сѓ Р›СѓРєРё", $ziton);
 }
 
 if($ziton_v!='0'){
-takesmallitem(47, 0, "Обмен у Луки", $ziton_v);
+takesmallitem(47, 0, "РћР±РјРµРЅ Сѓ Р›СѓРєРё", $ziton_v);
 }
 if($ziton_b!='0'){//1
-takesmallitem(47, 0, "Обмен у Луки", $ziton_b);
+takesmallitem(47, 0, "РћР±РјРµРЅ Сѓ Р›СѓРєРё", $ziton_b);
 }
 
-    if($ziton<=0 and $ziton_v<=0 and $ziton_b<=0){print" ИХ больше у тебя нету... Неси еще, Луке нужно больше ИХ! ";}
-    if($ziton>0){print"<br />Вы отдали: <b>$vsego</b> шт. Гаек <br> Получили: <b>$ziton</b> шт. Жетонов.";}
-    if($ziton_v>0){print"<br />Вы отдали: <b>$vsego_v</b> шт. Вентиль <br> Получили: <b>$ziton_v</b> шт. Жетонов.";}
-    if($ziton_b>0){print"<br />Вы отдали: <b>$vsego_b</b> шт. Болтов <br> Получили: <b>$ziton_b</b> шт. Жетонов.";}
-    if($ziton_gr>0){print"<br />Вы отдали: <b>$vsego_gr</b> шт. Чистых гаек <br> Получили: <b>$ziton_gr</b> шт. Серебряных Жетонов.";}
-if($ziton_grez>0){print"<br />Вы отдали: <b>$vsego_grez</b> шт. Гаек с резьбой <br> Получили: <b>$ziton_grez</b> шт. Золотых Жетонов.";}
-if($ziton_db>0){print"<br />Вы отдали: <b>$vsego_db</b> шт. Длинный болт <br> Получили: <b>$ziton_db</b> шт. Серебряных Жетонов.";}
-if($ziton_dbn>0){print"<br />Вы отдали: <b>$vsego_dbn</b> шт. Нужный болт <br> Получили: <b>$ziton_dbn</b> шт. Золотых Жетонов.";}
-if($ziton_dbnv>0){print"<br />Вы отдали: <b>$vsego_dbnv</b> шт. Рабочий вентиль <br> Получили: <b>$ziton_dbnv</b> шт. Серебряных Жетонов.";}
+    if($ziton<=0 and $ziton_v<=0 and $ziton_b<=0){print" РРҐ Р±РѕР»СЊС€Рµ Сѓ С‚РµР±СЏ РЅРµС‚Сѓ... РќРµСЃРё РµС‰Рµ, Р›СѓРєРµ РЅСѓР¶РЅРѕ Р±РѕР»СЊС€Рµ РРҐ! ";}
+    if($ziton>0){print"<br />Р’С‹ РѕС‚РґР°Р»Рё: <b>$vsego</b> С€С‚. Р“Р°РµРє <br> РџРѕР»СѓС‡РёР»Рё: <b>$ziton</b> С€С‚. Р–РµС‚РѕРЅРѕРІ.";}
+    if($ziton_v>0){print"<br />Р’С‹ РѕС‚РґР°Р»Рё: <b>$vsego_v</b> С€С‚. Р’РµРЅС‚РёР»СЊ <br> РџРѕР»СѓС‡РёР»Рё: <b>$ziton_v</b> С€С‚. Р–РµС‚РѕРЅРѕРІ.";}
+    if($ziton_b>0){print"<br />Р’С‹ РѕС‚РґР°Р»Рё: <b>$vsego_b</b> С€С‚. Р‘РѕР»С‚РѕРІ <br> РџРѕР»СѓС‡РёР»Рё: <b>$ziton_b</b> С€С‚. Р–РµС‚РѕРЅРѕРІ.";}
+    if($ziton_gr>0){print"<br />Р’С‹ РѕС‚РґР°Р»Рё: <b>$vsego_gr</b> С€С‚. Р§РёСЃС‚С‹С… РіР°РµРє <br> РџРѕР»СѓС‡РёР»Рё: <b>$ziton_gr</b> С€С‚. РЎРµСЂРµР±СЂСЏРЅС‹С… Р–РµС‚РѕРЅРѕРІ.";}
+if($ziton_grez>0){print"<br />Р’С‹ РѕС‚РґР°Р»Рё: <b>$vsego_grez</b> С€С‚. Р“Р°РµРє СЃ СЂРµР·СЊР±РѕР№ <br> РџРѕР»СѓС‡РёР»Рё: <b>$ziton_grez</b> С€С‚. Р—РѕР»РѕС‚С‹С… Р–РµС‚РѕРЅРѕРІ.";}
+if($ziton_db>0){print"<br />Р’С‹ РѕС‚РґР°Р»Рё: <b>$vsego_db</b> С€С‚. Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚ <br> РџРѕР»СѓС‡РёР»Рё: <b>$ziton_db</b> С€С‚. РЎРµСЂРµР±СЂСЏРЅС‹С… Р–РµС‚РѕРЅРѕРІ.";}
+if($ziton_dbn>0){print"<br />Р’С‹ РѕС‚РґР°Р»Рё: <b>$vsego_dbn</b> С€С‚. РќСѓР¶РЅС‹Р№ Р±РѕР»С‚ <br> РџРѕР»СѓС‡РёР»Рё: <b>$ziton_dbn</b> С€С‚. Р—РѕР»РѕС‚С‹С… Р–РµС‚РѕРЅРѕРІ.";}
+if($ziton_dbnv>0){print"<br />Р’С‹ РѕС‚РґР°Р»Рё: <b>$vsego_dbnv</b> С€С‚. Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ <br> РџРѕР»СѓС‡РёР»Рё: <b>$ziton_dbnv</b> С€С‚. РЎРµСЂРµР±СЂСЏРЅС‹С… Р–РµС‚РѕРЅРѕРІ.";}
     }
 //////////////////////
-if($_GET['d']=='4'){print"А?...";}
-if($_GET['d']=='5'){print"Лука и Мартын тут живут давно... чииинят трубыы. Лука Чинит. Лука не любит пауков... Лука любит жетоны... Они красивые... Лука любит играть с ними... Мартыын к паукам ушел... Теперь Лука один, чииинит...";}
+if($_GET['d']=='4'){print"Рђ?...";}
+if($_GET['d']=='5'){print"Р›СѓРєР° Рё РњР°СЂС‚С‹РЅ С‚СѓС‚ Р¶РёРІСѓС‚ РґР°РІРЅРѕ... С‡РёРёРёРЅСЏС‚ С‚СЂСѓР±С‹С‹. Р›СѓРєР° Р§РёРЅРёС‚. Р›СѓРєР° РЅРµ Р»СЋР±РёС‚ РїР°СѓРєРѕРІ... Р›СѓРєР° Р»СЋР±РёС‚ Р¶РµС‚РѕРЅС‹... РћРЅРё РєСЂР°СЃРёРІС‹Рµ... Р›СѓРєР° Р»СЋР±РёС‚ РёРіСЂР°С‚СЊ СЃ РЅРёРјРё... РњР°СЂС‚С‹С‹РЅ Рє РїР°СѓРєР°Рј СѓС€РµР»... РўРµРїРµСЂСЊ Р›СѓРєР° РѕРґРёРЅ, С‡РёРёРёРЅРёС‚...";}
 if($qwest!='1'){
-if($_GET['d']=='6'){print"Да да! Мартын гаад... он украл у Луки важную вещь 'Ключииик'... убей Мартына... забери 'Ключииик'... принеси его к Луке... Лука вознаградит тебя...";}
+if($_GET['d']=='6'){print"Р”Р° РґР°! РњР°СЂС‚С‹РЅ РіР°Р°Рґ... РѕРЅ СѓРєСЂР°Р» Сѓ Р›СѓРєРё РІР°Р¶РЅСѓСЋ РІРµС‰СЊ 'РљР»СЋС‡РёРёРёРє'... СѓР±РµР№ РњР°СЂС‚С‹РЅР°... Р·Р°Р±РµСЂРё 'РљР»СЋС‡РёРёРёРє'... РїСЂРёРЅРµСЃРё РµРіРѕ Рє Р›СѓРєРµ... Р›СѓРєР° РІРѕР·РЅР°РіСЂР°РґРёС‚ С‚РµР±СЏ...";}
 if($_GET['d']=='7'){
 if($qwest!='1'){
-$T1 = mysql_query("INSERT INTO qwest (user_id,login,name_qwest,name_items,id_items,dlja,zadanie,kw,status) VALUES('".$user['id']."','".$user['login']."','kluchiik','Ключииик','','Лука','Найти Ключииик','0','no')");
-print"<font style='font-size:11px; color:red;'>Вы приняли задание.(Найти 'Ключииик').</font><br><br>
-Хорошо... Лука будет ждать...";
-}else{print"<font style='font-size:11px; color:red;'>Вы уже приняли задание.(Найти 'Ключииик').</font><br><br>
-Ну что? Лука ждёт...";}}
+$T1 = mysql_query("INSERT INTO qwest (user_id,login,name_qwest,name_items,id_items,dlja,zadanie,kw,status) VALUES('".$user['id']."','".$user['login']."','kluchiik','РљР»СЋС‡РёРёРёРє','','Р›СѓРєР°','РќР°Р№С‚Рё РљР»СЋС‡РёРёРёРє','0','no')");
+print"<font style='font-size:11px; color:red;'>Р’С‹ РїСЂРёРЅСЏР»Рё Р·Р°РґР°РЅРёРµ.(РќР°Р№С‚Рё 'РљР»СЋС‡РёРёРёРє').</font><br><br>
+РҐРѕСЂРѕС€Рѕ... Р›СѓРєР° Р±СѓРґРµС‚ Р¶РґР°С‚СЊ...";
+}else{print"<font style='font-size:11px; color:red;'>Р’С‹ СѓР¶Рµ РїСЂРёРЅСЏР»Рё Р·Р°РґР°РЅРёРµ.(РќР°Р№С‚Рё 'РљР»СЋС‡РёРёРёРє').</font><br><br>
+РќСѓ С‡С‚Рѕ? Р›СѓРєР° Р¶РґС‘С‚...";}}
                 }
 ?>
 </i>
@@ -410,48 +410,48 @@ print"<font style='font-size:11px; color:red;'>Вы приняли задание.(Найти 'Ключии
 
 <?
 
-//Вопросы)
+//Р’РѕРїСЂРѕСЃС‹)
 
-if(!isset($_GET['d'])){print"&bull;<A href='?act=luka&d=1'> Запах?? Ты вообще о чем? </A><BR>";}
-if(!isset($_GET['d'])){print"&bull;<A href='?act=luka&d=1.1'> Я тут гайки-вентили нашел, тебе они случайно не нужны? </A><BR>";}
-if($qwest_status!='ok'){if($ok_qwest=='1'){if(!isset($_GET['d'])){print"&bull;<A href='?act=luka&d=1.2'> Вот твой Ключииик! </A><BR>";}}}
-if(!isset($_GET['d'])){print"&bull;<A href='main.php?act=none'> Я, пожалуй, пойду.</A><BR>";}
+if(!isset($_GET['d'])){print"&bull;<A href='?act=luka&d=1'> Р—Р°РїР°С…?? РўС‹ РІРѕРѕР±С‰Рµ Рѕ С‡РµРј? </A><BR>";}
+if(!isset($_GET['d'])){print"&bull;<A href='?act=luka&d=1.1'> РЇ С‚СѓС‚ РіР°Р№РєРё-РІРµРЅС‚РёР»Рё РЅР°С€РµР», С‚РµР±Рµ РѕРЅРё СЃР»СѓС‡Р°Р№РЅРѕ РЅРµ РЅСѓР¶РЅС‹? </A><BR>";}
+if($qwest_status!='ok'){if($ok_qwest=='1'){if(!isset($_GET['d'])){print"&bull;<A href='?act=luka&d=1.2'> Р’РѕС‚ С‚РІРѕР№ РљР»СЋС‡РёРёРёРє! </A><BR>";}}}
+if(!isset($_GET['d'])){print"&bull;<A href='main.php?act=none'> РЇ, РїРѕР¶Р°Р»СѓР№, РїРѕР№РґСѓ.</A><BR>";}
 
-if($_GET['d']=='1'){print"&bull;<A href='?act=luka'> Понятно. Но я хотел поговорить о другом. </A><BR>";}
-if($_GET['d']=='1'){print"&bull;<A href='main.php?act=none'> Я, пожалуй, пойду.</A><BR>";}
+if($_GET['d']=='1'){print"&bull;<A href='?act=luka'> РџРѕРЅСЏС‚РЅРѕ. РќРѕ СЏ С…РѕС‚РµР» РїРѕРіРѕРІРѕСЂРёС‚СЊ Рѕ РґСЂСѓРіРѕРј. </A><BR>";}
+if($_GET['d']=='1'){print"&bull;<A href='main.php?act=none'> РЇ, РїРѕР¶Р°Р»СѓР№, РїРѕР№РґСѓ.</A><BR>";}
 
-if($_GET['d']=='1.1'){print"&bull;<A href='?act=luka&d=2'> Я хочу знать, сколько жетонов ты мне дашь. </A><BR>";}
-if($_GET['d']=='1.1'){print"&bull;<A href='?act=luka&d=3'> Я хочу поменять ИХ на жетоны. </A><BR>";}
-if($_GET['d']=='1.1'){print"&bull;<A href='?act=luka'> С гайками все ясно. Вернемся назад. </A><BR>";}
-if($_GET['d']=='1.1'){print"&bull;<A href='main.php?act=none'> Я, пожалуй, пойду.</A><BR>";}
+if($_GET['d']=='1.1'){print"&bull;<A href='?act=luka&d=2'> РЇ С…РѕС‡Сѓ Р·РЅР°С‚СЊ, СЃРєРѕР»СЊРєРѕ Р¶РµС‚РѕРЅРѕРІ С‚С‹ РјРЅРµ РґР°С€СЊ. </A><BR>";}
+if($_GET['d']=='1.1'){print"&bull;<A href='?act=luka&d=3'> РЇ С…РѕС‡Сѓ РїРѕРјРµРЅСЏС‚СЊ РРҐ РЅР° Р¶РµС‚РѕРЅС‹. </A><BR>";}
+if($_GET['d']=='1.1'){print"&bull;<A href='?act=luka'> РЎ РіР°Р№РєР°РјРё РІСЃРµ СЏСЃРЅРѕ. Р’РµСЂРЅРµРјСЃСЏ РЅР°Р·Р°Рґ. </A><BR>";}
+if($_GET['d']=='1.1'){print"&bull;<A href='main.php?act=none'> РЇ, РїРѕР¶Р°Р»СѓР№, РїРѕР№РґСѓ.</A><BR>";}
 
-if($ok_qwest=='1'){if($_GET['d']=='1.2'){print"&bull;<A href='?act=luka&d=1.3'> Выбираю Гайку силы.</A><BR>";}}
-if($ok_qwest=='1'){if($_GET['d']=='1.2'){print"&bull;<A href='?act=luka&d=1.4'> Выбираю Гайку мудрости.</A><BR>";}}
-if($ok_qwest=='1'){if($_GET['d']=='1.2'){print"&bull;<A href='main.php?act=none'> Я, пожалуй, пойду..</A><BR>";}}
-if($_GET['d']=='1.3'){print"&bull;<A href='main.php?act=none'> Я, пожалуй, пойду.</A><BR>";}
-if($_GET['d']=='1.4'){print"&bull;<A href='main.php?act=none'> Я, пожалуй, пойду.</A><BR>";}
+if($ok_qwest=='1'){if($_GET['d']=='1.2'){print"&bull;<A href='?act=luka&d=1.3'> Р’С‹Р±РёСЂР°СЋ Р“Р°Р№РєСѓ СЃРёР»С‹.</A><BR>";}}
+if($ok_qwest=='1'){if($_GET['d']=='1.2'){print"&bull;<A href='?act=luka&d=1.4'> Р’С‹Р±РёСЂР°СЋ Р“Р°Р№РєСѓ РјСѓРґСЂРѕСЃС‚Рё.</A><BR>";}}
+if($ok_qwest=='1'){if($_GET['d']=='1.2'){print"&bull;<A href='main.php?act=none'> РЇ, РїРѕР¶Р°Р»СѓР№, РїРѕР№РґСѓ..</A><BR>";}}
+if($_GET['d']=='1.3'){print"&bull;<A href='main.php?act=none'> РЇ, РїРѕР¶Р°Р»СѓР№, РїРѕР№РґСѓ.</A><BR>";}
+if($_GET['d']=='1.4'){print"&bull;<A href='main.php?act=none'> РЇ, РїРѕР¶Р°Р»СѓР№, РїРѕР№РґСѓ.</A><BR>";}
 
-if($_GET['d']=='2'){print"&bull;<A href='?act=luka&d=3'> Я хочу поменять ИХ на жетоны. </A><BR>";}
-if($_GET['d']=='2'){print"&bull;<A href='?act=luka'> Спасибо, за прайс-лист. </A><BR>";}
-if($_GET['d']=='2'){print"&bull;<A href='main.php?act=none'> Я, пожалуй, пойду.</A><BR>";}
+if($_GET['d']=='2'){print"&bull;<A href='?act=luka&d=3'> РЇ С…РѕС‡Сѓ РїРѕРјРµРЅСЏС‚СЊ РРҐ РЅР° Р¶РµС‚РѕРЅС‹. </A><BR>";}
+if($_GET['d']=='2'){print"&bull;<A href='?act=luka'> РЎРїР°СЃРёР±Рѕ, Р·Р° РїСЂР°Р№СЃ-Р»РёСЃС‚. </A><BR>";}
+if($_GET['d']=='2'){print"&bull;<A href='main.php?act=none'> РЇ, РїРѕР¶Р°Р»СѓР№, РїРѕР№РґСѓ.</A><BR>";}
 
 
 
-if($_GET['d']=='3'){print"&bull;<A href='?act=luka&d=4'> Я хотел еще спросить... </A><BR>";}
-if($_GET['d']=='3'){print"&bull;<A href='main.php?act=none'> Хорошо, пойду еще принесу.</A><BR>";}
+if($_GET['d']=='3'){print"&bull;<A href='?act=luka&d=4'> РЇ С…РѕС‚РµР» РµС‰Рµ СЃРїСЂРѕСЃРёС‚СЊ... </A><BR>";}
+if($_GET['d']=='3'){print"&bull;<A href='main.php?act=none'> РҐРѕСЂРѕС€Рѕ, РїРѕР№РґСѓ РµС‰Рµ РїСЂРёРЅРµСЃСѓ.</A><BR>";}
 
-if($_GET['d']=='4'){print"&bull;<A href='?act=luka&d=1.1'> Что ты там говорил про гайки-вентили? </A><BR>";}
-if($_GET['d']=='4'){print"&bull;<A href='?act=luka&d=5'> Расскажи мне о себе. </A><BR>";}
-if($_GET['d']=='4'){print"&bull;<A href='main.php?act=none'> Я, пожалуй, пойду.</A><BR>";}
+if($_GET['d']=='4'){print"&bull;<A href='?act=luka&d=1.1'> Р§С‚Рѕ С‚С‹ С‚Р°Рј РіРѕРІРѕСЂРёР» РїСЂРѕ РіР°Р№РєРё-РІРµРЅС‚РёР»Рё? </A><BR>";}
+if($_GET['d']=='4'){print"&bull;<A href='?act=luka&d=5'> Р Р°СЃСЃРєР°Р¶Рё РјРЅРµ Рѕ СЃРµР±Рµ. </A><BR>";}
+if($_GET['d']=='4'){print"&bull;<A href='main.php?act=none'> РЇ, РїРѕР¶Р°Р»СѓР№, РїРѕР№РґСѓ.</A><BR>";}
 
-if($_GET['d']=='5'){print"&bull;<A href='?act=luka&d=1.1'> Что ты там говорил про гайки-вентили? </A><BR>";}
-if($qwest!='1'){if($_GET['d']=='5'){print"&bull;<A href='?act=luka&d=6'> Может помочь чем? </A><BR>";}}
-if($_GET['d']=='5'){print"&bull;<A href='main.php?act=none'> Я, пожалуй, пойду.</A><BR>";}
+if($_GET['d']=='5'){print"&bull;<A href='?act=luka&d=1.1'> Р§С‚Рѕ С‚С‹ С‚Р°Рј РіРѕРІРѕСЂРёР» РїСЂРѕ РіР°Р№РєРё-РІРµРЅС‚РёР»Рё? </A><BR>";}
+if($qwest!='1'){if($_GET['d']=='5'){print"&bull;<A href='?act=luka&d=6'> РњРѕР¶РµС‚ РїРѕРјРѕС‡СЊ С‡РµРј? </A><BR>";}}
+if($_GET['d']=='5'){print"&bull;<A href='main.php?act=none'> РЇ, РїРѕР¶Р°Р»СѓР№, РїРѕР№РґСѓ.</A><BR>";}
 
-if($_GET['d']=='6'){print"&bull;<A href='?act=luka&d=7'> Я помогу тебе... принесу я Ключииик... жди! </A><BR>";}
-if($_GET['d']=='6'){print"&bull;<A href='main.php?act=none'> Да ну тя сам разберайся.</A><BR>";}
+if($_GET['d']=='6'){print"&bull;<A href='?act=luka&d=7'> РЇ РїРѕРјРѕРіСѓ С‚РµР±Рµ... РїСЂРёРЅРµСЃСѓ СЏ РљР»СЋС‡РёРёРёРє... Р¶РґРё! </A><BR>";}
+if($_GET['d']=='6'){print"&bull;<A href='main.php?act=none'> Р”Р° РЅСѓ С‚СЏ СЃР°Рј СЂР°Р·Р±РµСЂР°Р№СЃСЏ.</A><BR>";}
 
-if($_GET['d']=='7'){print"&bull;<A href='main.php?act=none'> Я, пойду.(конец диалога).</A><BR>";}
+if($_GET['d']=='7'){print"&bull;<A href='main.php?act=none'> РЇ, РїРѕР№РґСѓ.(РєРѕРЅРµС† РґРёР°Р»РѕРіР°).</A><BR>";}
 
 
 
@@ -467,7 +467,7 @@ print"</i><BR><BR>";
 <td width="20%" align="center" valign="top">
 
 <?
-$bot="Лука";
+$bot="Р›СѓРєР°";
 $buser = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '$bot' LIMIT 1;"));
 ?>
     <table width="100" border="0" cellspacing="0" cellpadding="0">
@@ -487,9 +487,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=60 height=60 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На шлеме выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/sh/".$dress['img']."\" width=60 height=60 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° С€Р»РµРјРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }}else{
-print "<img src=\"i/w9.gif\" width=60 height=60 onMouseMove=\"TipShow('<b>Пустой слот шлем</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/w9.gif\" width=60 height=60 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ С€Р»РµРј</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }?>
 
 
@@ -499,9 +499,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=60 height=40 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На наручах выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/sh/".$dress['img']."\" width=60 height=40 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° РЅР°СЂСѓС‡Р°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }}else{
-print "<img src=\"i/w18.gif\" width=60 height=40 onMouseMove=\"TipShow('<b>Пустой слот наручи</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/w18.gif\" width=60 height=40 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РЅР°СЂСѓС‡Рё</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }?>
 
 <TR><TD style="BACKGROUND-IMAGE: none">
@@ -510,9 +510,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=60 height=60 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На оружии выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/sh/".$dress['img']."\" width=60 height=60 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° РѕСЂСѓР¶РёРё РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }}else{
-print "<img src=\"i/w3.gif\" width=60 height=60 onMouseMove=\"TipShow('<b>Пустой слот оружие</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/w3.gif\" width=60 height=60 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РѕСЂСѓР¶РёРµ</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }?>
 
 <TR><TD style="BACKGROUND-IMAGE: none">
@@ -521,9 +521,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=60 height=80 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На одежде выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/sh/".$dress['img']."\" width=60 height=80 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° РѕРґРµР¶РґРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }}else{
-print "<img src=\"i/w4.gif\" width=60 height=80 onMouseMove=\"TipShow('<b>Пустой слот броня</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/w4.gif\" width=60 height=80 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ Р±СЂРѕРЅСЏ</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }?>
 
 <TR><TD style="BACKGROUND-IMAGE: none">
@@ -532,9 +532,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=60 height=40 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На поясе выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/sh/".$dress['img']."\" width=60 height=40 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° РїРѕСЏСЃРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }}else{
-print "<img src=\"i/w5.gif\" width=60 height=40 onMouseMove=\"TipShow('<b>Пустой слот пояс</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/w5.gif\" width=60 height=40 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РїРѕСЏСЃ</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }?>
 </TBODY></TABLE>
 </TD>
@@ -570,9 +570,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=60 height=20 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На серьгах выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/sh/".$dress['img']."\" width=60 height=20 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° СЃРµСЂСЊРіР°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }}else{
-print "<img src=\"i/w1.gif\" width=60 height=20 onMouseMove=\"TipShow('<b>Пустой слот серьги</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/w1.gif\" width=60 height=20 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ СЃРµСЂСЊРіРё</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['kulon'] > 0) {
@@ -580,9 +580,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=60 height=20 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На кулоне выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/sh/".$dress['img']."\" width=60 height=20 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° РєСѓР»РѕРЅРµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }}else{
-print "<img src=\"i/w2.gif\" width=60 height=20 onMouseMove=\"TipShow('<b>Пустой слот кулон</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/w2.gif\" width=60 height=20 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РєСѓР»РѕРЅ</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }?>
 
 <TR><TD><TABLE border=0 cellSpacing=0 cellPadding=0>
@@ -593,9 +593,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=20 height=20 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На кольце выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD>";
+print "<img src=\"i/sh/".$dress['img']."\" width=20 height=20 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° РєРѕР»СЊС†Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD>";
 }}else{
-print "<img src=\"i/w6.gif\" width=20 height=20 onMouseMove=\"TipShow('<b>Пустой слот кольцо</b>\', event);\" onMouseOut=\"TipHide();\"></TD>";
+print "<img src=\"i/w6.gif\" width=20 height=20 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РєРѕР»СЊС†Рѕ</b>\', event);\" onMouseOut=\"TipHide();\"></TD>";
 }?>
 <TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['r2'] > 0) {
@@ -603,9 +603,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=20 height=20 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На кольце выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD>";
+print "<img src=\"i/sh/".$dress['img']."\" width=20 height=20 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° РєРѕР»СЊС†Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD>";
 }}else{
-print "<img src=\"i/w6.gif\" width=20 height=20 onMouseMove=\"TipShow('<b>Пустой слот кольцо</b>\', event);\" onMouseOut=\"TipHide();\"></TD>";
+print "<img src=\"i/w6.gif\" width=20 height=20 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РєРѕР»СЊС†Рѕ</b>\', event);\" onMouseOut=\"TipHide();\"></TD>";
 }?>
 <TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['r3'] > 0) {
@@ -613,9 +613,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=20 height=20 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На кольце выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD>";
+print "<img src=\"i/sh/".$dress['img']."\" width=20 height=20 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° РєРѕР»СЊС†Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD>";
 }}else{
-print "<img src=\"i/w6.gif\" width=20 height=20 onMouseMove=\"TipShow('<b>Пустой слот кольцо</b>\', event);\" onMouseOut=\"TipHide();\"></TD>";
+print "<img src=\"i/w6.gif\" width=20 height=20 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РєРѕР»СЊС†Рѕ</b>\', event);\" onMouseOut=\"TipHide();\"></TD>";
 }?>
 </TR></TBODY></TABLE></TD></TR>
 <TR><TD style="BACKGROUND-IMAGE: none">
@@ -624,9 +624,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=60 height=40 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На перчатках выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/sh/".$dress['img']."\" width=60 height=40 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° РїРµСЂС‡Р°С‚РєР°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }}else{
-print "<img src=\"i/w11.gif\" width=60 height=40 onMouseMove=\"TipShow('<b>Пустой слот перчатки</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/w11.gif\" width=60 height=40 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РїРµСЂС‡Р°С‚РєРё</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['shit'] > 0) {
@@ -634,9 +634,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=60 height=60 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На щите выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/sh/".$dress['img']."\" width=60 height=60 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° С‰РёС‚Рµ РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }}else{
-print "<img src=\"i/w10.gif\" width=60 height=60 onMouseMove=\"TipShow('<b>Пустой слот щит</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/w10.gif\" width=60 height=60 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ С‰РёС‚</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['leg'] > 0) {
@@ -644,9 +644,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=60 height=80 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На поножах выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/sh/".$dress['img']."\" width=60 height=80 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° РїРѕРЅРѕР¶Р°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }}else{
-print "<img src=\"i/w19.gif\" width=60 height=80 onMouseMove=\"TipShow('<b>Пустой слот поножи</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/w19.gif\" width=60 height=80 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РїРѕРЅРѕР¶Рё</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }?>
 <TR><TD style="BACKGROUND-IMAGE: none">
 <?php if ($buser['boots'] > 0) {
@@ -654,9 +654,9 @@ $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `id` = '
 if ($dress['includemagicdex']&& (!$pas OR ($battle AND $me))) {
 showhrefmagic($dress);
 } else {
-print "<img src=\"i/sh/".$dress['img']."\" width=60 height=40 onMouseMove=\"TipShow('<b>".$dress['name']."<br>Прочность: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>Уровень жизни: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>На сапогах выгравировано: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/sh/".$dress['img']."\" width=60 height=40 onMouseMove=\"TipShow('<b>".$dress['name']."<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ: ".$dress['duration']."/".$dress['maxdur'].""; if($dress['ghp']>0){print"<br>РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё: + ".$dress['ghp']."";} if($dress['text']!=null){print"<br>РќР° СЃР°РїРѕРіР°С… РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ: <br><font color=#FFFF00>".$dress['text']."</font>";} print"</b>', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }}else{
-print "<img src=\"i/w12.gif\" width=60 height=40 onMouseMove=\"TipShow('<b>Пустой слот обувь</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
+print "<img src=\"i/w12.gif\" width=60 height=40 onMouseMove=\"TipShow('<b>РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РѕР±СѓРІСЊ</b>\', event);\" onMouseOut=\"TipHide();\"></TD></TR>";
 }?>
 </TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
     </td>

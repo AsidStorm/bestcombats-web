@@ -17,10 +17,10 @@ ob_start("ob_gzhandler");
 
 <SCRIPT LANGUAGE="JavaScript" >
 var Hint3Name = '';
-// Заголовок, название скрипта, имя поля с логином
+// Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РёРјСЏ РїРѕР»СЏ СЃ Р»РѕРіРёРЅРѕРј
 function findlogin(title, script, name){
     document.all("hint3").innerHTML = '<table border=0 width=100% cellspacing="0" cellpadding="2"><tr><form action="'+script+'" method=POST name=slform><td colspan=2>'+
-        text+'</TD></TR><TR><TD width=50% align=left><INPUT TYPE="submit" name="tmpname423" value="Да" style="width:70%"></TD><TD width=50% align=right><INPUT type=button style="width:70%" value="Нет" onclick="closehint3();"></TD></TR></FORM></TABLE>';
+        text+'</TD></TR><TR><TD width=50% align=left><INPUT TYPE="submit" name="tmpname423" value="Р”Р°" style="width:70%"></TD><TD width=50% align=right><INPUT type=button style="width:70%" value="РќРµС‚" onclick="closehint3();"></TD></TR></FORM></TABLE>';
     document.all("hint3").style.visibility = "visible";
     document.all("hint3").style.left = 100;
     document.all("hint3").style.top = 100;
@@ -52,18 +52,18 @@ mysql_query("UPDATE `users` SET $stav,stats=stats-1 WHERE `id` = '".$user['zver_
 print "<script>location.href='zver_inv.php'</script>";
 exit;
 }
-///////////////////Навыки////////////////////////
-if($zver['vid']==1){$navik = "sila=sila+1"; $vig = 'sila=sila'; $rus_n = 'Демоническая Сила';}     //Чертяка
-if($zver['vid']==2){$navik = "lovk=lovk+1"; $vig = 'lovk=lovk'; $rus_n = 'Кошачья Ловкость';} //кошка
-if($zver['vid']==3){$navik = "inta=inta+1"; $vig = 'inta=inta'; $rus_n = 'Интуиция Совы';}   //Сова
-if($zver['vid']==4){ $rus_n = 'Свинцовый Щит';}   //Свин
-if($zver['vid']==5){ $rus_n = 'Верный Друг';}   //Пёс
-if($zver['vid']==6){$rus_n = 'Сила Стихий';}   //Светляк
-//////////////прогнать зверя/////////////////
+///////////////////РќР°РІС‹РєРё////////////////////////
+if($zver['vid']==1){$navik = "sila=sila+1"; $vig = 'sila=sila'; $rus_n = 'Р”РµРјРѕРЅРёС‡РµСЃРєР°СЏ РЎРёР»Р°';}     //Р§РµСЂС‚СЏРєР°
+if($zver['vid']==2){$navik = "lovk=lovk+1"; $vig = 'lovk=lovk'; $rus_n = 'РљРѕС€Р°С‡СЊСЏ Р›РѕРІРєРѕСЃС‚СЊ';} //РєРѕС€РєР°
+if($zver['vid']==3){$navik = "inta=inta+1"; $vig = 'inta=inta'; $rus_n = 'РРЅС‚СѓРёС†РёСЏ РЎРѕРІС‹';}   //РЎРѕРІР°
+if($zver['vid']==4){ $rus_n = 'РЎРІРёРЅС†РѕРІС‹Р№ Р©РёС‚';}   //РЎРІРёРЅ
+if($zver['vid']==5){ $rus_n = 'Р’РµСЂРЅС‹Р№ Р”СЂСѓРі';}   //РџС‘СЃ
+if($zver['vid']==6){$rus_n = 'РЎРёР»Р° РЎС‚РёС…РёР№';}   //РЎРІРµС‚Р»СЏРє
+//////////////РїСЂРѕРіРЅР°С‚СЊ Р·РІРµСЂСЏ/////////////////
 if($_GET['vignat']){
 if($user['zver_id']!=0){
 //mysql_query("UPDATE `users` SET user_id='',zver_id='',$vig-".$zver['level']." WHERE `id` = '".$user['id']."'");
-adddelo($user["id"], "$user[login] выгнал своего зверя ".mqfa1("select login from users where id='$user[zver_id]'"), 0);
+adddelo($user["id"], "$user[login] РІС‹РіРЅР°Р» СЃРІРѕРµРіРѕ Р·РІРµСЂСЏ ".mqfa1("select login from users where id='$user[zver_id]'"), 0);
 mq("UPDATE `users` SET user_id='',zver_id='' WHERE `id` = '".$user['id']."'");
 mq("DELETE FROM `users` WHERE id='".$zver['id']."'");
 print "<script>location.href='zver_inv.php?warning=4'</script>";
@@ -159,32 +159,32 @@ print "<script>location.href='zver_inv.php'</script>"; exit();
 <td rowspan=2>
 <BR>
 <span style="font-size:11px; color:#003">
-<SPAN title="Уровень жизни животного в бою">HP</SPAN>: <? echo "".$zver['maxhp'].""; ?><BR><BR>
+<SPAN title="РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё Р¶РёРІРѕС‚РЅРѕРіРѕ РІ Р±РѕСЋ">HP</SPAN>: <? echo "".$zver['maxhp'].""; ?><BR><BR>
 
-<SPAN title="Сила определяет урон наносимый атаками животного в бою">Сила</SPAN>: <? echo "".$zver['sila']."";
+<SPAN title="РЎРёР»Р° РѕРїСЂРµРґРµР»СЏРµС‚ СѓСЂРѕРЅ РЅР°РЅРѕСЃРёРјС‹Р№ Р°С‚Р°РєР°РјРё Р¶РёРІРѕС‚РЅРѕРіРѕ РІ Р±РѕСЋ">РЎРёР»Р°</SPAN>: <? echo "".$zver['sila']."";
 if($zver['stats']>0){print"&nbsp;<a href='?stat=sila'><img src='i/plus.gif' height=11 width=11 border=0></a>";}
 
 ?>
 <BR>
-<SPAN title="Ловкость определяет уровень уворота и антиуворота животного в бою">Ловкость</SPAN>: <? echo "".$zver['lovk']."";
+<SPAN title="Р›РѕРІРєРѕСЃС‚СЊ РѕРїСЂРµРґРµР»СЏРµС‚ СѓСЂРѕРІРµРЅСЊ СѓРІРѕСЂРѕС‚Р° Рё Р°РЅС‚РёСѓРІРѕСЂРѕС‚Р° Р¶РёРІРѕС‚РЅРѕРіРѕ РІ Р±РѕСЋ">Р›РѕРІРєРѕСЃС‚СЊ</SPAN>: <? echo "".$zver['lovk']."";
 if($zver['stats']>0){print"&nbsp;<a href='?stat=lovk'><img src='i/plus.gif' height=11 width=11 border=0></a>";}
 ?>
 <BR>
-<SPAN title="Интуиция определяет шанс нанести критический удар или защитится от него">Интуиция</SPAN>: <? echo "".$zver['inta']."";
+<SPAN title="РРЅС‚СѓРёС†РёСЏ РѕРїСЂРµРґРµР»СЏРµС‚ С€Р°РЅСЃ РЅР°РЅРµСЃС‚Рё РєСЂРёС‚РёС‡РµСЃРєРёР№ СѓРґР°СЂ РёР»Рё Р·Р°С‰РёС‚РёС‚СЃСЏ РѕС‚ РЅРµРіРѕ">РРЅС‚СѓРёС†РёСЏ</SPAN>: <? echo "".$zver['inta']."";
 if($zver['stats']>0){print"&nbsp;<a href='?stat=inta'><img src='i/plus.gif' height=11 width=11 border=0></a>";}
 ?>
 <BR>
-<SPAN title="От выносливости зависит уровень жизни животного и защита от урона">Выносливость</SPAN>: <? echo "".$zver['vinos']."";
+<SPAN title="РћС‚ РІС‹РЅРѕСЃР»РёРІРѕСЃС‚Рё Р·Р°РІРёСЃРёС‚ СѓСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё Р¶РёРІРѕС‚РЅРѕРіРѕ Рё Р·Р°С‰РёС‚Р° РѕС‚ СѓСЂРѕРЅР°">Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ</SPAN>: <? echo "".$zver['vinos']."";
 if($zver['stats']>0){print"&nbsp;<a href='?stat=vinos'><img src='i/plus.gif' height=11 width=11 border=0></a>";}
 ?>
 <BR>
-<SPAN style="font-size:9px; color:#00C" title="Свободные статы">Свободные статы: [<font style="color:#F00"><? echo "".$zver['stats'].""; ?></font>]</SPAN>
+<SPAN style="font-size:9px; color:#00C" title="РЎРІРѕР±РѕРґРЅС‹Рµ СЃС‚Р°С‚С‹">РЎРІРѕР±РѕРґРЅС‹Рµ СЃС‚Р°С‚С‹: [<font style="color:#F00"><? echo "".$zver['stats'].""; ?></font>]</SPAN>
 <BR><BR>
-<SPAN title="Уровень животного не может быть выше уровня хозяина">Уровень</SPAN>: <? echo "".$zver['level'].""; ?><BR>
-<SPAN title="Животное получает опыт сражаясь за владельца">Опыт</SPAN>: <? echo "".$zver['exp'].""; ?> / <? echo "".$zver['nextup'].""; ?><BR>
-<SPAN title="Голодное животное не принимает участия в боях">Сытость</SPAN>: <? echo "".$zver['sitost'].""; ?><BR>
+<SPAN title="РЈСЂРѕРІРµРЅСЊ Р¶РёРІРѕС‚РЅРѕРіРѕ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РІС‹С€Рµ СѓСЂРѕРІРЅСЏ С…РѕР·СЏРёРЅР°">РЈСЂРѕРІРµРЅСЊ</SPAN>: <? echo "".$zver['level'].""; ?><BR>
+<SPAN title="Р–РёРІРѕС‚РЅРѕРµ РїРѕР»СѓС‡Р°РµС‚ РѕРїС‹С‚ СЃСЂР°Р¶Р°СЏСЃСЊ Р·Р° РІР»Р°РґРµР»СЊС†Р°">РћРїС‹С‚</SPAN>: <? echo "".$zver['exp'].""; ?> / <? echo "".$zver['nextup'].""; ?><BR>
+<SPAN title="Р“РѕР»РѕРґРЅРѕРµ Р¶РёРІРѕС‚РЅРѕРµ РЅРµ РїСЂРёРЅРёРјР°РµС‚ СѓС‡Р°СЃС‚РёСЏ РІ Р±РѕСЏС…">РЎС‹С‚РѕСЃС‚СЊ</SPAN>: <? echo "".$zver['sitost'].""; ?><BR>
 <BR></span>
-<NOBR>Освоенные навыки:<BR>
+<NOBR>РћСЃРІРѕРµРЅРЅС‹Рµ РЅР°РІС‹РєРё:<BR>
 <span style="font-size:11px; color:#003">
 <?
   print"$rus_n +";
@@ -208,8 +208,8 @@ if($zver['stats']>0){print"&nbsp;<a href='?stat=vinos'><img src='i/plus.gif' hei
 </TABLE>
 <? }else{ ?>
 <div id=hint4 class=ahint><?
-  if(@$_GET['warning']==4) echo"<font color=red><b>Вы прогнали зверя!</b></font>";
-  else echo "<b>У вас нет зверя!</b>";
+  if(@$_GET['warning']==4) echo"<font color=red><b>Р’С‹ РїСЂРѕРіРЅР°Р»Рё Р·РІРµСЂСЏ!</b></font>";
+  else echo "<b>РЈ РІР°СЃ РЅРµС‚ Р·РІРµСЂСЏ!</b>";
 ?></div>
 <? } ?>
 </td><td width=50% valign=top>
@@ -217,19 +217,19 @@ if($zver['stats']>0){print"&nbsp;<a href='?stat=vinos'><img src='i/plus.gif' hei
 <TD>
 
 
-<? if ($user["zver_id"]) { ?> <INPUT TYPE=button value="Выгнать" style="cursor:hand;" onclick="if (confirm('Вы уверены, что хотите навсегда прогнать <? echo "".$zver['login'].""; ?>?')) window.location='zver_inv.php?vignat=1'"><? } ?>
+<? if ($user["zver_id"]) { ?> <INPUT TYPE=button value="Р’С‹РіРЅР°С‚СЊ" style="cursor:hand;" onclick="if (confirm('Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ РЅР°РІСЃРµРіРґР° РїСЂРѕРіРЅР°С‚СЊ <? echo "".$zver['login'].""; ?>?')) window.location='zver_inv.php?vignat=1'"><? } ?>
 </TD><TD valign=top align=right>
-<INPUT TYPE=button value="Обновить" onClick="javascript:location.href='zver_inv.php'">
-<INPUT TYPE=button value="Вернуться" onClick="javascript:location.href='main.php'"></div>
+<INPUT TYPE=button value="РћР±РЅРѕРІРёС‚СЊ" onClick="javascript:location.href='zver_inv.php'">
+<INPUT TYPE=button value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" onClick="javascript:location.href='main.php'"></div>
 </TABLE>
 <?
-if($_GET['warning']==1){echo"<font color=red><b>Вы выкинули '".$_GET['n']."'.</b></font>";}
-if($_GET['warning']==2){echo"<font color=red><b>".$zver['login']." съел".($zver["sex"]?"":"а")." \"".$_GET['n']."\".</b></font>";}
+if($_GET['warning']==1){echo"<font color=red><b>Р’С‹ РІС‹РєРёРЅСѓР»Рё '".$_GET['n']."'.</b></font>";}
+if($_GET['warning']==2){echo"<font color=red><b>".$zver['login']." СЃСЉРµР»".($zver["sex"]?"":"Р°")." \"".$_GET['n']."\".</b></font>";}
 if($_GET['warning']==3){
-  echo"<font color=red><b>".$zver['login']." не хочет есть \"".mqfa1("select name from inventory where id='$_GET[n]'")."\".</b></font>";
+  echo"<font color=red><b>".$zver['login']." РЅРµ С…РѕС‡РµС‚ РµСЃС‚СЊ \"".mqfa1("select name from inventory where id='$_GET[n]'")."\".</b></font>";
 }
 if($_GET['warning']==5){
-  echo"<font color=red><b>".$zver['login']." недостаточно высокого уровня чтобы съесть \"".mqfa1("select name from inventory where id='$_GET[n]'")."\".</b></font>";
+  echo"<font color=red><b>".$zver['login']." РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РІС‹СЃРѕРєРѕРіРѕ СѓСЂРѕРІРЅСЏ С‡С‚РѕР±С‹ СЃСЉРµСЃС‚СЊ \"".mqfa1("select name from inventory where id='$_GET[n]'")."\".</b></font>";
 }
 print"<table width=500 border='0' cellspacing='0' cellpadding='0' align='center' bgcolor='#EBE9ED'>
 
@@ -249,27 +249,27 @@ while($item = mysql_fetch_array($items)){
 
     if($pic_type){$_pic1 = $pic_1;$pic_type = !$pic_type;}else{$_pic1 = $pic_2;$pic_type = !$pic_type;}
 print"
-<DIV align=right><!--Рюкзак-->
+<DIV align=right><!--Р СЋРєР·Р°Рє-->
 <TABLE WIDTH=100% CELLSPACING=1 CELLPADDING=2 BGCOLOR=A5A5A5>
 
 
 <TR bgcolor=$_pic1>
 <TD align=center>
 <IMG SRC='i/sh/".$item['img']."' WIDTH='60' HEIGHT='60' >
-<BR><a href='?go=go&id=".$item['id']."'>Скормить</a>
-<BR><a href='?del=del&id=".$item['id']."'>Удалить</a></TD>
+<BR><a href='?go=go&id=".$item['id']."'>РЎРєРѕСЂРјРёС‚СЊ</a>
+<BR><a href='?del=del&id=".$item['id']."'>РЈРґР°Р»РёС‚СЊ</a></TD>
 <TD valign=top><font style='color:#009'><b>".$item['name']."</b></font>
-(Масса: ".$item['massa'].")
+(РњР°СЃСЃР°: ".$item['massa'].")
 
 <BR>
-<b>Цена: ".$item['cost']." кр.</b> <BR>
-Долговечность: ".$item['duration']."/".$item['maxdur']."</FONT><BR>";
-if ($item["nlevel"]>0) echo "<B>Требуется минимальное:</B><BR>&bull; Уровень: ".$item['nlevel']."<BR>";
-echo "<B>Параметры:</B><BR>&bull; Сытость: +20<BR>
+<b>Р¦РµРЅР°: ".$item['cost']." РєСЂ.</b> <BR>
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: ".$item['duration']."/".$item['maxdur']."</FONT><BR>";
+if ($item["nlevel"]>0) echo "<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B><BR>&bull; РЈСЂРѕРІРµРЅСЊ: ".$item['nlevel']."<BR>";
+echo "<B>РџР°СЂР°РјРµС‚СЂС‹:</B><BR>&bull; РЎС‹С‚РѕСЃС‚СЊ: +20<BR>
 
-<small>Описание:<BR>".$item['opisan']."</small><BR>
-<!--<small>Сделано в Lost city</small><BR>-->
-<small><font color=brown>Предмет не подлежит ремонту</font></small><BR>
+<small>РћРїРёСЃР°РЅРёРµ:<BR>".$item['opisan']."</small><BR>
+<!--<small>РЎРґРµР»Р°РЅРѕ РІ Lost city</small><BR>-->
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><BR>
 </TD>
 </TR>
 
@@ -278,12 +278,12 @@ echo "<B>Параметры:</B><BR>&bull; Сытость: +20<BR>
 </DIV>";
 }
 ////////////////////////////////////////////////////////////////////////
-//////////////////////скармлеваем///////////////////////////////////////
+//////////////////////СЃРєР°СЂРјР»РµРІР°РµРј///////////////////////////////////////
 if($_GET['go']=='go'){
-/////////////////////проверка существует ли еда для зверя////////////////////////
+/////////////////////РїСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІСѓРµС‚ Р»Рё РµРґР° РґР»СЏ Р·РІРµСЂСЏ////////////////////////
 $items=mysql_fetch_array(mysql_query("SELECT * FROM inventory WHERE id='".$_GET['id']."' and type='eda' and owner='".$user['id']."'"));
 if($items){
-////////////////////так она есть терь проверяем будет ли есть ее наш зверь!!!////////////////////////
+////////////////////С‚Р°Рє РѕРЅР° РµСЃС‚СЊ С‚РµСЂСЊ РїСЂРѕРІРµСЂСЏРµРј Р±СѓРґРµС‚ Р»Рё РµСЃС‚СЊ РµРµ РЅР°С€ Р·РІРµСЂСЊ!!!////////////////////////
 if($zver['vid']==$items['vid'] || $zver['vid']==floor($items['vid']/10) || $zver['vid']==$items['vid']%10 || ($zver["vid"]==4 && $items["vid"]!=1 && $items["vid"]!=6)){
   if ($items["nlevel"]<=$zver['level'] || $items["id"]<1955892) {
     if ($items["nlevel"]<$zver['level']) {
@@ -312,12 +312,12 @@ exit;}
            }else{exit;}
              }
 ////////////////////////////////////////////////////////////////////////
-//////////////////////////удаляем///////////////////////////////////////
+//////////////////////////СѓРґР°Р»СЏРµРј///////////////////////////////////////
 if($_GET['del']=='del'){
-/////////////////////проверка существует ли еда для зверя////////////////////////
+/////////////////////РїСЂРѕРІРµСЂРєР° СЃСѓС‰РµСЃС‚РІСѓРµС‚ Р»Рё РµРґР° РґР»СЏ Р·РІРµСЂСЏ////////////////////////
 $items=mysql_fetch_array(mysql_query("SELECT name FROM inventory WHERE id='".$_GET['id']."' and type='eda' and owner='".$user['id']."'"));
 if($items){
-////////////////////так она есть////////////////////////
+////////////////////С‚Р°Рє РѕРЅР° РµСЃС‚СЊ////////////////////////
 mysql_query("DELETE FROM inventory WHERE id='".$_GET['id']."' and type='eda' and owner='".$user['id']."'");
 header("location: zver_inv.php?warning=1&n=".$items['name']."");
 exit;
@@ -325,9 +325,9 @@ exit;
              }
 ////////////////////////////////////////////////////////////////////////
 if(!$itemd = mysql_fetch_array($itemsd)){
-print"<DIV align=right><!--Рюкзак-->
+print"<DIV align=right><!--Р СЋРєР·Р°Рє-->
 <TABLE WIDTH=100% CELLSPACING=1 CELLPADDING=2 BGCOLOR=A5A5A5>
-<TR><TD bgcolor=e2e0e0 align=center>У вас нет подходящей еды в рюкзаке</TD></TR>
+<TR><TD bgcolor=e2e0e0 align=center>РЈ РІР°СЃ РЅРµС‚ РїРѕРґС…РѕРґСЏС‰РµР№ РµРґС‹ РІ СЂСЋРєР·Р°РєРµ</TD></TR>
 </TABLE>
 </DIV>";
 }

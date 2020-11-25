@@ -6,9 +6,9 @@ function DrawBar(title, id, flags, link_text, link){
   var rnd = Math.random();
   s += '<a name="bar__'+id+'" href="?edit='+rnd+'&bar='+id+'&a=explore&is_open='+(1-(flags & 1))+'#bar_'+id+'">';
   if (flags & 1) {
-    s+= '<img width='+sz+' height=9 alt="Ñêðûòü" border=0 src="/i/icon/'+num+'minus.gif">';
+    s+= '<img width='+sz+' height=9 alt="Ð¡ÐºÑ€Ñ‹Ñ‚ÑŒ" border=0 src="/i/icon/'+num+'minus.gif">';
   } else {
-    s+= '<img width='+sz+' height=9 alt="Ïîêàçàòü" border=0 src="/i/icon/'+num+'plus.gif">';
+    s+= '<img width='+sz+' height=9 alt="ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ" border=0 src="/i/icon/'+num+'plus.gif">';
   }
   s += '</a> </td>';
   s += '<td>&nbsp;</td><td bgcolor="#e2e0e0"><small>&nbsp;<b>'+title+':<b>&nbsp;</small></td>';
@@ -17,12 +17,12 @@ function DrawBar(title, id, flags, link_text, link){
   }
   s += '<td align=right valign=top width="100%">';
   if (!(flags&2)){
-     s += '<a href="?edit='+rnd+'&bar='+id+'&a=up#bar_'+id+'"><img border=0 width='+sz+' height=9 alt="Ïîäíÿòü áëîê íàâåðõ" src="/i/icon/'+num+'up.gif"></a>';
+     s += '<a href="?edit='+rnd+'&bar='+id+'&a=up#bar_'+id+'"><img border=0 width='+sz+' height=9 alt="ÐŸÐ¾Ð´Ð½ÑÑ‚ÑŒ Ð±Ð»Ð¾Ðº Ð½Ð°Ð²ÐµÑ€Ñ…" src="/i/icon/'+num+'up.gif"></a>';
   } else {
     s+= '<img border=0 width='+sz+' height=9 alt="" src="/i/icon/'+num+'up-grey.gif">';
   }
   if (!(flags&4)){
-    s += '<a href="?edit='+rnd+'&bar='+id+'&a=down#bar_'+id+'"><img border=0 width='+sz+' height=9 alt="Îïóñòèòü áëîê âíèç" src="/i/icon/'+num+'down.gif"></a>';
+    s += '<a href="?edit='+rnd+'&bar='+id+'&a=down#bar_'+id+'"><img border=0 width='+sz+' height=9 alt="ÐžÐ¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ Ð±Ð»Ð¾Ðº Ð²Ð½Ð¸Ð·" src="/i/icon/'+num+'down.gif"></a>';
   } else {
     s+= '<img border=0 width='+sz+' height=9 alt="" src="/i/icon/'+num+'down-grey.gif">';
   }

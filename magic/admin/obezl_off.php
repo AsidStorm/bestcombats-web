@@ -21,38 +21,38 @@
                 }
                 if ($ok == 1) {
                     if (mysql_query("DELETE FROM`effects` WHERE `owner` = '{$tar['id']}' and `type` = '5' LIMIT 1 ;")) {
-                        if ($user['sex'] == 1) {$action="снял";}
-                        else {$action="сняла";}
+                        if ($user['sex'] == 1) {$action="СЃРЅСЏР»";}
+                        else {$action="СЃРЅСЏР»Р°";}
                         if ($user['align'] > '2' && $user['align'] < '3')  {
-                            $angel="Ангел";
+                            $angel="РђРЅРіРµР»";
                         }
                         elseif ($user['align'] > '1' && $user['align'] < '2') {
-                            $angel="Паладин";
+                            $angel="РџР°Р»Р°РґРёРЅ";
                         }
-                        $mess="$angel &quot;{$user['login']}&quot; $action заклятие обезличивания с &quot;$target&quot;.";
-                        $messch="$angel &quot;{$user['login']}&quot; $action заклятие обезличивания с &quot;$target&quot;.";
+                        $mess="$angel &quot;{$user['login']}&quot; $action Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ СЃ &quot;$target&quot;.";
+                        $messch="$angel &quot;{$user['login']}&quot; $action Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ СЃ &quot;$target&quot;.";
                          if ($user['invis'] == '1') {
-                        $messch="&quot;невидимка&quot; наложил заклятие обезличивания с персонажа &quot;$target&quot;.";
-                        $mess="$angel &quot;{$user['login']}&quot; $action заклятие обезличивания с персонажа &quot;$target&quot;.";
+                        $messch="&quot;РЅРµРІРёРґРёРјРєР°&quot; РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ СЃ РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot;.";
+                        $mess="$angel &quot;{$user['login']}&quot; $action Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ СЃ РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot;.";
                         }
                         mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
                         mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
                         addch("<img src=http://img.bestcombats.net/pbuttons/obezl_off.gif> $messch");
-                        echo "<font color=red><b>Успешно снято заклятие обезличивания с персонажа \"$target\"</b></font>";
+                        echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ СЃРЅСЏС‚Рѕ Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ СЃ РїРµСЂСЃРѕРЅР°Р¶Р° \"$target\"</b></font>";
                     }
                     else {
-                        echo "<font color=red><b>Произошла ошибка!</b></font>";
+                        echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!</b></font>";
                     }
                 }
                 else {
-                    echo "<font color=red><b>Вы не можете снять заклятие обезличивания с этого персонажа!</b></font>";
+                    echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СЃРЅСЏС‚СЊ Р·Р°РєР»СЏС‚РёРµ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ СЃ СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°!</b></font>";
                 }
             }
             else {
-                echo "<font color=red><b>На персонаже \"$target\" нет заклятия обезличивания </b></font>";
+                echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Рµ \"$target\" РЅРµС‚ Р·Р°РєР»СЏС‚РёСЏ РѕР±РµР·Р»РёС‡РёРІР°РЅРёСЏ </b></font>";
             }
         }
         else {
-            echo "<font color=red><b>Персонаж \"$target\" не существует!</b></font>";
+            echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!</b></font>";
         }
 ?>

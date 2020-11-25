@@ -3,17 +3,17 @@
     $r=mq("select id, dressed from inventory where owner='$_SESSION[uid]' and foronetrip=1");
     while ($rec=mysql_fetch_assoc($r)) if ($rec["dressed"]) dropitem(11);
     mq("delete from inventory where foronetrip=1 and owner='$_SESSION[uid]'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Эликсир Жизни' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №1' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №2' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №3' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №4' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №5' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №6' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №7' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №8' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №9' and owner='$u' and podzem='1'");
-    mysql_query("DELETE FROM `inventory` WHERE name='Ключик №10' and owner='$u' and podzem='1'");
+    mysql_query("DELETE FROM `inventory` WHERE name='Р­Р»РёРєСЃРёСЂ Р–РёР·РЅРё' and owner='$u' and podzem='1'");
+    mysql_query("DELETE FROM `inventory` WHERE name='РљР»СЋС‡РёРє в„–1' and owner='$u' and podzem='1'");
+    mysql_query("DELETE FROM `inventory` WHERE name='РљР»СЋС‡РёРє в„–2' and owner='$u' and podzem='1'");
+    mysql_query("DELETE FROM `inventory` WHERE name='РљР»СЋС‡РёРє в„–3' and owner='$u' and podzem='1'");
+    mysql_query("DELETE FROM `inventory` WHERE name='РљР»СЋС‡РёРє в„–4' and owner='$u' and podzem='1'");
+    mysql_query("DELETE FROM `inventory` WHERE name='РљР»СЋС‡РёРє в„–5' and owner='$u' and podzem='1'");
+    mysql_query("DELETE FROM `inventory` WHERE name='РљР»СЋС‡РёРє в„–6' and owner='$u' and podzem='1'");
+    mysql_query("DELETE FROM `inventory` WHERE name='РљР»СЋС‡РёРє в„–7' and owner='$u' and podzem='1'");
+    mysql_query("DELETE FROM `inventory` WHERE name='РљР»СЋС‡РёРє в„–8' and owner='$u' and podzem='1'");
+    mysql_query("DELETE FROM `inventory` WHERE name='РљР»СЋС‡РёРє в„–9' and owner='$u' and podzem='1'");
+    mysql_query("DELETE FROM `inventory` WHERE name='РљР»СЋС‡РёРє в„–10' and owner='$u' and podzem='1'");
     mysql_query("DELETE FROM `inventory` WHERE owner='$u' and type='188' and podzem='1'");
   }
   function botname($bot) {
@@ -23,31 +23,31 @@
       if ($mir["level"]<4) $lvl=0;
       else $lvl=$mir["level"]-4;
       if ($lvl>11) $lvl=11;
-      $bots["29"]=array("Снеговичёнок","Молодой Снеговик","Снеговик","Взрослый Снеговик","Матёрый Снеговик","Мудрый Снеговик","Старый Снеговик","Старший Снеговик");
-      $bots["30"]=array("Злой Снеговичёнок","Злой Молодой Снеговик","Злой Снеговик","Злой Взрослый Снеговик","Злой Матёрый Снеговик","Злой Мудрый Снеговик","Злой Старый Снеговик","Злой Старший Снеговик");
-      $bots["31"]=array("Начальник Снеговичат","Начальник Молодых Снеговиков","Начальник Снеговиков","Начальник Взрослых Снеговиков","Начальник Матёрых Снеговиков","Начальник Мудрых Снеговиков","Начальник Старых Снеговиков","Начальник Старших Снеговиков");
+      $bots["29"]=array("РЎРЅРµРіРѕРІРёС‡С‘РЅРѕРє","РњРѕР»РѕРґРѕР№ РЎРЅРµРіРѕРІРёРє","РЎРЅРµРіРѕРІРёРє","Р’Р·СЂРѕСЃР»С‹Р№ РЎРЅРµРіРѕРІРёРє","РњР°С‚С‘СЂС‹Р№ РЎРЅРµРіРѕРІРёРє","РњСѓРґСЂС‹Р№ РЎРЅРµРіРѕРІРёРє","РЎС‚Р°СЂС‹Р№ РЎРЅРµРіРѕРІРёРє","РЎС‚Р°СЂС€РёР№ РЎРЅРµРіРѕРІРёРє");
+      $bots["30"]=array("Р—Р»РѕР№ РЎРЅРµРіРѕРІРёС‡С‘РЅРѕРє","Р—Р»РѕР№ РњРѕР»РѕРґРѕР№ РЎРЅРµРіРѕРІРёРє","Р—Р»РѕР№ РЎРЅРµРіРѕРІРёРє","Р—Р»РѕР№ Р’Р·СЂРѕСЃР»С‹Р№ РЎРЅРµРіРѕРІРёРє","Р—Р»РѕР№ РњР°С‚С‘СЂС‹Р№ РЎРЅРµРіРѕРІРёРє","Р—Р»РѕР№ РњСѓРґСЂС‹Р№ РЎРЅРµРіРѕРІРёРє","Р—Р»РѕР№ РЎС‚Р°СЂС‹Р№ РЎРЅРµРіРѕРІРёРє","Р—Р»РѕР№ РЎС‚Р°СЂС€РёР№ РЎРЅРµРіРѕРІРёРє");
+      $bots["31"]=array("РќР°С‡Р°Р»СЊРЅРёРє РЎРЅРµРіРѕРІРёС‡Р°С‚","РќР°С‡Р°Р»СЊРЅРёРє РњРѕР»РѕРґС‹С… РЎРЅРµРіРѕРІРёРєРѕРІ","РќР°С‡Р°Р»СЊРЅРёРє РЎРЅРµРіРѕРІРёРєРѕРІ","РќР°С‡Р°Р»СЊРЅРёРє Р’Р·СЂРѕСЃР»С‹С… РЎРЅРµРіРѕРІРёРєРѕРІ","РќР°С‡Р°Р»СЊРЅРёРє РњР°С‚С‘СЂС‹С… РЎРЅРµРіРѕРІРёРєРѕРІ","РќР°С‡Р°Р»СЊРЅРёРє РњСѓРґСЂС‹С… РЎРЅРµРіРѕРІРёРєРѕРІ","РќР°С‡Р°Р»СЊРЅРёРє РЎС‚Р°СЂС‹С… РЎРЅРµРіРѕРІРёРєРѕРІ","РќР°С‡Р°Р»СЊРЅРёРє РЎС‚Р°СЂС€РёС… РЎРЅРµРіРѕРІРёРєРѕРІ");
       return array($bots[$bot][$lvl], $obs[$bot]);
     } else {
-	  if ($bot==1) return array("","Паук", 1);
-	  if ($bot==2) return array("","Зомби", 2);
-	  if ($bot==3) return array("","Жук", 3);
-	  if ($bot==9) return array("","Крыса", 9);
-	  if ($bot==10) return array("","Безголовый", 10);
-	  if ($bot==11) return array("","Стальной", 11);
-	  if ($bot==7) return array("","Мартын", 7);
-	  if ($bot==12) return array("","Кровавый", 12);
-	  if ($bot==13) return array("","Мышь", 13);
-	  if ($bot==14) return array("","Прораб", 14);
-      if ($bot==19) return array("trup","Бродячий Труп", 87); // Образ, логин, ид
-      if ($bot==20) return array("izi","Изи", 86);
-      if ($bot==21) return array("kosmar","Кошмар Глубин", 85);
-      if ($bot==22) return array("prok","Проклятие Глубин", 84);
-      if ($bot==23) return array("uzas","Ужас Глубин", 83);
-      if ($bot==24) return array("bes","Бес", 92);
-      if ($bot==25) return array("zelen","Зеленый Голем", 91);
-      if ($bot==26) return array("demon","Крылатый Демон", 90);
-      if ($bot==27) return array("skelet","Скелет", 89);
-      if ($bot==28) return array("straz","Страж", 88);
+	  if ($bot==1) return array("","РџР°СѓРє", 1);
+	  if ($bot==2) return array("","Р—РѕРјР±Рё", 2);
+	  if ($bot==3) return array("","Р–СѓРє", 3);
+	  if ($bot==9) return array("","РљСЂС‹СЃР°", 9);
+	  if ($bot==10) return array("","Р‘РµР·РіРѕР»РѕРІС‹Р№", 10);
+	  if ($bot==11) return array("","РЎС‚Р°Р»СЊРЅРѕР№", 11);
+	  if ($bot==7) return array("","РњР°СЂС‚С‹РЅ", 7);
+	  if ($bot==12) return array("","РљСЂРѕРІР°РІС‹Р№", 12);
+	  if ($bot==13) return array("","РњС‹С€СЊ", 13);
+	  if ($bot==14) return array("","РџСЂРѕСЂР°Р±", 14);
+      if ($bot==19) return array("trup","Р‘СЂРѕРґСЏС‡РёР№ РўСЂСѓРї", 87); // РћР±СЂР°Р·, Р»РѕРіРёРЅ, РёРґ
+      if ($bot==20) return array("izi","РР·Рё", 86);
+      if ($bot==21) return array("kosmar","РљРѕС€РјР°СЂ Р“Р»СѓР±РёРЅ", 85);
+      if ($bot==22) return array("prok","РџСЂРѕРєР»СЏС‚РёРµ Р“Р»СѓР±РёРЅ", 84);
+      if ($bot==23) return array("uzas","РЈР¶Р°СЃ Р“Р»СѓР±РёРЅ", 83);
+      if ($bot==24) return array("bes","Р‘РµСЃ", 92);
+      if ($bot==25) return array("zelen","Р—РµР»РµРЅС‹Р№ Р“РѕР»РµРј", 91);
+      if ($bot==26) return array("demon","РљСЂС‹Р»Р°С‚С‹Р№ Р”РµРјРѕРЅ", 90);
+      if ($bot==27) return array("skelet","РЎРєРµР»РµС‚", 89);
+      if ($bot==28) return array("straz","РЎС‚СЂР°Р¶", 88);
 
     }
   }
@@ -94,11 +94,11 @@ if(in_array($user['room'], $canalrooms)){
 <link rel=stylesheet type="text/css" href="<?=IMGBASE?>/i/main.css">
 <SCRIPT LANGUAGE="JavaScript" >
 var Hint3Name = '';
-// Заголовок, название скрипта, имя поля с логином
+// Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РёРјСЏ РїРѕР»СЏ СЃ Р»РѕРіРёРЅРѕРј
 function findlogin(title, script, name){
     document.all("hint3").innerHTML = '<table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B style="font-size:11px">'+title+'</td><td width=20 align=right valign=top style="cursor: pointer" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
     '<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><form action="'+script+'" method=GET><INPUT TYPE=hidden name=sd4 value="<? echo @$user['id']; ?>"><td colspan=2>'+
-    'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" »» "></TD></TR></FORM></TABLE></td></tr></table>';
+    'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" В»В» "></TD></TR></FORM></TABLE></td></tr></table>';
     document.all("hint3").style.visibility = "visible";
     document.all("hint3").style.left = 100;
     document.all("hint3").style.top = 100;
@@ -120,11 +120,11 @@ function closehint3(){
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5  bgcolor="#d7d7d7" style=" background-image: url(/i/bagr.gif); width=100%; background-repeat:repeat;background-position:top" onLoad="<?=topsethp()?>">
 <script LANGUAGE='JavaScript'>
 document.ondragstart = test;
-//запрет на перетаскивание
+//Р·Р°РїСЂРµС‚ РЅР° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ
 //document.onselectstart = test;
-//запрет на выделение элементов страницы
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂР°РЅРёС†С‹
 document.oncontextmenu = test;
-//запрет на выведение контекстного меню
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РІРµРґРµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 function test() {
  return false
 }
@@ -147,13 +147,13 @@ function test() {
         if($_GET['kill']!=$glava){
           mysql_query("DELETE FROM labirint WHERE login='".$_GET['kill']."'");
           delpodzitems($varsa['id']);
-          //mysql_query("DELETE FROM `inventory` WHERE name='Бутерброд' and owner='".$varsa['id']."' and podzem='1'");
+          //mysql_query("DELETE FROM `inventory` WHERE name='Р‘СѓС‚РµСЂР±СЂРѕРґ' and owner='".$varsa['id']."' and podzem='1'");
           print "<script>location.href='canalizaciya.php'</script>"; exit();
         } else {
-          print"<font style='font-size:12px; color:#cc0000'>Себя нельзя выгнать.</font>";
+          print"<font style='font-size:12px; color:#cc0000'>РЎРµР±СЏ РЅРµР»СЊР·СЏ РІС‹РіРЅР°С‚СЊ.</font>";
         }
       } else {
-        print"<font style='font-size:12px; color:#cc0000'>Такого логина не существует или он не в вашей группе.</font>";}
+        print"<font style='font-size:12px; color:#cc0000'>РўР°РєРѕРіРѕ Р»РѕРіРёРЅР° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РёР»Рё РѕРЅ РЅРµ РІ РІР°С€РµР№ РіСЂСѓРїРїРµ.</font>";}
       }
     }
     //smena lider
@@ -168,10 +168,10 @@ function test() {
             mysql_query("UPDATE podzem4 SET glava='".$_GET['change']."' WHERE glava='".$user['login']."'");
             print "<script>location.href='canalizaciya.php'</script>"; exit();
           } else {
-            print"<font style='font-size:12px; color:#cc0000'>Вы и так Лидер.</font>";
+            print"<font style='font-size:12px; color:#cc0000'>Р’С‹ Рё С‚Р°Рє Р›РёРґРµСЂ.</font>";
           }
         } else {
-          print"<font style='font-size:12px; color:#cc0000'>Такого логина не существует или он не в вашей группе.</font>";
+          print"<font style='font-size:12px; color:#cc0000'>РўР°РєРѕРіРѕ Р»РѕРіРёРЅР° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РёР»Рё РѕРЅ РЅРµ РІ РІР°С€РµР№ РіСЂСѓРїРїРµ.</font>";
         }
       }
     }
@@ -184,7 +184,7 @@ function test() {
     if($mir['dead']>=3){print "<script>location.href='?act=cexit&".time()."'</script>"; exit();}
     include "canalization_mod.php";
 
-////////////нападение////////////////
+////////////РЅР°РїР°РґРµРЅРёРµ////////////////
     if($_GET['act'] == "atk"){
       $d = $_GET['n']+10;
       $d2 = $_GET['n']-10;
@@ -197,26 +197,26 @@ function test() {
       if($mesto == $d or $mesto == $d1 or $mesto == $d2 or $mesto == $d3 or $mesto == $d4){
         if($dop!='' && (float)$dop<500){
           include"podzem/atk.php";
-        } else echo "<b><font color=red size=2>Кто-то уже убил этого монстра.</font></b>";
+        } else echo "<b><font color=red size=2>РљС‚Рѕ-С‚Рѕ СѓР¶Рµ СѓР±РёР» СЌС‚РѕРіРѕ РјРѕРЅСЃС‚СЂР°.</font></b>";
       }
     }
 
     if($_GET['act']=='el') {
       if($mir['el']!='1' and $mesto==$mir['el']){
         mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`present`,`magic`,`otdel`,`isrep`,`podzem`,`prototype`)
-                        VALUES('".$user['id']."','Эликсир Жизни','188','1','0','pot_cureHP100_20.gif','10','Лука','189','188','0','1', 1538) ;");
+                        VALUES('".$user['id']."','Р­Р»РёРєСЃРёСЂ Р–РёР·РЅРё','188','1','0','pot_cureHP100_20.gif','10','Р›СѓРєР°','189','188','0','1', 1538) ;");
         mysql_query("UPDATE `labirint` SET el='1' WHERE `glava`='".$glava."' and `login`='".$user['login']."'");
-        print"&nbsp;<font style='font-size:12px; color:red;'>Вы получили 'Эликсир Жизни'</font><br>";
+        print"&nbsp;<font style='font-size:12px; color:red;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р­Р»РёРєСЃРёСЂ Р–РёР·РЅРё'</font><br>";
       } else {
         if($mir['el']=='1'){
-          print"&nbsp;<font style='font-size:12px; color:red;'>Вы уже брали зелье!</font><br>";
+          print"&nbsp;<font style='font-size:12px; color:red;'>Р’С‹ СѓР¶Рµ Р±СЂР°Р»Рё Р·РµР»СЊРµ!</font><br>";
         } else {
-          print"&nbsp;<font style='font-size:12px; color:red;'>Невозможно! Вы далеко!</font><br>";
+          print"&nbsp;<font style='font-size:12px; color:red;'>РќРµРІРѕР·РјРѕР¶РЅРѕ! Р’С‹ РґР°Р»РµРєРѕ!</font><br>";
         }
       }
     }
 
-///////////////Сбор гаек/////////////
+///////////////РЎР±РѕСЂ РіР°РµРє/////////////
 if (@$_GET["take"]) {
   $_GET["take"]=(int)$_GET["take"];
   $place=mqfa1("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='$mir[name]'");
@@ -233,12 +233,12 @@ if (@$_GET["take"]) {
     include_once "questfuncs.php";
     if (count($tmp)<=1) mq("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");
     else mq("UPDATE `podzem3` SET n$mesto='".implode("-",$tmp)."' WHERE glava='$glava' and name='".$mir['name']."'");
-    $res=takesmallitem($_GET["take"],0,"Нашёл в пещере");
+    $res=takesmallitem($_GET["take"],0,"РќР°С€С‘Р» РІ РїРµС‰РµСЂРµ");
     $mis=mqfa1("select name from smallitems where id='$_GET[take]'");
     include "podzem_brat.php";
-    print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '$mis'</font>";
+    print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё '$mis'</font>";
   } else {
-    echo "&nbsp;<font style='font-size:12px; color:cc0000;'>Кто-то оказался быстрее!</font>";
+    echo "&nbsp;<font style='font-size:12px; color:cc0000;'>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ!</font>";
   }
 }
 if($_GET['sun']=='gaika'){
@@ -248,26 +248,26 @@ $stloc = $retr["n$mesto"];
 if ($stloc=='511') {
   include_once "questfuncs.php";
   mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");
-  $res=takesmallitem(12,0,"Нашёл в пещере");
+  $res=takesmallitem(12,0,"РќР°С€С‘Р» РІ РїРµС‰РµСЂРµ");
   $mis=$res["name"];
   include "podzem_brat.php";
-  print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '$mis'</font>";
+  print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё '$mis'</font>";
 }
 if($stloc=='503' or $stloc=='502' or $stloc=='501'){
 if($stloc=='503'){mysql_query("UPDATE `podzem3` SET n$mesto='502' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='502'){mysql_query("UPDATE `podzem3` SET n$mesto='501' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='501'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Р“Р°Р№РєР°' and koll<'30'");
 if($g = mysql_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Р“Р°Р№РєР°' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Р“Р°Р№РєР°','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
 }
-$mis = "Гайка";
+$mis = "Р“Р°Р№РєР°";
 include "podzem_brat.php";
-print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Гайка'</font>";
-}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>Кто-то оказался быстрее!</font>";}}
+print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р“Р°Р№РєР°'</font>";
+}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ!</font>";}}
 }
 /////////////////////////////////////
 
@@ -298,11 +298,11 @@ If (isset($_GET['get_wear']) and isset($_GET['id'])){
                 '$dress[includemagicuses]', '$dress[includemagiccost]', '$dress[includemagicusesperday]',
                 '$dress[mfdair]', '$dress[mfdwater]', '$dress[mfdearth]', '$dress[mfdfire]', '$dress[mfddark]', '$dress[mfdlight]', '$dress[setid]', '".($dress["honor_cost"]?1:0)."'
                 ) ;"); 
-  print "&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '".$dress['name']."'</font>";
+  print "&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё '".$dress['name']."'</font>";
  }
 }
 
-///////////////Сбор вентилей/////////////
+///////////////РЎР±РѕСЂ РІРµРЅС‚РёР»РµР№/////////////
 if($_GET['sun']=='ventil'){
 $ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
 $retr = mysql_fetch_array($ferrr);
@@ -311,20 +311,20 @@ if($stloc=='504' or $stloc=='505' or $stloc=='506'){
 if($stloc=='506'){mysql_query("UPDATE `podzem3` SET n$mesto='505' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='505'){mysql_query("UPDATE `podzem3` SET n$mesto='504' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='504'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Вентиль' and koll<'30'");
+$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Р’РµРЅС‚РёР»СЊ' and koll<'30'");
 if($g = mysql_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.2 WHERE owner='".$user['id']."' and `type`='200' and `name`='Вентиль' and koll<'30'");
+mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.2 WHERE owner='".$user['id']."' and `type`='200' and `name`='Р’РµРЅС‚РёР»СЊ' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Вентиль','1','v.gif','".$user['id']."','200','0.2','0','1','1')");
+$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Р’РµРЅС‚РёР»СЊ','1','v.gif','".$user['id']."','200','0.2','0','1','1')");
 }
-$mis = "Вентиль";
+$mis = "Р’РµРЅС‚РёР»СЊ";
 include "podzem_brat.php";
-print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Вентиль'</font>";
-}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>Кто-то оказался быстрее!</font>";}}
+print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р’РµРЅС‚РёР»СЊ'</font>";
+}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ!</font>";}}
 }
 /////////////////////////////////////
-///////////////Сбор Болтов/////////////
+///////////////РЎР±РѕСЂ Р‘РѕР»С‚РѕРІ/////////////
 if($_GET['sun']=='bolt'){
 $ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
 $retr = mysql_fetch_array($ferrr);
@@ -333,34 +333,34 @@ if($stloc=='507' or $stloc=='508' or $stloc=='509'){
 if($stloc=='509'){mysql_query("UPDATE `podzem3` SET n$mesto='508' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='508'){mysql_query("UPDATE `podzem3` SET n$mesto='507' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='507'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Болт' and koll<'30'");
+$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Р‘РѕР»С‚' and koll<'30'");
 if($g = mysql_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Болт' and koll<'30'");
+mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Р‘РѕР»С‚' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Болт','1','bolt.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Р‘РѕР»С‚','1','bolt.gif','".$user['id']."','200','0.1','0','1','1')");
 }
-$mis = "Болт";
+$mis = "Р‘РѕР»С‚";
 include "podzem_brat.php";
-print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Болт'</font>";
-}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>Кто-то оказался быстрее!</font>";}}
+print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р‘РѕР»С‚'</font>";
+}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ!</font>";}}
 }
 /////////////////////////////////////
-///////////////Сбор ключиик/////////////
+///////////////РЎР±РѕСЂ РєР»СЋС‡РёРёРє/////////////
 if($_GET['sun']=='kluchiik'){
 $ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
 $retr = mysql_fetch_array($ferrr);
 $stloc = $retr["n$mesto"];
 if($stloc=='510'){
 if($stloc=='510'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Ключиик','1','kluchik.gif','".$user['id']."','200','0.5','0','1','1')");
-$mis = "Ключиик";
+$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('РљР»СЋС‡РёРёРє','1','kluchik.gif','".$user['id']."','200','0.5','0','1','1')");
+$mis = "РљР»СЋС‡РёРёРє";
 include "podzem_brat.php";
-print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Ключиик'</font>";
-}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>Кто-то оказался быстрее!</font>";}}
+print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'РљР»СЋС‡РёРёРє'</font>";
+}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ!</font>";}}
 }
 /////////////////////////////////////
-///////////////Сбор сундуков/////////////
+///////////////РЎР±РѕСЂ СЃСѓРЅРґСѓРєРѕРІ/////////////
 if($_GET['act']=='sunduk'){
 $ferrr = mysql_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
 $retr = mysql_fetch_array($ferrr);
@@ -372,21 +372,21 @@ $d3 = $_GET['n']+1;
 $d4 = $_GET['n']-1;
 if($mesto==$d or $mesto==$d2 or $mesto==$d3 or $mesto==$d4){
 if($stloc=='13.1'){mysql_query("UPDATE `podzem4` SET n".$_GET['n']."='13.0' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Р“Р°Р№РєР°' and koll<'30'");
 if($g = mysql_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Р“Р°Р№РєР°' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Р“Р°Р№РєР°','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
 }
-$mis = "Гайка";
+$mis = "Р“Р°Р№РєР°";
 include "podzem_brat.php";
-print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Гайка'</font>";
+print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р“Р°Р№РєР°'</font>";
 }
-}else{if($stloc=='13.0'){print"&nbsp;<font style='font-size:12px; color:cc0000;'>Кто-то оказался быстрее!</font>";}}
+}else{if($stloc=='13.0'){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ!</font>";}}
 }
 /////////////////////////////////////
-///////////////Сбор сундуков (БОЛТ)/////////////
+///////////////РЎР±РѕСЂ СЃСѓРЅРґСѓРєРѕРІ (Р‘РћР›Рў)/////////////
 if($_GET['act']=='sunduk2'){
   $ferrr = mysql_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
   $retr = mysql_fetch_array($ferrr);
@@ -398,16 +398,16 @@ if($_GET['act']=='sunduk2'){
     $d4 = $_GET['n']-1;
     if($mesto==$d or $mesto==$d2 or $mesto==$d3 or $mesto==$d4){
       if($stloc=='14.1'){mysql_query("UPDATE `podzem4` SET n".$_GET['n']."='14.0' WHERE glava='$glava' and name='".$mir['name']."'");}
-      $f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Болт' and koll<'30'");
+      $f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Р‘РѕР»С‚' and koll<'30'");
       if($g = mysql_fetch_array($f)){
         $koll = $g["koll"];
-        mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Болт' and koll<'30'");
+        mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Р‘РѕР»С‚' and koll<'30'");
       } else {
-        $fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Болт','1','bolt.gif','".$user['id']."','200','0.1','0','1','1')");
+        $fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Р‘РѕР»С‚','1','bolt.gif','".$user['id']."','200','0.1','0','1','1')");
       }
-      $mis = "Болт";
+      $mis = "Р‘РѕР»С‚";
       include "podzem_brat.php";
-      print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Болт'</font>";
+      print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р‘РѕР»С‚'</font>";
     }
   } elseif ($stloc=='15.1' || $stloc=='15.2' || $stloc=='15.3' || $stloc=='15.4') {
     $d = $_GET['n']+10;
@@ -424,7 +424,7 @@ if($_GET['act']=='sunduk2'){
           $mis=takeitem($i,1,1);
           $mis=$mis["name"];
           include "podzem_brat.php";
-          print"&nbsp;<font style='font-size:12px; color:cc0000;'>В сундуке вы нашли '$mis'</font><br>";
+          print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’ СЃСѓРЅРґСѓРєРµ РІС‹ РЅР°С€Р»Рё '$mis'</font><br>";
           $i++;
         }*/
         $i=14;
@@ -432,7 +432,7 @@ if($_GET['act']=='sunduk2'){
       $mis=takeitem($i,1,1);
       $mis=$mis["name"];
       include "podzem_brat.php";
-      print"&nbsp;<font style='font-size:12px; color:cc0000;'>В сундуке вы нашли '$mis'</font>";
+      print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’ СЃСѓРЅРґСѓРєРµ РІС‹ РЅР°С€Р»Рё '$mis'</font>";
       mq("UPDATE `podzem4` SET n".$_GET['n']."='15.0' WHERE glava='$glava' and name='".$mir['name']."'");
     }
   } elseif ($stloc=='16.1') {
@@ -445,7 +445,7 @@ if($_GET['act']=='sunduk2'){
       $mis=takeitem(12,1,1);
       $mis=$mis["name"];
       include "podzem_brat.php";
-      print"&nbsp;<font style='font-size:12px; color:cc0000;'>В сундуке вы нашли '$mis'</font>";
+      print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’ СЃСѓРЅРґСѓРєРµ РІС‹ РЅР°С€Р»Рё '$mis'</font>";
       mq("UPDATE `podzem4` SET n".$_GET['n']."='16.0' WHERE glava='$glava' and name='".$mir['name']."'");
     }
   } elseif ($stloc=='17.1' || $stloc=='17.2') {
@@ -460,7 +460,7 @@ if($_GET['act']=='sunduk2'){
       include_once "questfuncs.php";
       $r=rand(0,100);
       if ($r<=$prob) {
-        $mis=takesmallitem($si+rand(0,2),0,"Нашёл в пещере");
+        $mis=takesmallitem($si+rand(0,2),0,"РќР°С€С‘Р» РІ РїРµС‰РµСЂРµ");
       } else {
         $items=array(1898, 1897, 1896, 778, 777, 776, 775);
         $item=$items[rand(0,6)];
@@ -468,7 +468,7 @@ if($_GET['act']=='sunduk2'){
       }
       $mis=$mis["name"];
       include "podzem_brat.php";
-      print"&nbsp;<font style='font-size:12px; color:cc0000;'>В сундуке вы нашли '$mis'</font>";
+      print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’ СЃСѓРЅРґСѓРєРµ РІС‹ РЅР°С€Р»Рё '$mis'</font>";
       mq("UPDATE `podzem4` SET n".$_GET['n']."='17.0' WHERE glava='$glava' and name='".$mir['name']."'");
     }
   } elseif ($stloc=='18.1') {
@@ -482,37 +482,37 @@ if($_GET['act']=='sunduk2'){
       $mis=takeshopitem(129, "shop", "", "", 0, array("podzem"=>1, "isrep"=>0));
       $mis=$mis["name"];
       include "podzem_brat.php";
-      print"&nbsp;<font style='font-size:12px; color:cc0000;'>В сундуке вы нашли '$mis'</font>";
+      print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’ СЃСѓРЅРґСѓРєРµ РІС‹ РЅР°С€Р»Рё '$mis'</font>";
       mq("UPDATE `podzem4` SET n".$_GET['n']."='16.0' WHERE glava='$glava' and name='".$mir['name']."'");
     }
   } else {
-    if($stloc=='14.0' || $stloc=='15.0' || $stloc=='16.0'){print"&nbsp;<font style='font-size:12px; color:cc0000;'>Кто-то оказался быстрее!</font>";}
+    if($stloc=='14.0' || $stloc=='15.0' || $stloc=='16.0'){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ!</font>";}
   }
 }
 /////////////////////////////////////
-///////////////Сбор ключей/////////////
+///////////////РЎР±РѕСЂ РєР»СЋС‡РµР№/////////////
 if($_GET['act']=='key'){
 $ferrr = mysql_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
 $retr = mysql_fetch_array($ferrr);
 $stloc = $retr["n".$_GET['n'].""];
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Ключик №".$_GET['b']."'");
+$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='РљР»СЋС‡РёРє в„–".$_GET['b']."'");
 $g = mysql_fetch_array($f);
 if(($stloc=='key1' or $stloc=='key2' or $stloc=='key3' or $stloc=='key4' or $stloc=='key5' or $stloc=='key6' or $stloc=='key7' or $stloc=='key8' or $stloc=='key9' or $stloc=='key10') and !$g){
 if($mesto==$_GET['n']){
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Ключик №".$_GET['b']."','1','$stloc.gif','".$user['id']."','200','0.1','0','1','1')");
-print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Ключик №".$_GET['b']."'</font>";
+$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('РљР»СЋС‡РёРє в„–".$_GET['b']."','1','$stloc.gif','".$user['id']."','200','0.1','0','1','1')");
+print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'РљР»СЋС‡РёРє в„–".$_GET['b']."'</font>";
 }
-}else{if($g){print"&nbsp;<font style='font-size:12px; color:cc0000;'>У вас уже есть Ключик №".$_GET['b']."!</font>";}}
+}else{if($g){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РЈ РІР°СЃ СѓР¶Рµ РµСЃС‚СЊ РљР»СЋС‡РёРє в„–".$_GET['b']."!</font>";}}
 
 }
 /////////////////////////////////////
-///////////////Сбор гаек из стоков/////////////
+///////////////РЎР±РѕСЂ РіР°РµРє РёР· СЃС‚РѕРєРѕРІ/////////////
 if($_GET['act']=='stok') {
     $ferrr = mysql_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
     $retr = mysql_fetch_array($ferrr);
     $stloc = $retr["n".$_GET['n'].""];
     $shans = rand(0,100);
-    if ($mesto != 13) { // если с пустой склянкой за пробами
+    if ($mesto != 13) { // РµСЃР»Рё СЃ РїСѓСЃС‚РѕР№ СЃРєР»СЏРЅРєРѕР№ Р·Р° РїСЂРѕР±Р°РјРё
         if ($shans<51) {
             mysql_query("UPDATE `podzem4` SET n".$_GET['n']."='11.0' WHERE glava='$glava' and name='".$mir['name']."'");
             $stloc='11.0';
@@ -524,40 +524,40 @@ if($_GET['act']=='stok') {
                 mysql_query("UPDATE `podzem4` SET n".$_GET['n']."='11.0' WHERE glava='$glava' and name='".$mir['name']."'");
             }
             $rnd=rand(0,10);
-            if ($mesto == 13 && $mir['name'] == 'Канализация 1 этаж') { // получение пробы в склянку для Храма Знаний
-                $isVial = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND name = 'Пустая склянка'"), 0, 0);
+            if ($mesto == 13 && $mir['name'] == 'РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶') { // РїРѕР»СѓС‡РµРЅРёРµ РїСЂРѕР±С‹ РІ СЃРєР»СЏРЅРєСѓ РґР»СЏ РҐСЂР°РјР° Р—РЅР°РЅРёР№
+                $isVial = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE owner = $user[id] AND name = 'РџСѓСЃС‚Р°СЏ СЃРєР»СЏРЅРєР°'"), 0, 0);
                 if ($isVial) {
-                    mysql_query("UPDATE inventory SET name = 'Склянка с пробами', podzem = 1, img = 'full_rune_vial.gif' WHERE owner = $user[id] AND name = 'Пустая склянка'");
-                    print"&nbsp;<font style='font-size:12px; color:cc0000;'>Склянка от Хранителя Знаний наполнилась мутной жидкостью.</font>";
+                    mysql_query("UPDATE inventory SET name = 'РЎРєР»СЏРЅРєР° СЃ РїСЂРѕР±Р°РјРё', podzem = 1, img = 'full_rune_vial.gif' WHERE owner = $user[id] AND name = 'РџСѓСЃС‚Р°СЏ СЃРєР»СЏРЅРєР°'");
+                    print"&nbsp;<font style='font-size:12px; color:cc0000;'>РЎРєР»СЏРЅРєР° РѕС‚ РҐСЂР°РЅРёС‚РµР»СЏ Р—РЅР°РЅРёР№ РЅР°РїРѕР»РЅРёР»Р°СЃСЊ РјСѓС‚РЅРѕР№ Р¶РёРґРєРѕСЃС‚СЊСЋ.</font>";
                 } else {
-                    print"&nbsp;<font style='font-size:12px; color:cc0000;'>Попахивает..</font>";
+                    print"&nbsp;<font style='font-size:12px; color:cc0000;'>РџРѕРїР°С…РёРІР°РµС‚..</font>";
                 }
             } elseif ($rnd==7 && LETTERQUEST) {
                 include_once("questfuncs.php");
                 $item=takesmallitem(57);
                 $mis = "$item[name]";
                 include "podzem_brat.php";
-                print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили '$item[name]'</font>";
+                print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё '$item[name]'</font>";
             } else {
-                $f=mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+                $f=mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Р“Р°Р№РєР°' and koll<'30'");
                 if ($g = mysql_fetch_array($f)) {
                     $koll = $g["koll"];
-                    mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+                    mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Р“Р°Р№РєР°' and koll<'30'");
                 } else {
-                    $fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
+                    $fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Р“Р°Р№РєР°','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
                 }
-                $mis = "Гайка";
+                $mis = "Р“Р°Р№РєР°";
                 include "podzem_brat.php";
-                print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Гайка'</font>";
+                print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р“Р°Р№РєР°'</font>";
             }
         }
     } else {
         if ($stloc=='11.0') {
-            print"&nbsp;<font style='font-size:12px; color:cc0000;'>Попахивает...</font>";
+            print"&nbsp;<font style='font-size:12px; color:cc0000;'>РџРѕРїР°С…РёРІР°РµС‚...</font>";
         }
     }
 }
-///////////////Сбор гаек из стоков/////////////
+///////////////РЎР±РѕСЂ РіР°РµРє РёР· СЃС‚РѕРєРѕРІ/////////////
 if($_GET['act']=='stok2'){
 $ferrr = mysql_query("SELECT n".$_GET['n']." FROM `podzem4` WHERE glava='$glava' and name='".$mir['name']."'");
 $retr = mysql_fetch_array($ferrr);
@@ -574,21 +574,21 @@ $d3 = $_GET['n']+1;
 $d4 = $_GET['n']-1;
 if($mesto==$d or $mesto==$d2 or $mesto==$d3 or $mesto==$d4){
 if($stloc=='12.1'){mysql_query("UPDATE `podzem4` SET n".$_GET['n']."='12.0' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f=mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+$f=mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Р“Р°Р№РєР°' and koll<'30'");
 if($g = mysql_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка' and koll<'30'");
+mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Р“Р°Р№РєР°' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Р“Р°Р№РєР°','1','g.gif','".$user['id']."','200','0.1','0','1','1')");
 }
-$mis = "Гайка";
+$mis = "Р“Р°Р№РєР°";
 include "podzem_brat.php";
-print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Гайка'</font>";
+print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р“Р°Р№РєР°'</font>";
 }
-}else{if($stloc=='12.0'){print"&nbsp;<font style='font-size:12px; color:cc0000;'>Попахивает...</font>";}}
+}else{if($stloc=='12.0'){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РџРѕРїР°С…РёРІР°РµС‚...</font>";}}
 }
 /////////////////////////////////////
-///////////////Сбор гаек/////////////
+///////////////РЎР±РѕСЂ РіР°РµРє/////////////
 if($_GET['sun']=='se_gaika_c'){
 $ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
 $retr = mysql_fetch_array($ferrr);
@@ -600,20 +600,20 @@ if($stloc=='607'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$gla
 if($stloc=='603'){mysql_query("UPDATE `podzem3` SET n$mesto='602' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='602'){mysql_query("UPDATE `podzem3` SET n$mesto='601' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='601'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Чистая гайка' and koll<'30'");
+$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Р§РёСЃС‚Р°СЏ РіР°Р№РєР°' and koll<'30'");
 if($g = mysql_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Чистая гайка' and koll<'30'");
+mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Р§РёСЃС‚Р°СЏ РіР°Р№РєР°' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Чистая гайка','1','g_c.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Р§РёСЃС‚Р°СЏ РіР°Р№РєР°','1','g_c.gif','".$user['id']."','200','0.1','0','1','1')");
 }
-$mis = "Чистая гайка";
+$mis = "Р§РёСЃС‚Р°СЏ РіР°Р№РєР°";
 include "podzem_brat.php";
-print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Чистая гайка'</font>";
-}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>Кто-то оказался быстрее!</font>";}}
+print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р§РёСЃС‚Р°СЏ РіР°Р№РєР°'</font>";
+}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ!</font>";}}
 }
 /////////////////////////////////////
-///////////////Сбор болтов/////////////
+///////////////РЎР±РѕСЂ Р±РѕР»С‚РѕРІ/////////////
 if($_GET['sun']=='se_gaika_bd'){
 $ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
 $retr = mysql_fetch_array($ferrr);
@@ -625,20 +625,20 @@ if($stloc=='607'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$gla
 if($stloc=='606'){mysql_query("UPDATE `podzem3` SET n$mesto='605' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='605'){mysql_query("UPDATE `podzem3` SET n$mesto='604' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='604'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Длинный болт' and koll<'30'");
+$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚' and koll<'30'");
 if($g = mysql_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Длинный болт' and koll<'30'");
+mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Длинный болт','1','bolt_d.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚','1','bolt_d.gif','".$user['id']."','200','0.1','0','1','1')");
 }
-$mis = "Длинный болт";
+$mis = "Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚";
 include "podzem_brat.php";
-print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Длинный болт'</font>";
-}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>Кто-то оказался быстрее!</font>";}}
+print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р”Р»РёРЅРЅС‹Р№ Р±РѕР»С‚'</font>";
+}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ!</font>";}}
 }
 /////////////////////////////////////
-///////////////Сбор болтов/////////////
+///////////////РЎР±РѕСЂ Р±РѕР»С‚РѕРІ/////////////
 if($_GET['sun']=='se_gaika_nb'){
 $ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
 $retr = mysql_fetch_array($ferrr);
@@ -647,20 +647,20 @@ if($stloc=='612' or $stloc=='611' or $stloc=='610' or $stloc=='613'){
 if($stloc=='612'){mysql_query("UPDATE `podzem3` SET n$mesto='611' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='611'){mysql_query("UPDATE `podzem3` SET n$mesto='610' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='610' || $stloc=='613'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Нужный болт' and koll<'30'");
+$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='РќСѓР¶РЅС‹Р№ Р±РѕР»С‚' and koll<'30'");
 if($g = mysql_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Нужный болт' and koll<'30'");
+mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='РќСѓР¶РЅС‹Р№ Р±РѕР»С‚' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Нужный болт','1','nb.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('РќСѓР¶РЅС‹Р№ Р±РѕР»С‚','1','nb.gif','".$user['id']."','200','0.1','0','1','1')");
 }
-$mis = "Нужный болт";
+$mis = "РќСѓР¶РЅС‹Р№ Р±РѕР»С‚";
 include "podzem_brat.php";
-print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Нужный болт'</font>";
-}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>Кто-то оказался быстрее!</font>";}}
+print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'РќСѓР¶РЅС‹Р№ Р±РѕР»С‚'</font>";
+}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ!</font>";}}
 }
 /////////////////////////////////////
-///////////////Сбор болтов/////////////
+///////////////РЎР±РѕСЂ Р±РѕР»С‚РѕРІ/////////////
 if($_GET['sun']=='se_gaika_rez'){
 $ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
 $retr = mysql_fetch_array($ferrr);
@@ -671,20 +671,20 @@ if($stloc=='605'){mysql_query("UPDATE `podzem3` SET n$mesto='604' WHERE glava='$
 if($stloc=='612'){mysql_query("UPDATE `podzem3` SET n$mesto='611' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='611'){mysql_query("UPDATE `podzem3` SET n$mesto='610' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='604' || $stloc=='610'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Гайка с резьбой' and koll<'30'");
+$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№' and koll<'30'");
 if($g = mysql_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Гайка с резьбой' and koll<'30'");
+mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Гайка с резьбой','1','g_r.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№','1','g_r.gif','".$user['id']."','200','0.1','0','1','1')");
 }
-$mis = "Гайка с резьбой";
+$mis = "Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№";
 include "podzem_brat.php";
-print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Гайка с резьбой'</font>";
-}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>Кто-то оказался быстрее!</font>";}}
+print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р“Р°Р№РєР° СЃ СЂРµР·СЊР±РѕР№'</font>";
+}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ!</font>";}}
 }
 /////////////////////////////////////
-///////////////Сбор винтелей/////////////
+///////////////РЎР±РѕСЂ РІРёРЅС‚РµР»РµР№/////////////
 if($_GET['sun']=='se_gaika_rv'){
 $ferrr = mysql_query("SELECT n$mesto FROM `podzem3` WHERE glava='$glava' and name='".$mir['name']."'");
 $retr = mysql_fetch_array($ferrr);
@@ -696,17 +696,17 @@ if($stloc=='610'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$gla
 if($stloc=='615'){mysql_query("UPDATE `podzem3` SET n$mesto='614' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='614'){mysql_query("UPDATE `podzem3` SET n$mesto='613' WHERE glava='$glava' and name='".$mir['name']."'");}
 if($stloc=='613'){mysql_query("UPDATE `podzem3` SET n$mesto='' WHERE glava='$glava' and name='".$mir['name']."'");}
-$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Рабочий вентиль' and koll<'30'");
+$f = mysql_query("SELECT `koll` FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ' and koll<'30'");
 if($g = mysql_fetch_array($f)){
 $koll = $g["koll"];
-mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Рабочий вентиль' and koll<'30'");
+mysql_query("UPDATE `inventory` SET koll=koll+1,massa=massa+0.1 WHERE owner='".$user['id']."' and `type`='200' and `name`='Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ' and koll<'30'");
 }else{
-$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Рабочий вентиль','1','rv.gif','".$user['id']."','200','0.1','0','1','1')");
+$fo = mysql_query("INSERT INTO `inventory`(name,koll,img,owner,type,massa,isrep,podzem,maxdur) VALUES('Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ','1','rv.gif','".$user['id']."','200','0.1','0','1','1')");
 }
-$mis = "Рабочий вентиль";
+$mis = "Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ";
 include "podzem_brat.php";
-print"&nbsp;<font style='font-size:12px; color:cc0000;'>Вы получили 'Рабочий вентиль'</font>";
-}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>Кто-то оказался быстрее!</font>";}}
+print"&nbsp;<font style='font-size:12px; color:cc0000;'>Р’С‹ РїРѕР»СѓС‡РёР»Рё 'Р Р°Р±РѕС‡РёР№ РІРµРЅС‚РёР»СЊ'</font>";
+}else{if($stloc==''){print"&nbsp;<font style='font-size:12px; color:cc0000;'>РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ!</font>";}}
 }
 /////////////////////////////////////
 
@@ -720,7 +720,7 @@ if($mesto == '7'){$mesto = '07';}
 if($mesto == '8'){$mesto = '08';}
 if($mesto == '9'){$mesto = '09';}
 
-// переходы
+// РїРµСЂРµС…РѕРґС‹
     if(isset($_GET['left'])){
       mysql_query("UPDATE `labirint` SET `vector` = '".$_GET['left']."' WHERE `user_id` = '{$_SESSION['uid']}' ;");
       //header('Location:canalizaciya.php');
@@ -738,20 +738,20 @@ if($mesto == '9'){$mesto = '09';}
       }
     }
 
-if($rhar[$mesto][$_GET['path']] > 0 and $_GET['path'] < 4 and $_GET['path'] >= 0 and ($user['movetime'] <= time()) and ($stoi=='' or $stoi>'500' and $mir['name']=='Ледяная пещера' or $stoi>'500' and $mir['name']=='Канализация 1 этаж' or $stoi=='' or ($stoi>=600 and $stoi<=615) and ($mir['name']=='Канализация 2 этаж' || $mir['name']=='Канализация 3 этаж') or $stoi[0]=="i") ) {
+if($rhar[$mesto][$_GET['path']] > 0 and $_GET['path'] < 4 and $_GET['path'] >= 0 and ($user['movetime'] <= time()) and ($stoi=='' or $stoi>'500' and $mir['name']=='Р›РµРґСЏРЅР°СЏ РїРµС‰РµСЂР°' or $stoi>'500' and $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 1 СЌС‚Р°Р¶' or $stoi=='' or ($stoi>=600 and $stoi<=615) and ($mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 2 СЌС‚Р°Р¶' || $mir['name']=='РљР°РЅР°Р»РёР·Р°С†РёСЏ 3 СЌС‚Р°Р¶') or $stoi[0]=="i") ) {
   if($_GET['path']==0) $loc2=$mesto+10;
   if($_GET['path']==1) $loc2=$mesto+1;
   if($_GET['path']==2) $loc2=$mesto-10;
   if($_GET['path']==3) $loc2=$mesto-1;
   $fers = mysql_query("SELECT n$loc2,v$loc2 FROM podzem4 WHERE glava='$glava' and name='".$mir['name']."'");
   $rets = mysql_fetch_array($fers);
-  $ins = mysql_query("SELECT id FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='Ключик №".$rets["n$loc2"]."'");
+  $ins = mysql_query("SELECT id FROM `inventory` WHERE `owner`='".$user['id']."' and `type`='200' and `name`='РљР»СЋС‡РёРє в„–".$rets["n$loc2"]."'");
   $setr = mysql_fetch_array($ins);
   $tmp = mqfa1("SELECT id FROM `effects` WHERE `owner` = '".$user['id']."' AND (`type` = 14 OR `type` = 13)");
   if ($tmp) {
-    print"&nbsp;<font style='font-size:12px; color:cc0000;'>У вас тяжёлая травма, вы не можете передвигаться.</font>";
+    print"&nbsp;<font style='font-size:12px; color:cc0000;'>РЈ РІР°СЃ С‚СЏР¶С‘Р»Р°СЏ С‚СЂР°РІРјР°, РІС‹ РЅРµ РјРѕР¶РµС‚Рµ РїРµСЂРµРґРІРёРіР°С‚СЊСЃСЏ.</font>";
   } elseif($rets["n$loc2"]>=1 and $rets["n$loc2"]<=10 and !$setr) {
-    print"&nbsp;<font style='font-size:12px; color:cc0000;'>Нужен ключ №".$rets["n$loc2"]."".$rets["n$mesto"]."</font>";
+    print"&nbsp;<font style='font-size:12px; color:cc0000;'>РќСѓР¶РµРЅ РєР»СЋС‡ в„–".$rets["n$loc2"]."".$rets["n$mesto"]."</font>";
   } else {
     $vrem=60*60+time();
     if($_GET['path']==0) {$nav='t=t-12';}
@@ -786,10 +786,10 @@ if($rhar[$mesto][$_GET['path']] > 0 and $_GET['path'] < 4 and $_GET['path'] >= 0
       else $p=mqfa1("select prototype from inventory where id='$user[boots]'");
       if ($p!=1779) {
         if ($p==1780) {
-          echo "<div style=\"font-size:12px;color:#cc0000\">Лёд слишком скользкий и вы со всего разгона въехали в стену и получили тяжёлую травму.</div>";
+          echo "<div style=\"font-size:12px;color:#cc0000\">Р›С‘Рґ СЃР»РёС€РєРѕРј СЃРєРѕР»СЊР·РєРёР№ Рё РІС‹ СЃРѕ РІСЃРµРіРѕ СЂР°Р·РіРѕРЅР° РІСЉРµС…Р°Р»Рё РІ СЃС‚РµРЅСѓ Рё РїРѕР»СѓС‡РёР»Рё С‚СЏР¶С‘Р»СѓСЋ С‚СЂР°РІРјСѓ.</div>";
           settravma($user["id"], 20, 600,1);
         } else {
-          echo "<div style=\"font-size:12px;color:#cc0000\">Вы поскользнулись на скользком полу и получили тяжёлую травму.</div>";
+          echo "<div style=\"font-size:12px;color:#cc0000\">Р’С‹ РїРѕСЃРєРѕР»СЊР·РЅСѓР»РёСЃСЊ РЅР° СЃРєРѕР»СЊР·РєРѕРј РїРѕР»Сѓ Рё РїРѕР»СѓС‡РёР»Рё С‚СЏР¶С‘Р»СѓСЋ С‚СЂР°РІРјСѓ.</div>";
           settravma($user["id"], 20, 300,1);
         }
       }
@@ -814,15 +814,15 @@ $big = mysql_fetch_array(mysql_query("SELECT hp,maxhp,id,level FROM `users` WHER
 ?>
   <tr>
 <td background="img/bg_scroll_05.gif" align="center">
-<a href=inf.php?<?=$big['id']?> target=_blank title="Информация о <?=$more['login']?>"><?=$more['login']?></a> [<?=$big['level']?>]<a href='inf.php?<?=$big['id']?>' target='_blank'><img src='<?=IMGBASE?>/i/inf.gif' border=0></a></td>
+<a href=inf.php?<?=$big['id']?> target=_blank title="РРЅС„РѕСЂРјР°С†РёСЏ Рѕ <?=$more['login']?>"><?=$more['login']?></a> [<?=$big['level']?>]<a href='inf.php?<?=$big['id']?>' target='_blank'><img src='<?=IMGBASE?>/i/inf.gif' border=0></a></td>
 <!--<td background="img/bg_scroll_05.gif" align="center"><?=$big['hp']?>/<?=$big['maxhp']?> </td>-->
 <td background="img/bg_scroll_05.gif" nowrap style="font-size:9px">
 <div style="position: relative">
-<table cellspacing="0" cellpadding="0" style='line-height: 1'><td nowrap style="font-size:9px" style="position: relative"><SPAN id="HP" style='position: absolute; left: 5; z-index: 1; font-weight: bold; color: #FFFFFF'></SPAN><img src="<?=IMGBASE?>/i/misc/bk_life_loose.gif" alt="Уровень жизни" name="HP1" width="1" height="9" id="HP1"><img src="<?=IMGBASE?>/i/misc/bk_life_loose.gif" alt="Уровень жизни" name="HP2" width="1" height="9" id="HP2"></td></table>
+<table cellspacing="0" cellpadding="0" style='line-height: 1'><td nowrap style="font-size:9px" style="position: relative"><SPAN id="HP" style='position: absolute; left: 5; z-index: 1; font-weight: bold; color: #FFFFFF'></SPAN><img src="<?=IMGBASE?>/i/misc/bk_life_loose.gif" alt="РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё" name="HP1" width="1" height="9" id="HP1"><img src="<?=IMGBASE?>/i/misc/bk_life_loose.gif" alt="РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё" name="HP2" width="1" height="9" id="HP2"></td></table>
 </div></td>
 <td background="img/bg_scroll_05.gif" align="center"><?=$more['name']?></td>
 <? if($user['login']==$more['glava'] and $more['login']==$more['glava']){ ?>
-<td background="img/bg_scroll_05.gif" align="center"><IMG alt="Лидер группы" src="<?=IMGBASE?>/i/misc/lead1.gif" width=24 height=15><A href="#" onClick="findlogin( 'Выберите персонажа которого хотите выгнать','canalizaciya.php', 'kill')"><IMG alt="Выгнать супостата" src="<?=IMGBASE?>/img/podzem/ico_kill_member1.gif" WIDTH="14" HEIGHT="17"></A>&nbsp;<A href="#" onClick="findlogin( 'Выберите персонажа которому хотите передать лидерство','canalizaciya.php', 'change')"><IMG alt="Новый царь" src="<?=IMGBASE?>/img/podzem/ico_change_leader1.gif" WIDTH="14" HEIGHT="17"></A></td>
+<td background="img/bg_scroll_05.gif" align="center"><IMG alt="Р›РёРґРµСЂ РіСЂСѓРїРїС‹" src="<?=IMGBASE?>/i/misc/lead1.gif" width=24 height=15><A href="#" onClick="findlogin( 'Р’С‹Р±РµСЂРёС‚Рµ РїРµСЂСЃРѕРЅР°Р¶Р° РєРѕС‚РѕСЂРѕРіРѕ С…РѕС‚РёС‚Рµ РІС‹РіРЅР°С‚СЊ','canalizaciya.php', 'kill')"><IMG alt="Р’С‹РіРЅР°С‚СЊ СЃСѓРїРѕСЃС‚Р°С‚Р°" src="<?=IMGBASE?>/img/podzem/ico_kill_member1.gif" WIDTH="14" HEIGHT="17"></A>&nbsp;<A href="#" onClick="findlogin( 'Р’С‹Р±РµСЂРёС‚Рµ РїРµСЂСЃРѕРЅР°Р¶Р° РєРѕС‚РѕСЂРѕРјСѓ С…РѕС‚РёС‚Рµ РїРµСЂРµРґР°С‚СЊ Р»РёРґРµСЂСЃС‚РІРѕ','canalizaciya.php', 'change')"><IMG alt="РќРѕРІС‹Р№ С†Р°СЂСЊ" src="<?=IMGBASE?>/img/podzem/ico_change_leader1.gif" WIDTH="14" HEIGHT="17"></A></td>
 <?
 }
 print"</tr>";
@@ -833,19 +833,19 @@ print"</tr>";
 
 print"<br>";
 
-if($mir['dead']>'0'){print"<br><font style='font-size:15px; color:#600'> <b>&nbsp;&nbsp;Кол-во проигрышей:</font></b> <b style='font-size:14px; color:#000'>".$mir['dead']."</b><br><br>";}
+if($mir['dead']>'0'){print"<br><font style='font-size:15px; color:#600'> <b>&nbsp;&nbsp;РљРѕР»-РІРѕ РїСЂРѕРёРіСЂС‹С€РµР№:</font></b> <b style='font-size:14px; color:#000'>".$mir['dead']."</b><br><br>";}
 include "podzem_res.php";
 if ($user["room"]==52)
 $mis = mysql_fetch_array(mysql_query("SELECT * FROM `podzem_zad_login` WHERE `owner`='".$user['id']."'"));
 if($mis){
-print"<br><br>&nbsp;Задание:";
+print"<br><br>&nbsp;Р—Р°РґР°РЅРёРµ:";
 list($q,$n,$q)=botname($mis["bot"]);
 echo " $n ".$mis['ubil']."/".$mis['ubit']."";
 }
 elseif ($user["room"]==403)
 $misk = mysql_fetch_array(mysql_query("SELECT * FROM `podzem_k_zad_login` WHERE `owner`='".$user['id']."'"));
 if($misk){
-print"<br><br>&nbsp;Задание:";
+print"<br><br>&nbsp;Р—Р°РґР°РЅРёРµ:";
 list($q,$n,$q)=botname($misk["bot"]);
 echo " $n ".$misk['ubil']."/".$misk['ubit']."";
 }
@@ -859,10 +859,10 @@ $gefd = mysql_fetch_array($redd);
 include"navig.php";
 
 echo build_move_image($mesto, $vektor, $gefd['style'], $glava, $mir['name']);
-if($vektor == '0')  {echo 'смотрим на cевер';}
-if($vektor == '90') {echo 'смотрим на восток';}
-if($vektor == '180'){echo 'смотрим на юг';}
-if($vektor == '270'){echo 'смотрим на запад';}
+if($vektor == '0')  {echo 'СЃРјРѕС‚СЂРёРј РЅР° cРµРІРµСЂ';}
+if($vektor == '90') {echo 'СЃРјРѕС‚СЂРёРј РЅР° РІРѕСЃС‚РѕРє';}
+if($vektor == '180'){echo 'СЃРјРѕС‚СЂРёРј РЅР° СЋРі';}
+if($vektor == '270'){echo 'СЃРјРѕС‚СЂРёРј РЅР° Р·Р°РїР°Рґ';}
 ?></td>
   </tr>
 </table>
@@ -1056,8 +1056,8 @@ function OpenMenu(n, e){
     posx = e.clientX + document.body.scrollLeft;
     posy = e.clientY + document.body.scrollTop;
   }
-  el.innerHTML = '<div style="color:#000;font-size:14px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="this.disabled = true;attack('+n+');closeMenu(event);"> <b>Напасть</b> </div>';
-  //el.innerHTML = '<div style="color:#000;font-size:14px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';"> <a href="javascript:void(0)" onclick="this.disabled = true;attack('+n+');closeMenu(event);">Напасть</a> </div><div style="text-align:right;padding: 0px 10px 5px 0px"><a href="javascript:void(0);" onclick="closeMenu(event);">X</a></div>';
+  el.innerHTML = '<div style="color:#000;font-size:14px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="this.disabled = true;attack('+n+');closeMenu(event);"> <b>РќР°РїР°СЃС‚СЊ</b> </div>';
+  //el.innerHTML = '<div style="color:#000;font-size:14px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';"> <a href="javascript:void(0)" onclick="this.disabled = true;attack('+n+');closeMenu(event);">РќР°РїР°СЃС‚СЊ</a> </div><div style="text-align:right;padding: 0px 10px 5px 0px"><a href="javascript:void(0);" onclick="closeMenu(event);">X</a></div>';
   el.style.left = posx + "px";
   el.style.top  = posy + "px";
   el.style.visibility = "visible";
@@ -1076,8 +1076,8 @@ function Opendialog(n, e){
     posx = e.clientX + document.body.scrollLeft;
     posy = e.clientY + document.body.scrollTop;
   }
-  el.innerHTML = '<div style="color:#000;font-size:13px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="this.disabled = true;attack('+n+');"> &nbsp;Напасть </div><div style="color:#000;font-size:13px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="dialog();this.disabled=true;"> Говорить </div>';
-  //el.innerHTML = '<div style="color:#000;font-size:14px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';"> <a href="javascript:void(0)" onclick="this.disabled = true;attack('+n+');closeMenu(event);">Напасть</a><div style="font-size:4px">&nbsp;</div><a href="javascript:void(0)" onclick="this.disabled = true;dialog();closeMenu(event);">Говорить</a> </div><div style="text-align:right;padding: 0px 10px 5px 0px"><a href="javascript:void(0);" onclick="closeMenu(event);">X</a></div>';
+  el.innerHTML = '<div style="color:#000;font-size:13px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="this.disabled = true;attack('+n+');"> &nbsp;РќР°РїР°СЃС‚СЊ </div><div style="color:#000;font-size:13px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="dialog();this.disabled=true;"> Р“РѕРІРѕСЂРёС‚СЊ </div>';
+  //el.innerHTML = '<div style="color:#000;font-size:14px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';"> <a href="javascript:void(0)" onclick="this.disabled = true;attack('+n+');closeMenu(event);">РќР°РїР°СЃС‚СЊ</a><div style="font-size:4px">&nbsp;</div><a href="javascript:void(0)" onclick="this.disabled = true;dialog();closeMenu(event);">Р“РѕРІРѕСЂРёС‚СЊ</a> </div><div style="text-align:right;padding: 0px 10px 5px 0px"><a href="javascript:void(0);" onclick="closeMenu(event);">X</a></div>';
 
   el.style.left = posx + "px";
   el.style.top  = posy + "px";
@@ -1090,7 +1090,7 @@ function opendialog(n){
   x = event.clientX + document.documentElement.scrollLeft +document.body.scrollLeft - 5;
   y = event.clientY + document.documentElement.scrollTop + document.body.scrollTop-5;
   if (event.clientY + 72 > document.body.clientHeight) { y-=62 } else { y-=2 }
-  el.innerHTML = '<div style="color:#000;font-size:14px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';"> <a href="javascript:void(0)" onclick="this.disabled = true;attack('+n+');closeMenu(event);">Напасть</a><div style="font-size:4px">&nbsp;</div><a href="javascript:void(0)" onclick="this.disabled = true;dialog();speakto('+n+');">Говорить</a> </div><div style="text-align:right;padding: 0px 10px 5px 0px"><a href="javascript:void(0);" onclick="closeMenu(event);">X</a></div>';
+  el.innerHTML = '<div style="color:#000;font-size:14px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';"> <a href="javascript:void(0)" onclick="this.disabled = true;attack('+n+');closeMenu(event);">РќР°РїР°СЃС‚СЊ</a><div style="font-size:4px">&nbsp;</div><a href="javascript:void(0)" onclick="this.disabled = true;dialog();speakto('+n+');">Р“РѕРІРѕСЂРёС‚СЊ</a> </div><div style="text-align:right;padding: 0px 10px 5px 0px"><a href="javascript:void(0);" onclick="closeMenu(event);">X</a></div>';
 
   el.style.left = x + "px";
   el.style.top  = y + "px";
@@ -1103,14 +1103,14 @@ function opendialog2(n){
   x = event.clientX + document.documentElement.scrollLeft +document.body.scrollLeft - 5;
   y = event.clientY + document.documentElement.scrollTop + document.body.scrollTop-5;
   if (event.clientY + 72 > document.body.clientHeight) { y-=62 } else { y-=2 }
-  el.innerHTML = '<div style="color:#000;font-size:14px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';"><div style="font-size:4px">&nbsp;</div><a href="javascript:void(0)" onclick="location=\'dialog.php?char=20667\';">Говорить</a> </div><div style="text-align:right;padding: 0px 10px 5px 0px"><a href="javascript:void(0);" onclick="closeMenu(event);">X</a></div>';
+  el.innerHTML = '<div style="color:#000;font-size:14px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';"><div style="font-size:4px">&nbsp;</div><a href="javascript:void(0)" onclick="location=\'dialog.php?char=20667\';">Р“РѕРІРѕСЂРёС‚СЊ</a> </div><div style="text-align:right;padding: 0px 10px 5px 0px"><a href="javascript:void(0);" onclick="closeMenu(event);">X</a></div>';
 
   el.style.left = x + "px";
   el.style.top  = y + "px";
   el.style.visibility = "visible";
 }
 
-//Закрыть меню наподения
+//Р—Р°РєСЂС‹С‚СЊ РјРµРЅСЋ РЅР°РїРѕРґРµРЅРёСЏ
 function closeMenu(event){
          if (window.event && window.event.toElement)
           {var cls = window.event.toElement.className;

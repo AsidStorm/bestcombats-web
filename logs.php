@@ -2,7 +2,7 @@
 <?
 function lognick4 ($id, $st) {
   global $udata;
-  return "<span onclick=\"top.AddTo('".$udata[$id]["login"]."')\" oncontextmenu=\"return OpenMenu(event,".$udata[$id]['level'].")\" class={$st}>".$udata[$id]['login']."</span> [".($udata[$id]["login"]=="невидимка"?"??":$udata[$id]['hp'])."/".($udata[$id]["login"]=="невидимка"?"??":$udata[$id]['maxhp'])."]";
+  return "<span onclick=\"top.AddTo('".$udata[$id]["login"]."')\" oncontextmenu=\"return OpenMenu(event,".$udata[$id]['level'].")\" class={$st}>".$udata[$id]['login']."</span> [".($udata[$id]["login"]=="РЅРµРІРёРґРёРјРєР°"?"??":$udata[$id]['hp'])."/".($udata[$id]["login"]=="РЅРµРІРёРґРёРјРєР°"?"??":$udata[$id]['maxhp'])."]";
 }
 
 
@@ -27,7 +27,7 @@ function lognick4 ($id, $st) {
 <META Http-Equiv=Expires Content=0>
 </HEAD>
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=e2e0e0>
-<H3><IMG SRC="<?=IMGBASE?>/i/fighttype1.gif" WIDTH=20 HEIGHT=20 ALT="физический бой">Бойцовский клуб <a href="http://www.bestcombats.net/">BestCombats</a><IMG SRC="<?=IMGBASE?>/i/fighttype1.gif" WIDTH=20 HEIGHT=20 ALT="физический бой"></H3>
+<H3><IMG SRC="<?=IMGBASE?>/i/fighttype1.gif" WIDTH=20 HEIGHT=20 ALT="С„РёР·РёС‡РµСЃРєРёР№ Р±РѕР№">Р‘РѕР№С†РѕРІСЃРєРёР№ РєР»СѓР± <a href="http://www.bestcombats.net/">BestCombats</a><IMG SRC="<?=IMGBASE?>/i/fighttype1.gif" WIDTH=20 HEIGHT=20 ALT="С„РёР·РёС‡РµСЃРєРёР№ Р±РѕР№"></H3>
 <FORM METHOD=GET ACTION="logs.php">
 <INPUT TYPE=hidden name=page value="<?=$_GET['page']?>">
 <INPUT TYPE=hidden name=log value="<?=$_REQUEST['log']?>"></FORM>
@@ -39,24 +39,24 @@ if ($_GET['stat']!='1') {
   $data = mysql_fetch_array(mysql_query ("SELECT * FROM `battle` WHERE `id` = ".intval($_REQUEST['log']).""));
   $udata=unserialize($data["userdata"]);
   //$log = mysql_fetch_array(mysql_query("SELECT `log` FROM `logs` WHERE `id` = '".$_REQUEST['log']."';"));
-  //echo "<form method=get><input type=hidden name='log' value='".(int)$_GET['log']."'><input type=hidden name='stat' value='1'><input type=submit value='Статистика'></form>";
+  //echo "<form method=get><input type=hidden name='log' value='".(int)$_GET['log']."'><input type=hidden name='stat' value='1'><input type=submit value='РЎС‚Р°С‚РёСЃС‚РёРєР°'></form>";
   $log = file("backup/logs//battle".$_REQUEST['log'].".txt");
   if ($data['type'] == 10) {
-    $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\"> (поединок в башне смерти)";
+    $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"РљСЂРѕРІР°РІС‹Р№ РїРѕРµРґРёРЅРѕРє\"> (РїРѕРµРґРёРЅРѕРє РІ Р±Р°С€РЅРµ СЃРјРµСЂС‚Рё)";
   } elseif ($data['type'] == 12) {
-    $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype12.gif\" ALT=\"Общий хаотичный бой\"> (Общий хаотичный бой)";
+    $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype12.gif\" ALT=\"РћР±С‰РёР№ С…Р°РѕС‚РёС‡РЅС‹Р№ Р±РѕР№\"> (РћР±С‰РёР№ С…Р°РѕС‚РёС‡РЅС‹Р№ Р±РѕР№)";
   } elseif ($data['blood'] && ($data['type'] == 5 OR $data['type'] == 4)) {
-    $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype5.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный бой\"><IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\"> (кровавый кулачный поединок)";
+    $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype5.gif\" WIDTH=20 HEIGHT=20 ALT=\"РєСѓР»Р°С‡РЅС‹Р№ Р±РѕР№\"><IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"РљСЂРѕРІР°РІС‹Р№ РїРѕРµРґРёРЅРѕРє\"> (РєСЂРѕРІР°РІС‹Р№ РєСѓР»Р°С‡РЅС‹Р№ РїРѕРµРґРёРЅРѕРє)";
   } elseif ($data['blood'] && ($data['type'] == 2 OR $data['type'] == 3 OR $data['type'] == 6)) {
-    $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\"> (кровавый поединок)";
+    $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"РљСЂРѕРІР°РІС‹Р№ РїРѕРµРґРёРЅРѕРє\"> (РєСЂРѕРІР°РІС‹Р№ РїРѕРµРґРёРЅРѕРє)";
   } elseif ($data['type'] == 5 OR $data['type'] == 4) {
-    $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный бой\"> (кулачный поединок)";
+    $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"РєСѓР»Р°С‡РЅС‹Р№ Р±РѕР№\"> (РєСѓР»Р°С‡РЅС‹Р№ РїРѕРµРґРёРЅРѕРє)";
   }
             elseif ($data['type'] == 3 OR $data['type'] == 2) {
-                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype3.gif\" WIDTH=20 HEIGHT=20 ALT=\"групповой бой\"> (групповой поединок)";
+                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype3.gif\" WIDTH=20 HEIGHT=20 ALT=\"РіСЂСѓРїРїРѕРІРѕР№ Р±РѕР№\"> (РіСЂСѓРїРїРѕРІРѕР№ РїРѕРµРґРёРЅРѕРє)";
             }
             elseif ($data['type'] == 1) {
-                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype1.gif\" WIDTH=20 HEIGHT=20 ALT=\"физический бой\"> (физический поединок)";
+                $rr = "<IMG SRC=\"".IMGBASE."/i/fighttype1.gif\" WIDTH=20 HEIGHT=20 ALT=\"С„РёР·РёС‡РµСЃРєРёР№ Р±РѕР№\"> (С„РёР·РёС‡РµСЃРєРёР№ РїРѕРµРґРёРЅРѕРє)";
             }
 
             $t1 = explode(";",$data['t1']);
@@ -69,18 +69,18 @@ if ($_GET['stat']!='1') {
                     if (in_array($v,array_keys($battle))) {
                         ++$i;
                         if ($i > 1) { $cc = ', '; } else { $cc = ''; }
-                        $ffs .= $cc.lognick4($v,"B1")." ".($udata[$v]["login"]=="невидимка"?"":"<a href=\"/inf.php?$v\" target=\"_blank\"><img border=\"0\" src=\"".IMGBASE."/i/inf.gif\"></a>");
+                        $ffs .= $cc.lognick4($v,"B1")." ".($udata[$v]["login"]=="РЅРµРІРёРґРёРјРєР°"?"":"<a href=\"/inf.php?$v\" target=\"_blank\"><img border=\"0\" src=\"".IMGBASE."/i/inf.gif\"></a>");
                         //$zz .= "private [".nick7($v)."] ";
                     }
                 }
                 $i=0;
 
-                $ffs .=' <font color=red><b>против</b></font> '; //$zz ='';
+                $ffs .=' <font color=red><b>РїСЂРѕС‚РёРІ</b></font> '; //$zz ='';
                 foreach ($t2 as $k => $v) {
                     if (in_array($v,array_keys($battle))) {
                         ++$i;
                         if ($i > 1) { $cc = ', '; } else { $cc = ''; }
-                        $ffs .= $cc.nick4($v,"B2")." ".($udata[$v]["login"]=="невидимка"?"":"<a href=\"/inf.php?$v\" target=\"_blank\"><img border=\"0\" src=\"".IMGBASE."/i/inf.gif\"></a>");
+                        $ffs .= $cc.nick4($v,"B2")." ".($udata[$v]["login"]=="РЅРµРІРёРґРёРјРєР°"?"":"<a href=\"/inf.php?$v\" target=\"_blank\"><img border=\"0\" src=\"".IMGBASE."/i/inf.gif\"></a>");
                         //$zz .= "private [".nick7($v)."] ";
                 }
                 }
@@ -89,20 +89,20 @@ if ($_GET['stat']!='1') {
             }
             $countall = count($t1)+count($t2);
             if ($countall > 70) {
-                echo "<h3>Эпическая битва!</h3>";
+                echo "<h3>Р­РїРёС‡РµСЃРєР°СЏ Р±РёС‚РІР°!</h3>";
             }elseif ($countall > 50) {
-                echo "<h3>Эпохальная битва!</h3>";
+                echo "<h3>Р­РїРѕС…Р°Р»СЊРЅР°СЏ Р±РёС‚РІР°!</h3>";
             }elseif ($countall > 30) {
-                echo "<h3>Великая битва!</h3>";
+                echo "<h3>Р’РµР»РёРєР°СЏ Р±РёС‚РІР°!</h3>";
             }
             echo "<table WIDTH=100%><td><FORM METHOD=post ACTION='logs.php'>
             <INPUT TYPE=hidden name=page value=". htmlspecialchars($_GET['page']).">
             <INPUT TYPE=hidden name=log value=". htmlspecialchars($_REQUEST['log']).">
-            <INPUT TYPE=button onclick=\"document.location.href=logs.php?log=$_REQUEST[log]\" name=analiz2 value=\"Обновить\"> &nbsp; | &nbsp; <INPUT value=1 type=hidden name=pp><SMALL title=\"по нику, приему, эффекту\">Поиск:</SMALL> <INPUT width=7 size=30 type=text name=filter> <INPUT value=\" Фильтр \" type=submit name=f1> <INPUT value=\" Подсветка \" type=submit name=f2>  </form></td><td align=right>Основное место боя: ".($data['room']>500 && $data['room']<=560?"Башня Смерти":$rooms[$data['room']])."</td></table>Тип боя: ";
+            <INPUT TYPE=button onclick=\"document.location.href=logs.php?log=$_REQUEST[log]\" name=analiz2 value=\"РћР±РЅРѕРІРёС‚СЊ\"> &nbsp; | &nbsp; <INPUT value=1 type=hidden name=pp><SMALL title=\"РїРѕ РЅРёРєСѓ, РїСЂРёРµРјСѓ, СЌС„С„РµРєС‚Сѓ\">РџРѕРёСЃРє:</SMALL> <INPUT width=7 size=30 type=text name=filter> <INPUT value=\" Р¤РёР»СЊС‚СЂ \" type=submit name=f1> <INPUT value=\" РџРѕРґСЃРІРµС‚РєР° \" type=submit name=f2>  </form></td><td align=right>РћСЃРЅРѕРІРЅРѕРµ РјРµСЃС‚Рѕ Р±РѕСЏ: ".($data['room']>500 && $data['room']<=560?"Р‘Р°С€РЅСЏ РЎРјРµСЂС‚Рё":$rooms[$data['room']])."</td></table>РўРёРї Р±РѕСЏ: ";
             echo $rr;
 ?>
 &nbsp;
-Страницы:
+РЎС‚СЂР°РЅРёС†С‹:
 <?
 $log = explode("<BR>",$log[0]);
     $all = count($log)-1;
@@ -127,7 +127,7 @@ $log = explode("<BR>",$log[0]);
     //echo $stop;
     $cache="";
     for($i=$start;$i<=$stop;$i++) {
-      /*if (strpos($log[$i],"Часы показывали")!==false || strpos($log[$i],"вмешался")!==false) {
+      /*if (strpos($log[$i],"Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё")!==false || strpos($log[$i],"РІРјРµС€Р°Р»СЃСЏ")!==false) {
         echo $log[$i]."<br>";
         continue;
       }
@@ -150,10 +150,10 @@ $log = explode("<BR>",$log[0]);
 <INPUT TYPE=hidden name=page value="<?=$_GET['page']?>">
 <INPUT TYPE=hidden name=log value="<?=$_REQUEST['log']?>">
 
-<INPUT TYPE=submit name=analiz2 value="Обновить">
+<INPUT TYPE=submit name=analiz2 value="РћР±РЅРѕРІРёС‚СЊ">
 </form>
 &nbsp;
-Страницы:
+РЎС‚СЂР°РЅРёС†С‹:
 <?
     for ($i=0;$i<=$pgs;++$i) {
         if ($_GET['page']==$i) {
@@ -163,13 +163,13 @@ $log = explode("<BR>",$log[0]);
             echo ' <a href="?log=',$_REQUEST['log'],'&page=',$i,'">',($i+1),'</a> ';
         }
     }
-echo "<br><br><form method=get><input type=hidden name='log' value='".(int)$_REQUEST['log']."'><input type=hidden name='stat' value='1'><input type=submit value='Статистика'></form>";
+echo "<br><br><form method=get><input type=hidden name='log' value='".(int)$_REQUEST['log']."'><input type=hidden name='stat' value='1'><input type=submit value='РЎС‚Р°С‚РёСЃС‚РёРєР°'></form>";
 } else { 
   include "functions/stats.php";
-  echo "<form method=get><input type=hidden name='log' value='".(int)$_REQUEST['log']."'><input type=submit value='Лог боя'></form>";
+  echo "<form method=get><input type=hidden name='log' value='".(int)$_REQUEST['log']."'><input type=submit value='Р›РѕРі Р±РѕСЏ'></form>";
   echo getstats($_REQUEST['log']);
 //include('battle_stat.php');
-echo "<br><form method=get><input type=hidden name='log' value='".(int)$_REQUEST['log']."'><input type=submit value='Лог боя'></form>";
+echo "<br><form method=get><input type=hidden name='log' value='".(int)$_REQUEST['log']."'><input type=submit value='Р›РѕРі Р±РѕСЏ'></form>";
 }
 ?>
 <A name=end></A>

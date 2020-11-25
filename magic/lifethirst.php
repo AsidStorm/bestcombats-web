@@ -9,7 +9,7 @@ if ($user["intel"]>=100) {
   $hrs=3;
 }
 
-if ($row["name"]=="Жажда жизни +6") {$target=$user;$hfv=6;$mana=0;}
+if ($row["name"]=="Р–Р°Р¶РґР° Р¶РёР·РЅРё +6") {$target=$user;$hfv=6;$mana=0;}
 $r=mq("SELECT id, name, hpforvinos, time FROM `effects` WHERE `owner` = ".$target['id']." and hpforvinos<>0");
 while ($rec=mysql_fetch_assoc($r)) {
   if ($rec["hpforvinos"]<0) $minus=$rec;
@@ -28,25 +28,25 @@ if ($row["prototype"]==1966) $hfv=-4;
 if ($row["prototype"]==1965) $hfv=-5;
 
 if (in_array($user["room"],$nodrink)) {
-  echo "Здесь запрещено пользоваться магией!";
+  echo "Р—РґРµСЃСЊ Р·Р°РїСЂРµС‰РµРЅРѕ РїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РјР°РіРёРµР№!";
 } elseif ($user['battle'] > 0) {
-  echo "Не в бою...";
-//} elseif($target["id"]==$user["id"] && $row["name"]!="Жажда жизни +6") {
-//  echo "Это заклятие нельзя использовать на себя.";
-} elseif (!$target["online"] && $row["name"]!="Жажда жизни +6") {
-  echo "Персонаж \"$_POST[target]\" не в игре.";
+  echo "РќРµ РІ Р±РѕСЋ...";
+//} elseif($target["id"]==$user["id"] && $row["name"]!="Р–Р°Р¶РґР° Р¶РёР·РЅРё +6") {
+//  echo "Р­С‚Рѕ Р·Р°РєР»СЏС‚РёРµ РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅР° СЃРµР±СЏ.";
+} elseif (!$target["online"] && $row["name"]!="Р–Р°Р¶РґР° Р¶РёР·РЅРё +6") {
+  echo "РџРµСЂСЃРѕРЅР°Р¶ \"$_POST[target]\" РЅРµ РІ РёРіСЂРµ.";
 } elseif ($target["room"]!=$user["room"]) {
-  echo "Персонаж \"$_POST[target]\" вне пределов досягаемости.";
+  echo "РџРµСЂСЃРѕРЅР°Р¶ \"$_POST[target]\" РІРЅРµ РїСЂРµРґРµР»РѕРІ РґРѕСЃСЏРіР°РµРјРѕСЃС‚Рё.";
 } elseif ($user["level"]-$target["level"]>2 && $user["id"]!=7) {
-  echo "Это заклятие нельзя использовать на персонажей более чем на 2 уровня младше.";
+  echo "Р­С‚Рѕ Р·Р°РєР»СЏС‚РёРµ РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅР° РїРµСЂСЃРѕРЅР°Р¶РµР№ Р±РѕР»РµРµ С‡РµРј РЅР° 2 СѓСЂРѕРІРЅСЏ РјР»Р°РґС€Рµ.";
 } elseif (in_array($target["room"], $noattackrooms) && $hfv<0) {
-  echo "В этой локации отрицательная магия запрещена.";
+  echo "Р’ СЌС‚РѕР№ Р»РѕРєР°С†РёРё РѕС‚СЂРёС†Р°С‚РµР»СЊРЅР°СЏ РјР°РіРёСЏ Р·Р°РїСЂРµС‰РµРЅР°.";
 } elseif(($plus && $hfv>0 && $plus["name"]!=$row["name"]) || ($minus && $hfv<0 && $minus["name"]!=$row["name"])) {
-  echo "Еще не прошло действие старого заклятия.";
+  echo "Р•С‰Рµ РЅРµ РїСЂРѕС€Р»Рѕ РґРµР№СЃС‚РІРёРµ СЃС‚Р°СЂРѕРіРѕ Р·Р°РєР»СЏС‚РёСЏ.";
 } elseif(($plus && $hfv<0 && $plus["hpforvinos"]>-$hfv) || ($minus && $hfv>0 && -$minus["hpforvinos"]>$hfv)) {
-  echo "На персонажа наложено более сильное противоположное заклинание.";
+  echo "РќР° РїРµСЂСЃРѕРЅР°Р¶Р° РЅР°Р»РѕР¶РµРЅРѕ Р±РѕР»РµРµ СЃРёР»СЊРЅРѕРµ РїСЂРѕС‚РёРІРѕРїРѕР»РѕР¶РЅРѕРµ Р·Р°РєР»РёРЅР°РЅРёРµ.";
 } elseif(($hfv<0 && $castto-$minus["time"]<600) || ($hfv>0 && $castto-$plus["time"]<600)) {
-  echo "На персонажа наложено более сильное противоположное заклинание.";
+  echo "РќР° РїРµСЂСЃРѕРЅР°Р¶Р° РЅР°Р»РѕР¶РµРЅРѕ Р±РѕР»РµРµ СЃРёР»СЊРЅРѕРµ РїСЂРѕС‚РёРІРѕРїРѕР»РѕР¶РЅРѕРµ Р·Р°РєР»РёРЅР°РЅРёРµ.";
 } else {
   if ($hfv>0) $caster=$user["id"];
   else $caster=0;
@@ -57,10 +57,10 @@ if (in_array($user["room"],$nodrink)) {
     else mq("UPDATE `effects` set `time`='$castto' WHERE id='$minus[id]'");
   }
   resetmax($target["id"]);
-  if ($row["name"]!="Жажда жизни +6")  {
-    echo "На персонажа \"$target[login]\" наложено заклятие $row[name].";
-    addch("<img src=i/magic/$row[img]>".($user["invis"]?"Невидимка":"Персонаж &quot;{$user['login']}&quot;")." наложил заклятие \"$row[name]\" на &quot;".($user["invis"] && $user["login"]==$_POST['target']?"Невидимка":"$_POST[target]")."&quot;, сроком $hrs часа.");
-  } else echo "Успешно использован свиток $row[name].";
+  if ($row["name"]!="Р–Р°Р¶РґР° Р¶РёР·РЅРё +6")  {
+    echo "РќР° РїРµСЂСЃРѕРЅР°Р¶Р° \"$target[login]\" РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ $row[name].";
+    addch("<img src=i/magic/$row[img]>".($user["invis"]?"РќРµРІРёРґРёРјРєР°":"РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot;")." РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ \"$row[name]\" РЅР° &quot;".($user["invis"] && $user["login"]==$_POST['target']?"РќРµРІРёРґРёРјРєР°":"$_POST[target]")."&quot;, СЃСЂРѕРєРѕРј $hrs С‡Р°СЃР°.");
+  } else echo "РЈСЃРїРµС€РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅ СЃРІРёС‚РѕРє $row[name].";
   $bet=1;
 }
 ?>

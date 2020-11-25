@@ -73,7 +73,7 @@ return $city[1];
     } else {
       if ($_SERVER['QUERY_STRING']>_BOTSEPARATOR_) {
         $usr=mqfa("select name, prototype from bots where id='".$_SERVER['QUERY_STRING']."'");
-        if ($usr["name"]=="Отморозок") $us=3946;
+        if ($usr["name"]=="РћС‚РјРѕСЂРѕР·РѕРє") $us=3946;
         else $us=$usr["prototype"];
       } else $us=(int)$_SERVER['QUERY_STRING'];
       $us=mqfa1("select id from users where id='$us'");
@@ -118,9 +118,9 @@ return $city[1];
 <link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
 <meta http-equiv="Content-Language" content="ru">
 <link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
-<TITLE>Произошла ошибка</TITLE></HEAD><BODY text="#FFFFFF"><p><font color=black>
-Произошла ошибка: <pre>Персонаж <?=($_GET['login']?"\"".$_GET['login']."\"":"")?> не найден...</pre>
-<b><p><a href = "javascript:window.history.go(-1);">Назад</b></a>
+<TITLE>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°</TITLE></HEAD><BODY text="#FFFFFF"><p><font color=black>
+РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°: <pre>РџРµСЂСЃРѕРЅР°Р¶ <?=($_GET['login']?"\"".$_GET['login']."\"":"")?> РЅРµ РЅР°Р№РґРµРЅ...</pre>
+<b><p><a href = "javascript:window.history.go(-1);">РќР°Р·Р°Рґ</b></a>
 <HR>
 <p align="right">(c) <a href="/">BestCombats.net</a></p>
 
@@ -164,7 +164,7 @@ die();
 
 <HTML>
 <HEAD>
-<TITLE>Информация о <?=$user['login']?></TITLE>
+<TITLE>РРЅС„РѕСЂРјР°С†РёСЏ Рѕ <?=$user['login']?></TITLE>
 <link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
 <link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
 <link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/inf.css">
@@ -179,7 +179,7 @@ behavior:	url(/pngbehavior.htc);
 }
 </style>
 <script>
-gift = new Array('Подарок от ','','Анонимный подарок');
+gift = new Array('РџРѕРґР°СЂРѕРє РѕС‚ ','','РђРЅРѕРЅРёРјРЅС‹Р№ РїРѕРґР°СЂРѕРє');
 </script>
 </HEAD>
 
@@ -209,7 +209,7 @@ gift = new Array('Подарок от ','','Анонимный подарок');
 <TD class="middlecenterarea">
 <script>
 var main_uid= 'main';
-var delay = 10;     // Каждые n сек. увеличение HP на 1%
+var delay = 10;     // РљР°Р¶РґС‹Рµ n СЃРµРє. СѓРІРµР»РёС‡РµРЅРёРµ HP РЅР° 1%
 </script>
 <script type="text/javascript" src='<?=IMGBASE?>/js/commoninf.js'></script>
 <script type="text/javascript" src='<?=IMGBASE?>/js/LocalText.js' charset='utf-8'></script>
@@ -238,12 +238,12 @@ function Down() {CtrlPress = window.event.ctrlKey}
         <form action="inf.php" method="get">
           <table style="border:1px solid #AFAFAF" width="200" border="0" cellspacing="0" cellpadding="2">
             <tr>
-              <td valign="middle" bgcolor="#D4D4D4" style="color: #333333">&nbsp;Поиск  по нику:</td>
+              <td valign="middle" bgcolor="#D4D4D4" style="color: #333333">&nbsp;РџРѕРёСЃРє  РїРѕ РЅРёРєСѓ:</td>
               <td align="center" valign="middle" bgcolor="#D4D4D4">&nbsp;</td>
             </tr>
             <tr>
               <td width="150" align="center" valign="middle" bgcolor="#D4D4D4"><input style="width:145px" type="text" name="login" value=""></td>
-              <td align="center" valign="middle" bgcolor="#D4D4D4"><button type="submit">Искать</button></td>
+              <td align="center" valign="middle" bgcolor="#D4D4D4"><button type="submit">РСЃРєР°С‚СЊ</button></td>
             </tr>
           </table>
           </form>
@@ -264,33 +264,33 @@ hr { height: 1px; }
 
 if ($user['align']==2.5) {echo"<a href=\"/inf.php?$user[id]\" target=_blank></a><BR>";}  if (($own['align'] > '2' && $own['align'] < '3') || ($own['align'] > '1' && $own['align'] < '2') || $own['align'] == '777') {
     echo "<HR>
-    <H3>Анкетные данные</H3><div style=\"font-size:12px\">Имя: $user[realname]<BR>
-    Пол:";
-    if($user['sex']) { echo "Мужской";} else {echo "Женский";}
-    if ($user['city']) { echo "<BR>Город: {$user['city']}"; }
+    <H3>РђРЅРєРµС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ</H3><div style=\"font-size:12px\">РРјСЏ: $user[realname]<BR>
+    РџРѕР»:";
+    if($user['sex']) { echo "РњСѓР¶СЃРєРѕР№";} else {echo "Р–РµРЅСЃРєРёР№";}
+    if ($user['city']) { echo "<BR>Р“РѕСЂРѕРґ: {$user['city']}"; }
     if ($user['icq']) {echo "<BR>ICQ: {$user['icq']}"; }
-    if ($user['lozung']) { echo "<BR>Девиз: <CODE>{$user['lozung']}</CODE>"; }
-    echo "<BR>Увлечения / хобби:<BR><CODE>";
+    if ($user['lozung']) { echo "<BR>Р”РµРІРёР·: <CODE>{$user['lozung']}</CODE>"; }
+    echo "<BR>РЈРІР»РµС‡РµРЅРёСЏ / С…РѕР±Р±Рё:<BR><CODE>";
     echo nl2br(htmlspecialchars($user['info']))."</div>";
   } elseif ($user['showmyinfo'] && !$noinfo) {
     echo"<div style=\"font-size:12px\">
-    <HR><H3>Анкетные данные</H3>Имя:{$user['realname']}";
+    <HR><H3>РђРЅРєРµС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ</H3>РРјСЏ:{$user['realname']}";
     if ($user['showmyinfo']) { echo"
-    <BR>Пол:";}?> <?php
+    <BR>РџРѕР»:";}?> <?php
     if ($user['showmyinfo']) {
-      if($user['sex']) { echo "Мужской";} else {echo "Женский";}
-      if ($user['city']) { echo "<BR>Город: {$user['city']}"; }
+      if($user['sex']) { echo "РњСѓР¶СЃРєРѕР№";} else {echo "Р–РµРЅСЃРєРёР№";}
+      if ($user['city']) { echo "<BR>Р“РѕСЂРѕРґ: {$user['city']}"; }
       if ($user['icq']) {echo "<BR>ICQ: {$user['icq']}"; }
-      if ($user['lozung']) { echo "<BR>Девиз: <CODE>{$user['lozung']}</CODE>"; }
+      if ($user['lozung']) { echo "<BR>Р”РµРІРёР·: <CODE>{$user['lozung']}</CODE>"; }
     }
-    if ($user['info']) { echo "<BR>Увлечения / хобби:<BR><CODE>";}
+    if ($user['info']) { echo "<BR>РЈРІР»РµС‡РµРЅРёСЏ / С…РѕР±Р±Рё:<BR><CODE>";}
     $user['info']=str_replace(" <BR> <BR>","",$user['info']);
-    if ($user['infpic'] && $user['id']==1597) {echo "00:40 [Вознесение] to [Совесть] <IMG border=0 src=\"".IMGBASE."/chat/smiles/".$user['infpic']."\"></br>";}
+    if ($user['infpic'] && $user['id']==1597) {echo "00:40 [Р’РѕР·РЅРµСЃРµРЅРёРµ] to [РЎРѕРІРµСЃС‚СЊ] <IMG border=0 src=\"".IMGBASE."/chat/smiles/".$user['infpic']."\"></br>";}
     elseif ($user['infpic']) {echo "<IMG border=0 src=\"".IMGBASE."/i/".$user['infpic']."\"></br>";}
     echo nl2br($user['info']);
     echo "</CODE>";
   }
-  if ($user['showmyinfo']=='0') echo'<br><font color="red">Информация Скрыта</font>';
+  if ($user['showmyinfo']=='0') echo'<br><font color="red">РРЅС„РѕСЂРјР°С†РёСЏ РЎРєСЂС‹С‚Р°</font>';
   echo "<div style=\"font-size:12px\">";
   $okld=0;
   if (($own['align'] > '1.1' && $own['align'] < '2') || ($own['align'] > '2' && $own['align'] < '3') || ($own['align'] > '3.02' && $own['align'] < '4')) {
@@ -299,8 +299,8 @@ if ($user['align']==2.5) {echo"<a href=\"/inf.php?$user[id]\" target=_blank></a>
   if ($user['showmyinfo']=='1') {
     if ($own["align"]==5) $okld=1;
     if ($okld==1) {
-echo "<br><br><center><b><font color='red'>(Разглашение информации другим игрокам наказуемо вплоть до блокировки персонажа)
-</font></b></center><br><font style='text'><H4><u>За персонажем замечены следующие темные делишки:</u></H4></font><br><br>";
+echo "<br><br><center><b><font color='red'>(Р Р°Р·РіР»Р°С€РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё РґСЂСѓРіРёРј РёРіСЂРѕРєР°Рј РЅР°РєР°Р·СѓРµРјРѕ РІРїР»РѕС‚СЊ РґРѕ Р±Р»РѕРєРёСЂРѕРІРєРё РїРµСЂСЃРѕРЅР°Р¶Р°)
+</font></b></center><br><font style='text'><H4><u>Р—Р° РїРµСЂСЃРѕРЅР°Р¶РµРј Р·Р°РјРµС‡РµРЅС‹ СЃР»РµРґСѓСЋС‰РёРµ С‚РµРјРЅС‹Рµ РґРµР»РёС€РєРё:</u></H4></font><br><br>";
 $ldd = mysql_query("SELECT * FROM `lichka` WHERE `pers` = '".mysql_real_escape_string($user['id'])."' ORDER by `id` ASC LIMIT 10;");
 $ldd1 = mysql_query("SELECT * FROM `lichka` WHERE `pers` = '".mysql_real_escape_string($user['id'])."' ORDER by `id` ASC;");
 $ld2 = mysql_fetch_array(mysql_query("SELECT count(`id`) as `id` FROM `lichka` WHERE `pers` = '".$user['id']."'"));
@@ -310,7 +310,7 @@ $dat=date("d.m.Y H:i",$ld['date']);
 $text=$ld['text'];
 echo "<CODE>$dat $text </CODE><br>";
 }
-if ($ld2['id']>10) {echo "<a onclick=\"sp1.style.display='none'; sp2.style.display='block'\">Смотреть все</a>";}
+if ($ld2['id']>10) {echo "<a onclick=\"sp1.style.display='none'; sp2.style.display='block'\">РЎРјРѕС‚СЂРµС‚СЊ РІСЃРµ</a>";}
 echo "</div>";
 if ($ld2['id']>10) {
 echo "<div id=sp2 style='display: none'>";
@@ -321,7 +321,7 @@ echo "<CODE>$dat1 $text1 </CODE><br>";
 }
 echo "</div>";
 }
-if ($ld2['id']==0) {echo '<b><font color=red>Персонаж пока чист...</font></b>';}
+if ($ld2['id']==0) {echo '<b><font color=red>РџРµСЂСЃРѕРЅР°Р¶ РїРѕРєР° С‡РёСЃС‚...</font></b>';}
 }
 $okdop=0;
 if (($own['align'] > '1' && $own['align'] < '2') || ($own['align'] > '2' && $own['align'] < '3') || ($own['align'] > '3' && $own['align'] < '4' )) {
@@ -331,56 +331,56 @@ if ($okdop==1) {
 $userip = mysql_query("SELECT login,ip,id FROM `users` WHERE `ip` = '{$user['ip']}' and `login`!='{$user['login']}' and `vid`='0';");
 $numy = mysql_num_rows($userip);
 if($numy>0){
-echo'<H4><u>Регистрации с одного IP:</u></H4><br>';
+echo'<H4><u>Р РµРіРёСЃС‚СЂР°С†РёРё СЃ РѕРґРЅРѕРіРѕ IP:</u></H4><br>';
 while ($iploga = mysql_fetch_array($userip)) {
 echo"".nick3($iploga[id],true)." - ".$iploga['ip']."<br>";
 }}
-echo "<H4><u>Дополнительные сведения: </u></H4><br>
-День рождения: {$user['borndate']}<br>
+echo "<H4><u>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СЃРІРµРґРµРЅРёСЏ: </u></H4><br>
+Р”РµРЅСЊ СЂРѕР¶РґРµРЅРёСЏ: {$user['borndate']}<br>
 email: {$user['email']} <br>
-IP при регистрации: <a href=http://www.ripe.net/fcgi-bin/whois?form_type=simple&full_query_string=&searchtext={$user['ip']} target=_blank><b>{$user['ip']}</b></a><br>
-<H4><u>Деньги: </u></H4><br>
-Деньги: {$user['money']} кр.<br>
-Еврокредиты: {$user['ekr']} екр.<br>
-Екр за онлайн: {$user['ekr_online']} екр.<br>
-Золото:{$user['honorpoints']} .<br>
-Игнорируемые пользователи:{$user['ignore']} .<br>
-<H4><u>Характеристики: </u></H4><br>
-Oпыт: {$user['exp']}<br>
+IP РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё: <a href=http://www.ripe.net/fcgi-bin/whois?form_type=simple&full_query_string=&searchtext={$user['ip']} target=_blank><b>{$user['ip']}</b></a><br>
+<H4><u>Р”РµРЅСЊРіРё: </u></H4><br>
+Р”РµРЅСЊРіРё: {$user['money']} РєСЂ.<br>
+Р•РІСЂРѕРєСЂРµРґРёС‚С‹: {$user['ekr']} РµРєСЂ.<br>
+Р•РєСЂ Р·Р° РѕРЅР»Р°Р№РЅ: {$user['ekr_online']} РµРєСЂ.<br>
+Р—РѕР»РѕС‚Рѕ:{$user['honorpoints']} .<br>
+РРіРЅРѕСЂРёСЂСѓРµРјС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё:{$user['ignore']} .<br>
+<H4><u>РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё: </u></H4><br>
+OРїС‹С‚: {$user['exp']}<br>
 Incity: {$user['incity']}<br>
-До апа: {$user['nextup']}<br>
-<H4><u>Способности: </u></H4><br>
-Свободных статов: {$user['stats']} <br>
-Свободных умений: {$user['master']} <br>
-<!--Свободных особенностей: {$user['osoba']} <br>-->
-<H4><u>Мастерство: </u></H4><br>
-Умения ножи : {$user['noj']} <br>
-Умения мечи : {$user['mec']} <br>
-Умения топоры : {$user['topor']} <br>
-Умения дубины : {$user['dubina']} <br>
-Умения посохами : {$user['posoh']} <br>
-Умения стихией огня : {$user['mfire']} <br>
-Умения стихией воды : {$user['mwater']} <br>
-Умения стихией воздуха : {$user['mair']} <br>
-Умения стихией земли : {$user['mearth']} <br>
-Умения стихией света : {$user['mlight']} <br>
-Умения стихией серой магии : {$user['mgray']} <br>
-Умения стихией тьмы : {$user['mdark']} <br>
-<H4><u>Прочее: </u></H4><br>
-Образ : {$user['shadow']} <br>
-Бой : {$user['battle']} <br>
-Ранг : {$user['align']} <br>
-Локация : {$user['room']} <br>";
-echo "Браузер: ".user_browser($user['browser'])."<br>";
-/* IP адрес клиента */
-$city = geo_info($user['cityip']); // Вернет город посетителя
-Echo'Город: '.$city;
+Р”Рѕ Р°РїР°: {$user['nextup']}<br>
+<H4><u>РЎРїРѕСЃРѕР±РЅРѕСЃС‚Рё: </u></H4><br>
+РЎРІРѕР±РѕРґРЅС‹С… СЃС‚Р°С‚РѕРІ: {$user['stats']} <br>
+РЎРІРѕР±РѕРґРЅС‹С… СѓРјРµРЅРёР№: {$user['master']} <br>
+<!--РЎРІРѕР±РѕРґРЅС‹С… РѕСЃРѕР±РµРЅРЅРѕСЃС‚РµР№: {$user['osoba']} <br>-->
+<H4><u>РњР°СЃС‚РµСЂСЃС‚РІРѕ: </u></H4><br>
+РЈРјРµРЅРёСЏ РЅРѕР¶Рё : {$user['noj']} <br>
+РЈРјРµРЅРёСЏ РјРµС‡Рё : {$user['mec']} <br>
+РЈРјРµРЅРёСЏ С‚РѕРїРѕСЂС‹ : {$user['topor']} <br>
+РЈРјРµРЅРёСЏ РґСѓР±РёРЅС‹ : {$user['dubina']} <br>
+РЈРјРµРЅРёСЏ РїРѕСЃРѕС…Р°РјРё : {$user['posoh']} <br>
+РЈРјРµРЅРёСЏ СЃС‚РёС…РёРµР№ РѕРіРЅСЏ : {$user['mfire']} <br>
+РЈРјРµРЅРёСЏ СЃС‚РёС…РёРµР№ РІРѕРґС‹ : {$user['mwater']} <br>
+РЈРјРµРЅРёСЏ СЃС‚РёС…РёРµР№ РІРѕР·РґСѓС…Р° : {$user['mair']} <br>
+РЈРјРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р·РµРјР»Рё : {$user['mearth']} <br>
+РЈРјРµРЅРёСЏ СЃС‚РёС…РёРµР№ СЃРІРµС‚Р° : {$user['mlight']} <br>
+РЈРјРµРЅРёСЏ СЃС‚РёС…РёРµР№ СЃРµСЂРѕР№ РјР°РіРёРё : {$user['mgray']} <br>
+РЈРјРµРЅРёСЏ СЃС‚РёС…РёРµР№ С‚СЊРјС‹ : {$user['mdark']} <br>
+<H4><u>РџСЂРѕС‡РµРµ: </u></H4><br>
+РћР±СЂР°Р· : {$user['shadow']} <br>
+Р‘РѕР№ : {$user['battle']} <br>
+Р Р°РЅРі : {$user['align']} <br>
+Р›РѕРєР°С†РёСЏ : {$user['room']} <br>";
+echo "Р‘СЂР°СѓР·РµСЂ: ".user_browser($user['browser'])."<br>";
+/* IP Р°РґСЂРµСЃ РєР»РёРµРЅС‚Р° */
+$city = geo_info($user['cityip']); // Р’РµСЂРЅРµС‚ РіРѕСЂРѕРґ РїРѕСЃРµС‚РёС‚РµР»СЏ
+Echo'Р“РѕСЂРѕРґ: '.$city;
  
 function bill($log){
 $S = mysql_query("SELECT id,cr,ekr FROM bank WHERE owner='$log' ORDER BY owner ASC");
-echo '<br><H4>Банковские счета:</H4><br>';
+echo '<br><H4>Р‘Р°РЅРєРѕРІСЃРєРёРµ СЃС‡РµС‚Р°:</H4><br>';
 $k = 1;
-echo "<table border=0 class=new width=80% bgcolor=#dcdcdc><TR bgcolor=#dcdcdc><td width=10>№</td><td>Счет №</td><td>На счету кр.</td><td>На счету екр.</td></tr>";
+echo "<table border=0 class=new width=80% bgcolor=#dcdcdc><TR bgcolor=#dcdcdc><td width=10>в„–</td><td>РЎС‡РµС‚ в„–</td><td>РќР° СЃС‡РµС‚Сѓ РєСЂ.</td><td>РќР° СЃС‡РµС‚Сѓ РµРєСЂ.</td></tr>";
 while($data = mysql_fetch_array($S)){
 echo "<tr bgcolor=#e4e4e4><td>$k</td><td>{$data['id']}</td><td>{$data['cr']}</td><td>{$data['ekr']}</td></tr>";
 $k++;
@@ -391,26 +391,26 @@ echo "";
 }
 }
 ?>
-<H4><u>Реферальная Система: </u></H4>
-Чей реферал:
+<H4><u>Р РµС„РµСЂР°Р»СЊРЅР°СЏ РЎРёСЃС‚РµРјР°: </u></H4>
+Р§РµР№ СЂРµС„РµСЂР°Р»:
 <?
 if ($user['refer']!=0){
 echo nick3($user['refer'])." <br>";
 }else{
-echo "<b>ничей</b><br>";
+echo "<b>РЅРёС‡РµР№</b><br>";
 }
 ?>
-Сколько рефералов:
+РЎРєРѕР»СЊРєРѕ СЂРµС„РµСЂР°Р»РѕРІ:
 <?
 $refer = mysql_fetch_array(mysql_query("SELECT COUNT(`id`) as `count` FROM `users` WHERE `refer` = '".$user['id']."' AND `block`!=1"));
-echo "<a href='/reit_refer.php' title='Рейтинг рефералов' target='_blank'>".$refer['count']."</a><br>";
+echo "<a href='/reit_refer.php' title='Р РµР№С‚РёРЅРі СЂРµС„РµСЂР°Р»РѕРІ' target='_blank'>".$refer['count']."</a><br>";
 ?>
-Реф. сайт: <? echo "{$user['otkuda']} <br>";?>
-<H4><u>Дополнительные: </u></H4>
+Р РµС„. СЃР°Р№С‚: <? echo "{$user['otkuda']} <br>";?>
+<H4><u>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ: </u></H4>
 <?$dd = mysql_fetch_array(mysql_query("SELECT count(`login`) as `login` FROM `users` WHERE `ip` = '".mysql_real_escape_string($user['ip'])."' AND `ip`!='213.227.223.220';"));
 if ($dd['login']>1) {
 $data = mysql_query("SELECT `ip`, `login`, `block` FROM `users` WHERE `ip` = '".mysql_real_escape_string($user['ip'])."' AND `ip`!='213.227.223.220';");
-echo "<br>(<small><b>Ники:</b> ";
+echo "<br>(<small><b>РќРёРєРё:</b> ";
 while($dd=mysql_fetch_array($data)) {
 if ($dd['block']==1) {
 $deleted1 ="<del>";
@@ -425,7 +425,7 @@ echo "</small>)<br />";
 }
 ?><br>
 	<?
-	echo "<br><H4><u>Заходы с одного компьютера: </u></H4>";
+	echo "<br><H4><u>Р—Р°С…РѕРґС‹ СЃ РѕРґРЅРѕРіРѕ РєРѕРјРїСЊСЋС‚РµСЂР°: </u></H4>";
 	$lplist = mysql_query("SELECT * FROM `delo_multi` WHERE `idperslater` = '{$user['id']}' OR `idpersnow` = '{$user['id']}' ORDER by `id` DESC LIMIT 25;");
 	while ($iplog = mysql_fetch_array($lplist)) {
 		$ookk=1;
@@ -438,9 +438,9 @@ echo "</small>)<br />";
 	}	
 
 	$lplist = mysql_query("SELECT * FROM `iplog` WHERE `owner` = '".mysql_real_escape_string($user['id'])."' ORDER by `id` DESC LIMIT 25;");
-	echo "<DIV id=dv66 style='display: block'><A href='#' onclick=\"dv55.style.display='block'; dv66.style.display='none'; return false\"><H4><img src='http://img.bestcombats.net/inf/design/plus_big.gif' align='absmiddle'><u>Последние заходы персонажа:</u></H4></u></H4></A></DIV>
-<DIV id='dv55' style='display: none'><A href='#' onclick=\"dv66.style.display='block'; dv55.style.display='none'; return false\"><H4><img src='http://img.bestcombats.net/inf/design/minus_big.png' align='absmiddle'><u>Последние заходы персонажа:</u></H4></A>";
-	echo "<table border=1><tr><td>&nbsp;</td><td><center><b>Дата</b></center></td><td><center><b>IP</b></center></td></tr>";
+	echo "<DIV id=dv66 style='display: block'><A href='#' onclick=\"dv55.style.display='block'; dv66.style.display='none'; return false\"><H4><img src='http://img.bestcombats.net/inf/design/plus_big.gif' align='absmiddle'><u>РџРѕСЃР»РµРґРЅРёРµ Р·Р°С…РѕРґС‹ РїРµСЂСЃРѕРЅР°Р¶Р°:</u></H4></u></H4></A></DIV>
+<DIV id='dv55' style='display: none'><A href='#' onclick=\"dv66.style.display='block'; dv55.style.display='none'; return false\"><H4><img src='http://img.bestcombats.net/inf/design/minus_big.png' align='absmiddle'><u>РџРѕСЃР»РµРґРЅРёРµ Р·Р°С…РѕРґС‹ РїРµСЂСЃРѕРЅР°Р¶Р°:</u></H4></A>";
+	echo "<table border=1><tr><td>&nbsp;</td><td><center><b>Р”Р°С‚Р°</b></center></td><td><center><b>IP</b></center></td></tr>";
 	$ind=0;
 	while ($iplog = mysql_fetch_array($lplist)) {
 		$ind++;
@@ -473,19 +473,19 @@ mysql_query("UPDATE `users` SET `money`=money+".$bbc['cost'].",`ekr`=ekr+".$bbc[
 	}
 	
 	$invv = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$user['id']}' ORDER by `id` DESC;");
-	echo "<br><H4><u>Вещи в инвентаре: </u></H4>";
-	echo "<table border=1><tr><td><center><b>Название</b></center></td><td><center><b>кр.</b></center></td><td><center><b>екр.</b></center></td><td><center><b>Долговечность</b></center></td></td><td><center><b>Картинка</b></center></td></td><td><center><b>Действия</b></center></td></td></tr>";
+	echo "<br><H4><u>Р’РµС‰Рё РІ РёРЅРІРµРЅС‚Р°СЂРµ: </u></H4>";
+	echo "<table border=1><tr><td><center><b>РќР°Р·РІР°РЅРёРµ</b></center></td><td><center><b>РєСЂ.</b></center></td><td><center><b>РµРєСЂ.</b></center></td><td><center><b>Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ</b></center></td></td><td><center><b>РљР°СЂС‚РёРЅРєР°</b></center></td></td><td><center><b>Р”РµР№СЃС‚РІРёСЏ</b></center></td></td></tr>";
 	$ind=0;
 	while ($inv = mysql_fetch_array($invv)) {
 		$ip=$iplog['ip'];
 		echo "<form action=\"\" method=\"post\"><tr><td>&nbsp;&nbsp; ".$inv['name']." &nbsp;&nbsp;</td><td>&nbsp; ".$inv['cost']." &nbsp;&nbsp;</td><td>&nbsp; ".$inv['ecost']." &nbsp;&nbsp;</td><td>&nbsp;".$inv['duration']."/".$inv['maxdur']."</td><td>&nbsp;<img src='/i/sh/{$inv['img']}'></td><td>&nbsp; 	
 
 <input name=\"del\" type=\"hidden\" value=\"".$inv['id']."\">
-<input name=\"ok\" type=\"submit\" value=\"Удалить\">
+<input name=\"ok\" type=\"submit\" value=\"РЈРґР°Р»РёС‚СЊ\">
 		
 		 &nbsp;&nbsp;</td></tr></form>";
 	}
-	echo "</table><form action='' method='post'><input name='bbb' type='submit' value='раздеть персонажа'></form>";
+	echo "</table><form action='' method='post'><input name='bbb' type='submit' value='СЂР°Р·РґРµС‚СЊ РїРµСЂСЃРѕРЅР°Р¶Р°'></form>";
 	
 if($_POST['bbb']){undressall($user['id']);}
 }

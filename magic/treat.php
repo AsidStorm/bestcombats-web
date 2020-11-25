@@ -4,26 +4,26 @@ $us = mysql_fetch_array(mysql_query("SELECT *,(select `id` from `online` WHERE `
 $travma2 = mysql_query("SELECT id FROM `effects` WHERE `owner` = '".$us['id']."' AND (`type`='11' OR `type`='12' OR `type`='13') and id not in (select effect from treats where user='$user[id]');");
 //$owntravma2=mysql_fetch_array($travma);
 if ($user['battle'] > 0) {
-  echo "Не в бою...";}
+  echo "РќРµ РІ Р±РѕСЋ...";}
 elseif ($us['battle'] > 0) {
-  echo "Персонаж в бою...";} 
+  echo "РџРµСЂСЃРѕРЅР°Р¶ РІ Р±РѕСЋ...";} 
 elseif (mysql_num_rows($travma2)==0) {
-  echo "У персонажа нет травм, к которым вы можете применить первую помощь...";}
+  echo "РЈ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµС‚ С‚СЂР°РІРј, Рє РєРѕС‚РѕСЂС‹Рј РІС‹ РјРѕР¶РµС‚Рµ РїСЂРёРјРµРЅРёС‚СЊ РїРµСЂРІСѓСЋ РїРѕРјРѕС‰СЊ...";}
 elseif ($user['room'] != $us['room']) {
-  echo "Персонаж в другой комнате!";
+  echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!";
 } elseif (!canmakequest(5)) {
-  echo "Вы ещё не восстановили силы после прошлого раза!";
+  echo "Р’С‹ РµС‰С‘ РЅРµ РІРѕСЃСЃС‚Р°РЅРѕРІРёР»Рё СЃРёР»С‹ РїРѕСЃР»Рµ РїСЂРѕС€Р»РѕРіРѕ СЂР°Р·Р°!";
 } else{
               
-			if ($user['sex'] == 1) {$action="оказал первую помощь";}
-			else {$action="оказала первую помощь";}
+			if ($user['sex'] == 1) {$action="РѕРєР°Р·Р°Р» РїРµСЂРІСѓСЋ РїРѕРјРѕС‰СЊ";}
+			else {$action="РѕРєР°Р·Р°Р»Р° РїРµСЂРІСѓСЋ РїРѕРјРѕС‰СЊ";}
 			if ($user['align'] > '1' && $user['align'] < '2') {
-				$angel="Персонаж";
+				$angel="РџРµСЂСЃРѕРЅР°Р¶";
 			}
 
 
 			if ($user['invis']==1) {
-				addch("<img src=i/magic/cure3.gif> &quot;невидимка&quot; ".$action." &quot;{$_POST['target']}&quot;");
+				addch("<img src=i/magic/cure3.gif> &quot;РЅРµРІРёРґРёРјРєР°&quot; ".$action." &quot;{$_POST['target']}&quot;");
 			}else
 				addch("<img src=i/magic/cure3.gif> $angel &quot;{$user['login']}&quot; ".$action." &quot;{$_POST['target']}&quot;");
 
@@ -33,6 +33,6 @@ elseif ($user['room'] != $us['room']) {
 
 				}
 makequest(5);
-echo "Вы оказали первую помощь персонажу &quot;{$_POST['target']}&quot;.";
+echo "Р’С‹ РѕРєР°Р·Р°Р»Рё РїРµСЂРІСѓСЋ РїРѕРјРѕС‰СЊ РїРµСЂСЃРѕРЅР°Р¶Сѓ &quot;{$_POST['target']}&quot;.";
 }
 ?>

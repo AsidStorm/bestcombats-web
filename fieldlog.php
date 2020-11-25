@@ -14,7 +14,7 @@
 	</HEAD>
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=e2e0e0> <br>
   <?
-  if ($tr["room"]==57) echo "<H3>Пещера кристаллов. Отчет о поединке.</H3>";
+  if ($tr["room"]==57) echo "<H3>РџРµС‰РµСЂР° РєСЂРёСЃС‚Р°Р»Р»РѕРІ. РћС‚С‡РµС‚ Рѕ РїРѕРµРґРёРЅРєРµ.</H3>";
   echo $tr['log']?><BR>
 </BODY>
 </HTML>

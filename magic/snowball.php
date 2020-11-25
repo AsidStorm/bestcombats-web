@@ -13,40 +13,40 @@ if (!$us["online"]) {
   }
 }
 if (!$us['online'] || $us["invis"]) {
-    echo "Персонаж не в игре!";
+    echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РёРіСЂРµ!";
 } elseif ($owntravma['id'] && !$us['battle']) {
-  echo "Персонаж тяжело травмирован...";
+  echo "РџРµСЂСЃРѕРЅР°Р¶ С‚СЏР¶РµР»Рѕ С‚СЂР°РІРјРёСЂРѕРІР°РЅ...";
 } elseif ($user['klan'] != '' && ($user['klan'] == $us['klan'])) {
-  echo "Чтите честь ваших сокланов.";
+  echo "Р§С‚РёС‚Рµ С‡РµСЃС‚СЊ РІР°С€РёС… СЃРѕРєР»Р°РЅРѕРІ.";
 } elseif ($user['align'] >1 && $user['align'] <2 && $us['align'] >1 && $us['align'] <2) {
-  echo "Чтите честь братьев.";
+  echo "Р§С‚РёС‚Рµ С‡РµСЃС‚СЊ Р±СЂР°С‚СЊРµРІ.";
 } elseif ($user['room'] != $us['room']) {
-  echo "Персонаж в другой комнате!";
+  echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!";
 } elseif ($us['level'] < 1) {
-  echo "Новички находятся под защитой мироздателя!";
+  echo "РќРѕРІРёС‡РєРё РЅР°С…РѕРґСЏС‚СЃСЏ РїРѕРґ Р·Р°С‰РёС‚РѕР№ РјРёСЂРѕР·РґР°С‚РµР»СЏ!";
 } elseif ($us['hp'] < $us['maxhp']*0.33  && !$us['battle']) {
-  echo "Жертва слишком слаба!";
+  echo "Р–РµСЂС‚РІР° СЃР»РёС€РєРѕРј СЃР»Р°Р±Р°!";
 } elseif ($user['hp'] < $user['maxhp']*0.33 && !$user["battle"]) {
-  echo "Вы слишком слабы!";
+  echo "Р’С‹ СЃР»РёС€РєРѕРј СЃР»Р°Р±С‹!";
 } elseif ($us['hp'] < 1  && $us['battle']) {
-  echo "Вы не можете кидать снежки в погибшего!";
+  echo "Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РєРёРґР°С‚СЊ СЃРЅРµР¶РєРё РІ РїРѕРіРёР±С€РµРіРѕ!";
 } else {
   if ($user["battle"]) {
     global $fbattle, $report, $scrollresult;
     $target=$fbattle->findlogin($_POST["target"]);
     if (!$target) {
-      echo "Цель не найдена.";
+      echo "Р¦РµР»СЊ РЅРµ РЅР°Р№РґРµРЅР°.";
     } elseif ($target["team"]==$fbattle->myteam) {
-      echo "Нельзя кидать снежки в товарищей по команде.";
+      echo "РќРµР»СЊР·СЏ РєРёРґР°С‚СЊ СЃРЅРµР¶РєРё РІ С‚РѕРІР°СЂРёС‰РµР№ РїРѕ РєРѕРјР°РЅРґРµ.";
     } elseif ($fbattle->userdata[$target["id"]]["hp"]<=0) {
-      echo "Не стоит глумиться над трупами.";
+      echo "РќРµ СЃС‚РѕРёС‚ РіР»СѓРјРёС‚СЊСЃСЏ РЅР°Рґ С‚СЂСѓРїР°РјРё.";
     } else {
       $fbattle->getbu($target["id"]);
       if ($fbattle->battleunits[$target["id"]]["prototype"]==3946) {
         if ($fbattle->userdata[$target["id"]]["maxhp"]-$fbattle->userdata[$target["id"]]["hp"]>21) {
           $dam=mt_rand(1980, 2000);
         } else $dam=1;
-      } elseif ((strpos($_POST["target"], "Отморозок")===0 && $target["id"]>_BOTSEPARATOR_)) {
+      } elseif ((strpos($_POST["target"], "РћС‚РјРѕСЂРѕР·РѕРє")===0 && $target["id"]>_BOTSEPARATOR_)) {
         $dam=mt_rand(1980, 2000);        
       } else {
         $dam=rand(10,20);
@@ -58,18 +58,18 @@ if (!$us['online'] || $us["invis"]) {
       $fbattle->adddamage($user["id"], $dam, $target["id"]);
 
       $scrollresult=array();
-      $scrollresult["action"]="кинул".($user["sex"]==1?"":"а")." снежок по";
+      $scrollresult["action"]="РєРёРЅСѓР»".($user["sex"]==1?"":"Р°")." СЃРЅРµР¶РѕРє РїРѕ";
       $scrollresult["target"]=$target["id"];
       $scrollresult["logtype"]=1;
       $scrollresult["damage"]=$dam;
       $bet=1;
     }
   } else {
-    if ($user['sex'] == 1) {$action="кинул";}   else {$action="кинула";}
+    if ($user['sex'] == 1) {$action="РєРёРЅСѓР»";}   else {$action="РєРёРЅСѓР»Р°";}
     if ($user['align'] > '2' && $user['align'] < '3')  {
-      $angel="Ангел";
+      $angel="РђРЅРіРµР»";
     } elseif ($user['align'] > '1' && $user['align'] < '2') {
-      $angel="Персонаж";
+      $angel="РџРµСЂСЃРѕРЅР°Р¶";
     }
 
     $jert = $us;
@@ -78,23 +78,23 @@ if (!$us['online'] || $us["invis"]) {
       $jert["hp"]-=$minhp;
       if ($jert["hp"]<0) $jert["hp"]=0;
       if ($user['invis']==1) {
-        addch("<img src=i/magic/snowball2.gif> <B>невидимка</B> ".$action." снежок в &quot;{$_POST['target']}&quot; <b>-$minhp</b> [$jert[hp]/$jert[maxhp]].");
-        addchp ('<font color=red>Внимание!</font> По вам '.$action.' снежок <B>невидимка</B> '."<b>-$minhp</b> [$jert[hp]/$jert[maxhp]]".'.<BR>\'; var z = \'   ','{[]}'.nick7 ($jert['id']).'{[]}');
+        addch("<img src=i/magic/snowball2.gif> <B>РЅРµРІРёРґРёРјРєР°</B> ".$action." СЃРЅРµР¶РѕРє РІ &quot;{$_POST['target']}&quot; <b>-$minhp</b> [$jert[hp]/$jert[maxhp]].");
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РџРѕ РІР°Рј '.$action.' СЃРЅРµР¶РѕРє <B>РЅРµРІРёРґРёРјРєР°</B> '."<b>-$minhp</b> [$jert[hp]/$jert[maxhp]]".'.<BR>\'; var z = \'   ','{[]}'.nick7 ($jert['id']).'{[]}');
       } else {
-        addch("<img src=i/magic/snowball2.gif> <b>{$user['login']}</b> ".$action." снежок в &quot;{$_POST['target']}&quot; <b>-$minhp</b> [$jert[hp]/$jert[maxhp]].<br>");
-        addchp ('<font color=red>Внимание!</font> По вам '.$action.' снежок <B>'.$user['login'].'</B> '."<b>-$minhp</b> [$jert[hp]/$jert[maxhp]]".'.<BR>\'; var z = \'   ','{[]}'.nick7 ($jert['id']).'{[]}');
+        addch("<img src=i/magic/snowball2.gif> <b>{$user['login']}</b> ".$action." СЃРЅРµР¶РѕРє РІ &quot;{$_POST['target']}&quot; <b>-$minhp</b> [$jert[hp]/$jert[maxhp]].<br>");
+        addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РџРѕ РІР°Рј '.$action.' СЃРЅРµР¶РѕРє <B>'.$user['login'].'</B> '."<b>-$minhp</b> [$jert[hp]/$jert[maxhp]]".'.<BR>\'; var z = \'   ','{[]}'.nick7 ($jert['id']).'{[]}');
       }
       //addqueststep($user["id"],5);
       //addqueststep($jert["id"],6);
       mq("update users set fullhptime=".time().", hp=hp-$minhp where id='$jert[id]'");
-      echo '<font color=red>Вы кинули снежок в '.$_POST['target'].'.</font>';
+      echo '<font color=red>Р’С‹ РєРёРЅСѓР»Рё СЃРЅРµР¶РѕРє РІ '.$_POST['target'].'.</font>';
       $bet=1;
     } else {
-      echo '<font color=red>Мазохист?...</font>';
+      echo '<font color=red>РњР°Р·РѕС…РёСЃС‚?...</font>';
     }
   }
   //$bet=1;
 } //else {
-//      echo "Свиток рассыпался в ваших руках...";
+//      echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
 //  }
 ?>

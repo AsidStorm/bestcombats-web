@@ -4,11 +4,11 @@
 
   if ($twohanded) {
     $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE  `type` = '3' AND `dvur` = '1' AND `owner` = '{$_SESSION['uid']}' AND `name` = '{$_POST['target']}' AND `sharped` = 0 LIMIT 1;"));
-    //$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = 'Заточка на +$sharpamount: двуручное оружие' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;"));
+    //$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = 'Р—Р°С‚РѕС‡РєР° РЅР° +$sharpamount: РґРІСѓСЂСѓС‡РЅРѕРµ РѕСЂСѓР¶РёРµ' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;"));
     $sharpamountd=$sharpamount*2;
   } else {
     $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE  `type` = '3' AND (`dvur` = '0' or otdel=30 or otdel=52) AND `owner` = '{$_SESSION['uid']}' AND `name` = '{$_POST['target']}' AND `sharped` = 0 LIMIT 1;"));
-    //$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = 'Заточка на +$sharpamount: оружие' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;"));
+    //$svitok = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `name` = 'Р—Р°С‚РѕС‡РєР° РЅР° +$sharpamount: РѕСЂСѓР¶РёРµ' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;"));
     $sharpamountd=$sharpamount;
   }       // && $svitok
   if ($dress) {
@@ -18,10 +18,10 @@
     if ($weptype) {
       if ($weptype=="posoh") {
         if (mysql_query("UPDATE `inventory` SET `sharped` = 1, `name` = CONCAT(`name`,' +$sharpamount'), `mfmagp` = `mfmagp`+($sharpamount*2), nintel=nintel+$sharpamountr, nmudra=nmudra+$sharpamountr, `cost` = `cost`+(6*$sharpamount) WHERE `id` = {$dress['id']} LIMIT 1;")) {
-          echo "<font color=red><b>Предмет \"{$_POST['target']}\" удачно заговорен +$sharpamount.</b></font> ";
+          echo "<font color=red><b>РџСЂРµРґРјРµС‚ \"{$_POST['target']}\" СѓРґР°С‡РЅРѕ Р·Р°РіРѕРІРѕСЂРµРЅ +$sharpamount.</b></font> ";
           $bet=1;
         } else {
-          echo "<font color=red><b>Произошла ошибка!</b></font>";
+          echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!</b></font>";
         }
       } else {
         $raisestats["nsila"]=($dress["nsila"]>=$dress["nlovk"]?1:0)+($dress["nsila"]>=$dress["ninta"]?1:0)+($dress["nsila"]>=$dress["nvinos"]?1:0);
@@ -37,14 +37,14 @@
           }
         }
         if (mq("UPDATE `inventory` SET `sharped` = 1, $s1=$s1+$sharpamountr, $s2=$s2+$sharpamountr, `name` = CONCAT(`name`,' +$sharpamount'), `minu` = `minu`+$sharpamountd, `maxu`=`maxu`+$sharpamountd".($weptype!="tool"?", `n$weptype` = `n$weptype`+$sharpamountr":"").", `cost` = `cost`+(6*$sharpamount) WHERE `id` = {$dress['id']} LIMIT 1;")) {
-          echo "<font color=red><b>Предмет \"{$_POST['target']}\" удачно заточен +$sharpamount.</b></font> ";
+          echo "<font color=red><b>РџСЂРµРґРјРµС‚ \"{$_POST['target']}\" СѓРґР°С‡РЅРѕ Р·Р°С‚РѕС‡РµРЅ +$sharpamount.</b></font> ";
           $bet=1;
         } else {
-          echo "<font color=red><b>Произошла ошибка!<b></font>";
+          echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
         }
       }
-    } else "<font color=red><b>Этот предмет нельзя заточить</b></font>";
+    } else "<font color=red><b>Р­С‚РѕС‚ РїСЂРµРґРјРµС‚ РЅРµР»СЊР·СЏ Р·Р°С‚РѕС‡РёС‚СЊ</b></font>";
   } else {
-    echo "<font color=red><b>Неправильное имя предмета или неправильный свиток</b></font>";
+    echo "<font color=red><b>РќРµРїСЂР°РІРёР»СЊРЅРѕРµ РёРјСЏ РїСЂРµРґРјРµС‚Р° РёР»Рё РЅРµРїСЂР°РІРёР»СЊРЅС‹Р№ СЃРІРёС‚РѕРє</b></font>";
   }
 ?>

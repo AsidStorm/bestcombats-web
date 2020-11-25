@@ -1,4 +1,4 @@
-<?php
+    <?php
 
   define("CONTEST", 0);
   session_start();
@@ -14,8 +14,8 @@
     if (@$fielddata[$user["room"]]["onebattlee"]) $started=mqfa1("select id from fields where room=".($user["room"]+1));
     if (!$started) {
       $stake=(int)@$_POST["stake"];
-      if ($stake<5) $error="Ставка указана неверно. Минимальная ставка 5 кр.";
-      if ($stake>$user["money"]) $error="У вас недостаточно денег.";
+      if ($stake<5) $error="РЎС‚Р°РІРєР° СѓРєР°Р·Р°РЅР° РЅРµРІРµСЂРЅРѕ. РњРёРЅРёРјР°Р»СЊРЅР°СЏ СЃС‚Р°РІРєР° 5 РєСЂ.";
+      if ($stake>$user["money"]) $error="РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі.";
       if (!@$error) {
         $total=getvar("fieldwin$user[room]");
         $total+=$stake*$fielddata[$user["room"]]["winpart"];
@@ -130,7 +130,7 @@ if(in_array($user["room"], $battleenters)){
   if ($user["room"]==71) {
     $rec1=mqfa("select id from fields where room=72");
     if ($rec1) {
-      echo "Турнир начался. Количество живых участников: ";
+      echo "РўСѓСЂРЅРёСЂ РЅР°С‡Р°Р»СЃСЏ. РљРѕР»РёС‡РµСЃС‚РІРѕ Р¶РёРІС‹С… СѓС‡Р°СЃС‚РЅРёРєРѕРІ: ";
       $r=mq("select id, align, klan, login, level, battle from users where in_tower=71");
       $cnt=mysql_num_rows($r);
       echo $cnt;
@@ -146,11 +146,11 @@ if(in_array($user["room"], $battleenters)){
           setvar("fieldwin$user[room]", 0);
           $nextBattle = 60*60+time();
           mq("update variables set value=".$nextBattle." where var='startbs2'");
-          sysmsg("Битва в Подгорной Башне смерти окончена, победитель - <b>" . $rec["login"] . "</b>. Следующая битва в " . date('H:i', $nextBattle));
-          privatemsg("Вы победили в турнире Башни смерти. Приз: $win кр.", $rec["login"]);
+          sysmsg("Р‘РёС‚РІР° РІ РџРѕРґРіРѕСЂРЅРѕР№ Р‘Р°С€РЅРµ СЃРјРµСЂС‚Рё РѕРєРѕРЅС‡РµРЅР°, РїРѕР±РµРґРёС‚РµР»СЊ - <b>" . $rec["login"] . "</b>. РЎР»РµРґСѓСЋС‰Р°СЏ Р±РёС‚РІР° РІ " . date('H:i', $nextBattle));
+          privatemsg("Р’С‹ РїРѕР±РµРґРёР»Рё РІ С‚СѓСЂРЅРёСЂРµ Р‘Р°С€РЅРё СЃРјРµСЂС‚Рё. РџСЂРёР·: $win РєСЂ.", $rec["login"]);
           outoffield($rec["id"]);
-          mq("update fieldlogs set log=concat(log, '".logdate()." Турнир закончен. Победитель: ".fullnick($rec).".<br>'), winner='$rec[id]', passed=".time()."-started, prize='$win' where id='$rec1[id]'");
-          givemoney($rec["id"], $win, "за победу в Подгорной Башне смерти.");
+          mq("update fieldlogs set log=concat(log, '".logdate()." РўСѓСЂРЅРёСЂ Р·Р°РєРѕРЅС‡РµРЅ. РџРѕР±РµРґРёС‚РµР»СЊ: ".fullnick($rec).".<br>'), winner='$rec[id]', passed=".time()."-started, prize='$win' where id='$rec1[id]'");
+          givemoney($rec["id"], $win, "Р·Р° РїРѕР±РµРґСѓ РІ РџРѕРґРіРѕСЂРЅРѕР№ Р‘Р°С€РЅРµ СЃРјРµСЂС‚Рё.");
           mq("delete from fieldparties where field='$rec1[id]'");
           mq("update users set `align`=`in_tower_align` where `id`='".$rec['id']."' ");
 		  header("location: battleenter.php");
@@ -165,8 +165,8 @@ if(in_array($user["room"], $battleenters)){
       $noapply=1;
       echo mqfa1("select log from fieldlogs where id='$rec1[id]'");
     } else {
-      echo "Начало турнира: ".date("d.m.Y H:i",mqfa1("select value from variables where var='startbs2'"));
-      if ($fielddata[$user["room"]]["stake"]) echo "<br>Призовой фонд: ".getvar("fieldwin$user[room]")." кр.";
+      echo "РќР°С‡Р°Р»Рѕ С‚СѓСЂРЅРёСЂР°: ".date("d.m.Y H:i",mqfa1("select value from variables where var='startbs2'"));
+      if ($fielddata[$user["room"]]["stake"]) echo "<br>РџСЂРёР·РѕРІРѕР№ С„РѕРЅРґ: ".getvar("fieldwin$user[room]")." РєСЂ.";
       echo "<br><br>";               
     }
   }
@@ -182,7 +182,7 @@ if(in_array($user["room"], $battleenters)){
     if ($gi) {
       $r=mq("select users.login from fieldmembers left join users on users.id=fieldmembers.user where fieldmembers.groupid='$gi' and fieldmembers.user<>'$user[id]'");
       while ($rec=mysql_fetch_assoc($r)) {
-        privatemsg("Ваша группа для пещеры кристаллов отменяется, т. к. персонаж $user[login] отказался от участия.", $rec["login"]);
+        privatemsg("Р’Р°С€Р° РіСЂСѓРїРїР° РґР»СЏ РїРµС‰РµСЂС‹ РєСЂРёСЃС‚Р°Р»Р»РѕРІ РѕС‚РјРµРЅСЏРµС‚СЃСЏ, С‚. Рє. РїРµСЂСЃРѕРЅР°Р¶ $user[login] РѕС‚РєР°Р·Р°Р»СЃСЏ РѕС‚ СѓС‡Р°СЃС‚РёСЏ.", $rec["login"]);
       }
       $r=mq("select user from fieldmembers where groupid='$gi'");
       while ($rec=mysql_fetch_assoc($r)) {
@@ -219,7 +219,7 @@ if(in_array($user["room"], $battleenters)){
       $_POST["enemy"]="";
     }
     if ($bad) {
-      echo "<b><font color=red>У участника группы неверно указан ник, персонаж не онлайн, в другой комнате или уже в заявке.</font></b>";
+      echo "<b><font color=red>РЈ СѓС‡Р°СЃС‚РЅРёРєР° РіСЂСѓРїРїС‹ РЅРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ РЅРёРє, РїРµСЂСЃРѕРЅР°Р¶ РЅРµ РѕРЅР»Р°Р№РЅ, РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ РёР»Рё СѓР¶Рµ РІ Р·Р°СЏРІРєРµ.</font></b>";
     } else {
       mq("insert into fieldgroups set room='$user[room]', enemy='$enemy'");
       $group=mysql_insert_id();
@@ -237,7 +237,7 @@ if(in_array($user["room"], $battleenters)){
     if($inteam) {
       if ($_GET["verify"]) mq("update fieldmembers set valid=1 where user='$user[id]'");
       if ($fielddata[$user["room"]]["team"]) echo "<fieldset style=\"padding-left:5px;width=50%\">
-      <legend><b> Группа </b></legend>";
+      <legend><b> Р“СЂСѓРїРїР° </b></legend>";
       $groupid=mqfa1("select groupid from fieldmembers where user='$user[id]'");
       if ($groupid) {
         echo "<br><table>";
@@ -245,13 +245,13 @@ if(in_array($user["room"], $battleenters)){
         $needverify=0;
         while ($rec=mysql_fetch_assoc($r)) {
           if (!$rec["valid"] && $rec["login"]==$user["login"]) $needverify=1;
-          echo "<tr><td><b>$rec[login]</b></td><td>".($rec["valid"]?"<font color=green>подтвердил участие</font>":"<font color=red>ожидание подтверждения</font>")."</td></tr>";
+          echo "<tr><td><b>$rec[login]</b></td><td>".($rec["valid"]?"<font color=green>РїРѕРґС‚РІРµСЂРґРёР» СѓС‡Р°СЃС‚РёРµ</font>":"<font color=red>РѕР¶РёРґР°РЅРёРµ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ</font>")."</td></tr>";
         }
         echo "</table><br>";
       }
-      if ($needverify) echo "Для участия в битве, вам необходимо подтвердить своё участие.<br><br>
-      <input style=\"font-size:12px;\" type=\"button\" onclick=\"document.location.href='battleenter.php?verify=1';\" value=\"Подтвердить участие\">&nbsp;&nbsp;&nbsp;";
-      echo "<input style=\"font-size:12px;\" type=\"button\" onclick=\"document.location.href='battleenter.php?leave=1';\" value=\"".($fielddata[$user["room"]]["team"]?"Покинуть группу":"Отказаться от участия")."\">";
+      if ($needverify) echo "Р”Р»СЏ СѓС‡Р°СЃС‚РёСЏ РІ Р±РёС‚РІРµ, РІР°Рј РЅРµРѕР±С…РѕРґРёРјРѕ РїРѕРґС‚РІРµСЂРґРёС‚СЊ СЃРІРѕС‘ СѓС‡Р°СЃС‚РёРµ.<br><br>
+      <input style=\"font-size:12px;\" type=\"button\" onclick=\"document.location.href='battleenter.php?verify=1';\" value=\"РџРѕРґС‚РІРµСЂРґРёС‚СЊ СѓС‡Р°СЃС‚РёРµ\">&nbsp;&nbsp;&nbsp;";
+      echo "<input style=\"font-size:12px;\" type=\"button\" onclick=\"document.location.href='battleenter.php?leave=1';\" value=\"".($fielddata[$user["room"]]["team"]?"РџРѕРєРёРЅСѓС‚СЊ РіСЂСѓРїРїСѓ":"РћС‚РєР°Р·Р°С‚СЊСЃСЏ РѕС‚ СѓС‡Р°СЃС‚РёСЏ")."\">";
       if ($fielddata[$user["room"]]["team"]) "</fieldset>";
     } elseif (!$noapply) {
       print "<table cellpadding=1 cellspacing=0>";
@@ -269,18 +269,18 @@ if(in_array($user["room"], $battleenters)){
 if (!@$fielddata[$user["room"]]["nogroups"]) {
   echo "<form action=\"battleenter.php\" method=\"post\"><input type=\"hidden\" name=\"todo\" value=\"creategroup\">
   <fieldset style='padding-left: 5; width=50%; color:#000000;'>
-  <legend><b> Группа </b></legend>
+  <legend><b> Р“СЂСѓРїРїР° </b></legend>
   <table>";
   $i=0;
   while ($i<$fielddata[$user["room"]]["team"]-1) {
     $i++;
     echo "<tr><td>";
-    if ($i==1) echo "Первый";if ($i==2) echo "Второй";if ($i==3) echo "Третий";
-    echo " участник:</td><td><input value=\"".@$_POST["user$i"]."\" type=\"text\" name=\"user$i\" size=16></td></tr>";
+    if ($i==1) echo "РџРµСЂРІС‹Р№";if ($i==2) echo "Р’С‚РѕСЂРѕР№";if ($i==3) echo "РўСЂРµС‚РёР№";
+    echo " СѓС‡Р°СЃС‚РЅРёРє:</td><td><input value=\"".@$_POST["user$i"]."\" type=\"text\" name=\"user$i\" size=16></td></tr>";
   }
-  if (CONTEST) echo "<tr><td>Противник (любой):</td><td><input value=\"".@$_POST["enemy"]."\" type=\"text\" name=\"enemy\" size=16></td></tr>";
+  if (CONTEST) echo "<tr><td>РџСЂРѕС‚РёРІРЅРёРє (Р»СЋР±РѕР№):</td><td><input value=\"".@$_POST["enemy"]."\" type=\"text\" name=\"enemy\" size=16></td></tr>";
   echo "</table>
-  <input style='font-size:12px;' TYPE=submit name=open value='Создать группу'>&nbsp;<BR>
+  <input style='font-size:12px;' TYPE=submit name=open value='РЎРѕР·РґР°С‚СЊ РіСЂСѓРїРїСѓ'>&nbsp;<BR>
   </fieldset>
   </form>";
 }
@@ -295,21 +295,21 @@ if ($fielddata[$user["room"]]["stake"]) {
     //}
   echo "<form action=\"battleenter.php\" method=\"post\">
   <input type=\"hidden\" name=\"leave\" value=\"0\">";
-  if ($stake) echo "Ваша текущая ставка: $stake кр.<br><br>";
-  echo ($stake?"Добавить к ставке":"Ваша ставка").": <input type=\"text\" size=2 name=\"stake\"> кр.
-  <input type=\"submit\" value=\"".($stake?"Повысить ставку":"Принять участие в бою")."\">
-  ".($stake?"<input type=\"button\" value=\"Отказаться от участия\" onclick=\"if (confirm('Вы уверены? Сделання ставка возврщена не будет.')) {this.form.leave.value=1;this.form.submit();}\">":"")."
+  if ($stake) echo "Р’Р°С€Р° С‚РµРєСѓС‰Р°СЏ СЃС‚Р°РІРєР°: $stake РєСЂ.<br><br>";
+  echo ($stake?"Р”РѕР±Р°РІРёС‚СЊ Рє СЃС‚Р°РІРєРµ":"Р’Р°С€Р° СЃС‚Р°РІРєР°").": <input type=\"text\" size=2 name=\"stake\"> РєСЂ.
+  <input type=\"submit\" value=\"".($stake?"РџРѕРІС‹СЃРёС‚СЊ СЃС‚Р°РІРєСѓ":"РџСЂРёРЅСЏС‚СЊ СѓС‡Р°СЃС‚РёРµ РІ Р±РѕСЋ")."\">
+  ".($stake?"<input type=\"button\" value=\"РћС‚РєР°Р·Р°С‚СЊСЃСЏ РѕС‚ СѓС‡Р°СЃС‚РёСЏ\" onclick=\"if (confirm('Р’С‹ СѓРІРµСЂРµРЅС‹? РЎРґРµР»Р°РЅРЅСЏ СЃС‚Р°РІРєР° РІРѕР·РІСЂС‰РµРЅР° РЅРµ Р±СѓРґРµС‚.')) {this.form.leave.value=1;this.form.submit();}\">":"")."
   <div>&nbsp;</div></form>";
 }
-else echo "<input onclick=\"document.location.href='battleenter.php?joinfree=1';\" style='font-size:12px;width:210px' type=button value=\"".($fielddata[$user["room"]]["team"]?"Присоединиться к свободной группе":"Принять участие в бою")."\"><div>&nbsp;</div>";
+else echo "<input onclick=\"document.location.href='battleenter.php?joinfree=1';\" style='font-size:12px;width:210px' type=button value=\"".($fielddata[$user["room"]]["team"]?"РџСЂРёСЃРѕРµРґРёРЅРёС‚СЊСЃСЏ Рє СЃРІРѕР±РѕРґРЅРѕР№ РіСЂСѓРїРїРµ":"РџСЂРёРЅСЏС‚СЊ СѓС‡Р°СЃС‚РёРµ РІ Р±РѕСЋ")."\"><div>&nbsp;</div>";
 
-if (!@$fielddata[$user["room"]]["nostamp"]) echo "<input type=\"button\" value=\"Профили характеристик\" onClick=\"document.location.href='towerstamp.php'\">";
+if (!@$fielddata[$user["room"]]["nostamp"]) echo "<input type=\"button\" value=\"РџСЂРѕС„РёР»Рё С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє\" onClick=\"document.location.href='towerstamp.php'\">";
 
 if ($user["room"]==56) {
-  echo "<br><br><b>Последние 10 поединков:</b><br><br>";
+  echo "<br><br><b>РџРѕСЃР»РµРґРЅРёРµ 10 РїРѕРµРґРёРЅРєРѕРІ:</b><br><br>";
   $r=mq("select * from fieldlogs where room=".($user["room"]+1)." and (pts1=10 or pts2=10) order by id desc limit 0, 10");
   while ($rec=mysql_fetch_assoc($r)) {
-    echo "<b>$rec[team1]</b> ".($rec["pts1"]==10?"<img src=\"".IMGBASE."/i/flag.gif\">":"")." против <b>$rec[team2]</b> ".($rec["pts2"]==10?"<img src=\"".IMGBASE."/i/flag.gif\">":"")." <a href=\"fieldlog.php?log=$rec[id]\" target=\"_blank\">»»</a><br>";
+    echo "<b>$rec[team1]</b> ".($rec["pts1"]==10?"<img src=\"".IMGBASE."/i/flag.gif\">":"")." РїСЂРѕС‚РёРІ <b>$rec[team2]</b> ".($rec["pts2"]==10?"<img src=\"".IMGBASE."/i/flag.gif\">":"")." <a href=\"fieldlog.php?log=$rec[id]\" target=\"_blank\">В»В»</a><br>";
   }
 }
 
@@ -317,7 +317,7 @@ if ($user["room"]==56) {
     }
 
     if ($user["room"]==71) {
-      echo "<H4>Наибольшее количество побед</H4><table>";
+      echo "<H4>РќР°РёР±РѕР»СЊС€РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР±РµРґ</H4><table>";
       $r=mq("select winner, count(id) as cid from fieldlogs where room='72' and winner>0 group by winner order by cid desc limit 0, 10");
       while ($rec=mysql_fetch_assoc($r)) {
         echo "<tr><td width=\"30\"><b>$rec[cid]</b></td><td>".fullnick($rec["winner"])."</td></tr>";
@@ -325,28 +325,28 @@ if ($user["room"]==56) {
       echo "</table>";
 
       function fieldrow($rec) {
-        return ($rec["winner"]?"Победитель: ".fullnick($rec["winner"]).". ":"")."Начало турнира <FONT class=date>$rec[team1]</font> ".($rec["passed"]?"продолжительность <FONT class=date>".secs2hrs($rec["passed"])."</FONT> ":"").($rec["prize"]?"приз: <B>$rec[prize] кр.</B> ":"")."<a href=\"fieldlog.php?log=$rec[id]\" target=\"_blank\">история турнира &raquo;&raquo;</a><br>";
+        return ($rec["winner"]?"РџРѕР±РµРґРёС‚РµР»СЊ: ".fullnick($rec["winner"]).". ":"")."РќР°С‡Р°Р»Рѕ С‚СѓСЂРЅРёСЂР° <FONT class=date>$rec[team1]</font> ".($rec["passed"]?"РїСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ <FONT class=date>".secs2hrs($rec["passed"])."</FONT> ":"").($rec["prize"]?"РїСЂРёР·: <B>$rec[prize] РєСЂ.</B> ":"")."<a href=\"fieldlog.php?log=$rec[id]\" target=\"_blank\">РёСЃС‚РѕСЂРёСЏ С‚СѓСЂРЅРёСЂР° &raquo;&raquo;</a><br>";
       }
 
-      echo "<P><H4>Самый продолжительный турнир</H4>";
+      echo "<P><H4>РЎР°РјС‹Р№ РїСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅС‹Р№ С‚СѓСЂРЅРёСЂ</H4>";
 
       $rec=mqfa("select * from fieldlogs where room=".($user["room"]+1)." order by passed desc");
       echo fieldrow($rec);
 
-      echo "<P><H4>Максимальный выигрыш</H4>";
+      echo "<P><H4>РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІС‹РёРіСЂС‹С€</H4>";
 
       $rec=mqfa("select * from fieldlogs where room=".($user["room"]+1)." order by prize desc");
       echo fieldrow($rec);
 
 
-      echo "<br><br><b>Последние 10 турниров:</b><br><br>";
+      echo "<br><br><b>РџРѕСЃР»РµРґРЅРёРµ 10 С‚СѓСЂРЅРёСЂРѕРІ:</b><br><br>";
       $r=mq("select * from fieldlogs where room=".($user["room"]+1)." order by id desc limit 0, 10");
       while ($rec=mysql_fetch_assoc($r)) {
         echo fieldrow($rec);
       }
     }
 
-  } else echo "<center><b>Вход только с ".$fielddata[$user["room"]]["minlevel"]."-го уровня.</b></center>";
+  } else echo "<center><b>Р’С…РѕРґ С‚РѕР»СЊРєРѕ СЃ ".$fielddata[$user["room"]]["minlevel"]."-РіРѕ СѓСЂРѕРІРЅСЏ.</b></center>";
 
 if (!@$fielddata[$user["room"]]["cronstart"]) {
   $r=mq("select user, groupid from fieldmembers where valid=1 and room='$user[room]' order by id desc");
@@ -472,11 +472,11 @@ if (!@$fielddata[$user["room"]]["cronstart"]) {
           setstamp($v, $user["room"]);
           remfieldmember($v);
         }
-        $log="<span class=date>".date("d.m.y H:i")."</span> Начало поединка. Участники: $team1 против $team2<BR>";
+        $log="<span class=date>".date("d.m.y H:i")."</span> РќР°С‡Р°Р»Рѕ РїРѕРµРґРёРЅРєР°. РЈС‡Р°СЃС‚РЅРёРєРё: $team1 РїСЂРѕС‚РёРІ $team2<BR>";
         mq("insert into fieldlogs set id='$field', team1='$team1', team2='$team2', room='".($user["room"]+1)."', log='$log'");
         $r=mq("select login from users where $cond");
         while ($rec=mysql_fetch_assoc($r)) {
-          addchnavig("Поединок в пещере кристаллов начался!", $rec["login"], "field.php");
+          addchnavig("РџРѕРµРґРёРЅРѕРє РІ РїРµС‰РµСЂРµ РєСЂРёСЃС‚Р°Р»Р»РѕРІ РЅР°С‡Р°Р»СЃСЏ!", $rec["login"], "field.php");
         }
         mq("update users set caveleader='$field' where $cond");
         echo "<script>document.location.replace('field.php');</script>";
@@ -505,8 +505,8 @@ if (!@$fielddata[$user["room"]]["cronstart"]) {
     echo moveline($links);
   }
 ?>
-<DIV align=right><INPUT onClick="document.location.href='vxod.php?<? echo time(); ?>'" value=Обновить type=button>
-<? if ($user["room"]==51) { ?><INPUT style="font-size:12px;" type='button' onClick="location='zadaniya.php'" value="Задания"><? } ?>
+<DIV align=right><INPUT onClick="document.location.href='vxod.php?<? echo time(); ?>'" value=РћР±РЅРѕРІРёС‚СЊ type=button>
+<? if ($user["room"]==51) { ?><INPUT style="font-size:12px;" type='button' onClick="location='zadaniya.php'" value="Р—Р°РґР°РЅРёСЏ"><? } ?>
 </DIV></TD></TR></TBODY></TABLE>
 </TD>
 </TR>

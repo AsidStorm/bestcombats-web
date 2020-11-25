@@ -4,7 +4,7 @@ function errtrap(nick)
 	var OldErrorTrap = window.onerror;
 	window.onerror = NewErrorTrap;
 	if (window.opener) { // && window.opener.top.delay) {
-		document.write('<IMG SRC=../i/lock3.gif WIDTH=20 HEIGHT=15 ALT="œË‚‡ÚÌÓÂ ÒÓÓ·˘ÂÌËÂ" onclick="window.opener.top.AddToPrivate(\''+nick+'\', true)" style="cursor:hand">');
+		document.write('<IMG SRC=../i/lock3.gif WIDTH=20 HEIGHT=15 ALT="–ü—Ä–∏–≤–∞—Ç–Ω–æ–µ —Å–æ–æ–±—â–µ–Ω–∏–µ" onclick="window.opener.top.AddToPrivate(\''+nick+'\', true)" style="cursor:hand">');
 	}
 	if (document.log != null) { window.top.location="/index.htm"; }
 	window.onerror = OldErrorTrap;
@@ -75,7 +75,7 @@ function ShowGift(title, name, img, text, from, y, uid) {
 	  if (uid){
 	  	if (parseInt(uid))from = gift[0] + '<a target=_blank href="/inf.php?'+uid+'">' + from + '</a>' + gift[1];
 		else from = gift[0] + '<a target=_blank href="/encicl/klan/'+uid+'.html">' + from + '</a>' + gift[1];
-	  }else if (from) from = gift[0] + ((from == '¿Õ“»¡  Online')?from:'<a target=_blank href="/inf.php?login='+quote_url(from)+'">' + from + '</a>') + gift[1];
+	  }else if (from) from = gift[0] + ((from == '–ê–ù–¢–ò–ë–ö Online')?from:'<a target=_blank href="/inf.php?login='+quote_url(from)+'">' + from + '</a>') + gift[1];
 	  if (!from) from = gift[2];
 	  document.getElementById("mgift_sign").innerHTML = '<small>' + (text?text+'<br>':'') + from + '</small>';
 	  document.getElementById("mgift_title").innerHTML = '<small><b>' + stitle + '</b></small>';

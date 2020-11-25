@@ -1,6 +1,6 @@
 <?
-  $teleports["2"]=array("name"=>"Ïåùåðà Óæàñà 2 Ýòàæ", "location"=>"17", "vector"=>"180", "l"=>"454", "t"=>"223");
-  $teleports["3"]=array("name"=>"Ïåùåðà Óæàñà", "location"=>"88", "vector"=>"0", "l"=>"476", "t"=>"141");
-  $teleports["5"]=array("name"=>"Ïåùåðà Óæàñà 2 Ýòàæ", "location"=>"02", "vector"=>"90", "l"=>"393", "t"=>"235");
-  $teleports["6"]=array("name"=>"Ïåùåðà Óæàñà 2 Ýòàæ", "location"=>"62", "vector"=>"90", "l"=>"393", "t"=>"162");
+  $teleports["2"]=array("name"=>"ÐŸÐµÑ‰ÐµÑ€Ð° Ð£Ð¶Ð°ÑÐ° 2 Ð­Ñ‚Ð°Ð¶", "location"=>"17", "vector"=>"180", "l"=>"454", "t"=>"223");
+  $teleports["3"]=array("name"=>"ÐŸÐµÑ‰ÐµÑ€Ð° Ð£Ð¶Ð°ÑÐ°", "location"=>"88", "vector"=>"0", "l"=>"476", "t"=>"141");
+  $teleports["5"]=array("name"=>"ÐŸÐµÑ‰ÐµÑ€Ð° Ð£Ð¶Ð°ÑÐ° 2 Ð­Ñ‚Ð°Ð¶", "location"=>"02", "vector"=>"90", "l"=>"393", "t"=>"235");
+  $teleports["6"]=array("name"=>"ÐŸÐµÑ‰ÐµÑ€Ð° Ð£Ð¶Ð°ÑÐ° 2 Ð­Ñ‚Ð°Ð¶", "location"=>"62", "vector"=>"90", "l"=>"393", "t"=>"162");
 ?>

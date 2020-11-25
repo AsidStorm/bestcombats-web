@@ -1,7 +1,7 @@
 document.onmousedown = Down;
 function Down() {top.CtrlPress = window.event.ctrlKey}
 
-// Разрешенные смайлики
+// Р Р°Р·СЂРµС€РµРЅРЅС‹Рµ СЃРјР°Р№Р»РёРєРё
 var sm = new Array("horse",60,40,  "hug",48,20, "laugh",15,15,  "susel",70,34 , "fingal",22,15,  "eek",15,15, "flowers",28,29, "smoke",20,20,  "hi",31,28,  "bye",15,15,
 "king",21,22, "king2",28,24, "boks2",28,21, "boks",62,28,  "gent",15,21,  "lady",15,19,  "tongue",15,15,  "smil",16,16,  "rotate",15,15,
 "ponder",21,15,  "bow",15,21, "smile",18,18, "angel",42,23, "angel2",26,25,  "hello",25,27,  "dont",26,26,  "idea",26,27,  "mol",27,22,  "super",26,28,

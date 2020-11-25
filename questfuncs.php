@@ -94,7 +94,7 @@
       $botid = $arha['id'];
     }
     if(@$battleid > 0) {
-        //вмешиваемся
+        //РІРјРµС€РёРІР°РµРјСЃСЏ
         $bd = mqfa ("SELECT * FROM `battle` WHERE id='$battleid'");
         $battle = unserialize($bd['teams']);
         $ak = array_keys($battle[$botid]);
@@ -104,22 +104,22 @@
             $battle[$k][$user1['id']] = array(0,0,time());
         }
         $t1 = explode(";",$bd['t1']);
-        // проставляем кто-где
+        // РїСЂРѕСЃС‚Р°РІР»СЏРµРј РєС‚Рѕ-РіРґРµ
         if (in_array ($botid,$t1)) {
             $ttt = 2;
         } else {
             $ttt = 1;
         }
-        addch ("<b>".nick7($user1['id'])."</b> вмешался в <a href=logs.php?log=".$id." target=_blank>поединок >></a>.  ",$user1['room']);
+        addch ("<b>".nick7($user1['id'])."</b> РІРјРµС€Р°Р»СЃСЏ РІ <a href=logs.php?log=".$id." target=_blank>РїРѕРµРґРёРЅРѕРє >></a>.  ",$user1['room']);
 
-        //mysql_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user1['id'],"B".$ttt).' вмешался в поединок!<BR>\') WHERE `id` = '.$battle.'');
+        //mysql_query('UPDATE `logs` SET `log` = CONCAT(`log`,\'<span class=date>'.date("H:i").'</span> '.nick5($user1['id'],"B".$ttt).' РІРјРµС€Р°Р»СЃСЏ РІ РїРѕРµРґРёРЅРѕРє!<BR>\') WHERE `id` = '.$battle.'');
         //if ($user1['id']=='111' OR $user1['id']=='4717') {
-        //addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> Внезапно небо потемнело, засверкали молнии, в их сполохах стали видны приближающиеся тени с горяими глазами. Бойцы, забыв про свои обиды, в страхе прижались друг к другу...<BR>');
+        //addlog($jert['battle'],'<span class=date>'.date("H:i").'</span> Р’РЅРµР·Р°РїРЅРѕ РЅРµР±Рѕ РїРѕС‚РµРјРЅРµР»Рѕ, Р·Р°СЃРІРµСЂРєР°Р»Рё РјРѕР»РЅРёРё, РІ РёС… СЃРїРѕР»РѕС…Р°С… СЃС‚Р°Р»Рё РІРёРґРЅС‹ РїСЂРёР±Р»РёР¶Р°СЋС‰РёРµСЃСЏ С‚РµРЅРё СЃ РіРѕСЂСЏРёРјРё РіР»Р°Р·Р°РјРё. Р‘РѕР№С†С‹, Р·Р°Р±С‹РІ РїСЂРѕ СЃРІРѕРё РѕР±РёРґС‹, РІ СЃС‚СЂР°С…Рµ РїСЂРёР¶Р°Р»РёСЃСЊ РґСЂСѓРі Рє РґСЂСѓРіСѓ...<BR>');
         //}
         if ($user1['invis']==1) {
-        addlog($battleid,'<span class=date>'.date("H:i").'</span> <b>невидимка</b> вмешался в поединок!<BR>');
+        addlog($battleid,'<span class=date>'.date("H:i").'</span> <b>РЅРµРІРёРґРёРјРєР°</b> РІРјРµС€Р°Р»СЃСЏ РІ РїРѕРµРґРёРЅРѕРє!<BR>');
         }else
-        addlog($battleid,'<span class=date>'.date("H:i").'</span> '.nick5($user1['id'],"B".$ttt).' вмешался в поединок!<BR>');
+        addlog($battleid,'<span class=date>'.date("H:i").'</span> '.nick5($user1['id'],"B".$ttt).' РІРјРµС€Р°Р»СЃСЏ РІ РїРѕРµРґРёРЅРѕРє!<BR>');
 
         mysql_query('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t'.$ttt.'`=CONCAT(`t'.$ttt.'`,\';'.$user1['id'].'\')  WHERE `id` = '.$battleid.' ;');
         mysql_query("UPDATE users SET `battle` =".$battleid.",`zayavka`=0 WHERE `id`= ".$user1['id']);
@@ -127,7 +127,7 @@
         if (!$noredir) header("Location:fbattle.php");
         //die("<script>location.href='fbattle.php';</script>");
     } else {
-        // начинаем бой
+        // РЅР°С‡РёРЅР°РµРј Р±РѕР№
         include "config/questbots.php";
         if (@$questbots[$b]) $bot['maxhp']=questbothp();
         mq("INSERT INTO `bots` (`name`,`prototype`,`battle`,`hp`) values ('$name','$b','','".$bot['maxhp']."');");
@@ -161,7 +161,7 @@
           $cond.=" or id='$botid' ";
           $teams[$user1['id']][$botid] = array(0,0,time());
           $teams[$botid][$user1['id']] = array(0,0,time());
-          $others.="<span class=date>".date("H:i")."</span> <span class=B2>$botname</span> вмешался в поединок.<BR>";
+          $others.="<span class=date>".date("H:i")."</span> <span class=B2>$botname</span> РІРјРµС€Р°Р»СЃСЏ РІ РїРѕРµРґРёРЅРѕРє.<BR>";
           $t2.=";$botid";
         }
         $sv = array(3,4,5);
@@ -177,22 +177,22 @@
 
         $battleid = mysql_insert_id();
 
-        // апдейтим врага
+        // Р°РїРґРµР№С‚РёРј РІСЂР°РіР°
         mq("UPDATE `bots` SET `battle` = {$battleid} WHERE $cond");
         mq("UPDATE `users` SET `battle` = {$battleid} WHERE `id` = {$user1[id]} LIMIT 1;");
-        // создаем лог
+        // СЃРѕР·РґР°РµРј Р»РѕРі
 
         if ($user1['invis']==1) {
-        $rr = "<b>невидимка</b> и <b>".nick3($botid1)."</b>";
-        } else $rr = "<b>".nick3($user1['id'])."</b> и <b>".nick3($botid1)."</b>";
-        addch ("<a href=logs.php?log=".$battleid." target=_blank>Бой</a> между <B><b>".nick7($user1['id'])."</b> и <b>".nick7($botid1)."</b> начался.   ",$user1['room']);
+        $rr = "<b>РЅРµРІРёРґРёРјРєР°</b> Рё <b>".nick3($botid1)."</b>";
+        } else $rr = "<b>".nick3($user1['id'])."</b> Рё <b>".nick3($botid1)."</b>";
+        addch ("<a href=logs.php?log=".$battleid." target=_blank>Р‘РѕР№</a> РјРµР¶РґСѓ <B><b>".nick7($user1['id'])."</b> Рё <b>".nick7($botid1)."</b> РЅР°С‡Р°Р»СЃСЏ.   ",$user1['room']);
 
-        //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
+        //mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>');");
         //if ($user1['id']=='111' OR $user1['id']=='4717') {
-        //addlog($id,"<span class=date>".date("Y.m.d H.i")."</span> Внезапно небо потемнело, засверкали молнии, в их сполохах стали видны приближающиеся тени с горяими глазами. Бойцы, забыв про свои обиды, в страхе прижались друг к другу...<BR>");
+        //addlog($id,"<span class=date>".date("Y.m.d H.i")."</span> Р’РЅРµР·Р°РїРЅРѕ РЅРµР±Рѕ РїРѕС‚РµРјРЅРµР»Рѕ, Р·Р°СЃРІРµСЂРєР°Р»Рё РјРѕР»РЅРёРё, РІ РёС… СЃРїРѕР»РѕС…Р°С… СЃС‚Р°Р»Рё РІРёРґРЅС‹ РїСЂРёР±Р»РёР¶Р°СЋС‰РёРµСЃСЏ С‚РµРЅРё СЃ РіРѕСЂСЏРёРјРё РіР»Р°Р·Р°РјРё. Р‘РѕР№С†С‹, Р·Р°Р±С‹РІ РїСЂРѕ СЃРІРѕРё РѕР±РёРґС‹, РІ СЃС‚СЂР°С…Рµ РїСЂРёР¶Р°Р»РёСЃСЊ РґСЂСѓРі Рє РґСЂСѓРіСѓ...<BR>");
         //}
 
-        addlog($battleid,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>".($others?"$others<BR>":""));
+        addlog($battleid,"Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>".($others?"$others<BR>":""));
         if (!$noredir) header("Location:fbattle.php");
         //die("<script>location.href='fbattle.php';</script>");
     }

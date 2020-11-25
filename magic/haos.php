@@ -1,26 +1,26 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
 	//if (rand(1,2)==1) {
 	
-$coma[] = "А жену мою отправь?!";
-$coma[] = "Да, у него все равно в голове хаос был. ";
-$coma[] = "Закон жесток, но справедлив!";
-$coma[] = "Здесь будет править Закон, а не Хаос!";
-$coma[] = "И с этим хаотиком я хотел дружить... ";
-$coma[] = "Мне б жену туда же ";
-$coma[] = "Не тыкайте в него пальцами, не надо!";
-$coma[] = "С утра ждал этого момента";
-$coma[] = "Тащите его сюда, где мое большое клеймо???";
-$coma[] = "Теперь твои глазки голубыми не назовешь.";
-$coma[] = "Тот, кто попирает закон ногами, не может прочно стоять на них.";
-$coma[] = "Ходят тут всякие, а потом вещи пропадают. ";
-$coma[] = "Хаос наступает ";
-$coma[] = "С вещами на выход.";
-$coma[] = "Законы надо соблюдать, клеймо рогатое!";
-$coma[] = "Ай-яй-яй, какие люди среди нас! ";
-$coma[] = "Присвойте ему номер, а то там такая неразбериха. ";
-$coma[] = "Мда…. Надеюсь это не смертельно. ";
-$coma[] = "Хвала Мироздателю!";
+$coma[] = "Рђ Р¶РµРЅСѓ РјРѕСЋ РѕС‚РїСЂР°РІСЊ?!";
+$coma[] = "Р”Р°, Сѓ РЅРµРіРѕ РІСЃРµ СЂР°РІРЅРѕ РІ РіРѕР»РѕРІРµ С…Р°РѕСЃ Р±С‹Р». ";
+$coma[] = "Р—Р°РєРѕРЅ Р¶РµСЃС‚РѕРє, РЅРѕ СЃРїСЂР°РІРµРґР»РёРІ!";
+$coma[] = "Р—РґРµСЃСЊ Р±СѓРґРµС‚ РїСЂР°РІРёС‚СЊ Р—Р°РєРѕРЅ, Р° РЅРµ РҐР°РѕСЃ!";
+$coma[] = "Р СЃ СЌС‚РёРј С…Р°РѕС‚РёРєРѕРј СЏ С…РѕС‚РµР» РґСЂСѓР¶РёС‚СЊ... ";
+$coma[] = "РњРЅРµ Р± Р¶РµРЅСѓ С‚СѓРґР° Р¶Рµ ";
+$coma[] = "РќРµ С‚С‹РєР°Р№С‚Рµ РІ РЅРµРіРѕ РїР°Р»СЊС†Р°РјРё, РЅРµ РЅР°РґРѕ!";
+$coma[] = "РЎ СѓС‚СЂР° Р¶РґР°Р» СЌС‚РѕРіРѕ РјРѕРјРµРЅС‚Р°";
+$coma[] = "РўР°С‰РёС‚Рµ РµРіРѕ СЃСЋРґР°, РіРґРµ РјРѕРµ Р±РѕР»СЊС€РѕРµ РєР»РµР№РјРѕ???";
+$coma[] = "РўРµРїРµСЂСЊ С‚РІРѕРё РіР»Р°Р·РєРё РіРѕР»СѓР±С‹РјРё РЅРµ РЅР°Р·РѕРІРµС€СЊ.";
+$coma[] = "РўРѕС‚, РєС‚Рѕ РїРѕРїРёСЂР°РµС‚ Р·Р°РєРѕРЅ РЅРѕРіР°РјРё, РЅРµ РјРѕР¶РµС‚ РїСЂРѕС‡РЅРѕ СЃС‚РѕСЏС‚СЊ РЅР° РЅРёС….";
+$coma[] = "РҐРѕРґСЏС‚ С‚СѓС‚ РІСЃСЏРєРёРµ, Р° РїРѕС‚РѕРј РІРµС‰Рё РїСЂРѕРїР°РґР°СЋС‚. ";
+$coma[] = "РҐР°РѕСЃ РЅР°СЃС‚СѓРїР°РµС‚ ";
+$coma[] = "РЎ РІРµС‰Р°РјРё РЅР° РІС‹С…РѕРґ.";
+$coma[] = "Р—Р°РєРѕРЅС‹ РЅР°РґРѕ СЃРѕР±Р»СЋРґР°С‚СЊ, РєР»РµР№РјРѕ СЂРѕРіР°С‚РѕРµ!";
+$coma[] = "РђР№-СЏР№-СЏР№, РєР°РєРёРµ Р»СЋРґРё СЃСЂРµРґРё РЅР°СЃ! ";
+$coma[] = "РџСЂРёСЃРІРѕР№С‚Рµ РµРјСѓ РЅРѕРјРµСЂ, Р° С‚Рѕ С‚Р°Рј С‚Р°РєР°СЏ РЅРµСЂР°Р·Р±РµСЂРёС…Р°. ";
+$coma[] = "РњРґР°вЂ¦. РќР°РґРµСЋСЃСЊ СЌС‚Рѕ РЅРµ СЃРјРµСЂС‚РµР»СЊРЅРѕ. ";
+$coma[] = "РҐРІР°Р»Р° РњРёСЂРѕР·РґР°С‚РµР»СЋ!";
 
 
 		if ($_SESSION['uid'] == null) header("Location: index.php");
@@ -56,57 +56,57 @@ $coma[] = "Хвала Мироздателю!";
 							$ldblock=1;
 						
 							switch($_POST['timer']) {
-								case "2": $magictime="два дня."; break;
-								case "3": $magictime="три дня."; break;
-								case "7": $magictime="неделя."; break;
-								case "14": $magictime="две недели."; break;
-								case "30": $magictime="месяц."; break;
-								case "60": $magictime="два месяца."; break;
-								case "365": $magictime="бессрочно."; break;
+								case "2": $magictime="РґРІР° РґРЅСЏ."; break;
+								case "3": $magictime="С‚СЂРё РґРЅСЏ."; break;
+								case "7": $magictime="РЅРµРґРµР»СЏ."; break;
+								case "14": $magictime="РґРІРµ РЅРµРґРµР»Рё."; break;
+								case "30": $magictime="РјРµСЃСЏС†."; break;
+								case "60": $magictime="РґРІР° РјРµСЃСЏС†Р°."; break;
+								case "365": $magictime="Р±РµСЃСЃСЂРѕС‡РЅРѕ."; break;
 							}
-							if ($user['sex'] == 1) {$action="отправил";}
-							else {$action="отправила";}
+							if ($user['sex'] == 1) {$action="РѕС‚РїСЂР°РІРёР»";}
+							else {$action="РѕС‚РїСЂР°РІРёР»Р°";}
 							if ($user['invis']=='1') {
-							$angel="невидимка";
+							$angel="РЅРµРІРёРґРёРјРєР°";
 							}
 							elseif ($user['align'] > '2' && $user['align'] < '3')  {
-								$angel="Ангел";
+								$angel="РђРЅРіРµР»";
 							}
 							elseif ($user['align'] > '1' && $user['align'] < '2') {
-								$angel="Паладин";
+								$angel="РџР°Р»Р°РґРёРЅ";
 							}
                             elseif ($user['align'] > '3' && $user['align'] < '4') {
-								$angel="Тарман";
+								$angel="РўР°СЂРјР°РЅ";
                             }
-							$mess="Продление хаоса. $angel &quot;{$user['login']}&quot; $action в хаос &quot;$target&quot; сроком $magictime";
-							$messch="Продление хаоса. $angel &quot;{$user['login']}&quot; $action в хаос &quot;$target&quot; сроком $magictime.";
+							$mess="РџСЂРѕРґР»РµРЅРёРµ С…Р°РѕСЃР°. $angel &quot;{$user['login']}&quot; $action РІ С…Р°РѕСЃ &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
+							$messch="РџСЂРѕРґР»РµРЅРёРµ С…Р°РѕСЃР°. $angel &quot;{$user['login']}&quot; $action РІ С…Р°РѕСЃ &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime.";
 						    if ($user['invis'] == '1') {
-							$mess="Проделние хаоса. $angel &quot;{$user['login']}&quot; $action в хаос &quot;$target&quot; сроком $magictime";
-							$messch="Продление хаоса. &quot;невидимка&quot; отправил в хаос &quot;$target&quot; сроком $magictime";
+							$mess="РџСЂРѕРґРµР»РЅРёРµ С…Р°РѕСЃР°. $angel &quot;{$user['login']}&quot; $action РІ С…Р°РѕСЃ &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
+							$messch="РџСЂРѕРґР»РµРЅРёРµ С…Р°РѕСЃР°. &quot;РЅРµРІРёРґРёРјРєР°&quot; РѕС‚РїСЂР°РІРёР» РІ С…Р°РѕСЃ &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
                         	}
 							mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
 							mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 							addch("<img src=i/magic/haos.gif> $messch");
-							addchp($coma[rand(0,count($coma)-1)],"Комментатор");
-							echo "<font color=red><b>Успешно наложено заклятие хаоса на персонажа \"$target\"</b></font>";	
+							addchp($coma[rand(0,count($coma)-1)],"РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ");
+							echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ С…Р°РѕСЃР° РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° \"$target\"</b></font>";	
 						}
 						else {
-							echo "<font color=red><b>Произошла ошибка!<b></font>";
+							echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
 						}
 					}
 					else {
-						echo "<font color=red><b>Вы не можете наложить заклятие хаоса на этого персонажа!<b></font>";	
+						echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РЅР°Р»РѕР¶РёС‚СЊ Р·Р°РєР»СЏС‚РёРµ С…Р°РѕСЃР° РЅР° СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°!<b></font>";	
 					}
 				}
 				else {
-					echo "<font color=red><b>Вы не можете сократить срок наказания!</b></font>";
+					echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СЃРѕРєСЂР°С‚РёС‚СЊ СЃСЂРѕРє РЅР°РєР°Р·Р°РЅРёСЏ!</b></font>";
 				}
 			}
 
 			else {
 			if ($tar['id']) {
 			if ($tar['spellfreedom']==1) {
-			echo "<font color=red><b>Вы не можете отправить в хаос этого персонажа. Персонаж свободен.</b></font>";}
+			echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РѕС‚РїСЂР°РІРёС‚СЊ РІ С…Р°РѕСЃ СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°. РџРµСЂСЃРѕРЅР°Р¶ СЃРІРѕР±РѕРґРµРЅ.</b></font>";}
 			else {
 				$ok=0;
 				if ($user['align'] > '2' && $user['align'] < '3') {
@@ -126,7 +126,7 @@ $coma[] = "Хвала Мироздателю!";
                                                                                 }
                                 if ($user["align"]==5) $ok=1;
 				if ($ok == 1) {
-					if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Заклятие хаоса','$magictime',4);")) {
+					if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Р—Р°РєР»СЏС‚РёРµ С…Р°РѕСЃР°','$magictime',4);")) {
 					mq("UPDATE `users` SET  `align`='4', klan='', status='' WHERE `id` = {$tar['id']}");
 					mq("UPDATE `allusers` SET  `align`='4', klan='', status='' WHERE `id` = {$tar['id']}");
 					mq("UPDATE `userdata` SET  `align`='4' WHERE `id` = {$tar['id']}");
@@ -136,49 +136,49 @@ $coma[] = "Хвала Мироздателю!";
 						$ldblock=1;
 						
 						switch($_POST['timer']) {
-							case "1": $magictime="один день."; break;
-							case "2": $magictime="два дня."; break;
-							case "3": $magictime="три дня."; break;
-							case "7": $magictime="неделя."; break;
-							case "14": $magictime="две недели."; break;
-							case "30": $magictime="месяц."; break;
-							case "60": $magictime="два месяца."; break;
-							case "365": $magictime="бессрочно."; break;
+							case "1": $magictime="РѕРґРёРЅ РґРµРЅСЊ."; break;
+							case "2": $magictime="РґРІР° РґРЅСЏ."; break;
+							case "3": $magictime="С‚СЂРё РґРЅСЏ."; break;
+							case "7": $magictime="РЅРµРґРµР»СЏ."; break;
+							case "14": $magictime="РґРІРµ РЅРµРґРµР»Рё."; break;
+							case "30": $magictime="РјРµСЃСЏС†."; break;
+							case "60": $magictime="РґРІР° РјРµСЃСЏС†Р°."; break;
+							case "365": $magictime="Р±РµСЃСЃСЂРѕС‡РЅРѕ."; break;
 						}
-						if ($user['sex'] == 1) {$action="отправил";}
-						else {$action="отправила";}
+						if ($user['sex'] == 1) {$action="РѕС‚РїСЂР°РІРёР»";}
+						else {$action="РѕС‚РїСЂР°РІРёР»Р°";}
 						if ($user['align'] > '2' && $user['align'] < '3')  {
-							$angel="Ангел";
+							$angel="РђРЅРіРµР»";
 						}
 						elseif ($user['align'] > '1' && $user['align'] < '2') {
-							$angel="Паладин";
+							$angel="РџР°Р»Р°РґРёРЅ";
 						}
                                                                                                 elseif ($user['align'] > '3' && $user['align'] < '4') {
-								$angel="Тарман";
+								$angel="РўР°СЂРјР°РЅ";
                                                                                                 }
-						$mess="$angel &quot;{$user['login']}&quot; $action в хаос персонажа &quot;$target&quot; сроком $magictime";
-						$messch="$angel &quot;{$user['login']}&quot; $action в хаос персонажа &quot;$target&quot; сроком $magictime.";
+						$mess="$angel &quot;{$user['login']}&quot; $action РІ С…Р°РѕСЃ РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
+						$messch="$angel &quot;{$user['login']}&quot; $action РІ С…Р°РѕСЃ РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime.";
 						if ($user['invis'] == '1') {
-						$mess="$angel &quot;{$user['login']}&quot; $action в хаос персонажа &quot;$target&quot; сроком $magictime";
-						$messch="&quot;невидимка&quot; отправил в хаос персонажа &quot;$target&quot; сроком $magictime";
+						$mess="$angel &quot;{$user['login']}&quot; $action РІ С…Р°РѕСЃ РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
+						$messch="&quot;РЅРµРІРёРґРёРјРєР°&quot; РѕС‚РїСЂР°РІРёР» РІ С…Р°РѕСЃ РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
                         }
 						mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
 						mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 						addch("<img src=i/magic/haos.gif> $messch");
-						addchp($coma[rand(0,count($coma)-1)],"Комментатор");
-						echo "<font color=red><b>Успешно наложено заклятие хаоса на персонажа \"$target\"</b></font>";			
+						addchp($coma[rand(0,count($coma)-1)],"РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ");
+						echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ С…Р°РѕСЃР° РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° \"$target\"</b></font>";			
 					} 
 					else {
-						echo "<font color=red><b>Произошла ошибка!<b></font>";
+						echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
 					}
 				}
 				else {
-					echo "<font color=red><b>Вы не можете наложить заклятие хаоса на этого персонажа!<b></font>";
+					echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РЅР°Р»РѕР¶РёС‚СЊ Р·Р°РєР»СЏС‚РёРµ С…Р°РѕСЃР° РЅР° СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°!<b></font>";
 				}
 			}
 		}
 		else {
-			echo "<font color=red><b>Персонаж \"$target\" не существует!<b></font>";
+			echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!<b></font>";
 		}
 }
 ?>

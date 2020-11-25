@@ -1,92 +1,92 @@
 <?php
 
-// Вампиризм
+// Р’Р°РјРїРёСЂРёР·Рј
 	$coma = array (
-"Покупайте чеснок!",
-"Теперь на кровь остальные сбегутся.",
-"Ню-ню, а я осиновый кол точу",
-"Примочки святой водой три раза в день и все пройдет.",
-"По-моему, жена у меня тоже такая :(",
-"А вы думали, что это просто летучие мыши?",
-"Готовьте люди колья!",
-"Ну, прям по расписанию, а я думал уже не укусит.",
-"Это попахивает чем-то потусторонним.",
-"И ничто не предвещало беды.",
-"Я всегда говорил, мой любимый - чесночный суп :)",
-"Тьма наступает!",
-"Никогда к этому не привыкну.",
-"А ведь предупреждали, садись на пенек, ешь пирожок с чесноком :)",
-"Развелось, тут всякой нечисти...",
-"Да что же это делается???",
-"Второй раз будет не так больно.",
-"Кровососы...",
-"Сегодня же полнолуние, вы что, забыли ???",
-"Интересно, а теперь он тоже станет вампиром???",
-"Чеснок - не только при простуде.",
-"Это ж надо такому случится.",
-"Озверели совсем - на людей кидаются...Не дай бог так оголодать....",
-"Ой, а мне бабушка тоже о вампирах рассказывала");
+"РџРѕРєСѓРїР°Р№С‚Рµ С‡РµСЃРЅРѕРє!",
+"РўРµРїРµСЂСЊ РЅР° РєСЂРѕРІСЊ РѕСЃС‚Р°Р»СЊРЅС‹Рµ СЃР±РµРіСѓС‚СЃСЏ.",
+"РќСЋ-РЅСЋ, Р° СЏ РѕСЃРёРЅРѕРІС‹Р№ РєРѕР» С‚РѕС‡Сѓ",
+"РџСЂРёРјРѕС‡РєРё СЃРІСЏС‚РѕР№ РІРѕРґРѕР№ С‚СЂРё СЂР°Р·Р° РІ РґРµРЅСЊ Рё РІСЃРµ РїСЂРѕР№РґРµС‚.",
+"РџРѕ-РјРѕРµРјСѓ, Р¶РµРЅР° Сѓ РјРµРЅСЏ С‚РѕР¶Рµ С‚Р°РєР°СЏ :(",
+"Рђ РІС‹ РґСѓРјР°Р»Рё, С‡С‚Рѕ СЌС‚Рѕ РїСЂРѕСЃС‚Рѕ Р»РµС‚СѓС‡РёРµ РјС‹С€Рё?",
+"Р“РѕС‚РѕРІСЊС‚Рµ Р»СЋРґРё РєРѕР»СЊСЏ!",
+"РќСѓ, РїСЂСЏРј РїРѕ СЂР°СЃРїРёСЃР°РЅРёСЋ, Р° СЏ РґСѓРјР°Р» СѓР¶Рµ РЅРµ СѓРєСѓСЃРёС‚.",
+"Р­С‚Рѕ РїРѕРїР°С…РёРІР°РµС‚ С‡РµРј-С‚Рѕ РїРѕС‚СѓСЃС‚РѕСЂРѕРЅРЅРёРј.",
+"Р РЅРёС‡С‚Рѕ РЅРµ РїСЂРµРґРІРµС‰Р°Р»Рѕ Р±РµРґС‹.",
+"РЇ РІСЃРµРіРґР° РіРѕРІРѕСЂРёР», РјРѕР№ Р»СЋР±РёРјС‹Р№ - С‡РµСЃРЅРѕС‡РЅС‹Р№ СЃСѓРї :)",
+"РўСЊРјР° РЅР°СЃС‚СѓРїР°РµС‚!",
+"РќРёРєРѕРіРґР° Рє СЌС‚РѕРјСѓ РЅРµ РїСЂРёРІС‹РєРЅСѓ.",
+"Рђ РІРµРґСЊ РїСЂРµРґСѓРїСЂРµР¶РґР°Р»Рё, СЃР°РґРёСЃСЊ РЅР° РїРµРЅРµРє, РµС€СЊ РїРёСЂРѕР¶РѕРє СЃ С‡РµСЃРЅРѕРєРѕРј :)",
+"Р Р°Р·РІРµР»РѕСЃСЊ, С‚СѓС‚ РІСЃСЏРєРѕР№ РЅРµС‡РёСЃС‚Рё...",
+"Р”Р° С‡С‚Рѕ Р¶Рµ СЌС‚Рѕ РґРµР»Р°РµС‚СЃСЏ???",
+"Р’С‚РѕСЂРѕР№ СЂР°Р· Р±СѓРґРµС‚ РЅРµ С‚Р°Рє Р±РѕР»СЊРЅРѕ.",
+"РљСЂРѕРІРѕСЃРѕСЃС‹...",
+"РЎРµРіРѕРґРЅСЏ Р¶Рµ РїРѕР»РЅРѕР»СѓРЅРёРµ, РІС‹ С‡С‚Рѕ, Р·Р°Р±С‹Р»Рё ???",
+"РРЅС‚РµСЂРµСЃРЅРѕ, Р° С‚РµРїРµСЂСЊ РѕРЅ С‚РѕР¶Рµ СЃС‚Р°РЅРµС‚ РІР°РјРїРёСЂРѕРј???",
+"Р§РµСЃРЅРѕРє - РЅРµ С‚РѕР»СЊРєРѕ РїСЂРё РїСЂРѕСЃС‚СѓРґРµ.",
+"Р­С‚Рѕ Р¶ РЅР°РґРѕ С‚Р°РєРѕРјСѓ СЃР»СѓС‡РёС‚СЃСЏ.",
+"РћР·РІРµСЂРµР»Рё СЃРѕРІСЃРµРј - РЅР° Р»СЋРґРµР№ РєРёРґР°СЋС‚СЃСЏ...РќРµ РґР°Р№ Р±РѕРі С‚Р°Рє РѕРіРѕР»РѕРґР°С‚СЊ....",
+"РћР№, Р° РјРЅРµ Р±Р°Р±СѓС€РєР° С‚РѕР¶Рµ Рѕ РІР°РјРїРёСЂР°С… СЂР°СЃСЃРєР°Р·С‹РІР°Р»Р°");
 
 if ($user['battle'] > 0) {
-	echo "Не в бою...";                           
+	echo "РќРµ РІ Р±РѕСЋ...";                           
 } elseif (in_array($user["room"], $noattackrooms) || in_array($user["room"], $canalrooms)) {
-  echo "В этой локации вампиризм запрещён!";
+  echo "Р’ СЌС‚РѕР№ Р»РѕРєР°С†РёРё РІР°РјРїРёСЂРёР·Рј Р·Р°РїСЂРµС‰С‘РЅ!";
 } elseif (!canmakequest(5)) {
-  echo "Вы ещё не восстановили силы после прошлого раза!";
+  echo "Р’С‹ РµС‰С‘ РЅРµ РІРѕСЃСЃС‚Р°РЅРѕРІРёР»Рё СЃРёР»С‹ РїРѕСЃР»Рµ РїСЂРѕС€Р»РѕРіРѕ СЂР°Р·Р°!";
 } else {
 		if ($_SESSION['uid'] == null) header("Location: index.php");
 		$target=$_POST['target'];
-		$us = mysql_fetch_array(mysql_query("SELECT *, (SELECT `id` FROM `inventory` WHERE `owner` = `users`.`id` AND `name` LIKE '%Чеснок%' LIMIT 1) AS `che`, (SELECT `id` FROM `inventory` WHERE `owner` = `users`.`id` AND `name` LIKE '%Осиновый кол%' LIMIT 1) AS `kol`,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
+		$us = mysql_fetch_array(mysql_query("SELECT *, (SELECT `id` FROM `inventory` WHERE `owner` = `users`.`id` AND `name` LIKE '%Р§РµСЃРЅРѕРє%' LIMIT 1) AS `che`, (SELECT `id` FROM `inventory` WHERE `owner` = `users`.`id` AND `name` LIKE '%РћСЃРёРЅРѕРІС‹Р№ РєРѕР»%' LIMIT 1) AS `kol`,(select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
 		$effs = mysql_query("SELECT * FROM `effects` WHERE `owner` = '{$us['id']}' and (`type`=12 or `type`=13 or `type`=14) limit 1;");
 		//echo
-		if ($us['battle']) { echo "Персонаж находится в поединке!"; }
-		elseif ($us['battle']) { echo "Персонаж ожидает поединка!"; }
-		elseif ($us['id'] == $user['id']) { echo "На самого себя? Хм.... может еще и ногу себе откусишь? :)"; }
-		elseif ($us['align'] == 0.98) { echo "Что ж ты делаешь, гад?! &quot;{$us['login']}&quot; - твой темный собрат!"; }
-		elseif ($user['hp'] > $user['maxhp']*0.66) { echo "Нет необходимости кусать, силы скоро восстановятся сами "; }
-		elseif ($us['hp'] < $us['maxhp']*0.33) { echo "Жертва слишком слаба."; }
-		elseif ($us['level']<=3) { echo "Нельзя укусить новичка, они защищены Вознесением!"; }
-		elseif ($us['align'] > 1 && $us['align'] < 2 && $user['klan'] != "FallenAngels") { echo "Не грешите со светом..."; }
-		elseif ($us['align'] > 2 && $us['align'] < 3) { echo "Вы решили укусить Ангела? ;)"; }
-		elseif ($user['room'] != $us['room']) { echo "Персонаж находится в другой комнате.)"; }
-		elseif ($user['battle']) { echo "Не в бою..."; }
-		elseif ($user['room'] == 31) { echo "Нельзя укусить в этой комнате!"; }
-		elseif (((int)date("H") >= 6) && ((int)date("H") < 22)) { echo "Вампиры кусают только по ночам"; }
-		elseif ($us['level'] > $user['level']) { echo "Нельзя укусить персонажа большего левела!)"; }
-		elseif ($us['online'] == 0) { echo "Персонаж находится в оффлайне"; }
+		if ($us['battle']) { echo "РџРµСЂСЃРѕРЅР°Р¶ РЅР°С…РѕРґРёС‚СЃСЏ РІ РїРѕРµРґРёРЅРєРµ!"; }
+		elseif ($us['battle']) { echo "РџРµСЂСЃРѕРЅР°Р¶ РѕР¶РёРґР°РµС‚ РїРѕРµРґРёРЅРєР°!"; }
+		elseif ($us['id'] == $user['id']) { echo "РќР° СЃР°РјРѕРіРѕ СЃРµР±СЏ? РҐРј.... РјРѕР¶РµС‚ РµС‰Рµ Рё РЅРѕРіСѓ СЃРµР±Рµ РѕС‚РєСѓСЃРёС€СЊ? :)"; }
+		elseif ($us['align'] == 0.98) { echo "Р§С‚Рѕ Р¶ С‚С‹ РґРµР»Р°РµС€СЊ, РіР°Рґ?! &quot;{$us['login']}&quot; - С‚РІРѕР№ С‚РµРјРЅС‹Р№ СЃРѕР±СЂР°С‚!"; }
+		elseif ($user['hp'] > $user['maxhp']*0.66) { echo "РќРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РєСѓСЃР°С‚СЊ, СЃРёР»С‹ СЃРєРѕСЂРѕ РІРѕСЃСЃС‚Р°РЅРѕРІСЏС‚СЃСЏ СЃР°РјРё "; }
+		elseif ($us['hp'] < $us['maxhp']*0.33) { echo "Р–РµСЂС‚РІР° СЃР»РёС€РєРѕРј СЃР»Р°Р±Р°."; }
+		elseif ($us['level']<=3) { echo "РќРµР»СЊР·СЏ СѓРєСѓСЃРёС‚СЊ РЅРѕРІРёС‡РєР°, РѕРЅРё Р·Р°С‰РёС‰РµРЅС‹ Р’РѕР·РЅРµСЃРµРЅРёРµРј!"; }
+		elseif ($us['align'] > 1 && $us['align'] < 2 && $user['klan'] != "FallenAngels") { echo "РќРµ РіСЂРµС€РёС‚Рµ СЃРѕ СЃРІРµС‚РѕРј..."; }
+		elseif ($us['align'] > 2 && $us['align'] < 3) { echo "Р’С‹ СЂРµС€РёР»Рё СѓРєСѓСЃРёС‚СЊ РђРЅРіРµР»Р°? ;)"; }
+		elseif ($user['room'] != $us['room']) { echo "РџРµСЂСЃРѕРЅР°Р¶ РЅР°С…РѕРґРёС‚СЃСЏ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ.)"; }
+		elseif ($user['battle']) { echo "РќРµ РІ Р±РѕСЋ..."; }
+		elseif ($user['room'] == 31) { echo "РќРµР»СЊР·СЏ СѓРєСѓСЃРёС‚СЊ РІ СЌС‚РѕР№ РєРѕРјРЅР°С‚Рµ!"; }
+		elseif (((int)date("H") >= 6) && ((int)date("H") < 22)) { echo "Р’Р°РјРїРёСЂС‹ РєСѓСЃР°СЋС‚ С‚РѕР»СЊРєРѕ РїРѕ РЅРѕС‡Р°Рј"; }
+		elseif ($us['level'] > $user['level']) { echo "РќРµР»СЊР·СЏ СѓРєСѓСЃРёС‚СЊ РїРµСЂСЃРѕРЅР°Р¶Р° Р±РѕР»СЊС€РµРіРѕ Р»РµРІРµР»Р°!)"; }
+		elseif ($us['online'] == 0) { echo "РџРµСЂСЃРѕРЅР°Р¶ РЅР°С…РѕРґРёС‚СЃСЏ РІ РѕС„С„Р»Р°Р№РЅРµ"; }
 		else {
-			if ($user['sex'] == 1) {$action="напал"; $golod="Оголодавший"; $pil="выпил";}
-			else {$action="напала"; $golod="Оголодавшая"; $pil="выпила";}
-			if ($us['sex'] == 1) {$otvet="он дал"; $who="его";}
-			else {$otvet="она дала"; $who="её";}
+			if ($user['sex'] == 1) {$action="РЅР°РїР°Р»"; $golod="РћРіРѕР»РѕРґР°РІС€РёР№"; $pil="РІС‹РїРёР»";}
+			else {$action="РЅР°РїР°Р»Р°"; $golod="РћРіРѕР»РѕРґР°РІС€Р°СЏ"; $pil="РІС‹РїРёР»Р°";}
+			if ($us['sex'] == 1) {$otvet="РѕРЅ РґР°Р»"; $who="РµРіРѕ";}
+			else {$otvet="РѕРЅР° РґР°Р»Р°"; $who="РµС‘";}
 			if (($us['che']==0) && ($us['kol']==0)) {
 				mysql_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$us['id']."';");
 				mysql_query("UPDATE `users` SET `hp` = `hp`+'".((($user['maxhp']-$user['hp'])<= $us['hp'])?($user['maxhp']-$user['hp']):$us['hp'])."' WHERE `id` = '".$user['id']."';");
-				addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} на &quot;{$target}&quot; и {$pil} всю {$who} энергию.");
-				addchp($coma[rand(0,count($coma)-1)],"Комментатор");
-				echo "Все прошло удачно!";
+				addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} РЅР° &quot;{$target}&quot; Рё {$pil} РІСЃСЋ {$who} СЌРЅРµСЂРіРёСЋ.");
+				addchp($coma[rand(0,count($coma)-1)],"РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ");
+				echo "Р’СЃРµ РїСЂРѕС€Р»Рѕ СѓРґР°С‡РЅРѕ!";
 				makequest(5);
 			}
 			elseif (($us['kol']!=0 && rand(1,100) < 30) || ($us['id'] == 83 && rand(1,100) < 20)) {
 				mysql_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$us['id']."';");
 				mysql_query("UPDATE `users` SET `hp` = `hp`+'".((($user['maxhp']-$user['hp'])<= $us['hp'])?($user['maxhp']-$user['hp']):$us['hp'])."' WHERE `id` = '".$user['id']."';");
-				addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} на &quot;{$target}&quot; и {$pil} всю {$who} энергию.");
-				addchp($coma[rand(0,count($coma)-1)],"Комментатор");
-				echo "Все прошло удачно!";
+				addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} РЅР° &quot;{$target}&quot; Рё {$pil} РІСЃСЋ {$who} СЌРЅРµСЂРіРёСЋ.");
+				addchp($coma[rand(0,count($coma)-1)],"РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ");
+				echo "Р’СЃРµ РїСЂРѕС€Р»Рѕ СѓРґР°С‡РЅРѕ!";
 				makequest(5);
 			}
 			elseif (($us['kol']!=0) || ($us['id'] == 83)) {
-				echo "Полный провал!..";
+				echo "РџРѕР»РЅС‹Р№ РїСЂРѕРІР°Р»!..";
 				if ($effs['type'] || in_array($user["room"], $canalrooms)) {
-					echo "Полный провал!..";
+					echo "РџРѕР»РЅС‹Р№ РїСЂРѕРІР°Р»!..";
 					mysql_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$user['id']."';");
 					mysql_query("UPDATE `inventory` SET `duration` = `duration`+1 WHERE `id` = '".$us['kol']."' LIMIT 1;");
-					addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} на &quot;{$target}&quot;, но {$otvet} достойный отпор вампиру.");
+					addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} РЅР° &quot;{$target}&quot;, РЅРѕ {$otvet} РґРѕСЃС‚РѕР№РЅС‹Р№ РѕС‚РїРѕСЂ РІР°РјРїРёСЂСѓ.");
 				}
 				else {
 					mysql_query("UPDATE `users` SET `hp` = '".(round(($user['hp']/2),0))."' WHERE `id` = '".$user['id']."';");
 					mysql_query("UPDATE `inventory` SET `duration` = `duration`+1 WHERE `id` = '".$us['kol']."' LIMIT 1;");
-					addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} на &quot;{$target}&quot;, но {$otvet} достойный отпор вампиру.");
+					addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} РЅР° &quot;{$target}&quot;, РЅРѕ {$otvet} РґРѕСЃС‚РѕР№РЅС‹Р№ РѕС‚РїРѕСЂ РІР°РјРїРёСЂСѓ.");
 					$jert = $us;
 					if($jert['zayavka']) {
 						$fict1 = mysql_fetch_array(mysql_query("SELECT * FROM `zayavka` WHERE `team1` LIKE '{$jert['id']};%' OR `team1` LIKE '%;{$jert['id']};%' LIMIT 1;"));
@@ -117,19 +117,19 @@ if ($user['battle'] > 0) {
 
 					$id = mysql_insert_id();
 
-					// апдейтим врага
+					// Р°РїРґРµР№С‚РёРј РІСЂР°РіР°
 					if($bot) {
 						mysql_query("UPDATE `bots` SET `battle` = {$id} WHERE `id` = {$us['id']} LIMIT 1;");
 					} else {
 						mysql_query("UPDATE `users` SET `battle` = {$id} WHERE `id` = {$us['id']} LIMIT 1;");
 					}
 
-					// создаем лог
-					$rr = "<b>".nick3($user['id'])."</b> и <b>".nick3($us['id'])."</b>";
-					addch ("<a href=logs.php?log=".$id." target=_blank>Бой</a> между <B><b>".nick7($user['id'])."</b> и <b>".nick7($us['id'])."</b> начался.   ",$user['room']);
+					// СЃРѕР·РґР°РµРј Р»РѕРі
+					$rr = "<b>".nick3($user['id'])."</b> Рё <b>".nick3($us['id'])."</b>";
+					addch ("<a href=logs.php?log=".$id." target=_blank>Р‘РѕР№</a> РјРµР¶РґСѓ <B><b>".nick7($user['id'])."</b> Рё <b>".nick7($us['id'])."</b> РЅР°С‡Р°Р»СЃСЏ.   ",$user['room']);
 
-					//mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
-					addlog($id,'Часы показывали <span class=date>'.date("Y.m.d H.i").'</span>, когда '.$rr.' бросили вызов друг другу. <BR>');
+					//mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>');");
+					addlog($id,'Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>'.date("Y.m.d H.i").'</span>, РєРѕРіРґР° '.$rr.' Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>');
 
 
 					mysql_query("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE `id`= {$user['id']} OR `id` = {$us['id']}");
@@ -140,16 +140,16 @@ if ($user['battle'] > 0) {
 			elseif ($us['che']!=0 && rand(1,100) < 30) {
 				mysql_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$us['id']."';");
 				mysql_query("UPDATE `users` SET `hp` = `hp`+'".((($user['maxhp']-$user['hp'])<= $us['hp'])?($user['maxhp']-$user['hp']):$us['hp'])."' WHERE `id` = '".$user['id']."';");
-				addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} на &quot;{$target}&quot; и {$pil} всю {$who} энергию.");
-				addchp($coma[rand(0,count($coma)-1)],"Комментатор");
-				echo "Все прошло удачно!";
+				addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} РЅР° &quot;{$target}&quot; Рё {$pil} РІСЃСЋ {$who} СЌРЅРµСЂРіРёСЋ.");
+				addchp($coma[rand(0,count($coma)-1)],"РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ");
+				echo "Р’СЃРµ РїСЂРѕС€Р»Рѕ СѓРґР°С‡РЅРѕ!";
 				makequest(5);
 			}
 			else {
-				echo "Полный провал!..";
+				echo "РџРѕР»РЅС‹Р№ РїСЂРѕРІР°Р»!..";
 				mysql_query("UPDATE `users` SET `hp` = 1 WHERE `id` = '".$user['id']."';");
 				mysql_query("UPDATE `inventory` SET `duration` = `duration`+1 WHERE `id` = '".$us['che']."' LIMIT 1;");
-				addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} на &quot;{$target}&quot;, но {$otvet} достойный отпор вампиру.");
+				addch("<img src=i/magic/vampir.gif>{$golod} &quot;{$user['login']}&quot; {$action} РЅР° &quot;{$target}&quot;, РЅРѕ {$otvet} РґРѕСЃС‚РѕР№РЅС‹Р№ РѕС‚РїРѕСЂ РІР°РјРїРёСЂСѓ.");
 			}
 
 		}

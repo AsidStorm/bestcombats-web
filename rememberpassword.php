@@ -9,13 +9,13 @@
 	<META http-equiv=PRAGMA content=NO-CACHE>
 	<META http-equiv=Expires content=0>
 </head>
-<title>Востановление пароля на BestcombatS</title>
+<title>Р’РѕСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ РЅР° BestcombatS</title>
 <body bottomMargin=0 vLink=#333333 aLink=#000000 link=#000000 bgColor=#666666 leftMargin=0 topMargin=0 rightMargin=0 marginheight="0" marignwidth="0">
 <script language="JavaScript">
 	function sendmailpassw(){
 		var loginP=document.getElementById('loginid').value;
 		if(loginP=='' || loginP.length>50){
-			alert('Введен некоректный login');
+			alert('Р’РІРµРґРµРЅ РЅРµРєРѕСЂРµРєС‚РЅС‹Р№ login');
 			return false;
 		}
 		else document.sendmailid.submit();
@@ -55,44 +55,44 @@ IF (@$_POST['loginid']!='') {
 	
 		$aa='<html>
 				<head>
-					<title>Востановление пароля</title>
+					<title>Р’РѕСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ</title>
 				</head>
 				<body>
-					Добрый день '.$sql['realname'].'.<br>
-					Вами было запрошено востановление пароля c IP адреса - '.$ipclient.', если это были не Вы, просто удалите это письмо.<br>
+					Р”РѕР±СЂС‹Р№ РґРµРЅСЊ '.$sql['realname'].'.<br>
+					Р’Р°РјРё Р±С‹Р»Рѕ Р·Р°РїСЂРѕС€РµРЅРѕ РІРѕСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ c IP Р°РґСЂРµСЃР° - '.$ipclient.', РµСЃР»Рё СЌС‚Рѕ Р±С‹Р»Рё РЅРµ Р’С‹, РїСЂРѕСЃС‚Рѕ СѓРґР°Р»РёС‚Рµ СЌС‚Рѕ РїРёСЃСЊРјРѕ.<br>
 					<br>
 					------------------------------------------------------------------<br>
-					Ваш логин    | '.$sql['login'].'<br>
-					Новый пароль | '.$newpass.'<br>
+					Р’Р°С€ Р»РѕРіРёРЅ    | '.$sql['login'].'<br>
+					РќРѕРІС‹Р№ РїР°СЂРѕР»СЊ | '.$newpass.'<br>
 					------------------------------------------------------------------<br>
 					<br>
 					<br>
-					Для подтверждения нового пароля пройдите по ссылке ниже.<br>
-					<a href="http://bestcombats.net/confirmpassw.php?newpass='.$newpass.'&login='.$sql['login'].'&timev='.$lasttime.'">Востановление пароля</a>
+					Р”Р»СЏ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёСЏ РЅРѕРІРѕРіРѕ РїР°СЂРѕР»СЏ РїСЂРѕР№РґРёС‚Рµ РїРѕ СЃСЃС‹Р»РєРµ РЅРёР¶Рµ.<br>
+					<a href="http://bestcombats.net/confirmpassw.php?newpass='.$newpass.'&login='.$sql['login'].'&timev='.$lasttime.'">Р’РѕСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ</a>
 					<br>
-					<font color="blue">Если вы не восстановите пароль до <b>'.date("d-M-Y", $lasttime) .' 00:00</b>, ссылка будет неактивной.</font>
+					<font color="blue">Р•СЃР»Рё РІС‹ РЅРµ РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚Рµ РїР°СЂРѕР»СЊ РґРѕ <b>'.date("d-M-Y", $lasttime) .' 00:00</b>, СЃСЃС‹Р»РєР° Р±СѓРґРµС‚ РЅРµР°РєС‚РёРІРЅРѕР№.</font>
 					<br>
-					Отвечать на данное письмо не нужно.
+					РћС‚РІРµС‡Р°С‚СЊ РЅР° РґР°РЅРЅРѕРµ РїРёСЃСЊРјРѕ РЅРµ РЅСѓР¶РЅРѕ.
 				</body>
 			</html>';
-		mail($sql['email'],"Востановление пароля на BestcombatS.net",$aa,$headers);
-		echo "<center><font color='blue' size='14'><h3>Пароль отправлен Вам на почту.</h3></font></center>";
+		mail($sql['email'],"Р’РѕСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїР°СЂРѕР»СЏ РЅР° BestcombatS.net",$aa,$headers);
+		echo "<center><font color='blue' size='14'><h3>РџР°СЂРѕР»СЊ РѕС‚РїСЂР°РІР»РµРЅ Р’Р°Рј РЅР° РїРѕС‡С‚Сѓ.</h3></font></center>";
 	}
 	else{
-		echo "<center><h3>Сегодня пароль уже высылался или такой login отсутствует. <br>Проверьте почту</h3></center>";
+		echo "<center><h3>РЎРµРіРѕРґРЅСЏ РїР°СЂРѕР»СЊ СѓР¶Рµ РІС‹СЃС‹Р»Р°Р»СЃСЏ РёР»Рё С‚Р°РєРѕР№ login РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚. <br>РџСЂРѕРІРµСЂСЊС‚Рµ РїРѕС‡С‚Сѓ</h3></center>";
 		die();
 	}
 }
 else {
 ?>
-<center><h3>Форма востановления пароля</h3></center>
+<center><h3>Р¤РѕСЂРјР° РІРѕСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ РїР°СЂРѕР»СЏ</h3></center>
 <br>
-Для востановления пароля введите свой login и нажмине кнопку "отправить письмо".<br>
-Письмо будет выслано на ваш email адрес, указанный Вами при регистрации.<br>
-Востановливать пароль можно только раз в сутки.<br>
+Р”Р»СЏ РІРѕСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ РїР°СЂРѕР»СЏ РІРІРµРґРёС‚Рµ СЃРІРѕР№ login Рё РЅР°Р¶РјРёРЅРµ РєРЅРѕРїРєСѓ "РѕС‚РїСЂР°РІРёС‚СЊ РїРёСЃСЊРјРѕ".<br>
+РџРёСЃСЊРјРѕ Р±СѓРґРµС‚ РІС‹СЃР»Р°РЅРѕ РЅР° РІР°С€ email Р°РґСЂРµСЃ, СѓРєР°Р·Р°РЅРЅС‹Р№ Р’Р°РјРё РїСЂРё СЂРµРіРёСЃС‚СЂР°С†РёРё.<br>
+Р’РѕСЃС‚Р°РЅРѕРІР»РёРІР°С‚СЊ РїР°СЂРѕР»СЊ РјРѕР¶РЅРѕ С‚РѕР»СЊРєРѕ СЂР°Р· РІ СЃСѓС‚РєРё.<br>
 <form name='sendmailid' method="POST">
-	<label for='loginid'>Введите Ваш login </label><input type='text' value='<? echo @$_POST['loginid']; ?>' id='loginid' name='loginid'>
-	<input type="button" onClick="sendmailpassw()" value="Отправить письмо">
+	<label for='loginid'>Р’РІРµРґРёС‚Рµ Р’Р°С€ login </label><input type='text' value='<? echo @$_POST['loginid']; ?>' id='loginid' name='loginid'>
+	<input type="button" onClick="sendmailpassw()" value="РћС‚РїСЂР°РІРёС‚СЊ РїРёСЃСЊРјРѕ">
 </form>	
 <?php
 }

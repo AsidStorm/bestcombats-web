@@ -21,7 +21,7 @@ function remfieldmember($user, $rec=0, $del=1) {
     
     
     
-// бонус за 25 игроков
+// Р±РѕРЅСѓСЃ Р·Р° 25 РёРіСЂРѕРєРѕРІ
 
 $online = mysql_query("select id, real_time from `online`  WHERE `real_time` >= ".(time()-60).";");
 $users_count = mysql_num_rows($online)+6;
@@ -30,17 +30,17 @@ if ($users_count>=25 && !mqfa1("SELECT COUNT(*) FROM visitors_counter WHERE date
         mysql_query('UPDATE users SET money = money + 100 WHERE id = ' . $row['id']);
     }
     mysql_query('INSERT INTO visitors_counter SET count = ' . $users_count . ', date = CURDATE()');
-    sysmsg("Сейчас в BestCombats более 25 чел. В связи с этим, всем кто присутствует в игре зачислены кредиты. Приятной игры и покупок!"); 
+    sysmsg("РЎРµР№С‡Р°СЃ РІ BestCombats Р±РѕР»РµРµ 25 С‡РµР». Р’ СЃРІСЏР·Рё СЃ СЌС‚РёРј, РІСЃРµРј РєС‚Рѕ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ РІ РёРіСЂРµ Р·Р°С‡РёСЃР»РµРЅС‹ РєСЂРµРґРёС‚С‹. РџСЂРёСЏС‚РЅРѕР№ РёРіСЂС‹ Рё РїРѕРєСѓРїРѕРє!"); 
 }
 
 
-// запускаем лотерею
+// Р·Р°РїСѓСЃРєР°РµРј Р»РѕС‚РµСЂРµСЋ
 $cLottery = mysql_result(mysql_query('SELECT COUNT(*) FROM lottery WHERE end = 0 AND date < NOW()'), 0, 0);
 if ($cLottery) {
     file_get_contents('http://bestcombats.net/lottery.php?cronstartlotery=whf784whfy7w8jfyw8hg745g3y75h7f23785yh38259648gjn6f6734h798h2q398fgsdhnit734');
     $cLottery = mysql_result(mysql_query('SELECT COUNT(*) FROM lottery WHERE end = 0 AND date < NOW()'), 0, 0);
     if (!$cLottery) {
-        sysmsg("Уважаемые игроки! Закончился очередной тираж Лотереи. Чтобы ознакомиться с результатами и получить выигрыш, посетите Уголок Удачи.");    
+        sysmsg("РЈРІР°Р¶Р°РµРјС‹Рµ РёРіСЂРѕРєРё! Р—Р°РєРѕРЅС‡РёР»СЃСЏ РѕС‡РµСЂРµРґРЅРѕР№ С‚РёСЂР°Р¶ Р›РѕС‚РµСЂРµРё. Р§С‚РѕР±С‹ РѕР·РЅР°РєРѕРјРёС‚СЊСЃСЏ СЃ СЂРµР·СѓР»СЊС‚Р°С‚Р°РјРё Рё РїРѕР»СѓС‡РёС‚СЊ РІС‹РёРіСЂС‹С€, РїРѕСЃРµС‚РёС‚Рµ РЈРіРѕР»РѕРє РЈРґР°С‡Рё.");    
     }
 }
     
@@ -55,7 +55,7 @@ $tme1=getmicrotime();
       $login=mqfa1("select login from users where id='$rec[user]'");
       $r2=mq("select fieldmembers.id, fieldmembers.user, fieldmembers.started, users.login from fieldmembers left join users on users.id=fieldmembers.user where users.id<>$rec[id] and fieldmembers.groupid='$rec[groupid]'");
       while ($rec2=mysql_fetch_assoc($r2)) {
-        privatemsg("Ваша группа для пещеры кристаллов отменяется, т. к. персонаж $login вышел из игры.", $rec2["login"]);
+        privatemsg("Р’Р°С€Р° РіСЂСѓРїРїР° РґР»СЏ РїРµС‰РµСЂС‹ РєСЂРёСЃС‚Р°Р»Р»РѕРІ РѕС‚РјРµРЅСЏРµС‚СЃСЏ, С‚. Рє. РїРµСЂСЃРѕРЅР°Р¶ $login РІС‹С€РµР» РёР· РёРіСЂС‹.", $rec2["login"]);
         remfieldmember($rec2["user"], $rec2);
       }
     } else {
@@ -75,16 +75,16 @@ $tme1=getmicrotime();
     }
     if(!$tr && $turnirstart[0] <= time() && $dd[0] >= 2 && $fromprev>300) {
       $type=mqfa1("select value from variables where var='deztowtype'");
-      // начинаем БС
+      // РЅР°С‡РёРЅР°РµРј Р‘РЎ
       $minroom = 501;
       $maxroom = 560;
-      // вычисляем кто прошел в турнир
+      // РІС‹С‡РёСЃР»СЏРµРј РєС‚Рѕ РїСЂРѕС€РµР» РІ С‚СѓСЂРЅРёСЂ
       $stavka = mysql_fetch_array(mysql_query("SELECT SUM(`kredit`)*0.7 FROM `deztow_stavka`;"));
-      // создаем запись о турнире
+      // СЃРѕР·РґР°РµРј Р·Р°РїРёСЃСЊ Рѕ С‚СѓСЂРЅРёСЂРµ
       mq("INSERT `deztow_turnir` (`type`,`winner`,`coin`,`start_time`,`log`,`endtime`,`active`) values ('".rand(1,7)."','','".$stavka[0]."','".time()."','".$log."','0','1');");
       $dtid=mysql_insert_id();
       $data=mq("SELECT dt.owner FROM `deztow_stavka` as dt, `online` as o, users WHERE (SELECT count(`id`) FROM `effects` WHERE `effects`.`owner` = dt.owner AND ( type=11 OR type=12 OR type=13 OR type=14)) = 0  AND o.id = dt.owner AND users.id = dt.owner AND users.room = 31 AND o.`date` >= '".(time()-300)."' ORDER by `kredit` DESC, dt.`time` ASC  LIMIT 100;");
-      // удаляем сразу, чтоб другим не повадно было
+      // СѓРґР°Р»СЏРµРј СЃСЂР°Р·Сѓ, С‡С‚РѕР± РґСЂСѓРіРёРј РЅРµ РїРѕРІР°РґРЅРѕ Р±С‹Р»Рѕ
       if($data) {
         mysql_query("TRUNCATE TABLE `deztow_stavka`;");
         mysql_query("TRUNCATE TABLE `deztow_gamers_inv`;");
@@ -109,7 +109,7 @@ $tme1=getmicrotime();
             $tec["vinos"]=25;
           }
           if($tec[0] && $row[0] != 83) {
-            // умелки
+            // СѓРјРµР»РєРё
             if ($tec["vinos"]>=125) $ghp=250;
             elseif ($tec["vinos"]>=100) $ghp=250;
             elseif ($tec["vinos"]>=75) $ghp=175;
@@ -121,7 +121,7 @@ $tme1=getmicrotime();
             `noj`=0,`mec`=0,`topor`=0,`dubina`=0,`posoh`=0,`mfire`=0,`mwater`=0,`mair`=0,`mearth`=0,`mlight`=0,`mgray`=0,`mdark`=0,`master`='9',`maxhp`='".($tec['vinos']*6+$ghp)."',`hp`='".($tec['vinos']*6+$ghp)."',`mana`='".($tec['mudra']*10)."',`maxmana`='".($tec['mudra']*10)."', in_tower=-1
             $slotsto0
             WHERE `id` = '".$row[0]."' LIMIT 1;");
-            // закончили
+            // Р·Р°РєРѕРЅС‡РёР»Рё
           }
         }
       }
@@ -135,24 +135,24 @@ $tme1=getmicrotime();
         if($lors) $lors .= ", ";
         $lors.="<img src=\"i/align_".($rec['align']>0 ? $rec['align']:"0").".gif\">";
         if ($rec['klan'] <> '') $lors.='<img title="'.$rec['klan'].'" src="http://img.bestcombats.net/klan/'.$rec['klan'].'.gif">';
-        $lors.= "<B>$rec[login]</B> [$rec[level]]<a href=inf.php?$rec[id] target=_blank><IMG SRC=i/inf.gif WIDTH=12 HEIGHT=11 ALT=\"Инф. о $rec[login]\"></a>";
+        $lors.= "<B>$rec[login]</B> [$rec[level]]<a href=inf.php?$rec[id] target=_blank><IMG SRC=i/inf.gif WIDTH=12 HEIGHT=11 ALT=\"РРЅС„. Рѕ $rec[login]\"></a>";
       }           
-      // формируем лог
-      $log = '<span class=date>'.date("d.m.y H:i").'</span> Начало турнира. Участники: '.$lors.'<BR>';
+      // С„РѕСЂРјРёСЂСѓРµРј Р»РѕРі
+      $log = '<span class=date>'.date("d.m.y H:i").'</span> РќР°С‡Р°Р»Рѕ С‚СѓСЂРЅРёСЂР°. РЈС‡Р°СЃС‚РЅРёРєРё: '.$lors.'<BR>';
       mq("update `deztow_turnir` set log='$log' where id='$dtid'");
       mq("UPDATE `users` SET invis=0, in_tower=$type, `room` = floor(rand()*60)+501 WHERE 0 $invcond");
-      sysmsg("Началась ".($type==1?"Общая битва":"Битва мастеров")." в <b>Башне Смерти</b>. Всего участников: ".mysql_num_rows($data).".");
+      sysmsg("РќР°С‡Р°Р»Р°СЃСЊ ".($type==1?"РћР±С‰Р°СЏ Р±РёС‚РІР°":"Р‘РёС‚РІР° РјР°СЃС‚РµСЂРѕРІ")." РІ <b>Р‘Р°С€РЅРµ РЎРјРµСЂС‚Рё</b>. Р’СЃРµРіРѕ СѓС‡Р°СЃС‚РЅРёРєРѕРІ: ".mysql_num_rows($data).".");
     } elseif (!$tr) {
       
       $i=mqfa1("select id from deztow_items");
       if (!$i) {
-        // разбрасываем шмот по комнатам
+        // СЂР°Р·Р±СЂР°СЃС‹РІР°РµРј С€РјРѕС‚ РїРѕ РєРѕРјРЅР°С‚Р°Рј
         
         $type=mqfa1("select value from variables where var='deztowtype'");
         $minroom = 501;
         $maxroom = 560;
         
-        // айдишники магазинных прототипов
+        // Р°Р№РґРёС€РЅРёРєРё РјР°РіР°Р·РёРЅРЅС‹С… РїСЂРѕС‚РѕС‚РёРїРѕРІ
         $shmots = array(96, 111, 130, 131, 148, 142, 149, 175, 176, 224, 796, 795, 797, 225, 226, 227, 228, 229, 231, 232, 233, 234, 236, 272,
         291, 292, 294, 302, 304, 306, 315, 411, 413, 418, 419, 420, 422, 423, 424, 425, 1613, 1621, 1628, 1635, 1660, 1661, 1207, 1208,
         1248, 1252, 1390, 1419, 1423, 1430, 1448, 654, 655, 659, 665, 967, 970, 1103, 1171, 426, 428, 435, 1100, 568, 573, 606, 618, 652,
@@ -311,27 +311,27 @@ $tme1=getmicrotime();
     mysql_query("INSERT INTO `battle` (`id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`,`blood`,`quest`, `closed`)
     VALUES (NULL,'$coment','".serialize($teams)."','$timeout','$type','0','".implode(";",$team1)."','".implode(";",$team2)."','".time()."','".time()."','".$blood."', '$quest', '$closed')");
     $id = mysql_insert_id();
-    // создаем лог
+    // СЃРѕР·РґР°РµРј Р»РѕРі
     $rr = "<b>";
     foreach( $team1 as $k=>$v ) {
       if ($k!=0) { $rr.=", "; $rrc.=", "; }
       $rr .= nick3($v);
       $rrc .= nick7($v);
-      addchp ('<font color=red>Внимание!</font> Ваш бал начался!<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($v).'{[]}');
+      addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°С€ Р±Р°Р» РЅР°С‡Р°Р»СЃСЏ!<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($v).'{[]}');
     }
-    $rr .= "</b> и <b>"; $rrc .= "</b> и <b>";
+    $rr .= "</b> Рё <b>"; $rrc .= "</b> Рё <b>";
     foreach( $team2 as $k=>$v ) {
       if ($k!=0) { $rr.=", "; $rrc.=", ";}
       $rr .= nick3($v);
       $rrc .= nick7($v);
-      addchp ('<font color=red>Внимание!</font> Ваш бал начался!<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($v).'{[]}');
+      addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°С€ Р±Р°Р» РЅР°С‡Р°Р»СЃСЏ!<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($v).'{[]}');
     }
     $rr .= "</b>";
-    addch ("<a href=logs.php?log=".$id." target=_blank>Поединок</a> между <B>".$rrc."</B> начался.   ",$user['room']);
-    mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
-    addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
+    addch ("<a href=logs.php?log=".$id." target=_blank>РџРѕРµРґРёРЅРѕРє</a> РјРµР¶РґСѓ <B>".$rrc."</B> РЅР°С‡Р°Р»СЃСЏ.   ",$user['room']);
+    mysql_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>');");
+    addlog($id,"Р§Р°СЃС‹ РїРѕРєР°Р·С‹РІР°Р»Рё <span class=date>".date("Y.m.d H.i")."</span>, РєРѕРіРґР° ".$rr." Р±СЂРѕСЃРёР»Рё РІС‹Р·РѕРІ РґСЂСѓРі РґСЂСѓРіСѓ. <BR>");
 
-    // всех в БОЙ!!!
+    // РІСЃРµС… РІ Р‘РћР™!!!
     foreach($team1 as $k=>$v) {
       mysql_query("UPDATE users SET `battle`='$id',`zayavka`=0 WHERE `id`=$v");
     }
@@ -431,7 +431,7 @@ $tme1=getmicrotime();
         while ($rec=mysql_fetch_assoc($r)) {
           $start=array_pop($starts);
           mq("insert into fieldparties set user='$rec[id]', field='$field', x='$start[0]', y='$start[1]', dir='".rand(0,3)."', login='$rec[login]', shadow='$rec[sex]/$rec[shadow]'");
-          addchnavig("Начался турнир Башни смерти", $rec["login"], "field.php");
+          addchnavig("РќР°С‡Р°Р»СЃСЏ С‚СѓСЂРЅРёСЂ Р‘Р°С€РЅРё СЃРјРµСЂС‚Рё", $rec["login"], "field.php");
           $members++;
 
           $tec = mqfa("SELECT * FROM `deztow_charstams` WHERE `owner` = '$rec[id]' and room=71 order by def desc");
@@ -455,7 +455,7 @@ $tme1=getmicrotime();
           if ($membersstr) $membersstr.=", ";
           $membersstr.=fullnick($rec);
         }
-        mq("insert into fieldlogs set team1='<span class=date>".date("d.m.y H:i")."</span>', id='$field', log='<H3>Башня Смерти. Отчет о турнире ".date("d.m.y H:i").".</H3><span class=date>".date("H:i")."</span> Начало турнира. Участники: $membersstr<br>', room=72, started=".time());
+        mq("insert into fieldlogs set team1='<span class=date>".date("d.m.y H:i")."</span>', id='$field', log='<H3>Р‘Р°С€РЅСЏ РЎРјРµСЂС‚Рё. РћС‚С‡РµС‚ Рѕ С‚СѓСЂРЅРёСЂРµ ".date("d.m.y H:i").".</H3><span class=date>".date("H:i")."</span> РќР°С‡Р°Р»Рѕ С‚СѓСЂРЅРёСЂР°. РЈС‡Р°СЃС‚РЅРёРєРё: $membersstr<br>', room=72, started=".time());
 
         $start=array_pop($starts);
         foreach ($wps as $k=>$v) {
@@ -464,7 +464,7 @@ $tme1=getmicrotime();
             break;
           }
         }
-        mq("insert into fieldparties set user='11137', field='$field', x='$start[0]', y='$start[1]', login='Страж башни', shadow='1/cvergbeast.gif', dir='$dir'");
+        mq("insert into fieldparties set user='11137', field='$field', x='$start[0]', y='$start[1]', login='РЎС‚СЂР°Р¶ Р±Р°С€РЅРё', shadow='1/cvergbeast.gif', dir='$dir'");
 
         $start=array_pop($starts);
         foreach ($wps as $k=>$v) {
@@ -473,7 +473,7 @@ $tme1=getmicrotime();
             break;
           }
         }
-        mq("insert into fieldparties set user='11138', field='$field', x='$start[0]', y='$start[1]', login='Часовой башни', shadow='1/cvergbeast.gif', dir='$dir'");
+        mq("insert into fieldparties set user='11138', field='$field', x='$start[0]', y='$start[1]', login='Р§Р°СЃРѕРІРѕР№ Р±Р°С€РЅРё', shadow='1/cvergbeast.gif', dir='$dir'");
 
         $start=array_pop($starts);
         foreach ($wps as $k=>$v) {
@@ -482,9 +482,9 @@ $tme1=getmicrotime();
             break;
           }
         }
-        mq("insert into fieldparties set user='11139', field='$field', x='$start[0]', y='$start[1]', login='Дозорный башни', shadow='1/cvergbeast.gif', dir='$dir'");
+        mq("insert into fieldparties set user='11139', field='$field', x='$start[0]', y='$start[1]', login='Р”РѕР·РѕСЂРЅС‹Р№ Р±Р°С€РЅРё', shadow='1/cvergbeast.gif', dir='$dir'");
 
-        sysmsg("Начался турнир Подгорной Башни смерти. Всего участников: $members");
+        sysmsg("РќР°С‡Р°Р»СЃСЏ С‚СѓСЂРЅРёСЂ РџРѕРґРіРѕСЂРЅРѕР№ Р‘Р°С€РЅРё СЃРјРµСЂС‚Рё. Р’СЃРµРіРѕ СѓС‡Р°СЃС‚РЅРёРєРѕРІ: $members");
 
         mq("update inventory set dressed=0 where ".str_replace("id=","owner=",$cond));
         mq("UPDATE `effects` SET `owner` = owner+"._BOTSEPARATOR_." where ".str_replace("id=","owner=",$cond));
@@ -494,7 +494,7 @@ $tme1=getmicrotime();
         include "functions/makedtitems.php";
         mq("unlock tables");
       } else {
-        sysmsg("Турнир Подгорной Башни смерти отложен на 2 часа.");
+        sysmsg("РўСѓСЂРЅРёСЂ РџРѕРґРіРѕСЂРЅРѕР№ Р‘Р°С€РЅРё СЃРјРµСЂС‚Рё РѕС‚Р»РѕР¶РµРЅ РЅР° 2 С‡Р°СЃР°.");
         mq("update variables set value=".(60*60*2+time())." where var='startbs2'");
       }
     } elseif ($dtf["start"]+180<time()) {
@@ -512,17 +512,17 @@ $tme1=getmicrotime();
     elseif ($ldfield["team2"]!="-") $winner=2;
     if ($winner) {
       mq("update fields set pts$winner=1, team1='-', team2='-' where id='$ldfield[id]'");
-      if (!LDSIMPLEBATTLE) sysmsg("В Битве Света и Тьмы победил".($winner==1?" Свет":"а Тьма").".");
+      if (!LDSIMPLEBATTLE) sysmsg("Р’ Р‘РёС‚РІРµ РЎРІРµС‚Р° Рё РўСЊРјС‹ РїРѕР±РµРґРёР»".($winner==1?" РЎРІРµС‚":"Р° РўСЊРјР°").".");
       $winners=mqfa1("select value from variables where var='ldteam$winner'");
       $winners=explode("-", $winners);
       foreach ($winners as $k=>$v) {
         if (!$v) continue;
-        mq("INSERT INTO `effects` set owner=$v, name='Победитель общего побоища', time=".(60*60*24+time()).", type=186, mfdhit=50, mfdmag=50, mf='mfhitp/mfmagp', mfval='10/10'");
-        addchp ('Ваша команда победила в Общем побоище.','{[]}'.nick7 ($v).'{[]}');
+        mq("INSERT INTO `effects` set owner=$v, name='РџРѕР±РµРґРёС‚РµР»СЊ РѕР±С‰РµРіРѕ РїРѕР±РѕРёС‰Р°', time=".(60*60*24+time()).", type=186, mfdhit=50, mfdmag=50, mf='mfhitp/mfmagp', mfval='10/10'");
+        addchp ('Р’Р°С€Р° РєРѕРјР°РЅРґР° РїРѕР±РµРґРёР»Р° РІ РћР±С‰РµРј РїРѕР±РѕРёС‰Рµ.','{[]}'.nick7 ($v).'{[]}');
       }
     } else {
       mq("update fields set pts1=-1, pts2=-1 where id='$ldfield[id]'");
-      if (!LDSIMPLEBATTLE) sysmsg("Битва Света и Тьмы закончилась вничью.");
+      if (!LDSIMPLEBATTLE) sysmsg("Р‘РёС‚РІР° РЎРІРµС‚Р° Рё РўСЊРјС‹ Р·Р°РєРѕРЅС‡РёР»Р°СЃСЊ РІРЅРёС‡СЊСЋ.");
     }
     mq("update users set room=62, in_tower=0 where room=63");
   }
@@ -605,7 +605,7 @@ $tme1=getmicrotime();
       $x++;
       if ($cond) $cond.=" or ";
       $cond.=" id='$v' ";
-      addchnavig((LDSIMPLEBATTLE?"Началось общее побоище.":"Битва Света и Тьмы началась!"), $rec["login"], "field.php");
+      addchnavig((LDSIMPLEBATTLE?"РќР°С‡Р°Р»РѕСЃСЊ РѕР±С‰РµРµ РїРѕР±РѕРёС‰Рµ.":"Р‘РёС‚РІР° РЎРІРµС‚Р° Рё РўСЊРјС‹ РЅР°С‡Р°Р»Р°СЃСЊ!"), $rec["login"], "field.php");
     }
     $x=1;
     foreach ($tostart[1] as $k=>$v) {
@@ -613,17 +613,17 @@ $tme1=getmicrotime();
       mq("insert into fieldparties set user='$v', field='$field', x='$x', y='10', dir='1', login='$rec[login]', shadow='$rec[sex]/$rec[shadow]', team=2");
       $x++;
       $cond.=" or id='$v' ";
-      addchnavig("Битва Света и Тьмы началась!", $rec["login"], "field.php");
+      addchnavig("Р‘РёС‚РІР° РЎРІРµС‚Р° Рё РўСЊРјС‹ РЅР°С‡Р°Р»Р°СЃСЊ!", $rec["login"], "field.php");
     }
-    if (LDSIMPLEBATTLE) sysmsg("Началось общее побоище. Всего участников: ".(count($tostart[0])+count($tostart[1])));
-    else sysmsg("Началась битва Света и Тьмы. Всего участников за Свет: ".count($tostart[0])." за Тьму: ".count($tostart[1]));
+    if (LDSIMPLEBATTLE) sysmsg("РќР°С‡Р°Р»РѕСЃСЊ РѕР±С‰РµРµ РїРѕР±РѕРёС‰Рµ. Р’СЃРµРіРѕ СѓС‡Р°СЃС‚РЅРёРєРѕРІ: ".(count($tostart[0])+count($tostart[1])));
+    else sysmsg("РќР°С‡Р°Р»Р°СЃСЊ Р±РёС‚РІР° РЎРІРµС‚Р° Рё РўСЊРјС‹. Р’СЃРµРіРѕ СѓС‡Р°СЃС‚РЅРёРєРѕРІ Р·Р° РЎРІРµС‚: ".count($tostart[0])." Р·Р° РўСЊРјСѓ: ".count($tostart[1]));
     mq("update users set caveleader='$field', room=63, in_tower=62, s_duh=100*(spirit+if(level>=10,40,if(level>=9,30,if(level>=8,20,10)))), hp=maxhp, mana=maxmana where $cond");
     $cond=str_replace("id=", "user=", $cond);
     mq("delete from fieldmembers where $cond");
     mq("unlock tables");
   }
 
-  //тут табла опыта для клана
+  //С‚СѓС‚ С‚Р°Р±Р»Р° РѕРїС‹С‚Р° РґР»СЏ РєР»Р°РЅР°
   $klanexptable = array(
   "0" => array (0,500000),
   "500000" => array (1,2000000),
@@ -652,14 +652,14 @@ $tme1=getmicrotime();
     $owner=mqfa1("select value from variables where var='castleowner'");
     $c=mqfa1("select count(id) from users where room>=700 and room<800 and klan='$owner'");
     if ($c==0) { 
-      sysmsg("Все защитники замка побеждены. Атакующие начинают битву за владение замком. Количество участников: ".mqfa1("select count(id) from users where room>=700 and room<800"));
+      sysmsg("Р’СЃРµ Р·Р°С‰РёС‚РЅРёРєРё Р·Р°РјРєР° РїРѕР±РµР¶РґРµРЅС‹. РђС‚Р°РєСѓСЋС‰РёРµ РЅР°С‡РёРЅР°СЋС‚ Р±РёС‚РІСѓ Р·Р° РІР»Р°РґРµРЅРёРµ Р·Р°РјРєРѕРј. РљРѕР»РёС‡РµСЃС‚РІРѕ СѓС‡Р°СЃС‚РЅРёРєРѕРІ: ".mqfa1("select count(id) from users where room>=700 and room<800"));
       $siege=0;
       mq("update variables set value=0 where var='siege'");
       mq("update variables set value='' where var='castleowner'");
     } else {
       $c=mqfa1("select count(id) from users where room>=700 and room<800 and klan<>'$owner'");
       if ($c==0) { 
-        sysmsg("Осада окончилась неудачно, замок остался за прежним владельцем.");
+        sysmsg("РћСЃР°РґР° РѕРєРѕРЅС‡РёР»Р°СЃСЊ РЅРµСѓРґР°С‡РЅРѕ, Р·Р°РјРѕРє РѕСЃС‚Р°Р»СЃСЏ Р·Р° РїСЂРµР¶РЅРёРј РІР»Р°РґРµР»СЊС†РµРј.");
         $siege=0;
         mq("update variables set value='".(strtotime("next Sunday") + (21 * 3600))."' where var='siege'");
       }
@@ -670,7 +670,7 @@ $tme1=getmicrotime();
       $rec=mysql_fetch_assoc($r);
       mq("update variables set value='".(strtotime("next Sunday") + (21 * 3600))."' where var='siege'");
       mq("update variables set value='$rec[klan]' where var='castleowner'");
-      if ($rec["klan"]) sysmsg("Битва за замок окончена. Владелец: клан <b>".mqfa1("select name from clans where short='$rec[klan]'")."</b>.");
+      if ($rec["klan"]) sysmsg("Р‘РёС‚РІР° Р·Р° Р·Р°РјРѕРє РѕРєРѕРЅС‡РµРЅР°. Р’Р»Р°РґРµР»РµС†: РєР»Р°РЅ <b>".mqfa1("select name from clans where short='$rec[klan]'")."</b>.");
     }
   } elseif ($siege<=time()) {
     $r=mq("select users.id from `online` left join users on users.id=online.id WHERE users.room>=700 and users.room<800 and `date`<".time()."-60");
@@ -684,10 +684,10 @@ $tme1=getmicrotime();
     $o=getvar("castleowner");
     if (!$o) {
       setvar("siege", 0);
-      sysmsg("Началась битва за клановый замок, всего участников: ".mqfa1("select count(id) from users where room>=700 and room<800").".");
+      sysmsg("РќР°С‡Р°Р»Р°СЃСЊ Р±РёС‚РІР° Р·Р° РєР»Р°РЅРѕРІС‹Р№ Р·Р°РјРѕРє, РІСЃРµРіРѕ СѓС‡Р°СЃС‚РЅРёРєРѕРІ: ".mqfa1("select count(id) from users where room>=700 and room<800").".");
     } else {
       setvar("siege", 2);
-      sysmsg("Началась осада кланового замка. Защитников: ".mqfa1("select count(id) from users where room>=700 and room<800 and klan='$o'").", осаждающих: ".mqfa1("select count(id) from users where room>=700 and room<800 and klan<>'$o'").".");
+      sysmsg("РќР°С‡Р°Р»Р°СЃСЊ РѕСЃР°РґР° РєР»Р°РЅРѕРІРѕРіРѕ Р·Р°РјРєР°. Р—Р°С‰РёС‚РЅРёРєРѕРІ: ".mqfa1("select count(id) from users where room>=700 and room<800 and klan='$o'").", РѕСЃР°Р¶РґР°СЋС‰РёС…: ".mqfa1("select count(id) from users where room>=700 and room<800 and klan<>'$o'").".");
     }
   }
 
@@ -723,14 +723,14 @@ $tme1=getmicrotime();
         }
         mq("unlock tables");
       }
-      if ($rec["id"]==3) $taken=takeshopitem(2316, "shop", "Аукционист", "", 2, 0, $rec["user"]);
-      if ($rec["id"]==4) $taken=takeshopitem(1678, "shop", "Аукционист", "", 2, 0, $rec["user"]);
-      if ($rec["id"]==5) $taken=takeshopitem(101773, "berezka", "Аукционист", "", 2, 0, $rec["user"]);
-      if ($rec["id"]==6) $taken=takeshopitem(101708, "berezka", "Аукционист", "", 2, 0, $rec["user"]);
-      if ($rec["id"]==7) $taken=takeshopitem(6, "shop", "Аукционист", "", 2, 0, $rec["user"]);
-      if ($rec["id"]==8) $taken=takeshopitem(2262, "shop", "Аукционист", "", 2, array("nintel"=>0, "ngray"=>0), $rec["user"]);
+      if ($rec["id"]==3) $taken=takeshopitem(2316, "shop", "РђСѓРєС†РёРѕРЅРёСЃС‚", "", 2, 0, $rec["user"]);
+      if ($rec["id"]==4) $taken=takeshopitem(1678, "shop", "РђСѓРєС†РёРѕРЅРёСЃС‚", "", 2, 0, $rec["user"]);
+      if ($rec["id"]==5) $taken=takeshopitem(101773, "berezka", "РђСѓРєС†РёРѕРЅРёСЃС‚", "", 2, 0, $rec["user"]);
+      if ($rec["id"]==6) $taken=takeshopitem(101708, "berezka", "РђСѓРєС†РёРѕРЅРёСЃС‚", "", 2, 0, $rec["user"]);
+      if ($rec["id"]==7) $taken=takeshopitem(6, "shop", "РђСѓРєС†РёРѕРЅРёСЃС‚", "", 2, 0, $rec["user"]);
+      if ($rec["id"]==8) $taken=takeshopitem(2262, "shop", "РђСѓРєС†РёРѕРЅРёСЃС‚", "", 2, array("nintel"=>0, "ngray"=>0), $rec["user"]);
       if ($rec["id"]==9) $taken=takeshopitem(1995, "shop", "", "", 0, 0, $rec["user"]);
-      adddelo($rec["user"], "Получено на аукционе: \"$rec[name]\"".(@$taken["id"]?"(id: $taken[id])":""), 1);
+      adddelo($rec["user"], "РџРѕР»СѓС‡РµРЅРѕ РЅР° Р°СѓРєС†РёРѕРЅРµ: \"$rec[name]\"".(@$taken["id"]?"(id: $taken[id])":""), 1);
     }
     mq("update lots set item=0, qty=0, user=0");
     $tme=mktime(0,0);

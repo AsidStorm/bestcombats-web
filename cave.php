@@ -44,8 +44,8 @@
     'name' => 'twoportals',
     'code' => '
         <map name="twoportals">
-          <area shape="rect" coords="0,0,120,120" href="?useitem=1&l" alt="Таинственный Круг" title="Таинственный Круг" />
-          <area shape="rect" coords="120,0,240,120" href="?useitem=1&r" alt="Таинственный Круг" title="Таинственный Круг" />
+          <area shape="rect" coords="0,0,120,120" href="?useitem=1&l" alt="РўР°РёРЅСЃС‚РІРµРЅРЅС‹Р№ РљСЂСѓРі" title="РўР°РёРЅСЃС‚РІРµРЅРЅС‹Р№ РљСЂСѓРі" />
+          <area shape="rect" coords="120,0,240,120" href="?useitem=1&r" alt="РўР°РёРЅСЃС‚РІРµРЅРЅС‹Р№ РљСЂСѓРі" title="РўР°РёРЅСЃС‚РІРµРЅРЅС‹Р№ РљСЂСѓРі" />
         </map>
     ',
   );
@@ -54,8 +54,8 @@
     'name' => 'fountainportal',
     'code' => '
         <map name="fountainportal">
-          <area shape="rect" coords="0,0,120,120" href="?useitem=1&l" alt="Таинственный Круг" title="Фонтан лёгкой жизни" />
-          <area shape="rect" coords="120,0,240,120" href="?useitem=1&r" alt="Таинственный Круг" title="Таинственный Круг" />
+          <area shape="rect" coords="0,0,120,120" href="?useitem=1&l" alt="РўР°РёРЅСЃС‚РІРµРЅРЅС‹Р№ РљСЂСѓРі" title="Р¤РѕРЅС‚Р°РЅ Р»С‘РіРєРѕР№ Р¶РёР·РЅРё" />
+          <area shape="rect" coords="120,0,240,120" href="?useitem=1&r" alt="РўР°РёРЅСЃС‚РІРµРЅРЅС‹Р№ РљСЂСѓРі" title="РўР°РёРЅСЃС‚РІРµРЅРЅС‹Р№ РљСЂСѓРі" />
         </map>
     ',
   );
@@ -71,11 +71,11 @@
   include 'cave/cave_bots.php'; 
   include 'cave/objects.php';  
   if ($user["room"]==65) {
-    $objects["700"]=="Знак";
+    $objects["700"]=="Р—РЅР°Рє";
     $i=0;
     while ($i<36) {
       $i++;
-      $objects[700+$i]="Указатель пути";
+      $objects[700+$i]="РЈРєР°Р·Р°С‚РµР»СЊ РїСѓС‚Рё";
     }
   }
   include 'cave/events.php';  
@@ -115,19 +115,19 @@
     global $user;
     if ($notmore1) {
       $i=mqfa1("select id from inventory where prototype='$item' and owner='$user[id]'");
-      if ($i) return "Вы уже получили здесь всё необходимое.";
+      if ($i) return "Р’С‹ СѓР¶Рµ РїРѕР»СѓС‡РёР»Рё Р·РґРµСЃСЊ РІСЃС‘ РЅРµРѕР±С…РѕРґРёРјРѕРµ.";
     }
     $flds=array("podzem"=>1, "podzem"=>$podzem);
     if ($incave) $flds["incave"]=1;
     $taken=takeshopitem($item, "shop", "", $foronetrip, $destiny, $flds);
-    return "Вы получили <b>$taken[name]</b>";
+    return "Р’С‹ РїРѕР»СѓС‡РёР»Рё <b>$taken[name]</b>";
   }
 
   function itemtofloor($item, $foronetrip, $incave=0, $podzem=1, $from = 'shop', $small = 0) {
     global $user, $x, $y, $floor;
     $rec=mqfa("select name, img from $from where id='$item'");
     mq("insert into caveitems set leader='$user[caveleader]', name='$rec[name]', img='$rec[img]', small='$small',x='".($x*2)."', y='".($y*2)."', floor='$floor', item='$item', foronetrip='$foronetrip', incave='$incave', podzem='$podzem'");
-    return "Вы нашли <b>$rec[name]</b>.";
+    return "Р’С‹ РЅР°С€Р»Рё <b>$rec[name]</b>.";
   }
 
   function makeinjury() {
@@ -288,11 +288,11 @@
         }
         mq("delete from inventory where owner='$v[user]' and foronetrip=1");
         unset($party[$k]);
-        $report="Персонаж $v[login] исключён из похода.";
+        $report="РџРµСЂСЃРѕРЅР°Р¶ $v[login] РёСЃРєР»СЋС‡С‘РЅ РёР· РїРѕС…РѕРґР°.";
         break;
       }
     }
-    if (!@$report) $report="Персонаж $_POST[kill] не найден.";
+    if (!@$report) $report="РџРµСЂСЃРѕРЅР°Р¶ $_POST[kill] РЅРµ РЅР°Р№РґРµРЅ.";
   }
 
   if (@$_POST["change"] && $user["id"]==$user["caveleader"] && $_POST["change"]!=$user["login"]) {
@@ -305,12 +305,12 @@
         mq("update caveparties set leader='$v[user]' where leader='$user[id]'");
         mq("update caveitems set leader='$v[user]' where leader='$user[id]'");
         $user["caveleader"]=$v["user"];
-        $report="Персонажу $v[login] присвоено лидерство.";
+        $report="РџРµСЂСЃРѕРЅР°Р¶Сѓ $v[login] РїСЂРёСЃРІРѕРµРЅРѕ Р»РёРґРµСЂСЃС‚РІРѕ.";
         mq("unlock tables");
         break;
       }
     }
-    if (!@$report) $report="Персонаж $_POST[change] не найден.";
+    if (!@$report) $report="РџРµСЂСЃРѕРЅР°Р¶ $_POST[change] РЅРµ РЅР°Р№РґРµРЅ.";
   }
 
 
@@ -330,20 +330,20 @@
 
     list($t, $obj)=explode("/", $map[$ty*2][$tx*2]);
     if ($t=="o") {
-      if ($obj==500) $report="В этот сундук уже кто-то заглядывал";
+      if ($obj==500) $report="Р’ СЌС‚РѕС‚ СЃСѓРЅРґСѓРє СѓР¶Рµ РєС‚Рѕ-С‚Рѕ Р·Р°РіР»СЏРґС‹РІР°Р»";
       if ($obj==501) {
         $map[$ty*2][$tx*2]="o/500";
         include_once("questfuncs.php");
         $rnd=rand(1,100);
-        if ($rnd<=94) $taken=takesmallitem(37, 0, "Нашёл в пещере");
-        elseif ($rnd<=97) $taken=takesmallitem(39, 0, "Нашёл в пещере");
-        elseif ($rnd<=99) $taken=takesmallitem(40, 0, "Нашёл в пещере");
+        if ($rnd<=94) $taken=takesmallitem(37, 0, "РќР°С€С‘Р» РІ РїРµС‰РµСЂРµ");
+        elseif ($rnd<=97) $taken=takesmallitem(39, 0, "РќР°С€С‘Р» РІ РїРµС‰РµСЂРµ");
+        elseif ($rnd<=99) $taken=takesmallitem(40, 0, "РќР°С€С‘Р» РІ РїРµС‰РµСЂРµ");
         else {
           $items=array(1946, 1947, 1948, 1949, 1950, 1951);
           $item=$items[rand(0,5)];
           $taken=takeshopitem($item, "shop", "", "", 0, array("podzem"=>1, "maxdur"=>5+rand(0,5), "isrep"=>0));        
         }
-        $report="В сундуке вы нашли $taken[name].";
+        $report="Р’ СЃСѓРЅРґСѓРєРµ РІС‹ РЅР°С€Р»Рё $taken[name].";
         mq("update caves set map='".serialize($map)."' where leader='$user[caveleader]' and floor='$floor'");
       }
       if ($obj==602 || $obj==601) {
@@ -351,7 +351,7 @@
         mq("update caveparties set floor=$floor where user='$user[id]'");
         $map=mqfa1("select map from caves where leader='$user[caveleader]' and floor='$floor'");
         $map=unserialize($map);
-        $report="Перемещение прошло успешно";
+        $report="РџРµСЂРµРјРµС‰РµРЅРёРµ РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ";
       }
     }
     mq("unlock tables");
@@ -452,22 +452,22 @@
       $map[27][28]="31";updmap();
     }
     
-    if ($obj==18) $report="Вы не обнаружили ничего интересного.";
-    if ($obj==19) $report="Уже проверено, сюда лучше не лазить.";
+    if ($obj==18) $report="Р’С‹ РЅРµ РѕР±РЅР°СЂСѓР¶РёР»Рё РЅРёС‡РµРіРѕ РёРЅС‚РµСЂРµСЃРЅРѕРіРѕ.";
+    if ($obj==19) $report="РЈР¶Рµ РїСЂРѕРІРµСЂРµРЅРѕ, СЃСЋРґР° Р»СѓС‡С€Рµ РЅРµ Р»Р°Р·РёС‚СЊ.";
     if ($obj==11) {
       $map[$ty][$tx]="18";
       include_once("questfuncs.php");
       $rnd=rand(1,100);
-      if ($rnd<=95) $taken=takesmallitem(37, 0, "Нашёл в пещере");
-      else $taken=takesmallitem($rnd-54, 0, "Нашёл в пещере");
-      $report="После длительных поисков вы обнаружили \"$taken[name]\".<br><br>
+      if ($rnd<=95) $taken=takesmallitem(37, 0, "РќР°С€С‘Р» РІ РїРµС‰РµСЂРµ");
+      else $taken=takesmallitem($rnd-54, 0, "РќР°С€С‘Р» РІ РїРµС‰РµСЂРµ");
+      $report="РџРѕСЃР»Рµ РґР»РёС‚РµР»СЊРЅС‹С… РїРѕРёСЃРєРѕРІ РІС‹ РѕР±РЅР°СЂСѓР¶РёР»Рё \"$taken[name]\".<br><br>
       <center><img src=\"".IMGBASE."/i/sh/$taken[img]\"></center>";
       mq("update caves set map='".serialize($map)."' where leader='$user[caveleader]' and floor='$floor'");
     }
     if ($obj==12) {
       include_once("questfuncs.php");
       include_once "config/cavedata.php";
-      $report="За проёмом в стене вы обнаружили ход, который вывел вас куда-то...<br><br>";
+      $report="Р—Р° РїСЂРѕС‘РјРѕРј РІ СЃС‚РµРЅРµ РІС‹ РѕР±РЅР°СЂСѓР¶РёР»Рё С…РѕРґ, РєРѕС‚РѕСЂС‹Р№ РІС‹РІРµР» РІР°СЃ РєСѓРґР°-С‚Рѕ...<br><br>";
       //mq("update caves set map='".serialize($map)."' where leader='$user[caveleader]' and floor='$floor'");
       mq("update caveparties set x='".$cavedata[$user["room"]]["x$floor"]."', y='".$cavedata[$user["room"]]["y$floor"]."', dir='".$cavedata[$user["room"]]["dir$floor"]."' where user='$user[id]'");
       $x=$cavedata[$user["room"]]["x$floor"];
@@ -478,15 +478,15 @@
     if ($obj==13) {
       include_once("questfuncs.php");
       $map[$ty][$tx]="19";
-      $report="Как только вы начали исследовать проём, на вас набросилось какое-то существо, начался поединок. Проём слишком узкий, чтобы туда мог залезть ещё кто-то, так что подмоги не ждите.<br><br>
-      <center><a href=\"fbattle.php\">перейти к поединку</a></center>";
+      $report="РљР°Рє С‚РѕР»СЊРєРѕ РІС‹ РЅР°С‡Р°Р»Рё РёСЃСЃР»РµРґРѕРІР°С‚СЊ РїСЂРѕС‘Рј, РЅР° РІР°СЃ РЅР°Р±СЂРѕСЃРёР»РѕСЃСЊ РєР°РєРѕРµ-С‚Рѕ СЃСѓС‰РµСЃС‚РІРѕ, РЅР°С‡Р°Р»СЃСЏ РїРѕРµРґРёРЅРѕРє. РџСЂРѕС‘Рј СЃР»РёС€РєРѕРј СѓР·РєРёР№, С‡С‚РѕР±С‹ С‚СѓРґР° РјРѕРі Р·Р°Р»РµР·С‚СЊ РµС‰С‘ РєС‚Рѕ-С‚Рѕ, С‚Р°Рє С‡С‚Рѕ РїРѕРґРјРѕРіРё РЅРµ Р¶РґРёС‚Рµ.<br><br>
+      <center><a href=\"fbattle.php\">РїРµСЂРµР№С‚Рё Рє РїРѕРµРґРёРЅРєСѓ</a></center>";
       $btl=battlewithbot(11134, "", "", 10, 0, 1, 0, 0, 0, array(), 1);
       mq("update caves set map='".serialize($map)."' where leader='$user[caveleader]' and floor='$floor'");
     }
     if ($obj==14) {
       include_once("questfuncs.php");
       $map[$ty][$tx]="19";
-      $report="В проёме совсем темно, вы начинаете остороно ощупывать края, как неожиданно из темноты высовывается что-то очень зубастое и очень больно кусает вас за руку. Пожалуй, не стоит продолжать поиски, так как в темноте и в узком помещении преимущество явно не на вашей стороне.<br><br>";
+      $report="Р’ РїСЂРѕС‘РјРµ СЃРѕРІСЃРµРј С‚РµРјРЅРѕ, РІС‹ РЅР°С‡РёРЅР°РµС‚Рµ РѕСЃС‚РѕСЂРѕРЅРѕ РѕС‰СѓРїС‹РІР°С‚СЊ РєСЂР°СЏ, РєР°Рє РЅРµРѕР¶РёРґР°РЅРЅРѕ РёР· С‚РµРјРЅРѕС‚С‹ РІС‹СЃРѕРІС‹РІР°РµС‚СЃСЏ С‡С‚Рѕ-С‚Рѕ РѕС‡РµРЅСЊ Р·СѓР±Р°СЃС‚РѕРµ Рё РѕС‡РµРЅСЊ Р±РѕР»СЊРЅРѕ РєСѓСЃР°РµС‚ РІР°СЃ Р·Р° СЂСѓРєСѓ. РџРѕР¶Р°Р»СѓР№, РЅРµ СЃС‚РѕРёС‚ РїСЂРѕРґРѕР»Р¶Р°С‚СЊ РїРѕРёСЃРєРё, С‚Р°Рє РєР°Рє РІ С‚РµРјРЅРѕС‚Рµ Рё РІ СѓР·РєРѕРј РїРѕРјРµС‰РµРЅРёРё РїСЂРµРёРјСѓС‰РµСЃС‚РІРѕ СЏРІРЅРѕ РЅРµ РЅР° РІР°С€РµР№ СЃС‚РѕСЂРѕРЅРµ.<br><br>";
       mq("update users set hp=1 where id='$user[id]'");
       $user["hp"]=1;
       mq("update caves set map='".serialize($map)."' where leader='$user[caveleader]' and floor='$floor'");
@@ -494,11 +494,11 @@
     mq("unlock tables");
   }
   if ($obj==15) {
-      if (mqfa1("select id from inventory where owner='$user[id]' and name='Пустая склянка'")) {
-      mysql_query("UPDATE inventory SET name = 'Склянка с пробами', podzem = 1, img = 'full_rune_vial.gif' WHERE owner = $user[id] AND name = 'Пустая склянка'");
-          $report="<div style=\"font-weight:normal\">Вы получили &quot;Склянка с пробами&quot;<br><img src='http://bestcombats.net/i/sh/full_rune_vial.gif'></div>";
+      if (mqfa1("select id from inventory where owner='$user[id]' and name='РџСѓСЃС‚Р°СЏ СЃРєР»СЏРЅРєР°'")) {
+      mysql_query("UPDATE inventory SET name = 'РЎРєР»СЏРЅРєР° СЃ РїСЂРѕР±Р°РјРё', podzem = 1, img = 'full_rune_vial.gif' WHERE owner = $user[id] AND name = 'РџСѓСЃС‚Р°СЏ СЃРєР»СЏРЅРєР°'");
+          $report="<div style=\"font-weight:normal\">Р’С‹ РїРѕР»СѓС‡РёР»Рё &quot;РЎРєР»СЏРЅРєР° СЃ РїСЂРѕР±Р°РјРё&quot;<br><img src='http://bestcombats.net/i/sh/full_rune_vial.gif'></div>";
       } else {
-        $report="У вас нет пустой склянки";
+        $report="РЈ РІР°СЃ РЅРµС‚ РїСѓСЃС‚РѕР№ СЃРєР»СЏРЅРєРё";
       }
     }
   $r=mq("select id, bot, x, y, cnt, type, battle from cavebots where leader='$user[caveleader]' and floor='$floor'");
@@ -593,14 +593,14 @@ $_SESSION["movetime"]=time()+4;
       $x=2;$y=2;$floor=2;
       updparties();
       loadmap();
-      $report="Вы попали в провал и упали куда-то...";
+      $report="Р’С‹ РїРѕРїР°Р»Рё РІ РїСЂРѕРІР°Р» Рё СѓРїР°Р»Рё РєСѓРґР°-С‚Рѕ...";
     }
     if ($tmp[1]==701) {
       mq("update caveparties set x=4, y=6, floor=2 where user='$user[id]'");
       $x=4;$y=6;$floor=2;
       updparties();
       loadmap();
-      $report="Вы попали в провал и упали куда-то...";
+      $report="Р’С‹ РїРѕРїР°Р»Рё РІ РїСЂРѕРІР°Р» Рё СѓРїР°Р»Рё РєСѓРґР°-С‚Рѕ...";
     }
   }
 
@@ -639,13 +639,13 @@ $_SESSION["movetime"]=time()+4;
       include_once("questfuncs.php");
       if ($it["small"]) {
         if (!placeinbackpack(1)) {
-          $report="У вас в рюкзак слишком много предметов.";
+          $report="РЈ РІР°СЃ РІ СЂСЋРєР·Р°Рє СЃР»РёС€РєРѕРј РјРЅРѕРіРѕ РїСЂРµРґРјРµС‚РѕРІ.";
         } elseif (!cancarry(mqfa1("select massa from smallitems where id='$it[item]'"))) {
-          $report="Ваш рюкзак перегружен.";
+          $report="Р’Р°С€ СЂСЋРєР·Р°Рє РїРµСЂРµРіСЂСѓР¶РµРЅ.";
         } else {
           mq("delete from caveitems where leader='$user[caveleader]' and x='".($x*2)."' and y='".($y*2)."' and floor='$floor' and id='$_GET[takeitem]'");
-          $taken=takesmallitem($it["item"], 0, "Нашёл в пещере");
-          $report="Вы нашли $taken[name].";
+          $taken=takesmallitem($it["item"], 0, "РќР°С€С‘Р» РІ РїРµС‰РµСЂРµ");
+          $report="Р’С‹ РЅР°С€Р»Рё $taken[name].";
         }
       } else {
         if ($it['item'] > 100000) {
@@ -654,9 +654,9 @@ $_SESSION["movetime"]=time()+4;
             $shop = 'shop';    
         }
         if (!placeinbackpack(1)) {
-          $report="У вас в рюкзаке слишком много предметов.";
+          $report="РЈ РІР°СЃ РІ СЂСЋРєР·Р°РєРµ СЃР»РёС€РєРѕРј РјРЅРѕРіРѕ РїСЂРµРґРјРµС‚РѕРІ.";
         } elseif (!cancarry(mqfa1("select massa from $shop where id='$it[item]'"))) {
-          $report="Ваш рюкзак перегружен.";
+          $report="Р’Р°С€ СЂСЋРєР·Р°Рє РїРµСЂРµРіСЂСѓР¶РµРЅ.";
         } else {
           if ($it["item"]==2347) {
             if ($user["level"]<=6) $taken=takeshopitem($it["item"], "$shop", "", "", 0, array("podzem"=>$it["podzem"], "nlevel"=>6, "maxdur"=>20, "cost"=>57, "stats"=>5));
@@ -666,25 +666,25 @@ $_SESSION["movetime"]=time()+4;
               $report=$taken["error"];
             } else {
               mq("delete from caveitems where leader='$user[caveleader]' and x='".($x*2)."' and y='".($y*2)."' and floor='$floor' and id='$_GET[takeitem]'");
-              $report="Вы нашли $taken[name].";
-              adddelo($user["id"], "Получено в пещере: $rec[name] (id: $rec[id]).", 1);
+              $report="Р’С‹ РЅР°С€Р»Рё $taken[name].";
+              adddelo($user["id"], "РџРѕР»СѓС‡РµРЅРѕ РІ РїРµС‰РµСЂРµ: $rec[name] (id: $rec[id]).", 1);
             }
           } else {
             $destiny = 0;
             if (($it["item"] >= 2573 && $it["item"] <= 2576) || $it["item"] == 2589) {
                 $destiny = 2;
             } 
-            $taken=takeshopitem($it["item"], "$shop", "", $it["foronetrip"], $destiny, array("podzem"=>$it["podzem"], "incave"=>$it["incave"]), 0, 1, "Нашёл в пещере");
+            $taken=takeshopitem($it["item"], "$shop", "", $it["foronetrip"], $destiny, array("podzem"=>$it["podzem"], "incave"=>$it["incave"]), 0, 1, "РќР°С€С‘Р» РІ РїРµС‰РµСЂРµ");
             if (@$taken["error"]) {
               $report=$taken["error"];
             } else {
               mq("delete from caveitems where leader='$user[caveleader]' and x='".($x*2)."' and y='".($y*2)."' and floor='$floor' and id='$_GET[takeitem]'");
-              $report="Вы нашли $taken[name].";
+              $report="Р’С‹ РЅР°С€Р»Рё $taken[name].";
             }
           }
         }
       }
-    } else $report="Кто-то оказался быстрее...";
+    } else $report="РљС‚Рѕ-С‚Рѕ РѕРєР°Р·Р°Р»СЃСЏ Р±С‹СЃС‚СЂРµРµ...";
   }
   if (@$_GET["speak"]) {
     if ($dir==0) $x1=$x*2-2; elseif ($dir==2) $x1=$x*2+2; else $x1=$x*2;
@@ -738,8 +738,8 @@ $_SESSION["movetime"]=time()+4;
     foreach ($party as $k=>$v) {
       if ($v["x"]!=$x || $v["y"]!=$y) $finished=0;
     }
-    if (!$finished) $report="Вам необходимо всей командой собратся здесь.";
-    else $report="Вы нашли выход из лабиринта.<br><br><a href=\"cave.php?exit=1\">Выйти</a>";
+    if (!$finished) $report="Р’Р°Рј РЅРµРѕР±С…РѕРґРёРјРѕ РІСЃРµР№ РєРѕРјР°РЅРґРѕР№ СЃРѕР±СЂР°С‚СЃСЏ Р·РґРµСЃСЊ.";
+    else $report="Р’С‹ РЅР°С€Р»Рё РІС‹С…РѕРґ РёР· Р»Р°Р±РёСЂРёРЅС‚Р°.<br><br><a href=\"cave.php?exit=1\">Р’С‹Р№С‚Рё</a>";
   }
 
   if (@$_GET["exit"]) {
@@ -747,7 +747,7 @@ $_SESSION["movetime"]=time()+4;
       include_once("questfuncs.php");
       if (LETTERQUEST) {
         $taken=takesmallitem(61);
-        privatemsg("Вы нашли <b>$taken[name].</b>", $user["login"]);
+        privatemsg("Р’С‹ РЅР°С€Р»Рё <b>$taken[name].</b>", $user["login"]);
       }
     }
     if (count($party)==1) {
@@ -870,14 +870,14 @@ IMG.MoveLine{ width:108px;height: 7px;border:0px solid;position:absolute;left:0p
 </style>
 <script>
 var Hint3Name = '';
-// Заголовок, название скрипта, имя поля с логином
+// Р—Р°РіРѕР»РѕРІРѕРє, РЅР°Р·РІР°РЅРёРµ СЃРєСЂРёРїС‚Р°, РёРјСЏ РїРѕР»СЏ СЃ Р»РѕРіРёРЅРѕРј
 function closehint3() {
   document.getElementById("hint3").style.visibility='hidden';
 }
 function findlogin(title, script, name){
   document.getElementById("hint3").innerHTML = '<form action="'+script+'" method=post><table width=100% cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: pointer" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>'+
   '<table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><INPUT TYPE=hidden name=sd4 value="6"><td colspan=2>'+
-  'Укажите логин персонажа:<small><BR>(можно щелкнуть по логину в чате)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" »» "></TD></TR></TABLE></td></tr></table></form>';
+  'РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<small><BR>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</TD></TR><TR><TD width=50% align=right><INPUT TYPE=text NAME="'+name+'"></TD><TD width=50%><INPUT TYPE="submit" value=" В»В» "></TD></TR></TABLE></td></tr></table></form>';
   document.getElementById("hint3").style.visibility = "visible";
   document.getElementById("hint3").style.left = 100;
   document.getElementById("hint3").style.top = 100;
@@ -891,7 +891,7 @@ function attackmenu(e){
          x = event.clientX + document.documentElement.scrollLeft +document.body.scrollLeft - 5;
          y = event.clientY + document.documentElement.scrollTop + document.body.scrollTop-5;
          if (event.clientY + 72 > document.body.clientHeight) { y-=62 } else { y-=2 }
-  el.innerHTML = '<a class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="this.disabled = true;document.location.href=\'cave.php?attack=1<?="&",time()?>\';"> Напасть </a>';
+  el.innerHTML = '<a class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="this.disabled = true;document.location.href=\'cave.php?attack=1<?="&",time()?>\';"> РќР°РїР°СЃС‚СЊ </a>';
 
          el.style.left = x + "px";
          el.style.top  = y + "px";
@@ -911,7 +911,7 @@ function speakmenu(e){
     posx = e.clientX + document.body.scrollLeft;
     posy = e.clientY + document.body.scrollTop;
   }
-  el.innerHTML = '<div style="color:#000;font-size:14px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="this.disabled =  true;document.location.href=\'cave.php?speak=1\';closeMenu(event);"> <b>Говорить</b> </div>';
+  el.innerHTML = '<div style="color:#000;font-size:14px;padding:5px 10px 5px 10px" class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="this.disabled =  true;document.location.href=\'cave.php?speak=1\';closeMenu(event);"> <b>Р“РѕРІРѕСЂРёС‚СЊ</b> </div>';
 
   el.style.left = posx + "px";
   el.style.top  = posy + "px";
@@ -933,12 +933,12 @@ function speakattackmenu(e){
     posy = e.clientY + document.body.scrollTop;
   }
   
-  el.innerHTML = '<a class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="this.disabled = true;document.location.href=\'cave.php?attack=1<?="&",time()?>\';"> Напасть </a>';
+  el.innerHTML = '<a class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="this.disabled = true;document.location.href=\'cave.php?attack=1<?="&",time()?>\';"> РќР°РїР°СЃС‚СЊ </a>';
   el.style.left = posx + "px";
   el.style.top  = posy + "px";
   el.style.visibility = "visible";
   
-  el2.innerHTML = '<a class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="this.disabled =  true;document.location.href=\'cave.php?speak=1\';closeMenu(event);"> Говорить </a>';
+  el2.innerHTML = '<a class=menuItem onmouseout="this.className=\'menuItem\';" onmouseover="this.className=\'menuItem2\';" onclick="this.disabled =  true;document.location.href=\'cave.php?speak=1\';closeMenu(event);"> Р“РѕРІРѕСЂРёС‚СЊ </a>';
   el2.style.left = posx + "px";
   el2.style.top  = posy + 33 + "px";
   el2.style.visibility = "visible";
@@ -1333,7 +1333,7 @@ function speakattackmenu(e){
         }
         $objInWall = explode('/', $map[3][$wall]);
         if ($objInWall[1] == "o") {
-          if ($user['room'] == 83 && !(!$direction && (($x == 13 && $y == 4) || ($x == 12 && $y == 4)))) { // исключение 2-ух клеток в комнате 82
+          if ($user['room'] == 83 && !(!$direction && (($x == 13 && $y == 4) || ($x == 12 && $y == 4)))) { // РёСЃРєР»СЋС‡РµРЅРёРµ 2-СѓС… РєР»РµС‚РѕРє РІ РєРѕРјРЅР°С‚Рµ 82
             $ret.=drawobject('//' . $objInWall[2], 3, $i);
           }
         }
@@ -1388,19 +1388,19 @@ function speakattackmenu(e){
         function NavigateThrough (e)
         {
             code=event.keyCode ? event.keyCode : event.which ? event.which : null;
-            //Идти вперед на кнопки W Стрелка вперед и 8
+            //РРґС‚Рё РІРїРµСЂРµРґ РЅР° РєРЅРѕРїРєРё W РЎС‚СЂРµР»РєР° РІРїРµСЂРµРґ Рё 8
             if (code==104 || code==38 || code==87){
                 document.location = "<?=$forwardlink?>";			
             }
-            //Идти влево на кнопках
+            //РРґС‚Рё РІР»РµРІРѕ РЅР° РєРЅРѕРїРєР°С…
             if(code==100 || code==37 || code==65){
 				document.location = "<?=$leftlink?>";
 			}
-			//идти вправо на кнопках
+			//РёРґС‚Рё РІРїСЂР°РІРѕ РЅР° РєРЅРѕРїРєР°С…
             if(code==102 || code==39 || code==68){
 				document.location = "<?=$rightlink?>";
 			}
-			//Идти назад на кнопках
+			//РРґС‚Рё РЅР°Р·Р°Рґ РЅР° РєРЅРѕРїРєР°С…
             if(code==98 || code==40 || code==83){
 				document.location = "<?=$backlink?>";
 			}
@@ -1410,9 +1410,9 @@ function speakattackmenu(e){
 	catch(e){}
 </script>	
 <?
-    $ret.="<div style='position:absolute; left:37px; top:37px;'><a href=\"?direction=".($direction==0?3:$direction-1)."&".time()."\" title=\"Поворот налево\"><img src=\"/i/dungeon/turnleft.gif\" width=\"22\" height=\"20\" border=\"0\" /></a></div>";
+    $ret.="<div style='position:absolute; left:37px; top:37px;'><a href=\"?direction=".($direction==0?3:$direction-1)."&".time()."\" title=\"РџРѕРІРѕСЂРѕС‚ РЅР°Р»РµРІРѕ\"><img src=\"/i/dungeon/turnleft.gif\" width=\"22\" height=\"20\" border=\"0\" /></a></div>";
 
-    $ret.="<div style='position:absolute; left:112px; top:37px;'><a href=\"?direction=".(($direction+1)%4)."&".time()."\" title=\"Поворот направо\"><img src=\"/i/dungeon/turnright.gif\" width=\"21\" height=\"20\" border=\"0\" /></a></div>";
+    $ret.="<div style='position:absolute; left:112px; top:37px;'><a href=\"?direction=".(($direction+1)%4)."&".time()."\" title=\"РџРѕРІРѕСЂРѕС‚ РЅР°РїСЂР°РІРѕ\"><img src=\"/i/dungeon/turnright.gif\" width=\"21\" height=\"20\" border=\"0\" /></a></div>";
 
     $ret.="<div style='position:absolute; left:66px; top:62px;'><a href=\"$_SERVER[PHP_SELF]\"><img src=\"/i/dungeon/ref.gif\" border=\"0\"/></a></div>";
     $ret.="</div>
@@ -1542,14 +1542,14 @@ progress_update();
     $wd=floor($usr["hp"]/$usr["maxhp"]*120);
     echo "<tr>
 <td background=\"http://img.bestcombats.net/cave/bg_scroll_05.gif\" align=\"center\">
-<a href=\"inf.php?$v[user]\" target=_blank title=\"Информация о $v[login]\">$v[login]</a> [$usr[level]]<a href='inf.php?$v[user]' target='_blank'><img src='/i/inf.gif' border=0></a></td>
+<a href=\"inf.php?$v[user]\" target=_blank title=\"РРЅС„РѕСЂРјР°С†РёСЏ Рѕ $v[login]\">$v[login]</a> [$usr[level]]<a href='inf.php?$v[user]' target='_blank'><img src='/i/inf.gif' border=0></a></td>
 <td background=\"http://img.bestcombats.net/cave/bg_scroll_05.gif\" nowrap style=\"font-size:9px\">
 <div style=\"position: relative;padding-left:5px\">
-<table cellspacing=\"0\" cellpadding=\"0\" style='line-height: 1'><td nowrap style=\"font-size:9px\" style=\"position: relative\"><SPAN ".($v["user"]==$user["id"]?"id=\"HP\"":"")." style='position: absolute; left: 5; z-index: 1; font-weight: bold; color: #FFFFFF'>$usr[hp]/$usr[maxhp]</SPAN><img src=\"/i/1green.gif\" alt=\"Уровень жизни\" ".($v["user"]==$user["id"]?"name=\"HP1\"":"")." width=\"$wd\" height=\"9\" ".($v["user"]==$user["id"]?"id=\"HP1\"":"")."><img src=\"/i/misc/bk_life_loose.gif\" alt=\"Уровень жизни\" ".($v["user"]==$user["id"]?"name=\"HP2\"":"")." width=\"".(120-$wd)."\" height=\"9\" ".($v["user"]==$user["id"]?"id=\"HP2\"":"")."></td></table></div></td>
+<table cellspacing=\"0\" cellpadding=\"0\" style='line-height: 1'><td nowrap style=\"font-size:9px\" style=\"position: relative\"><SPAN ".($v["user"]==$user["id"]?"id=\"HP\"":"")." style='position: absolute; left: 5; z-index: 1; font-weight: bold; color: #FFFFFF'>$usr[hp]/$usr[maxhp]</SPAN><img src=\"/i/1green.gif\" alt=\"РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё\" ".($v["user"]==$user["id"]?"name=\"HP1\"":"")." width=\"$wd\" height=\"9\" ".($v["user"]==$user["id"]?"id=\"HP1\"":"")."><img src=\"/i/misc/bk_life_loose.gif\" alt=\"РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё\" ".($v["user"]==$user["id"]?"name=\"HP2\"":"")." width=\"".(120-$wd)."\" height=\"9\" ".($v["user"]==$user["id"]?"id=\"HP2\"":"")."></td></table></div></td>
 <td background=\"http://img.bestcombats.net/cave/bg_scroll_05.gif\" align=\"center\"></td>
 <td background=\"http://img.bestcombats.net/cave/bg_scroll_05.gif\" align=\"center\">";
 
-if ($v["user"]==$user["id"] && $user["id"]==$user["caveleader"]) echo "<IMG alt=\"Лидер группы\" src=\"/i/misc/lead1.gif\" width=24 height=15><A href=\"#\" onClick=\"findlogin( 'Выберите персонажа которого хотите выгнать','cave.php', 'kill')\"><IMG alt=\"Выгнать супостата\" src=\"/img/podzem/ico_kill_member1.gif\" WIDTH=\"14\" HEIGHT=\"17\"></A>&nbsp;<A href=\"#\" onClick=\"findlogin( 'Выберите персонажа которому хотите передать лидерство','cave.php', 'change')\"><IMG alt=\"Новый царь\" src=\"/img/podzem/ico_change_leader1.gif\" WIDTH=\"14\" HEIGHT=\"17\"></A>";
+if ($v["user"]==$user["id"] && $user["id"]==$user["caveleader"]) echo "<IMG alt=\"Р›РёРґРµСЂ РіСЂСѓРїРїС‹\" src=\"/i/misc/lead1.gif\" width=24 height=15><A href=\"#\" onClick=\"findlogin( 'Р’С‹Р±РµСЂРёС‚Рµ РїРµСЂСЃРѕРЅР°Р¶Р° РєРѕС‚РѕСЂРѕРіРѕ С…РѕС‚РёС‚Рµ РІС‹РіРЅР°С‚СЊ','cave.php', 'kill')\"><IMG alt=\"Р’С‹РіРЅР°С‚СЊ СЃСѓРїРѕСЃС‚Р°С‚Р°\" src=\"/img/podzem/ico_kill_member1.gif\" WIDTH=\"14\" HEIGHT=\"17\"></A>&nbsp;<A href=\"#\" onClick=\"findlogin( 'Р’С‹Р±РµСЂРёС‚Рµ РїРµСЂСЃРѕРЅР°Р¶Р° РєРѕС‚РѕСЂРѕРјСѓ С…РѕС‚РёС‚Рµ РїРµСЂРµРґР°С‚СЊ Р»РёРґРµСЂСЃС‚РІРѕ','cave.php', 'change')\"><IMG alt=\"РќРѕРІС‹Р№ С†Р°СЂСЊ\" src=\"/img/podzem/ico_change_leader1.gif\" WIDTH=\"14\" HEIGHT=\"17\"></A>";
 echo "</td>
 </tr>";
 
@@ -1573,19 +1573,19 @@ if (isset($_GET['msg'])) {
 <center>
 <?
   $r=mq("select * from caveitems where leader='$user[caveleader]' and x='".($x*2)."' and y='".($y*2)."' and floor='$floor'");
-  if (mysql_num_rows($r)>0) echo "<font color=red>В комнате разбросаны вещи:</font><div style=\"font-size:3px\">&nbsp;</div>";
+  if (mysql_num_rows($r)>0) echo "<font color=red>Р’ РєРѕРјРЅР°С‚Рµ СЂР°Р·Р±СЂРѕСЃР°РЅС‹ РІРµС‰Рё:</font><div style=\"font-size:3px\">&nbsp;</div>";
   while ($rec=mysql_fetch_assoc($r)) {
-    echo "<a title=\"Поднять $rec[name]\" href=\"cave.php?takeitem=$rec[id]\"><img src=\"".IMGBASE."/i/sh/$rec[img]\"></a> ";
+    echo "<a title=\"РџРѕРґРЅСЏС‚СЊ $rec[name]\" href=\"cave.php?takeitem=$rec[id]\"><img src=\"".IMGBASE."/i/sh/$rec[img]\"></a> ";
   }
 ?></center><br>
 <?
-  if ($loses>=3) echo "<center><b><font color=red>Вас убили 3 раза, и вы покидете подземелье</font></b><br><br>
-  <a href=\"cave.php?exit=1\">Вернуться</a></center><br>";
-  if ($loses) echo "<div style=\"padding-left:20px\"><b>Количество смертей: $loses</b></div>";
+  if ($loses>=3) echo "<center><b><font color=red>Р’Р°СЃ СѓР±РёР»Рё 3 СЂР°Р·Р°, Рё РІС‹ РїРѕРєРёРґРµС‚Рµ РїРѕРґР·РµРјРµР»СЊРµ</font></b><br><br>
+  <a href=\"cave.php?exit=1\">Р’РµСЂРЅСѓС‚СЊСЃСЏ</a></center><br>";
+  if ($loses) echo "<div style=\"padding-left:20px\"><b>РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРјРµСЂС‚РµР№: $loses</b></div>";
 $rt=mysql_query("select * from `podzem_zad_login` where owner='".$user['id']."'");
 if($est=mysql_fetch_array($rt)){
 	if($user['align']==2.5){
-	echo "Задание:  ",$est['cratco'] ,'  ',setPodzZad($est['ubil'],$est['ubit']);
+	echo "Р—Р°РґР°РЅРёРµ:  ",$est['cratco'] ,'  ',setPodzZad($est['ubil'],$est['ubit']);
 	}
 }
 ?>
@@ -1599,7 +1599,7 @@ if($est=mysql_fetch_array($rt)){
   if (@$roomnames[$tmp[1]]) echo $roomnames[$tmp[1]];
   else echo $rooms[$user["room"]];
 ?></b></font>&nbsp;&nbsp;&nbsp;&nbsp;
-<font style='font-size:14px; color:#8f0000'><b></b></font>&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" onclick="if (confirm('Вы уверены что хотите выйти?')) window.location='cave.php?exit=1'">&nbsp;<b style='font-size:14px; color:#000066;'>Выйти</b></a>
+<font style='font-size:14px; color:#8f0000'><b></b></font>&nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor:pointer;" onclick="if (confirm('Р’С‹ СѓРІРµСЂРµРЅС‹ С‡С‚Рѕ С…РѕС‚РёС‚Рµ РІС‹Р№С‚Рё?')) window.location='cave.php?exit=1'">&nbsp;<b style='font-size:14px; color:#000066;'>Р’С‹Р№С‚Рё</b></a>
 </div>
 <?
   echo drawmap($map, $party, $x, $y, $dir);
@@ -1613,7 +1613,7 @@ if ($user["align"]==2.5) {
             x:&nbsp;<input size="2" name="x" value="' . $x . '" />
             y:&nbsp;<input size="2" name="y" value="' . $y . '" />
             floor:&nbsp;<input size="2" name="floor" value="' . $floor . '" />&nbsp;
-            <input type="submit" name="goto" value="перейти" />
+            <input type="submit" name="goto" value="РїРµСЂРµР№С‚Рё" />
         </form>
     ';
 }

@@ -12,41 +12,41 @@ $effect = mysql_fetch_array(mysql_query("SELECT `time`,`id` FROM `effects` WHERE
 }
      
 
-if ($user['battle'] > 0) {echo "Только в бою...";}
-elseif ($user['level'] < 4) { echo "Вашего уровня не достаточно для использования Проклятие!"; }
-elseif ($effect['time']) {echo "На персонаже уже есть Проклятие"; }
-elseif ($us['bot']==0) {echo "Проклятие может быть наложено только на персонажей"; 
+if ($user['battle'] > 0) {echo "РўРѕР»СЊРєРѕ РІ Р±РѕСЋ...";}
+elseif ($user['level'] < 4) { echo "Р’Р°С€РµРіРѕ СѓСЂРѕРІРЅСЏ РЅРµ РґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РџСЂРѕРєР»СЏС‚РёРµ!"; }
+elseif ($effect['time']) {echo "РќР° РїРµСЂСЃРѕРЅР°Р¶Рµ СѓР¶Рµ РµСЃС‚СЊ РџСЂРѕРєР»СЏС‚РёРµ"; }
+elseif ($us['bot']==0) {echo "РџСЂРѕРєР»СЏС‚РёРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅР°Р»РѕР¶РµРЅРѕ С‚РѕР»СЊРєРѕ РЅР° РїРµСЂСЃРѕРЅР°Р¶РµР№"; 
 }elseif (1==1) {
 if($_POST['target']!="2"){
       if ($user['invis']==1) {
-		addch("<img src=i/magic/1x1.gif><font color=red>Внимание!</font> &quot;невидимка&quot; наложил Проклятие на &quot;невидимка&quot;, сроком 2 часа.");  
+		addch("<img src=i/magic/1x1.gif><font color=red>Р’РЅРёРјР°РЅРёРµ!</font> &quot;РЅРµРІРёРґРёРјРєР°&quot; РЅР°Р»РѕР¶РёР» РџСЂРѕРєР»СЏС‚РёРµ РЅР° &quot;РЅРµРІРёРґРёРјРєР°&quot;, СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");  
 		}else
-		addch("<img src=i/magic/1x1.gif><font color=red>Внимание!</font> &quot;{$user['login']}&quot; наложил Проклятие на &quot;{$_POST['target']}&quot;, сроком 2 часа.");
+		addch("<img src=i/magic/1x1.gif><font color=red>Р’РЅРёРјР°РЅРёРµ!</font> &quot;{$user['login']}&quot; РЅР°Р»РѕР¶РёР» РџСЂРѕРєР»СЏС‚РёРµ РЅР° &quot;{$_POST['target']}&quot;, СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");
       $user = mysql_fetch_array(mysql_query("SELECT `id` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;")); 
       if ($effect['time']){mysql_query("UPDATE `effects` SET `time`=".(time()+900)." WHERE `login` = '{$_POST['target']}' LIMIT 1;");}
-	  else{mysql_query("insert into effects (`owner`,`type`,`time`,`name`,`sila`,`intel`,`lovk`,`inta`,`ghp`) values ('".$user['id']."',9991,".(time()+900).",'Проклятие',-15,-15,-15,-15,-250)") or die(mysql_error());}
+	  else{mysql_query("insert into effects (`owner`,`type`,`time`,`name`,`sila`,`intel`,`lovk`,`inta`,`ghp`) values ('".$user['id']."',9991,".(time()+900).",'РџСЂРѕРєР»СЏС‚РёРµ',-15,-15,-15,-15,-250)") or die(mysql_error());}
 	  mysql_query("UPDATE `users` SET `sila`=`sila`-'15', `lovk`=`lovk`-'15', `inta`=`inta`-'15', `intel`=`intel`-'15', `maxhp`=`maxhp`-'250', `hp`=`hp`-'250' WHERE `login` = '{$_POST['target']}' LIMIT 1;");
-      echo "<font color=red><b>На персонажа \"{$_POST['target']}\" наложено заклятие \"Благословение Ангела\" </b></font>";      
+      echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° \"{$_POST['target']}\" РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ \"Р‘Р»Р°РіРѕСЃР»РѕРІРµРЅРёРµ РђРЅРіРµР»Р°\" </b></font>";      
       $bet=1;
 	  }
 	  else
 	  {
 	  if ($user['invis']==1) {
-		addch("<img src=i/magic/1x1.gif><font color=red>Внимание!</font> &quot;невидимка&quot; наложил Проклятие на &quot;невидимка&quot;, сроком 2 часа.");  
+		addch("<img src=i/magic/1x1.gif><font color=red>Р’РЅРёРјР°РЅРёРµ!</font> &quot;РЅРµРІРёРґРёРјРєР°&quot; РЅР°Р»РѕР¶РёР» РџСЂРѕРєР»СЏС‚РёРµ РЅР° &quot;РЅРµРІРёРґРёРјРєР°&quot;, СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");  
 		}else
-		addch("<img src=i/magic/1x1.gif><font color=red>Внимание!</font> &quot;{$user['login']}&quot; Проклятие на &quot;{$_POST['target']}&quot;, сроком 2 часа.");
+		addch("<img src=i/magic/1x1.gif><font color=red>Р’РЅРёРјР°РЅРёРµ!</font> &quot;{$user['login']}&quot; РџСЂРѕРєР»СЏС‚РёРµ РЅР° &quot;{$_POST['target']}&quot;, СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");
       //$user = mysql_fetch_array(mysql_query("SELECT `id` FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;")); 
       if ($effect['time']){mysql_query("UPDATE `effects` SET `time`=".(time()+900)." WHERE `owner` = '{$_SESSION['uid']}' LIMIT 1;");}
-	  else{mysql_query("insert into effects (`owner`,`type`,`time`,`name`,`sila`,`intel`,`lovk`,`inta`,`ghp`) values ('".$user['id']."',9991,".(time()+900).",'Проклятие',-15,-15,-15,-15,-250)") or die(mysql_error());}
+	  else{mysql_query("insert into effects (`owner`,`type`,`time`,`name`,`sila`,`intel`,`lovk`,`inta`,`ghp`) values ('".$user['id']."',9991,".(time()+900).",'РџСЂРѕРєР»СЏС‚РёРµ',-15,-15,-15,-15,-250)") or die(mysql_error());}
 	  //mysql_query("UPDATE `users` SET `sila`=`sila`+'".floor($ptarget['level']*1.5)."', `lovk`=`lovk`+'".floor($ptarget['level']*1.5)."', `inta`=`inta`+'".floor($ptarget['level']*1.5)."', `intel`=`intel`+'".floor($ptarget['level']*1.5)."' WHERE `id` = '".$ptarget['id']."' LIMIT 1;");
 	  mysql_query("UPDATE `users` SET `sila`=`sila`+'".floor($ptarget['level']*1.5)."',`lovk`=`lovk`+'".floor($ptarget['level']*1.5)."',`inta`=`inta`+'".floor($ptarget['level']*1.5)."',`intel`=`intel`+'".floor($ptarget['level']*1.5)."',`hp`=`hp`+'".floor($ptarget['level']*15)."',`maxhp`=`maxhp`+'".floor($ptarget['level']*15)."' WHERE `id` = '".$ptarget['id']."' LIMIT 1;");
 	  	 
-      echo "<font color=red><b>На персонажа \"{$user['login']}\" наложено \"Проклятие\" </b></font>";      
+      echo "<font color=red><b>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° \"{$user['login']}\" РЅР°Р»РѕР¶РµРЅРѕ \"РџСЂРѕРєР»СЏС‚РёРµ\" </b></font>";      
       $bet=1;}
       
 
 } else {
-        echo "Свиток рассыпался в ваших руках...";
+        echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
         $bet=1;
       }  
 	  }

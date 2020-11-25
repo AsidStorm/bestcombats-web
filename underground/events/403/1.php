@@ -1,9 +1,9 @@
 <?php
-// ðåøåòêà
+// Ñ€ÐµÑˆÐµÑ‚ÐºÐ°
 if ($tx*2==16 && $ty*2==40 && (int)$floor == 1) {
     $iskey = mysql_result(mysql_query("SELECT COUNT(*) FROM inventory WHERE prototype = 11466 AND owner = " . $user['id']), 0, 0);
     if (!$iskey) {
-        gotoxy(16, 42, 1, "Äëÿ ïðîõîäà íåîáõîäèì Ìåðöàþùèé êëþ÷ ¹5");
+        gotoxy(16, 42, 1, "Ð”Ð»Ñ Ð¿Ñ€Ð¾Ñ…Ð¾Ð´Ð° Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼ ÐœÐµÑ€Ñ†Ð°ÑŽÑ‰Ð¸Ð¹ ÐºÐ»ÑŽÑ‡ â„–5");
     }
 }
 ?>

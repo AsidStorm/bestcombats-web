@@ -7,20 +7,20 @@
   if ($row["prototype"]==102501) $deltamana=1250;
 
   if ($user['battle'] && $user["hp"]<=0) { 
-    $report="Вам это уже не пригодится!"; 
+    $report="Р’Р°Рј СЌС‚Рѕ СѓР¶Рµ РЅРµ РїСЂРёРіРѕРґРёС‚СЃСЏ!"; 
   } else {
     if ($user['sex'] == 1) {$action="";}
-    else {$action="а";}
+    else {$action="Р°";}
 
     if ($user['battle'] > 0) {
-      $fbattle->add_log('<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' использовал'.$action.' заклятие <b>'.$row["name"].'</b>.<BR>');
+      $fbattle->add_log('<span class=date>'.date("H:i").'</span> '.nick5($user['id'],$fbattle->my_class).' РёСЃРїРѕР»СЊР·РѕРІР°Р»'.$action.' Р·Р°РєР»СЏС‚РёРµ <b>'.$row["name"].'</b>.<BR>');
       $fbattle->write_log ();
       $fbattle->addmana($deltamana, $user["id"]);
       global $report;
-      echo "Вы восстановили $deltamana маны!";
+      echo "Р’С‹ РІРѕСЃСЃС‚Р°РЅРѕРІРёР»Рё $deltamana РјР°РЅС‹!";
     } else {
       mq("update users set mana=if(mana+$deltamana>maxmana,maxmana,mana+$deltamana) where id='$user[id]'");
-      echo "Вы восстановили $deltamana маны!</B></FONT>";
+      echo "Р’С‹ РІРѕСЃСЃС‚Р°РЅРѕРІРёР»Рё $deltamana РјР°РЅС‹!</B></FONT>";
     }
     $bet=1;
   }

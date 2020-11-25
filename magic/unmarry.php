@@ -1,5 +1,5 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
 	//if (rand(1,2)==1) {
 	
 
@@ -11,36 +11,36 @@
 		$zhena=$_POST['target1'];
 		if ($m['id'] and $w['id']) {
 			if ($m['married'] != $_POST['target1']) {
-				echo "<font color=red><b>Персонаж ".$_POST['target']." не состоит в браке с ".$_POST['target1']."!<b></font>";
+				echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ ".$_POST['target']." РЅРµ СЃРѕСЃС‚РѕРёС‚ РІ Р±СЂР°РєРµ СЃ ".$_POST['target1']."!<b></font>";
 			}
 			elseif ($w['married'] != $_POST['target']) {
-				echo "<font color=red><b>Персонаж ".$_POST['target1']." не состоит в браке с ".$_POST['target']."!<b></font>";
+				echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ ".$_POST['target1']." РЅРµ СЃРѕСЃС‚РѕРёС‚ РІ Р±СЂР°РєРµ СЃ ".$_POST['target']."!<b></font>";
 			}
 			elseif ($m['sex'] != 1) {
-				echo "<font color=red><b>Неправильный пол жениха!<b></font>";
+				echo "<font color=red><b>РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РїРѕР» Р¶РµРЅРёС…Р°!<b></font>";
 			}
 			elseif ($w['sex'] != 0) {
-				echo "<font color=red><b>Неправильный пол невесты!<b></font>";
+				echo "<font color=red><b>РќРµРїСЂР°РІРёР»СЊРЅС‹Р№ РїРѕР» РЅРµРІРµСЃС‚С‹!<b></font>";
 			}
 			else {
 				if (($user['align'] > '2' && $user['align'] < '3') || ($user['align'] > '1.6' && $user['align'] < '2')  || $user['align'] == '777') {
 					if (mysql_query("UPDATE `users` SET `married`='' WHERE `id` = '{$m['id']}' LIMIT 1;") && mysql_query("UPDATE `users` SET `married`='' WHERE `id` = '{$w['id']}' LIMIT 1;")) {
-						$mess="Расторжение брака между &quot;$muzh&quot; и &quot;$zhena&quot;, регистратор &quot;{$user['login']}&quot;.";
+						$mess="Р Р°СЃС‚РѕСЂР¶РµРЅРёРµ Р±СЂР°РєР° РјРµР¶РґСѓ &quot;$muzh&quot; Рё &quot;$zhena&quot;, СЂРµРіРёСЃС‚СЂР°С‚РѕСЂ &quot;{$user['login']}&quot;.";
 						mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$m['id']."','$mess','".time()."');");
 						mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$w['id']."','$mess','".time()."');");
 						mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
-						echo "<font color=red><b>Успешно расторгнут брак между \"$muzh\" и \"$zhena\"!</b></font>";	
+						echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ СЂР°СЃС‚РѕСЂРіРЅСѓС‚ Р±СЂР°Рє РјРµР¶РґСѓ \"$muzh\" Рё \"$zhena\"!</b></font>";	
 					}
 					else {
-						echo "<font color=red><b>Произошла ошибка!<b></font>";
+						echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
 					}
 				}
 				else {
-					echo "<font color=red><b>Вы не можете расторгнуть брак!<b></font>";	
+					echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ СЂР°СЃС‚РѕСЂРіРЅСѓС‚СЊ Р±СЂР°Рє!<b></font>";	
 				}
 			}
 		}
 		else {
-			echo "<font color=red><b>Персонаж \"$muzh\" или \"$zhena\" не существует!<b></font>";
+			echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$muzh\" РёР»Рё \"$zhena\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!<b></font>";
 		}
 ?>

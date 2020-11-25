@@ -2,9 +2,9 @@
   
     session_start();
 
-    $stat_nm=array("1"=>"Сила","2"=>"Ловкость","3"=>"Интуиция","4"=>"Выносливость","5"=>"Интеллект","6"=>"Мудрость","7"=>"Сексуальность","8"=>"Духовность");
+    $stat_nm=array("1"=>"РЎРёР»Р°","2"=>"Р›РѕРІРєРѕСЃС‚СЊ","3"=>"РРЅС‚СѓРёС†РёСЏ","4"=>"Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ","5"=>"РРЅС‚РµР»Р»РµРєС‚","6"=>"РњСѓРґСЂРѕСЃС‚СЊ","7"=>"РЎРµРєСЃСѓР°Р»СЊРЅРѕСЃС‚СЊ","8"=>"Р”СѓС…РѕРІРЅРѕСЃС‚СЊ");
     $stat_nmdb=array("1"=>"sila","2"=>"lovk","3"=>"inta","4"=>"vinos","5"=>"intel","6"=>"mudra","7"=>"sexy","8"=>"spirit");
-    $stat_nmto=array("1"=>"в силу","2"=>"в ловкость","3"=>"в интуицию","4"=>"в выносливость","5"=>"в интеллект","6"=>"в мудрость","7"=>"в сексуальность","8"=>"в духовность");
+    $stat_nmto=array("1"=>"РІ СЃРёР»Сѓ","2"=>"РІ Р»РѕРІРєРѕСЃС‚СЊ","3"=>"РІ РёРЅС‚СѓРёС†РёСЋ","4"=>"РІ РІС‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ","5"=>"РІ РёРЅС‚РµР»Р»РµРєС‚","6"=>"РІ РјСѓРґСЂРѕСЃС‚СЊ","7"=>"РІ СЃРµРєСЃСѓР°Р»СЊРЅРѕСЃС‚СЊ","8"=>"РІ РґСѓС…РѕРІРЅРѕСЃС‚СЊ");
     $trv="";
     if ($_SESSION['uid'] == null) header("Location: index.php");
     include "connect.php";
@@ -36,14 +36,14 @@
 </HEAD>
 
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5 bgcolor=#e0e0e0>
-<div style='color:#8F0000; font-weight:bold; font-size:16px; text-align:center; float:left;'>Комната Знахаря</div><div style='float:right; padding-right:6px;'><input type=button value='Вернуться' OnClick="location.href='main.php?got=1&room8=1'"></div><div style='clear:both;'></div><br>
+<div style='color:#8F0000; font-weight:bold; font-size:16px; text-align:center; float:left;'>РљРѕРјРЅР°С‚Р° Р—РЅР°С…Р°СЂСЏ</div><div style='float:right; padding-right:6px;'><input type=button value='Р’РµСЂРЅСѓС‚СЊСЃСЏ' OnClick="location.href='main.php?got=1&room8=1'"></div><div style='clear:both;'></div><br>
 <?
     if ($_GET["healaddict"]) {
       $_GET["healaddict"]=(int)$_GET["healaddict"];
       $rec=mqfa("select * from effects where owner='$user[id]' and (type=".ADDICTIONEFFECT." or type=".HPADDICTIONEFFECT." or type=".MANAADDICTIONEFFECT.") and id='$_GET[healaddict]'");
       if ($rec) {
         if ($user["money"]<25 && !ALLFREE) {
-          echo "<b><font color=red>У вас недостаточно денег.</font></b><br><br>";
+          echo "<b><font color=red>РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі.</font></b><br><br>";
         } else {
           remaddiction($user["id"], $rec);
           mq("delete from effects where id='$rec[id]'");
@@ -51,7 +51,7 @@
             mq("update users set money=money-25 where id='$user[id]'");
             $user["money"]-=25;
           }
-          echo "<b>Всё прошло успешно</b><br><br>";
+          echo "<b>Р’СЃС‘ РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ</b><br><br>";
           settravma($user["id"],20,rand(300,600),1,1);
         }
       }
@@ -61,21 +61,21 @@
       $t=mqfa1("select type from effects where owner='$user[id]' and id='$_GET[remeffect]'");
       if ($t==187 || $t==188 || $t==189 || $t==49) {
         if ($user["money"]<5 && !ALLFREE) {
-          echo "<b><font color=red>У вас недостаточно денег.</font></b><br><br>";
+          echo "<b><font color=red>РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі.</font></b><br><br>";
         } else {
           if (!ALLFREE) {
             $user["money"]-=5;
             mq("update users set money=money-5 where id='$user[id]'");
           }
           mq("update effects set isp=1, time=1 where id='$_GET[remeffect]'");
-          echo "<b>Всё прошло успешно</b><br><br>";
+          echo "<b>Р’СЃС‘ РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ</b><br><br>";
         }
       }
     }
 
     if ($_GET["clearels"]) {
       if ($user["money"]<5) {
-        echo "<b><font color=red>У Вас недостаточно денег.</font></b>";
+        echo "<b><font color=red>РЈ Р’Р°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі.</font></b>";
       } else {
         $r=mq("select * from effects where owner='$_SESSION[uid]' AND (type=188 or type=187) and (sila>0 or lovk>0 or inta>0 or mudra>0 or vinos>0 or intel>0)");
         if (mysql_num_rows($r)>0) {
@@ -84,52 +84,52 @@
             mq("update users set sila=sila-$rec[sila], lovk=lovk-$rec[lovk], inta=inta-$rec[inta], vinos=vinos-$rec[vinos], intel=intel-$rec[intel], mudra=mudra-$rec[mudra] where id='$_SESSION[uid]'");
           }
           if (!ALLFREE) mq("update users set money=money-5 where id='$_SESSION[uid]'");
-          echo "<b>Действие эликсиров и заклятий снято успешно.</b><br><br>";
+          echo "<b>Р”РµР№СЃС‚РІРёРµ СЌР»РёРєСЃРёСЂРѕРІ Рё Р·Р°РєР»СЏС‚РёР№ СЃРЅСЏС‚Рѕ СѓСЃРїРµС€РЅРѕ.</b><br><br>";
         }
       }
     }
     $d = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$user['id']}' AND `dressed` = 0 AND `setsale` = 0 ; "));
     if($d[0] > get_meshok()) {
-        echo "<font color=red><b>У вас переполнен рюкзак, вы не можете передвигаться...</b></font><br>";
+        echo "<font color=red><b>РЈ РІР°СЃ РїРµСЂРµРїРѕР»РЅРµРЅ СЂСЋРєР·Р°Рє, РІС‹ РЅРµ РјРѕР¶РµС‚Рµ РїРµСЂРµРґРІРёРіР°С‚СЊСЃСЏ...</b></font><br>";
     }
     if (@$_GET["warning"]) echo "<font color=red><b>$_GET[warning]</b></font><br><br>";
     ?>
-<b><i>Запахи трав наполняют помещение, непонятные и пугающие предметы скрываются в пляшущих тенях...<br>
-Говорят, здесь можно изменить свою судьбу. Стать кем-то иным... кем раньше был лишь в мечтах...</b></i><br><br>
+<b><i>Р—Р°РїР°С…Рё С‚СЂР°РІ РЅР°РїРѕР»РЅСЏСЋС‚ РїРѕРјРµС‰РµРЅРёРµ, РЅРµРїРѕРЅСЏС‚РЅС‹Рµ Рё РїСѓРіР°СЋС‰РёРµ РїСЂРµРґРјРµС‚С‹ СЃРєСЂС‹РІР°СЋС‚СЃСЏ РІ РїР»СЏС€СѓС‰РёС… С‚РµРЅСЏС…...<br>
+Р“РѕРІРѕСЂСЏС‚, Р·РґРµСЃСЊ РјРѕР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ СЃРІРѕСЋ СЃСѓРґСЊР±Сѓ. РЎС‚Р°С‚СЊ РєРµРј-С‚Рѕ РёРЅС‹Рј... РєРµРј СЂР°РЅСЊС€Рµ Р±С‹Р» Р»РёС€СЊ РІ РјРµС‡С‚Р°С…...</b></i><br><br>
 
-Все имеет цену. Но не все можно купить. Помните - некоторые шансы даются лишь раз в жизни...<br>
+Р’СЃРµ РёРјРµРµС‚ С†РµРЅСѓ. РќРѕ РЅРµ РІСЃРµ РјРѕР¶РЅРѕ РєСѓРїРёС‚СЊ. РџРѕРјРЅРёС‚Рµ - РЅРµРєРѕС‚РѕСЂС‹Рµ С€Р°РЅСЃС‹ РґР°СЋС‚СЃСЏ Р»РёС€СЊ СЂР°Р· РІ Р¶РёР·РЅРё...<br>
 <?
 
     $owntravma = mqfa("SELECT `type` FROM `effects` WHERE `owner` =$user[id] AND (type=12 OR type=13 OR type=11 OR type=14)");
-    if ($owntravma) { echo "<br><font color=red><b>Вы не можете воспользоваться услугами знахаря имея травму!</b></font>"; die();}
-    //elseif($owntravma){echo "<br><font color=red><b>Вы не можете воспользоваться услугами знахаря находясь под действием эликсира или заклятия, которое влияет на первичные параметры!</b></font><br><br>
-    //Знахарь может снять действие за 5 кр. <a href=\"znahar.php?clearels=1\">Снять действие эликсира/заклятия</a>."; die();}
+    if ($owntravma) { echo "<br><font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РІРѕСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ СѓСЃР»СѓРіР°РјРё Р·РЅР°С…Р°СЂСЏ РёРјРµСЏ С‚СЂР°РІРјСѓ!</b></font>"; die();}
+    //elseif($owntravma){echo "<br><font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РІРѕСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ СѓСЃР»СѓРіР°РјРё Р·РЅР°С…Р°СЂСЏ РЅР°С…РѕРґСЏСЃСЊ РїРѕРґ РґРµР№СЃС‚РІРёРµРј СЌР»РёРєСЃРёСЂР° РёР»Рё Р·Р°РєР»СЏС‚РёСЏ, РєРѕС‚РѕСЂРѕРµ РІР»РёСЏРµС‚ РЅР° РїРµСЂРІРёС‡РЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹!</b></font><br><br>
+    //Р—РЅР°С…Р°СЂСЊ РјРѕР¶РµС‚ СЃРЅСЏС‚СЊ РґРµР№СЃС‚РІРёРµ Р·Р° 5 РєСЂ. <a href=\"znahar.php?clearels=1\">РЎРЅСЏС‚СЊ РґРµР№СЃС‚РІРёРµ СЌР»РёРєСЃРёСЂР°/Р·Р°РєР»СЏС‚РёСЏ</a>."; die();}
 
 if ($_POST['undr']=='1') undressall((int)$_SESSION['uid']);
 $s=mysql_fetch_row(mysql_query("SELECT count(id) FROM inventory WHERE dressed!=0 and type>0 AND owner=".(int)$_SESSION['uid']));
-//if ((int)$s[0]>0) { echo "<form method=post>Перед входом в комнату знахарь требует полного очищения! <input type=hidden value=1 name='undr'><input type=submit value='Раздеться'></form>"; die();}
+//if ((int)$s[0]>0) { echo "<form method=post>РџРµСЂРµРґ РІС…РѕРґРѕРј РІ РєРѕРјРЅР°С‚Сѓ Р·РЅР°С…Р°СЂСЊ С‚СЂРµР±СѓРµС‚ РїРѕР»РЅРѕРіРѕ РѕС‡РёС‰РµРЅРёСЏ! <input type=hidden value=1 name='undr'><input type=submit value='Р Р°Р·РґРµС‚СЊСЃСЏ'></form>"; die();}
 
 if (@(int)$_POST['move_ab']>0) {
-    if (($stat_nmdb[(int)$_POST['move_ab']]=='sila' && $user['b_sila']<4) || ($stat_nmdb[(int)$_POST['move_ab']]=='lovk' && $user['b_lovk']<4) || ($stat_nmdb[(int)$_POST['move_ab']]=='inta' && $user['b_inta']<4) || ($stat_nmdb[(int)$_POST['move_ab']]=='vinos' && $user['b_vinos']<(4+$user['level']))) echo "<font color=red><b>Невозможно перераспределить статы ниже минимального уровня.</b></font>";
+    if (($stat_nmdb[(int)$_POST['move_ab']]=='sila' && $user['b_sila']<4) || ($stat_nmdb[(int)$_POST['move_ab']]=='lovk' && $user['b_lovk']<4) || ($stat_nmdb[(int)$_POST['move_ab']]=='inta' && $user['b_inta']<4) || ($stat_nmdb[(int)$_POST['move_ab']]=='vinos' && $user['b_vinos']<(4+$user['level']))) echo "<font color=red><b>РќРµРІРѕР·РјРѕР¶РЅРѕ РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РёС‚СЊ СЃС‚Р°С‚С‹ РЅРёР¶Рµ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ СѓСЂРѕРІРЅСЏ.</b></font>";
     else {
     if (@(int)$_POST['move_ab_top']>0) {
         if (ALLFREE) $money_need=0;
         else $money_need=5;
         //$money_need= $user[$stat_nmdb[(int)$_POST['move_ab_top']]]<=10 ? "10":$user[$stat_nmdb[(int)$_POST['move_ab_top']]];
-        if (@(int)$_POST['move_ab']==@(int)$_POST['move_ab_top']) echo "<font color=red><b>Переносить умение можно только в другое!</b></font>";
-        elseif (!$user["b_".$stat_nmdb[(int)$_POST['move_ab']]]>0) { echo "<font color=red><b>Недостаточно умений для перераспределения!</b></font>"; }
+        if (@(int)$_POST['move_ab']==@(int)$_POST['move_ab_top']) echo "<font color=red><b>РџРµСЂРµРЅРѕСЃРёС‚СЊ СѓРјРµРЅРёРµ РјРѕР¶РЅРѕ С‚РѕР»СЊРєРѕ РІ РґСЂСѓРіРѕРµ!</b></font>";
+        elseif (!$user["b_".$stat_nmdb[(int)$_POST['move_ab']]]>0) { echo "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СѓРјРµРЅРёР№ РґР»СЏ РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РµРЅРёСЏ!</b></font>"; }
         elseif ($user['money']-$money_need<0 && $user['freedrops']<1) {
-            echo "<font color=red><b>Недостаточно кредитов для совершения операции!</b></font>";
+            echo "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РєСЂРµРґРёС‚РѕРІ РґР»СЏ СЃРѕРІРµСЂС€РµРЅРёСЏ РѕРїРµСЂР°С†РёРё!</b></font>";
             }
         else {
             mq("UPDATE `users` SET `".$stat_nmdb[(int)$_POST['move_ab']]."`=(`".$stat_nmdb[(int)$_POST['move_ab']]."`-1), `".$stat_nmdb[(int)$_POST['move_ab_top']]."`=(`".$stat_nmdb[(int)$_POST['move_ab_top']]."`+1), ".($user["freedrops"]>0?"freedrops=freedrops-1":"money=(money-".$money_need.")")." WHERE id=".(int)$_SESSION['uid']." ");
             mq("UPDATE `userdata` SET `".$stat_nmdb[(int)$_POST['move_ab']]."`=(`".$stat_nmdb[(int)$_POST['move_ab']]."`-1), `".$stat_nmdb[(int)$_POST['move_ab_top']]."`=(`".$stat_nmdb[(int)$_POST['move_ab_top']]."`+1) WHERE id=".(int)$_SESSION['uid']." ");
             resetmax((int)$_SESSION['uid']);
-            echo "<font color=red>Перераспределение статов \"".$stat_nm[(int)$_POST['move_ab']]." ".$stat_nmto[(int)$_POST['move_ab_top']]."\" произведено успешно. ";
+            echo "<font color=red>РџРµСЂРµСЂР°СЃРїСЂРµРґРµР»РµРЅРёРµ СЃС‚Р°С‚РѕРІ \"".$stat_nm[(int)$_POST['move_ab']]." ".$stat_nmto[(int)$_POST['move_ab_top']]."\" РїСЂРѕРёР·РІРµРґРµРЅРѕ СѓСЃРїРµС€РЅРѕ. ";
             if ($user["freedrops"]>0 && !ALLFREE) {
               $user["freedrops"]--;
             } elseif (!ALLFREE)  {
-              echo " Цена операции $money_need кр.";
+              echo " Р¦РµРЅР° РѕРїРµСЂР°С†РёРё $money_need РєСЂ.";
               $user['money']-=$money_need;
             }
             echo "</font>";
@@ -140,14 +140,14 @@ if (@(int)$_POST['move_ab']>0) {
       }
 
     } elseif ((int)$_POST['sbr_nav']>0) {
-      if (($user['b_noj']+$user['b_mec']+$user['b_topor']+$user['b_dubina']+$user['b_posoh']+$user['b_mfire']+$user['b_mwater']+$user['b_mair']+$user['b_mearth']+$user['b_mlight']+$user['b_mgray']+$user['b_mdark'])==0) echo "<font color=red><b>У Вас нет нераспределённых умений!</b></font>";
+      if (($user['b_noj']+$user['b_mec']+$user['b_topor']+$user['b_dubina']+$user['b_posoh']+$user['b_mfire']+$user['b_mwater']+$user['b_mair']+$user['b_mearth']+$user['b_mlight']+$user['b_mgray']+$user['b_mdark'])==0) echo "<font color=red><b>РЈ Р’Р°СЃ РЅРµС‚ РЅРµСЂР°СЃРїСЂРµРґРµР»С‘РЅРЅС‹С… СѓРјРµРЅРёР№!</b></font>";
       elseif (!file_exists(MEMCACHE_PATH.'/uml'.$_SESSION['uid']) || ALLFREE) {
         $levelstats=statsat($user["nextup"]);    
         if (mq("UPDATE `users` SET `master`=$levelstats[master]+$user[extramaster],noj=0,mec=0,topor=0,dubina=0,posoh=0, luk=0, mfire=0, mwater=0, mair=0, mearth=0, mlight=0, mgray=0, mdark=0 WHERE `id`='$user[id]'")) {
           mq("UPDATE `userdata` SET `master`=$levelstats[master]+$user[extramaster],noj=0,mec=0,topor=0,dubina=0,posoh=0, luk=0, mfire=0, mwater=0, mair=0, mearth=0, mlight=0, mgray=0, mdark=0 WHERE `id`='$user[id]'");
           fixstats($user["id"]);
-          mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" бесплатно перераспределил умения в Комнате Знахаря. ',1,'".time()."');");
-          echo "<font color=red>Все прошло удачно. Вы можете перераспределить умения.</font>";
+          mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" Р±РµСЃРїР»Р°С‚РЅРѕ РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РёР» СѓРјРµРЅРёСЏ РІ РљРѕРјРЅР°С‚Рµ Р—РЅР°С…Р°СЂСЏ. ',1,'".time()."');");
+          echo "<font color=red>Р’СЃРµ РїСЂРѕС€Р»Рѕ СѓРґР°С‡РЅРѕ. Р’С‹ РјРѕР¶РµС‚Рµ РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РёС‚СЊ СѓРјРµРЅРёСЏ.</font>";
           if (!ALLFREE) {
             $flum=fopen(MEMCACHE_PATH.'/uml'.$_SESSION['uid'],'w');
             fwrite($flum,date('Y-m-d H:i:s'));
@@ -155,42 +155,42 @@ if (@(int)$_POST['move_ab']>0) {
           }
           $trv=settravma((int)$_SESSION['uid'],20,rand(300,600),1,1);
         }
-        else echo "<font color=red>Произошла ошибка!</font>";
+        else echo "<font color=red>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!</font>";
       } else {
-        if ($user['money']<32) echo "<font color=red><b>Недостаточно кредитов для совершения операции!</b></font>";
+        if ($user['money']<32) echo "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РєСЂРµРґРёС‚РѕРІ РґР»СЏ СЃРѕРІРµСЂС€РµРЅРёСЏ РѕРїРµСЂР°С†РёРё!</b></font>";
         else {
           $levelstats=statsat($user["nextup"]);                        
           if (mq("UPDATE `users` SET ".(ALLFREE?"":"money=money-32,")." `master`=$levelstats[master]+$user[extramaster],noj=0,mec=0,topor=0,dubina=0,posoh=0, luk=0, mfire=0, mwater=0, mair=0, mearth=0, mlight=0, mgray=0, mdark=0 WHERE `id`='$user[id]'")) {
             mq("UPDATE `userdata` SET `master`=$levelstats[master]+$user[extramaster],noj=0,mec=0,topor=0,dubina=0,posoh=0, luk=0, mfire=0, mwater=0, mair=0, mearth=0, mlight=0, mgray=0, mdark=0 WHERE `id`='$user[id]'");
             fixstats($user["id"]);
             if (!ALLFREE) $user["money"]-=32;
-            mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" перераспределил умения, заплатив 32 кр. в Комнате Знахаря ($user[money]/$user[ekr]). ',1,'".time()."');");
-            echo "<font color=red>Все прошло удачно. Вы можете перераспределить умения.</font>";
+            mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РёР» СѓРјРµРЅРёСЏ, Р·Р°РїР»Р°С‚РёРІ 32 РєСЂ. РІ РљРѕРјРЅР°С‚Рµ Р—РЅР°С…Р°СЂСЏ ($user[money]/$user[ekr]). ',1,'".time()."');");
+            echo "<font color=red>Р’СЃРµ РїСЂРѕС€Р»Рѕ СѓРґР°С‡РЅРѕ. Р’С‹ РјРѕР¶РµС‚Рµ РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РёС‚СЊ СѓРјРµРЅРёСЏ.</font>";
             $trv=settravma((int)$_SESSION['uid'],20,rand(300,600),1,1);
-          } else echo "<font color=red>Произошла ошибка!</font>";
+          } else echo "<font color=red>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!</font>";
         }
       }
     } elseif ((int)$_POST['sbr_osb']>0) {
-      if ($user['features']==0) echo "<font color=red><b>У Вас нет распределённых особенностей!</b></font>";
+      if ($user['features']==0) echo "<font color=red><b>РЈ Р’Р°СЃ РЅРµС‚ СЂР°СЃРїСЂРµРґРµР»С‘РЅРЅС‹С… РѕСЃРѕР±РµРЅРЅРѕСЃС‚РµР№!</b></font>";
       elseif (!file_exists(MEMCACHE_PATH.'/osb'.$_SESSION['uid']) || ALLFREE) {
         if (mq("UPDATE `users` SET `features` = 0 WHERE `id`='$user[id]'")) {
-          mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" бесплатно перераспределил особенности в Комнате Знахаря. ',1,'".time()."');");
-          echo "<font color=red>Все прошло удачно. Вы можете перераспределить особенности.</font>";
+          mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" Р±РµСЃРїР»Р°С‚РЅРѕ РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РёР» РѕСЃРѕР±РµРЅРЅРѕСЃС‚Рё РІ РљРѕРјРЅР°С‚Рµ Р—РЅР°С…Р°СЂСЏ. ',1,'".time()."');");
+          echo "<font color=red>Р’СЃРµ РїСЂРѕС€Р»Рѕ СѓРґР°С‡РЅРѕ. Р’С‹ РјРѕР¶РµС‚Рµ РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РёС‚СЊ РѕСЃРѕР±РµРЅРЅРѕСЃС‚Рё.</font>";
           if (!ALLFREE) {
             $flum=fopen(MEMCACHE_PATH.'/osb'.$_SESSION['uid'],'w');
             fwrite($flum,date('Y-m-d H:i:s'));
             fclose($flum);
           } $trv=settravma((int)$_SESSION['uid'],20,rand(300,600),1,1);
-        } else echo "<font color=red>Произошла ошибка!</font>";
+        } else echo "<font color=red>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!</font>";
       } else {
-        if ($user['money']<25) echo "<font color=red><b>Недостаточно кредитов для совершения операции!</b></font>";
+        if ($user['money']<25) echo "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РєСЂРµРґРёС‚РѕРІ РґР»СЏ СЃРѕРІРµСЂС€РµРЅРёСЏ РѕРїРµСЂР°С†РёРё!</b></font>";
         else {
           if (mq("UPDATE `users` SET ".(ALLFREE?"":"money=money-25,")." `features` = 0 WHERE `id`='$user[id]'")) {
             if (!ALLFREE) $user["money"]-=25;
-            mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" перераспределил особенности, заплатив 25 кр. в Комнате Знахаря ($user[money]/$user[ekr]). ',1,'".time()."');");
-            echo "<font color=red>Все прошло удачно. Вы можете перераспределить умения.</font>";
+            mysql_query("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РёР» РѕСЃРѕР±РµРЅРЅРѕСЃС‚Рё, Р·Р°РїР»Р°С‚РёРІ 25 РєСЂ. РІ РљРѕРјРЅР°С‚Рµ Р—РЅР°С…Р°СЂСЏ ($user[money]/$user[ekr]). ',1,'".time()."');");
+            echo "<font color=red>Р’СЃРµ РїСЂРѕС€Р»Рѕ СѓРґР°С‡РЅРѕ. Р’С‹ РјРѕР¶РµС‚Рµ РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РёС‚СЊ СѓРјРµРЅРёСЏ.</font>";
             $trv=settravma((int)$_SESSION['uid'],20,rand(300,600),1,1);
-          } else echo "<font color=red>Произошла ошибка!</font>";
+          } else echo "<font color=red>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!</font>";
         }
       }
     } elseif ((int)$_POST['sbr_par']>0) {
@@ -204,8 +204,8 @@ if (@(int)$_POST['move_ab']>0) {
         mq("UPDATE `users` SET `stats` = ".($levelstats['stats']-9)."+$user[extrastats], `sila`=3,`lovk`=3,`inta`=3,`mudra`=0,`intel`=0,`spirit`= ".$levelstats["spirit"].", sexy=0,`vinos`= ".$levelstats["vinos"].",`maxhp`= ".$levelstats["vinos"]."*6,`maxmana`= 0,`mana`= 0 WHERE `id`='$user[id]' LIMIT 1;");
         mq("UPDATE `userdata` SET `stats` = ".($levelstats['stats']-9)."+$user[extrastats], `sila`=3,`lovk`=3,`inta`=3,`mudra`=0,`intel`=0,`spirit`= ".$levelstats["spirit"].", sexy=0,`vinos`= ".$levelstats["vinos"]." WHERE `id`='$user[id]' LIMIT 1");
         fixstats($user["id"]);
-        mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" бесплатно сбросил параметры в Комнате Знахаря. ',1,'".time()."');");
-        echo "<font color=red>Все прошло удачно. Вы можете перераспределить параметры.</font>";
+        mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" Р±РµСЃРїР»Р°С‚РЅРѕ СЃР±СЂРѕСЃРёР» РїР°СЂР°РјРµС‚СЂС‹ РІ РљРѕРјРЅР°С‚Рµ Р—РЅР°С…Р°СЂСЏ. ',1,'".time()."');");
+        echo "<font color=red>Р’СЃРµ РїСЂРѕС€Р»Рѕ СѓРґР°С‡РЅРѕ. Р’С‹ РјРѕР¶РµС‚Рµ РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹.</font>";
         if (!ALLFREE) {
           $flum=fopen(MEMCACHE_PATH.'/par'.$_SESSION['uid'],'w');
           fwrite($flum,date('Y-m-d H:i:s'));
@@ -213,7 +213,7 @@ if (@(int)$_POST['move_ab']>0) {
         }
         $trv=settravma((int)$_SESSION['uid'],20,rand(300,600),1,1);
       } else {
-        if ($user['money']<50) echo "<font color=red><b>Недостаточно кредитов для совершения операции!</b></font>";
+        if ($user['money']<50) echo "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РєСЂРµРґРёС‚РѕРІ РґР»СЏ СЃРѕРІРµСЂС€РµРЅРёСЏ РѕРїРµСЂР°С†РёРё!</b></font>";
         else {
           //mysql_query("delete from effects where (sila<>0 or lovk<>0 or inta<>0 or vinos<>0 or intel<>0) and owner='".$_SESSION['uid']."'");
           $levelstats=statsat($user['nextup']);
@@ -226,73 +226,73 @@ if (@(int)$_POST['move_ab']>0) {
           mq("UPDATE `users` SET `stats` = ".($levelstats['stats']-9)."+$user[extrastats], `sila`=3,`lovk`=3,`inta`=3,`mudra`=0,`intel`=0,`spirit`= ".$levelstats["spirit"].", sexy=0,`vinos`= ".$levelstats["vinos"].",`maxhp`= ".$levelstats["vinos"]."*6,`maxmana`= 0,`mana`= 0 WHERE `id`='$user[id]' LIMIT 1");
           mq("UPDATE `userdata` SET `stats` = ".($levelstats['stats']-9)."+$user[extrastats], `sila`=3,`lovk`=3,`inta`=3,`mudra`=0,`intel`=0,`spirit`= ".$levelstats["spirit"].", sexy=0,`vinos`= ".$levelstats["vinos"]." WHERE `id`='$user[id]' LIMIT 1");
           fixstats($user["id"]);
-          mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" сбросил параметры, заплатив 50 кр. в Комнате Знахаря ($user[money]/$user[ekr]). ',1,'".time()."');");
-          echo "<font color=red>Все прошло удачно. Вы можете перераспределить параметры.</font>";
+          mq("INSERT INTO `delo`(`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" СЃР±СЂРѕСЃРёР» РїР°СЂР°РјРµС‚СЂС‹, Р·Р°РїР»Р°С‚РёРІ 50 РєСЂ. РІ РљРѕРјРЅР°С‚Рµ Р—РЅР°С…Р°СЂСЏ ($user[money]/$user[ekr]). ',1,'".time()."');");
+          echo "<font color=red>Р’СЃРµ РїСЂРѕС€Р»Рѕ СѓРґР°С‡РЅРѕ. Р’С‹ РјРѕР¶РµС‚Рµ РїРµСЂРµСЂР°СЃРїСЂРµРґРµР»РёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹.</font>";
           $trv=settravma((int)$_SESSION['uid'],20,rand(300,600),1,1);
         }
       }
       resetmax($user["id"]);
     }
-if ($trv!="") echo "<br>Вы чувствуете слабость.. ".$trv."";
+if ($trv!="") echo "<br>Р’С‹ С‡СѓРІСЃС‚РІСѓРµС‚Рµ СЃР»Р°Р±РѕСЃС‚СЊ.. ".$trv."";
 ?>
-<br>Деньги: <b><?=$user['money'];?></b> кр.
+<br>Р”РµРЅСЊРіРё: <b><?=$user['money'];?></b> РєСЂ.
 <br><br>
 <? if ($trv!="") die; ?>
 <fieldset>
-<legend style='font-weight:bold; color:#8F0000;'>Навыки владения оружием и магией</legend>
-<form method=post><input type=hidden value='<?=$_SESSION['uid'];?>' name='sbr_nav'> У Вас есть шанс забыть старое ради нового: <input type=submit value='Отпустить умения <?echo file_exists(MEMCACHE_PATH.'/uml'.$_SESSION['uid']) && !ALLFREE? "(32кр.)":"(бесплатно)"?>'></form>
+<legend style='font-weight:bold; color:#8F0000;'>РќР°РІС‹РєРё РІР»Р°РґРµРЅРёСЏ РѕСЂСѓР¶РёРµРј Рё РјР°РіРёРµР№</legend>
+<form method=post><input type=hidden value='<?=$_SESSION['uid'];?>' name='sbr_nav'> РЈ Р’Р°СЃ РµСЃС‚СЊ С€Р°РЅСЃ Р·Р°Р±С‹С‚СЊ СЃС‚Р°СЂРѕРµ СЂР°РґРё РЅРѕРІРѕРіРѕ: <input type=submit value='РћС‚РїСѓСЃС‚РёС‚СЊ СѓРјРµРЅРёСЏ <?echo file_exists(MEMCACHE_PATH.'/uml'.$_SESSION['uid']) && !ALLFREE? "(32РєСЂ.)":"(Р±РµСЃРїР»Р°С‚РЅРѕ)"?>'></form>
 </fieldset><br><br>
 
 <fieldset>
-<legend style='font-weight:bold; color:#8F0000;'>Особенности персонажа</legend>
-<form method=post><input type=hidden value='<?=$_SESSION['uid'];?>' name='sbr_osb'> У Вас есть шанс забыть старое ради нового: <input type=submit value='Отпустить особенности <?echo file_exists(MEMCACHE_PATH.'/osb'.$_SESSION['uid']) && !ALLFREE? "(25кр.)":"(бесплатно)"?>'></form>
+<legend style='font-weight:bold; color:#8F0000;'>РћСЃРѕР±РµРЅРЅРѕСЃС‚Рё РїРµСЂСЃРѕРЅР°Р¶Р°</legend>
+<form method=post><input type=hidden value='<?=$_SESSION['uid'];?>' name='sbr_osb'> РЈ Р’Р°СЃ РµСЃС‚СЊ С€Р°РЅСЃ Р·Р°Р±С‹С‚СЊ СЃС‚Р°СЂРѕРµ СЂР°РґРё РЅРѕРІРѕРіРѕ: <input type=submit value='РћС‚РїСѓСЃС‚РёС‚СЊ РѕСЃРѕР±РµРЅРЅРѕСЃС‚Рё <?echo file_exists(MEMCACHE_PATH.'/osb'.$_SESSION['uid']) && !ALLFREE? "(25РєСЂ.)":"(Р±РµСЃРїР»Р°С‚РЅРѕ)"?>'></form>
 </fieldset><br><br>
 
 <fieldset>
-<legend style='font-weight:bold; color:#8F0000;'>Параметры</legend>
-<form method=post><input type=hidden value='<?=$_SESSION['uid'];?>' name='sbr_par'> У Вас есть шанс забыть старое ради нового: <input type=submit value='Отпустить параметры <?echo file_exists(MEMCACHE_PATH.'/par'.$_SESSION['uid']) && !ALLFREE ? "(50кр.)":"(бесплатно)"?>'></form>
+<legend style='font-weight:bold; color:#8F0000;'>РџР°СЂР°РјРµС‚СЂС‹</legend>
+<form method=post><input type=hidden value='<?=$_SESSION['uid'];?>' name='sbr_par'> РЈ Р’Р°СЃ РµСЃС‚СЊ С€Р°РЅСЃ Р·Р°Р±С‹С‚СЊ СЃС‚Р°СЂРѕРµ СЂР°РґРё РЅРѕРІРѕРіРѕ: <input type=submit value='РћС‚РїСѓСЃС‚РёС‚СЊ РїР°СЂР°РјРµС‚СЂС‹ <?echo file_exists(MEMCACHE_PATH.'/par'.$_SESSION['uid']) && !ALLFREE ? "(50РєСЂ.)":"(Р±РµСЃРїР»Р°С‚РЅРѕ)"?>'></form>
 </fieldset><br><br>
 
 <fieldset>
-<legend style='font-weight:bold; color:#8F0000;'>Пристрастия</legend>
+<legend style='font-weight:bold; color:#8F0000;'>РџСЂРёСЃС‚СЂР°СЃС‚РёСЏ</legend>
 <?
   $r=mq("select * from effects where owner='$user[id]' and (type='".ADDICTIONEFFECT."' or type='".HPADDICTIONEFFECT."' or type='".MANAADDICTIONEFFECT."')");
   if (mysql_num_rows($r)>0) {
-    echo "У Вас есть возможность вылечиться от пагубных пристрастий:<br><br>";
+    echo "РЈ Р’Р°СЃ РµСЃС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РІС‹Р»РµС‡РёС‚СЊСЃСЏ РѕС‚ РїР°РіСѓР±РЅС‹С… РїСЂРёСЃС‚СЂР°СЃС‚РёР№:<br><br>";
     echo "<table>";
     while ($rec=mysql_fetch_assoc($r)) {
       $at=addicttype($rec);
-      echo "<tr><td><img src=\"".IMGBASE."/i/misc/icon_$at.gif\"></td><td><a href=\"znahar.php?healaddict=$rec[id]\">вылечить</a> ".(ALLFREE?"(бесплатно)":"(цена лечения: 25 кр., время действия ещё ".secs2hrs($rec["time"]-time()).")")."</td></tr>";
+      echo "<tr><td><img src=\"".IMGBASE."/i/misc/icon_$at.gif\"></td><td><a href=\"znahar.php?healaddict=$rec[id]\">РІС‹Р»РµС‡РёС‚СЊ</a> ".(ALLFREE?"(Р±РµСЃРїР»Р°С‚РЅРѕ)":"(С†РµРЅР° Р»РµС‡РµРЅРёСЏ: 25 РєСЂ., РІСЂРµРјСЏ РґРµР№СЃС‚РІРёСЏ РµС‰С‘ ".secs2hrs($rec["time"]-time()).")")."</td></tr>";
     }
     echo "</table>";
   } else {
-    echo "У вас нет пагубных пристрастий.";
+    echo "РЈ РІР°СЃ РЅРµС‚ РїР°РіСѓР±РЅС‹С… РїСЂРёСЃС‚СЂР°СЃС‚РёР№.";
   }
 ?>
 </fieldset><br><br>
 
 <fieldset>
-<legend style='font-weight:bold; color:#8F0000;'>Эликсиры, магия и другие эффекты</legend>
+<legend style='font-weight:bold; color:#8F0000;'>Р­Р»РёРєСЃРёСЂС‹, РјР°РіРёСЏ Рё РґСЂСѓРіРёРµ СЌС„С„РµРєС‚С‹</legend>
 <?
   $r=mq("select * from effects where owner='$user[id]' and (type=49 or type=187 or type=188 or type=189) and time>1");
   if (mysql_num_rows($r)>0) {
-    echo "У Вас есть возможность вылечиться от пагубных пристрастий:<br><br>";
+    echo "РЈ Р’Р°СЃ РµСЃС‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РІС‹Р»РµС‡РёС‚СЊСЃСЏ РѕС‚ РїР°РіСѓР±РЅС‹С… РїСЂРёСЃС‚СЂР°СЃС‚РёР№:<br><br>";
     echo "<table>";
     while ($rec=mysql_fetch_assoc($r)) {
-      echo "<tr><td><a onclick=\"return confirm('Вы уверены, что хотите снять действие эффекта '+String.fromCharCode(34)+'$rec[name]'+String.fromCharCode(34)+'?');\" href=\"znahar.php?remeffect=$rec[id]\">$rec[name]</a> ".(ALLFREE?"(бесплатно)":"(цена 5 кр., время действия ещё ".secs2hrs($rec["time"]-time()).")")."</td></tr>";
+      echo "<tr><td><a onclick=\"return confirm('Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ С…РѕС‚РёС‚Рµ СЃРЅСЏС‚СЊ РґРµР№СЃС‚РІРёРµ СЌС„С„РµРєС‚Р° '+String.fromCharCode(34)+'$rec[name]'+String.fromCharCode(34)+'?');\" href=\"znahar.php?remeffect=$rec[id]\">$rec[name]</a> ".(ALLFREE?"(Р±РµСЃРїР»Р°С‚РЅРѕ)":"(С†РµРЅР° 5 РєСЂ., РІСЂРµРјСЏ РґРµР№СЃС‚РІРёСЏ РµС‰С‘ ".secs2hrs($rec["time"]-time()).")")."</td></tr>";
     }
     echo "</table>";
   } else {
-    echo "Вы не находитесь под воздействием эликсиров, магии или других эффектов, которые знахарь может снять.";
+    echo "Р’С‹ РЅРµ РЅР°С…РѕРґРёС‚РµСЃСЊ РїРѕРґ РІРѕР·РґРµР№СЃС‚РІРёРµРј СЌР»РёРєСЃРёСЂРѕРІ, РјР°РіРёРё РёР»Рё РґСЂСѓРіРёС… СЌС„С„РµРєС‚РѕРІ, РєРѕС‚РѕСЂС‹Рµ Р·РЅР°С…Р°СЂСЊ РјРѕР¶РµС‚ СЃРЅСЏС‚СЊ.";
   }
 ?>
 </fieldset><br><br>
 
 
 <fieldset>
-<legend style='font-weight:bold; color:#8F0000;'>Параметры</legend>
-Вы можете стать иным - более ловким, сильным или мудрым... но лишь за счет других параметров<br>
-<? if ($user["freedrops"]) echo "Вы можете еще <b>$user[freedrops]</b> раз".($user["freedrops"]>=2 && $user["freedrops"]<=4?"а":"")." бесплатно перенести параметры.<br>"; ?><br>
+<legend style='font-weight:bold; color:#8F0000;'>РџР°СЂР°РјРµС‚СЂС‹</legend>
+Р’С‹ РјРѕР¶РµС‚Рµ СЃС‚Р°С‚СЊ РёРЅС‹Рј - Р±РѕР»РµРµ Р»РѕРІРєРёРј, СЃРёР»СЊРЅС‹Рј РёР»Рё РјСѓРґСЂС‹Рј... РЅРѕ Р»РёС€СЊ Р·Р° СЃС‡РµС‚ РґСЂСѓРіРёС… РїР°СЂР°РјРµС‚СЂРѕРІ<br>
+<? if ($user["freedrops"]) echo "Р’С‹ РјРѕР¶РµС‚Рµ РµС‰Рµ <b>$user[freedrops]</b> СЂР°Р·".($user["freedrops"]>=2 && $user["freedrops"]<=4?"Р°":"")." Р±РµСЃРїР»Р°С‚РЅРѕ РїРµСЂРµРЅРµСЃС‚Рё РїР°СЂР°РјРµС‚СЂС‹.<br>"; ?><br>
 <? echo $stat_nm[1]." ".$user['sila'];?><br>
 <? echo $stat_nm[2]." ".$user['lovk'];?><br>
 <? echo $stat_nm[3]." ".$user['inta'];?><br>
@@ -303,7 +303,7 @@ if ($trv!="") echo "<br>Вы чувствуете слабость.. ".$trv."";
 <? echo $stat_nm[7]." ".$user['sexy'];?><br>
 
 <form method=post>
-Перенести <select name='move_ab'>
+РџРµСЂРµРЅРµСЃС‚Рё <select name='move_ab'>
 <option value=1><?=$stat_nm[1];?></option>
 <option value=2><?=$stat_nm[2];?></option>
 <option value=3><?=$stat_nm[3];?></option>
@@ -312,19 +312,19 @@ if ($trv!="") echo "<br>Вы чувствуете слабость.. ".$trv."";
 <? if ($user["level"]>6) { ?><option value=6><?=$stat_nm[6];?></option><? } ?>
 <? if ($user["level"]>9) { ?><option value=8><?=$stat_nm[8];?></option><? } ?>
 <option value=7><?=$stat_nm[7];?></option>
-</select> в
+</select> РІ
 <select name='move_ab_top'>
-<option value=1><? echo $stat_nmto[1]." ".($user["freedrops"] ||  ALLFREE?"бесплатно":"5 кр.") ?></option>
-<option value=2><? echo $stat_nmto[2]." ".($user["freedrops"] ||  ALLFREE?"бесплатно":"5 кр.") ?></option>
-<option value=3><? echo $stat_nmto[3]." ".($user["freedrops"] ||  ALLFREE?"бесплатно":"5 кр.") ?></option>
-<option value=4><? echo $stat_nmto[4]." ".($user["freedrops"] ||  ALLFREE?"бесплатно":"5 кр.") ?></option>
-<? if ($user["level"]>3) { ?><option value=5><? echo $stat_nmto[5]." ".($user["freedrops"] ||  ALLFREE?"бесплатно":"5 кр.") ?></option><? } ?>
-<? if ($user["level"]>6) { ?><option value=6><? echo $stat_nmto[6]." ".($user["freedrops"] ||  ALLFREE?"бесплатно":"5 кр.") ?></option><? } ?>
-<? if ($user["level"]>9) { ?><option value=8><? echo $stat_nmto[8]." ".($user["freedrops"] ||  ALLFREE?"бесплатно":"5 кр.") ?></option><? } ?>
-<option value=7><? echo $stat_nmto[7]." ".($user["freedrops"] ||  ALLFREE?"бесплатно":"5 кр.") ?></option>
+<option value=1><? echo $stat_nmto[1]." ".($user["freedrops"] ||  ALLFREE?"Р±РµСЃРїР»Р°С‚РЅРѕ":"5 РєСЂ.") ?></option>
+<option value=2><? echo $stat_nmto[2]." ".($user["freedrops"] ||  ALLFREE?"Р±РµСЃРїР»Р°С‚РЅРѕ":"5 РєСЂ.") ?></option>
+<option value=3><? echo $stat_nmto[3]." ".($user["freedrops"] ||  ALLFREE?"Р±РµСЃРїР»Р°С‚РЅРѕ":"5 РєСЂ.") ?></option>
+<option value=4><? echo $stat_nmto[4]." ".($user["freedrops"] ||  ALLFREE?"Р±РµСЃРїР»Р°С‚РЅРѕ":"5 РєСЂ.") ?></option>
+<? if ($user["level"]>3) { ?><option value=5><? echo $stat_nmto[5]." ".($user["freedrops"] ||  ALLFREE?"Р±РµСЃРїР»Р°С‚РЅРѕ":"5 РєСЂ.") ?></option><? } ?>
+<? if ($user["level"]>6) { ?><option value=6><? echo $stat_nmto[6]." ".($user["freedrops"] ||  ALLFREE?"Р±РµСЃРїР»Р°С‚РЅРѕ":"5 РєСЂ.") ?></option><? } ?>
+<? if ($user["level"]>9) { ?><option value=8><? echo $stat_nmto[8]." ".($user["freedrops"] ||  ALLFREE?"Р±РµСЃРїР»Р°С‚РЅРѕ":"5 РєСЂ.") ?></option><? } ?>
+<option value=7><? echo $stat_nmto[7]." ".($user["freedrops"] ||  ALLFREE?"Р±РµСЃРїР»Р°С‚РЅРѕ":"5 РєСЂ.") ?></option>
 </select><br>
 
-Роспись: <input type=submit value='Согласен'></form>
+Р РѕСЃРїРёСЃСЊ: <input type=submit value='РЎРѕРіР»Р°СЃРµРЅ'></form>
 </fieldset>
 </BODY>
 

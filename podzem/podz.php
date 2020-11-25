@@ -4,15 +4,15 @@
 	include "connect.php";
 ?>
 <form action="" method="post">
-<input name="ddd" type="submit" value="Óäàëèòü">
+<input name="ddd" type="submit" value="Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ">
 </form>
 <?
 if($_POST['ddd']){
-mysql_query("UPDATE `inventory` SET present='',podzem='1' WHERE name='Ãàéêà'");
-mysql_query("UPDATE `inventory` SET present='',podzem='1',name='Âåíòèëü' WHERE name='Âèíòåëü'");
-mysql_query("UPDATE `inventory` SET present='',podzem='1' WHERE name='Êëþ÷èèê'");
-mysql_query("UPDATE `inventory` SET present='',podzem='1' WHERE name='Áîëò'");
-mysql_query("UPDATE `inventory` SET present='',podzem='1',cost='0',massa='1',name='Æåòîí' WHERE name='Æèòîí'");
-print"Óäàëåíî!";
+mysql_query("UPDATE `inventory` SET present='',podzem='1' WHERE name='Ð“Ð°Ð¹ÐºÐ°'");
+mysql_query("UPDATE `inventory` SET present='',podzem='1',name='Ð’ÐµÐ½Ñ‚Ð¸Ð»ÑŒ' WHERE name='Ð’Ð¸Ð½Ñ‚ÐµÐ»ÑŒ'");
+mysql_query("UPDATE `inventory` SET present='',podzem='1' WHERE name='ÐšÐ»ÑŽÑ‡Ð¸Ð¸Ðº'");
+mysql_query("UPDATE `inventory` SET present='',podzem='1' WHERE name='Ð‘Ð¾Ð»Ñ‚'");
+mysql_query("UPDATE `inventory` SET present='',podzem='1',cost='0',massa='1',name='Ð–ÐµÑ‚Ð¾Ð½' WHERE name='Ð–Ð¸Ñ‚Ð¾Ð½'");
+print"Ð£Ð´Ð°Ð»ÐµÐ½Ð¾!";
 }
 ?>

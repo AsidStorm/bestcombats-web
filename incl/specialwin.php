@@ -16,14 +16,14 @@
             $item = $caveitems[$bot][$i];
             if (getchance($item["chance"])) {
               $it = mqfa("select name, img from $item[from] where id = $item[id]");
-              if (strpos($it['name'], "Зачаровать") !== false) { // если свиток зачарования
+              if (strpos($it['name'], "Р—Р°С‡Р°СЂРѕРІР°С‚СЊ") !== false) { // РµСЃР»Рё СЃРІРёС‚РѕРє Р·Р°С‡Р°СЂРѕРІР°РЅРёСЏ
                 $podz = 3;
               } else {
                 $podz = 1;    
               }
               mysql_query("insert into caveitems set podzem = $podz, leader = '$user[caveleader]', x = '$rec[x]', y = '$rec[y]', floor = '$floor', name = '$it[name]', img = '$it[img]', item = '$item[id]'" .  ($item['foronetrip'] ? ", foronetrip = 1" : "") .  ($item['from'] == 'smallitems' ? ", small = 1" : ""));
-              cavesys("У ".$cavebots[$bot]." был предмет <b>$it[name]</b> и кто угодно может подобрать его.");
-              $this->add_log('<span class=date>'.date("H:i")."</span> У ".$cavebots[$bot]." был предмет <b>$it[name]</b>.<BR>");
+              cavesys("РЈ ".$cavebots[$bot]." Р±С‹Р» РїСЂРµРґРјРµС‚ <b>$it[name]</b> Рё РєС‚Рѕ СѓРіРѕРґРЅРѕ РјРѕР¶РµС‚ РїРѕРґРѕР±СЂР°С‚СЊ РµРіРѕ.");
+              $this->add_log('<span class=date>'.date("H:i")."</span> РЈ ".$cavebots[$bot]." Р±С‹Р» РїСЂРµРґРјРµС‚ <b>$it[name]</b>.<BR>");
             }
         } else {
           $i=0;
@@ -34,8 +34,8 @@
                 $rec=mqfa("select name, img from smallitems where id='".$caveitems[$bot]["smallitem$i"]."'");
                 if (getchance($caveitems[$bot]["chance$i"])) {
                   mq("insert into caveitems set leader='$user[caveleader]', x='$x', y='$y', floor='$floor', name='$rec[name]', img='$rec[img]', item='".$caveitems[$bot]["smallitem$i"]."', small=1");
-                  cavesys("У ".$cavebots[$bot]." был предмет <b>$rec[name]</b> и кто угодно может подобрать его.");
-                  $this->add_log('<span class=date>'.date("H:i")."</span> У ".$cavebots[$bot]." был предмет <b>$rec[name]</b>.<BR>");
+                  cavesys("РЈ ".$cavebots[$bot]." Р±С‹Р» РїСЂРµРґРјРµС‚ <b>$rec[name]</b> Рё РєС‚Рѕ СѓРіРѕРґРЅРѕ РјРѕР¶РµС‚ РїРѕРґРѕР±СЂР°С‚СЊ РµРіРѕ.");
+                  $this->add_log('<span class=date>'.date("H:i")."</span> РЈ ".$cavebots[$bot]." Р±С‹Р» РїСЂРµРґРјРµС‚ <b>$rec[name]</b>.<BR>");
                 }
               }
             } else {
@@ -43,8 +43,8 @@
                 if (getchance($caveitems[$bot]["chance$i"])) {
                   $rec=mqfa("select name, img from shop where id='".$caveitems[$bot]["item$i"]."'");                        
                   mq("insert into caveitems set leader='$user[caveleader]', x='$x', y='$y', floor='$floor', name='$rec[name]', img='$rec[img]', item='".$caveitems[$bot]["item$i"]."'");
-                  cavesys("У ".$cavebots[$bot]." был предмет <b>$rec[name]</b> и кто угодно может подобрать его.");
-                  $this->add_log('<span class=date>'.date("H:i")."</span> У ".$cavebots[$bot]." был предмет <b>$rec[name]</b>.<BR>");
+                  cavesys("РЈ ".$cavebots[$bot]." Р±С‹Р» РїСЂРµРґРјРµС‚ <b>$rec[name]</b> Рё РєС‚Рѕ СѓРіРѕРґРЅРѕ РјРѕР¶РµС‚ РїРѕРґРѕР±СЂР°С‚СЊ РµРіРѕ.");
+                  $this->add_log('<span class=date>'.date("H:i")."</span> РЈ ".$cavebots[$bot]." Р±С‹Р» РїСЂРµРґРјРµС‚ <b>$rec[name]</b>.<BR>");
                 }
               }
             }

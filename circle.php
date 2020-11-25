@@ -34,18 +34,18 @@
   if (!$quest) {
     include_once("questfuncs.php");
     if (!canmakequest(4)) {
-      echo "<b><font color=red>Вам необходим отдых после предыдущей попытки ещё хотя бы ".ceil($questtime/60)." мин.</font></b>";
+      echo "<b><font color=red>Р’Р°Рј РЅРµРѕР±С…РѕРґРёРј РѕС‚РґС‹С… РїРѕСЃР»Рµ РїСЂРµРґС‹РґСѓС‰РµР№ РїРѕРїС‹С‚РєРё РµС‰С‘ С…РѕС‚СЏ Р±С‹ ".ceil($questtime/60)." РјРёРЅ.</font></b>";
     } elseif ($user["intel"]<25 || $user["maxmana"]<=0) {
-      echo "Вы ничем не сможете помочь чародеям.";
+      echo "Р’С‹ РЅРёС‡РµРј РЅРµ СЃРјРѕР¶РµС‚Рµ РїРѕРјРѕС‡СЊ С‡Р°СЂРѕРґРµСЏРј.";
     } else { 
       if ($_GET["read"] && ($user["mana"]<$user["maxmana"])) {
-        echo "<b><font color=red>Для чтения заклинания вам необходима вся мана.</font></b><br><br>";
+        echo "<b><font color=red>Р”Р»СЏ С‡С‚РµРЅРёСЏ Р·Р°РєР»РёРЅР°РЅРёСЏ РІР°Рј РЅРµРѕР±С…РѕРґРёРјР° РІСЃСЏ РјР°РЅР°.</font></b><br><br>";
         $_GET["read"]=0;
       }
       if (@$_GET["read"]) {
         $r=mq("select users.id, users.intel, users.mana, users.login from users left join online on users.id=online.id left join qtimes on qtimes.user=users.id where qtimes.q4<".time()." and online.date>=".(time()-90)." and users.intel>25 and users.mana=maxmana and users.room=80");
         if (mysql_num_rows($r)<=1) {
-          echo "<b><font color=red>Для чтения заклинания необходима группа магов, не стоит пытаться прочесть заклинание одному.</font></b><br><br>";
+          echo "<b><font color=red>Р”Р»СЏ С‡С‚РµРЅРёСЏ Р·Р°РєР»РёРЅР°РЅРёСЏ РЅРµРѕР±С…РѕРґРёРјР° РіСЂСѓРїРїР° РјР°РіРѕРІ, РЅРµ СЃС‚РѕРёС‚ РїС‹С‚Р°С‚СЊСЃСЏ РїСЂРѕС‡РµСЃС‚СЊ Р·Р°РєР»РёРЅР°РЅРёРµ РѕРґРЅРѕРјСѓ.</font></b><br><br>";
         } else {
           $power=0;
           $cond="0";
@@ -57,26 +57,26 @@
             $logins.=" $rec[login]";
           }
           mq("update variables set value=concat(value, '\r\n".date("H:i")." $logins $power') where var='questlog'");
-          if ($user["sex"]) $a="ёл"; else $a="ла";
+          if ($user["sex"]) $a="С‘Р»"; else $a="Р»Р°";
           if ($power>=2000000) {
-            echo "<b>Заклинание сработало успешно.</b>";
-            sysmsg("<b>$user[login]</b> проч$a заклинание, стены башни задрожали, из окон пошёл дым, раздался вой тварей. Похоже, всё удалось, и теперь можно смело атаковать.");
+            echo "<b>Р—Р°РєР»РёРЅР°РЅРёРµ СЃСЂР°Р±РѕС‚Р°Р»Рѕ СѓСЃРїРµС€РЅРѕ.</b>";
+            sysmsg("<b>$user[login]</b> РїСЂРѕС‡$a Р·Р°РєР»РёРЅР°РЅРёРµ, СЃС‚РµРЅС‹ Р±Р°С€РЅРё Р·Р°РґСЂРѕР¶Р°Р»Рё, РёР· РѕРєРѕРЅ РїРѕС€С‘Р» РґС‹Рј, СЂР°Р·РґР°Р»СЃСЏ РІРѕР№ С‚РІР°СЂРµР№. РџРѕС…РѕР¶Рµ, РІСЃС‘ СѓРґР°Р»РѕСЃСЊ, Рё С‚РµРїРµСЂСЊ РјРѕР¶РЅРѕ СЃРјРµР»Рѕ Р°С‚Р°РєРѕРІР°С‚СЊ.");
             mq("update variables set value=1 where var='quest'");
             mq("update variables set value='$logins' where var='questusers'");
           } else {
-            echo "<font color=red><b>Силы чародеев нехватило, чтобы рассеять магию цвергов.</b></font>";
-            sysmsg("<b>$user[login]</b> проч$a заклинание, но силы чародеев оказались недостаточны.");
+            echo "<font color=red><b>РЎРёР»С‹ С‡Р°СЂРѕРґРµРµРІ РЅРµС…РІР°С‚РёР»Рѕ, С‡С‚РѕР±С‹ СЂР°СЃСЃРµСЏС‚СЊ РјР°РіРёСЋ С†РІРµСЂРіРѕРІ.</b></font>";
+            sysmsg("<b>$user[login]</b> РїСЂРѕС‡$a Р·Р°РєР»РёРЅР°РЅРёРµ, РЅРѕ СЃРёР»С‹ С‡Р°СЂРѕРґРµРµРІ РѕРєР°Р·Р°Р»РёСЃСЊ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅС‹.");
           }
           mq("update users set mana=0, fullmptime=".time()." where $cond");
         }
       } else {
-        echo "Верховный чародей создал магический круг, который даст возможность чародеям объединить свои усилия.
-        Все чародеи, кто вступили в круг, объединят свои силы, и любой, кто начнёт читать заклинание,
-        использует силу всех остальных. <br><br><center>
-        <a href=\"circle.php?read=1\">Начать читать заклинание</a><br></center>";
+        echo "Р’РµСЂС…РѕРІРЅС‹Р№ С‡Р°СЂРѕРґРµР№ СЃРѕР·РґР°Р» РјР°РіРёС‡РµСЃРєРёР№ РєСЂСѓРі, РєРѕС‚РѕСЂС‹Р№ РґР°СЃС‚ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ С‡Р°СЂРѕРґРµСЏРј РѕР±СЉРµРґРёРЅРёС‚СЊ СЃРІРѕРё СѓСЃРёР»РёСЏ.
+        Р’СЃРµ С‡Р°СЂРѕРґРµРё, РєС‚Рѕ РІСЃС‚СѓРїРёР»Рё РІ РєСЂСѓРі, РѕР±СЉРµРґРёРЅСЏС‚ СЃРІРѕРё СЃРёР»С‹, Рё Р»СЋР±РѕР№, РєС‚Рѕ РЅР°С‡РЅС‘С‚ С‡РёС‚Р°С‚СЊ Р·Р°РєР»РёРЅР°РЅРёРµ,
+        РёСЃРїРѕР»СЊР·СѓРµС‚ СЃРёР»Сѓ РІСЃРµС… РѕСЃС‚Р°Р»СЊРЅС‹С…. <br><br><center>
+        <a href=\"circle.php?read=1\">РќР°С‡Р°С‚СЊ С‡РёС‚Р°С‚СЊ Р·Р°РєР»РёРЅР°РЅРёРµ</a><br></center>";
       }
     }
-  } else echo "Заклинание сотворено успешно и теперь можно смело нападать на тварей!";
+  } else echo "Р—Р°РєР»РёРЅР°РЅРёРµ СЃРѕС‚РІРѕСЂРµРЅРѕ СѓСЃРїРµС€РЅРѕ Рё С‚РµРїРµСЂСЊ РјРѕР¶РЅРѕ СЃРјРµР»Рѕ РЅР°РїР°РґР°С‚СЊ РЅР° С‚РІР°СЂРµР№!";
 
 ?>
 </td><td width="250" align="center">
@@ -91,8 +91,8 @@
   echo moveline($links);
 ?>
 <BR>
-<DIV align=right><INPUT onClick="document.location.href='vxod.php?<? echo time(); ?>'" value=Обновить type=button>
-<? if ($user["room"]==51) { ?><INPUT style="font-size:12px;" type='button' onClick="location='zadaniya.php'" value="Задания"><? } ?>
+<DIV align=right><INPUT onClick="document.location.href='vxod.php?<? echo time(); ?>'" value=РћР±РЅРѕРІРёС‚СЊ type=button>
+<? if ($user["room"]==51) { ?><INPUT style="font-size:12px;" type='button' onClick="location='zadaniya.php'" value="Р—Р°РґР°РЅРёСЏ"><? } ?>
 </DIV></TD></TR></TBODY></TABLE>
 </TD>
 </TR>

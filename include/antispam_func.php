@@ -2,7 +2,7 @@
 function antispam ($text){
 $os = array("combats.com", "combats.net", "combats.biz", "combats.az");
 if (in_array("$text", $os)) {
-$text = str_replace($text, "<font color=red>Найдены запрещенные символы в сообщение</font>", "$text");
+$text = str_replace($text, "<font color=red>РќР°Р№РґРµРЅС‹ Р·Р°РїСЂРµС‰РµРЅРЅС‹Рµ СЃРёРјРІРѕР»С‹ РІ СЃРѕРѕР±С‰РµРЅРёРµ</font>", "$text");
 }
 return $text;
 }

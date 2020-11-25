@@ -1,5 +1,5 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
     //if (rand(1,2)==1) {
 
         if ($_SESSION['uid'] == null) header("Location: index.php");
@@ -10,35 +10,35 @@
           $restr=mqfa1("select time from effects where owner='$tar[id]' and type=".CLANRESTRICTION." order by id desc");
           if (!$restr) $restr=mqfa1("select time from alleffects where owner='$tar[id]' and type=".CLANRESTRICTION." order by id desc");
             if ($restr>time()) {
-              echo "<font color=red><b>У персонажа запрет на вступление в кланы ещё ".secs2hrs($restr-time())."!</b></font>";
+              echo "<font color=red><b>РЈ РїРµСЂСЃРѕРЅР°Р¶Р° Р·Р°РїСЂРµС‚ РЅР° РІСЃС‚СѓРїР»РµРЅРёРµ РІ РєР»Р°РЅС‹ РµС‰С‘ ".secs2hrs($restr-time())."!</b></font>";
             } elseif (($tar['klan'] || $tar['align'] ) && $tar['id']!=7) {
-              echo "<font color=red><b>Персонаж \"$target\" состоит в клане, либо имеет склонность!</b></font>";
+              echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" СЃРѕСЃС‚РѕРёС‚ РІ РєР»Р°РЅРµ, Р»РёР±Рѕ РёРјРµРµС‚ СЃРєР»РѕРЅРЅРѕСЃС‚СЊ!</b></font>";
             } else {
                 $ok=0;
                 if (($user['align'] > '1' && $user['align'] < '3') OR ($user['align']> '3' && $user['align']< '4')) {
                     $ok=1;
                 }
                 if ($ok == 1) {
-                    if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','Паладинская проверка','".$magictime."','20');")) {
-                        $messtel="Помечено, что персонаж чист перед законом";
-                        $mess="".$user['login']." сделал пометку что ".$_POST['target']." чист перед законом";
+                    if (mysql_query("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$tar['id']."','РџР°Р»Р°РґРёРЅСЃРєР°СЏ РїСЂРѕРІРµСЂРєР°','".$magictime."','20');")) {
+                        $messtel="РџРѕРјРµС‡РµРЅРѕ, С‡С‚Рѕ РїРµСЂСЃРѕРЅР°Р¶ С‡РёСЃС‚ РїРµСЂРµРґ Р·Р°РєРѕРЅРѕРј";
+                        $mess="".$user['login']." СЃРґРµР»Р°Р» РїРѕРјРµС‚РєСѓ С‡С‚Рѕ ".$_POST['target']." С‡РёСЃС‚ РїРµСЂРµРґ Р·Р°РєРѕРЅРѕРј";
                         mysql_query("INSERT INTO `lichka`(`id`,`pers`,`text`,`date`) VALUES ('','".$tar['id']."','$mess','".time()."');");
                         mysql_query("INSERT INTO `paldelo`(`id`,`author`,`text`,`date`) VALUES ('','".$_SESSION['uid']."','$mess','".time()."');");
 
                         tele_check($target,$messtel);
 
-                        echo "<font color=red><b>Успешно поставлена проверка персонажу \"$target\"</b></font>";
+                        echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ РїРѕСЃС‚Р°РІР»РµРЅР° РїСЂРѕРІРµСЂРєР° РїРµСЂСЃРѕРЅР°Р¶Сѓ \"$target\"</b></font>";
                     }
                     else {
-                        echo "<font color=red><b>Произошла ошибка!<b></font>";
+                        echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°!<b></font>";
                     }
                 }
                 else {
-                    echo "<font color=red><b>Вы не можете поставить проверку!<b></font>";
+                    echo "<font color=red><b>Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РїРѕСЃС‚Р°РІРёС‚СЊ РїСЂРѕРІРµСЂРєСѓ!<b></font>";
                 }
             }
         }
         else {
-            echo "<font color=red><b>Персонаж \"$target\" не существует!<b></font>";
+            echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!<b></font>";
         }
 ?>

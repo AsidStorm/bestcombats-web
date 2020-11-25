@@ -9,7 +9,7 @@
 
 
 
-//-------------------------- Пора в бой? --------------------------------
+//-------------------------- РџРѕСЂР° РІ Р±РѕР№? --------------------------------
 	if ($db['battle'] != 0) { header('location: fbattle.php'); die(); }
 	if ($db['room'] != 315 and $db['room'] !=3152 ) { header("Location: main.php");  die(); }
 
@@ -22,42 +22,42 @@ mysql_query("UPDATE `users`,`online` SET `users`.`room` = '3152',`online`.`room`
 ?>
 <script LANGUAGE='JavaScript'>
 document.ondragstart = test;
-//запрет на перетаскивание
+//Р·Р°РїСЂРµС‚ РЅР° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ
 document.onselectstart = test;
-//запрет на выделение элементов страницы
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂР°РЅРёС†С‹
 document.oncontextmenu = test;
-//запрет на выведение контекстного меню
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РІРµРґРµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 function test() {
  return false
 }
 </SCRIPT>
 <body bgcolor=#eeeeee>
 <link rel=stylesheet href="i/main.css" type="text/css">
-<FORM action="city.php?kaz=1" method=POST><INPUT TYPE="submit" value="Казино" style="float: right" ></FORM>
+<FORM action="city.php?kaz=1" method=POST><INPUT TYPE="submit" value="РљР°Р·РёРЅРѕ" style="float: right" ></FORM>
 <table border="0" align="center" width="100%">
     <tr>
         
 
         <th align="center" valign="middle">
 
-            <p><b><h3>Угадай число</h3></b></p>
+            <p><b><h3>РЈРіР°РґР°Р№ С‡РёСЃР»Рѕ</h3></b></p>
         </th>
     </tr>
 </table>
-<p><b>Правила:</b> Загадано число в промежутке от 0 до 100. Вам необходимо угадать следующее число будет <u>больше</u> или <u>меньше</u> загаданого. <br />В случае выигрыша сумма ставки увеличивается в <b><font color="red">2</font></b><font color="red"> </font>раза.</p>
+<p><b>РџСЂР°РІРёР»Р°:</b> Р—Р°РіР°РґР°РЅРѕ С‡РёСЃР»Рѕ РІ РїСЂРѕРјРµР¶СѓС‚РєРµ РѕС‚ 0 РґРѕ 100. Р’Р°Рј РЅРµРѕР±С…РѕРґРёРјРѕ СѓРіР°РґР°С‚СЊ СЃР»РµРґСѓСЋС‰РµРµ С‡РёСЃР»Рѕ Р±СѓРґРµС‚ <u>Р±РѕР»СЊС€Рµ</u> РёР»Рё <u>РјРµРЅСЊС€Рµ</u> Р·Р°РіР°РґР°РЅРѕРіРѕ. <br />Р’ СЃР»СѓС‡Р°Рµ РІС‹РёРіСЂС‹С€Р° СЃСѓРјРјР° СЃС‚Р°РІРєРё СѓРІРµР»РёС‡РёРІР°РµС‚СЃСЏ РІ <b><font color="red">2</font></b><font color="red"> </font>СЂР°Р·Р°.</p>
 <p> </p>
 
 <form name='?set=buy>' method='post'>
 <table width="319" align='center' border='0' cellspacing='0' cellpadding='4'>
 <tr height='22' class=td><td align=center  colspan="2" nowrap style='border:1px solid black; border-bottom:0px;' width="309">
-<b><font color="660000">Загаданное число:</font></b><font color="white"> 
+<b><font color="660000">Р—Р°РіР°РґР°РЅРЅРѕРµ С‡РёСЃР»Рѕ:</font></b><font color="white"> 
 </font><b><font size="3" color="black"><? srand((double)microtime()*1000000); $chislo3 = rand(5, 95); print "$chislo3"; ?></font></b></td>
-<tr align=center class=td><td height='22' width="165" nowrap style='border-top:1px solid black; border-right:1px solid black; border-left:1px solid black;'><b><font color="maroon">Тип валюты</font></b></td>
+<tr align=center class=td><td height='22' width="165" nowrap style='border-top:1px solid black; border-right:1px solid black; border-left:1px solid black;'><b><font color="maroon">РўРёРї РІР°Р»СЋС‚С‹</font></b></td>
 <td height='22' width="135" nowrap style='border-top:1px solid black; border-right:1px solid black;'>
 <select name='valuta' style='background-color: #FFFFF1;  font-size:12px;'>
-<option style='COLOR: red' value='money'>Кр.</option>
-<option style='COLOR: green' value='ekr'>Екр.</option></select></td> 
-<tr align=center class=td><td height='22' width="165" nowrap style='border-top:1px solid black; border-right:1px solid black; border-left:1px solid black;'><b><font color="maroon">Размер Вашей ставки</font></b></td>
+<option style='COLOR: red' value='money'>РљСЂ.</option>
+<option style='COLOR: green' value='ekr'>Р•РєСЂ.</option></select></td> 
+<tr align=center class=td><td height='22' width="165" nowrap style='border-top:1px solid black; border-right:1px solid black; border-left:1px solid black;'><b><font color="maroon">Р Р°Р·РјРµСЂ Р’Р°С€РµР№ СЃС‚Р°РІРєРё</font></b></td>
 <td height='22' width="135" nowrap style='border-top:1px solid black; border-right:1px solid black;'>
 <select name='stavka' style='background-color: #FFFFF1;  font-size:12px;'>
 <option value='5'>   5</option>
@@ -71,11 +71,11 @@ function test() {
 </select></td>
 <input type="hidden" name="chislo" value="<? print $chislo3; ?>">
 <tr class=td align=center><td height='22' colspan='2' style='border:1px solid black;' width="309">
-<b><input type="radio" name="state" value="1" checked> <font color="red">Больше</font>            <input type="radio" name="state" value="2"> <font color="blue">Меньше</font></b></td>
+<b><input type="radio" name="state" value="1" checked> <font color="red">Р‘РѕР»СЊС€Рµ</font>            <input type="radio" name="state" value="2"> <font color="blue">РњРµРЅСЊС€Рµ</font></b></td>
 <tr align=center class=td><td height='22' colspan='2' style='border-bottom:1px solid black; border-right:1px solid black; border-left:1px solid black;' width="309">
 <input type=hidden value=3 name=send>
-<input type=submit class="submit" value="Играть" style="border:1px solid #000000; font-family: Verdana, Arial; font-size: 8pt;"></td></table><p> </p>
-<p><b>Описание:</b> Вы делаете ставку, выбирая сумму, затем указываете каким будет следующее число, согласно Вашему мнению. <br />Ниже будет показана информация по игре.<br></form>
+<input type=submit class="submit" value="РРіСЂР°С‚СЊ" style="border:1px solid #000000; font-family: Verdana, Arial; font-size: 8pt;"></td></table><p> </p>
+<p><b>РћРїРёСЃР°РЅРёРµ:</b> Р’С‹ РґРµР»Р°РµС‚Рµ СЃС‚Р°РІРєСѓ, РІС‹Р±РёСЂР°СЏ СЃСѓРјРјСѓ, Р·Р°С‚РµРј СѓРєР°Р·С‹РІР°РµС‚Рµ РєР°РєРёРј Р±СѓРґРµС‚ СЃР»РµРґСѓСЋС‰РµРµ С‡РёСЃР»Рѕ, СЃРѕРіР»Р°СЃРЅРѕ Р’Р°С€РµРјСѓ РјРЅРµРЅРёСЋ. <br />РќРёР¶Рµ Р±СѓРґРµС‚ РїРѕРєР°Р·Р°РЅР° РёРЅС„РѕСЂРјР°С†РёСЏ РїРѕ РёРіСЂРµ.<br></form>
 <table><br>
 
 
@@ -95,26 +95,26 @@ $priz=0;$date=date("d.m.y"); $time=date("H:i:s");
 if ($valuta=="ekr") {
 $result=mysql_query("select * from users where login='".$db['login']."'");
 $row=mysql_fetch_array($result); if ($row['ekr'] < "$stavka")
-{echo "<font color=red>Для этой ставки Вам не хватает средств на счету! Вы можете пополнить его у Дилера игры.</font></table>"; exit;}
+{echo "<font color=red>Р”Р»СЏ СЌС‚РѕР№ СЃС‚Р°РІРєРё Р’Р°Рј РЅРµ С…РІР°С‚Р°РµС‚ СЃСЂРµРґСЃС‚РІ РЅР° СЃС‡РµС‚Сѓ! Р’С‹ РјРѕР¶РµС‚Рµ РїРѕРїРѕР»РЅРёС‚СЊ РµРіРѕ Сѓ Р”РёР»РµСЂР° РёРіСЂС‹.</font></table>"; exit;}
 
-//началорезультат игры
+//РЅР°С‡Р°Р»РѕСЂРµР·СѓР»СЊС‚Р°С‚ РёРіСЂС‹
 
 
 
-//вычитает ставку из кассы игрока
+//РІС‹С‡РёС‚Р°РµС‚ СЃС‚Р°РІРєСѓ РёР· РєР°СЃСЃС‹ РёРіСЂРѕРєР°
 mysql_query("update users set ekr=ekr-'$stavka' where login='".$db['login']."'");
 $wmekrm=$stavka/(100-$row1[proc]);
 mysql_query("update game_bank  set wmekrmin=wmekrmin+'$wmekrm' where name='lloto'");
 mysql_query("update game_bank  set wmekr=wmekr+'$stavka'-'$wmekrm' where name='lloto'");
-// Проверяем сумму банка после игры с риском
+// РџСЂРѕРІРµСЂСЏРµРј СЃСѓРјРјСѓ Р±Р°РЅРєР° РїРѕСЃР»Рµ РёРіСЂС‹ СЃ СЂРёСЃРєРѕРј
 $risk=$row1[wmekr]-($stavka*2);
-if ($risk >=$row1[wmekrmin] ) {$ches=" честно";
+if ($risk >=$row1[wmekrmin] ) {$ches=" С‡РµСЃС‚РЅРѕ";
 srand((double)microtime()*1000000);
 $chislo2  = rand(1, 500);
 if ($chislo<$chislo2&$state==1){$priz=$stavka*2;mysql_query("update game_bank  set wmekr=wmekr-'$priz' where name='lloto'");mysql_query("update users set ekr=ekr+'$priz' where login='".$db['login']."'"); }else{if ($chislo>$chislo2&$state==2){$priz=$stavka*2;}mysql_query("update game_bank  set wmekr=wmekr-'$priz' where name='lloto'");mysql_query("update users set ekr=ekr+'$priz' where login='".$db['login']."'"); }
 }else{
-    $ches="не честно";
-    //не честно
+    $ches="РЅРµ С‡РµСЃС‚РЅРѕ";
+    //РЅРµ С‡РµСЃС‚РЅРѕ
 srand((double)microtime()*1000000);
 $chislo1  = rand(1, $chislo-1);
 $chislo2  = rand($chislo+1,500);
@@ -125,31 +125,31 @@ if ($state==1){$chislo2=$chislo1;}else{if ($state==2){$chislo2=$chislo2;}}
 
 
 
-//игра на рубли
+//РёРіСЂР° РЅР° СЂСѓР±Р»Рё
 
 
 if ($valuta=="money") {
 $result=mysql_query("select * from users where login='".$db['login']."'");
 $row=mysql_fetch_array($result); if ($row['money'] < "$stavka")
-{echo "<font color=red>Для этой ставки Вам не хватает средств на счету! </font></table>"; exit;}
+{echo "<font color=red>Р”Р»СЏ СЌС‚РѕР№ СЃС‚Р°РІРєРё Р’Р°Рј РЅРµ С…РІР°С‚Р°РµС‚ СЃСЂРµРґСЃС‚РІ РЅР° СЃС‡РµС‚Сѓ! </font></table>"; exit;}
 
 
 
-//начало результат игры
+//РЅР°С‡Р°Р»Рѕ СЂРµР·СѓР»СЊС‚Р°С‚ РёРіСЂС‹
 
 mysql_query("update users set money=money-'$stavka' where login='".$db['login']."'");
 $wmkrm=$stavka/(100-$row1[proc]);
 mysql_query("update game_bank  set wmkrmin=wmkrmin+'$wmkrm' where name='lloto'");
 mysql_query("update game_bank  set wmkr=wmkr+'$stavka'-'$wmkrm' where name='lloto'");
-// Проверяем сумму банка после игры с риском
+// РџСЂРѕРІРµСЂСЏРµРј СЃСѓРјРјСѓ Р±Р°РЅРєР° РїРѕСЃР»Рµ РёРіСЂС‹ СЃ СЂРёСЃРєРѕРј
 $risk=$row1[wmkr]-($stavka*2);
-if ($risk >=$row1[wmkrmin] ){$ches="честно";
+if ($risk >=$row1[wmkrmin] ){$ches="С‡РµСЃС‚РЅРѕ";
 srand((double)microtime()*1000000);
 $chislo2  = rand(1, 500);
 if ($chislo<$chislo2&$state==1){$priz=$stavka*2;mysql_query("update game_bank  set wmkr=wmkr-'$priz' where name='lloto'");mysql_query("update users set money=money+'$priz' where login='".$db['login']."'"); }else{if ($chislo>$chislo2&$state==2){$priz=$stavka*2;}mysql_query("update game_bank  set wmkr=wmkr-'$priz' where name='lloto'");mysql_query("update users set money=money+'$priz' where login='".$db['login']."'");}
 }else{
-    //не честно
-    $ches="не честно";
+    //РЅРµ С‡РµСЃС‚РЅРѕ
+    $ches="РЅРµ С‡РµСЃС‚РЅРѕ";
 srand((double)microtime()*1000000);
 $chislo1  = rand(1, $chislo-1);
 $chislo2  = rand($chislo+1,500);
@@ -159,54 +159,54 @@ if ($state==1){$chislo2=$chislo1;}else{if ($state==2){$chislo2=$chislo2;}}
 
 
 
-if ($valuta==money){$valutas="кр.";}else{$valutas="екр.";}
-//выигрыш
+if ($valuta==money){$valutas="РєСЂ.";}else{$valutas="РµРєСЂ.";}
+//РІС‹РёРіСЂС‹С€
 echo "<div align=center>
   <center>
   <table border=0 bgcolor=99CCFF cellpadding=0 cellspacing=0 style=border-collapse: collapse bordercolor=#111111 width=49% id=AutoNumber1 height=134>
     <tr>
       <td width=50% height=25 colspan=2>
-      <p align=center><font color=66000><b>Результат игры</b></font></td>
+      <p align=center><font color=66000><b>Р РµР·СѓР»СЊС‚Р°С‚ РёРіСЂС‹</b></font></td>
     </tr>
    <tr>
     <td width=50% height=25>
-   <p align=center><font size=2>Дата розыгрыша:</font></td>
+   <p align=center><font size=2>Р”Р°С‚Р° СЂРѕР·С‹РіСЂС‹С€Р°:</font></td>
     <td width=50% height=25><p align=center><font size=2>$date-$time</font></td>
   </tr>
     <tr>
       <td width=25% height=25>
-      <p align=center><font size=2>Сумма ставки:</font></td>
+      <p align=center><font size=2>РЎСѓРјРјР° СЃС‚Р°РІРєРё:</font></td>
       <td width=25% height=25><center><font size=2><b>$stavka $valutas</b></font></td>
     </tr> <td width=25% height=24  >
-    <p align=center><font size=2>Начальное число:</font></td>
+    <p align=center><font size=2>РќР°С‡Р°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ:</font></td>
       <td width=25% height=24><center><font size=2><b>$chislo</b></font></td>
     </tr>
     <td width=25% height=24>
-    <p align=center><font size=2>Загаданное число:</font></span></td>
+    <p align=center><font size=2>Р—Р°РіР°РґР°РЅРЅРѕРµ С‡РёСЃР»Рѕ:</font></span></td>
       <td width=25% height=24><center><font size=2><b>$chislo2</b></font></td>
     </tr>
 
 
     ";
-if ($state==1){$vibor="Больше";}else{if ($state==2){$vibor="Меньше";}}
+if ($state==1){$vibor="Р‘РѕР»СЊС€Рµ";}else{if ($state==2){$vibor="РњРµРЅСЊС€Рµ";}}
 
-if ($priz==0){$rezgame="Проигрыш";}else{$rezgame="Выигрыш <b>$priz $valutas</b>";}
+if ($priz==0){$rezgame="РџСЂРѕРёРіСЂС‹С€";}else{$rezgame="Р’С‹РёРіСЂС‹С€ <b>$priz $valutas</b>";}
 echo "<td width=25% height=24 bgcolor=#FFE280 >
-    <p align=center><font size=2>Ваш выбор:</font></td>
+    <p align=center><font size=2>Р’Р°С€ РІС‹Р±РѕСЂ:</font></td>
       <td width=25% height=24  bgcolor=#FFE280 ><center><font size=2>$vibor</font></td>
     </tr>
     <td width=25% height=24  bgcolor=#FFE280 >
-    <p align=center><font size=2>Результат игры:</font></td>
+    <p align=center><font size=2>Р РµР·СѓР»СЊС‚Р°С‚ РёРіСЂС‹:</font></td>
       <td width=25% height=24  bgcolor=#FFE280 ><center><font size=2>$rezgame</font></td>
     </tr>
 
     ";
 //echo "$risk $ches $row1[wmzmin]";
-if ($win_state == "not") {echo "Информации о Вашей ставке нет!";}} ?>    </td></tr> </table>
+if ($win_state == "not") {echo "РРЅС„РѕСЂРјР°С†РёРё Рѕ Р’Р°С€РµР№ СЃС‚Р°РІРєРµ РЅРµС‚!";}} ?>    </td></tr> </table>
 
-У вас на счету:<br><b> <?
+РЈ РІР°СЃ РЅР° СЃС‡РµС‚Сѓ:<br><b> <?
 $dba = mysql_fetch_array(mysql_query("SELECT money,ekr FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));;
 
 
- echo $dba['money']; ?></b> кр.<br>
-<b><? echo $dba['ekr']; ?></b> екр.
+ echo $dba['money']; ?></b> РєСЂ.<br>
+<b><? echo $dba['ekr']; ?></b> РµРєСЂ.

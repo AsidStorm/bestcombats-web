@@ -8,18 +8,18 @@
 <html>
 <script LANGUAGE='JavaScript'>
 document.ondragstart = test;
-//запрет на перетаскивание
+//Р·Р°РїСЂРµС‚ РЅР° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ
 document.onselectstart = test;
-//запрет на выделение элементов страницы
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РґРµР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂР°РЅРёС†С‹
 document.oncontextmenu = test;
-//запрет на выведение контекстного меню
+//Р·Р°РїСЂРµС‚ РЅР° РІС‹РІРµРґРµРЅРёРµ РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ
 function test() {
  return false
 }
 </SCRIPT>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-<title>Бойцовский клуб | Библиотека</title>
+<title>Р‘РѕР№С†РѕРІСЃРєРёР№ РєР»СѓР± | Р‘РёР±Р»РёРѕС‚РµРєР°</title>
 <link href="i/main2.css" rel="stylesheet" type="text/css">
 </head>
 <body bgcolor="#000000" topmargin=0 leftmargin=0 marginheight=0 marginwidth=0>
@@ -49,7 +49,7 @@ document.write('<table cellspacing=0 cellpadding=0 bgcolor=#f2e5b1 border=0 widt
     </td>
     <td rowspan=2 align="left"><!-- Begin of text -->      
       <p><b><br>
-        <!--&gt;&gt;</b> <a href="../index.html">Содержание</a> / <a href="../subjects.html">Предметы</a> / <a href="../weapon.html">Оружие</a> / <a href="../axe.html">Топоры</a> / <b><i>Топор Паука</i></b> -->
+        <!--&gt;&gt;</b> <a href="../index.html">РЎРѕРґРµСЂР¶Р°РЅРёРµ</a> / <a href="../subjects.html">РџСЂРµРґРјРµС‚С‹</a> / <a href="../weapon.html">РћСЂСѓР¶РёРµ</a> / <a href="../axe.html">РўРѕРїРѕСЂС‹</a> / <b><i>РўРѕРїРѕСЂ РџР°СѓРєР°</i></b> -->
       <p>
 	  <?
 	  if($_GET['a']==2){$data = mysql_query("SELECT * FROM `shop_luka` WHERE `id`='".(int)$_GET['id']."' ORDER by `nlevel` ASC");
@@ -119,7 +119,7 @@ document.write('<table cellspacing=0 cellpadding=0 bgcolor=#f2e5b1 border=0 widt
         
       </div></td>
 
-    <td align=center valign=middle><div align="center"><NOBR><span class="style6">Copyright © 2010-2011 «www.vr-bk.net.ru»</span></NOBR></div></td>
+    <td align=center valign=middle><div align="center"><NOBR><span class="style6">Copyright В© 2010-2011 В«www.vr-bk.net.ruВ»</span></NOBR></div></td>
     <td width="20%"></td>
   </tr>
 </table>

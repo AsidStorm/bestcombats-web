@@ -1,19 +1,19 @@
 <?php
-//Ñîîáùåíèÿ â îáû÷íûé ÷àò
+//Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð² Ð¾Ð±Ñ‹Ñ‡Ð½Ñ‹Ð¹ Ñ‡Ð°Ñ‚
 function addch ($text,$room=0) {
 			global $user;
 			if ($room==0) {
 				$room = $user['room'];
 			}
-			if($fp = fopen ("chat.txt","a")){ //îòêðûòèå
-				flock ($fp,LOCK_EX); //ÁËÎÊÈÐÎÂÊÀ ÔÀÉËÀ
-				fputs($fp ,":[".time()."]:[!sys!!]:[".($text)."]:[".$room."]\r\n"); //ðàáîòà ñ ôàéëîì
-				fflush ($fp); //Î×ÈÙÅÍÈÅ ÔÀÉËÎÂÎÃÎ ÁÓÔÅÐÀ È ÇÀÏÈÑÜ Â ÔÀÉË
-				flock ($fp,LOCK_UN); //ÑÍßÒÈÅ ÁËÎÊÈÐÎÂÊÈ
-				fclose ($fp); //çàêðûòèå
+			if($fp = fopen ("chat.txt","a")){ //Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ
+				flock ($fp,LOCK_EX); //Ð‘Ð›ÐžÐšÐ˜Ð ÐžÐ’ÐšÐ Ð¤ÐÐ™Ð›Ð
+				fputs($fp ,":[".time()."]:[!sys!!]:[".($text)."]:[".$room."]\r\n"); //Ñ€Ð°Ð±Ð¾Ñ‚Ð° Ñ Ñ„Ð°Ð¹Ð»Ð¾Ð¼
+				fflush ($fp); //ÐžÐ§Ð˜Ð©Ð•ÐÐ˜Ð• Ð¤ÐÐ™Ð›ÐžÐ’ÐžÐ“Ðž Ð‘Ð£Ð¤Ð•Ð Ð Ð˜ Ð—ÐÐŸÐ˜Ð¡Ð¬ Ð’ Ð¤ÐÐ™Ð›
+				flock ($fp,LOCK_UN); //Ð¡ÐÐ¯Ð¢Ð˜Ð• Ð‘Ð›ÐžÐšÐ˜Ð ÐžÐ’ÐšÐ˜
+				fclose ($fp); //Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ
 			}
 }
-//Ñîîáùåíèÿ äëÿ ïîäçåìîê
+//Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð´Ð»Ñ Ð¿Ð¾Ð´Ð·ÐµÐ¼Ð¾Ðº
 function cavesys($text) {
   global $user;
   if($fp = @fopen (CHATROOT."chat.txt","a")){
@@ -24,18 +24,18 @@ function cavesys($text) {
     fclose ($fp);
   }
 }
-//Ïðèâàòû
+//ÐŸÑ€Ð¸Ð²Ð°Ñ‚Ñ‹
 function privatemsg($text, $to) {
   global $user;
   if ($room==0) $room = $user['room'];
-  $fp = fopen (CHATROOT."chat.txt","a"); //îòêðûòèå
-  flock ($fp,LOCK_EX); //ÁËÎÊÈÐÎÂÊÀ ÔÀÉËÀ
-  fputs($fp ,":[".time()."]:[{[]}$to{[]}]:[".($text)."]:[".$room."]\r\n"); //ðàáîòà ñ ôàéëîì
-  fflush ($fp); //Î×ÈÙÅÍÈÅ ÔÀÉËÎÂÎÃÎ ÁÓÔÅÐÀ È ÇÀÏÈÑÜ Â ÔÀÉË
-  flock ($fp,LOCK_UN); //ÑÍßÒÈÅ ÁËÎÊÈÐÎÂÊÈ
-  fclose ($fp); //çàêðûòèå
+  $fp = fopen (CHATROOT."chat.txt","a"); //Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ
+  flock ($fp,LOCK_EX); //Ð‘Ð›ÐžÐšÐ˜Ð ÐžÐ’ÐšÐ Ð¤ÐÐ™Ð›Ð
+  fputs($fp ,":[".time()."]:[{[]}$to{[]}]:[".($text)."]:[".$room."]\r\n"); //Ñ€Ð°Ð±Ð¾Ñ‚Ð° Ñ Ñ„Ð°Ð¹Ð»Ð¾Ð¼
+  fflush ($fp); //ÐžÐ§Ð˜Ð©Ð•ÐÐ˜Ð• Ð¤ÐÐ™Ð›ÐžÐ’ÐžÐ“Ðž Ð‘Ð£Ð¤Ð•Ð Ð Ð˜ Ð—ÐÐŸÐ˜Ð¡Ð¬ Ð’ Ð¤ÐÐ™Ð›
+  flock ($fp,LOCK_UN); //Ð¡ÐÐ¯Ð¢Ð˜Ð• Ð‘Ð›ÐžÐšÐ˜Ð ÐžÐ’ÐšÐ˜
+  fclose ($fp); //Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ
 }
-//Ôóíêöèÿ ñèñòåìêè
+//Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ ÑÐ¸ÑÑ‚ÐµÐ¼ÐºÐ¸
 function systemmsg($text) {
 global $user;
 if (filesize(CHATROOT."chat.txt")>20*1024) {
@@ -46,27 +46,27 @@ for ($s=0;$s<count($file)/1.5;$s++) {
 unset($file[$s]);
 }
 fputs($fp, implode("",$file));
-fputs($fp ,"\r\n:[".time ()."]:[!sys2all!!]:[".($text)."]:[1]\r\n"); //ðàáîòà ñ ôàéëîì
+fputs($fp ,"\r\n:[".time ()."]:[!sys2all!!]:[".($text)."]:[1]\r\n"); //Ñ€Ð°Ð±Ð¾Ñ‚Ð° Ñ Ñ„Ð°Ð¹Ð»Ð¾Ð¼
 flock ($fp,LOCK_UN);
 fclose($fp);
 }else {
-$fp = fopen (CHATROOT."chat.txt","a"); //îòêðûòèå
-flock ($fp,LOCK_EX); //ÁËÎÊÈÐÎÂÊÀ ÔÀÉËÀ
-fputs($fp ,"\r\n:[".time ()."]:[!sys2all!!]:[".($text)."]:[1]\r\n"); //ðàáîòà ñ ôàéëîì
-fflush ($fp); //Î×ÈÙÅÍÈÅ ÔÀÉËÎÂÎÃÎ ÁÓÔÅÐÀ È ÇÀÏÈÑÜ Â ÔÀÉË
-flock ($fp,LOCK_UN); //ÑÍßÒÈÅ ÁËÎÊÈÐÎÂÊÈ
-fclose ($fp); //çàêðûòèå
+$fp = fopen (CHATROOT."chat.txt","a"); //Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ
+flock ($fp,LOCK_EX); //Ð‘Ð›ÐžÐšÐ˜Ð ÐžÐ’ÐšÐ Ð¤ÐÐ™Ð›Ð
+fputs($fp ,"\r\n:[".time ()."]:[!sys2all!!]:[".($text)."]:[1]\r\n"); //Ñ€Ð°Ð±Ð¾Ñ‚Ð° Ñ Ñ„Ð°Ð¹Ð»Ð¾Ð¼
+fflush ($fp); //ÐžÐ§Ð˜Ð©Ð•ÐÐ˜Ð• Ð¤ÐÐ™Ð›ÐžÐ’ÐžÐ“Ðž Ð‘Ð£Ð¤Ð•Ð Ð Ð˜ Ð—ÐÐŸÐ˜Ð¡Ð¬ Ð’ Ð¤ÐÐ™Ð›
+flock ($fp,LOCK_UN); //Ð¡ÐÐ¯Ð¢Ð˜Ð• Ð‘Ð›ÐžÐšÐ˜Ð ÐžÐ’ÐšÐ˜
+fclose ($fp); //Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ
 }
 }
 function addchp ($text,$who,$room=0) {
   global $user;
   if ($room==0) $room = $user['room'];
-  $fp = fopen (CHATROOT."chat.txt","a"); //îòêðûòèå
-  flock ($fp,LOCK_EX); //ÁËÎÊÈÐÎÂÊÀ ÔÀÉËÀ
-  fputs($fp ,":[".time()."]:[{$who}]:[".($text)."]:[".$room."]\r\n"); //ðàáîòà ñ ôàéëîì
-  fflush ($fp); //Î×ÈÙÅÍÈÅ ÔÀÉËÎÂÎÃÎ ÁÓÔÅÐÀ È ÇÀÏÈÑÜ Â ÔÀÉË
-  flock ($fp,LOCK_UN); //ÑÍßÒÈÅ ÁËÎÊÈÐÎÂÊÈ
-  fclose ($fp); //çàêðûòèå
+  $fp = fopen (CHATROOT."chat.txt","a"); //Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ
+  flock ($fp,LOCK_EX); //Ð‘Ð›ÐžÐšÐ˜Ð ÐžÐ’ÐšÐ Ð¤ÐÐ™Ð›Ð
+  fputs($fp ,":[".time()."]:[{$who}]:[".($text)."]:[".$room."]\r\n"); //Ñ€Ð°Ð±Ð¾Ñ‚Ð° Ñ Ñ„Ð°Ð¹Ð»Ð¾Ð¼
+  fflush ($fp); //ÐžÐ§Ð˜Ð©Ð•ÐÐ˜Ð• Ð¤ÐÐ™Ð›ÐžÐ’ÐžÐ“Ðž Ð‘Ð£Ð¤Ð•Ð Ð Ð˜ Ð—ÐÐŸÐ˜Ð¡Ð¬ Ð’ Ð¤ÐÐ™Ð›
+  flock ($fp,LOCK_UN); //Ð¡ÐÐ¯Ð¢Ð˜Ð• Ð‘Ð›ÐžÐšÐ˜Ð ÐžÐ’ÐšÐ˜
+  fclose ($fp); //Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¸Ðµ
 }
 
 ?>

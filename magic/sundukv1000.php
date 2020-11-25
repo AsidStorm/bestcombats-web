@@ -10,33 +10,33 @@ if((int)date("n")!=0){
 	($rrr==3)?$rstat="ginta":"gsila";
 
 	
-	mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'Сила Великана', '25', '1', '0.00', 'spell_godstat_str.gif', '20', '0', '171', 'Дилер') ;");
+	mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'РЎРёР»Р° Р’РµР»РёРєР°РЅР°', '25', '1', '0.00', 'spell_godstat_str.gif', '20', '0', '171', 'Р”РёР»РµСЂ') ;");
 	
-	mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'Восстановление энергии 1500HP', '25', '1', '0.00', 'cureHP1500_100.gif', '50', '0', '9', 'Дилер') ;");
+	mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'Р’РѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ СЌРЅРµСЂРіРёРё 1500HP', '25', '1', '0.00', 'cureHP1500_100.gif', '50', '0', '9', 'Р”РёР»РµСЂ') ;");
 	
-	mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'Скорость Змеи', '25', '1', '0.00', 'spell_godstat_dex.gif', '20', '0', '171', 'Дилер') ;");
+	mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'РЎРєРѕСЂРѕСЃС‚СЊ Р—РјРµРё', '25', '1', '0.00', 'spell_godstat_dex.gif', '20', '0', '171', 'Р”РёР»РµСЂ') ;");
         
-    mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'Предвидение', '25', '1', '0.00', 'spell_godstat_inst.gif', '20', '0', '171', 'Дилер') ;");
+    mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'РџСЂРµРґРІРёРґРµРЅРёРµ', '25', '1', '0.00', 'spell_godstat_inst.gif', '20', '0', '171', 'Р”РёР»РµСЂ') ;");
        
-    mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'Нападение', '25', '1', '0.00', 'attack.gif', '20', '0', '23', 'Дилер') ;");
+    mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'РќР°РїР°РґРµРЅРёРµ', '25', '1', '0.00', 'attack.gif', '20', '0', '23', 'Р”РёР»РµСЂ') ;");
 
-    mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'Кровавое нападение', '25', '1', '0.00', 'attackb.gif', '10', '0', '45', 'Дилер') ;");
+    mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'РљСЂРѕРІР°РІРѕРµ РЅР°РїР°РґРµРЅРёРµ', '25', '1', '0.00', 'attackb.gif', '10', '0', '45', 'Р”РёР»РµСЂ') ;");
 		 
-    mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'Снадобье Забытых Мастеров', '188', '1', '0.00', 'pot_base_100_master.gif', '10', '0', '185', 'Дилер') ;");
+    mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'РЎРЅР°РґРѕР±СЊРµ Р—Р°Р±С‹С‚С‹С… РњР°СЃС‚РµСЂРѕРІ', '188', '1', '0.00', 'pot_base_100_master.gif', '10', '0', '185', 'Р”РёР»РµСЂ') ;");
 	
-	mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'Жажда жизни +6', '25', '1', '0.00', 'spell_powerHPup6.gif', '20', '0', '27', 'Дилер') ;");
+	mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'Р–Р°Р¶РґР° Р¶РёР·РЅРё +6', '25', '1', '0.00', 'spell_powerHPup6.gif', '20', '0', '27', 'Р”РёР»РµСЂ') ;");
 	
-	mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'Неуязвимость Оружию', '25', '1', '0.00', 'spell_godprotect10.gif', '10', '0', '208', 'Дилер') ;");
+	mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'РќРµСѓСЏР·РІРёРјРѕСЃС‚СЊ РћСЂСѓР¶РёСЋ', '25', '1', '0.00', 'spell_godprotect10.gif', '10', '0', '208', 'Р”РёР»РµСЂ') ;");
 	
-	mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'Неуязвимость Стихиям', '25', '1', '0.00', 'spell_godprotect.gif', '10', '0', '208', 'Дилер') ;");
+	mysql_query("INSERT INTO `inventory` (`owner`,`name`,`type`,`massa`,`cost`,`img`,`maxdur`,`isrep`,`magic`,`present`)VALUES('".$_SESSION['uid']."', 'РќРµСѓСЏР·РІРёРјРѕСЃС‚СЊ РЎС‚РёС…РёСЏРј', '25', '1', '0.00', 'spell_godprotect.gif', '10', '0', '208', 'Р”РёР»РµСЂ') ;");
 	
-	echo "Вы вскрыли Коллекционный Воинский Сундук Металла..<br>$got";
+	echo "Р’С‹ РІСЃРєСЂС‹Р»Рё РљРѕР»Р»РµРєС†РёРѕРЅРЅС‹Р№ Р’РѕРёРЅСЃРєРёР№ РЎСѓРЅРґСѓРє РњРµС‚Р°Р»Р»Р°..<br>$got";
 	
 			destructitem($_GET['use']);
 }
 else
 {
-echo "<font color=red><b>Еще не время...<b></font>";
+echo "<font color=red><b>Р•С‰Рµ РЅРµ РІСЂРµРјСЏ...<b></font>";
 }
 
 ?>

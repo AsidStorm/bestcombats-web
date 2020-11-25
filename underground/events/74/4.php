@@ -2,7 +2,7 @@
 
 include '../../../questfuncs.php';
 
-    // ловушка 20x4
+    // Р»РѕРІСѓС€РєР° 20x4
     if ($tx*2==20 && $ty*2==4) {
         $bBots=mqfaa("
             SELECT bot, cnt, battle 
@@ -30,7 +30,7 @@ include '../../../questfuncs.php';
         }
     }
     
-    // ловушка 4x4
+    // Р»РѕРІСѓС€РєР° 4x4
     if ($tx*2==4 && $ty*2==4) {
         $bBot=mqfa("
             SELECT bot, cnt, battle 

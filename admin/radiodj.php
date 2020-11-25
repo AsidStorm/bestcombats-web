@@ -11,17 +11,17 @@
 <link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
 </HEAD>
 <body leftmargin=5 topmargin=5 marginwidth=0 marginheight=0 bgcolor=#e2e0e0 >
-<table align=right><tr><td><INPUT TYPE="button" onclick="location.href='../main.php';" value="Вернуться" title="Вернуться"></td></tr></table>
-<h3>Панель Радио DJ!</h3>
+<table align=right><tr><td><INPUT TYPE="button" onclick="location.href='../main.php';" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" title="Р’РµСЂРЅСѓС‚СЊСЃСЏ"></td></tr></table>
+<h3>РџР°РЅРµР»СЊ Р Р°РґРёРѕ DJ!</h3>
 
 
-<h4>Системное сообщение</h4>
+<h4>РЎРёСЃС‚РµРјРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ</h4>
 
 <div id=adm_act>
-<div style='float:left;'>Отправить системное сообщение в чат</div>
+<div style='float:left;'>РћС‚РїСЂР°РІРёС‚СЊ СЃРёСЃС‚РµРјРЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РІ С‡Р°С‚</div>
 <div style='float:left; margin-left:10px;'>
 <input name='sysmsg' id='sysmsg' size=100> 
-<input type="button" OnClick=" document.getElementById('action').value='sysmsg'; document.getElementById('msg').value=document.getElementById('sysmsg').value; document.actform.submit(); " value="Отправить">
+<input type="button" OnClick=" document.getElementById('action').value='sysmsg'; document.getElementById('msg').value=document.getElementById('sysmsg').value; document.actform.submit(); " value="РћС‚РїСЂР°РІРёС‚СЊ">
 
 </div>
 <form method=POST name='actform'>
@@ -34,7 +34,7 @@
 if ($_POST['action']!="") {
 switch ($_POST['action']) {			
 case "sysmsg":
-systemmsg('<font color=\"#CB0000\"><b>Внимание!</b> '.($_POST['msg']).' (с Ув. <img src=http://img.bestcombats.net/radio/radiodj.png></a><b>DJ '.$user["login"].'</b>)</font>');
+systemmsg('<font color=\"#CB0000\"><b>Р’РЅРёРјР°РЅРёРµ!</b> '.($_POST['msg']).' (СЃ РЈРІ. <img src=http://img.bestcombats.net/radio/radiodj.png></a><b>DJ '.$user["login"].'</b>)</font>');
 break;
 }
 }

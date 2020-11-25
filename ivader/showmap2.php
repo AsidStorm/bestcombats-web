@@ -1,16 +1,16 @@
 <form method=post action="showmap2.php">
 <table>
 
-<tr><td>Горизонталь</td><td>
+<tr><td>Р“РѕСЂРёР·РѕРЅС‚Р°Р»СЊ</td><td>
 <input name="x"  autocomplete="off" type="text" value='8' />
-<tr><td>Вертикаль</td><td>
+<tr><td>Р’РµСЂС‚РёРєР°Р»СЊ</td><td>
 
 <input name="y"  autocomplete="off" type="text" />
 <tr><td>Data</td><td>
 
 <input name="data"  autocomplete="off" type="text" value='0' />
 </table>
-<INPUT TYPE="submit" value=" Добавить ">
+<INPUT TYPE="submit" value=" Р”РѕР±Р°РІРёС‚СЊ ">
 </form>
 <?php
 
@@ -83,7 +83,7 @@ echo '
 ';
 $map = unserialize(mysql_result(mysql_query("SELECT map FROM cavemaps WHERE id = 12"), 0, 0));
 $map[$_POST['x']][$_POST['y']]=$_POST['data'];
-if (mq('UPDATE cavemaps SET `map`= \''.serialize($map).'\' WHERE id = 12')); echo "Карта удачно сохранена";
+if (mq('UPDATE cavemaps SET `map`= \''.serialize($map).'\' WHERE id = 12')); echo "РљР°СЂС‚Р° СѓРґР°С‡РЅРѕ СЃРѕС…СЂР°РЅРµРЅР°";
  
 printMap($map);
 

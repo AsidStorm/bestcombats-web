@@ -17,12 +17,12 @@ define("UNKILLABLEBOT", 11135);
 define("HELLRISER", 3946);
 $leveldefs=array(0, 10, 20, 30, 50, 60, 70, 80, 100, 125, 150, 200, 250, 300, 350);
 $strokenames=array(
-    11111=>array("novice_hit"=>"Мощный удар", "novice_def"=>"Ослабить удар"),
-    11112=>array("novice_hit"=>"Мощный удар", "novice_def"=>"Ослабить удар"),
-    11113=>array("novice_hit"=>"Мощный удар", "novice_def"=>"Ослабить удар"),
-    11114=>array("novice_hit"=>"Мощный удар", "novice_def"=>"Ослабить удар"),
-    11115=>array("novice_hit"=>"Мощный удар", "novice_def"=>"Ослабить удар"),
-    11116=>array("novice_hit"=>"Мощный удар", "novice_def"=>"Ослабить удар"),
+    11111=>array("novice_hit"=>"РњРѕС‰РЅС‹Р№ СѓРґР°СЂ", "novice_def"=>"РћСЃР»Р°Р±РёС‚СЊ СѓРґР°СЂ"),
+    11112=>array("novice_hit"=>"РњРѕС‰РЅС‹Р№ СѓРґР°СЂ", "novice_def"=>"РћСЃР»Р°Р±РёС‚СЊ СѓРґР°СЂ"),
+    11113=>array("novice_hit"=>"РњРѕС‰РЅС‹Р№ СѓРґР°СЂ", "novice_def"=>"РћСЃР»Р°Р±РёС‚СЊ СѓРґР°СЂ"),
+    11114=>array("novice_hit"=>"РњРѕС‰РЅС‹Р№ СѓРґР°СЂ", "novice_def"=>"РћСЃР»Р°Р±РёС‚СЊ СѓРґР°СЂ"),
+    11115=>array("novice_hit"=>"РњРѕС‰РЅС‹Р№ СѓРґР°СЂ", "novice_def"=>"РћСЃР»Р°Р±РёС‚СЊ СѓРґР°СЂ"),
+    11116=>array("novice_hit"=>"РњРѕС‰РЅС‹Р№ СѓРґР°СЂ", "novice_def"=>"РћСЃР»Р°Р±РёС‚СЊ СѓРґР°СЂ"),
 );
 $strokebots=array(
     7=>array("novice_hit", "novice_def", "novice_hp", "bot_hitshock"),
@@ -89,9 +89,9 @@ function drawtrick($can_use, $img,  $txt, $free_cast, $dsc, $resource, $select_t
     if ($can_use) {
         if ($select_target) {
             $ret.="
-                <A style='cursor: pointer' onclick=\"tricklogin('</b>Выберите".
-                ($target=='friend'?' дружественную цель':(target=='enemy'?' врага':(target=='any'?' цель':""))).
-                " для приема <b nobr nowrap>$txt', 'fbattle.php', 'target',  '$target_login', '".
+                <A style='cursor: pointer' onclick=\"tricklogin('</b>Р’С‹Р±РµСЂРёС‚Рµ".
+                ($target=='friend'?' РґСЂСѓР¶РµСЃС‚РІРµРЅРЅСѓСЋ С†РµР»СЊ':(target=='enemy'?' РІСЂР°РіР°':(target=='any'?' С†РµР»СЊ':""))).
+                " РґР»СЏ РїСЂРёРµРјР° <b nobr nowrap>$txt', 'fbattle.php', 'target',  '$target_login', '".
                 "$magic_type', '<INPUT type=hidden name=special value=$name>'".($free_cast?'':', 1').')">';
         } else {
             $ret.="<A HREF=\"/fbattle.php?special=$name&r=".time()."\">";
@@ -106,13 +106,13 @@ function drawtrick($can_use, $img,  $txt, $free_cast, $dsc, $resource, $select_t
         $ret.=  ($res[3]=='0'? '': '<IMG width=8 height=8 src=http://img.bestcombats.net/battle/block.gif> '.$res[3].'&nbsp;&nbsp;');
         $ret.=  ($res[4]=='0'? '': '<IMG width=8 height=8 src=http://img.bestcombats.net/battle/parry.gif> '.$res[4].'&nbsp;&nbsp;');
         $ret.=  ($res[5]=='0'? '': '<IMG width=8 height=8 src=http://img.bestcombats.net/battle/hp.gif> '.$res[5].'&nbsp;&nbsp;');
-        $ret.=  ($res[6] == '0' ? '': '<BR>Сила духа: '.$res[6]) ;
-        $ret.=  ($res[7] == '0' ? '': '<BR>Расход маны: '.$res[7] ) ;
-        $ret.=  ($res[8] == '0' ? '': '<BR>Задержка: '.$res[8].($res[9]=='0'?'':' (ещё '.$res[9].")")) ;
-        if ($res[8]==0 && $res[9]>0) $ret.='<BR>Задержка: ещё '.$res[9];
-        $ret.=  ($res[12] == '0' ? '': '<BR>Начальная задержка: '.$res[12] ) ;
-        $ret.=  ($res[10] == '0' ? '': '<BR>Использований: '.$res[11].'/'.$res[10]);
-        $ret.=  ($free_cast? '': '<BR>&bull; Приём тратит ход') ;
+        $ret.=  ($res[6] == '0' ? '': '<BR>РЎРёР»Р° РґСѓС…Р°: '.$res[6]) ;
+        $ret.=  ($res[7] == '0' ? '': '<BR>Р Р°СЃС…РѕРґ РјР°РЅС‹: '.$res[7] ) ;
+        $ret.=  ($res[8] == '0' ? '': '<BR>Р—Р°РґРµСЂР¶РєР°: '.$res[8].($res[9]=='0'?'':' (РµС‰С‘ '.$res[9].")")) ;
+        if ($res[8]==0 && $res[9]>0) $ret.='<BR>Р—Р°РґРµСЂР¶РєР°: РµС‰С‘ '.$res[9];
+        $ret.=  ($res[12] == '0' ? '': '<BR>РќР°С‡Р°Р»СЊРЅР°СЏ Р·Р°РґРµСЂР¶РєР°: '.$res[12] ) ;
+        $ret.=  ($res[10] == '0' ? '': '<BR>РСЃРїРѕР»СЊР·РѕРІР°РЅРёР№: '.$res[11].'/'.$res[10]);
+        $ret.=  ($free_cast? '': '<BR>&bull; РџСЂРёС‘Рј С‚СЂР°С‚РёС‚ С…РѕРґ') ;
         $ret.=  '<br><br>'.$dsc."\", this, event)'" ;
     }
     $ret.= '>'.($can_use?'</A><IMG SRC="http://img.bestcombats.net/battle/1x1.gif" WIDTH="2" HEIGHT="1" BORDER=0 ALT="">': '<IMG SRC="http://img.bestcombats.net/battle/1x1.gif" WIDTH="2" HEIGHT="1" BORDER=0 ALT="">');
@@ -126,7 +126,7 @@ function bnick4($id,$st) {
       $fbattle->makeuserdata($id);  
       $ud=$fbattle->userdata[$id];
     }
-    if ($ud["login"]=="невидимка") {
+    if ($ud["login"]=="РЅРµРІРёРґРёРјРєР°") {
       $ud["hp"]="??";
       $ud["maxhp"]="??";
       $ud["level"]=0;
@@ -208,25 +208,25 @@ function geteffectval($val, $len, $maxlen) {
             $magic = magicinf ($dress['magic']);
             $ret.="<a  onclick=\"";
             if($magic['targeted']==1) {
-              $ret.="okno('Введите название предмета', 'fbattle.php?use=$dress[id]', 'target'); ";
+              $ret.="okno('Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРµРґРјРµС‚Р°', 'fbattle.php?use=$dress[id]', 'target'); ";
             } else
             if($magic['targeted']==2) {
-              $ret.="findlogin('Введите имя персонажа', 'fbattle.php?use=$dress[id]', 'target', ''); ";
+              $ret.="findlogin('Р’РІРµРґРёС‚Рµ РёРјСЏ РїРµСЂСЃРѕРЅР°Р¶Р°', 'fbattle.php?use=$dress[id]', 'target', ''); ";
             } else
             if($magic['targeted']==4) {
-              $ret.="note('Запрос', 'fbattle.php?use=$dress[id]', 'target'); ";
+              $ret.="note('Р—Р°РїСЂРѕСЃ', 'fbattle.php?use=$dress[id]', 'target'); ";
             } else {
-              $ret.="if(confirm('Использовать сейчас?')) { window.location='fbattle.php?use=".$dress['id']."';}";
+              $ret.="if(confirm('РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРµР№С‡Р°СЃ?')) { window.location='fbattle.php?use=".$dress['id']."';}";
             }
             $ret.="\" href='#'>";
           }
-          $ret.='<img '.($fbattle->battleunits[$user["id"]]["additdata"]["scrollused"] || $dress["wait"]?"style=\"filter:gray(), Alpha(Opacity='70');\"":"").' src="http://img.bestcombats.net/shmot/'.$dress['img'].'" width=40 onmouseout="hideshow();" onmouseover="fastshow2(\''.$dress['name'].'<br>Прочность '.$dress['duration'].'/'.$dress['maxdur'].($dress["wait"]?"<br>Задержка: $dress[wait]":"").'\', this, event)"  height=25></a>';
-        } else $ret.="<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25  onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>";
+          $ret.='<img '.($fbattle->battleunits[$user["id"]]["additdata"]["scrollused"] || $dress["wait"]?"style=\"filter:gray(), Alpha(Opacity='70');\"":"").' src="http://img.bestcombats.net/shmot/'.$dress['img'].'" width=40 onmouseout="hideshow();" onmouseover="fastshow2(\''.$dress['name'].'<br>РџСЂРѕС‡РЅРѕСЃС‚СЊ '.$dress['duration'].'/'.$dress['maxdur'].($dress["wait"]?"<br>Р—Р°РґРµСЂР¶РєР°: $dress[wait]":"").'\', this, event)"  height=25></a>';
+        } else $ret.="<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25  onmouseout='hideshow()' onmouseover='fastshow2(\"РїСѓСЃС‚РѕР№ СЃР»РѕС‚ РјР°РіРёСЏ\",this, event)'>";
       }
     } else {
       $i=0;
       while ($i<12) {
-        $ret.="<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>";
+        $ret.="<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"РїСѓСЃС‚РѕР№ СЃР»РѕС‚ РјР°РіРёСЏ\",this, event)'>";
         $i++;
       }
     }
@@ -240,25 +240,25 @@ function geteffectval($val, $len, $maxlen) {
     if ($user[$slot] > 0) {
         $row['id'] = $user[$slot];
         $dress = mysql_fetch_array(mq("SELECT * FROM `inventory` WHERE `id` = '{$user[$slot]}' LIMIT 1;"));
-        if (!$dress) return "<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>";
+        if (!$dress) return "<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"РїСѓСЃС‚РѕР№ СЃР»РѕС‚ РјР°РіРёСЏ\",this, event)'>";
         if ($dress['magic']) {
           $magic = magicinf ($dress['magic']);
           $ret.="<a  onclick=\"";
           if($magic['targeted']==1) {
-            $ret.="okno('Введите название предмета', '".$script.".php?use={$row['id']}', 'target'); ";
+            $ret.="okno('Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРµРґРјРµС‚Р°', '".$script.".php?use={$row['id']}', 'target'); ";
           } else
           if($magic['targeted']==2) {
-            $ret.="findlogin('Введите имя персонажа', '".$script.".php?use={$row['id']}', 'target', '$to'); ";
+            $ret.="findlogin('Р’РІРµРґРёС‚Рµ РёРјСЏ РїРµСЂСЃРѕРЅР°Р¶Р°', '".$script.".php?use={$row['id']}', 'target', '$to'); ";
           } else
           if($magic['targeted']==4) {
-            $ret.="note('Запрос', '".$script.".php?use={$row['id']}', 'target'); ";
+            $ret.="note('Р—Р°РїСЂРѕСЃ', '".$script.".php?use={$row['id']}', 'target'); ";
           }else {
-            $ret.="if(confirm('Использовать сейчас?')) { window.location='".$script.".php?use=".$row['id']."';}";
+            $ret.="if(confirm('РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРµР№С‡Р°СЃ?')) { window.location='".$script.".php?use=".$row['id']."';}";
           }
           $ret.="\" href='#'>";
         }
-        $ret.='<img src="http://img.bestcombats.net/shmot/'.$dress['img'].'" width=40 title="'.$dress['name'].'  Прочность '.$dress['duration'].'/'.$dress['maxdur'].'"  Прочность '.$dress['duration'].'/'.$dress['maxdur'].'" height=25 alt="Использовать  '.$dress['name']."\nПрочность ".$dress['duration']."/".$dress['maxdur'].'"></a>';
-    } else { $ret.="<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"пустой слот магия\",this, event)'>"; }
+        $ret.='<img src="http://img.bestcombats.net/shmot/'.$dress['img'].'" width=40 title="'.$dress['name'].'  РџСЂРѕС‡РЅРѕСЃС‚СЊ '.$dress['duration'].'/'.$dress['maxdur'].'"  РџСЂРѕС‡РЅРѕСЃС‚СЊ '.$dress['duration'].'/'.$dress['maxdur'].'" height=25 alt="РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ  '.$dress['name']."\nРџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur'].'"></a>';
+    } else { $ret.="<img src=\"http://img.bestcombats.net/user/w13.gif\" width=40 height=25 onmouseout='hideshow()' onmouseover='fastshow2(\"РїСѓСЃС‚РѕР№ СЃР»РѕС‚ РјР°РіРёСЏ\",this, event)'>"; }
     return $ret;
   }
 
@@ -313,18 +313,18 @@ function geteffectval($val, $len, $maxlen) {
     $magic = magicinf ($dress['includemagic']);
     $ret="<a  onclick=\"";
     if($magic['targeted']==1) {
-      $ret.="okno('Введите название предмета', '{$script}.php?use={$dress['id']}', 'target')";
+      $ret.="okno('Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїСЂРµРґРјРµС‚Р°', '{$script}.php?use={$dress['id']}', 'target')";
     }elseif($magic['targeted']==2) {
       $ret.="findlogin('".$magic['name']."', '{$script}.php?use={$dress['id']}', 'target')";
     }else
     if($magic['targeted']==4) {
-      $ret.="note('Запрос', '".$script.".php?use={$row['id']}', 'target'); ";
+      $ret.="note('Р—Р°РїСЂРѕСЃ', '".$script.".php?use={$row['id']}', 'target'); ";
     }else {
-      $ret.="if (confirm('Использовать сейчас?')) window.location='".$script.".php?use=".$dress['id']."';";
+      $ret.="if (confirm('РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРµР№С‡Р°СЃ?')) window.location='".$script.".php?use=".$dress['id']."';";
     }
     $ret.="\" href='#'>";
 
-    $ret.="<img src='mg2.php?p=".($dress['includemagicdex']/$dress['includemagicmax']*100)."&i={$dress['img']}' style=\"filter:shadow(color=red, direction=90, strength=3);\" title=\"".$dress['name']."  Прочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"  Уровень жизни ".plusorminus($dress['ghp']):"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['minu']>0)?"  Урон {$dress['minu']}-{$dress['maxu']}":"").(($dress['text']!=null)?"  На оружии выгравировано '{$dress['text']}'":"")."  Встроена магия: ".$magic['name']."\" alt=\"".$dress['name']."  Прочность ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"  Уровень жизни ".plusorminus($dress['ghp']):"").(($dress['gmana']>0)?"\nУровень маны +{$dress['gmana']}":"").(($dress['minu']>0)?"  Урон {$dress['minu']}-{$dress['maxu']}":"").(($dress['text']!=null)?"  На оружии выгравировано '{$dress['text']}'":"")."  Встроена магия: ".$magic['name']."\" ><BR>";
+    $ret.="<img src='mg2.php?p=".($dress['includemagicdex']/$dress['includemagicmax']*100)."&i={$dress['img']}' style=\"filter:shadow(color=red, direction=90, strength=3);\" title=\"".$dress['name']."  РџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"  РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё ".plusorminus($dress['ghp']):"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['minu']>0)?"  РЈСЂРѕРЅ {$dress['minu']}-{$dress['maxu']}":"").(($dress['text']!=null)?"  РќР° РѕСЂСѓР¶РёРё РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"")."  Р’СЃС‚СЂРѕРµРЅР° РјР°РіРёСЏ: ".$magic['name']."\" alt=\"".$dress['name']."  РџСЂРѕС‡РЅРѕСЃС‚СЊ ".$dress['duration']."/".$dress['maxdur']."".(($dress['ghp']>0)?"  РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё ".plusorminus($dress['ghp']):"").(($dress['gmana']>0)?"\nРЈСЂРѕРІРµРЅСЊ РјР°РЅС‹ +{$dress['gmana']}":"").(($dress['minu']>0)?"  РЈСЂРѕРЅ {$dress['minu']}-{$dress['maxu']}":"").(($dress['text']!=null)?"  РќР° РѕСЂСѓР¶РёРё РІС‹РіСЂР°РІРёСЂРѕРІР°РЅРѕ '{$dress['text']}'":"")."  Р’СЃС‚СЂРѕРµРЅР° РјР°РіРёСЏ: ".$magic['name']."\" ><BR>";
     return $ret;
   }
 
@@ -336,9 +336,9 @@ function geteffectval($val, $len, $maxlen) {
     while ($rec=mysql_fetch_assoc($r)) {
       $i++;
       if ($rec["effect"]==FIREDAMAGE || $rec["effect"]==WATERDAMAGE) {
-        $hint=" (".($rec["length"])." ход";
-        if ($rec["length"]>1 && $rec["length"]<=4) $hint.="а";
-        if ($rec["length"]>4) $hint.="ов";
+        $hint=" (".($rec["length"])." С…РѕРґ";
+        if ($rec["length"]>1 && $rec["length"]<=4) $hint.="Р°";
+        if ($rec["length"]>4) $hint.="РѕРІ";
         $hint.=")";
       }
       list($left, $top)=effectpos($i);
@@ -351,8 +351,8 @@ function geteffectval($val, $len, $maxlen) {
 
   function efftostr($effect, $value, $priem, $fulleffect) {
     global $strokes;
-    if ($effect==DECHEAL) return "уменьшение эффектов лечения (%): $value<br>";
-    if ($effect==INCEARTHDAMAGE) return "увеличение урона магией земли (%): $value<br>";
+    if ($effect==DECHEAL) return "СѓРјРµРЅСЊС€РµРЅРёРµ СЌС„С„РµРєС‚РѕРІ Р»РµС‡РµРЅРёСЏ (%): $value<br>";
+    if ($effect==INCEARTHDAMAGE) return "СѓРІРµР»РёС‡РµРЅРёРµ СѓСЂРѕРЅР° РјР°РіРёРµР№ Р·РµРјР»Рё (%): $value<br>";
     if ($effect==EXTRAMF) {
       $str="";
       $i=0;
@@ -364,37 +364,37 @@ function geteffectval($val, $len, $maxlen) {
           if ($i==3) $mf=@$strokes[$priem]->mf3;
           if (!$mf) continue;
           if ($str) $str.=", ";
-          if ($mf=="mfhitp") $str.="Мф. мощности урона (%): ";
-          if ($mf=="mfmagp") $str.="Мф. мощности магии (%): ";
-          if ($mf=="mffire") $str.="Мф. мощности магии огня (%): ";
-          if ($mf=="mfwater") $str.="Мф. мощности магии воды (%): ";
-          if ($mf=="mfair") $str.="Мф. мощности магии воздуха (%): ";
-          if ($mf=="mfearth") $str.="Мф. мощности магии земли (%): ";
-          if ($mf=="mfdhit") $str.="Защита от урона: ";
-          if ($mf=="mfdkol") $str.="Защита от колющего урона: ";
-          if ($mf=="mfdrub") $str.="Защита от рубящего урона: ";
-          if ($mf=="mfdrej") $str.="Защита от режущего урона: ";
-          if ($mf=="mfddrob") $str.="Защита от дробящего урона: ";
-          if ($mf=="mfdmag") $str.="Защита от магии: ";
-          if ($mf=="mfdfire") $str.="Защита от магии огня: ";
-          if ($mf=="mfdwater") $str.="Защита от магии воды: ";
-          if ($mf=="mfdearth") $str.="Защита от магии земли: ";
-          if ($mf=="mfdair") $str.="Защита от магии воздуха: ";
-          if ($mf=="mfdlight") $str.="Защита от магии света: ";
-          if ($mf=="mfddark") $str.="Защита от магии тьмы: ";
-          if ($mf=="mfdgray") $str.="Защита от серой магии: ";
-          if ($mf=="mfkrit") $str.="Мф. крит. удара: ";
-          if ($mf=="mfakrit") $str.="Мф. против крит. удара: ";
-          if ($mf=="mfuvorot") $str.="Мф. увёртывания: ";
-          if ($mf=="mfauvorot") $str.="Мф. против увёртывания: ";
-          if ($mf=="skipuv") return "Шанс увернуться, парировать или отбить щитом (%): -$value<br>";
-          if ($mf=="manausage") $str.="Уменьшение расхода маны (%): ";
-          if ($mf=="bron") $str.="Броня всех зон (%): ";
-          if ($mf=="sila") $str.="Сила: ";
-          if ($mf=="lovk") $str.="Ловкость: ";
-          if ($mf=="inta") $str.="Интуиция: ";
+          if ($mf=="mfhitp") $str.="РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° (%): ";
+          if ($mf=="mfmagp") $str.="РњС„. РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё (%): ";
+          if ($mf=="mffire") $str.="РњС„. РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё РѕРіРЅСЏ (%): ";
+          if ($mf=="mfwater") $str.="РњС„. РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё РІРѕРґС‹ (%): ";
+          if ($mf=="mfair") $str.="РњС„. РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё РІРѕР·РґСѓС…Р° (%): ";
+          if ($mf=="mfearth") $str.="РњС„. РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё Р·РµРјР»Рё (%): ";
+          if ($mf=="mfdhit") $str.="Р—Р°С‰РёС‚Р° РѕС‚ СѓСЂРѕРЅР°: ";
+          if ($mf=="mfdkol") $str.="Р—Р°С‰РёС‚Р° РѕС‚ РєРѕР»СЋС‰РµРіРѕ СѓСЂРѕРЅР°: ";
+          if ($mf=="mfdrub") $str.="Р—Р°С‰РёС‚Р° РѕС‚ СЂСѓР±СЏС‰РµРіРѕ СѓСЂРѕРЅР°: ";
+          if ($mf=="mfdrej") $str.="Р—Р°С‰РёС‚Р° РѕС‚ СЂРµР¶СѓС‰РµРіРѕ СѓСЂРѕРЅР°: ";
+          if ($mf=="mfddrob") $str.="Р—Р°С‰РёС‚Р° РѕС‚ РґСЂРѕР±СЏС‰РµРіРѕ СѓСЂРѕРЅР°: ";
+          if ($mf=="mfdmag") $str.="Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё: ";
+          if ($mf=="mfdfire") $str.="Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РѕРіРЅСЏ: ";
+          if ($mf=="mfdwater") $str.="Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РІРѕРґС‹: ";
+          if ($mf=="mfdearth") $str.="Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р·РµРјР»Рё: ";
+          if ($mf=="mfdair") $str.="Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РІРѕР·РґСѓС…Р°: ";
+          if ($mf=="mfdlight") $str.="Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё СЃРІРµС‚Р°: ";
+          if ($mf=="mfddark") $str.="Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё С‚СЊРјС‹: ";
+          if ($mf=="mfdgray") $str.="Р—Р°С‰РёС‚Р° РѕС‚ СЃРµСЂРѕР№ РјР°РіРёРё: ";
+          if ($mf=="mfkrit") $str.="РњС„. РєСЂРёС‚. СѓРґР°СЂР°: ";
+          if ($mf=="mfakrit") $str.="РњС„. РїСЂРѕС‚РёРІ РєСЂРёС‚. СѓРґР°СЂР°: ";
+          if ($mf=="mfuvorot") $str.="РњС„. СѓРІС‘СЂС‚С‹РІР°РЅРёСЏ: ";
+          if ($mf=="mfauvorot") $str.="РњС„. РїСЂРѕС‚РёРІ СѓРІС‘СЂС‚С‹РІР°РЅРёСЏ: ";
+          if ($mf=="skipuv") return "РЁР°РЅСЃ СѓРІРµСЂРЅСѓС‚СЊСЃСЏ, РїР°СЂРёСЂРѕРІР°С‚СЊ РёР»Рё РѕС‚Р±РёС‚СЊ С‰РёС‚РѕРј (%): -$value<br>";
+          if ($mf=="manausage") $str.="РЈРјРµРЅСЊС€РµРЅРёРµ СЂР°СЃС…РѕРґР° РјР°РЅС‹ (%): ";
+          if ($mf=="bron") $str.="Р‘СЂРѕРЅСЏ РІСЃРµС… Р·РѕРЅ (%): ";
+          if ($mf=="sila") $str.="РЎРёР»Р°: ";
+          if ($mf=="lovk") $str.="Р›РѕРІРєРѕСЃС‚СЊ: ";
+          if ($mf=="inta") $str.="РРЅС‚СѓРёС†РёСЏ: ";
           
-          if ($mf=="mfkrit") $str.="Мф. критического удара: ";
+          if ($mf=="mfkrit") $str.="РњС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР°: ";
           if ($fulleffect["value".($i==1?"":$i)]>0) $str.="+";
           $str.=$fulleffect["value".($i==1?"":$i)];
         }
@@ -402,40 +402,40 @@ function geteffectval($val, $len, $maxlen) {
       if ($str) return "$str<br>";
     }
     if ($effect==PROFDAMAGEMULT) {
-      if ($strokes[$priem]->prof=="kol") return "Защита от колющего урона (%): ".plusorminus($value)."<br>";
-      if ($strokes[$priem]->prof=="rej") return "Защита от режущего урона (%): ".plusorminus($value)."<br>";
-      if ($strokes[$priem]->prof=="rub") return "Защита от рубящего урона (%): ".plusorminus($value)."<br>";
-      if ($strokes[$priem]->prof=="drob") return "Защита от дробящего урона (%): ".plusorminus($value)."<br>";
+      if ($strokes[$priem]->prof=="kol") return "Р—Р°С‰РёС‚Р° РѕС‚ РєРѕР»СЋС‰РµРіРѕ СѓСЂРѕРЅР° (%): ".plusorminus($value)."<br>";
+      if ($strokes[$priem]->prof=="rej") return "Р—Р°С‰РёС‚Р° РѕС‚ СЂРµР¶СѓС‰РµРіРѕ СѓСЂРѕРЅР° (%): ".plusorminus($value)."<br>";
+      if ($strokes[$priem]->prof=="rub") return "Р—Р°С‰РёС‚Р° РѕС‚ СЂСѓР±СЏС‰РµРіРѕ СѓСЂРѕРЅР° (%): ".plusorminus($value)."<br>";
+      if ($strokes[$priem]->prof=="drob") return "Р—Р°С‰РёС‚Р° РѕС‚ РґСЂРѕР±СЏС‰РµРіРѕ СѓСЂРѕРЅР° (%): ".plusorminus($value)."<br>";
     }
-    if ($effect==WATERDAMAGE) return "Наносит урон магией воды<br>";
-    if ($effect==FIREDAMAGE) return "Наносит урон магией огня<br>";
-    if ($effect==EARTHDAMAGE) return "Наносит урон магией земли<br>";
-    if ($effect==AIRDAMAGE) return "Наносит урон магией воздуха<br>";
-    if ($effect==DAMAGEMULT) return "Защита от урона (%): ".plusorminus($value)."<br>Защита от магии (%): ".plusorminus($value)."<br>";
-    if ($effect==MAGDAMAGEMULT) return "Защита от магии (%): ".plusorminus($value)."<br>";
-    if ($effect==MAGICDEF) return "Защита от магии (%): ".plusorminus($value)."<br>";
-    if ($effect==FIREDEF) return "Защита от магии огня (%): ".plusorminus($value)."<br>";
-    if ($effect==WATERDEF) return "Защита от магии воды (%): ".plusorminus($value)."<br>";
-    if ($effect==EARTHDEF) return "Защита от магии земли (%): ".plusorminus($value)."<br>";
-    if ($effect==AIRDEF) return "Защита от магии воздуха (%): ".plusorminus($value)."<br>";
-    if ($effect==VIEWSTROKES) return "Тактика раскрыта<br>";
-    if ($effect==SHOCK) return "Персонаж оглушён<br>";
-    if ($effect==LOWERDAMAGE && $value==5) return "Весь урон снижен вдвое<br>";
-    if ($effect==INJURY) return "Персонаж может получить травму при поражении<br>";
-    if ($effect==HEAL) return "Восстанавливает жизнь каждый ход<br>";
-    if ($effect==HEALMANA) return "Восстанавливает ману каждый ход<br>";
-    if ($effect==DEFEND) return "Следующий удар по персонажу попадёт по защитнику<br>";
-    if ($effect==DELTASTUN) return "Ускорено время восстановления от оглушения на $value ход<br>";
-    if ($effect==MINUSFIREDEF) return "Защита от магии огня: -$value<br>";
-    if ($effect==MINUSWATERDEF) return "Защита от магии воды: -$value<br>";
-    if ($effect==MINUSAIRDEF) return "Защита от магии воздуха: -$value<br>";
-    if ($effect==MINUSEARTHDEF) return "Защита от магии земли: -$value<br>";
-    if ($effect==NOCASTMOVE) return "Любое следующее заклинание не тратит хода<br>";
-    if ($effect==EXTRAMAGSKILL) return "Навык магии стихий: ".plusorminus($value)."<br>";
-    if ($effect==MAGICDAMAGE1) return "Следующее заклятие нанесёт не более 1 повреждения<br>";
-    if ($effect==CASTCOST) return "Уменьшение стоимости заклинаний (%): -$value<br>";
-    if ($effect==EXTRADAMAGE) return "Мощность урона (%): ".plusorminus($value)."<br>";
-    if ($effect==EXTRAMAGDAMAGE) return "Мощность магии (%): ".plusorminus($value)."<br>";
+    if ($effect==WATERDAMAGE) return "РќР°РЅРѕСЃРёС‚ СѓСЂРѕРЅ РјР°РіРёРµР№ РІРѕРґС‹<br>";
+    if ($effect==FIREDAMAGE) return "РќР°РЅРѕСЃРёС‚ СѓСЂРѕРЅ РјР°РіРёРµР№ РѕРіРЅСЏ<br>";
+    if ($effect==EARTHDAMAGE) return "РќР°РЅРѕСЃРёС‚ СѓСЂРѕРЅ РјР°РіРёРµР№ Р·РµРјР»Рё<br>";
+    if ($effect==AIRDAMAGE) return "РќР°РЅРѕСЃРёС‚ СѓСЂРѕРЅ РјР°РіРёРµР№ РІРѕР·РґСѓС…Р°<br>";
+    if ($effect==DAMAGEMULT) return "Р—Р°С‰РёС‚Р° РѕС‚ СѓСЂРѕРЅР° (%): ".plusorminus($value)."<br>Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё (%): ".plusorminus($value)."<br>";
+    if ($effect==MAGDAMAGEMULT) return "Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё (%): ".plusorminus($value)."<br>";
+    if ($effect==MAGICDEF) return "Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё (%): ".plusorminus($value)."<br>";
+    if ($effect==FIREDEF) return "Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РѕРіРЅСЏ (%): ".plusorminus($value)."<br>";
+    if ($effect==WATERDEF) return "Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РІРѕРґС‹ (%): ".plusorminus($value)."<br>";
+    if ($effect==EARTHDEF) return "Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р·РµРјР»Рё (%): ".plusorminus($value)."<br>";
+    if ($effect==AIRDEF) return "Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РІРѕР·РґСѓС…Р° (%): ".plusorminus($value)."<br>";
+    if ($effect==VIEWSTROKES) return "РўР°РєС‚РёРєР° СЂР°СЃРєСЂС‹С‚Р°<br>";
+    if ($effect==SHOCK) return "РџРµСЂСЃРѕРЅР°Р¶ РѕРіР»СѓС€С‘РЅ<br>";
+    if ($effect==LOWERDAMAGE && $value==5) return "Р’РµСЃСЊ СѓСЂРѕРЅ СЃРЅРёР¶РµРЅ РІРґРІРѕРµ<br>";
+    if ($effect==INJURY) return "РџРµСЂСЃРѕРЅР°Р¶ РјРѕР¶РµС‚ РїРѕР»СѓС‡РёС‚СЊ С‚СЂР°РІРјСѓ РїСЂРё РїРѕСЂР°Р¶РµРЅРёРё<br>";
+    if ($effect==HEAL) return "Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р¶РёР·РЅСЊ РєР°Р¶РґС‹Р№ С…РѕРґ<br>";
+    if ($effect==HEALMANA) return "Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РјР°РЅСѓ РєР°Р¶РґС‹Р№ С…РѕРґ<br>";
+    if ($effect==DEFEND) return "РЎР»РµРґСѓСЋС‰РёР№ СѓРґР°СЂ РїРѕ РїРµСЂСЃРѕРЅР°Р¶Сѓ РїРѕРїР°РґС‘С‚ РїРѕ Р·Р°С‰РёС‚РЅРёРєСѓ<br>";
+    if ($effect==DELTASTUN) return "РЈСЃРєРѕСЂРµРЅРѕ РІСЂРµРјСЏ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ РѕС‚ РѕРіР»СѓС€РµРЅРёСЏ РЅР° $value С…РѕРґ<br>";
+    if ($effect==MINUSFIREDEF) return "Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РѕРіРЅСЏ: -$value<br>";
+    if ($effect==MINUSWATERDEF) return "Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РІРѕРґС‹: -$value<br>";
+    if ($effect==MINUSAIRDEF) return "Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё РІРѕР·РґСѓС…Р°: -$value<br>";
+    if ($effect==MINUSEARTHDEF) return "Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё Р·РµРјР»Рё: -$value<br>";
+    if ($effect==NOCASTMOVE) return "Р›СЋР±РѕРµ СЃР»РµРґСѓСЋС‰РµРµ Р·Р°РєР»РёРЅР°РЅРёРµ РЅРµ С‚СЂР°С‚РёС‚ С…РѕРґР°<br>";
+    if ($effect==EXTRAMAGSKILL) return "РќР°РІС‹Рє РјР°РіРёРё СЃС‚РёС…РёР№: ".plusorminus($value)."<br>";
+    if ($effect==MAGICDAMAGE1) return "РЎР»РµРґСѓСЋС‰РµРµ Р·Р°РєР»СЏС‚РёРµ РЅР°РЅРµСЃС‘С‚ РЅРµ Р±РѕР»РµРµ 1 РїРѕРІСЂРµР¶РґРµРЅРёСЏ<br>";
+    if ($effect==CASTCOST) return "РЈРјРµРЅСЊС€РµРЅРёРµ СЃС‚РѕРёРјРѕСЃС‚Рё Р·Р°РєР»РёРЅР°РЅРёР№ (%): -$value<br>";
+    if ($effect==EXTRADAMAGE) return "РњРѕС‰РЅРѕСЃС‚СЊ СѓСЂРѕРЅР° (%): ".plusorminus($value)."<br>";
+    if ($effect==EXTRAMAGDAMAGE) return "РњРѕС‰РЅРѕСЃС‚СЊ РјР°РіРёРё (%): ".plusorminus($value)."<br>";
   }
 
   function effecthint($eff, $priem) {
@@ -494,14 +494,14 @@ function geteffectval($val, $len, $maxlen) {
         } else {              
           if (@$strokes[$k]->lefttext) $hint=$strokes[$k]->lefttext;
           elseif ($v["length"]<100 && !$strokes[$k]->eternal) {
-            $hint="".($v["length"])." ход";
-            if ($v["length"]>1 && $v["length"]<=4) $hint.="а";
-            if ($v["length"]>4) $hint.="ов";
+            $hint="".($v["length"])." С…РѕРґ";
+            if ($v["length"]>1 && $v["length"]<=4) $hint.="Р°";
+            if ($v["length"]>4) $hint.="РѕРІ";
             $hint.="<br>";
           }
           $hint.=effecthint($v, $k);
           if ($strokes[$k]->type==4 && !@$strokes[$k]->selfcast || $k=="hp_travma") {
-            $hint.="<br><nobr>Автор: <b>".$fbattle->nick5($v["caster"], "", 1)."</b></nobr></br>";
+            $hint.="<br><nobr>РђРІС‚РѕСЂ: <b>".$fbattle->nick5($v["caster"], "", 1)."</b></nobr></br>";
           }
           list($left, $top)=effectpos($i);
           $k1=$k;
@@ -516,23 +516,23 @@ function geteffectval($val, $len, $maxlen) {
             if ($tmp[1]=="oncaster") continue;
           }
           $k.=$tail;
-          $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG ".(@$v["effect"]==IMMUNITY?"style=\"cursor:pointer; filter:gray(), Alpha(Opacity='70');\"":"")." width=40 height=25 src='http://img.bestcombats.net/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".($v["effect"]==IMMUNITY?"Иммунитет":$strokes[$k1]->name)."</B>".($k1=="wis_air_shield"?"($v[value])":"")."<br>$hint\", this, event)';> </div>";
+          $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG ".(@$v["effect"]==IMMUNITY?"style=\"cursor:pointer; filter:gray(), Alpha(Opacity='70');\"":"")." width=40 height=25 src='http://img.bestcombats.net/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".($v["effect"]==IMMUNITY?"РРјРјСѓРЅРёС‚РµС‚":$strokes[$k1]->name)."</B>".($k1=="wis_air_shield"?"($v[value])":"")."<br>$hint\", this, event)';> </div>";
         }
       }
       if ($fbattle->battleunits[$id]["resurrect"]>0) {
         $i++;
         list($left, $top)=effectpos($i);
-        $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/shmot/preservation.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Спасение</B> (заклятие)\", this, event)'> </div>";
+        $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/shmot/preservation.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>РЎРїР°СЃРµРЅРёРµ</B> (Р·Р°РєР»СЏС‚РёРµ)\", this, event)'> </div>";
       }
       if ($fbattle->battleunits[$id]["forcefield"]>0) {
         $i++;
         list($left, $top)=effectpos($i);
-        $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/wis_gray_forcefield07.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Силовое поле</B> (".$fbattle->battleunits[$id]["forcefield"].")\", this, event)'> </div>";
+        $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/wis_gray_forcefield07.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>РЎРёР»РѕРІРѕРµ РїРѕР»Рµ</B> (".$fbattle->battleunits[$id]["forcefield"].")\", this, event)'> </div>";
       }
       if ($fbattle->battleunits[$id]["manabarrier"]>0) {
         $i++;
         list($left, $top)=effectpos($i);
-        $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/wis_gray_manabarrier04.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Магический Барьер</B> (магия)<br>Барьер способен поглотить ещё <b>".$fbattle->battleunits[$id]["manabarrier"]."</b> ед. урона\", this, event)'> </div>";
+        $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/wis_gray_manabarrier04.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>РњР°РіРёС‡РµСЃРєРёР№ Р‘Р°СЂСЊРµСЂ</B> (РјР°РіРёСЏ)<br>Р‘Р°СЂСЊРµСЂ СЃРїРѕСЃРѕР±РµРЅ РїРѕРіР»РѕС‚РёС‚СЊ РµС‰С‘ <b>".$fbattle->battleunits[$id]["manabarrier"]."</b> РµРґ. СѓСЂРѕРЅР°\", this, event)'> </div>";
       }
 
       foreach ($mystrokes as $k=>$v) {
@@ -540,15 +540,15 @@ function geteffectval($val, $len, $maxlen) {
         if ($strokes[$k]->maxuses && $v["uses"]>1 && $strokes[$k]->showinpersout) {
           $i++;
           list($left, $top)=effectpos($i);
-          $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/$k".($v["uses"]-1).".gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$k]->name."</B> (приём)<BR><BR> ".$strokes[$k]->opisan."\", this, event)';> </div>";
+          $strokes1.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/$k".($v["uses"]-1).".gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$k]->name."</B> (РїСЂРёС‘Рј)<BR><BR> ".$strokes[$k]->opisan."\", this, event)';> </div>";
         } elseif (@$strokes[$k]->eternal && $v["active"]==3) {
           $i++;
           list($left, $top)=effectpos($i);
-          $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$k]->name."</B> (приём)<BR><BR> ".$strokes[$k]->opisan."\", this, event)';> </div>";
+          $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$k]->name."</B> (РїСЂРёС‘Рј)<BR><BR> ".$strokes[$k]->opisan."\", this, event)';> </div>";
         } elseif ($v["active"]==2) {
           $i++;
           list($left, $top)=effectpos($i);
-          $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$k]->name."</B> (приём)<BR><BR> ".$strokes[$k]->opisan."\", this, event)';> </div>";
+          $strokes1.= "<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG width=40 height=25 src='http://img.bestcombats.net/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".$strokes[$k]->name."</B> (РїСЂРёС‘Рј)<BR><BR> ".$strokes[$k]->opisan."\", this, event)';> </div>";
         }
       }
       $ret=str_replace("<!--strokes-->", $strokes1, $ret);
@@ -567,15 +567,15 @@ function geteffectval($val, $len, $maxlen) {
         $hint="";
         if (@$strokes[$k]->lefttext) $hint=$strokes[$k]->lefttext;
         elseif ($v["length"]<100) {
-          $hint="".($v["length"])." ход";
-          if ($v["length"]>1 && $v["length"]<=4) $hint.="а";
-          if ($v["length"]>4) $hint.="ов";
+          $hint="".($v["length"])." С…РѕРґ";
+          if ($v["length"]>1 && $v["length"]<=4) $hint.="Р°";
+          if ($v["length"]>4) $hint.="РѕРІ";
           $hint.="<br>";
         }
         $hint.=effecthint($v, $k);
 
         if ($strokes[$k]->type==4 && !@$strokes[$k]->selfcast || $k=="hp_travma") {
-          $hint.="<br><nobr>Автор: <b>".$fbattle->nick5($v["caster"], "", 1)."</b></nobr></br>";
+          $hint.="<br><nobr>РђРІС‚РѕСЂ: <b>".$fbattle->nick5($v["caster"], "", 1)."</b></nobr></br>";
         }
         list($left, $top)=effectpos($i);
         $k1=$k;
@@ -590,12 +590,12 @@ function geteffectval($val, $len, $maxlen) {
           if ($tmp[1]=="oncaster") continue;
         }
         $k.=$tail;                                                                                                                                                         
-        $effs.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG ".(@$v["effect"]==IMMUNITY?"style=\"cursor:pointer; filter:gray(), Alpha(Opacity='70');\"":"")." width=40 height=25 src='http://img.bestcombats.net/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".($v["effect"]==IMMUNITY?"Иммунитет":$strokes[$k1]->name)."</B><br>$hint\", this, event)';> </div>";
+        $effs.="<div style=\"position:absolute; left:{$left}px; top:{$top}px; width:40px; height:25px; z-index:5\"><IMG ".(@$v["effect"]==IMMUNITY?"style=\"cursor:pointer; filter:gray(), Alpha(Opacity='70');\"":"")." width=40 height=25 src='http://img.bestcombats.net/priem/$k.gif' onmouseout='hideshow();' onmouseover='fastshow2(\"<B>".($v["effect"]==IMMUNITY?"РРјРјСѓРЅРёС‚РµС‚":$strokes[$k1]->name)."</B><br>$hint\", this, event)';> </div>";
       }                           
       $ret=str_replace("<!--strokes-->", $effs, $ret);
     }
     if ($user1["invis"] && !$me) $tmp="<IMG SRC='http://img.bestcombats.net/func/1green.gif' WIDTH=120
-    HEIGHT=9 ALT=\"Уровень жизни\">
+    HEIGHT=9 ALT=\"РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё\">
     <div style=\"position: absolute; left: 5px; top:0px; z-index: 1; font-weight: bold; color:#FFFFFF;\"><b>??/??</b></div>";
     else $tmp=setHP2($user1['hp'],$user1['maxhp'],$battle);
     $pershp=$user1['hp'];
@@ -613,9 +613,9 @@ function geteffectval($val, $len, $maxlen) {
       if ($fbattle->battleunits[$id]["p2"]) $p2=unserialize($fbattle->battleunits[$id]["p2"]); else $p2="";
       $tmp="<table cellspacing=0 cellpadding=0>
       <tr>
-      <td>".($p1?"<a href=\"fbattle.php?use=p1\" title=\"Использовать $p1[name]\"><img src=\"http://img.bestcombats.net/shmot/$p1[img]\"></a>":"<img alt=\"Пустой слот левый карман\" src=\"http://img.bestcombats.net/user/w15.gif\">")."</td>
-      <td><img alt=\"Пустой слот карман\" src=\"http://img.bestcombats.net/user/w15.gif\"></td>
-      <td>".($p2?"<a href=\"fbattle.php?use=p2\" title=\"Использовать $p2[name]\"><img src=\"http://img.bestcombats.net/shmot/$p2[img]\"></a>":"<img alt=\"Пустой слот правый карман\" src=\"http://img.bestcombats.net/user/w15.gif\">")."</td>
+      <td>".($p1?"<a href=\"fbattle.php?use=p1\" title=\"РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ $p1[name]\"><img src=\"http://img.bestcombats.net/shmot/$p1[img]\"></a>":"<img alt=\"РџСѓСЃС‚РѕР№ СЃР»РѕС‚ Р»РµРІС‹Р№ РєР°СЂРјР°РЅ\" src=\"http://img.bestcombats.net/user/w15.gif\">")."</td>
+      <td><img alt=\"РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РєР°СЂРјР°РЅ\" src=\"http://img.bestcombats.net/user/w15.gif\"></td>
+      <td>".($p2?"<a href=\"fbattle.php?use=p2\" title=\"РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ $p2[name]\"><img src=\"http://img.bestcombats.net/shmot/$p2[img]\"></a>":"<img alt=\"РџСѓСЃС‚РѕР№ СЃР»РѕС‚ РїСЂР°РІС‹Р№ РєР°СЂРјР°РЅ\" src=\"http://img.bestcombats.net/user/w15.gif\">")."</td>
       </tr>
       <tr>
       <td><img src=\"http://img.bestcombats.net/user/w20.gif\"></td>
@@ -638,7 +638,7 @@ function geteffectval($val, $len, $maxlen) {
     }
     include './connect.php';
 
-  // ставим блокировку на таблицу
+  // СЃС‚Р°РІРёРј Р±Р»РѕРєРёСЂРѕРІРєСѓ РЅР° С‚Р°Р±Р»РёС†Сѓ
 
     if($_SESSION['btime']) $chk=time()-$_SESSION['btime'];
     if($_SESSION['btime'] && $chk<=2){
@@ -672,7 +672,7 @@ function geteffectval($val, $len, $maxlen) {
   }
 
 // ========================================================================================================================================================
-// начало исполняемого кода битвы
+// РЅР°С‡Р°Р»Рѕ РёСЃРїРѕР»РЅСЏРµРјРѕРіРѕ РєРѕРґР° Р±РёС‚РІС‹
 //=========================================================================================================================================================
 function notzero($d) {
   if ($d<1) return 1; else return ceil($d);
@@ -729,7 +729,7 @@ class prieminfo{
   var $needsil;
   var $needvyn;
   var $needshield;
-  function prieminfo($s,$priem) { # либо по id ($s) либо по названию $priem
+  function prieminfo($s,$priem) { # Р»РёР±Рѕ РїРѕ id ($s) Р»РёР±Рѕ РїРѕ РЅР°Р·РІР°РЅРёСЋ $priem
     global $strokes, $user;
     if ($s) $priem=$strokes["ids"][$s];
     $this->id_priem=$strokes[$priem]->id_priem;
@@ -753,7 +753,7 @@ class prieminfo{
     $this->opisan=@$strokes[$priem]->opisan;
     $this->needshield=@$strokes[$priem]->needshield;
     if (strpos($this->opisan,"mana33")) {
-      if ($user["maxmana"]==0) $this->opisan=str_replace("mana33","33% от максимальной маны",$this->opisan);
+      if ($user["maxmana"]==0) $this->opisan=str_replace("mana33","33% РѕС‚ РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ РјР°РЅС‹",$this->opisan);
       else $this->opisan=str_replace("mana33",round($user["maxmana"]*0.33),$this->opisan);
     }
     $this->m_magic1=@$strokes[$priem]->m_magic1;
@@ -770,20 +770,20 @@ class prieminfo{
   }
 
   function check_hars($n) {
-    global $user; # проверка. n=0: все хар-ки n=1: только жизнь и мана
+    global $user; # РїСЂРѕРІРµСЂРєР°. n=0: РІСЃРµ С…Р°СЂ-РєРё n=1: С‚РѕР»СЊРєРѕ Р¶РёР·РЅСЊ Рё РјР°РЅР°
     if($n==0) {
       if(($this->minlevel<=$user['level']) && ($this->intel<=$user['intel']) && ($this->needsil<=$user['sila']) && ($this->needvyn<=$user['vinos']) && ($this->m_magic1<=$user['mfire']) && ($this->m_magic2<=$user['mwater']) && ($this->m_magic3<=$user['mair']) && ($this->m_magic4<=$user['mearth']) && ($this->m_magic5<=$user['mlight']) && ($this->m_magic6<=$user['mgray']) && ($this->m_magic7<=$user['mdark']) ) {
         return true;
       }else{return false;}
     }elseif($n==1){
       if($this->check_hars(0) && ($this->mana<=$user['mana']) && ($this->minhp<=$user['hp'])) {
-        return true;     # !!!!!!!!!!!!!!!! НЕ ДОДЕЛАНО !!!!!!!!!!!!!!!!!!!!!!
+        return true;     # !!!!!!!!!!!!!!!! РќР• Р”РћР”Р•Р›РђРќРћ !!!!!!!!!!!!!!!!!!!!!!
       } else {
         return false;
       }
     }
   }
-  function checkbattlehars($myinfo,$uses) { # влад магией, статы + хар-ки битвы
+  function checkbattlehars($myinfo,$uses) { # РІР»Р°Рґ РјР°РіРёРµР№, СЃС‚Р°С‚С‹ + С…Р°СЂ-РєРё Р±РёС‚РІС‹
     global $user, $fbattle, $strokes;
     if (($user["room"]==57 || $user["in_tower"]==1 || $user["in_tower"]==71) && @$strokes[$this->priem]->buystroke) return false;
     $fbattle->getbu($user["id"]);
@@ -830,47 +830,47 @@ class prieminfo{
         }
         $t1 = explode(";",$bd['t1']);
         if (in_array ($user['id'],$t1)) {$ttt = 1;} else {  $ttt = 2;}
-        addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' призвал '.($zver["vid"]?"своего зверя":"в бой").' '.nick5($bot,"B".$ttt).'<BR>');
+        addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.nick5($user['id'],"B".$ttt).' РїСЂРёР·РІР°Р» '.($zver["vid"]?"СЃРІРѕРµРіРѕ Р·РІРµСЂСЏ":"РІ Р±РѕР№").' '.nick5($bot,"B".$ttt).'<BR>');
 
         mq('UPDATE `battle` SET `teams` = \''.serialize($battle).'\', `t'.$ttt.'`=CONCAT(`t'.$ttt.'`,\';'.$bot.'\')  WHERE `id` = '.$user['battle'].' ;');
 
         mq("UPDATE `battle` SET `to1` = '".time()."', `to2` = '".time()."' WHERE `id` = ".$user['battle']." LIMIT 1;");
 
         $bet=1;
-        $report="Ваш зверь призван в бой.";
+        $report="Р’Р°С€ Р·РІРµСЂСЊ РїСЂРёР·РІР°РЅ РІ Р±РѕР№.";
         mq("update battleunits set petunleashed=1 where user='$user[id]' and battle='$user[battle]'");
-    } else { $report="Ваш зверь уже был призван в бой.";}
-    } else {$report="Ваш зверь слишком голодный.";}
-    } else {$report="У вас нет зверя!";}
+    } else { $report="Р’Р°С€ Р·РІРµСЂСЊ СѓР¶Рµ Р±С‹Р» РїСЂРёР·РІР°РЅ РІ Р±РѕР№.";}
+    } else {$report="Р’Р°С€ Р·РІРµСЂСЊ СЃР»РёС€РєРѕРј РіРѕР»РѕРґРЅС‹Р№.";}
+    } else {$report="РЈ РІР°СЃ РЅРµС‚ Р·РІРµСЂСЏ!";}
   }
 
 
 class fbattle {
-  public $mysql = null; // идентификатор мускуль сессии
-  public $status = null; // статус сражения  ---- 0 - нет битвы; 1 - есть битва
-  public $battle = array(); //массив с драчующимися
-  public $battle_data = array(); // данные по битве
-  public $enemy = null; // идентификатор противника
-  public $damage = array(); // массив с нанесенным уроном
-  public $t1 = array(); // первая команда
-  public $t2 = array(); // вторая команда
-  public $team_enemy = array(); // команда противника (ссылка на тимсы)
-  public $team_mine = array(); // своя команда
-  public $user = array(); // инфа на игрока
-  public $enemyhar = array(); // инфа на противника
-  public $enemy_dress = array(); // шмот врага
-  public $user_dress = array(); // свой  шмот
-  public $en_class, $my_class; // цвета для лога
-  public $bots = array (); public $botsid = array ();//Массив с ботами
-  public $log = ""; // агреггатор лога
-  public $to1; public $to2; //таймауты
-  public $exp = array(); // экспа
+  public $mysql = null; // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РјСѓСЃРєСѓР»СЊ СЃРµСЃСЃРёРё
+  public $status = null; // СЃС‚Р°С‚СѓСЃ СЃСЂР°Р¶РµРЅРёСЏ  ---- 0 - РЅРµС‚ Р±РёС‚РІС‹; 1 - РµСЃС‚СЊ Р±РёС‚РІР°
+  public $battle = array(); //РјР°СЃСЃРёРІ СЃ РґСЂР°С‡СѓСЋС‰РёРјРёСЃСЏ
+  public $battle_data = array(); // РґР°РЅРЅС‹Рµ РїРѕ Р±РёС‚РІРµ
+  public $enemy = null; // РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїСЂРѕС‚РёРІРЅРёРєР°
+  public $damage = array(); // РјР°СЃСЃРёРІ СЃ РЅР°РЅРµСЃРµРЅРЅС‹Рј СѓСЂРѕРЅРѕРј
+  public $t1 = array(); // РїРµСЂРІР°СЏ РєРѕРјР°РЅРґР°
+  public $t2 = array(); // РІС‚РѕСЂР°СЏ РєРѕРјР°РЅРґР°
+  public $team_enemy = array(); // РєРѕРјР°РЅРґР° РїСЂРѕС‚РёРІРЅРёРєР° (СЃСЃС‹Р»РєР° РЅР° С‚РёРјСЃС‹)
+  public $team_mine = array(); // СЃРІРѕСЏ РєРѕРјР°РЅРґР°
+  public $user = array(); // РёРЅС„Р° РЅР° РёРіСЂРѕРєР°
+  public $enemyhar = array(); // РёРЅС„Р° РЅР° РїСЂРѕС‚РёРІРЅРёРєР°
+  public $enemy_dress = array(); // С€РјРѕС‚ РІСЂР°РіР°
+  public $user_dress = array(); // СЃРІРѕР№  С€РјРѕС‚
+  public $en_class, $my_class; // С†РІРµС‚Р° РґР»СЏ Р»РѕРіР°
+  public $bots = array (); public $botsid = array ();//РњР°СЃСЃРёРІ СЃ Р±РѕС‚Р°РјРё
+  public $log = ""; // Р°РіСЂРµРіРіР°С‚РѕСЂ Р»РѕРіР°
+  public $to1; public $to2; //С‚Р°Р№РјР°СѓС‚С‹
+  public $exp = array(); // СЌРєСЃРїР°
   public $log_debug = "";
   public $needupdate=0;
   public $needupdatebu=0;
   public $needrefresh=0;
-  public $toupdatebattle=array(); // что апдейтить в бою
-  public $needupdateaddit=array(); // кого надо апдейтить additdata
+  public $toupdatebattle=array(); // С‡С‚Рѕ Р°РїРґРµР№С‚РёС‚СЊ РІ Р±РѕСЋ
+  public $needupdateaddit=array(); // РєРѕРіРѕ РЅР°РґРѕ Р°РїРґРµР№С‚РёС‚СЊ additdata
 
   function makeuserdata($id, $usr=0, $weapons=0) {
     if (!$usr) {
@@ -910,7 +910,7 @@ class fbattle {
       }
     }
     $this->userdata[$id]["weapons"]=$weapons;
-    if ($usr["invis"]) $this->userdata[$id]["login"]="невидимка";
+    if ($usr["invis"]) $this->userdata[$id]["login"]="РЅРµРІРёРґРёРјРєР°";
     else $this->userdata[$id]["login"]=$usr["login"];
     $this->userdata[$id]["hp"]=$usr["hp"];
     $this->userdata[$id]["maxhp"]=$usr["maxhp"];
@@ -930,7 +930,7 @@ class fbattle {
   }
 
   function fullnick($u) {
-    return "<b>".$this->userdata[$u]["login"]."</b> [".$this->userdata[$u]["level"]."] <a href=\"inf.php?$u\" target=\"_blank\"><IMG SRC=\"http://img.bestcombats.net/chat/inf.gif\" WIDTH=12 HEIGHT=11 ALT=\"Инф. о ".$this->userdata[$u]["login"]."\"></a>";
+    return "<b>".$this->userdata[$u]["login"]."</b> [".$this->userdata[$u]["level"]."] <a href=\"inf.php?$u\" target=\"_blank\"><IMG SRC=\"http://img.bestcombats.net/chat/inf.gif\" WIDTH=12 HEIGHT=11 ALT=\"РРЅС„. Рѕ ".$this->userdata[$u]["login"]."\"></a>";
   }
 
   function bottouser($id) {
@@ -948,45 +948,45 @@ class fbattle {
     $hmm["sex"]=$this->battleunits[$idpers]["sex"];
     if($hmm['sex'] == 1) {
       $aa="";
-      $em="ему";
-      $his="его";
+      $em="РµРјСѓ";
+      $his="РµРіРѕ";
     } else {
-      $em="ей";
+      $em="РµР№";
       $aa="a";
-      $his="её";
+      $his="РµС‘";
     }
     $btu=$this->bottouser($idpers);
     if (@$strokenames[$btu][$nazv]) $strokename=$strokenames[$btu][$nazv];
     else $strokename=$strokes[$nazv]->name;
 
     if ($nazv=="agressiveresolve") {
-      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).', отменил'.$aa.' приём <b>"'.$strokes[$p2]->name.'"</b> у '.$this->nick5($p1,$color2).' с помощью приёма <b>"Агрессивная защита"</b>.<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).', РѕС‚РјРµРЅРёР»'.$aa.' РїСЂРёС‘Рј <b>"'.$strokes[$p2]->name.'"</b> Сѓ '.$this->nick5($p1,$color2).' СЃ РїРѕРјРѕС‰СЊСЋ РїСЂРёС‘РјР° <b>"РђРіСЂРµСЃСЃРёРІРЅР°СЏ Р·Р°С‰РёС‚Р°"</b>.<BR>';
     } elseif ($nazv=="multi_agressiveshield" || $nazv=="block_revenge") {
-      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).', решив стать героем, провел'.$aa.' прием <b>"'.$strokename.'"</b> на '.$this->nick5($p1,$color2).' <b>-'.$p2.'</b> '.$p3.' ]<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).', СЂРµС€РёРІ СЃС‚Р°С‚СЊ РіРµСЂРѕРµРј, РїСЂРѕРІРµР»'.$aa.' РїСЂРёРµРј <b>"'.$strokename.'"</b> РЅР° '.$this->nick5($p1,$color2).' <b>-'.$p2.'</b> '.$p3.' ]<BR>';
     } elseif(substr($nazv,0,11)=='magicdamage'){
-      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).', получил'.$aa.' повреждение от '.$p4.' <b>-'.$p1.'</b> [ '.($p2<0?0:$p2).' / '.$p3.' ]<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).', РїРѕР»СѓС‡РёР»'.$aa.' РїРѕРІСЂРµР¶РґРµРЅРёРµ РѕС‚ '.$p4.' <b>-'.$p1.'</b> [ '.($p2<0?0:$p2).' / '.$p3.' ]<BR>';
     } elseif(substr($nazv,0,11)=='manadamage'){
-      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).', утратил'.$aa.' ману от заземления <b>-'.$p1.'</b>.<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).', СѓС‚СЂР°С‚РёР»'.$aa.' РјР°РЅСѓ РѕС‚ Р·Р°Р·РµРјР»РµРЅРёСЏ <b>-'.$p1.'</b>.<BR>';
     } elseif($nazv=='heal'){
-      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).' восстановил'.$aa.' здоровье от приёма <b>'.$strokes[$p4]->name.'</b> <font Color=green><b>+'.$p1.'</b></font> '.$this->loghp($idpers).'<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).' РІРѕСЃСЃС‚Р°РЅРѕРІРёР»'.$aa.' Р·РґРѕСЂРѕРІСЊРµ РѕС‚ РїСЂРёС‘РјР° <b>'.$strokes[$p4]->name.'</b> <font Color=green><b>+'.$p1.'</b></font> '.$this->loghp($idpers).'<BR>';
     } elseif($nazv=='healmana'){
-      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).', восстановил'.$aa.', ману от приёма <b>'.$strokes[$p4]->name.'</b> <font Color=green><b>+'.$p1.'</b></font> [ '.$p2.' / '.$p3.' ]<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).', РІРѕСЃСЃС‚Р°РЅРѕРІРёР»'.$aa.', РјР°РЅСѓ РѕС‚ РїСЂРёС‘РјР° <b>'.$strokes[$p4]->name.'</b> <font Color=green><b>+'.$p1.'</b></font> [ '.$p2.' / '.$p3.' ]<BR>';
     } elseif($nazv=='heal2'){
-      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).', использовал'.$aa.', приём <b>'.$strokes[$p4]->name.'</b> <font Color=green><b>+'.$p1.'</b></font> [ '.$p2.' / '.$p3.' ]<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.$this->nick5($hmm['id'],$color).', РёСЃРїРѕР»СЊР·РѕРІР°Р»'.$aa.', РїСЂРёС‘Рј <b>'.$strokes[$p4]->name.'</b> <font Color=green><b>+'.$p1.'</b></font> [ '.$p2.' / '.$p3.' ]<BR>';
     } elseif ($strokes[$nazv])  {
       $textp='<span class=date>'.date("H:i").'</span> ';
       $nick=$this->nick5($hmm['id'],$color);
       $priem=$strokename;
       $txts=array(
-        "$nick, нетрезво оценив положение, решил$aa, что поможет $em только прием <b>\"$priem\"</b>.",
-        "$nick, не придумал$aa ничего лучше чем применить прием <b>\"$priem\"</b>.",
-        "$nick, сам$aa не поняв зачем, применил$aa прием <b>\"$priem\"</b>.",
-        "$nick, вспомнив слова своего сэнсея, из последних сил провел$aa прием <b>\"$priem\"</b>.",
-        "$nick, решив стать героем, провел$aa прием <b>\"$priem\"</b>.",
-        "$nick, понял$aa, пропустив очередной удар в голову, что $his спасение - это прием <b>\"$priem\"</b>.",
-        "$nick, понимая, что ситуация становится критической, применил$aa прием <b>\"$priem\"</b>.",
-        "$nick, замыслив недоброе, использовал$aa прием <b>\"$priem\"</b>.",
-        "$nick, выкрикнув: \"А ещё я вот так могу!\", использовал$aa прием <b>\"$priem\"</b>."
+        "$nick, РЅРµС‚СЂРµР·РІРѕ РѕС†РµРЅРёРІ РїРѕР»РѕР¶РµРЅРёРµ, СЂРµС€РёР»$aa, С‡С‚Рѕ РїРѕРјРѕР¶РµС‚ $em С‚РѕР»СЊРєРѕ РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, РЅРµ РїСЂРёРґСѓРјР°Р»$aa РЅРёС‡РµРіРѕ Р»СѓС‡С€Рµ С‡РµРј РїСЂРёРјРµРЅРёС‚СЊ РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, СЃР°Рј$aa РЅРµ РїРѕРЅСЏРІ Р·Р°С‡РµРј, РїСЂРёРјРµРЅРёР»$aa РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, РІСЃРїРѕРјРЅРёРІ СЃР»РѕРІР° СЃРІРѕРµРіРѕ СЃСЌРЅСЃРµСЏ, РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» РїСЂРѕРІРµР»$aa РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, СЂРµС€РёРІ СЃС‚Р°С‚СЊ РіРµСЂРѕРµРј, РїСЂРѕРІРµР»$aa РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, РїРѕРЅСЏР»$aa, РїСЂРѕРїСѓСЃС‚РёРІ РѕС‡РµСЂРµРґРЅРѕР№ СѓРґР°СЂ РІ РіРѕР»РѕРІСѓ, С‡С‚Рѕ $his СЃРїР°СЃРµРЅРёРµ - СЌС‚Рѕ РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, РїРѕРЅРёРјР°СЏ, С‡С‚Рѕ СЃРёС‚СѓР°С†РёСЏ СЃС‚Р°РЅРѕРІРёС‚СЃСЏ РєСЂРёС‚РёС‡РµСЃРєРѕР№, РїСЂРёРјРµРЅРёР»$aa РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, Р·Р°РјС‹СЃР»РёРІ РЅРµРґРѕР±СЂРѕРµ, РёСЃРїРѕР»СЊР·РѕРІР°Р»$aa РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, РІС‹РєСЂРёРєРЅСѓРІ: \"Рђ РµС‰С‘ СЏ РІРѕС‚ С‚Р°Рє РјРѕРіСѓ!\", РёСЃРїРѕР»СЊР·РѕРІР°Р»$aa РїСЂРёРµРј <b>\"$priem\"</b>."
       );
       $textp.=$txts[rand(0,count($txts)-1)];
       $textp.="<BR>";
@@ -999,19 +999,19 @@ class fbattle {
     $user=$this->nick5($u);
     $stroke="<b>\"".$strokes[$priem]->name."\"</b>";
     if ($this->battleunits[$u]["sex"]==1) {
-      $a="";$his="его";
+      $a="";$his="РµРіРѕ";
     } else {
-      $a="а";$his="её";
+      $a="Р°";$his="РµС‘";
     }
     if ($data["deltahp"]) {
       $r=rand(0,3);
-      if ($r==0) $result="Кроличья лапка, подкова в перчатке и прием $stroke помогли $user продержаться ещё немного.";
-      elseif ($r==1) $result="$user, нетрезво оценив ситуацию решил$a, что $his спасение это прием $stroke.";
-      elseif ($r==2) $result="$user понял$a, пропустив очередной удар в голову, что $his срасение прем $stroke.";
-      else $result="$user, пораскинув мозгами по земле, сообразил$a, что $his выручат приём $stroke или вмешательство высших сил.";
+      if ($r==0) $result="РљСЂРѕР»РёС‡СЊСЏ Р»Р°РїРєР°, РїРѕРґРєРѕРІР° РІ РїРµСЂС‡Р°С‚РєРµ Рё РїСЂРёРµРј $stroke РїРѕРјРѕРіР»Рё $user РїСЂРѕРґРµСЂР¶Р°С‚СЊСЃСЏ РµС‰С‘ РЅРµРјРЅРѕРіРѕ.";
+      elseif ($r==1) $result="$user, РЅРµС‚СЂРµР·РІРѕ РѕС†РµРЅРёРІ СЃРёС‚СѓР°С†РёСЋ СЂРµС€РёР»$a, С‡С‚Рѕ $his СЃРїР°СЃРµРЅРёРµ СЌС‚Рѕ РїСЂРёРµРј $stroke.";
+      elseif ($r==2) $result="$user РїРѕРЅСЏР»$a, РїСЂРѕРїСѓСЃС‚РёРІ РѕС‡РµСЂРµРґРЅРѕР№ СѓРґР°СЂ РІ РіРѕР»РѕРІСѓ, С‡С‚Рѕ $his СЃСЂР°СЃРµРЅРёРµ РїСЂРµРј $stroke.";
+      else $result="$user, РїРѕСЂР°СЃРєРёРЅСѓРІ РјРѕР·РіР°РјРё РїРѕ Р·РµРјР»Рµ, СЃРѕРѕР±СЂР°Р·РёР»$a, С‡С‚Рѕ $his РІС‹СЂСѓС‡Р°С‚ РїСЂРёС‘Рј $stroke РёР»Рё РІРјРµС€Р°С‚РµР»СЊСЃС‚РІРѕ РІС‹СЃС€РёС… СЃРёР».";
       $this->logline("$result <Font Color=#006699><b> +".$data["deltahp"]."</b></font> ".($this->loghp($u))."<BR>");
     } elseif ($data["damage"]) {
-      $this->logline($this->nick5($u).", вспомнив слова своего сэнсея, из последних сил применил".($this->battleunits[$u]["sex"]==1?"":"а")." прием <b>\"".$strokes[$priem]->name.'"</b> на '.$this->nick5($target).'. <Font Color=#006699><b> -'.$data["damage"].'</b></font> '.$this->loghp($target).']<BR>');
+      $this->logline($this->nick5($u).", РІСЃРїРѕРјРЅРёРІ СЃР»РѕРІР° СЃРІРѕРµРіРѕ СЃСЌРЅСЃРµСЏ, РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» РїСЂРёРјРµРЅРёР»".($this->battleunits[$u]["sex"]==1?"":"Р°")." РїСЂРёРµРј <b>\"".$strokes[$priem]->name.'"</b> РЅР° '.$this->nick5($target).'. <Font Color=#006699><b> -'.$data["damage"].'</b></font> '.$this->loghp($target).']<BR>');
     }
   }
 
@@ -1052,7 +1052,7 @@ class fbattle {
   }
 
   function getid($n) {
-    if ($n=="Невидимка" && $_SESSION["invis"]) return $_SESSION["invis"];
+    if ($n=="РќРµРІРёРґРёРјРєР°" && $_SESSION["invis"]) return $_SESSION["invis"];
     foreach ($this->userdata as $k=>$v) if ($v["login"]==$n) return $k;
   }
 
@@ -1096,7 +1096,7 @@ class fbattle {
 
   function lognick($u) {
     $this->getbu($u);
-    if ($this->battleunits[$u]["invis"]) $l="Невидимка";
+    if ($this->battleunits[$u]["invis"]) $l="РќРµРІРёРґРёРјРєР°";
     else $l=$this->userdata[$u]["login"];
     return "<span class=\"B".(in_array($u, $this->t1)?"1":"2")."\">$l</span>";
   }
@@ -1157,7 +1157,7 @@ class fbattle {
     }
 
     if ($this->battle[$u2][$u1][0]==664 && $this->battle[$u2][$u1][1]==664) {
-      // пропустил по тайму;
+      // РїСЂРѕРїСѓСЃС‚РёР» РїРѕ С‚Р°Р№РјСѓ;
       $this->add_log($this->razmen_log("skip",$this->battle[$u2][$u1][0],$this->get_wep_type($this->enemyhar['weap']),0,$u2,$this->en_class,$u1,$this->my_class,0,0,664), 1);
     } else {
       $attacks=array($this->battle[$u2][$u1][0], $this->battle[$u2][$u1][3], $this->battle[$u2][$u1][4], $this->battle[$u2][$u1][5], $this->battle[$u2][$u1][6]);
@@ -1188,7 +1188,7 @@ class fbattle {
     }
 
     if ($this->battle[$u1][$u2][0]==664 && $this->battle[$u1][$u2][1]==664) {
-      // пропустил по тайму;
+      // РїСЂРѕРїСѓСЃС‚РёР» РїРѕ С‚Р°Р№РјСѓ;
       $this->add_log($this->razmen_log("skip",$this->battle[$u1][$u2][0],$this->get_wep_type($this->enemyhar['weap']),0,$u1,$this->en_class,$u2,$this->my_class,0,0,664), 1);
     } else {
       $attacks=array($this->battle[$u1][$u2][0], $this->battle[$u1][$u2][3], $this->battle[$u1][$u2][4], $this->battle[$u1][$u2][5], $this->battle[$u1][$u2][6]);
@@ -1356,7 +1356,7 @@ class fbattle {
 
   function showkillown() {
     global $user;
-    if ($user["level"]>=10 && count($this->team_mine)>0 && $this->battle_data["type"]!=3 && $this->battle_data["type"]!=10 && ($this->battle_data["leader1"]==$user["id"] || $this->battle_data["leader2"]==$user["id"]) && $this->battle_data["type"]!=UNLIMCHAOS) return "<a href=\"javascript:void(0)\" onClick=\"findlogin('Исключить персонажа из боя', 'fbattle.php?killown=1', 'target', '')\"><img onmouseover='fastshow2(\"<B>Исключить из боя</B>\", this, event)' onmouseout='hideshow();' border=\"\" src=\"http://img.bestcombats.net/priem/killplayer.gif\"></a>";
+    if ($user["level"]>=10 && count($this->team_mine)>0 && $this->battle_data["type"]!=3 && $this->battle_data["type"]!=10 && ($this->battle_data["leader1"]==$user["id"] || $this->battle_data["leader2"]==$user["id"]) && $this->battle_data["type"]!=UNLIMCHAOS) return "<a href=\"javascript:void(0)\" onClick=\"findlogin('РСЃРєР»СЋС‡РёС‚СЊ РїРµСЂСЃРѕРЅР°Р¶Р° РёР· Р±РѕСЏ', 'fbattle.php?killown=1', 'target', '')\"><img onmouseover='fastshow2(\"<B>РСЃРєР»СЋС‡РёС‚СЊ РёР· Р±РѕСЏ</B>\", this, event)' onmouseout='hideshow();' border=\"\" src=\"http://img.bestcombats.net/priem/killplayer.gif\"></a>";
     else return "";
   }
 
@@ -1375,8 +1375,8 @@ class fbattle {
       if (in_array($id,$this->t1)) {$st="B1";} else {$st="B2";}
     }
     if ($this->battleunits[$id]["invis"]) { 
-      if ($plain) return "невидимка";
-      return "<span class={$st}></a><b><i>невидимка</i></b></span>";
+      if ($plain) return "РЅРµРІРёРґРёРјРєР°";
+      return "<span class={$st}></a><b><i>РЅРµРІРёРґРёРјРєР°</i></b></span>";
     } else {
       if ($plain) return $this->userdata[$id]["login"];
       else return "<span class={$st}>".$this->userdata[$id]["login"]."</span>";
@@ -1610,7 +1610,7 @@ class fbattle {
     static $logged;
     if (@$logged[$owner][$priem]) return;
     $logged[$owner][$priem]=1;
-    $this->add_log('<span class=date>'.date("H:i").'</span> Закончилось действие '.($strokes[$priem]->iseffect?"эффекта":"приёма").' "<FONT color=#A00000><b>'.(@$strokes[$priem]->name?$strokes[$priem]->name:$priem).'</b></font>" у '.$this->nick5($owner).'.<BR>');
+    $this->add_log('<span class=date>'.date("H:i").'</span> Р—Р°РєРѕРЅС‡РёР»РѕСЃСЊ РґРµР№СЃС‚РІРёРµ '.($strokes[$priem]->iseffect?"СЌС„С„РµРєС‚Р°":"РїСЂРёС‘РјР°").' "<FONT color=#A00000><b>'.(@$strokes[$priem]->name?$strokes[$priem]->name:$priem).'</b></font>" Сѓ '.$this->nick5($owner).'.<BR>');
   }
 
   function gettargets($priem, $stroketarget) {
@@ -1672,7 +1672,7 @@ class fbattle {
     return 0;
   }
 
-  //эффект от приёма ещё не на максимуме
+  //СЌС„С„РµРєС‚ РѕС‚ РїСЂРёС‘РјР° РµС‰С‘ РЅРµ РЅР° РјР°РєСЃРёРјСѓРјРµ
   function notmaxeffect($user, $priem) {
     global $strokes;
     if (!$strokes[$priem]->max) return true;
@@ -1943,14 +1943,14 @@ class fbattle {
       }
     }
     if ($effect["effect"]==FIREDAMAGE || $effect["effect"]==WATERDAMAGE || $effect["effect"]==EARTHDAMAGE || $effect["effect"]==AIRDAMAGE || ($this->battleunits[$userid]["effects"][$priem]["length"]<=1 && $effect["effect"]==DELAYEDDAMAGE)) {
-      if (strpos($priem,"wis_fire_flamming")===0) $tmp="пожирающего пламени";
-      if (strpos($priem,"wis_water_frost")===0) $tmp="оледенения";
-      if (strpos($priem,"wis_water_poison")===0) $tmp="отравления";
-      if (strpos($priem,"wis_water_cloud")===0) $tmp="ядовитого облака";
-      if (strpos($priem,"wis_water_tempheal")===0) $tmp="эффекта <b>Ледяное спасение</b>";
-      if (strpos($priem,"wis_earth_meteor")===0) $tmp="упавшего на голову метеорита";
-      if (strpos($priem,"wis_water_sacrifice")===0) $tmp="эффекта <b>Жертва воде</b>";
-      if (strpos($priem,"wis_earth_link_plus")===0) $tmp="эффекта <b>Заземление: плюс</b>";
+      if (strpos($priem,"wis_fire_flamming")===0) $tmp="РїРѕР¶РёСЂР°СЋС‰РµРіРѕ РїР»Р°РјРµРЅРё";
+      if (strpos($priem,"wis_water_frost")===0) $tmp="РѕР»РµРґРµРЅРµРЅРёСЏ";
+      if (strpos($priem,"wis_water_poison")===0) $tmp="РѕС‚СЂР°РІР»РµРЅРёСЏ";
+      if (strpos($priem,"wis_water_cloud")===0) $tmp="СЏРґРѕРІРёС‚РѕРіРѕ РѕР±Р»Р°РєР°";
+      if (strpos($priem,"wis_water_tempheal")===0) $tmp="СЌС„С„РµРєС‚Р° <b>Р›РµРґСЏРЅРѕРµ СЃРїР°СЃРµРЅРёРµ</b>";
+      if (strpos($priem,"wis_earth_meteor")===0) $tmp="СѓРїР°РІС€РµРіРѕ РЅР° РіРѕР»РѕРІСѓ РјРµС‚РµРѕСЂРёС‚Р°";
+      if (strpos($priem,"wis_water_sacrifice")===0) $tmp="СЌС„С„РµРєС‚Р° <b>Р–РµСЂС‚РІР° РІРѕРґРµ</b>";
+      if (strpos($priem,"wis_earth_link_plus")===0) $tmp="СЌС„С„РµРєС‚Р° <b>Р—Р°Р·РµРјР»РµРЅРёРµ: РїР»СЋСЃ</b>";
       $mhp=$this->userdata[$userid]["maxhp"];
       $damage=$effect["value"];
       if ($effect["effect"]!=DELAYEDDAMAGE && $strokes[$priem]->length>1) $damage=geteffectval($damage, $effect["length"], $strokes[$priem]->length);
@@ -2016,7 +2016,7 @@ class fbattle {
     if ($this->battleunits[$userid]["effects"][$priem]["length"]<=0) {
       if ($effect["effect"]==DELAYEDEFFECT) {
         $this->addeffect($userid, $strokes[$priem]->delayedeffect, @$strokes[$priem]->delayedvalue, 0, "$priem-delayed", array(), 0, 0, @$strokes[$priem]->delayedeffect2, @$strokes[$priem]->delayedvalue2);
-        $this->add_log('<span class=date>'.date("H:i").'</span> На персонажа '.$this->lognick($userid).' подействовал эффект "<FONT color=#A00000><b>'.$strokes["$priem-delayed"]->name.'</b></font>".<BR>');
+        $this->add_log('<span class=date>'.date("H:i").'</span> РќР° РїРµСЂСЃРѕРЅР°Р¶Р° '.$this->lognick($userid).' РїРѕРґРµР№СЃС‚РІРѕРІР°Р» СЌС„С„РµРєС‚ "<FONT color=#A00000><b>'.$strokes["$priem-delayed"]->name.'</b></font>".<BR>');
       }
       if (@$strokes[$priem]->effectoncaster) {
         $this->remeffect($userid, $priem, $effect);
@@ -2147,7 +2147,7 @@ class fbattle {
     if ($id>_BOTSEPARATOR_) {
       $tmp=mqfa("select name, prototype, hp from bots where id='$id'");
       $usr["login"]=$tmp["name"];
-      if (strpos($tmp["name"], "Отморозок")===0) $usr["shadow"]="hell-raiser.gif";
+      if (strpos($tmp["name"], "РћС‚РјРѕСЂРѕР·РѕРє")===0) $usr["shadow"]="hell-raiser.gif";
       $prototype=$tmp["prototype"];
       $usr["hp"]=$tmp["hp"];
     } elseif ($this->battle_data["type"]==4) {
@@ -2188,7 +2188,7 @@ class fbattle {
     }
 
     if ($id>_BOTSEPARATOR_) {
-      if (strpos($tmp["name"], "Отморозок")===0) {
+      if (strpos($tmp["name"], "РћС‚РјРѕСЂРѕР·РѕРє")===0) {
       } else {
         $dress["cost"]=0; 
         $dress["cost2"]=0;
@@ -2277,20 +2277,20 @@ class fbattle {
         if ($rec["vid"]==1) {
           $usr["sila"]+=$rec["level"];
           $dress["gsila"]+=$rec["level"];
-          $effname="Демоническая Сила";
-          $effresult="Сила +$rec[level]";
+          $effname="Р”РµРјРѕРЅРёС‡РµСЃРєР°СЏ РЎРёР»Р°";
+          $effresult="РЎРёР»Р° +$rec[level]";
         }
         if ($rec["vid"]==2) {
           $usr["lovk"]+=$rec["level"];
           $dress["glovk"]+=$rec["level"];
-          $effname="Кошачья Ловкость";
-          $effresult="Ловкость +$rec[level]";
+          $effname="РљРѕС€Р°С‡СЊСЏ Р›РѕРІРєРѕСЃС‚СЊ";
+          $effresult="Р›РѕРІРєРѕСЃС‚СЊ +$rec[level]";
         }
         if ($rec["vid"]==3) {
           $usr["inta"]+=$rec["level"];
           $dress["ginta"]+=$rec["level"];
-          $effname="Интуиция Совы";
-          $effresult="Интуиция +$rec[level]";
+          $effname="РРЅС‚СѓРёС†РёСЏ РЎРѕРІС‹";
+          $effresult="РРЅС‚СѓРёС†РёСЏ +$rec[level]";
         }
         if ($rec["vid"]==4) {
           $usr["bron1"]+=$rec["level"]*2;
@@ -2298,8 +2298,8 @@ class fbattle {
           $usr["bron3"]+=$rec["level"]*2;
           $usr["bron4"]+=$rec["level"]*2;
           $usr["bron5"]+=$rec["level"]*2;
-          $effname="Свинцовый Щит";
-          $effresult="Броня головы: +".($rec["level"]*2).", Броня корпуса: +".($rec["level"]*2).", Броня пояса: +".($rec["level"]*2).", Броня ног: +".($rec["level"]*2);
+          $effname="РЎРІРёРЅС†РѕРІС‹Р№ Р©РёС‚";
+          $effresult="Р‘СЂРѕРЅСЏ РіРѕР»РѕРІС‹: +".($rec["level"]*2).", Р‘СЂРѕРЅСЏ РєРѕСЂРїСѓСЃР°: +".($rec["level"]*2).", Р‘СЂРѕРЅСЏ РїРѕСЏСЃР°: +".($rec["level"]*2).", Р‘СЂРѕРЅСЏ РЅРѕРі: +".($rec["level"]*2);
         }
         if ($rec["vid"]==5) {
           $this->userdata[$id]["hp"]=$usr["hp"];
@@ -2324,21 +2324,21 @@ class fbattle {
             $effresult="";
             if ($id==$user["id"]) $user["hp"]=$usr["hp"];
           }
-          $effresult="Уровень жизни (HP) +".($rec["level"]*6);
-          $effname="Верный Друг";
+          $effresult="РЈСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё (HP) +".($rec["level"]*6);
+          $effname="Р’РµСЂРЅС‹Р№ Р”СЂСѓРі";
         }
         if ($rec["vid"]==6) {
           $dress["mfmagp"]+=$rec["level"];
           if ($rec["level"]>5) $dress["mfmagp"]+=$rec["level"]-5;
-          $effresult="Мф. мощности магии стихий: +".($rec["level"]+max(0, $rec["level"]-5));
-          $effname="Сила Стихий";
+          $effresult="РњС„. РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё СЃС‚РёС…РёР№: +".($rec["level"]+max(0, $rec["level"]-5));
+          $effname="РЎРёР»Р° РЎС‚РёС…РёР№";
         }
         if ($rec["level"]>0) {
           $effects["$rec[id]"]["img"]="http://img.bestcombats.net/icon/pet$rec[vid].gif";
-          $effects["$rec[id]"]["name"]="<b>$effname [$rec[level]]</b> (эффект)<br>".str_replace(",","<br>",$effresult);
+          $effects["$rec[id]"]["name"]="<b>$effname [$rec[level]]</b> (СЌС„С„РµРєС‚)<br>".str_replace(",","<br>",$effresult);
           $effects["$rec[id]"]["type"]=1;
-          if ($rec["sex"]==1) $a=""; else $a="а";
-          $this->add_log("<span class=date>".date("H:i")."</span> ".($usr["invis"]?"<span class=\"".$this->userclass($id)."\">зверь невидимки</span>":"<span class=\"".$this->userclass($id)."\">$rec[login] (зверь $usr[login])")."</span> призвал$a заклятие <font color=#A00000><b>$effname [$rec[level]]</b></font> на <span class=\"".$this->my_class."\">".($usr["invis"]?"невидимка":"$usr[login]")."</span>. ($effresult)<BR>");
+          if ($rec["sex"]==1) $a=""; else $a="Р°";
+          $this->add_log("<span class=date>".date("H:i")."</span> ".($usr["invis"]?"<span class=\"".$this->userclass($id)."\">Р·РІРµСЂСЊ РЅРµРІРёРґРёРјРєРё</span>":"<span class=\"".$this->userclass($id)."\">$rec[login] (Р·РІРµСЂСЊ $usr[login])")."</span> РїСЂРёР·РІР°Р»$a Р·Р°РєР»СЏС‚РёРµ <font color=#A00000><b>$effname [$rec[level]]</b></font> РЅР° <span class=\"".$this->my_class."\">".($usr["invis"]?"РЅРµРІРёРґРёРјРєР°":"$usr[login]")."</span>. ($effresult)<BR>");
         }
       }
     }
@@ -2514,7 +2514,7 @@ class fbattle {
       $usr["mana"]=$usr["maxmana"];
       mq("update users set mana='$usr[mana]' where id='$id'");
     }
-    //создание userdata
+    //СЃРѕР·РґР°РЅРёРµ userdata
     $this->makeuserdata($id, $usr, $weapons);
 
     $priems=array();
@@ -2706,7 +2706,7 @@ class fbattle {
         } else {
           @$this->toupdatebu[$i]["forcefield"]-=$this->battleunits[$i]["forcefield"];
           $this->battleunits[$i]["forcefield"]=0;
-          $this->logstrokeend("Силовое поле", $i);
+          $this->logstrokeend("РЎРёР»РѕРІРѕРµ РїРѕР»Рµ", $i);
         }
         $this->needupdatebu=1;
         $v-=$ff;
@@ -2766,7 +2766,7 @@ class fbattle {
             $mh=array(19,23,29,37,47,59,73,89,107,128,154,185,220,260,310);
             if ($heal>$mh[$this->userdata[$i]["level"]]) $heal=$mh[$this->userdata[$i]["level"]];
             $heal=$this->addhp($heal, $from);
-            $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($from).' восстановил'.($this->battleunits[$from]["sex"]?"":"а").' жизнь от эффекта <b>'.$strokes[$bd]->name.'</b>: <b><font color="#006699">+'.$heal.'</b></font> ['.$this->userdata[$from]["hp"].'/'.$this->userdata[$from]["maxhp"].']<BR>');
+            $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($from).' РІРѕСЃСЃС‚Р°РЅРѕРІРёР»'.($this->battleunits[$from]["sex"]?"":"Р°").' Р¶РёР·РЅСЊ РѕС‚ СЌС„С„РµРєС‚Р° <b>'.$strokes[$bd]->name.'</b>: <b><font color="#006699">+'.$heal.'</b></font> ['.$this->userdata[$from]["hp"].'/'.$this->userdata[$from]["maxhp"].']<BR>');
             $this->deceffect($from, $bd);
           }
         }
@@ -2902,7 +2902,7 @@ class fbattle {
       if ($v["effect3"]==DAMAGETOMANA) $val=$v["value3"];
       if ($val>0) {
         $dm=$this->addmana(ceil($d*$val/100), $defender);
-        if ($dm) $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($defender).' восстановил'.($this->battleunits[$defender]["sex"]?"":"а").' ману от эффекта <b>'.$strokes[$k]->name.'</b>: <b><font color="#006699">+'.$dm.'</b></font> ['.$this->userdata[$defender]["mana"].'/'.$this->userdata[$defender]["maxmana"].']<BR>');
+        if ($dm) $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($defender).' РІРѕСЃСЃС‚Р°РЅРѕРІРёР»'.($this->battleunits[$defender]["sex"]?"":"Р°").' РјР°РЅСѓ РѕС‚ СЌС„С„РµРєС‚Р° <b>'.$strokes[$k]->name.'</b>: <b><font color="#006699">+'.$dm.'</b></font> ['.$this->userdata[$defender]["mana"].'/'.$this->userdata[$defender]["maxmana"].']<BR>');
       }
       $val=0;
       if ($v["effect"]==BACKDAMAGE) $val=$v["value"];
@@ -2919,7 +2919,7 @@ class fbattle {
         }
         $damage=$this->instantdamage($attacker, $damage, 1, $defender);
         $damage=$this->takehp($damage, $attacker, $this->userdata[$attacker]["hp"], 1, $defender);
-        $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($attacker).' получил'.($this->battleunits[$attacker]["sex"]?"":"а").' повреждение от <b>'.$strokes[$k]->backdamagename.'</b>: <b>-'.$damage.'</b> '.$this->loghp($attacker).'<BR>');
+        $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($attacker).' РїРѕР»СѓС‡РёР»'.($this->battleunits[$attacker]["sex"]?"":"Р°").' РїРѕРІСЂРµР¶РґРµРЅРёРµ РѕС‚ <b>'.$strokes[$k]->backdamagename.'</b>: <b>-'.$damage.'</b> '.$this->loghp($attacker).'<BR>');
         if ($strokes[$k]->endaftereffect) {
           $this->remeffect($defender, $k, $v);
           $this->logstrokeend($k, $defender);
@@ -3112,15 +3112,15 @@ class fbattle {
   }
 
   function makemagicdamage($user, $enemy, $magic) {
-    if ($magic["magic"]==61 || $magic["magic"]==64) $from="ожога";
-    if ($magic["magic"]==62) $from="обморожения";
-    if ($magic["magic"]==63) $from="разряда";
+    if ($magic["magic"]==61 || $magic["magic"]==64) $from="РѕР¶РѕРіР°";
+    if ($magic["magic"]==62) $from="РѕР±РјРѕСЂРѕР¶РµРЅРёСЏ";
+    if ($magic["magic"]==63) $from="СЂР°Р·СЂСЏРґР°";
     $dam=rand($magic["from"], $magic["to"])*(1-mftoabs($this->battleunits[$enemy]["mfdmag"]+$this->battleunits[$enemy]["mfd".$magic["prof"]]))*10;
     $res=$this->checkpriems2($this->battleunits[$enemy]["priems"], ($enemy==$this->user["id"]?$this->my_class:$this->en_class), $enemy, 1, 1);
     $dam=$this->processstrokeeffect2($res, $dam);
     $dam=$this->takehp($dam, $enemy, $this->userdata["enemy"]["hp"], 1, $user);
     $this->adddamage($user, $dam, $enemy);
-    $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick5($enemy).' получил'.($this->battleunits[$enemy]["sex"]?"":"а").' повреждение от <b>'.$from.'</b>: <b>-'.$dam.'</b> '.$this->loghp($enemy).'<BR>');
+    $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick5($enemy).' РїРѕР»СѓС‡РёР»'.($this->battleunits[$enemy]["sex"]?"":"Р°").' РїРѕРІСЂРµР¶РґРµРЅРёРµ РѕС‚ <b>'.$from.'</b>: <b>-'.$dam.'</b> '.$this->loghp($enemy).'<BR>');
   }
 
   function makehit($who, $mf, $user, $enemy, $attack, $defend, $num, $dontshowuv=0) {
@@ -3259,7 +3259,7 @@ class fbattle {
       }
     }
     if ($uvorot) {
-      // я увернулся;
+      // СЏ СѓРІРµСЂРЅСѓР»СЃСЏ;
       if (!$dontshowuv) {
         if ($who=="me") {
           $this->add_log ($this->razmen_log("uvorot",$attack,$this->user["minimax$hn"]["weptype"],0,$user,$this->my_class,$enemy,$this->en_class, 0, 0, $this->battle[$enemy][$user][1], $prof), 1);
@@ -3272,7 +3272,7 @@ class fbattle {
       else $ret=1;
     } elseif($krit) {
       if ($who=="me") {
-        // его кританули
+        // РµРіРѕ РєСЂРёС‚Р°РЅСѓР»Рё
         $minpower=$mf['me']["udar$hitnum"];
         $mf["me"]["udar$hitnum"]=$mf["me"]["kritudar$hitnum"];
         if(!$noblock) {
@@ -3340,7 +3340,7 @@ class fbattle {
         $this->addhp2($user, $enemy, min(ceil($d), $starthp));
         $this->checkbackeffects($user, $enemy, min(ceil($d), $starthp));
       } else {
-        // меня кританули
+        // РјРµРЅСЏ РєСЂРёС‚Р°РЅСѓР»Рё
         $minpower=$mf['he']["udar$hitnum"];
         $mf["he"]["udar$hitnum"]=$mf["he"]["kritudar$hitnum"];
         if(!$noblock) {
@@ -3409,7 +3409,7 @@ class fbattle {
     } else {
       if ($who=="me") {
         if($noblock) {
-          // я попал куда надо
+          // СЏ РїРѕРїР°Р» РєСѓРґР° РЅР°РґРѕ
           $res=$this->checkpriemsparry($this->battleunits[$this->currentenemy]["priems"],$this->en_class,$this->enemyhar, $this->user["level"]);
           $parry=$this->get_chanse($this->enemy_dress["mfparir"]);
           if ($parry && $this->user_dress["skipuv"]>0) {
@@ -3467,14 +3467,14 @@ class fbattle {
             $ret=5;
           }
         } else {
-          // я мазила
+          // СЏ РјР°Р·РёР»Р°
           $this->add_log ($this->razmen_log("block",$attack,$this->user["minimax$hn"]["weptype"],0,$this->user['id'],$this->my_class,$enemy,$this->en_class, 0, 0, $this->battle[$enemy][$user][1], $prof), 1);
           @$this->addtactic($enemy, "block2", 1, $user);
           $ret=0;
         }
       } else {
         if($noblock) {
-          // противник попал куда надо
+          // РїСЂРѕС‚РёРІРЅРёРє РїРѕРїР°Р» РєСѓРґР° РЅР°РґРѕ
           //////////////////////////////////
           $res=$this->checkpriemsparry($this->battleunits[$this->user["id"]]["priems"],$this->my_class,$this->user, $this->enemyhar["level"]);
           $parry=$this->get_chanse($this->user_dress["mfparir"]);
@@ -3536,7 +3536,7 @@ class fbattle {
             $ret=5;
           }
         } else {
-          // противник мазила
+          // РїСЂРѕС‚РёРІРЅРёРє РјР°Р·РёР»Р°
           $this->add_log ($this->razmen_log("block",$this->battle[$enemy][$user][$num==1?0:$num+1],$this->enemyhar["minimax$hn"]["weptype"],0,$enemy,$this->en_class,$user,$this->my_class, 0, 0, $defend, $prof), 1);
           @$this->addtactic($user, "block2", 1, $enemy);
           $ret=0;
@@ -3561,19 +3561,19 @@ class fbattle {
   }
 
 /*-------------------------------------------------------------------
- создание класса и сбор основной инфы
+ СЃРѕР·РґР°РЅРёРµ РєР»Р°СЃСЃР° Рё СЃР±РѕСЂ РѕСЃРЅРѕРІРЅРѕР№ РёРЅС„С‹
 --------------------------------------------------------------------*/
   function fbattle ($battle_id) {
     global $mysql, $user, $_POST, $textp, $leveldefs;
 
-    // соединяем мускуль и юзера
+    // СЃРѕРµРґРёРЅСЏРµРј РјСѓСЃРєСѓР»СЊ Рё СЋР·РµСЂР°
     $this->mysql = $mysql;
     $this->user = $user;
-    // перебираем варианты
+    // РїРµСЂРµР±РёСЂР°РµРј РІР°СЂРёР°РЅС‚С‹
     if ($battle_id > 0) {
-      // ставим статус битвы на "есть битва"
+      // СЃС‚Р°РІРёРј СЃС‚Р°С‚СѓСЃ Р±РёС‚РІС‹ РЅР° "РµСЃС‚СЊ Р±РёС‚РІР°"
       $this->status = 1;
-      // вставляем драчующихся
+      // РІСЃС‚Р°РІР»СЏРµРј РґСЂР°С‡СѓСЋС‰РёС…СЃСЏ
       $this->battle_data = mysql_fetch_array(mq ('SELECT * FROM `battle` WHERE `id` = '.$battle_id.' LIMIT 1;'));
 
       if ($this->battle_data["type"]==UNLIMCHAOS) $leveldefs=array(250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250);
@@ -3582,20 +3582,20 @@ class fbattle {
       if (!$this->battle_data["userdata"]) $this->userdata=array();
       else $this->userdata=unserialize($this->battle_data["userdata"]);
       if(USERBATTLE && $this->battle_data['room']<=0){mq('UPDATE `battle` SET `room` ='.$user['room'].'  WHERE `id` = '.$battle_id.';');}
-      // получили дамагу
+      // РїРѕР»СѓС‡РёР»Рё РґР°РјР°РіСѓ
       $this->damage = unserialize($this->battle_data['damage']);
-      // кто драчуется?
+      // РєС‚Рѕ РґСЂР°С‡СѓРµС‚СЃСЏ?
       $this->battle = unserialize($this->battle_data['teams']);
 
       $this->sort_teams();
 
-      // получаем экспу
+      // РїРѕР»СѓС‡Р°РµРј СЌРєСЃРїСѓ
       $this->exp = unserialize($this->battle_data['exp']);
-      // таймі
+      // С‚Р°Р№РјС–
       $this->to1 = $this->battle_data['to1'];
       $this->to2 = $this->battle_data['to2'];
 
-      // ============СИСТЕМА БОТОВ=================
+      // ============РЎРРЎРўР•РњРђ Р‘РћРўРћР’=================
       $bit1=0;
       $bit2=0;
       foreach ($this->battle as $k=>$v) {
@@ -3631,7 +3631,7 @@ class fbattle {
           }
           if($this->battle[$k][$bot['id']][0] == 0 && $k<_BOTSEPARATOR_) {
             if(in_array($user['id'],array_keys($this->battle[$bot['id']]))) {
-              // если я противник бота
+              // РµСЃР»Рё СЏ РїСЂРѕС‚РёРІРЅРёРє Р±РѕС‚Р°
               if ($this->my_class=='B2') {
                 if($this->to2 <= $this->to1) {
                   $endr= ((time()-$this->to2) > $this->battle_data['timeout']*60);
@@ -3646,8 +3646,8 @@ class fbattle {
                 $this->needupdate=1;
                 $this->needrefresh=1;
                 $uje = true;
-                // если сдул - заканчиваем бой
-                $this->add_log("<span class=date>".date("H:i")."</span> Бой закончен по таймауту.<BR>");
+                // РµСЃР»Рё СЃРґСѓР» - Р·Р°РєР°РЅС‡РёРІР°РµРј Р±РѕР№
+                $this->add_log("<span class=date>".date("H:i")."</span> Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ РїРѕ С‚Р°Р№РјР°СѓС‚Сѓ.<BR>");
                 foreach ($this->battle[$bot['id']] as $k => $v) {
                   if($k > _BOTSEPARATOR_) {
                     $bots = mysql_fetch_array(mq ('SELECT `hp` FROM `bots` WHERE `id` = '.$k.' LIMIT 1;'));
@@ -3657,7 +3657,7 @@ class fbattle {
                   }
                   if($us && (int)$us['hp']>0) {
                     $tr = settravma($k,0,86400,1);
-                    if ($tr) $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($k).' получил повреждение: <font color=red>'.$tr.'</font><BR>');
+                    if ($tr) $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($k).' РїРѕР»СѓС‡РёР» РїРѕРІСЂРµР¶РґРµРЅРёРµ: <font color=red>'.$tr.'</font><BR>');
                   }
                 }
                 foreach ($this->battle[$bot['id']] as $k => $v) {
@@ -3684,7 +3684,7 @@ class fbattle {
         $this->user_hasshit=$this->checkshit($user['id']);
         $this->enemy=$this->getenemy();
         if(@$_POST['enemy'] && $this->enemy==$_POST['enemy'] && in_array($_POST['enemy'], $this->team_enemy)) {
-          // ударяемся
+          // СѓРґР°СЂСЏРµРјСЃСЏ
           $this->razmen_init ($_POST['enemy'],$_POST['attack'],$_POST['defend'],@$_POST['attack1'],@$_POST['attack2'],@$_POST['attack3'],@$_POST['attack4']);
         } else {
           foreach ((array)@$this->battle[$user["id"]] as $k=>$v) {
@@ -3705,20 +3705,20 @@ class fbattle {
             $this->razmen_init ($hitbytime,$attack,$defend,$attack2,$attack3,$attack4,$attack5);
           } else {
             $this->fast_death();
-            // выбираем вражину
+            // РІС‹Р±РёСЂР°РµРј РІСЂР°Р¶РёРЅСѓ
             $this->enemy=$this->getenemy();
             if (!$this->enemy) $this->enemy = (int)$this->select_enemy();
 
             if($this->enemy > 0) {
-              // табличка удара-блока
+              // С‚Р°Р±Р»РёС‡РєР° СѓРґР°СЂР°-Р±Р»РѕРєР°
               $this->return = 1;
             } else {
-              //проверяем тайм
+              //РїСЂРѕРІРµСЂСЏРµРј С‚Р°Р№Рј
               if ($this->get_timeout() && $this->user['hp'] > 0) {
-                // табличка тайма
+                // С‚Р°Р±Р»РёС‡РєР° С‚Р°Р№РјР°
                 $this->return = 3;
               } else {
-                // ожидаем хода...
+                // РѕР¶РёРґР°РµРј С…РѕРґР°...
                 $this->return = 2;
               }
             }
@@ -3732,11 +3732,11 @@ class fbattle {
       if (@$_POST['victory_time_out']) {
         $this->end_gora();
       }
-      $this->write_log(); // пишем лог
-      $this->write_debug(); // пишем лог
+      $this->write_log(); // РїРёС€РµРј Р»РѕРі
+      $this->write_debug(); // РїРёС€РµРј Р»РѕРі
       return @$this->return;
     } else {
-      // ставим статус битвы на "нет битвы"
+      // СЃС‚Р°РІРёРј СЃС‚Р°С‚СѓСЃ Р±РёС‚РІС‹ РЅР° "РЅРµС‚ Р±РёС‚РІС‹"
       $this->status = 0;
     }
   }
@@ -3752,7 +3752,7 @@ class fbattle {
   }
 
 /*-------------------------------------------------------------------
-  проверка и выставление конца боя
+  РїСЂРѕРІРµСЂРєР° Рё РІС‹СЃС‚Р°РІР»РµРЅРёРµ РєРѕРЅС†Р° Р±РѕСЏ
 --------------------------------------------------------------------*/
 
   function battle_end () {
@@ -3765,7 +3765,7 @@ class fbattle {
 
       $t1life = 0;
       $t2life = 0;
-      // проверяем живность команд
+      // РїСЂРѕРІРµСЂСЏРµРј Р¶РёРІРЅРѕСЃС‚СЊ РєРѕРјР°РЅРґ
       foreach ($this->t1 as $k => $v) {
         if (in_array($v,array_keys($this->battle))) {
           $t1life++;
@@ -3796,7 +3796,7 @@ class fbattle {
         $charge = mysql_fetch_array(mq ('SELECT `win` FROM `battle` WHERE `id` = '.$this->battle_data['id'].' LIMIT 1;'));
       }
       if(($t2life == 0 OR $t1life == 0) && ($charge[0] == 3 || $charge[0] == 9)) {
-        // ============================= конец боя ==========================
+        // ============================= РєРѕРЅРµС† Р±РѕСЏ ==========================
 
         foreach ($this->t1 as $k => $v) {
           $nks1[] = $this->nick7($v);
@@ -3828,12 +3828,12 @@ class fbattle {
           foreach ($this->userdata as $k=>$v) {
             if ($v["hp"]<=0) {
               moveuser($k, 49);
-              addchp ('<font color=red>Внимание!</font>Вы выбыли из битвы за клановый замок.', '{[]}'.$v['login'].'{[]}');
+              addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font>Р’С‹ РІС‹Р±С‹Р»Рё РёР· Р±РёС‚РІС‹ Р·Р° РєР»Р°РЅРѕРІС‹Р№ Р·Р°РјРѕРє.', '{[]}'.$v['login'].'{[]}');
             }
           }
         }
 
-        // тима победителей
+        // С‚РёРјР° РїРѕР±РµРґРёС‚РµР»РµР№
 
         $maxdamage=0;
         $maxdamageuser=0;
@@ -3870,7 +3870,7 @@ class fbattle {
                 $esp=checkanimalexp($warrior['zver_id'], $esp, $warrior['battle']);
                 if ($esp) {
                   mq('UPDATE `users` SET `exp` = `exp`+'.$esp.' WHERE id = '.$warrior['zver_id'].';');
-                  addchp ('<font color=red>Внимание!</font> Ваш зверь получил <b>'.$esp.'</b> опыта.   ','{[]}'.nick7($warrior['id']).'{[]}');
+                  addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°С€ Р·РІРµСЂСЊ РїРѕР»СѓС‡РёР» <b>'.$esp.'</b> РѕРїС‹С‚Р°.   ','{[]}'.nick7($warrior['id']).'{[]}');
                 }
               }
               $this->exp[$v]=floor($this->exp[$v]/3*2);
@@ -3879,19 +3879,19 @@ class fbattle {
             
             if ($warrior['klan']) {
               $klanexp1 = floor($this->exp[$v]/5);
-              addchp ('<font color=red>Внимание!</font> Бой закончен. Всего вами нанесено урона: <b>'.(int)$this->damage[$v].' HP</b>. Получено кланового опыта: <b>'.$klanexp1.'</b>.  Получено опыта: <b>'.$this->exp[$v].'</b> ('.($proc_exp+$warrior["smart"]).'%).','{[]}'.nick7($v).'{[]}');
+              addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ. Р’СЃРµРіРѕ РІР°РјРё РЅР°РЅРµСЃРµРЅРѕ СѓСЂРѕРЅР°: <b>'.(int)$this->damage[$v].' HP</b>. РџРѕР»СѓС‡РµРЅРѕ РєР»Р°РЅРѕРІРѕРіРѕ РѕРїС‹С‚Р°: <b>'.$klanexp1.'</b>.  РџРѕР»СѓС‡РµРЅРѕ РѕРїС‹С‚Р°: <b>'.$this->exp[$v].'</b> ('.($proc_exp+$warrior["smart"]).'%).','{[]}'.nick7($v).'{[]}');
               mq("DELETE FROM `person_on` WHERE `id_person`='".$v."'");
               mq("UPDATE `effects` SET `isp` = '0' WHERE `owner` = '".$v."'");
             } else {
               if ($v<_BOTSEPARATOR_) {
-                addchp ('<font color=red>Внимание!</font> Бой закончен. Всего вами нанесено урона: <b>'.(int)$this->damage[$v].' HP</b>. Получено опыта: <b>'.$this->exp[$v].'</b> ('.($proc_exp+$warrior["smart"]).'%).','{[]}'.nick7($v).'{[]}');
+                addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ. Р’СЃРµРіРѕ РІР°РјРё РЅР°РЅРµСЃРµРЅРѕ СѓСЂРѕРЅР°: <b>'.(int)$this->damage[$v].' HP</b>. РџРѕР»СѓС‡РµРЅРѕ РѕРїС‹С‚Р°: <b>'.$this->exp[$v].'</b> ('.($proc_exp+$warrior["smart"]).'%).','{[]}'.nick7($v).'{[]}');
               }
               mq("DELETE FROM `person_on` WHERE `id_person`='".$v."'");
               mq("UPDATE `effects` SET `isp` = '0' WHERE `owner` = '".$v."'");
             }
 
             $vrag_w = mysql_fetch_array(mq("SELECT `name` FROM `bots` WHERE  `id` = ".$v." LIMIT 1 ;"));
-            if($vrag_w['name']=="Общий Враг"){
+            if($vrag_w['name']=="РћР±С‰РёР№ Р’СЂР°Рі"){
               mq('UPDATE users SET `win`=`win` +1 WHERE `id` = 99;');
             }
             if ($this->battleunits[$v]["additdata"]) {
@@ -3908,7 +3908,7 @@ class fbattle {
             }
           }
 
-          ///////////////////////при победе = для подземки/////////////////////////////////////
+          ///////////////////////РїСЂРё РїРѕР±РµРґРµ = РґР»СЏ РїРѕРґР·РµРјРєРё/////////////////////////////////////
           $gess = mq ('SELECT * FROM `labirint` WHERE `user_id` = '.$this->user['id'].'');
           if($hokke = mysql_fetch_array($gess)) {
             include "podzem/win.php";
@@ -3923,7 +3923,7 @@ class fbattle {
           include "incl/specialwin.php";
         } elseif(in_array($ss[0],$this->t2) && $this->battle_data["quest"]!=2) {
 
-          ////////////////при пройгрыше = для подземки///////////////////
+          ////////////////РїСЂРё РїСЂРѕР№РіСЂС‹С€Рµ = РґР»СЏ РїРѕРґР·РµРјРєРё///////////////////
           if (in_array($user["room"], $caverooms)) {
             $location=mqfa("select x, y, dir from caveparties where user='$user[id]'");
             if ($location["dir"]==0) {$y=$location["y"]*2;$x=($location["x"]-1)*2;}
@@ -3976,25 +3976,25 @@ class fbattle {
                 $esp=checkanimalexp($warrior['zver_id'], $esp, $warrior['battle']);
                 $animalexp[$warrior['id']]=1;
                 mq('UPDATE `users` SET `exp` = `exp`+'.$esp.' WHERE `id` = '.$warrior['zver_id'].';');
-                addchp ('<font color=red>Внимание!</font> Ваш зверь получил <b>'.$esp.'</b> опыта.   ','{[]}'.nick7($warrior['id']).'{[]}');
+                addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р’Р°С€ Р·РІРµСЂСЊ РїРѕР»СѓС‡РёР» <b>'.$esp.'</b> РѕРїС‹С‚Р°.   ','{[]}'.nick7($warrior['id']).'{[]}');
               }
               $this->exp[$v]=floor($this->exp[$v]/3*2);
             }
             if ($warrior['klan']) {
               $klanexp1 = floor($this->exp[$v]/5);
-              addchp ('<font color=red>Внимание!</font> Бой закончен. Всего вами нанесено урона: <b>'.(int)$this->damage[$v].' HP</b>. Получено кланового опыта: <b>'.$klanexp1.'</b>. Получено опыта: <b>'.$this->exp[$v].'</b> ('.($proc_exp+$warrior["smart"]).'%).','{[]}'.nick7($v).'{[]}');
+              addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ. Р’СЃРµРіРѕ РІР°РјРё РЅР°РЅРµСЃРµРЅРѕ СѓСЂРѕРЅР°: <b>'.(int)$this->damage[$v].' HP</b>. РџРѕР»СѓС‡РµРЅРѕ РєР»Р°РЅРѕРІРѕРіРѕ РѕРїС‹С‚Р°: <b>'.$klanexp1.'</b>. РџРѕР»СѓС‡РµРЅРѕ РѕРїС‹С‚Р°: <b>'.$this->exp[$v].'</b> ('.($proc_exp+$warrior["smart"]).'%).','{[]}'.nick7($v).'{[]}');
             } else {
-              if ($v<_BOTSEPARATOR_) addchp ('<font color=red>Внимание!</font> Бой закончен. Всего вами нанесено урона: <b>'.(int)$this->damage[$v].' HP</b>. Получено опыта: <b>'.$this->exp[$v].'</b> ('.($proc_exp+$warrior["smart"]).'%).  ','{[]}'.nick7 ($v).'{[]}');
+              if ($v<_BOTSEPARATOR_) addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ. Р’СЃРµРіРѕ РІР°РјРё РЅР°РЅРµСЃРµРЅРѕ СѓСЂРѕРЅР°: <b>'.(int)$this->damage[$v].' HP</b>. РџРѕР»СѓС‡РµРЅРѕ РѕРїС‹С‚Р°: <b>'.$this->exp[$v].'</b> ('.($proc_exp+$warrior["smart"]).'%).  ','{[]}'.nick7 ($v).'{[]}');
             }
                           							If ($this->battle_data['type']==3){
 									mysql_query('UPDATE `users` SET `honorpoints`=`honorpoints`+5 WHERE `id` = '.$v.'');
-									addchp('<font color=red><b>Внимание!</b></font> Вы получили в бою <b>5</b> Благородства.' ,'{[]}'.nick7 ($v).'{[]}');								
+									addchp('<font color=red><b>Р’РЅРёРјР°РЅРёРµ!</b></font> Р’С‹ РїРѕР»СѓС‡РёР»Рё РІ Р±РѕСЋ <b>5</b> Р‘Р»Р°РіРѕСЂРѕРґСЃС‚РІР°.' ,'{[]}'.nick7 ($v).'{[]}');								
 							}
 
             mq("DELETE FROM `person_on` WHERE `id_person`='".$v."'");
             mq("UPDATE `effects` SET `isp` = '0' WHERE `owner` = '".$v."'");
             $vrag_w = mysql_fetch_array(mq("SELECT `name` FROM `bots` WHERE  `id` = ".$v." LIMIT 1 ;"));
-            if($vrag_w['name']=="Общий Враг"){mq('UPDATE users SET `win`=`win` +1 WHERE `id` = 99;');}
+            if($vrag_w['name']=="РћР±С‰РёР№ Р’СЂР°Рі"){mq('UPDATE users SET `win`=`win` +1 WHERE `id` = 99;');}
             if ($this->battleunits[$v]["additdata"]) {
               $dat=$this->battleunits[$v]["additdata"];
             } else {
@@ -4051,8 +4051,8 @@ class fbattle {
               $b=$winners1[mt_rand(0, count($winners1)-1)];
               if ($b) {
                 $r=mt_rand(1,3);
-                if ($r==1) $a=takesmallitem(65, $b, "Бой $user[battle]");
-                elseif ($r==2) $a=takesmallitem(66, $b, "Бой $user[battle]");
+                if ($r==1) $a=takesmallitem(65, $b, "Р‘РѕР№ $user[battle]");
+                elseif ($r==2) $a=takesmallitem(66, $b, "Р‘РѕР№ $user[battle]");
                 else {
                   $r=mt_rand(1,4);
                   if ($r==4) $a=takeshopitem(5, "shop", 0, 0, 2, 0, $b);
@@ -4060,7 +4060,7 @@ class fbattle {
                   elseif ($r==2) $a=takeshopitem(2, "shop", 0, 0, 2, 0, $b);
                   else $a=takeshopitem(1, "shop", 0, 0, 2, 0, $b);;
                 }
-                addchp ('Персонаж <b>'.$this->nick7($b)."</b> получил предмет \"$a[name]\"","Комментатор", $this->user["room"]);
+                addchp ('РџРµСЂСЃРѕРЅР°Р¶ <b>'.$this->nick7($b)."</b> РїРѕР»СѓС‡РёР» РїСЂРµРґРјРµС‚ \"$a[name]\"","РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ", $this->user["room"]);
               }
             }
           }
@@ -4102,12 +4102,12 @@ class fbattle {
                   } elseif (LETTERQUEST) {
                     $smallitem=63;
                   }
-                  if ($smallitem) $a=takesmallitem($smallitem, $v, "Бой $user[battle]");
+                  if ($smallitem) $a=takesmallitem($smallitem, $v, "Р‘РѕР№ $user[battle]");
                   else $a=takeshopitem($item, "shop", 0, 0, 2, 0, $v);
-                  addchp ('Персонаж <b>'.$this->nick7($v)."</b> получил предмет \"$a[name]\"","Комментатор", $this->user["room"]);
+                  addchp ('РџРµСЂСЃРѕРЅР°Р¶ <b>'.$this->nick7($v)."</b> РїРѕР»СѓС‡РёР» РїСЂРµРґРјРµС‚ \"$a[name]\"","РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ", $this->user["room"]);
                 } elseif (SNOWBALLSDROP) {
                   $a=takeshopitem(2345, "shop", 0, 0, 2, 0, $v);
-                  addchp ('Персонаж <b>'.$this->nick7($v)."</b> получил предмет \"$a[name]\"","Комментатор", $this->user["room"]);
+                  addchp ('РџРµСЂСЃРѕРЅР°Р¶ <b>'.$this->nick7($v)."</b> РїРѕР»СѓС‡РёР» РїСЂРµРґРјРµС‚ \"$a[name]\"","РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ", $this->user["room"]);
                 }
               }
             }
@@ -4121,7 +4121,7 @@ class fbattle {
               if ($v1["effect"]==INJURY) {
                 if (getchance($v1["value"])) {
                   $tr = settravma($v,1,60*30+(rand(0,30)*60),1);
-                  if ($tr) $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($v).' получил повреждение: <font color=red>'.$tr.'</font><BR>');
+                  if ($tr) $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($v).' РїРѕР»СѓС‡РёР» РїРѕРІСЂРµР¶РґРµРЅРёРµ: <font color=red>'.$tr.'</font><BR>');
                 }
               }
             }
@@ -4146,31 +4146,31 @@ class fbattle {
         }
         if (@$item && @$giveitem) {
           foreach ($giveitem as $k=>$v) {
-            if ($smallitem) $a=takesmallitem($item, $v, "Бой $user[battle]");
+            if ($smallitem) $a=takesmallitem($item, $v, "Р‘РѕР№ $user[battle]");
             else $a=takeitem($item, 1, 0, $v);
-            addchp ('Персонаж '.$this->nick7($v)." получил предмет \"$a[name]\"","Комментатор", $this->user["room"]);
+            addchp ('РџРµСЂСЃРѕРЅР°Р¶ '.$this->nick7($v)." РїРѕР»СѓС‡РёР» РїСЂРµРґРјРµС‚ \"$a[name]\"","РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ", $this->user["room"]);
           }
         }
         srand();
         foreach ((array)@$winners as $k=>$v) {
           if ($v>_BOTSEPARATOR_) continue;
           if (rand(0,10)==5 && 0) {
-            $a=takesmallitem(18, $v, "Бой $user[battle]");
+            $a=takesmallitem(18, $v, "Р‘РѕР№ $user[battle]");
             $log=$this->nick7($v);
-            addchp ("Персонаж $log получил предмет \"<b>$a[name]</b>\"","Комментатор", $this->user["room"]);
-            $this->add_log('<span class=date>'.date("H:i")."</span> $log нашёл <b>$a[name]</b>.<BR>");
+            addchp ("РџРµСЂСЃРѕРЅР°Р¶ $log РїРѕР»СѓС‡РёР» РїСЂРµРґРјРµС‚ \"<b>$a[name]</b>\"","РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ", $this->user["room"]);
+            $this->add_log('<span class=date>'.date("H:i")."</span> $log РЅР°С€С‘Р» <b>$a[name]</b>.<BR>");
           }
         }
 
         if ($this->battle_data["quest"]==4 && $maxdamageuser) {
           include_once("questfuncs.php");
           takeitem(11, 1, 0, $maxdamageuser);
-          addchp ('Феерверк получил персонаж '.$this->nick7($maxdamageuser),"Комментатор", 46);
+          addchp ('Р¤РµРµСЂРІРµСЂРє РїРѕР»СѓС‡РёР» РїРµСЂСЃРѕРЅР°Р¶ '.$this->nick7($maxdamageuser),"РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ", 46);
         }
         mq("UPDATE `users`, `bots` SET `users`.`fullhptime` = ".(time()+300).",`users`.`hp` = `bots`.`hp` WHERE `users`.id=83 AND `bots`.prototype=83;");
 
 
-        // ===================ломаем шмот=============
+        // ===================Р»РѕРјР°РµРј С€РјРѕС‚=============
         if ($lomka) {
           foreach ($lomka as $k => $v) {
             if (rand(1,3)==1){
@@ -4182,29 +4182,29 @@ class fbattle {
                 $this->exp[$v]=ceil($this->exp[$v]/7);
                 mq("update users set exp=exp+".$this->exp[$v]." where id='$v'");
               } else $this->exp[$v]=0;
-              addchp ('<font color=red>Внимание!</font> Бой закончен. Всего вами нанесено урона: <b>'.(int)$this->damage[$v].' HP</b>. Получено опыта: <b>'.$this->exp[$v].'</b> '.($this->exp[$v]?'('.($proc_exp).'%).':''), '{[]}'.nick7 ($v).'{[]}');
+              addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ. Р’СЃРµРіРѕ РІР°РјРё РЅР°РЅРµСЃРµРЅРѕ СѓСЂРѕРЅР°: <b>'.(int)$this->damage[$v].' HP</b>. РџРѕР»СѓС‡РµРЅРѕ РѕРїС‹С‚Р°: <b>'.$this->exp[$v].'</b> '.($this->exp[$v]?'('.($proc_exp).'%).':''), '{[]}'.nick7 ($v).'{[]}');
             } 
             mq("DELETE FROM `person_on` WHERE `id_person`='".$v."'");
             mq("UPDATE `effects` SET `isp` = '0' WHERE `owner` = '".$v."'");
             $vrag_w = mysql_fetch_array(mq("SELECT `name` FROM `bots` WHERE  `id` = ".$v." LIMIT 1 ;"));
-            if($vrag_w['name']=="Общий Враг"){mq('UPDATE users SET `lose`=`lose` +1 WHERE `id` = 99;');}
+            if($vrag_w['name']=="РћР±С‰РёР№ Р’СЂР°Рі"){mq('UPDATE users SET `lose`=`lose` +1 WHERE `id` = 99;');}
             mq('UPDATE `users` SET `lose`=`lose` +1 WHERE `id` = \''.$v.'\';');
-            // если поединок был кровавым - еще и ставм травмы
+            // РµСЃР»Рё РїРѕРµРґРёРЅРѕРє Р±С‹Р» РєСЂРѕРІР°РІС‹Рј - РµС‰Рµ Рё СЃС‚Р°РІРј С‚СЂР°РІРјС‹
           }
         }
         if ($this->battle_data["type"]!=4) {
           foreach ($this->t1 as $k => $v) {
             $us = mq('SELECT duration, maxdur, name FROM `inventory` WHERE `type` <> 25 AND `type` <> 187 and `dressed` = 1 AND `owner` = \''.$v.'\';');
             while ($rrow=mysql_fetch_row($us)) {
-              if (($rrow[1]-$rrow[0])==1) $this->add_log('<span class=date>'.date("H:i").'</span> Внимание! У "'.$this->nick7($v).'" предмет "'.$rrow[2].'" в критическом состоянии! <BR><small>(на правах рекламы) <b>Ремонтная мастерская BestCombats</b>. Мы даем вторую жизнь старым вещам!</small><BR>');
-              elseif (($rrow[1]-$rrow[0])==2) $this->add_log('<span class=date>'.date("H:i").'</span> Внимание! У "'.$this->nick7($v).'" предмет "'.$rrow[2].'" нуждается в ремонте! <BR><small>(на правах рекламы) <b>Ремонтная мастерская BestCombats</b>. Мы даем вторую жизнь старым вещам!</small><BR>');
+              if (($rrow[1]-$rrow[0])==1) $this->add_log('<span class=date>'.date("H:i").'</span> Р’РЅРёРјР°РЅРёРµ! РЈ "'.$this->nick7($v).'" РїСЂРµРґРјРµС‚ "'.$rrow[2].'" РІ РєСЂРёС‚РёС‡РµСЃРєРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё! <BR><small>(РЅР° РїСЂР°РІР°С… СЂРµРєР»Р°РјС‹) <b>Р РµРјРѕРЅС‚РЅР°СЏ РјР°СЃС‚РµСЂСЃРєР°СЏ BestCombats</b>. РњС‹ РґР°РµРј РІС‚РѕСЂСѓСЋ Р¶РёР·РЅСЊ СЃС‚Р°СЂС‹Рј РІРµС‰Р°Рј!</small><BR>');
+              elseif (($rrow[1]-$rrow[0])==2) $this->add_log('<span class=date>'.date("H:i").'</span> Р’РЅРёРјР°РЅРёРµ! РЈ "'.$this->nick7($v).'" РїСЂРµРґРјРµС‚ "'.$rrow[2].'" РЅСѓР¶РґР°РµС‚СЃСЏ РІ СЂРµРјРѕРЅС‚Рµ! <BR><small>(РЅР° РїСЂР°РІР°С… СЂРµРєР»Р°РјС‹) <b>Р РµРјРѕРЅС‚РЅР°СЏ РјР°СЃС‚РµСЂСЃРєР°СЏ BestCombats</b>. РњС‹ РґР°РµРј РІС‚РѕСЂСѓСЋ Р¶РёР·РЅСЊ СЃС‚Р°СЂС‹Рј РІРµС‰Р°Рј!</small><BR>');
             }
           }
           foreach ($this->t2 as $k => $v) {
             $us = mq('SELECT duration, maxdur, name FROM `inventory` WHERE `type` <> 25 AND `type` <> 187 AND `dressed` = 1 AND `owner` = \''.$v.'\';');
             while ($rrow=mysql_fetch_row($us)) {
-              if (($rrow[1]-$rrow[0])==1) $this->add_log('<span class=date>'.date("H:i").'</span> Внимание! У "'.$this->nick7($v).'" предмет '.$rrow[2].' в критическом состоянии! <BR><small>(на правах рекламы) <b>Ремонтная мастерская BestCombats</b>. Мы даем вторую жизнь старым вещам!</small><BR>');
-              elseif (($rrow[1]-$rrow[0])==2) $this->add_log('<span class=date>'.date("H:i").'</span> Внимание! У "'.$this->nick7($v).'" предмет "'.$rrow[2].'" нуждается в ремонте! <BR><small>(на правах рекламы) <b>Ремонтная мастерская BestCombats</b>. Мы даем вторую жизнь старым вещам!</small><BR>');
+              if (($rrow[1]-$rrow[0])==1) $this->add_log('<span class=date>'.date("H:i").'</span> Р’РЅРёРјР°РЅРёРµ! РЈ "'.$this->nick7($v).'" РїСЂРµРґРјРµС‚ '.$rrow[2].' РІ РєСЂРёС‚РёС‡РµСЃРєРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё! <BR><small>(РЅР° РїСЂР°РІР°С… СЂРµРєР»Р°РјС‹) <b>Р РµРјРѕРЅС‚РЅР°СЏ РјР°СЃС‚РµСЂСЃРєР°СЏ BestCombats</b>. РњС‹ РґР°РµРј РІС‚РѕСЂСѓСЋ Р¶РёР·РЅСЊ СЃС‚Р°СЂС‹Рј РІРµС‰Р°Рј!</small><BR>');
+              elseif (($rrow[1]-$rrow[0])==2) $this->add_log('<span class=date>'.date("H:i").'</span> Р’РЅРёРјР°РЅРёРµ! РЈ "'.$this->nick7($v).'" РїСЂРµРґРјРµС‚ "'.$rrow[2].'" РЅСѓР¶РґР°РµС‚СЃСЏ РІ СЂРµРјРѕРЅС‚Рµ! <BR><small>(РЅР° РїСЂР°РІР°С… СЂРµРєР»Р°РјС‹) <b>Р РµРјРѕРЅС‚РЅР°СЏ РјР°СЃС‚РµСЂСЃРєР°СЏ BestCombats</b>. РњС‹ РґР°РµРј РІС‚РѕСЂСѓСЋ Р¶РёР·РЅСЊ СЃС‚Р°СЂС‹Рј РІРµС‰Р°Рј!</small><BR>');
             }
           }
         }
@@ -4218,20 +4218,20 @@ class fbattle {
         }
 
         if($winers) {
-          $this->add_log('<span class=date>'.date("H:i").'</span> '.'Бой закончен, победа за <B>'.$winers.'</B><BR>');
+          $this->add_log('<span class=date>'.date("H:i").'</span> '.'Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ, РїРѕР±РµРґР° Р·Р° <B>'.$winers.'</B><BR>');
           if($this->battle_data['blood']) {
-            $this->add_log('<span class=date>'.date("H:i").'</span> ... и победители стали калечить проигравших...<BR>');
+            $this->add_log('<span class=date>'.date("H:i").'</span> ... Рё РїРѕР±РµРґРёС‚РµР»Рё СЃС‚Р°Р»Рё РєР°Р»РµС‡РёС‚СЊ РїСЂРѕРёРіСЂР°РІС€РёС…...<BR>');
             foreach ($lomka as $k => $v) {
               if($this->battle_data['blood']==2) {
                 $tr = settravma($v,13,86400,1);
               } else {
                 $tr = settravma($v,0,86400,1);
               }
-              if ($tr) $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($v).' получил повреждение: <font color=red>'.$tr.'</font><BR>');
+              if ($tr) $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($v).' РїРѕР»СѓС‡РёР» РїРѕРІСЂРµР¶РґРµРЅРёРµ: <font color=red>'.$tr.'</font><BR>');
             }
           }
         } else {
-          $this->add_log('<span class=date>'.date("H:i").'</span> '.'Бой закончен. Ничья.<BR>');
+          $this->add_log('<span class=date>'.date("H:i").'</span> '.'Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ. РќРёС‡СЊСЏ.<BR>');
           foreach ($this->userdata as $k=>$v) {
             if ($k<_BOTSEPARATOR_) {
               if ($v["level"]<=1) {
@@ -4239,14 +4239,14 @@ class fbattle {
                 $this->exp[$k]=ceil($this->exp[$k]/7);
                 mq("update users set exp=exp+".$this->exp[$k]." where id='$k'");
               } else $this->exp[$k]=0;
-              addchp ('<font color=red>Внимание!</font> Бой закончен. Всего вами нанесено урона: <b>'.(int)$this->damage[$k].' HP</b>. Получено опыта: <b>'.$this->exp[$k].'</b> '.($this->exp[$k]?'('.($proc_exp).'%).':''), '{[]}'.nick7 ($k).'{[]}');
+              addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ. Р’СЃРµРіРѕ РІР°РјРё РЅР°РЅРµСЃРµРЅРѕ СѓСЂРѕРЅР°: <b>'.(int)$this->damage[$k].' HP</b>. РџРѕР»СѓС‡РµРЅРѕ РѕРїС‹С‚Р°: <b>'.$this->exp[$k].'</b> '.($this->exp[$k]?'('.($proc_exp).'%).':''), '{[]}'.nick7 ($k).'{[]}');
             }
           }
           $vrag_w = mysql_fetch_array(mq("SELECT `name` FROM `bots` WHERE  `battle` = ".$this->user['battle']." LIMIT 1 ;"));
-          if($vrag_w['name']=="Общий Враг"){mq('UPDATE users SET `nich`=`nich` +1 WHERE `id` = 99;');}
+          if($vrag_w['name']=="РћР±С‰РёР№ Р’СЂР°Рі"){mq('UPDATE users SET `nich`=`nich` +1 WHERE `id` = 99;');}
           mq("UPDATE users SET `nich` = `nich`+'1',`fullhptime` = ".time().",`fullmptime` = ".time().",`udar` = '0' WHERE `battle` = {$this->user['battle']}");
 
-           ////////////////при пройгрыше = для подземки///////////////////
+           ////////////////РїСЂРё РїСЂРѕР№РіСЂС‹С€Рµ = РґР»СЏ РїРѕРґР·РµРјРєРё///////////////////
            $sd=mq("SELECT glav_id,boi,glava,dead,name FROM `labirint` WHERE `user_id`=".$this->user['id']." and `di`='0'");
            if($dd=mysql_fetch_array($sd)) {
              $glav_id = $dd["glav_id"];
@@ -4263,22 +4263,22 @@ class fbattle {
 
         if ($this->battle_data["room"]==72) {
           foreach ($this->userdata as $k=>$v) {
-            if ($v["hp"]>0) mq("insert into effects set owner='$k', name='Защита от нападений', time=".(time()+60).", isp=1, type=".PROTFROMATTACK);
+            if ($v["hp"]>0) mq("insert into effects set owner='$k', name='Р—Р°С‰РёС‚Р° РѕС‚ РЅР°РїР°РґРµРЅРёР№', time=".(time()+60).", isp=1, type=".PROTFROMATTACK);
           }
         }
 
         // sys
         if ($flag==1) {
-          $rr = implode("</B>, <B>",$nks1)."<img src=http://img.bestcombats.net/battle/flag.gif></B> и <B>".implode("</B>, <B>",$nks2);
+          $rr = implode("</B>, <B>",$nks1)."<img src=http://img.bestcombats.net/battle/flag.gif></B> Рё <B>".implode("</B>, <B>",$nks2);
         } elseif ($flag==2) {
-          $rr = implode("</B>, <B>",$nks1)."</B> и <B>".implode("</B>, <B>",$nks2)."<img src=http://img.bestcombats.net/battle/flag.gif>";
+          $rr = implode("</B>, <B>",$nks1)."</B> Рё <B>".implode("</B>, <B>",$nks2)."<img src=http://img.bestcombats.net/battle/flag.gif>";
         } else {
-          $rr = implode("</B>, <B>",$nks1)."</B> и <B>".implode("</B>, <B>",$nks2)."";
+          $rr = implode("</B>, <B>",$nks1)."</B> Рё <B>".implode("</B>, <B>",$nks2)."";
         }
-        // выносим хп-ку и выходим из боя
+        // РІС‹РЅРѕСЃРёРј С…Рї-РєСѓ Рё РІС‹С…РѕРґРёРј РёР· Р±РѕСЏ
 
         mq('UPDATE `battle` SET `t1hist` = \''.implode(", ",$nks1hist).'\', `t2hist` = \''.implode(", ",$nks2hist).'\' WHERE `id` = '.$this->battle_data['id'].' ;');
-        addch ("<a href=logs.php?log=".$this->battle_data['id']." target=_blank>Поединок</a> между <B>".$rr."</B> закончен.   ",$user['room']);
+        addch ("<a href=logs.php?log=".$this->battle_data['id']." target=_blank>РџРѕРµРґРёРЅРѕРє</a> РјРµР¶РґСѓ <B>".$rr."</B> Р·Р°РєРѕРЅС‡РµРЅ.   ",$user['room']);
         mq('UPDATE `battle` SET `exp` = \''.serialize($this->exp).'\' WHERE `id` = '.$this->battle_data['id'].' ;');
         mq("DELETE FROM `bots` WHERE `battle` = {$this->user['battle']};");
         mq("DELETE FROM battleunits WHERE `battle` = {$this->user['battle']};");
@@ -4299,12 +4299,12 @@ class fbattle {
     return false;
   }
 /*-------------------------------------------------------------------
-  gora - я победил
+  gora - СЏ РїРѕР±РµРґРёР»
 --------------------------------------------------------------------*/
   function end_gora() {
-      // я - царь горы
+      // СЏ - С†Р°СЂСЊ РіРѕСЂС‹
           if ($this->get_timeout()) {
-              //$this->add_log("<span class=date>".date("H:i")."</span> Бой закончен по таймауту.<BR>");
+              //$this->add_log("<span class=date>".date("H:i")."</span> Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ РїРѕ С‚Р°Р№РјР°СѓС‚Сѓ.<BR>");
               //$this->write_log ();
 
               foreach ($this->team_mine as $v) {
@@ -4313,7 +4313,7 @@ class fbattle {
                         // $this->add_log("<BR>".$v);
                    }
               }
-              $this->add_log("<span class=date>".date("H:i")."</span> Бой закончен по таймауту.<BR>");
+              $this->add_log("<span class=date>".date("H:i")."</span> Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ РїРѕ С‚Р°Р№РјР°СѓС‚Сѓ.<BR>");
               $this->needupdate=1;
               //$this->needrefresh=1;
 
@@ -4327,7 +4327,7 @@ class fbattle {
                   if($us && (int)$us['hp']>0) {
                       if(!$this->battle_data['blood']) {
                           $tr = settravma($k,0,86400,1);
-                          if ($tr) $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($k).' получил повреждение: <font color=red>'.$tr.'</font><BR>');
+                          if ($tr) $this->add_log('<span class=date>'.date("H:i").'</span> '.$this->nick7($k).' РїРѕР»СѓС‡РёР» РїРѕРІСЂРµР¶РґРµРЅРёРµ: <font color=red>'.$tr.'</font><BR>');
                       }
                   }
               }
@@ -4341,7 +4341,7 @@ class fbattle {
   }
 
 /*-------------------------------------------------------------------
-  draft - ничья
+  draft - РЅРёС‡СЊСЏ
 --------------------------------------------------------------------*/
   function end_draft() {
       if(!$this->user['in_tower']) {
@@ -4349,7 +4349,7 @@ class fbattle {
               $this->battle = null;                                                                                                                                
               mq("UPDATE users SET `battle` =0, `nich` = `nich`+'1',`fullhptime` = ".time().",`fullmptime` = ".time()." WHERE `battle` =".$this->battle_data['id']);
               //mq('UPDATE `users` SET `hp2` = 0,`hp3` = 0,`hit` = 0,`s_duh` = 0,`krit` = 0,`counter` = 0,`block2` = 0,`parry` = 0  WHERE `battle` = '.$this->user['battle'].'');
-              $this->add_log("<span class=date>".date("H:i")."</span> Бой закончен по таймауту. Ничья.<BR>");
+              $this->add_log("<span class=date>".date("H:i")."</span> Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ РїРѕ С‚Р°Р№РјР°СѓС‚Сѓ. РќРёС‡СЊСЏ.<BR>");
               mq("UPDATE battle SET `win` = 0 WHERE `id` = {$this->user['battle']}");
               $this->exp = null;
               $this->write_log ();
@@ -4408,11 +4408,11 @@ function killplayer($us) {
       $this->addstroke("spirit_block25", $us["id"], 2);
     }
     if($us['sex'] == 1) {
-      //$blablа = array('побежден великим войном по имени ','повержен ударом воителя, известного под именем ','проиграл бой с небольшой помощью от бойца, известного в этом мире, как','погиб от удара бойца');      
-      $this->add_log('<span class=sysdate>'.date("H:i").'</span> '.$nick.' побеждён... '.$nick.' спасён.<BR>');
+      //$blablР° = array('РїРѕР±РµР¶РґРµРЅ РІРµР»РёРєРёРј РІРѕР№РЅРѕРј РїРѕ РёРјРµРЅРё ','РїРѕРІРµСЂР¶РµРЅ СѓРґР°СЂРѕРј РІРѕРёС‚РµР»СЏ, РёР·РІРµСЃС‚РЅРѕРіРѕ РїРѕРґ РёРјРµРЅРµРј ','РїСЂРѕРёРіСЂР°Р» Р±РѕР№ СЃ РЅРµР±РѕР»СЊС€РѕР№ РїРѕРјРѕС‰СЊСЋ РѕС‚ Р±РѕР№С†Р°, РёР·РІРµСЃС‚РЅРѕРіРѕ РІ СЌС‚РѕРј РјРёСЂРµ, РєР°Рє','РїРѕРіРёР± РѕС‚ СѓРґР°СЂР° Р±РѕР№С†Р°');      
+      $this->add_log('<span class=sysdate>'.date("H:i").'</span> '.$nick.' РїРѕР±РµР¶РґС‘РЅ... '.$nick.' СЃРїР°СЃС‘РЅ.<BR>');
     } else {
-      //$blabla1 = array('побеждена великим войном по имени ','повержена ударом воителя, известного под именем ','проиграла бой с небольшой помощью от бойца, известного в этом мире, как','погибла от удара бойца');
-      $this->add_log('<span class=sysdate>'.date("H:i").'</span> '.$nick.' проиграла... '.$nick.' спасена.<BR>');
+      //$blabla1 = array('РїРѕР±РµР¶РґРµРЅР° РІРµР»РёРєРёРј РІРѕР№РЅРѕРј РїРѕ РёРјРµРЅРё ','РїРѕРІРµСЂР¶РµРЅР° СѓРґР°СЂРѕРј РІРѕРёС‚РµР»СЏ, РёР·РІРµСЃС‚РЅРѕРіРѕ РїРѕРґ РёРјРµРЅРµРј ','РїСЂРѕРёРіСЂР°Р»Р° Р±РѕР№ СЃ РЅРµР±РѕР»СЊС€РѕР№ РїРѕРјРѕС‰СЊСЋ РѕС‚ Р±РѕР№С†Р°, РёР·РІРµСЃС‚РЅРѕРіРѕ РІ СЌС‚РѕРј РјРёСЂРµ, РєР°Рє','РїРѕРіРёР±Р»Р° РѕС‚ СѓРґР°СЂР° Р±РѕР№С†Р°');
+      $this->add_log('<span class=sysdate>'.date("H:i").'</span> '.$nick.' РїСЂРѕРёРіСЂР°Р»Р°... '.$nick.' СЃРїР°СЃРµРЅР°.<BR>');
     }
   } else {
     if ($us["id"]<_BOTSEPARATOR_) {
@@ -4438,18 +4438,18 @@ function killplayer($us) {
       foreach ($t1v as $ff => $ll) {
         $zashc = mysql_fetch_array(mq("SELECT name FROM `effects` WHERE `owner` = ".$ll." and `type`=395 limit 1;"));
         if(!$zashc) {
-          mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$ll."','Защитник клуба',".(time()+2592000).",395);");
+          mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('".$ll."','Р—Р°С‰РёС‚РЅРёРє РєР»СѓР±Р°',".(time()+2592000).",395);");
         } else {
           mq("UPDATE `effects` `time` = '".(time()+2592000)."' WHERE `owner` = ".$ll." AND `type`=395");
         }
       }
     }
     if($us['sex'] == 1) {
-      //$blablа = array('побежден великим войном по имени ','повержен ударом воителя, известного под именем ','проиграл бой с небольшой помощью от бойца, известного в этом мире, как','погиб от удара бойца');
-      $this->add_log('<span class=sysdate>'.date("H:i").'</span> '.$this->nick5($us["id"],'b').' побежден!<BR>');
+      //$blablР° = array('РїРѕР±РµР¶РґРµРЅ РІРµР»РёРєРёРј РІРѕР№РЅРѕРј РїРѕ РёРјРµРЅРё ','РїРѕРІРµСЂР¶РµРЅ СѓРґР°СЂРѕРј РІРѕРёС‚РµР»СЏ, РёР·РІРµСЃС‚РЅРѕРіРѕ РїРѕРґ РёРјРµРЅРµРј ','РїСЂРѕРёРіСЂР°Р» Р±РѕР№ СЃ РЅРµР±РѕР»СЊС€РѕР№ РїРѕРјРѕС‰СЊСЋ РѕС‚ Р±РѕР№С†Р°, РёР·РІРµСЃС‚РЅРѕРіРѕ РІ СЌС‚РѕРј РјРёСЂРµ, РєР°Рє','РїРѕРіРёР± РѕС‚ СѓРґР°СЂР° Р±РѕР№С†Р°');
+      $this->add_log('<span class=sysdate>'.date("H:i").'</span> '.$this->nick5($us["id"],'b').' РїРѕР±РµР¶РґРµРЅ!<BR>');
     } else {
-      //$blabla1 = array('побеждена великим войном по имени ','повержена ударом воителя, известного под именем ','проиграла бой с небольшой помощью от бойца, известного в этом мире, как','погибла от удара бойца');
-      $this->add_log('<span class=sysdate>'.date("H:i").'</span> '.$this->nick5($us["id"],'b').' проиграла!<BR>');
+      //$blabla1 = array('РїРѕР±РµР¶РґРµРЅР° РІРµР»РёРєРёРј РІРѕР№РЅРѕРј РїРѕ РёРјРµРЅРё ','РїРѕРІРµСЂР¶РµРЅР° СѓРґР°СЂРѕРј РІРѕРёС‚РµР»СЏ, РёР·РІРµСЃС‚РЅРѕРіРѕ РїРѕРґ РёРјРµРЅРµРј ','РїСЂРѕРёРіСЂР°Р»Р° Р±РѕР№ СЃ РЅРµР±РѕР»СЊС€РѕР№ РїРѕРјРѕС‰СЊСЋ РѕС‚ Р±РѕР№С†Р°, РёР·РІРµСЃС‚РЅРѕРіРѕ РІ СЌС‚РѕРј РјРёСЂРµ, РєР°Рє','РїРѕРіРёР±Р»Р° РѕС‚ СѓРґР°СЂР° Р±РѕР№С†Р°');
+      $this->add_log('<span class=sysdate>'.date("H:i").'</span> '.$this->nick5($us["id"],'b').' РїСЂРѕРёРіСЂР°Р»Р°!<BR>');
     }
     if ($us["id"]<_BOTSEPARATOR_) mq('UPDATE `users` SET `hp` = 0, `fullhptime` = '.time().', `fullmptime` = '.time().' WHERE `id` = \''.$us["id"].'\' LIMIT 1;');
     $this->remplayer($us["id"]);
@@ -4473,11 +4473,11 @@ function remplayer($user) {
 }
 
 /*-------------------------------------------------------------------
- мочим трупов
+ РјРѕС‡РёРј С‚СЂСѓРїРѕРІ
 --------------------------------------------------------------------*/
   function fast_death() {
     global $user;
-    // убиваем трупов
+    // СѓР±РёРІР°РµРј С‚СЂСѓРїРѕРІ
     if($this->battle) {
       $i=0;
       //$this->battle[$this->user['id']]=1;
@@ -4509,15 +4509,15 @@ function remplayer($user) {
         }
         unset($us);
       }
-      // обновить битку
+      // РѕР±РЅРѕРІРёС‚СЊ Р±РёС‚РєСѓ
     }
   }
 /*-------------------------------------------------------------------
- выставляем команды, и противников/союзников
+ РІС‹СЃС‚Р°РІР»СЏРµРј РєРѕРјР°РЅРґС‹, Рё РїСЂРѕС‚РёРІРЅРёРєРѕРІ/СЃРѕСЋР·РЅРёРєРѕРІ
 --------------------------------------------------------------------*/
   function sort_teams() {
     global $user;
-    // режем тимзы
+    // СЂРµР¶РµРј С‚РёРјР·С‹
     $this->t1 = explode(";",$this->battle_data['t1']);
     $this->t2 = explode(";",$this->battle_data['t2']);
     if ($this->user["hp"]>0 && count($this->battle)>0) {
@@ -4552,7 +4552,7 @@ function remplayer($user) {
         else $this->t2[]=$k;
       }
     }
-    // проставляем кто-где
+    // РїСЂРѕСЃС‚Р°РІР»СЏРµРј РєС‚Рѕ-РіРґРµ
     if (in_array ($this->user['id'],$this->t1)) {
       $this->my_class = "B1";
       $this->en_class = "B2";
@@ -4567,7 +4567,7 @@ function remplayer($user) {
     $this->myteam=(in_array($this->user['id'],$this->t1)?1:2);
   }
 /*-------------------------------------------------------------------
- считаем опыт
+ СЃС‡РёС‚Р°РµРј РѕРїС‹С‚
 --------------------------------------------------------------------*/
 function solve_exp ($at_id,$def_id,$damage) {
   if ($at_id>_BOTSEPARATOR_ || $damage<0) return 0;
@@ -4643,13 +4643,13 @@ function solve_exp ($at_id,$def_id,$damage) {
                     $def_cost = mysql_fetch_array(mq("select 1+IFNULL((select SUM(cost)+(SUM(ecost)*8) FROM inventory WHERE owner = users.id AND dressed=1),0), `align` FROM users WHERE id = ".$def_id." LIMIT 1;"));
                     $kulak2 = mysql_fetch_array(mq("select SUM(cost)+(SUM(ecost)*10) FROM inventory WHERE owner = ".$def_id." AND dressed=1 LIMIT 1;"));*/
 
-                    // модификаторы опыта
-                    // 100% опыта
+                    // РјРѕРґРёС„РёРєР°С‚РѕСЂС‹ РѕРїС‹С‚Р°
+                    // 100% РѕРїС‹С‚Р°
                     //$expmf = 1;
-                    // 200% опыта
+                    // 200% РѕРїС‹С‚Р°
                     $expmf = 2;
 
-                    //первичка
+                    //РїРµСЂРІРёС‡РєР°
                     if ($at['sergi']==0 && $at['kulon']==0 && $at['bron']==0 && $at['r1']==0 && $at['r2']==0 && $at['r3']==0 && $at['helm']==0
                             && $at['perchi']==0 && $at['boots']==0 && $at['m1']==0 && $at['m2']==0 && $at['m3']==0 && $at['m4']==0 && $at['m5']==0
                             && $at['m6']==0 && $at['m7']==0 && $at['m8']==0 && $at['m9']==0 && $at['m10']==0
@@ -4661,7 +4661,7 @@ function solve_exp ($at_id,$def_id,$damage) {
 
                     }
 
-                    //кулонка
+                    //РєСѓР»РѕРЅРєР°
                     if ($at['sergi']==0 && $at['bron']==0 && $at['helm']==0
                             && $at['perchi']==0 && $at['boots']==0 && $at['m1']==0 && $at['m2']==0 && $at['m3']==0 && $at['m4']==0 && $at['m5']==0
                             && $at['m6']==0 && $at['m7']==0 && $at['m8']==0 && $at['m9']==0 && $at['m10']==0
@@ -4672,7 +4672,7 @@ function solve_exp ($at_id,$def_id,$damage) {
 
                     }
 
-                    if($this->battle_data['blood']) {//кровавые массовые
+                    if($this->battle_data['blood']) {//РєСЂРѕРІР°РІС‹Рµ РјР°СЃСЃРѕРІС‹Рµ
                         if (($this->t1+$this->t2)>=$krov_bitv && ($this->t1+$this->t2)<$krov_rez){
                             $expmf = $expmf*$mods['krov_op'];
                         }
@@ -4680,7 +4680,7 @@ function solve_exp ($at_id,$def_id,$damage) {
                         elseif (($this->t1+$this->t2)>=$krov_sech) $expmf = $expmf*$mods['krovs_op'];
 
 
-                    } else { //обычные массовые
+                    } else { //РѕР±С‹С‡РЅС‹Рµ РјР°СЃСЃРѕРІС‹Рµ
                       if (($this->t1+$this->t2)>=$velikaya && ($this->t1+$this->t2)<$velichayshaya)   $expmf = $expmf*$mods['vel_op'];
                       elseif (($this->t1+$this->t2)>=$velichayshaya && ($this->t1+$this->t2)<$epohalnaya) $expmf = $expmf*$mods['velich_op'];
                       elseif (($this->t1+$this->t2)>=$epohalnaya) $expmf = $expmf*$mods['epoh_op'];
@@ -4790,7 +4790,7 @@ if ($this->battleunits[$at_id]["expbonus"]) $result*=1+($this->battleunits[$at_i
                     return $result;
             }
 /*-------------------------------------------------------------------
- инициализируем размен
+ РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј СЂР°Р·РјРµРЅ
 --------------------------------------------------------------------*/
 function razmen_init ($enemy,$attack,$defend,$attack1,$attack2,$attack3,$attack4) {
     global $user, $strokes;
@@ -4799,22 +4799,22 @@ function razmen_init ($enemy,$attack,$defend,$attack1,$attack2,$attack3,$attack4
     $this->currentenemy=$enemy;
     include 'incl/razmen.php';
     if($this->enemy > 0) {
-      // табличка удара-блока
+      // С‚Р°Р±Р»РёС‡РєР° СѓРґР°СЂР°-Р±Р»РѕРєР°
       $this->return = 1;
     } else {
-      //проверяем тайм
+      //РїСЂРѕРІРµСЂСЏРµРј С‚Р°Р№Рј
       if ($this->get_timeout() && $user['hp'] > 0) {
-        // табличка тайма
+        // С‚Р°Р±Р»РёС‡РєР° С‚Р°Р№РјР°
         $this->return = 3;
       } else {
-        // ожидаем хода...
+        // РѕР¶РёРґР°РµРј С…РѕРґР°...
         $this->return = 2;
       }
     }
     if ($user["hp"]<=0) $this->return=2;
 }
 /*------------------------------------------------------------------
- получаем тип оружия
+ РїРѕР»СѓС‡Р°РµРј С‚РёРї РѕСЂСѓР¶РёСЏ
 --------------------------------------------------------------------*/
 function get_wep_type($idwep) {
   static $wts;
@@ -4859,7 +4859,7 @@ function otdeltoweptype($otdel) {
   }
 }
 /*------------------------------------------------------------------
- генератор ударов =)
+ РіРµРЅРµСЂР°С‚РѕСЂ СѓРґР°СЂРѕРІ =)
 --------------------------------------------------------------------*/
 function razmen_log($type,$kuda,$chem,$uron,$kto,$c1,$pokomy,$c2,$hp,$maxhp, $block, $prof=0) {
   global $takenbybarrier;
@@ -4890,7 +4890,7 @@ function razmen_log($type,$kuda,$chem,$uron,$kto,$c1,$pokomy,$c2,$hp,$maxhp, $bl
   $maxhp=round($maxhp);
   $nick5pokomy=$this->nick5($pokomy,$c2);
   $hits=$this->hits($kuda, $block, $pokomy, $c1);
-  if (strpos($nick5pokomy,"<i>невидимка</i>")) {
+  if (strpos($nick5pokomy,"<i>РЅРµРІРёРґРёРјРєР°</i>")) {
     $hp="??";
     $maxhp="??";
   }
@@ -4911,253 +4911,253 @@ function razmen_log($type,$kuda,$chem,$uron,$kto,$c1,$pokomy,$c2,$hp,$maxhp, $bl
 
   if($hp < 0) { $hp = 0; }
 
-                    // текст по промазыванию
+                    // С‚РµРєСЃС‚ РїРѕ РїСЂРѕРјР°Р·С‹РІР°РЅРёСЋ
   if (!$sex1) {
-    $textfail = array ( 'думал о <вырезано цензурой>, вследствие чего',
-    'пытался нанести удар, но ',
-    'подскользнулся, и',
-    'старался провести удар, но',
-    'закашлялся, и',
-    'пытался провести удар, но',
-    'потерял самоконтроль, вследствие чего',
-    'думал не о том, и');
+    $textfail = array ( 'РґСѓРјР°Р» Рѕ <РІС‹СЂРµР·Р°РЅРѕ С†РµРЅР·СѓСЂРѕР№>, РІСЃР»РµРґСЃС‚РІРёРµ С‡РµРіРѕ',
+    'РїС‹С‚Р°Р»СЃСЏ РЅР°РЅРµСЃС‚Рё СѓРґР°СЂ, РЅРѕ ',
+    'РїРѕРґСЃРєРѕР»СЊР·РЅСѓР»СЃСЏ, Рё',
+    'СЃС‚Р°СЂР°Р»СЃСЏ РїСЂРѕРІРµСЃС‚Рё СѓРґР°СЂ, РЅРѕ',
+    'Р·Р°РєР°С€Р»СЏР»СЃСЏ, Рё',
+    'РїС‹С‚Р°Р»СЃСЏ РїСЂРѕРІРµСЃС‚Рё СѓРґР°СЂ, РЅРѕ',
+    'РїРѕС‚РµСЂСЏР» СЃР°РјРѕРєРѕРЅС‚СЂРѕР»СЊ, РІСЃР»РµРґСЃС‚РІРёРµ С‡РµРіРѕ',
+    'РґСѓРјР°Р» РЅРµ Рѕ С‚РѕРј, Рё');
   } else {
-    $textfail = array ( 'думала о <вырезано цензурой>, вследствие чего',
-    'пыталась нанести удар, но ',
-    'подскользнулась, и',
-    'старалась провести удар, но',
-    'закашлялась, и',
-    'пыталась провести удар, но ',
-    'потеряла самоконтроль, вследствие чего',
-    'думала не о том, и');
+    $textfail = array ( 'РґСѓРјР°Р»Р° Рѕ <РІС‹СЂРµР·Р°РЅРѕ С†РµРЅР·СѓСЂРѕР№>, РІСЃР»РµРґСЃС‚РІРёРµ С‡РµРіРѕ',
+    'РїС‹С‚Р°Р»Р°СЃСЊ РЅР°РЅРµСЃС‚Рё СѓРґР°СЂ, РЅРѕ ',
+    'РїРѕРґСЃРєРѕР»СЊР·РЅСѓР»Р°СЃСЊ, Рё',
+    'СЃС‚Р°СЂР°Р»Р°СЃСЊ РїСЂРѕРІРµСЃС‚Рё СѓРґР°СЂ, РЅРѕ',
+    'Р·Р°РєР°С€Р»СЏР»Р°СЃСЊ, Рё',
+    'РїС‹С‚Р°Р»Р°СЃСЊ РїСЂРѕРІРµСЃС‚Рё СѓРґР°СЂ, РЅРѕ ',
+    'РїРѕС‚РµСЂСЏР»Р° СЃР°РјРѕРєРѕРЅС‚СЂРѕР»СЊ, РІСЃР»РµРґСЃС‚РІРёРµ С‡РµРіРѕ',
+    'РґСѓРјР°Р»Р° РЅРµ Рѕ С‚РѕРј, Рё');
   }
-  // чем били
+  // С‡РµРј Р±РёР»Рё
   $textchem = array (
-    "kulak" => array("грудью","ребром руки","лбом","кулаком","ногой","левой ногой","правой ногой","коленом"),
-    "noj" => array("ножом","тыльной стороной лезвия ножа","рукоятью ножа","лезвием ножа"),
-    "dubina" => array("сучковатой палкой","поленом","тяжелой дубиной","дубиной","рукоятью молота"),
-    "topor" => array("секирой","топором","лезвием секиры","алебардой","тяжелым держаком","длинной секирой"),
-    "mech" => array("ножнами","гардой","мечом","лезвием меча","рукоятью меча","тупым лезвием","острой стороной меча","огромным мечом",),
-    "buket" => array("охапкой цветов","веником","букетом","колючками","снопом","стеблем","листьями","бутоном",)
+    "kulak" => array("РіСЂСѓРґСЊСЋ","СЂРµР±СЂРѕРј СЂСѓРєРё","Р»Р±РѕРј","РєСѓР»Р°РєРѕРј","РЅРѕРіРѕР№","Р»РµРІРѕР№ РЅРѕРіРѕР№","РїСЂР°РІРѕР№ РЅРѕРіРѕР№","РєРѕР»РµРЅРѕРј"),
+    "noj" => array("РЅРѕР¶РѕРј","С‚С‹Р»СЊРЅРѕР№ СЃС‚РѕСЂРѕРЅРѕР№ Р»РµР·РІРёСЏ РЅРѕР¶Р°","СЂСѓРєРѕСЏС‚СЊСЋ РЅРѕР¶Р°","Р»РµР·РІРёРµРј РЅРѕР¶Р°"),
+    "dubina" => array("СЃСѓС‡РєРѕРІР°С‚РѕР№ РїР°Р»РєРѕР№","РїРѕР»РµРЅРѕРј","С‚СЏР¶РµР»РѕР№ РґСѓР±РёРЅРѕР№","РґСѓР±РёРЅРѕР№","СЂСѓРєРѕСЏС‚СЊСЋ РјРѕР»РѕС‚Р°"),
+    "topor" => array("СЃРµРєРёСЂРѕР№","С‚РѕРїРѕСЂРѕРј","Р»РµР·РІРёРµРј СЃРµРєРёСЂС‹","Р°Р»РµР±Р°СЂРґРѕР№","С‚СЏР¶РµР»С‹Рј РґРµСЂР¶Р°РєРѕРј","РґР»РёРЅРЅРѕР№ СЃРµРєРёСЂРѕР№"),
+    "mech" => array("РЅРѕР¶РЅР°РјРё","РіР°СЂРґРѕР№","РјРµС‡РѕРј","Р»РµР·РІРёРµРј РјРµС‡Р°","СЂСѓРєРѕСЏС‚СЊСЋ РјРµС‡Р°","С‚СѓРїС‹Рј Р»РµР·РІРёРµРј","РѕСЃС‚СЂРѕР№ СЃС‚РѕСЂРѕРЅРѕР№ РјРµС‡Р°","РѕРіСЂРѕРјРЅС‹Рј РјРµС‡РѕРј",),
+    "buket" => array("РѕС…Р°РїРєРѕР№ С†РІРµС‚РѕРІ","РІРµРЅРёРєРѕРј","Р±СѓРєРµС‚РѕРј","РєРѕР»СЋС‡РєР°РјРё","СЃРЅРѕРїРѕРј","СЃС‚РµР±Р»РµРј","Р»РёСЃС‚СЊСЏРјРё","Р±СѓС‚РѕРЅРѕРј",)
   );
   $textchem = $textchem[$chem];
   if ($kto>_BOTSEPARATOR_) {
-    if ($this->battleunits[$kto]["prototype"]==11112) $textchem=array("лапой");
-    if ($this->battleunits[$kto]["prototype"]==11112) $textchem=array("лапой", "когтями");
-    if ($this->battleunits[$kto]["prototype"]==11113) $textchem=array("хвостом");
-    if ($this->battleunits[$kto]["prototype"]==11114) $textchem=array("рогами", "лапой", "хвостом");
-    if ($this->battleunits[$kto]["prototype"]==11115) $textchem=array("рогами", "лапой", "хвостом");
-    if ($this->battleunits[$kto]["prototype"]==11116) $textchem=array("лапой", "когтями", "головой");
-    if ($this->battleunits[$kto]["prototype"]==11141) $textchem=array("штыковой лопатой", "инструментом", "совком", "лопатой");
-    if ($this->battleunits[$kto]["prototype"]==11142) $textchem=array("тусклым фонарём", "шахтёрским фонарём", "тяжёлым фонарём", "фонарём");
-    if ($this->battleunits[$kto]["prototype"]==11143) $textchem=array("киркой", "тяпкой", "окровавленной тяпкой", "тяжёлой киркой");
-    if ($this->battleunits[$kto]["prototype"]==11144) $textchem=array("огромным ковшом", "чем-то ложкообразным", "страшным ковшом", "ковшом", "черпаком", "здоровенным ковшом");
-    if ($this->battleunits[$kto]["prototype"]==11145) $textchem=array("остриём меча", "рукояткой меча", "мечом", "плоской стороной лезвия меча", "острым мечом", "ножнами", "клинком меча");
-    if ($this->battleunits[$kto]["prototype"]==11146) $textchem=array("остриём меча", "рукояткой меча", "мечом", "плоской стороной лезвия меча", "острым мечом", "ножнами", "клинком меча");
-    if ($this->battleunits[$kto]["prototype"]==11147) $textchem=array("огромным ковшом", "чем-то ложкообразным", "страшным ковшом", "ковшом", "черпаком", "здоровенным ковшом");
-    if ($this->battleunits[$kto]["prototype"]==11148) $textchem=array("навершием посоха", "красивым посохом");
-    if ($this->battleunits[$kto]["prototype"]==11150) $textchem=array("молотом");
-    if ($this->battleunits[$kto]["prototype"]==21302) $textchem=array("лапой", "когтями");
-    if ($this->battleunits[$kto]["prototype"]==21303) $textchem=array("лапой", "когтями");
+    if ($this->battleunits[$kto]["prototype"]==11112) $textchem=array("Р»Р°РїРѕР№");
+    if ($this->battleunits[$kto]["prototype"]==11112) $textchem=array("Р»Р°РїРѕР№", "РєРѕРіС‚СЏРјРё");
+    if ($this->battleunits[$kto]["prototype"]==11113) $textchem=array("С…РІРѕСЃС‚РѕРј");
+    if ($this->battleunits[$kto]["prototype"]==11114) $textchem=array("СЂРѕРіР°РјРё", "Р»Р°РїРѕР№", "С…РІРѕСЃС‚РѕРј");
+    if ($this->battleunits[$kto]["prototype"]==11115) $textchem=array("СЂРѕРіР°РјРё", "Р»Р°РїРѕР№", "С…РІРѕСЃС‚РѕРј");
+    if ($this->battleunits[$kto]["prototype"]==11116) $textchem=array("Р»Р°РїРѕР№", "РєРѕРіС‚СЏРјРё", "РіРѕР»РѕРІРѕР№");
+    if ($this->battleunits[$kto]["prototype"]==11141) $textchem=array("С€С‚С‹РєРѕРІРѕР№ Р»РѕРїР°С‚РѕР№", "РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРј", "СЃРѕРІРєРѕРј", "Р»РѕРїР°С‚РѕР№");
+    if ($this->battleunits[$kto]["prototype"]==11142) $textchem=array("С‚СѓСЃРєР»С‹Рј С„РѕРЅР°СЂС‘Рј", "С€Р°С…С‚С‘СЂСЃРєРёРј С„РѕРЅР°СЂС‘Рј", "С‚СЏР¶С‘Р»С‹Рј С„РѕРЅР°СЂС‘Рј", "С„РѕРЅР°СЂС‘Рј");
+    if ($this->battleunits[$kto]["prototype"]==11143) $textchem=array("РєРёСЂРєРѕР№", "С‚СЏРїРєРѕР№", "РѕРєСЂРѕРІР°РІР»РµРЅРЅРѕР№ С‚СЏРїРєРѕР№", "С‚СЏР¶С‘Р»РѕР№ РєРёСЂРєРѕР№");
+    if ($this->battleunits[$kto]["prototype"]==11144) $textchem=array("РѕРіСЂРѕРјРЅС‹Рј РєРѕРІС€РѕРј", "С‡РµРј-С‚Рѕ Р»РѕР¶РєРѕРѕР±СЂР°Р·РЅС‹Рј", "СЃС‚СЂР°С€РЅС‹Рј РєРѕРІС€РѕРј", "РєРѕРІС€РѕРј", "С‡РµСЂРїР°РєРѕРј", "Р·РґРѕСЂРѕРІРµРЅРЅС‹Рј РєРѕРІС€РѕРј");
+    if ($this->battleunits[$kto]["prototype"]==11145) $textchem=array("РѕСЃС‚СЂРёС‘Рј РјРµС‡Р°", "СЂСѓРєРѕСЏС‚РєРѕР№ РјРµС‡Р°", "РјРµС‡РѕРј", "РїР»РѕСЃРєРѕР№ СЃС‚РѕСЂРѕРЅРѕР№ Р»РµР·РІРёСЏ РјРµС‡Р°", "РѕСЃС‚СЂС‹Рј РјРµС‡РѕРј", "РЅРѕР¶РЅР°РјРё", "РєР»РёРЅРєРѕРј РјРµС‡Р°");
+    if ($this->battleunits[$kto]["prototype"]==11146) $textchem=array("РѕСЃС‚СЂРёС‘Рј РјРµС‡Р°", "СЂСѓРєРѕСЏС‚РєРѕР№ РјРµС‡Р°", "РјРµС‡РѕРј", "РїР»РѕСЃРєРѕР№ СЃС‚РѕСЂРѕРЅРѕР№ Р»РµР·РІРёСЏ РјРµС‡Р°", "РѕСЃС‚СЂС‹Рј РјРµС‡РѕРј", "РЅРѕР¶РЅР°РјРё", "РєР»РёРЅРєРѕРј РјРµС‡Р°");
+    if ($this->battleunits[$kto]["prototype"]==11147) $textchem=array("РѕРіСЂРѕРјРЅС‹Рј РєРѕРІС€РѕРј", "С‡РµРј-С‚Рѕ Р»РѕР¶РєРѕРѕР±СЂР°Р·РЅС‹Рј", "СЃС‚СЂР°С€РЅС‹Рј РєРѕРІС€РѕРј", "РєРѕРІС€РѕРј", "С‡РµСЂРїР°РєРѕРј", "Р·РґРѕСЂРѕРІРµРЅРЅС‹Рј РєРѕРІС€РѕРј");
+    if ($this->battleunits[$kto]["prototype"]==11148) $textchem=array("РЅР°РІРµСЂС€РёРµРј РїРѕСЃРѕС…Р°", "РєСЂР°СЃРёРІС‹Рј РїРѕСЃРѕС…РѕРј");
+    if ($this->battleunits[$kto]["prototype"]==11150) $textchem=array("РјРѕР»РѕС‚РѕРј");
+    if ($this->battleunits[$kto]["prototype"]==21302) $textchem=array("Р»Р°РїРѕР№", "РєРѕРіС‚СЏРјРё");
+    if ($this->battleunits[$kto]["prototype"]==21303) $textchem=array("Р»Р°РїРѕР№", "РєРѕРіС‚СЏРјРё");
   }
-  // куда били
+  // РєСѓРґР° Р±РёР»Рё
   $udars = array(
-    '1' => array ('в нос','в глаз','в челюсть','по переносице','в кадык','по затылку','в правый глаз','в левый глаз','в скулу'),
-    '2' => array ('в грудь','в солнечное сплетение','в сердце','в бок','в область лопаток','в правое плечо','в левое плечо'),
-    '3' => array ('в живот','по желудку','по левой почке','по правой почке','в пупок'),
-    '4' => array ('по <вырезано цензурой>','в пах','в промежность','по левой ягодице','по правой ягодице'),
-    '5' => array ('по ногам','в область правой пятки','в область левой пятки','по коленной чашечке','по икрам')
+    '1' => array ('РІ РЅРѕСЃ','РІ РіР»Р°Р·','РІ С‡РµР»СЋСЃС‚СЊ','РїРѕ РїРµСЂРµРЅРѕСЃРёС†Рµ','РІ РєР°РґС‹Рє','РїРѕ Р·Р°С‚С‹Р»РєСѓ','РІ РїСЂР°РІС‹Р№ РіР»Р°Р·','РІ Р»РµРІС‹Р№ РіР»Р°Р·','РІ СЃРєСѓР»Сѓ'),
+    '2' => array ('РІ РіСЂСѓРґСЊ','РІ СЃРѕР»РЅРµС‡РЅРѕРµ СЃРїР»РµС‚РµРЅРёРµ','РІ СЃРµСЂРґС†Рµ','РІ Р±РѕРє','РІ РѕР±Р»Р°СЃС‚СЊ Р»РѕРїР°С‚РѕРє','РІ РїСЂР°РІРѕРµ РїР»РµС‡Рѕ','РІ Р»РµРІРѕРµ РїР»РµС‡Рѕ'),
+    '3' => array ('РІ Р¶РёРІРѕС‚','РїРѕ Р¶РµР»СѓРґРєСѓ','РїРѕ Р»РµРІРѕР№ РїРѕС‡РєРµ','РїРѕ РїСЂР°РІРѕР№ РїРѕС‡РєРµ','РІ РїСѓРїРѕРє'),
+    '4' => array ('РїРѕ <РІС‹СЂРµР·Р°РЅРѕ С†РµРЅР·СѓСЂРѕР№>','РІ РїР°С…','РІ РїСЂРѕРјРµР¶РЅРѕСЃС‚СЊ','РїРѕ Р»РµРІРѕР№ СЏРіРѕРґРёС†Рµ','РїРѕ РїСЂР°РІРѕР№ СЏРіРѕРґРёС†Рµ'),
+    '5' => array ('РїРѕ РЅРѕРіР°Рј','РІ РѕР±Р»Р°СЃС‚СЊ РїСЂР°РІРѕР№ РїСЏС‚РєРё','РІ РѕР±Р»Р°СЃС‚СЊ Р»РµРІРѕР№ РїСЏС‚РєРё','РїРѕ РєРѕР»РµРЅРЅРѕР№ С‡Р°С€РµС‡РєРµ','РїРѕ РёРєСЂР°Рј')
   );
   $kuda = $udars[$kuda][rand(0,count($udars[$kuda])-1)];
-  //тест по попаданию
+  //С‚РµСЃС‚ РїРѕ РїРѕРїР°РґР°РЅРёСЋ
   if (!$sex1) {
-    $hark = array('бесчувственный','расстроенный','храбрый','обезумевший','неустрашимый','злобный','жестокий','наглый',
-    'разъяренный','продвинутый','хитрый','мужественный','','','','','','');
+    $hark = array('Р±РµСЃС‡СѓРІСЃС‚РІРµРЅРЅС‹Р№','СЂР°СЃСЃС‚СЂРѕРµРЅРЅС‹Р№','С…СЂР°Р±СЂС‹Р№','РѕР±РµР·СѓРјРµРІС€РёР№','РЅРµСѓСЃС‚СЂР°С€РёРјС‹Р№','Р·Р»РѕР±РЅС‹Р№','Р¶РµСЃС‚РѕРєРёР№','РЅР°РіР»С‹Р№',
+    'СЂР°Р·СЉСЏСЂРµРЅРЅС‹Р№','РїСЂРѕРґРІРёРЅСѓС‚С‹Р№','С…РёС‚СЂС‹Р№','РјСѓР¶РµСЃС‚РІРµРЅРЅС‹Р№','','','','','','');
   } else {
-    $hark = array('бесчувственная','расстроенная','храбрая','обезумевшая','неустрашимая','злобная','жестокая','наглая',
-    'разъяренная','продвинутая','хитрая','прекрасная','','','','','','');
+    $hark = array('Р±РµСЃС‡СѓРІСЃС‚РІРµРЅРЅР°СЏ','СЂР°СЃСЃС‚СЂРѕРµРЅРЅР°СЏ','С…СЂР°Р±СЂР°СЏ','РѕР±РµР·СѓРјРµРІС€Р°СЏ','РЅРµСѓСЃС‚СЂР°С€РёРјР°СЏ','Р·Р»РѕР±РЅР°СЏ','Р¶РµСЃС‚РѕРєР°СЏ','РЅР°РіР»Р°СЏ',
+    'СЂР°Р·СЉСЏСЂРµРЅРЅР°СЏ','РїСЂРѕРґРІРёРЅСѓС‚Р°СЏ','С…РёС‚СЂР°СЏ','РїСЂРµРєСЂР°СЃРЅР°СЏ','','','','','','');
   }
   if (!$sex2) {
-    $hark2 = array('бесчувственный','расстроенный','храбрый','обезумевший','неустрашимый','злобный','жестокий','наглый',
-    'разъяренный','продвинутый','хитрый','мужественный','','','','','','');
+    $hark2 = array('Р±РµСЃС‡СѓРІСЃС‚РІРµРЅРЅС‹Р№','СЂР°СЃСЃС‚СЂРѕРµРЅРЅС‹Р№','С…СЂР°Р±СЂС‹Р№','РѕР±РµР·СѓРјРµРІС€РёР№','РЅРµСѓСЃС‚СЂР°С€РёРјС‹Р№','Р·Р»РѕР±РЅС‹Р№','Р¶РµСЃС‚РѕРєРёР№','РЅР°РіР»С‹Р№',
+    'СЂР°Р·СЉСЏСЂРµРЅРЅС‹Р№','РїСЂРѕРґРІРёРЅСѓС‚С‹Р№','С…РёС‚СЂС‹Р№','РјСѓР¶РµСЃС‚РІРµРЅРЅС‹Р№','','','','','','');
   } else {
-    $hark2 = array('бесчувственная','расстроенная','храбрая','обезумевшая','неустрашимая','злобная','жестокая','наглая',
-    'разъяренная','продвинутая','хитрая','прекрасная','','','','','','');
+    $hark2 = array('Р±РµСЃС‡СѓРІСЃС‚РІРµРЅРЅР°СЏ','СЂР°СЃСЃС‚СЂРѕРµРЅРЅР°СЏ','С…СЂР°Р±СЂР°СЏ','РѕР±РµР·СѓРјРµРІС€Р°СЏ','РЅРµСѓСЃС‚СЂР°С€РёРјР°СЏ','Р·Р»РѕР±РЅР°СЏ','Р¶РµСЃС‚РѕРєР°СЏ','РЅР°РіР»Р°СЏ',
+    'СЂР°Р·СЉСЏСЂРµРЅРЅР°СЏ','РїСЂРѕРґРІРёРЅСѓС‚Р°СЏ','С…РёС‚СЂР°СЏ','РїСЂРµРєСЂР°СЃРЅР°СЏ','','','','','','');
   }
   if (!$sex2) {
-    $textud = array ('забылся, и тут',
-    'замешкался, и за это',
-    'растерялся, как вдруг',
-    'ковырялся в зубах, и тут',
-    'поперхнулся, но вдруг',
-    'пытался что-то сказать но вдруг, неожиданно',
-    'растерялся, как вдруг',
-    'засмотрелся на <вырезано цензурой>, а в это время',
-    'высморкался, и в это время',
-    'думал не о том, и',
-    'пришел в себя, но в это время',
-    'обернулся, как внезапно');
+    $textud = array ('Р·Р°Р±С‹Р»СЃСЏ, Рё С‚СѓС‚',
+    'Р·Р°РјРµС€РєР°Р»СЃСЏ, Рё Р·Р° СЌС‚Рѕ',
+    'СЂР°СЃС‚РµСЂСЏР»СЃСЏ, РєР°Рє РІРґСЂСѓРі',
+    'РєРѕРІС‹СЂСЏР»СЃСЏ РІ Р·СѓР±Р°С…, Рё С‚СѓС‚',
+    'РїРѕРїРµСЂС…РЅСѓР»СЃСЏ, РЅРѕ РІРґСЂСѓРі',
+    'РїС‹С‚Р°Р»СЃСЏ С‡С‚Рѕ-С‚Рѕ СЃРєР°Р·Р°С‚СЊ РЅРѕ РІРґСЂСѓРі, РЅРµРѕР¶РёРґР°РЅРЅРѕ',
+    'СЂР°СЃС‚РµСЂСЏР»СЃСЏ, РєР°Рє РІРґСЂСѓРі',
+    'Р·Р°СЃРјРѕС‚СЂРµР»СЃСЏ РЅР° <РІС‹СЂРµР·Р°РЅРѕ С†РµРЅР·СѓСЂРѕР№>, Р° РІ СЌС‚Рѕ РІСЂРµРјСЏ',
+    'РІС‹СЃРјРѕСЂРєР°Р»СЃСЏ, Рё РІ СЌС‚Рѕ РІСЂРµРјСЏ',
+    'РґСѓРјР°Р» РЅРµ Рѕ С‚РѕРј, Рё',
+    'РїСЂРёС€РµР» РІ СЃРµР±СЏ, РЅРѕ РІ СЌС‚Рѕ РІСЂРµРјСЏ',
+    'РѕР±РµСЂРЅСѓР»СЃСЏ, РєР°Рє РІРЅРµР·Р°РїРЅРѕ');
   } else {
-    $textud = array ('забылась, и тут',
-    'замешкалась, и за это ',
-    'растерялась, как вдруг ',
-    'ковырялась в зубах, и тут ',
-    'поперхнулась, но вдруг ',
-    'пыталась что-то сказать но вдруг, неожиданно',
-    'растерялась, как вдруг',
-    'засмотрелась на <вырезано цензурой>, а в это время',
-    'высморкалась, и в это время',
-    'думала не о том, и',
-    'пришла в себя, но в это время ',
-    'обернулась, как внезапно');
+    $textud = array ('Р·Р°Р±С‹Р»Р°СЃСЊ, Рё С‚СѓС‚',
+    'Р·Р°РјРµС€РєР°Р»Р°СЃСЊ, Рё Р·Р° СЌС‚Рѕ ',
+    'СЂР°СЃС‚РµСЂСЏР»Р°СЃСЊ, РєР°Рє РІРґСЂСѓРі ',
+    'РєРѕРІС‹СЂСЏР»Р°СЃСЊ РІ Р·СѓР±Р°С…, Рё С‚СѓС‚ ',
+    'РїРѕРїРµСЂС…РЅСѓР»Р°СЃСЊ, РЅРѕ РІРґСЂСѓРі ',
+    'РїС‹С‚Р°Р»Р°СЃСЊ С‡С‚Рѕ-С‚Рѕ СЃРєР°Р·Р°С‚СЊ РЅРѕ РІРґСЂСѓРі, РЅРµРѕР¶РёРґР°РЅРЅРѕ',
+    'СЂР°СЃС‚РµСЂСЏР»Р°СЃСЊ, РєР°Рє РІРґСЂСѓРі',
+    'Р·Р°СЃРјРѕС‚СЂРµР»Р°СЃСЊ РЅР° <РІС‹СЂРµР·Р°РЅРѕ С†РµРЅР·СѓСЂРѕР№>, Р° РІ СЌС‚Рѕ РІСЂРµРјСЏ',
+    'РІС‹СЃРјРѕСЂРєР°Р»Р°СЃСЊ, Рё РІ СЌС‚Рѕ РІСЂРµРјСЏ',
+    'РґСѓРјР°Р»Р° РЅРµ Рѕ С‚РѕРј, Рё',
+    'РїСЂРёС€Р»Р° РІ СЃРµР±СЏ, РЅРѕ РІ СЌС‚Рѕ РІСЂРµРјСЏ ',
+    'РѕР±РµСЂРЅСѓР»Р°СЃСЊ, РєР°Рє РІРЅРµР·Р°РїРЅРѕ');
   }
 
   $damagetype="";
 
   if ($sex1) {
     if ($prof=="kol") {
-      if ($chem=="kulak") $arr=array("ткнула");
-      else $arr=array("уколола", "ткнула");
+      if ($chem=="kulak") $arr=array("С‚РєРЅСѓР»Р°");
+      else $arr=array("СѓРєРѕР»РѕР»Р°", "С‚РєРЅСѓР»Р°");
     }
-    if ($prof=="rub") $arr=array("рубанула");
-    if ($prof=="rej") $arr=array("резанула");
-    if ($prof=="drob") $arr=array("ударила");
-    if ($prof=="mag") $arr=array("поразила магией");
+    if ($prof=="rub") $arr=array("СЂСѓР±Р°РЅСѓР»Р°");
+    if ($prof=="rej") $arr=array("СЂРµР·Р°РЅСѓР»Р°");
+    if ($prof=="drob") $arr=array("СѓРґР°СЂРёР»Р°");
+    if ($prof=="mag") $arr=array("РїРѕСЂР°Р·РёР»Р° РјР°РіРёРµР№");
     $damagetype=$arr[rand(0,count($arr)-1)];
   } else {
     if ($prof=="kol") {
-      if ($chem=="kulak") $arr=array("ткнул");
-      else $arr=array("уколол", "ткнул");
+      if ($chem=="kulak") $arr=array("С‚РєРЅСѓР»");
+      else $arr=array("СѓРєРѕР»РѕР»", "С‚РєРЅСѓР»");
     }
-    if ($prof=="rub") $arr=array("рубанул");
-    if ($prof=="rej") $arr=array("резанул");
-    if ($prof=="drob") $arr=array("ударил");
-    if ($prof=="mag") $arr=array("поразил магией");
+    if ($prof=="rub") $arr=array("СЂСѓР±Р°РЅСѓР»");
+    if ($prof=="rej") $arr=array("СЂРµР·Р°РЅСѓР»");
+    if ($prof=="drob") $arr=array("СѓРґР°СЂРёР»");
+    if ($prof=="mag") $arr=array("РїРѕСЂР°Р·РёР» РјР°РіРёРµР№");
     $damagetype=$arr[rand(0,count($arr)-1)];
   }
 
   if ($takenbybarrier[$pokomy]) {
-    $extra=" мана: -$takenbybarrier[$pokomy] ";
+    $extra=" РјР°РЅР°: -$takenbybarrier[$pokomy] ";
     $takenbybarrier[$pokomy]=0;
   } else $extra="";
 
   switch ($type) {
-    //парирование
+    //РїР°СЂРёСЂРѕРІР°РЅРёРµ
     case "parry":
       if ($sex2) {
-        $textuvorot = array (" <font color=green><B>парировала</B></font> удар ");
+        $textuvorot = array (" <font color=green><B>РїР°СЂРёСЂРѕРІР°Р»Р°</B></font> СѓРґР°СЂ ");
       } else {
-        $textuvorot = array (" <font color=green><B>парировал</B></font> удар ");
+        $textuvorot = array (" <font color=green><B>РїР°СЂРёСЂРѕРІР°Р»</B></font> СѓРґР°СЂ ");
       }
       $ret.='<span class=date>'.date("H:i")."</span> $hits ".$this->nick5($kto,$c1).' '.$textfail[rand(0,count($textfail)-1)].' '.$hark2[rand(0,count($hark2)-1)].' '.$nick5pokomy.' '.$textuvorot[rand(0,count($textuvorot)-1)].' '.$textchem[rand(0,count($textchem)-1)].' '.$kuda.'.<BR>';
     break;
     case "shieldblock":
       if ($sex2) {
-        $textuvorot = array (" <font color=green><B>заблокировала щитом</B></font> удар ");
+        $textuvorot = array (" <font color=green><B>Р·Р°Р±Р»РѕРєРёСЂРѕРІР°Р»Р° С‰РёС‚РѕРј</B></font> СѓРґР°СЂ ");
       } else {
-        $textuvorot = array (" <font color=green><B>заблокировал щитом</B></font> удар ");
+        $textuvorot = array (" <font color=green><B>Р·Р°Р±Р»РѕРєРёСЂРѕРІР°Р» С‰РёС‚РѕРј</B></font> СѓРґР°СЂ ");
       }
       $ret.='<span class=date>'.date("H:i")."</span> $hits ".$this->nick5($kto,$c1).' '.$textfail[rand(0,count($textfail)-1)].' '.$hark2[rand(0,count($hark2)-1)].' '.$nick5pokomy.' '.$textuvorot[rand(0,count($textuvorot)-1)].' '.$textchem[rand(0,count($textchem)-1)].' '.$kuda.'.<BR>';
     break;
     case "mag":
         if ($sex1) {
-            $textmag = "потратила";
+            $textmag = "РїРѕС‚СЂР°С‚РёР»Р°";
         }
         else {
-            $textmag = "потратил";
+            $textmag = "РїРѕС‚СЂР°С‚РёР»";
         }
-        $ret.='<span class=date>'.date("H:i").'</span> '.$this->nick5($kto,$c1).' '.$textmag.' свой ход на магию.<BR>';
+        $ret.='<span class=date>'.date("H:i").'</span> '.$this->nick5($kto,$c1).' '.$textmag.' СЃРІРѕР№ С…РѕРґ РЅР° РјР°РіРёСЋ.<BR>';
     break;
     case "skip":
         if ($sex1) {
-          $textmag = "пропустила";
+          $textmag = "РїСЂРѕРїСѓСЃС‚РёР»Р°";
         } else {
-          $textmag = "пропустил";
+          $textmag = "РїСЂРѕРїСѓСЃС‚РёР»";
         }
-        $ret.='<span class=date>'.date("H:i").'</span> '.$this->nick5($kto,$c1).' '.$textmag.' ход по таймауту.<BR>';
+        $ret.='<span class=date>'.date("H:i").'</span> '.$this->nick5($kto,$c1).' '.$textmag.' С…РѕРґ РїРѕ С‚Р°Р№РјР°СѓС‚Сѓ.<BR>';
     break;
-    // уворот
+    // СѓРІРѕСЂРѕС‚
     case "uvorot":
         if ($sex2) {
-            $textuvorot = array (" <font color=green><B>уклонилась</B></font> от удара "," <font color=green><B>увернулась</B></font> от удара "," <font color=green><B>отскочила</B></font> от удара ");
+            $textuvorot = array (" <font color=green><B>СѓРєР»РѕРЅРёР»Р°СЃСЊ</B></font> РѕС‚ СѓРґР°СЂР° "," <font color=green><B>СѓРІРµСЂРЅСѓР»Р°СЃСЊ</B></font> РѕС‚ СѓРґР°СЂР° "," <font color=green><B>РѕС‚СЃРєРѕС‡РёР»Р°</B></font> РѕС‚ СѓРґР°СЂР° ");
         }
         else {
-            $textuvorot = array (" <font color=green><B>уклонился</B></font> от удара "," <font color=green><B>увернулся</B></font> от удара "," <font color=green><B>отскочил</B></font> от удара ");
+            $textuvorot = array (" <font color=green><B>СѓРєР»РѕРЅРёР»СЃСЏ</B></font> РѕС‚ СѓРґР°СЂР° "," <font color=green><B>СѓРІРµСЂРЅСѓР»СЃСЏ</B></font> РѕС‚ СѓРґР°СЂР° "," <font color=green><B>РѕС‚СЃРєРѕС‡РёР»</B></font> РѕС‚ СѓРґР°СЂР° ");
         }
         $ret.='<span class=date>'.date("H:i")."</span> $hits ".$this->nick5($kto,$c1).' '.$textfail[rand(0,count($textfail)-1)].' '.$hark2[rand(0,count($hark2)-1)].' '.$nick5pokomy.' '.$textuvorot[rand(0,count($textuvorot)-1)].' '.$textchem[rand(0,count($textchem)-1)].' '.$kuda.'.<BR>';
     break;
-    // контрудар
+    // РєРѕРЅС‚СЂСѓРґР°СЂ
     case "contr":
         if ($sex2) {
-            $textuvorot = array (" <font color=green><B>уклонилась</B></font> от удара и провела <font color=green><B>контрудар</B></font> "," <font color=green><B>увернулась</B></font> от удара и врезала <font color=green><B>контрудар</B></font> "," <font color=green><B>отскочила</B></font> от удара и вломила <font color=green><B>контрудар</B></font> ");
+            $textuvorot = array (" <font color=green><B>СѓРєР»РѕРЅРёР»Р°СЃСЊ</B></font> РѕС‚ СѓРґР°СЂР° Рё РїСЂРѕРІРµР»Р° <font color=green><B>РєРѕРЅС‚СЂСѓРґР°СЂ</B></font> "," <font color=green><B>СѓРІРµСЂРЅСѓР»Р°СЃСЊ</B></font> РѕС‚ СѓРґР°СЂР° Рё РІСЂРµР·Р°Р»Р° <font color=green><B>РєРѕРЅС‚СЂСѓРґР°СЂ</B></font> "," <font color=green><B>РѕС‚СЃРєРѕС‡РёР»Р°</B></font> РѕС‚ СѓРґР°СЂР° Рё РІР»РѕРјРёР»Р° <font color=green><B>РєРѕРЅС‚СЂСѓРґР°СЂ</B></font> ");
         }
         else {
-            $textuvorot = array (" <font color=green><B>уклонился</B></font> от удара и провёл <font color=green><B>контрудар</B></font> "," <font color=green><B>увернулся</B></font> от удара и врезал <font color=green><B>контрудар</B></font> "," <font color=green><B>отскочил</B></font> от удара и вломил <font color=green><B>контрудар</B></font> ");
+            $textuvorot = array (" <font color=green><B>СѓРєР»РѕРЅРёР»СЃСЏ</B></font> РѕС‚ СѓРґР°СЂР° Рё РїСЂРѕРІС‘Р» <font color=green><B>РєРѕРЅС‚СЂСѓРґР°СЂ</B></font> "," <font color=green><B>СѓРІРµСЂРЅСѓР»СЃСЏ</B></font> РѕС‚ СѓРґР°СЂР° Рё РІСЂРµР·Р°Р» <font color=green><B>РєРѕРЅС‚СЂСѓРґР°СЂ</B></font> "," <font color=green><B>РѕС‚СЃРєРѕС‡РёР»</B></font> РѕС‚ СѓРґР°СЂР° Рё РІР»РѕРјРёР» <font color=green><B>РєРѕРЅС‚СЂСѓРґР°СЂ</B></font> ");
         }                                                                                                                           //'.$textchem[rand(0,count($textchem)-1)].' '.$kuda.'
         $ret.='<span class=date>'.date("H:i")."</span> $hits ".$this->nick5($kto,$c1).'  '.$textfail[rand(0,count($textfail)-1)].' '.$hark2[rand(0,count($hark2)-1)].' '.$nick5pokomy.' '.$textuvorot[rand(0,count($textuvorot)-1)].'.<BR>';
     break;
-    //блок
+    //Р±Р»РѕРє
     case "block":
         if ($sex2) {
-            $textblock = array (" заблокировала удар "," остановила удар "," отбила удар ");
+            $textblock = array (" Р·Р°Р±Р»РѕРєРёСЂРѕРІР°Р»Р° СѓРґР°СЂ "," РѕСЃС‚Р°РЅРѕРІРёР»Р° СѓРґР°СЂ "," РѕС‚Р±РёР»Р° СѓРґР°СЂ ");
         }
         else {
-            $textblock = array (" заблокировал удар "," остановил удар "," отбил удар ");
+            $textblock = array (" Р·Р°Р±Р»РѕРєРёСЂРѕРІР°Р» СѓРґР°СЂ "," РѕСЃС‚Р°РЅРѕРІРёР» СѓРґР°СЂ "," РѕС‚Р±РёР» СѓРґР°СЂ ");
         }
         $ret.='<span class=date>'.date("H:i")."</span> $hits ".$this->nick5($kto,$c1).' '.$textfail[rand(0,count($textfail)-1)].' '.$hark2[rand(0,count($hark2)-1)].' '.$nick5pokomy.' '.$textblock[rand(0,count($textblock)-1)].' '.$textchem[rand(0,count($textchem)-1)].' '.$kuda.'.<BR>';
     break;
-    //крит
+    //РєСЂРёС‚
     case "krit":
         if ($sex1) {
-            $textkrit = array (", напугав всех, неслышно подойдя сзади $damagetype $kuda ".$textchem[rand(0,count($textchem)-1)]." оппонента.",", сказав \"БУ!\", ласково $damagetype соперника $kuda.",", расслабившись, $damagetype $kuda.",", показав сразу два пальца, $damagetype $kuda.",", напугав всех, $damagetype противника $kuda.",", проклиная этот сайт, $damagetype $kuda.");
+            $textkrit = array (", РЅР°РїСѓРіР°РІ РІСЃРµС…, РЅРµСЃР»С‹С€РЅРѕ РїРѕРґРѕР№РґСЏ СЃР·Р°РґРё $damagetype $kuda ".$textchem[rand(0,count($textchem)-1)]." РѕРїРїРѕРЅРµРЅС‚Р°.",", СЃРєР°Р·Р°РІ \"Р‘РЈ!\", Р»Р°СЃРєРѕРІРѕ $damagetype СЃРѕРїРµСЂРЅРёРєР° $kuda.",", СЂР°СЃСЃР»Р°Р±РёРІС€РёСЃСЊ, $damagetype $kuda.",", РїРѕРєР°Р·Р°РІ СЃСЂР°Р·Сѓ РґРІР° РїР°Р»СЊС†Р°, $damagetype $kuda.",", РЅР°РїСѓРіР°РІ РІСЃРµС…, $damagetype РїСЂРѕС‚РёРІРЅРёРєР° $kuda.",", РїСЂРѕРєР»РёРЅР°СЏ СЌС‚РѕС‚ СЃР°Р№С‚, $damagetype $kuda.");
         } else {
-            $textkrit = array (", напугав всех, неслышно подойдя сзади $damagetype $kuda ".$textchem[rand(0,count($textchem)-1)]." оппонента.",", сказав \"БУ!\", ласково $damagetype соперника $kuda.",", расслабившись, $damagetype $kuda.",", показав сразу два пальца, $damagetype $kuda.",", напугав всех, $damagetype противника $kuda.",", проклиная этот сайт, $damagetype $kuda.");
+            $textkrit = array (", РЅР°РїСѓРіР°РІ РІСЃРµС…, РЅРµСЃР»С‹С€РЅРѕ РїРѕРґРѕР№РґСЏ СЃР·Р°РґРё $damagetype $kuda ".$textchem[rand(0,count($textchem)-1)]." РѕРїРїРѕРЅРµРЅС‚Р°.",", СЃРєР°Р·Р°РІ \"Р‘РЈ!\", Р»Р°СЃРєРѕРІРѕ $damagetype СЃРѕРїРµСЂРЅРёРєР° $kuda.",", СЂР°СЃСЃР»Р°Р±РёРІС€РёСЃСЊ, $damagetype $kuda.",", РїРѕРєР°Р·Р°РІ СЃСЂР°Р·Сѓ РґРІР° РїР°Р»СЊС†Р°, $damagetype $kuda.",", РЅР°РїСѓРіР°РІ РІСЃРµС…, $damagetype РїСЂРѕС‚РёРІРЅРёРєР° $kuda.",", РїСЂРѕРєР»РёРЅР°СЏ СЌС‚РѕС‚ СЃР°Р№С‚, $damagetype $kuda.");
         }
         $ret.='<span class=date>'.date("H:i")."</span> $hits ".$nick5pokomy.' '.$textud[rand(0,count($textud)-1)].' '.$hark[rand(0,count($hark)-1)].' '.$this->nick5($kto,$c1).' '.$textkrit[rand(0,count($textkrit)-1)].' <b><font color=red>-'.$uron.'</font></b> ['.$hp.'/'.$maxhp.'] '.$extra.'<BR>';
     break;
-    //крит
+    //РєСЂРёС‚
     case "krita":
         if ($sex1) {
-            $textkrit = array (", напугав всех, неслышно подойдя сзади $damagetype, пробив блок,  $kuda ".$textchem[rand(0,count($textchem)-1)]." оппонента.",", сказав \"БУ!\", пробив блок, ласково $damagetype соперника $kuda.",", расслабившись, $damagetype, пробив блок,  $kuda.",", показав сразу два пальца, $damagetype, пробив блок, $kuda.",", напугав всех, пробив блок, $damagetype противника $kuda.",", проклиная этот сайт, пробив блок, $damagetype $kuda.");
+            $textkrit = array (", РЅР°РїСѓРіР°РІ РІСЃРµС…, РЅРµСЃР»С‹С€РЅРѕ РїРѕРґРѕР№РґСЏ СЃР·Р°РґРё $damagetype, РїСЂРѕР±РёРІ Р±Р»РѕРє,  $kuda ".$textchem[rand(0,count($textchem)-1)]." РѕРїРїРѕРЅРµРЅС‚Р°.",", СЃРєР°Р·Р°РІ \"Р‘РЈ!\", РїСЂРѕР±РёРІ Р±Р»РѕРє, Р»Р°СЃРєРѕРІРѕ $damagetype СЃРѕРїРµСЂРЅРёРєР° $kuda.",", СЂР°СЃСЃР»Р°Р±РёРІС€РёСЃСЊ, $damagetype, РїСЂРѕР±РёРІ Р±Р»РѕРє,  $kuda.",", РїРѕРєР°Р·Р°РІ СЃСЂР°Р·Сѓ РґРІР° РїР°Р»СЊС†Р°, $damagetype, РїСЂРѕР±РёРІ Р±Р»РѕРє, $kuda.",", РЅР°РїСѓРіР°РІ РІСЃРµС…, РїСЂРѕР±РёРІ Р±Р»РѕРє, $damagetype РїСЂРѕС‚РёРІРЅРёРєР° $kuda.",", РїСЂРѕРєР»РёРЅР°СЏ СЌС‚РѕС‚ СЃР°Р№С‚, РїСЂРѕР±РёРІ Р±Р»РѕРє, $damagetype $kuda.");
         } else {
-            $textkrit = array (", напугав всех, неслышно подойдя сзади $damagetype, пробив блок,  $kuda ".$textchem[rand(0,count($textchem)-1)]." оппонента.",", сказав \"БУ!\", пробив блок, ласково $damagetype соперника $kuda.",", расслабившись, $damagetype, пробив блок,  $kuda.",", показав сразу два пальца, $damagetype, пробив блок,  $kuda.",", напугав всех, пробив блок, $damagetype противника $kuda.",", проклиная этот сайт, пробив блок, $damagetype $kuda.");
+            $textkrit = array (", РЅР°РїСѓРіР°РІ РІСЃРµС…, РЅРµСЃР»С‹С€РЅРѕ РїРѕРґРѕР№РґСЏ СЃР·Р°РґРё $damagetype, РїСЂРѕР±РёРІ Р±Р»РѕРє,  $kuda ".$textchem[rand(0,count($textchem)-1)]." РѕРїРїРѕРЅРµРЅС‚Р°.",", СЃРєР°Р·Р°РІ \"Р‘РЈ!\", РїСЂРѕР±РёРІ Р±Р»РѕРє, Р»Р°СЃРєРѕРІРѕ $damagetype СЃРѕРїРµСЂРЅРёРєР° $kuda.",", СЂР°СЃСЃР»Р°Р±РёРІС€РёСЃСЊ, $damagetype, РїСЂРѕР±РёРІ Р±Р»РѕРє,  $kuda.",", РїРѕРєР°Р·Р°РІ СЃСЂР°Р·Сѓ РґРІР° РїР°Р»СЊС†Р°, $damagetype, РїСЂРѕР±РёРІ Р±Р»РѕРє,  $kuda.",", РЅР°РїСѓРіР°РІ РІСЃРµС…, РїСЂРѕР±РёРІ Р±Р»РѕРє, $damagetype РїСЂРѕС‚РёРІРЅРёРєР° $kuda.",", РїСЂРѕРєР»РёРЅР°СЏ СЌС‚РѕС‚ СЃР°Р№С‚, РїСЂРѕР±РёРІ Р±Р»РѕРє, $damagetype $kuda.");
         }
         $ret.='<span class=date>'.date("H:i")."</span> $hits ".$nick5pokomy.' '.$textud[rand(0,count($textud)-1)].' '.$hark[rand(0,count($hark)-1)].' '.$this->nick5($kto,$c1).' '.$textkrit[rand(0,count($textkrit)-1)].' <b><font color=red>-'.$uron.'</font></b> ['.$hp.'/'.$maxhp.'] '.$extra.'<BR>';
     break;
-    //крит
+    //РєСЂРёС‚
     case "kritp":
         if ($sex1) {
-            $textkrit = array (", напугав всех, неслышно подойдя сзади $damagetype, пробив защиту,  $kuda ".$textchem[rand(0,count($textchem)-1)]." оппонента.",", сказав \"БУ!\", пробив защиту, ласково $damagetype соперника $kuda.",", расслабившись, $damagetype, пробив защиту,  $kuda.",", показав сразу два пальца, $damagetype, пробив защиту, $kuda.",", напугав всех, пробив защиту, $damagetype противника $kuda.",", проклиная этот сайт, пробив защиту, $damagetype $kuda.");
+            $textkrit = array (", РЅР°РїСѓРіР°РІ РІСЃРµС…, РЅРµСЃР»С‹С€РЅРѕ РїРѕРґРѕР№РґСЏ СЃР·Р°РґРё $damagetype, РїСЂРѕР±РёРІ Р·Р°С‰РёС‚Сѓ,  $kuda ".$textchem[rand(0,count($textchem)-1)]." РѕРїРїРѕРЅРµРЅС‚Р°.",", СЃРєР°Р·Р°РІ \"Р‘РЈ!\", РїСЂРѕР±РёРІ Р·Р°С‰РёС‚Сѓ, Р»Р°СЃРєРѕРІРѕ $damagetype СЃРѕРїРµСЂРЅРёРєР° $kuda.",", СЂР°СЃСЃР»Р°Р±РёРІС€РёСЃСЊ, $damagetype, РїСЂРѕР±РёРІ Р·Р°С‰РёС‚Сѓ,  $kuda.",", РїРѕРєР°Р·Р°РІ СЃСЂР°Р·Сѓ РґРІР° РїР°Р»СЊС†Р°, $damagetype, РїСЂРѕР±РёРІ Р·Р°С‰РёС‚Сѓ, $kuda.",", РЅР°РїСѓРіР°РІ РІСЃРµС…, РїСЂРѕР±РёРІ Р·Р°С‰РёС‚Сѓ, $damagetype РїСЂРѕС‚РёРІРЅРёРєР° $kuda.",", РїСЂРѕРєР»РёРЅР°СЏ СЌС‚РѕС‚ СЃР°Р№С‚, РїСЂРѕР±РёРІ Р·Р°С‰РёС‚Сѓ, $damagetype $kuda.");
         } else {
-            $textkrit = array (", напугав всех, неслышно подойдя сзади $damagetype, пробив защиту,  $kuda ".$textchem[rand(0,count($textchem)-1)]." оппонента.",", сказав \"БУ!\", пробив защиту, ласково $damagetype соперника $kuda.",", расслабившись, $damagetype, пробив защиту,  $kuda.",", показав сразу два пальца, $damagetype, пробив защиту,  $kuda.",", напугав всех, пробив защиту, $damagetype противника $kuda.",", проклиная этот сайт, пробив защиту, $damagetype $kuda.");
+            $textkrit = array (", РЅР°РїСѓРіР°РІ РІСЃРµС…, РЅРµСЃР»С‹С€РЅРѕ РїРѕРґРѕР№РґСЏ СЃР·Р°РґРё $damagetype, РїСЂРѕР±РёРІ Р·Р°С‰РёС‚Сѓ,  $kuda ".$textchem[rand(0,count($textchem)-1)]." РѕРїРїРѕРЅРµРЅС‚Р°.",", СЃРєР°Р·Р°РІ \"Р‘РЈ!\", РїСЂРѕР±РёРІ Р·Р°С‰РёС‚Сѓ, Р»Р°СЃРєРѕРІРѕ $damagetype СЃРѕРїРµСЂРЅРёРєР° $kuda.",", СЂР°СЃСЃР»Р°Р±РёРІС€РёСЃСЊ, $damagetype, РїСЂРѕР±РёРІ Р·Р°С‰РёС‚Сѓ,  $kuda.",", РїРѕРєР°Р·Р°РІ СЃСЂР°Р·Сѓ РґРІР° РїР°Р»СЊС†Р°, $damagetype, РїСЂРѕР±РёРІ Р·Р°С‰РёС‚Сѓ,  $kuda.",", РЅР°РїСѓРіР°РІ РІСЃРµС…, РїСЂРѕР±РёРІ Р·Р°С‰РёС‚Сѓ, $damagetype РїСЂРѕС‚РёРІРЅРёРєР° $kuda.",", РїСЂРѕРєР»РёРЅР°СЏ СЌС‚РѕС‚ СЃР°Р№С‚, РїСЂРѕР±РёРІ Р·Р°С‰РёС‚Сѓ, $damagetype $kuda.");
         }
         $ret.='<span class=date>'.date("H:i")."</span> $hits ".$nick5pokomy.' '.$textud[rand(0,count($textud)-1)].' '.$hark[rand(0,count($hark)-1)].' '.$this->nick5($kto,$c1).' '.$textkrit[rand(0,count($textkrit)-1)].' <b><font color=red>-'.$uron.'</font></b> ['.$hp.'/'.$maxhp.'] '.$extra.'<BR>';
     break;
-    //крит
+    //РєСЂРёС‚
     case "kritb":
         if ($sex1) {
-            $textkrit = array (", напугав всех, неслышно подойдя сзади $damagetype, пробив блок щита,  $kuda ".$textchem[rand(0,count($textchem)-1)]." оппонента.",", сказав \"БУ!\", пробив блок щита, ласково $damagetype соперника $kuda.",", расслабившись, $damagetype, пробив блок щита,  $kuda.",", показав сразу два пальца, $damagetype, пробив блок щита, $kuda.",", напугав всех, пробив блок, $damagetype противника $kuda.",", проклиная этот сайт, пробив блок щита, $damagetype $kuda.");
+            $textkrit = array (", РЅР°РїСѓРіР°РІ РІСЃРµС…, РЅРµСЃР»С‹С€РЅРѕ РїРѕРґРѕР№РґСЏ СЃР·Р°РґРё $damagetype, РїСЂРѕР±РёРІ Р±Р»РѕРє С‰РёС‚Р°,  $kuda ".$textchem[rand(0,count($textchem)-1)]." РѕРїРїРѕРЅРµРЅС‚Р°.",", СЃРєР°Р·Р°РІ \"Р‘РЈ!\", РїСЂРѕР±РёРІ Р±Р»РѕРє С‰РёС‚Р°, Р»Р°СЃРєРѕРІРѕ $damagetype СЃРѕРїРµСЂРЅРёРєР° $kuda.",", СЂР°СЃСЃР»Р°Р±РёРІС€РёСЃСЊ, $damagetype, РїСЂРѕР±РёРІ Р±Р»РѕРє С‰РёС‚Р°,  $kuda.",", РїРѕРєР°Р·Р°РІ СЃСЂР°Р·Сѓ РґРІР° РїР°Р»СЊС†Р°, $damagetype, РїСЂРѕР±РёРІ Р±Р»РѕРє С‰РёС‚Р°, $kuda.",", РЅР°РїСѓРіР°РІ РІСЃРµС…, РїСЂРѕР±РёРІ Р±Р»РѕРє, $damagetype РїСЂРѕС‚РёРІРЅРёРєР° $kuda.",", РїСЂРѕРєР»РёРЅР°СЏ СЌС‚РѕС‚ СЃР°Р№С‚, РїСЂРѕР±РёРІ Р±Р»РѕРє С‰РёС‚Р°, $damagetype $kuda.");
         } else {
-            $textkrit = array (", напугав всех, неслышно подойдя сзади $damagetype, пробив блок щита,  $kuda ".$textchem[rand(0,count($textchem)-1)]." оппонента.",", сказав \"БУ!\", пробив блок щита, ласково $damagetype соперника $kuda.",", расслабившись, $damagetype, пробив блок щита,  $kuda.",", показав сразу два пальца, $damagetype, пробив блок щита,  $kuda.",", напугав всех, пробив блок, $damagetype противника $kuda.",", проклиная этот сайт, пробив блок щита, $damagetype $kuda.");
+            $textkrit = array (", РЅР°РїСѓРіР°РІ РІСЃРµС…, РЅРµСЃР»С‹С€РЅРѕ РїРѕРґРѕР№РґСЏ СЃР·Р°РґРё $damagetype, РїСЂРѕР±РёРІ Р±Р»РѕРє С‰РёС‚Р°,  $kuda ".$textchem[rand(0,count($textchem)-1)]." РѕРїРїРѕРЅРµРЅС‚Р°.",", СЃРєР°Р·Р°РІ \"Р‘РЈ!\", РїСЂРѕР±РёРІ Р±Р»РѕРє С‰РёС‚Р°, Р»Р°СЃРєРѕРІРѕ $damagetype СЃРѕРїРµСЂРЅРёРєР° $kuda.",", СЂР°СЃСЃР»Р°Р±РёРІС€РёСЃСЊ, $damagetype, РїСЂРѕР±РёРІ Р±Р»РѕРє С‰РёС‚Р°,  $kuda.",", РїРѕРєР°Р·Р°РІ СЃСЂР°Р·Сѓ РґРІР° РїР°Р»СЊС†Р°, $damagetype, РїСЂРѕР±РёРІ Р±Р»РѕРє С‰РёС‚Р°,  $kuda.",", РЅР°РїСѓРіР°РІ РІСЃРµС…, РїСЂРѕР±РёРІ Р±Р»РѕРє, $damagetype РїСЂРѕС‚РёРІРЅРёРєР° $kuda.",", РїСЂРѕРєР»РёРЅР°СЏ СЌС‚РѕС‚ СЃР°Р№С‚, РїСЂРѕР±РёРІ Р±Р»РѕРє С‰РёС‚Р°, $damagetype $kuda.");
         }
         $ret.='<span class=date>'.date("H:i")."</span> $hits ".$nick5pokomy.' '.$textud[rand(0,count($textud)-1)].' '.$hark[rand(0,count($hark)-1)].' '.$this->nick5($kto,$c1).' '.$textkrit[rand(0,count($textkrit)-1)].' <b><font color=red>-'.$uron.'</font></b> ['.$hp.'/'.$maxhp.'] '.$extra.'<BR>';
     break;
-    // попадание
+    // РїРѕРїР°РґР°РЅРёРµ
     case "udar":
       if ($sex1) {
-        $textudar = array(", разбежавшись, $damagetype"," отчаянно $damagetype "," нехотя $damagetype "," не подумав, $damagetype ",", улыбаясь, $damagetype "," $damagetype "," сдуру $damagetype ");
+        $textudar = array(", СЂР°Р·Р±РµР¶Р°РІС€РёСЃСЊ, $damagetype"," РѕС‚С‡Р°СЏРЅРЅРѕ $damagetype "," РЅРµС…РѕС‚СЏ $damagetype "," РЅРµ РїРѕРґСѓРјР°РІ, $damagetype ",", СѓР»С‹Р±Р°СЏСЃСЊ, $damagetype "," $damagetype "," СЃРґСѓСЂСѓ $damagetype ");
       } else {
-        $textudar = array(", разбежавшись, $damagetype"," отчаянно $damagetype "," нехотя $damagetype "," не подумав, $damagetype ",", улыбаясь, $damagetype "," $damagetype "," сдуру $damagetype ");
+        $textudar = array(", СЂР°Р·Р±РµР¶Р°РІС€РёСЃСЊ, $damagetype"," РѕС‚С‡Р°СЏРЅРЅРѕ $damagetype "," РЅРµС…РѕС‚СЏ $damagetype "," РЅРµ РїРѕРґСѓРјР°РІ, $damagetype ",", СѓР»С‹Р±Р°СЏСЃСЊ, $damagetype "," $damagetype "," СЃРґСѓСЂСѓ $damagetype ");
       }
       $ret.='<span class=date>'.date("H:i")."</span> $hits ".$nick5pokomy.' '.$textud[rand(0,count($textud)-1)].' '.$hark[rand(0,count($hark)-1)].' '.$this->nick5($kto,$c1).''.$textudar[rand(0,count($textudar)-1)].' '.$textchem[rand(0,count($textchem)-1)].' '.$kuda.' <b>-'.$uron.'</b> ['.$hp.'/'.$maxhp.'] '.$extra.'<BR>';
     break;
     case "udartoff":
       if ($sex1) {
-        $textudar = array(", разбежавшись, $damagetype"," отчаянно $damagetype "," нехотя $damagetype "," не подумав, $damagetype ",", улыбаясь, $damagetype "," $damagetype "," сдуру $damagetype ");
+        $textudar = array(", СЂР°Р·Р±РµР¶Р°РІС€РёСЃСЊ, $damagetype"," РѕС‚С‡Р°СЏРЅРЅРѕ $damagetype "," РЅРµС…РѕС‚СЏ $damagetype "," РЅРµ РїРѕРґСѓРјР°РІ, $damagetype ",", СѓР»С‹Р±Р°СЏСЃСЊ, $damagetype "," $damagetype "," СЃРґСѓСЂСѓ $damagetype ");
       } else {
-        $textudar = array(", разбежавшись, $damagetype"," отчаянно $damagetype "," нехотя $damagetype "," не подумав, $damagetype ",", улыбаясь, $damagetype "," $damagetype "," сдуру $damagetype ");
+        $textudar = array(", СЂР°Р·Р±РµР¶Р°РІС€РёСЃСЊ, $damagetype"," РѕС‚С‡Р°СЏРЅРЅРѕ $damagetype "," РЅРµС…РѕС‚СЏ $damagetype "," РЅРµ РїРѕРґСѓРјР°РІ, $damagetype ",", СѓР»С‹Р±Р°СЏСЃСЊ, $damagetype "," $damagetype "," СЃРґСѓСЂСѓ $damagetype ");
       }
-      $ret.='<span class=date>'.date("H:i")."</span> $hits ".$nick5pokomy.' '.$textud[rand(0,count($textud)-1)].' '.$hark[rand(0,count($hark)-1)].' '.$this->nick5($kto,$c1).''.$textudar[rand(0,count($textudar)-1)].' '.$textchem[rand(0,count($textchem)-1)].' '.$kuda.', но <b>силовое поле</b> поглотило урон.<BR>';
+      $ret.='<span class=date>'.date("H:i")."</span> $hits ".$nick5pokomy.' '.$textud[rand(0,count($textud)-1)].' '.$hark[rand(0,count($hark)-1)].' '.$this->nick5($kto,$c1).''.$textudar[rand(0,count($textudar)-1)].' '.$textchem[rand(0,count($textchem)-1)].' '.$kuda.', РЅРѕ <b>СЃРёР»РѕРІРѕРµ РїРѕР»Рµ</b> РїРѕРіР»РѕС‚РёР»Рѕ СѓСЂРѕРЅ.<BR>';
     break;
   }
   return $ret;
@@ -5179,10 +5179,10 @@ function hits($attack, $block, $enemy, $class) {
   return $ret;
 }
 /*------------------------------------------------------------------
- проверка на попадание "куда надо"
+ РїСЂРѕРІРµСЂРєР° РЅР° РїРѕРїР°РґР°РЅРёРµ "РєСѓРґР° РЅР°РґРѕ"
 --------------------------------------------------------------------*/
 function get_block ($komy,$att,$def,$enemy) {
-  //  по типам блоков
+  //  РїРѕ С‚РёРїР°Рј Р±Р»РѕРєРѕРІ
   if ($def==665 || $def==664) return true;
   if($komy=="me") $blocks=$this->getblocks($this->user["id"], $def);
   else $blocks=$this->getblocks($enemy, $def);
@@ -5232,7 +5232,7 @@ function getblocks($user, $def) {
   return $blocks[$def];
 }
 /*------------------------------------------------------------------
- возвращает получился шанс или нет
+ РІРѕР·РІСЂР°С‰Р°РµС‚ РїРѕР»СѓС‡РёР»СЃСЏ С€Р°РЅСЃ РёР»Рё РЅРµС‚
 --------------------------------------------------------------------*/
 function get_chanse ($persent) {
     srand();
@@ -5245,7 +5245,7 @@ function get_chanse ($persent) {
 }
 
 /*------------------------------------------------------------------
- выбираем противничка
+ РІС‹Р±РёСЂР°РµРј РїСЂРѕС‚РёРІРЅРёС‡РєР°
 --------------------------------------------------------------------*/
 
 function select_enemy() {
@@ -5313,7 +5313,7 @@ function setnextenemy($u) {
     }
     return $e;
   }
-  //По идее дальше не должно идти т. к. меняем врага только у себя (во всяком случае дальнейшее возможно глючит).
+  //РџРѕ РёРґРµРµ РґР°Р»СЊС€Рµ РЅРµ РґРѕР»Р¶РЅРѕ РёРґС‚Рё С‚. Рє. РјРµРЅСЏРµРј РІСЂР°РіР° С‚РѕР»СЊРєРѕ Сѓ СЃРµР±СЏ (РІРѕ РІСЃСЏРєРѕРј СЃР»СѓС‡Р°Рµ РґР°Р»СЊРЅРµР№С€РµРµ РІРѕР·РјРѕР¶РЅРѕ РіР»СЋС‡РёС‚).
   $enemys=array();
   $this->getbu($u);
   foreach($this->battle[$u] as $k => $v) {
@@ -5389,7 +5389,7 @@ function getdefcoef($user, $enemy, $mag=0) {
 }
 
 /*------------------------------------------------------------------
- считаем модификаторы
+ СЃС‡РёС‚Р°РµРј РјРѕРґРёС„РёРєР°С‚РѕСЂС‹
 --------------------------------------------------------------------*/
 
 function getmf($user, $enemy, $user_dress, $enemy_dress, $attack, $attack1, $attack2, $attack3, $attack4) {
@@ -5879,7 +5879,7 @@ function addextramf($id) {
   if ($user['vinos']>=50) $bmfbron+=4;*/
 
   //$chpercbron=floor($bmfbron/100*30);
-  //$bmfbron += $user["zo"][0]>0 ? $chpercbron:0;//свиток защиты !
+  //$bmfbron += $user["zo"][0]>0 ? $chpercbron:0;//СЃРІРёС‚РѕРє Р·Р°С‰РёС‚С‹ !
 
   //$user_dress["bron1"]+=$bmfbron;
   //$user_dress["bron2"]+=$bmfbron;
@@ -5949,7 +5949,7 @@ function solve_mf($user, $enemy,$myattack,$myattack1,$myattack2,$myattack3,$myat
   if ($this->battleunits[$enemy]["mudra"]>=125) $this->battleunits[$enemy]["minusmfdmag"]+=3;
   if ($short) return;
 
-  //БОНУСЫ!
+  //Р‘РћРќРЈРЎР«!
 
   if ($this->user_dress["mfparir"]>50) $this->user_dress["mfparir"]=50;
   if ($this->enemy_dress["mfparir"]>50) $this->enemy_dress["mfparir"]=50;
@@ -6094,7 +6094,7 @@ function updatebattleunits () {
 }
 
 /*------------------------------------------------------------------
- сейвим бой
+ СЃРµР№РІРёРј Р±РѕР№
 --------------------------------------------------------------------*/
 function update_battle () {
   global $user;
@@ -6205,144 +6205,144 @@ function update_battle () {
   if ($this->needupdatebu) $this->updatebattleunits();
 }
 /*------------------------------------------------------------------
- генератор фраз комментатора
+ РіРµРЅРµСЂР°С‚РѕСЂ С„СЂР°Р· РєРѕРјРјРµРЅС‚Р°С‚РѕСЂР°
 --------------------------------------------------------------------*/
             function get_comment () {
                 $boycom = array (
-                    'А танцуешь ты лучше.',
-'А мы что, в прятки тут играем?',
-'А вы разве пингвинов никогда не видели?',
-'А, ведь когда-то, вы были красивыми… А теперь? Ну и рожи! Жуть!',
-'А потом еще труп пинать будут.',
-'А я вчера ночью за соседями подглядывал. Они точно так же кувыркались',
-'А ведь вы живых людей дубасите...',
-'А вот я вчера в зоопарке был...',
-'А вы в стройбате не служили?',
-'А вы видели, чтобы так на улице делали!?',
-'А вы знали что ёжики размножаются в интернете?',
-'А жить-то, как хочется:',
-'А из-за чего вы собственно дерётесь?',
-'А чего ржёте, вы ещё остальных не видели',
-'А что произойдёт если ты испугаешся до полусмерти дважды?!',
-'Больше так не делай. Ты же не садист?',
-'Без комментариев...',
-'Больно ведь!',
-'Быстро ты за монитор спрятался!',
-'Все хотят попасть в рай, но никто не хочет умирать!',
-'Вчера с такой девчонкой познакомился.',
-'Всего 5 минут знакомы, а дерутся, словно супруги с 20-ти летним стажем...',
-'Все. Я так больше не могу.',
-'В конце концов, кто-то победит?',
-'Вы чего, с дерева упали? ',
-'Возятся как сонные мухи... давайте я вам лучше анекдот расскажу: ...',
-'Вот видишь, как полезно чистить зубы на ночь?',
-'Вот вы все руками махаете, а за вами уже очередь',
-'Вот попадёте вы в плен и вас там будут долго бить. Но вы ничего не расскажете... и не потому, что вы такой стойкий, просто вы ничего не знаете',
-'Вы бы лучше пошли потренировались!',
-'Вы все еще разминаетесь? Позовите, когда кости в муку друг другу разминать будете.',
-'Вы же бойцы! Имейте совесть!',
-'Гаси недоумка!',
-'Да, если бы я смог это остановить, то получил бы нобелевскую премию "За мир" ',
-'Да куда они бьют?!',
-'Давайте быстрее! За вами уже очередь образовалась.',
-'Давайте обойдемся сегодня таймаутом. А? А то мне уже кошмары скоро будут сниться.',
-'Дерутся как девчонки!',
-'Дети, посмотрите налево... Ой!.. Нет, туда лучше не смотреть.',
-'Если так будет продолжаться, то скоро мы заснем!',
-'Если бы у меня было кресло-качалка, я бы в нём качался...',
-'Если вы что-то сказать хотите, то лучше молчите :)',
-'Жестокость не порок.',
-'Жизнь вне нашего клуба - это пустая трата кислорода!!!',
-'Жми! Дави! Кусай! Царапай!',
-'За такие бои надо в хаос отправлять!',
-'Знаете откуда в комиссионном магазине столько вещей? Это я после ваших гулянок собираю и сдаю туда. Иногда вместе с частями тела, застрявшими в них.',
-'Здесь люди так близки друг к другу. Просто иначе ударить нельзя.',
-'И пролитая кровь еще пульсирует...',
-'Инвалидов развелось...',
-'Какой бой!!!',
-'Какой боец, такой конец',
-'Кто!? Кто здесь?!',
-'Кто вас этому научил?',
-'Кузнечик, блин...',
-'Куплю импортный проигрыватель грампластинок.',
-'Лошадью ходи!',
-'Лучше враг, чем друг - враг.',
-'Ладно, вы тут пока друг друга за волосы таскайте, а я пойду, пообедаю.',
-'Мне ваш балет уже надоел!',
-'Может, начнется-таки настоящий бой???',
-'Мысли лезут в голову изнутри, а удары снаружи.',
-'Ну и где ваши коронные удары? Где живописные падения я спрашиваю!',
-'Ну, нельзя же так наотмашь лупить!',
-'Надо раньше было думать, теперь смертельно поздно...',
-'На такое зрелище билеты продавать можно. Народ ухохочется!',
-'Нет! Не надо драки! А... ладно деритесь, все равно не умеете.',
-'Нет, ну должен быть повод, должен же быть повод?',
-'Нет, я отказываюсь это комментировать!',
-'Не таких обламывали!',
-'Ну выпили вы рюмку, ну две... ну литр, ну два... так зачем же после этого драку затевать?!',
-'Ну и кто за этот погром платить будет?',
-'Ну и оскал у вас. Из вашей улыбки кастеты делать можно.',
-'Ну, что же ты..? Не печалься. Выше голову, так по ней удобней попасть.',
-'Ничего... Блок тоже удар.',
-'Обернись!!!.... Поздно...',
-'Ого! Научите меня так не делать.',
-'Осторожно! Сделаешь дырочку, уже не запломбируешь!',
-'Оно вам надо???',
-'Обычное дело...там что-то отклеилось.',
-'Ой, и заболтался я с вами...',
-'Он же не промахнётся если ты не отойдёшь!',
-'По-моему, кому-то светит инвалидность.',
-'Подкинь ему грабли, на которые он еще не наступал.',
-'Прав был кот Леопольд, давайте жить дружно?',
-'При ударе в живот нарушается кислотно-щелочной баланс.',
-'Проверь, не торчит ли у тебя нож из живота.',
-'Перестаньте мне орать!',
-'Подкинь ему грабли, на которые он еще не наступал.',
-'Прыгают тут как блохи... Все, я пошел за дихлофосом!',
-'Разбудите меня когда эта порнография закончится...',
-'Ребенок сильнее ударил бы!',
-'Славно вмазал!',
-'Славно они веселятся',
-'Смотрю вот на вас, и слезы наворачиваются.',
-'Сначала учатся ходить, а потом только в драку лезут.',
-'Так они друг другу что-нибудь сломают.',
-'Так ты ему все кости переломаешь!',
-'Убогих развелось...',
-'Ух ты, какой прыткий!',
-'Фашист!! Надо ж, так по больному месту врезать...',
-'Хватит бить его об угол моей кабинки! Мне же потом ее чинить.',
-'Хулиганы, прекратите немедленно!',
-'Хочешь, подскажу, куда он ударит?',
-'Хорошо, что у меня ловкости больше чем у вас всех, а то б вы и меня в инвалидную коляску посадили бы.',
-'Хороший бой!',
-'Хороший удар!',
-'Хиляк-разрядник!',
-'Что ты его за волосы схватил?! Отпусти немедленно!',
-'Щас я вас настигну, вот тогда мы и похохочем',
-'Это была какая-то неизвестная мне техника...',
-'Это же противник, а не глина! Хватит мяться!',
-'Это не бой, это издевательское избиение.',
-'Это поубавит спеси',
-'Это и был твой план "Б" ?',
-'Это была какая-то неизвестная мне техника...',
-'Я же предупреждал, - будет больно.',
-'Я не страдаю безумием. Я наслаждаюсь им каждую минуту :)',
-'Я красивый, я сильный, я умный, я добрый. А вот вы? Вы себя-то видели?!',
-'Я тоже умею драться, но не буду...',
-'(тревожно озираясь) я вам по секрету скажу... за вами наблюдают!',
-'<вырезано цензурой> после боя я этих <вырезано цензурой> обоих в <вырезано цензурой> и <вырезано цензурой>',
-'<вырезано цензурой> каратисты фиговы');
+                    'Рђ С‚Р°РЅС†СѓРµС€СЊ С‚С‹ Р»СѓС‡С€Рµ.',
+'Рђ РјС‹ С‡С‚Рѕ, РІ РїСЂСЏС‚РєРё С‚СѓС‚ РёРіСЂР°РµРј?',
+'Рђ РІС‹ СЂР°Р·РІРµ РїРёРЅРіРІРёРЅРѕРІ РЅРёРєРѕРіРґР° РЅРµ РІРёРґРµР»Рё?',
+'Рђ, РІРµРґСЊ РєРѕРіРґР°-С‚Рѕ, РІС‹ Р±С‹Р»Рё РєСЂР°СЃРёРІС‹РјРёвЂ¦ Рђ С‚РµРїРµСЂСЊ? РќСѓ Рё СЂРѕР¶Рё! Р–СѓС‚СЊ!',
+'Рђ РїРѕС‚РѕРј РµС‰Рµ С‚СЂСѓРї РїРёРЅР°С‚СЊ Р±СѓРґСѓС‚.',
+'Рђ СЏ РІС‡РµСЂР° РЅРѕС‡СЊСЋ Р·Р° СЃРѕСЃРµРґСЏРјРё РїРѕРґРіР»СЏРґС‹РІР°Р». РћРЅРё С‚РѕС‡РЅРѕ С‚Р°Рє Р¶Рµ РєСѓРІС‹СЂРєР°Р»РёСЃСЊ',
+'Рђ РІРµРґСЊ РІС‹ Р¶РёРІС‹С… Р»СЋРґРµР№ РґСѓР±Р°СЃРёС‚Рµ...',
+'Рђ РІРѕС‚ СЏ РІС‡РµСЂР° РІ Р·РѕРѕРїР°СЂРєРµ Р±С‹Р»...',
+'Рђ РІС‹ РІ СЃС‚СЂРѕР№Р±Р°С‚Рµ РЅРµ СЃР»СѓР¶РёР»Рё?',
+'Рђ РІС‹ РІРёРґРµР»Рё, С‡С‚РѕР±С‹ С‚Р°Рє РЅР° СѓР»РёС†Рµ РґРµР»Р°Р»Рё!?',
+'Рђ РІС‹ Р·РЅР°Р»Рё С‡С‚Рѕ С‘Р¶РёРєРё СЂР°Р·РјРЅРѕР¶Р°СЋС‚СЃСЏ РІ РёРЅС‚РµСЂРЅРµС‚Рµ?',
+'Рђ Р¶РёС‚СЊ-С‚Рѕ, РєР°Рє С…РѕС‡РµС‚СЃСЏ:',
+'Рђ РёР·-Р·Р° С‡РµРіРѕ РІС‹ СЃРѕР±СЃС‚РІРµРЅРЅРѕ РґРµСЂС‘С‚РµСЃСЊ?',
+'Рђ С‡РµРіРѕ СЂР¶С‘С‚Рµ, РІС‹ РµС‰С‘ РѕСЃС‚Р°Р»СЊРЅС‹С… РЅРµ РІРёРґРµР»Рё',
+'Рђ С‡С‚Рѕ РїСЂРѕРёР·РѕР№РґС‘С‚ РµСЃР»Рё С‚С‹ РёСЃРїСѓРіР°РµС€СЃСЏ РґРѕ РїРѕР»СѓСЃРјРµСЂС‚Рё РґРІР°Р¶РґС‹?!',
+'Р‘РѕР»СЊС€Рµ С‚Р°Рє РЅРµ РґРµР»Р°Р№. РўС‹ Р¶Рµ РЅРµ СЃР°РґРёСЃС‚?',
+'Р‘РµР· РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ...',
+'Р‘РѕР»СЊРЅРѕ РІРµРґСЊ!',
+'Р‘С‹СЃС‚СЂРѕ С‚С‹ Р·Р° РјРѕРЅРёС‚РѕСЂ СЃРїСЂСЏС‚Р°Р»СЃСЏ!',
+'Р’СЃРµ С…РѕС‚СЏС‚ РїРѕРїР°СЃС‚СЊ РІ СЂР°Р№, РЅРѕ РЅРёРєС‚Рѕ РЅРµ С…РѕС‡РµС‚ СѓРјРёСЂР°С‚СЊ!',
+'Р’С‡РµСЂР° СЃ С‚Р°РєРѕР№ РґРµРІС‡РѕРЅРєРѕР№ РїРѕР·РЅР°РєРѕРјРёР»СЃСЏ.',
+'Р’СЃРµРіРѕ 5 РјРёРЅСѓС‚ Р·РЅР°РєРѕРјС‹, Р° РґРµСЂСѓС‚СЃСЏ, СЃР»РѕРІРЅРѕ СЃСѓРїСЂСѓРіРё СЃ 20-С‚Рё Р»РµС‚РЅРёРј СЃС‚Р°Р¶РµРј...',
+'Р’СЃРµ. РЇ С‚Р°Рє Р±РѕР»СЊС€Рµ РЅРµ РјРѕРіСѓ.',
+'Р’ РєРѕРЅС†Рµ РєРѕРЅС†РѕРІ, РєС‚Рѕ-С‚Рѕ РїРѕР±РµРґРёС‚?',
+'Р’С‹ С‡РµРіРѕ, СЃ РґРµСЂРµРІР° СѓРїР°Р»Рё? ',
+'Р’РѕР·СЏС‚СЃСЏ РєР°Рє СЃРѕРЅРЅС‹Рµ РјСѓС…Рё... РґР°РІР°Р№С‚Рµ СЏ РІР°Рј Р»СѓС‡С€Рµ Р°РЅРµРєРґРѕС‚ СЂР°СЃСЃРєР°Р¶Сѓ: ...',
+'Р’РѕС‚ РІРёРґРёС€СЊ, РєР°Рє РїРѕР»РµР·РЅРѕ С‡РёСЃС‚РёС‚СЊ Р·СѓР±С‹ РЅР° РЅРѕС‡СЊ?',
+'Р’РѕС‚ РІС‹ РІСЃРµ СЂСѓРєР°РјРё РјР°С…Р°РµС‚Рµ, Р° Р·Р° РІР°РјРё СѓР¶Рµ РѕС‡РµСЂРµРґСЊ',
+'Р’РѕС‚ РїРѕРїР°РґС‘С‚Рµ РІС‹ РІ РїР»РµРЅ Рё РІР°СЃ С‚Р°Рј Р±СѓРґСѓС‚ РґРѕР»РіРѕ Р±РёС‚СЊ. РќРѕ РІС‹ РЅРёС‡РµРіРѕ РЅРµ СЂР°СЃСЃРєР°Р¶РµС‚Рµ... Рё РЅРµ РїРѕС‚РѕРјСѓ, С‡С‚Рѕ РІС‹ С‚Р°РєРѕР№ СЃС‚РѕР№РєРёР№, РїСЂРѕСЃС‚Рѕ РІС‹ РЅРёС‡РµРіРѕ РЅРµ Р·РЅР°РµС‚Рµ',
+'Р’С‹ Р±С‹ Р»СѓС‡С€Рµ РїРѕС€Р»Рё РїРѕС‚СЂРµРЅРёСЂРѕРІР°Р»РёСЃСЊ!',
+'Р’С‹ РІСЃРµ РµС‰Рµ СЂР°Р·РјРёРЅР°РµС‚РµСЃСЊ? РџРѕР·РѕРІРёС‚Рµ, РєРѕРіРґР° РєРѕСЃС‚Рё РІ РјСѓРєСѓ РґСЂСѓРі РґСЂСѓРіСѓ СЂР°Р·РјРёРЅР°С‚СЊ Р±СѓРґРµС‚Рµ.',
+'Р’С‹ Р¶Рµ Р±РѕР№С†С‹! РРјРµР№С‚Рµ СЃРѕРІРµСЃС‚СЊ!',
+'Р“Р°СЃРё РЅРµРґРѕСѓРјРєР°!',
+'Р”Р°, РµСЃР»Рё Р±С‹ СЏ СЃРјРѕРі СЌС‚Рѕ РѕСЃС‚Р°РЅРѕРІРёС‚СЊ, С‚Рѕ РїРѕР»СѓС‡РёР» Р±С‹ РЅРѕР±РµР»РµРІСЃРєСѓСЋ РїСЂРµРјРёСЋ "Р—Р° РјРёСЂ" ',
+'Р”Р° РєСѓРґР° РѕРЅРё Р±СЊСЋС‚?!',
+'Р”Р°РІР°Р№С‚Рµ Р±С‹СЃС‚СЂРµРµ! Р—Р° РІР°РјРё СѓР¶Рµ РѕС‡РµСЂРµРґСЊ РѕР±СЂР°Р·РѕРІР°Р»Р°СЃСЊ.',
+'Р”Р°РІР°Р№С‚Рµ РѕР±РѕР№РґРµРјСЃСЏ СЃРµРіРѕРґРЅСЏ С‚Р°Р№РјР°СѓС‚РѕРј. Рђ? Рђ С‚Рѕ РјРЅРµ СѓР¶Рµ РєРѕС€РјР°СЂС‹ СЃРєРѕСЂРѕ Р±СѓРґСѓС‚ СЃРЅРёС‚СЊСЃСЏ.',
+'Р”РµСЂСѓС‚СЃСЏ РєР°Рє РґРµРІС‡РѕРЅРєРё!',
+'Р”РµС‚Рё, РїРѕСЃРјРѕС‚СЂРёС‚Рµ РЅР°Р»РµРІРѕ... РћР№!.. РќРµС‚, С‚СѓРґР° Р»СѓС‡С€Рµ РЅРµ СЃРјРѕС‚СЂРµС‚СЊ.',
+'Р•СЃР»Рё С‚Р°Рє Р±СѓРґРµС‚ РїСЂРѕРґРѕР»Р¶Р°С‚СЊСЃСЏ, С‚Рѕ СЃРєРѕСЂРѕ РјС‹ Р·Р°СЃРЅРµРј!',
+'Р•СЃР»Рё Р±С‹ Сѓ РјРµРЅСЏ Р±С‹Р»Рѕ РєСЂРµСЃР»Рѕ-РєР°С‡Р°Р»РєР°, СЏ Р±С‹ РІ РЅС‘Рј РєР°С‡Р°Р»СЃСЏ...',
+'Р•СЃР»Рё РІС‹ С‡С‚Рѕ-С‚Рѕ СЃРєР°Р·Р°С‚СЊ С…РѕС‚РёС‚Рµ, С‚Рѕ Р»СѓС‡С€Рµ РјРѕР»С‡РёС‚Рµ :)',
+'Р–РµСЃС‚РѕРєРѕСЃС‚СЊ РЅРµ РїРѕСЂРѕРє.',
+'Р–РёР·РЅСЊ РІРЅРµ РЅР°С€РµРіРѕ РєР»СѓР±Р° - СЌС‚Рѕ РїСѓСЃС‚Р°СЏ С‚СЂР°С‚Р° РєРёСЃР»РѕСЂРѕРґР°!!!',
+'Р–РјРё! Р”Р°РІРё! РљСѓСЃР°Р№! Р¦Р°СЂР°РїР°Р№!',
+'Р—Р° С‚Р°РєРёРµ Р±РѕРё РЅР°РґРѕ РІ С…Р°РѕСЃ РѕС‚РїСЂР°РІР»СЏС‚СЊ!',
+'Р—РЅР°РµС‚Рµ РѕС‚РєСѓРґР° РІ РєРѕРјРёСЃСЃРёРѕРЅРЅРѕРј РјР°РіР°Р·РёРЅРµ СЃС‚РѕР»СЊРєРѕ РІРµС‰РµР№? Р­С‚Рѕ СЏ РїРѕСЃР»Рµ РІР°С€РёС… РіСѓР»СЏРЅРѕРє СЃРѕР±РёСЂР°СЋ Рё СЃРґР°СЋ С‚СѓРґР°. РРЅРѕРіРґР° РІРјРµСЃС‚Рµ СЃ С‡Р°СЃС‚СЏРјРё С‚РµР»Р°, Р·Р°СЃС‚СЂСЏРІС€РёРјРё РІ РЅРёС….',
+'Р—РґРµСЃСЊ Р»СЋРґРё С‚Р°Рє Р±Р»РёР·РєРё РґСЂСѓРі Рє РґСЂСѓРіСѓ. РџСЂРѕСЃС‚Рѕ РёРЅР°С‡Рµ СѓРґР°СЂРёС‚СЊ РЅРµР»СЊР·СЏ.',
+'Р РїСЂРѕР»РёС‚Р°СЏ РєСЂРѕРІСЊ РµС‰Рµ РїСѓР»СЊСЃРёСЂСѓРµС‚...',
+'РРЅРІР°Р»РёРґРѕРІ СЂР°Р·РІРµР»РѕСЃСЊ...',
+'РљР°РєРѕР№ Р±РѕР№!!!',
+'РљР°РєРѕР№ Р±РѕРµС†, С‚Р°РєРѕР№ РєРѕРЅРµС†',
+'РљС‚Рѕ!? РљС‚Рѕ Р·РґРµСЃСЊ?!',
+'РљС‚Рѕ РІР°СЃ СЌС‚РѕРјСѓ РЅР°СѓС‡РёР»?',
+'РљСѓР·РЅРµС‡РёРє, Р±Р»РёРЅ...',
+'РљСѓРїР»СЋ РёРјРїРѕСЂС‚РЅС‹Р№ РїСЂРѕРёРіСЂС‹РІР°С‚РµР»СЊ РіСЂР°РјРїР»Р°СЃС‚РёРЅРѕРє.',
+'Р›РѕС€Р°РґСЊСЋ С…РѕРґРё!',
+'Р›СѓС‡С€Рµ РІСЂР°Рі, С‡РµРј РґСЂСѓРі - РІСЂР°Рі.',
+'Р›Р°РґРЅРѕ, РІС‹ С‚СѓС‚ РїРѕРєР° РґСЂСѓРі РґСЂСѓРіР° Р·Р° РІРѕР»РѕСЃС‹ С‚Р°СЃРєР°Р№С‚Рµ, Р° СЏ РїРѕР№РґСѓ, РїРѕРѕР±РµРґР°СЋ.',
+'РњРЅРµ РІР°С€ Р±Р°Р»РµС‚ СѓР¶Рµ РЅР°РґРѕРµР»!',
+'РњРѕР¶РµС‚, РЅР°С‡РЅРµС‚СЃСЏ-С‚Р°РєРё РЅР°СЃС‚РѕСЏС‰РёР№ Р±РѕР№???',
+'РњС‹СЃР»Рё Р»РµР·СѓС‚ РІ РіРѕР»РѕРІСѓ РёР·РЅСѓС‚СЂРё, Р° СѓРґР°СЂС‹ СЃРЅР°СЂСѓР¶Рё.',
+'РќСѓ Рё РіРґРµ РІР°С€Рё РєРѕСЂРѕРЅРЅС‹Рµ СѓРґР°СЂС‹? Р“РґРµ Р¶РёРІРѕРїРёСЃРЅС‹Рµ РїР°РґРµРЅРёСЏ СЏ СЃРїСЂР°С€РёРІР°СЋ!',
+'РќСѓ, РЅРµР»СЊР·СЏ Р¶Рµ С‚Р°Рє РЅР°РѕС‚РјР°С€СЊ Р»СѓРїРёС‚СЊ!',
+'РќР°РґРѕ СЂР°РЅСЊС€Рµ Р±С‹Р»Рѕ РґСѓРјР°С‚СЊ, С‚РµРїРµСЂСЊ СЃРјРµСЂС‚РµР»СЊРЅРѕ РїРѕР·РґРЅРѕ...',
+'РќР° С‚Р°РєРѕРµ Р·СЂРµР»РёС‰Рµ Р±РёР»РµС‚С‹ РїСЂРѕРґР°РІР°С‚СЊ РјРѕР¶РЅРѕ. РќР°СЂРѕРґ СѓС…РѕС…РѕС‡РµС‚СЃСЏ!',
+'РќРµС‚! РќРµ РЅР°РґРѕ РґСЂР°РєРё! Рђ... Р»Р°РґРЅРѕ РґРµСЂРёС‚РµСЃСЊ, РІСЃРµ СЂР°РІРЅРѕ РЅРµ СѓРјРµРµС‚Рµ.',
+'РќРµС‚, РЅСѓ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїРѕРІРѕРґ, РґРѕР»Р¶РµРЅ Р¶Рµ Р±С‹С‚СЊ РїРѕРІРѕРґ?',
+'РќРµС‚, СЏ РѕС‚РєР°Р·С‹РІР°СЋСЃСЊ СЌС‚Рѕ РєРѕРјРјРµРЅС‚РёСЂРѕРІР°С‚СЊ!',
+'РќРµ С‚Р°РєРёС… РѕР±Р»Р°РјС‹РІР°Р»Рё!',
+'РќСѓ РІС‹РїРёР»Рё РІС‹ СЂСЋРјРєСѓ, РЅСѓ РґРІРµ... РЅСѓ Р»РёС‚СЂ, РЅСѓ РґРІР°... С‚Р°Рє Р·Р°С‡РµРј Р¶Рµ РїРѕСЃР»Рµ СЌС‚РѕРіРѕ РґСЂР°РєСѓ Р·Р°С‚РµРІР°С‚СЊ?!',
+'РќСѓ Рё РєС‚Рѕ Р·Р° СЌС‚РѕС‚ РїРѕРіСЂРѕРј РїР»Р°С‚РёС‚СЊ Р±СѓРґРµС‚?',
+'РќСѓ Рё РѕСЃРєР°Р» Сѓ РІР°СЃ. РР· РІР°С€РµР№ СѓР»С‹Р±РєРё РєР°СЃС‚РµС‚С‹ РґРµР»Р°С‚СЊ РјРѕР¶РЅРѕ.',
+'РќСѓ, С‡С‚Рѕ Р¶Рµ С‚С‹..? РќРµ РїРµС‡Р°Р»СЊСЃСЏ. Р’С‹С€Рµ РіРѕР»РѕРІСѓ, С‚Р°Рє РїРѕ РЅРµР№ СѓРґРѕР±РЅРµР№ РїРѕРїР°СЃС‚СЊ.',
+'РќРёС‡РµРіРѕ... Р‘Р»РѕРє С‚РѕР¶Рµ СѓРґР°СЂ.',
+'РћР±РµСЂРЅРёСЃСЊ!!!.... РџРѕР·РґРЅРѕ...',
+'РћРіРѕ! РќР°СѓС‡РёС‚Рµ РјРµРЅСЏ С‚Р°Рє РЅРµ РґРµР»Р°С‚СЊ.',
+'РћСЃС‚РѕСЂРѕР¶РЅРѕ! РЎРґРµР»Р°РµС€СЊ РґС‹СЂРѕС‡РєСѓ, СѓР¶Рµ РЅРµ Р·Р°РїР»РѕРјР±РёСЂСѓРµС€СЊ!',
+'РћРЅРѕ РІР°Рј РЅР°РґРѕ???',
+'РћР±С‹С‡РЅРѕРµ РґРµР»Рѕ...С‚Р°Рј С‡С‚Рѕ-С‚Рѕ РѕС‚РєР»РµРёР»РѕСЃСЊ.',
+'РћР№, Рё Р·Р°Р±РѕР»С‚Р°Р»СЃСЏ СЏ СЃ РІР°РјРё...',
+'РћРЅ Р¶Рµ РЅРµ РїСЂРѕРјР°С…РЅС‘С‚СЃСЏ РµСЃР»Рё С‚С‹ РЅРµ РѕС‚РѕР№РґС‘С€СЊ!',
+'РџРѕ-РјРѕРµРјСѓ, РєРѕРјСѓ-С‚Рѕ СЃРІРµС‚РёС‚ РёРЅРІР°Р»РёРґРЅРѕСЃС‚СЊ.',
+'РџРѕРґРєРёРЅСЊ РµРјСѓ РіСЂР°Р±Р»Рё, РЅР° РєРѕС‚РѕСЂС‹Рµ РѕРЅ РµС‰Рµ РЅРµ РЅР°СЃС‚СѓРїР°Р».',
+'РџСЂР°РІ Р±С‹Р» РєРѕС‚ Р›РµРѕРїРѕР»СЊРґ, РґР°РІР°Р№С‚Рµ Р¶РёС‚СЊ РґСЂСѓР¶РЅРѕ?',
+'РџСЂРё СѓРґР°СЂРµ РІ Р¶РёРІРѕС‚ РЅР°СЂСѓС€Р°РµС‚СЃСЏ РєРёСЃР»РѕС‚РЅРѕ-С‰РµР»РѕС‡РЅРѕР№ Р±Р°Р»Р°РЅСЃ.',
+'РџСЂРѕРІРµСЂСЊ, РЅРµ С‚РѕСЂС‡РёС‚ Р»Рё Сѓ С‚РµР±СЏ РЅРѕР¶ РёР· Р¶РёРІРѕС‚Р°.',
+'РџРµСЂРµСЃС‚Р°РЅСЊС‚Рµ РјРЅРµ РѕСЂР°С‚СЊ!',
+'РџРѕРґРєРёРЅСЊ РµРјСѓ РіСЂР°Р±Р»Рё, РЅР° РєРѕС‚РѕСЂС‹Рµ РѕРЅ РµС‰Рµ РЅРµ РЅР°СЃС‚СѓРїР°Р».',
+'РџСЂС‹РіР°СЋС‚ С‚СѓС‚ РєР°Рє Р±Р»РѕС…Рё... Р’СЃРµ, СЏ РїРѕС€РµР» Р·Р° РґРёС…Р»РѕС„РѕСЃРѕРј!',
+'Р Р°Р·Р±СѓРґРёС‚Рµ РјРµРЅСЏ РєРѕРіРґР° СЌС‚Р° РїРѕСЂРЅРѕРіСЂР°С„РёСЏ Р·Р°РєРѕРЅС‡РёС‚СЃСЏ...',
+'Р РµР±РµРЅРѕРє СЃРёР»СЊРЅРµРµ СѓРґР°СЂРёР» Р±С‹!',
+'РЎР»Р°РІРЅРѕ РІРјР°Р·Р°Р»!',
+'РЎР»Р°РІРЅРѕ РѕРЅРё РІРµСЃРµР»СЏС‚СЃСЏ',
+'РЎРјРѕС‚СЂСЋ РІРѕС‚ РЅР° РІР°СЃ, Рё СЃР»РµР·С‹ РЅР°РІРѕСЂР°С‡РёРІР°СЋС‚СЃСЏ.',
+'РЎРЅР°С‡Р°Р»Р° СѓС‡Р°С‚СЃСЏ С…РѕРґРёС‚СЊ, Р° РїРѕС‚РѕРј С‚РѕР»СЊРєРѕ РІ РґСЂР°РєСѓ Р»РµР·СѓС‚.',
+'РўР°Рє РѕРЅРё РґСЂСѓРі РґСЂСѓРіСѓ С‡С‚Рѕ-РЅРёР±СѓРґСЊ СЃР»РѕРјР°СЋС‚.',
+'РўР°Рє С‚С‹ РµРјСѓ РІСЃРµ РєРѕСЃС‚Рё РїРµСЂРµР»РѕРјР°РµС€СЊ!',
+'РЈР±РѕРіРёС… СЂР°Р·РІРµР»РѕСЃСЊ...',
+'РЈС… С‚С‹, РєР°РєРѕР№ РїСЂС‹С‚РєРёР№!',
+'Р¤Р°С€РёСЃС‚!! РќР°РґРѕ Р¶, С‚Р°Рє РїРѕ Р±РѕР»СЊРЅРѕРјСѓ РјРµСЃС‚Сѓ РІСЂРµР·Р°С‚СЊ...',
+'РҐРІР°С‚РёС‚ Р±РёС‚СЊ РµРіРѕ РѕР± СѓРіРѕР» РјРѕРµР№ РєР°Р±РёРЅРєРё! РњРЅРµ Р¶Рµ РїРѕС‚РѕРј РµРµ С‡РёРЅРёС‚СЊ.',
+'РҐСѓР»РёРіР°РЅС‹, РїСЂРµРєСЂР°С‚РёС‚Рµ РЅРµРјРµРґР»РµРЅРЅРѕ!',
+'РҐРѕС‡РµС€СЊ, РїРѕРґСЃРєР°Р¶Сѓ, РєСѓРґР° РѕРЅ СѓРґР°СЂРёС‚?',
+'РҐРѕСЂРѕС€Рѕ, С‡С‚Рѕ Сѓ РјРµРЅСЏ Р»РѕРІРєРѕСЃС‚Рё Р±РѕР»СЊС€Рµ С‡РµРј Сѓ РІР°СЃ РІСЃРµС…, Р° С‚Рѕ Р± РІС‹ Рё РјРµРЅСЏ РІ РёРЅРІР°Р»РёРґРЅСѓСЋ РєРѕР»СЏСЃРєСѓ РїРѕСЃР°РґРёР»Рё Р±С‹.',
+'РҐРѕСЂРѕС€РёР№ Р±РѕР№!',
+'РҐРѕСЂРѕС€РёР№ СѓРґР°СЂ!',
+'РҐРёР»СЏРє-СЂР°Р·СЂСЏРґРЅРёРє!',
+'Р§С‚Рѕ С‚С‹ РµРіРѕ Р·Р° РІРѕР»РѕСЃС‹ СЃС…РІР°С‚РёР»?! РћС‚РїСѓСЃС‚Рё РЅРµРјРµРґР»РµРЅРЅРѕ!',
+'Р©Р°СЃ СЏ РІР°СЃ РЅР°СЃС‚РёРіРЅСѓ, РІРѕС‚ С‚РѕРіРґР° РјС‹ Рё РїРѕС…РѕС…РѕС‡РµРј',
+'Р­С‚Рѕ Р±С‹Р»Р° РєР°РєР°СЏ-С‚Рѕ РЅРµРёР·РІРµСЃС‚РЅР°СЏ РјРЅРµ С‚РµС…РЅРёРєР°...',
+'Р­С‚Рѕ Р¶Рµ РїСЂРѕС‚РёРІРЅРёРє, Р° РЅРµ РіР»РёРЅР°! РҐРІР°С‚РёС‚ РјСЏС‚СЊСЃСЏ!',
+'Р­С‚Рѕ РЅРµ Р±РѕР№, СЌС‚Рѕ РёР·РґРµРІР°С‚РµР»СЊСЃРєРѕРµ РёР·Р±РёРµРЅРёРµ.',
+'Р­С‚Рѕ РїРѕСѓР±Р°РІРёС‚ СЃРїРµСЃРё',
+'Р­С‚Рѕ Рё Р±С‹Р» С‚РІРѕР№ РїР»Р°РЅ "Р‘" ?',
+'Р­С‚Рѕ Р±С‹Р»Р° РєР°РєР°СЏ-С‚Рѕ РЅРµРёР·РІРµСЃС‚РЅР°СЏ РјРЅРµ С‚РµС…РЅРёРєР°...',
+'РЇ Р¶Рµ РїСЂРµРґСѓРїСЂРµР¶РґР°Р», - Р±СѓРґРµС‚ Р±РѕР»СЊРЅРѕ.',
+'РЇ РЅРµ СЃС‚СЂР°РґР°СЋ Р±РµР·СѓРјРёРµРј. РЇ РЅР°СЃР»Р°Р¶РґР°СЋСЃСЊ РёРј РєР°Р¶РґСѓСЋ РјРёРЅСѓС‚Сѓ :)',
+'РЇ РєСЂР°СЃРёРІС‹Р№, СЏ СЃРёР»СЊРЅС‹Р№, СЏ СѓРјРЅС‹Р№, СЏ РґРѕР±СЂС‹Р№. Рђ РІРѕС‚ РІС‹? Р’С‹ СЃРµР±СЏ-С‚Рѕ РІРёРґРµР»Рё?!',
+'РЇ С‚РѕР¶Рµ СѓРјРµСЋ РґСЂР°С‚СЊСЃСЏ, РЅРѕ РЅРµ Р±СѓРґСѓ...',
+'(С‚СЂРµРІРѕР¶РЅРѕ РѕР·РёСЂР°СЏСЃСЊ) СЏ РІР°Рј РїРѕ СЃРµРєСЂРµС‚Сѓ СЃРєР°Р¶Сѓ... Р·Р° РІР°РјРё РЅР°Р±Р»СЋРґР°СЋС‚!',
+'<РІС‹СЂРµР·Р°РЅРѕ С†РµРЅР·СѓСЂРѕР№> РїРѕСЃР»Рµ Р±РѕСЏ СЏ СЌС‚РёС… <РІС‹СЂРµР·Р°РЅРѕ С†РµРЅР·СѓСЂРѕР№> РѕР±РѕРёС… РІ <РІС‹СЂРµР·Р°РЅРѕ С†РµРЅР·СѓСЂРѕР№> Рё <РІС‹СЂРµР·Р°РЅРѕ С†РµРЅР·СѓСЂРѕР№>',
+'<РІС‹СЂРµР·Р°РЅРѕ С†РµРЅР·СѓСЂРѕР№> РєР°СЂР°С‚РёСЃС‚С‹ С„РёРіРѕРІС‹');
 
-                // рандомайзим и шансуем ;)
+                // СЂР°РЅРґРѕРјР°Р№Р·РёРј Рё С€Р°РЅСЃСѓРµРј ;)
                 if (rand(0,3)==1) {
-                    return '<span class=date>'.date("H:i").'</span> <i>Комментатор: '.$boycom[rand(0,count($boycom)-1)].'</i><BR>';
+                    return '<span class=date>'.date("H:i").'</span> <i>РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ: '.$boycom[rand(0,count($boycom)-1)].'</i><BR>';
                 }
                 else {
                     return false;
                 }
             }
 /*------------------------------------------------------------------
- есть ли тайм в советском союзе?
+ РµСЃС‚СЊ Р»Рё С‚Р°Р№Рј РІ СЃРѕРІРµС‚СЃРєРѕРј СЃРѕСЋР·Рµ?
 --------------------------------------------------------------------*/
             function get_timeout () {
                 if($this->battle) {
@@ -6362,7 +6362,7 @@ function update_battle () {
                 }
             }
 /*-------------------------------------------------------------------
-  работа с логами
+  СЂР°Р±РѕС‚Р° СЃ Р»РѕРіР°РјРё
 --------------------------------------------------------------------*/
   function logline($text) {
     $this->add_log("<span class=date>".date("H:i")."</span> $text <BR>");
@@ -6380,12 +6380,12 @@ function update_battle () {
     } else return;
 
     //mq('UPDATE `logs` SET `log` = CONCAT(`log`,\''.$this->log.'\') WHERE `id` = '.$this->user['battle'].'');
-    $fp = fopen (DOCUMENTROOT."backup/logs/battle".$this->user['battle'].".txt","a"); //открытие
-    flock ($fp,LOCK_EX); //БЛОКИРОВКА ФАЙЛА
-    fputs($fp , $this->log); //работа с файлом
-    fflush ($fp); //ОЧИЩЕНИЕ ФАЙЛОВОГО БУФЕРА И ЗАПИСЬ В ФАЙЛ
-    flock ($fp,LOCK_UN); //СНЯТИЕ БЛОКИРОВКИ
-    fclose ($fp); //закрытие
+    $fp = fopen (DOCUMENTROOT."backup/logs/battle".$this->user['battle'].".txt","a"); //РѕС‚РєСЂС‹С‚РёРµ
+    flock ($fp,LOCK_EX); //Р‘Р›РћРљРР РћР’РљРђ Р¤РђР™Р›Рђ
+    fputs($fp , $this->log); //СЂР°Р±РѕС‚Р° СЃ С„Р°Р№Р»РѕРј
+    fflush ($fp); //РћР§РР©Р•РќРР• Р¤РђР™Р›РћР’РћР“Рћ Р‘РЈР¤Р•Р Рђ Р Р—РђРџРРЎР¬ Р’ Р¤РђР™Р›
+    flock ($fp,LOCK_UN); //РЎРќРЇРўРР• Р‘Р›РћРљРР РћР’РљР
+    fclose ($fp); //Р·Р°РєСЂС‹С‚РёРµ
     $this->log = '';
   }
 
@@ -6403,22 +6403,22 @@ function update_battle () {
 
       function write_stat ($text) {
           /*
-          $fp = fopen ("backup/stat/battle".$this->user['battle'].".txt","a"); //открытие
-          flock ($fp,LOCK_EX); //БЛОКИРОВКА ФАЙЛА
-          fputs($fp , $text."\n"); //работа с файлом
-          fflush ($fp); //ОЧИЩЕНИЕ ФАЙЛОВОГО БУФЕРА И ЗАПИСЬ В ФАЙЛ
-          flock ($fp,LOCK_UN); //СНЯТИЕ БЛОКИРОВКИ
-          fclose ($fp); //закрытие
+          $fp = fopen ("backup/stat/battle".$this->user['battle'].".txt","a"); //РѕС‚РєСЂС‹С‚РёРµ
+          flock ($fp,LOCK_EX); //Р‘Р›РћРљРР РћР’РљРђ Р¤РђР™Р›Рђ
+          fputs($fp , $text."\n"); //СЂР°Р±РѕС‚Р° СЃ С„Р°Р№Р»РѕРј
+          fflush ($fp); //РћР§РР©Р•РќРР• Р¤РђР™Р›РћР’РћР“Рћ Р‘РЈР¤Р•Р Рђ Р Р—РђРџРРЎР¬ Р’ Р¤РђР™Р›
+          flock ($fp,LOCK_UN); //РЎРќРЇРўРР• Р‘Р›РћРљРР РћР’РљР
+          fclose ($fp); //Р·Р°РєСЂС‹С‚РёРµ
           */
       }
       function write_stat_block ($text) {
           /*
-          $fp = fopen ("backup/stat/battle_block".$this->user['battle'].".txt","a"); //открытие
-          flock ($fp,LOCK_EX); //БЛОКИРОВКА ФАЙЛА
-          fputs($fp , $text."\n"); //работа с файлом
-          fflush ($fp); //ОЧИЩЕНИЕ ФАЙЛОВОГО БУФЕРА И ЗАПИСЬ В ФАЙЛ
-          flock ($fp,LOCK_UN); //СНЯТИЕ БЛОКИРОВКИ
-          fclose ($fp); //закрытие
+          $fp = fopen ("backup/stat/battle_block".$this->user['battle'].".txt","a"); //РѕС‚РєСЂС‹С‚РёРµ
+          flock ($fp,LOCK_EX); //Р‘Р›РћРљРР РћР’РљРђ Р¤РђР™Р›Рђ
+          fputs($fp , $text."\n"); //СЂР°Р±РѕС‚Р° СЃ С„Р°Р№Р»РѕРј
+          fflush ($fp); //РћР§РР©Р•РќРР• Р¤РђР™Р›РћР’РћР“Рћ Р‘РЈР¤Р•Р Рђ Р Р—РђРџРРЎР¬ Р’ Р¤РђР™Р›
+          flock ($fp,LOCK_UN); //РЎРќРЇРўРР• Р‘Р›РћРљРР РћР’РљР
+          fclose ($fp); //Р·Р°РєСЂС‹С‚РёРµ
           */
       }
 
@@ -6431,12 +6431,12 @@ function update_battle () {
           /*
 echo $this->log_debug;
 
-          $fp = fopen ("backup/debug/battle".$this->user['battle'].".txt","a"); //открытие
-          flock ($fp,LOCK_EX); //БЛОКИРОВКА ФАЙЛА
-          fputs($fp , $this->log_debug) ; //работа с файлом
-          fflush ($fp); //ОЧИЩЕНИЕ ФАЙЛОВОГО БУФЕРА И ЗАПИСЬ В ФАЙЛ
-          flock ($fp,LOCK_UN); //СНЯТИЕ БЛОКИРОВКИ
-          fclose ($fp); //закрытие
+          $fp = fopen ("backup/debug/battle".$this->user['battle'].".txt","a"); //РѕС‚РєСЂС‹С‚РёРµ
+          flock ($fp,LOCK_EX); //Р‘Р›РћРљРР РћР’РљРђ Р¤РђР™Р›Рђ
+          fputs($fp , $this->log_debug) ; //СЂР°Р±РѕС‚Р° СЃ С„Р°Р№Р»РѕРј
+          fflush ($fp); //РћР§РР©Р•РќРР• Р¤РђР™Р›РћР’РћР“Рћ Р‘РЈР¤Р•Р Рђ Р Р—РђРџРРЎР¬ Р’ Р¤РђР™Р›
+          flock ($fp,LOCK_UN); //РЎРќРЇРўРР• Р‘Р›РћРљРР РћР’РљР
+          fclose ($fp); //Р·Р°РєСЂС‹С‚РёРµ
           $this->log_debug = '';
           */
 
@@ -6447,7 +6447,7 @@ echo $this->log_debug;
     }
 
 // ========================================================================================================================================================
-// конец исполняемого кода битвы
+// РєРѕРЅРµС† РёСЃРїРѕР»РЅСЏРµРјРѕРіРѕ РєРѕРґР° Р±РёС‚РІС‹
 //=========================================================================================================================================================
 
 if (USERBATTLE) {
@@ -6465,7 +6465,7 @@ if (@$_GET["killplayer"]) {
     if ($hasenemy && $fbattle->battle_data["timeout"]*60+$lasthit<time()) {
       $fbattle->toupdate[$kp]["die"]=1;
       $fbattle->needupdate=1;
-      $fbattle->add_log("<span class=date>".date("H:i")."</span> <b>".mqfa1("select login from users where id='$kp'")."</b> проиграл по таймауту.<BR>");
+      $fbattle->add_log("<span class=date>".date("H:i")."</span> <b>".mqfa1("select login from users where id='$kp'")."</b> РїСЂРѕРёРіСЂР°Р» РїРѕ С‚Р°Р№РјР°СѓС‚Сѓ.<BR>");
       $fbattle->write_log();
     }
   }
@@ -6480,17 +6480,17 @@ if (@$_GET['use'] && $user["hp"]>0 && $fbattle->battle_data["type"]!=4) {
       $p=unserialize($fbattle->battleunits[$user["id"]][$_GET["use"]]);
       if ($p["prototype"]==1904) {
         $fbattle->addmana(100, $user["id"]);
-        $fbattle->logline($fbattle->nick5($user["id"])." понимая, что настало время действовать, использовал".($user["sex"]==1?"":"а")." <b>$p[name]</b> <b>+100</b> ".$fbattle->logmana($user["id"]));
+        $fbattle->logline($fbattle->nick5($user["id"])." РїРѕРЅРёРјР°СЏ, С‡С‚Рѕ РЅР°СЃС‚Р°Р»Рѕ РІСЂРµРјСЏ РґРµР№СЃС‚РІРѕРІР°С‚СЊ, РёСЃРїРѕР»СЊР·РѕРІР°Р»".($user["sex"]==1?"":"Р°")." <b>$p[name]</b> <b>+100</b> ".$fbattle->logmana($user["id"]));
       }
       if ($p["prototype"]==1903) {
         $added=$fbattle->addhp(ceil(($user["maxhp"]-$user["hp"])/10), $user["id"], 1);
         //$user["hp"]=min($user["hp"]+$added, $user["maxhp"]);
-        $fbattle->logline($fbattle->nick5($user["id"])." понимая, что настало время действовать, использовал".($user["sex"]==1?"":"а")." <b>$p[name]</b> <b>+$added</b> ".$fbattle->loghp($user["id"]));
+        $fbattle->logline($fbattle->nick5($user["id"])." РїРѕРЅРёРјР°СЏ, С‡С‚Рѕ РЅР°СЃС‚Р°Р»Рѕ РІСЂРµРјСЏ РґРµР№СЃС‚РІРѕРІР°С‚СЊ, РёСЃРїРѕР»СЊР·РѕРІР°Р»".($user["sex"]==1?"":"Р°")." <b>$p[name]</b> <b>+$added</b> ".$fbattle->loghp($user["id"]));
       }
       destructitem($p["id"]);
       $fbattle->toupdatebu[$user["id"]][$_GET["use"]]="";
       $fbattle->needupdatebu=1;
-      $report="Успешно использован предмет \"$p[name]\".";
+      $report="РЈСЃРїРµС€РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РїСЂРµРґРјРµС‚ \"$p[name]\".";
     }
   } else {
     function getscrollslot($s) {
@@ -6549,13 +6549,13 @@ if (@$_GET['use'] && $user["hp"]>0 && $fbattle->battle_data["type"]!=4) {
             if (@$scrollresult["damage"])
             $fbattle->logline($fbattle->nick5($user["id"])." $scrollresult[action] ".$fbattle->nick5($scrollresult["target"])." <b> -".$scrollresult["damage"]."</b></font> ".($fbattle->loghp($scrollresult["target"]))."<BR>");
           } elseif (@$scrollresult["selfcast"]) {
-            $fbattle->logline($fbattle->nick5($user["id"])." использовал".($user["sex"]==1?"":"а")." заклятие <b>$scrollname</b>.<BR>");
+            $fbattle->logline($fbattle->nick5($user["id"])." РёСЃРїРѕР»СЊР·РѕРІР°Р»".($user["sex"]==1?"":"Р°")." Р·Р°РєР»СЏС‚РёРµ <b>$scrollname</b>.<BR>");
           } elseif (@$scrollresult["deltahp"]) {
             $fbattle->getbu($scrollresult["target"]);
             $ghp=$fbattle->addhp($scrollresult["deltahp"], $scrollresult["target"]);
-            if ($fbattle->battleunits[$scrollresult["target"]]["sex"]) $a=""; else $a="а";
-            $fbattle->add_log('<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user["id"]).' использовал'.($user["sex"]?"":"а").' заклятие <b>'.$scrollname."</b> ".(($scrollresult["target"]!=$user['id'])?"на ".$fbattle->nick5($scrollresult["target"],$fbattle->my_class):"").' и восстановил'.($user["sex"]?"":"а").' уровень жизни <B>+'.$ghp.'</B> '.$fbattle->loghp($scrollresult["target"]).'<BR>');
-            $report="Успешно использован свиток $scrollname";
+            if ($fbattle->battleunits[$scrollresult["target"]]["sex"]) $a=""; else $a="Р°";
+            $fbattle->add_log('<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user["id"]).' РёСЃРїРѕР»СЊР·РѕРІР°Р»'.($user["sex"]?"":"Р°").' Р·Р°РєР»СЏС‚РёРµ <b>'.$scrollname."</b> ".(($scrollresult["target"]!=$user['id'])?"РЅР° ".$fbattle->nick5($scrollresult["target"],$fbattle->my_class):"").' Рё РІРѕСЃСЃС‚Р°РЅРѕРІРёР»'.($user["sex"]?"":"Р°").' СѓСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё <B>+'.$ghp.'</B> '.$fbattle->loghp($scrollresult["target"]).'<BR>');
+            $report="РЈСЃРїРµС€РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅ СЃРІРёС‚РѕРє $scrollname";
           } else $report=$scrollresult["report"];
         }
         //Header("Location: ".$_SERVER['PHP_SELF']."?buf=".$bb);
@@ -6567,26 +6567,26 @@ if (@$_GET['use'] && $user["hp"]>0 && $fbattle->battle_data["type"]!=4) {
 if (@$_GET["killown"] && $fbattle->battle_data["type"]!=UNLIMCHAOS && $fbattle->battle_data["type"]!=3 && $fbattle->battle_data["type"]!=10 && ($fbattle->battle_data["leader1"]==$user["id"] || $fbattle->battle_data["leader2"]==$user["id"])) {
   $target=$fbattle->getid($_POST["target"]);
   if ($target==$user["id"]) {
-    $report="<b><font color=red>Себя, пожалуй, не стоит исключать из боя.</b></font>";
+    $report="<b><font color=red>РЎРµР±СЏ, РїРѕР¶Р°Р»СѓР№, РЅРµ СЃС‚РѕРёС‚ РёСЃРєР»СЋС‡Р°С‚СЊ РёР· Р±РѕСЏ.</b></font>";
   } elseif (!$target) {
-    $report="<b><font color=red>Персонаж \"$_POST[target]\" не найден.</b></font>";
+    $report="<b><font color=red>РџРµСЂСЃРѕРЅР°Р¶ \"$_POST[target]\" РЅРµ РЅР°Р№РґРµРЅ.</b></font>";
   } elseif (in_array($target, $fbattle->team_enemy)) {
-    $report="<b><font color=red>Можно исключить из боя только персонажей своей команды.</b></font>";
+    $report="<b><font color=red>РњРѕР¶РЅРѕ РёСЃРєР»СЋС‡РёС‚СЊ РёР· Р±РѕСЏ С‚РѕР»СЊРєРѕ РїРµСЂСЃРѕРЅР°Р¶РµР№ СЃРІРѕРµР№ РєРѕРјР°РЅРґС‹.</b></font>";
   } else {
     $fbattle->toupdate[$target]["die"]=1;
     $fbattle->needupdate=1;
-    $fbattle->add_log("<span class=date>".date("H:i")."</span> <span class=\"".$fbattle->my_class."\">".($user["invis"]?"Невидимка":$user["login"])."</span> исключил".($user["sex"]==1?"":"а")." из боя персонажа <span class=\"".$fbattle->my_class."\">".$fbattle->userdata[$target]["login"]."</span>.<BR>");
+    $fbattle->add_log("<span class=date>".date("H:i")."</span> <span class=\"".$fbattle->my_class."\">".($user["invis"]?"РќРµРІРёРґРёРјРєР°":$user["login"])."</span> РёСЃРєР»СЋС‡РёР»".($user["sex"]==1?"":"Р°")." РёР· Р±РѕСЏ РїРµСЂСЃРѕРЅР°Р¶Р° <span class=\"".$fbattle->my_class."\">".$fbattle->userdata[$target]["login"]."</span>.<BR>");
     $fbattle->write_log();
   }
 }
 if (@$_GET["changeenemy"]) {
   $target=$fbattle->getid($_POST["target"]);
   if ($fbattle->battleunits[$user["id"]]["changes"]<1) {
-    $report="<b><font color=red>У вас больше нет смен противника.</b></font>";
+    $report="<b><font color=red>РЈ РІР°СЃ Р±РѕР»СЊС€Рµ РЅРµС‚ СЃРјРµРЅ РїСЂРѕС‚РёРІРЅРёРєР°.</b></font>";
   } elseif ($fbattle->battle[$user['id']][$target][0]) {
-    $report="<b><font color=red>На этого персонажа уже поставлен удар.</b></font>";
+    $report="<b><font color=red>РќР° СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р° СѓР¶Рµ РїРѕСЃС‚Р°РІР»РµРЅ СѓРґР°СЂ.</b></font>";
   } elseif ($fbattle->battleunits[$user["id"]]["follow"] && ($fbattle->battle[$user["id"]][$fbattle->battleunits[$user["id"]]["follow"]][0]==0)) {
-    $report="<b><font color=red>На вас использован приём преследование.</b></font>";
+    $report="<b><font color=red>РќР° РІР°СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РїСЂРёС‘Рј РїСЂРµСЃР»РµРґРѕРІР°РЅРёРµ.</b></font>";
   } elseif ($target){
     $found=0;
     if(($fbattle->user['hp']>0) && $fbattle->battle) {
@@ -6601,7 +6601,7 @@ if (@$_GET["changeenemy"]) {
     }
     
     if ($target==$fbattle->enemy) {
-      $report="Это текущий противник.";
+      $report="Р­С‚Рѕ С‚РµРєСѓС‰РёР№ РїСЂРѕС‚РёРІРЅРёРє.";
     } elseif ($found) {
       $fbattle->toupdatebu[$fbattle->user["id"]]["enemy"]=$target;
       $fbattle->toupdatebu[$fbattle->user["id"]]["changes"]=-1;
@@ -6609,8 +6609,8 @@ if (@$_GET["changeenemy"]) {
       $fbattle->enemy=$target;
       $fbattle->battleunits[$user["id"]]["changes"]--;
       $enemy=$target;
-    } else $report="<b><font color=red>Персонаж не найден.</b></font>";
-  } else $report="<b><font color=red>Персонаж \"$_POST[target]\" не найден.</b></font>";
+    } else $report="<b><font color=red>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ.</b></font>";
+  } else $report="<b><font color=red>РџРµСЂСЃРѕРЅР°Р¶ \"$_POST[target]\" РЅРµ РЅР°Р№РґРµРЅ.</b></font>";
 }
 if (@$_REQUEST['special']) {
   if (!$fbattle->enemy) {
@@ -6618,7 +6618,7 @@ if (@$_REQUEST['special']) {
     (@$strokes[$_REQUEST['special']]->type==3 && (@$strokes[$_REQUEST['special']]->instantdamage || @$strokes[$_REQUEST['special']]->blockchanges))) {
       $_REQUEST['special']=0;
       $_POST["main"]='';
-      $report="Для этого приёма необходим противник.";
+      $report="Р”Р»СЏ СЌС‚РѕРіРѕ РїСЂРёС‘РјР° РЅРµРѕР±С…РѕРґРёРј РїСЂРѕС‚РёРІРЅРёРє.";
     }
   }
   if (@$strokes[$_REQUEST['special']]->target) {
@@ -6628,23 +6628,23 @@ if (@$_REQUEST['special']) {
     //if (!$i) $i=mqfa1("select id from users where login='$_POST[main]'");
     
     if (!$i) {
-      $report="<b><font color=red>Персонаж $_POST[main] не найден.</b></font>";
+      $report="<b><font color=red>РџРµСЂСЃРѕРЅР°Р¶ $_POST[main] РЅРµ РЅР°Р№РґРµРЅ.</b></font>";
       $_REQUEST['special']=0;
     } elseif ($strokes[$_REQUEST['special']]->target=="enemy") {
       if (!in_array($i, $fbattle->team_enemy)) {
         $i=0;
         $_REQUEST['special']=0;
-        $report="<b><font color=red>Этот приём нельзя использовать на своего.</b></font>";
+        $report="<b><font color=red>Р­С‚РѕС‚ РїСЂРёС‘Рј РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅР° СЃРІРѕРµРіРѕ.</b></font>";
       } else {
-        if ($fbattle->battle[$user["id"]][$i][0] && 0) { //запрет каста в того, по кому проставлен удар
+        if ($fbattle->battle[$user["id"]][$i][0] && 0) { //Р·Р°РїСЂРµС‚ РєР°СЃС‚Р° РІ С‚РѕРіРѕ, РїРѕ РєРѕРјСѓ РїСЂРѕСЃС‚Р°РІР»РµРЅ СѓРґР°СЂ
           $i=0;
           $_REQUEST["special"]=0;
-          $report="<b><font color=red>Вы ожидаете ответа от этого персонажа.</b></font>";
+          $report="<b><font color=red>Р’С‹ РѕР¶РёРґР°РµС‚Рµ РѕС‚РІРµС‚Р° РѕС‚ СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°.</b></font>";
         } elseif (@$strokes[$_REQUEST['special']]->move) {
           if ($i<_BOTSEPARATOR_ && $fbattle->enemy>_BOTSEPARATOR_) {
             $i=0;
             $_REQUEST['special']=0;
-            $report="<b><font color=red>Ваш текущий противник загораживает цель.</b></font>";
+            $report="<b><font color=red>Р’Р°С€ С‚РµРєСѓС‰РёР№ РїСЂРѕС‚РёРІРЅРёРє Р·Р°РіРѕСЂР°Р¶РёРІР°РµС‚ С†РµР»СЊ.</b></font>";
           } elseif ($i!=$fbattle->enemy) {
             $fbattle->getbu($i);
             $fbattle->getbu($fbattle->enemy);
@@ -6652,12 +6652,12 @@ if (@$_REQUEST['special']) {
             //else $minval=$fbattle->battleunits[$i]["cost"]*(pow(0.9, $fbattle->battleunits[$fbattle->enemy]["level"]-$fbattle->battleunits[$i]["level"]));
             //$minval=$fbattle->minval($i, $fbattle->enemy);
             if ($fbattle->battleunits[$fbattle->enemy]["hasshield"]) {
-              $report="<b><font color=red>Щит противника загораживает цель.</b></font>";
+              $report="<b><font color=red>Р©РёС‚ РїСЂРѕС‚РёРІРЅРёРєР° Р·Р°РіРѕСЂР°Р¶РёРІР°РµС‚ С†РµР»СЊ.</b></font>";
               $i=0;
               $_REQUEST['special']=0;
             } elseif ($fbattle->cantgettatic($i, $fbattle->enemy)) {
             //$fbattle->battleunits[$fbattle->enemy]["cost"]*1.5<$minval) {qqq
-              $report="<b><font color=red>Ваш противник слишком слаб, чтобы вы могли прочесть заклинание на ".$fbattle->userdata[$i]["login"].".</b></font>";
+              $report="<b><font color=red>Р’Р°С€ РїСЂРѕС‚РёРІРЅРёРє СЃР»РёС€РєРѕРј СЃР»Р°Р±, С‡С‚РѕР±С‹ РІС‹ РјРѕРіР»Рё РїСЂРѕС‡РµСЃС‚СЊ Р·Р°РєР»РёРЅР°РЅРёРµ РЅР° ".$fbattle->userdata[$i]["login"].".</b></font>";
               $i=0;
               $_REQUEST['special']=0;
             }
@@ -6669,34 +6669,34 @@ if (@$_REQUEST['special']) {
       } elseif ($i) {
         $i=0;
         $_REQUEST['special']=0;
-        $report="<b><font color=red>Персонаж уже мёртв или не в бою.</b></font>";
+        $report="<b><font color=red>РџРµСЂСЃРѕРЅР°Р¶ СѓР¶Рµ РјС‘СЂС‚РІ РёР»Рё РЅРµ РІ Р±РѕСЋ.</b></font>";
       }
     } elseif ($strokes[$_REQUEST['special']]->target=="ally") {
       if (in_array($i, $fbattle->team_enemy)) {
         $i=0;
         $_REQUEST['special']=0;
-        $report="<b><font color=red>Этот приём нельзя использовать на врага.</b></font>";
+        $report="<b><font color=red>Р­С‚РѕС‚ РїСЂРёС‘Рј РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅР° РІСЂР°РіР°.</b></font>";
       }
       if (@$fbattle->battle[$i]) {
         $stroketarget=$i;
       }
       if (!$stroketarget) {
-        if (!$report) $report="<b><font color=red>Персонаж не участвует в бою или уже умер.</font>";
+        if (!$report) $report="<b><font color=red>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ СѓС‡Р°СЃС‚РІСѓРµС‚ РІ Р±РѕСЋ РёР»Рё СѓР¶Рµ СѓРјРµСЂ.</font>";
         $_REQUEST['special']=0;
       }
     } elseif ($strokes[$_REQUEST['special']]->target=="both") {
       if (@$strokes[$_REQUEST['special']]->deadtarget) {
         if (!@$fbattle->userdata[$i]) {
-          $report="<b><font color=red>Персонаж не участвует в бою.</font>";
+          $report="<b><font color=red>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ СѓС‡Р°СЃС‚РІСѓРµС‚ РІ Р±РѕСЋ.</font>";
           $_REQUEST['special']=0;
         } elseif (@$fbattle->userdata[$i]["hp"]>0) {
-          $report="<b><font color=red>Персонаж $_POST[main] ещё не умер.</font>";
+          $report="<b><font color=red>РџРµСЂСЃРѕРЅР°Р¶ $_POST[main] РµС‰С‘ РЅРµ СѓРјРµСЂ.</font>";
           $_REQUEST['special']=0;
         } elseif (@$strokes[$_REQUEST['special']]->noeffect) {
           $fbattle->getbu($i);
           foreach ($fbattle->battleunits[$i]["effects"] as $k=>$v) {
             if ($v["effect"]==$strokes[$_REQUEST['special']]->noeffect){
-              $report="<b><font color=red>На персонажа $_POST[main] уже использован этот приём.</font>";
+              $report="<b><font color=red>РќР° РїРµСЂСЃРѕРЅР°Р¶Р° $_POST[main] СѓР¶Рµ РёСЃРїРѕР»СЊР·РѕРІР°РЅ СЌС‚РѕС‚ РїСЂРёС‘Рј.</font>";
               $_REQUEST['special']=0;
               break;
             }
@@ -6710,7 +6710,7 @@ if (@$_REQUEST['special']) {
           $stroketarget=$i;
         }
         if (!$stroketarget) {
-          $report="<b><font color=red>Персонаж не участвует в бою или уже умер.</font>";
+          $report="<b><font color=red>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ СѓС‡Р°СЃС‚РІСѓРµС‚ РІ Р±РѕСЋ РёР»Рё СѓР¶Рµ СѓРјРµСЂ.</font>";
           $_REQUEST['special']=0;
         }
       }
@@ -6721,7 +6721,7 @@ if (@$_REQUEST['special']) {
         if ($v["effect"]==IMMUNITY) {
           $tmp=explode("-", $k);
           if (eqstrokes($tmp[0], $_REQUEST['special'])) {
-            $report="<b><font color=red>У персонажа $_POST[main] иммунитет к этой магии.</b></font>";
+            $report="<b><font color=red>РЈ РїРµСЂСЃРѕРЅР°Р¶Р° $_POST[main] РёРјРјСѓРЅРёС‚РµС‚ Рє СЌС‚РѕР№ РјР°РіРёРё.</b></font>";
             $_REQUEST['special']=0;
             $stroketarget=0;
             break;
@@ -6730,7 +6730,7 @@ if (@$_REQUEST['special']) {
       }
     }                                                
     if (@$strokes[$_REQUEST['special']]->move && (!$fbattle->enemy || $fbattle->battle[$user['id']][$fbattle->enemy][0])) {
-      //echo "<b><font color=red>Персонаж $_POST[main] ещё не ответил.</b></font>";
+      //echo "<b><font color=red>РџРµСЂСЃРѕРЅР°Р¶ $_POST[main] РµС‰С‘ РЅРµ РѕС‚РІРµС‚РёР».</b></font>";
       $_REQUEST['special']=0;
       $_SESSION['enemy']=$fbattle->getenemy();
       $fbattle->enemy=$_SESSION["enemy"];
@@ -6741,13 +6741,13 @@ if (@$_REQUEST['special']) {
   if ($stroketarget) $fbattle->getbu($stroketarget);
   if ($stroketarget && @$strokes[$_REQUEST['special']]->targeteffect) {
     if (!$fbattle->haseffect($stroketarget, $strokes[$_REQUEST['special']]->targeteffect)) {
-      $report="<b><font color=red>На цели нет необходимого эффекта.</b></font>";
+      $report="<b><font color=red>РќР° С†РµР»Рё РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ СЌС„С„РµРєС‚Р°.</b></font>";
       $_REQUEST['special']=0;
     }
   }
   if ($stroketarget && @$strokes[$_REQUEST['special']]->targethp) {
     if ($fbattle->userdata[$stroketarget]["maxhp"]*$strokes[$_REQUEST['special']]->targethp/100<$fbattle->userdata[$stroketarget]["hp"]) {
-      $report="<b><font color=red>У цели должно быть менее ".$strokes[$_REQUEST['special']]->targethp." % жизни.</b></font>";
+      $report="<b><font color=red>РЈ С†РµР»Рё РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РјРµРЅРµРµ ".$strokes[$_REQUEST['special']]->targethp." % Р¶РёР·РЅРё.</b></font>";
       $_REQUEST['special']=0;
     }
   }
@@ -6793,42 +6793,42 @@ if (@$_REQUEST['special'] && $user["hp"]>0) {
   $p=new prieminfo(0,$priem);
 
   if ($have_priem) {
-    # проверить можно ли
+    # РїСЂРѕРІРµСЂРёС‚СЊ РјРѕР¶РЅРѕ Р»Рё
     $enable=true;
-    # проверить по статам
+    # РїСЂРѕРІРµСЂРёС‚СЊ РїРѕ СЃС‚Р°С‚Р°Рј
     if ($p->checkbattlehars(@$myinfo,$igogo[$priem]["uses"])) {
 
-      # можно ипользовать если: прошел срок wait - это в случае если задан wait в параметрах приема
+      # РјРѕР¶РЅРѕ РёРїРѕР»СЊР·РѕРІР°С‚СЊ РµСЃР»Рё: РїСЂРѕС€РµР» СЃСЂРѕРє wait - СЌС‚Рѕ РІ СЃР»СѓС‡Р°Рµ РµСЃР»Рё Р·Р°РґР°РЅ wait РІ РїР°СЂР°РјРµС‚СЂР°С… РїСЂРёРµРјР°
       $act=&$igogo[$priem];
       $sh=$fbattle->getshock($user["id"]);
       if ($sh && !@$strokes[$priem]->noshock) {
-        $enable=false;echo "<font color=red>Вы находитесь в состоянии шока.</font>";
+        $enable=false;echo "<font color=red>Р’С‹ РЅР°С…РѕРґРёС‚РµСЃСЊ РІ СЃРѕСЃС‚РѕСЏРЅРёРё С€РѕРєР°.</font>";
       } elseif ($p->wait) {
         if ($act['wait']>0) {
-          $enable=false;$report="<font color=red>нельзя использовать: еще идет задержка </font>";
+          $enable=false;$report="<font color=red>РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ: РµС‰Рµ РёРґРµС‚ Р·Р°РґРµСЂР¶РєР° </font>";
         }
         if ($act['active']!=1) {
-          $enable=false;$report="<font color=red>нельзя использовать: уже активен</font>";
+          $enable=false;$report="<font color=red>РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ: СѓР¶Рµ Р°РєС‚РёРІРµРЅ</font>";
         }
       }else{
-       if ($act['active']!=1) {$enable=false;echo "<font color=red>нельзя использовать: уже активен</font>";}
+       if ($act['active']!=1) {$enable=false;echo "<font color=red>РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ: СѓР¶Рµ Р°РєС‚РёРІРµРЅ</font>";}
       }
     } else {
-      $enable=false;$report="<font color=red>нельзя использовать: не хватает требований</font>";
+      $enable=false;$report="<font color=red>РЅРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ: РЅРµ С…РІР°С‚Р°РµС‚ С‚СЂРµР±РѕРІР°РЅРёР№</font>";
     }
     if ($enable) {
       $ok=false;
       if (@$strokes[$ch_priem[$priem]]) $ok=true;
       if ($strokes[$priem]) $ok=true;
       if ($ok) {
-        #1) $act['active'] - активен -> UPDATE
-        #2) $act['active']<1 - неактивен НО есть $act['uses']>0 -> UPDATE
+        #1) $act['active'] - Р°РєС‚РёРІРµРЅ -> UPDATE
+        #2) $act['active']<1 - РЅРµР°РєС‚РёРІРµРЅ РќРћ РµСЃС‚СЊ $act['uses']>0 -> UPDATE
         #3) $act['uses'] <1 -> INSERT
         /*if ($act['uses']>0) {
           mq("update person_on set pr_cur_uses=pr_cur_uses+1".($p->wait?',pr_wait_for='.$p->wait:'')."
           WHERE id_person='".$_SESSION['uid']."' and type=3 and pr_name='".$priem."'");
         }*/
-        /////здесь будут заюзываться приемы/////
+        /////Р·РґРµСЃСЊ Р±СѓРґСѓС‚ Р·Р°СЋР·С‹РІР°С‚СЊСЃСЏ РїСЂРёРµРјС‹/////
         $emptyhit=0;
         $sumwear=$fbattle->battleunits[$user["id"]]["weapons"];
         include 'incl/usepriems.php';
@@ -6839,18 +6839,18 @@ if (@$_REQUEST['special'] && $user["hp"]>0) {
           //die;
         }
         if(@$_POST['enemy']>0 && $emptyhit) {
-          // ударяемся
+          // СѓРґР°СЂСЏРµРјСЃСЏ
           if($user['room']!=403 && $user['room']!=20 && $user['room']!=903){include "astral.php";}
           $fbattle->razmen_init ($_POST['enemy'],$_POST['attack'],$_POST['defend'],$_POST['attack1'],$_POST['attack2'],$_POST['attack3'],$_POST['attack4']);
           //if (!NOREFRESH) header ("Location:fbattle.php");
           //die;
         }
         $fbattle->write_log();
-        if (!$strokefailed) $report="Успешно использован приём ".$strokes[$priem]->name.".";
+        if (!$strokefailed) $report="РЈСЃРїРµС€РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РїСЂРёС‘Рј ".$strokes[$priem]->name.".";
       }#/ok
     }#enable
   } else {
-    echo "<font color=red>нет такого приема на персонаже</font>";
+    echo "<font color=red>РЅРµС‚ С‚Р°РєРѕРіРѕ РїСЂРёРµРјР° РЅР° РїРµСЂСЃРѕРЅР°Р¶Рµ</font>";
   }
 }
 
@@ -6904,14 +6904,14 @@ if ($fbattle->battleunits[$user["id"]]["defender"]) $fbattle->undefend($user["id
 <SCRIPT>
 var def_zones;
 function upddefzones(z) {
-  if (z>=3) def_zones = 'головы, груди и живота;груди, живота и пояса;живота, пояса и ног;пояса, ног и головы;ног, головы и груди'.split(';');
-  if (z==2) def_zones = 'головы и груди,груди и живота,живота и пояса,пояса и ног,ног и головы'.split(',');
-  if  (z<2) def_zones = 'головы,груди,живота,пояса,ног'.split(',');
+  if (z>=3) def_zones = 'РіРѕР»РѕРІС‹, РіСЂСѓРґРё Рё Р¶РёРІРѕС‚Р°;РіСЂСѓРґРё, Р¶РёРІРѕС‚Р° Рё РїРѕСЏСЃР°;Р¶РёРІРѕС‚Р°, РїРѕСЏСЃР° Рё РЅРѕРі;РїРѕСЏСЃР°, РЅРѕРі Рё РіРѕР»РѕРІС‹;РЅРѕРі, РіРѕР»РѕРІС‹ Рё РіСЂСѓРґРё'.split(';');
+  if (z==2) def_zones = 'РіРѕР»РѕРІС‹ Рё РіСЂСѓРґРё,РіСЂСѓРґРё Рё Р¶РёРІРѕС‚Р°,Р¶РёРІРѕС‚Р° Рё РїРѕСЏСЃР°,РїРѕСЏСЃР° Рё РЅРѕРі,РЅРѕРі Рё РіРѕР»РѕРІС‹'.split(',');
+  if  (z<2) def_zones = 'РіРѕР»РѕРІС‹,РіСЂСѓРґРё,Р¶РёРІРѕС‚Р°,РїРѕСЏСЃР°,РЅРѕРі'.split(',');
 
 }
 var attacks=<?
   echo (int)@$fbattle->battleunits[$user["id"]]["weapons"];
-?>;  // кол. атак
+?>;  // РєРѕР». Р°С‚Р°Рє
 </SCRIPT>
 <SCRIPT src='<?=IMGBASE?>/i/fbattle2.js?7'></SCRIPT>
 <SCRIPT LANGUAGE="JavaScript" SRC="<?=IMGBASE?>/i/sl2.js?3"></SCRIPT>
@@ -7008,7 +7008,7 @@ $fbattle->write_log();
 //print_r($fbattle->battleunits[$fbattle->battleunits[7]["enemy"]][effects]);
 //print_r($fbattle->userdata);
 //echo $fbattle->razmen_log("krit",4,mech,64,7,B1,2811,B2,9200,10000);
-//$fbattle->killplayer(Array(id=>"10514252", "login" => "Отморозок (1)", "hp" => 5000, "maxhp"=> 5000));
+//$fbattle->killplayer(Array(id=>"10514252", "login" => "РћС‚РјРѕСЂРѕР·РѕРє (1)", "hp" => 5000, "maxhp"=> 5000));
 //die;
 /*if ($_SESSION["uid"]==7) {
   print_r($fbattle->exp);
@@ -7062,7 +7062,7 @@ $fbattle->write_log();
       $unemli["level"]=$fbattle->battleunits[$fbattle->enemy]["level"];
 
       if ($unemli['invis']) {
-        $enemynick="Невидимка";
+        $enemynick="РќРµРІРёРґРёРјРєР°";
         $_SESSION["invis"]=$fbattle->enemy;//getnick($fbattle->enemy);
       } else {
         $unemli["id"]=$fbattle->enemy;
@@ -7070,15 +7070,15 @@ $fbattle->write_log();
       }
     ?>
        <TABLE border=0 width="100%" cellspacing=0 cellpadding=0><TR><TD colspan=3 style="font-size:3px">&nbsp;</td></tr>
-       <TR><TD width="50%"><?echo "<b><a style=\"color=#003388\" onclick=\"top.AddTo('$user[login]');return false\" href=\"javascript:void(0)\">".$user['login']." [".$user['level']."]</a> <a href=\"inf.php?".$user['id']."\" target=_blank><IMG SRC=\"http://img.bestcombats.net/chat/inf.gif\" WIDTH=12 HEIGHT=11 ALT=\"Инф. о ".$user['login']."\"></a></b>";?></TD>
+       <TR><TD width="50%"><?echo "<b><a style=\"color=#003388\" onclick=\"top.AddTo('$user[login]');return false\" href=\"javascript:void(0)\">".$user['login']." [".$user['level']."]</a> <a href=\"inf.php?".$user['id']."\" target=_blank><IMG SRC=\"http://img.bestcombats.net/chat/inf.gif\" WIDTH=12 HEIGHT=11 ALT=\"РРЅС„. Рѕ ".$user['login']."\"></a></b>";?></TD>
 <td align="center"><div style="font-size:20px;font-weight:bold;padding-left:10px;line-height:15px;<? if ($user["id"]!=7) echo "visibility:hidden"; ?>">
 </div></td>
 <? if(@$unemli['invis']==1) {?>
   <TD align="right" width="50%"><?
-  if ($fbattle->return==1) echo "<b><font color=#000>невидимка</b></font>";?></TD>
+  if ($fbattle->return==1) echo "<b><font color=#000>РЅРµРІРёРґРёРјРєР°</b></font>";?></TD>
 <?}else{?>
   <TD align="right" width="50%"><?
-    if ($fbattle->return==1) echo "<b><a id=\"enemynick\" style=\"color=#003388\" onclick=\"top.AddTo('$unemli[login]');return false\" href=\"javascript:void(0)\">".$unemli['login']." [".$unemli['level']."]</a> <a href=\"inf.php?".$unemli['id']."\" target=_blank><IMG SRC=\"".IMGBASE."/i/inf.gif\" WIDTH=12 HEIGHT=11 ALT=\"Инф. о ".$unemli['login']."\"></a></b>";
+    if ($fbattle->return==1) echo "<b><a id=\"enemynick\" style=\"color=#003388\" onclick=\"top.AddTo('$unemli[login]');return false\" href=\"javascript:void(0)\">".$unemli['login']." [".$unemli['level']."]</a> <a href=\"inf.php?".$unemli['id']."\" target=_blank><IMG SRC=\"".IMGBASE."/i/inf.gif\" WIDTH=12 HEIGHT=11 ALT=\"РРЅС„. Рѕ ".$unemli['login']."\"></a></b>";
 ?></TD>
 <?}?>
                 </TR>
@@ -7114,7 +7114,7 @@ $fbattle->write_log();
   if ($fbattle->return==1) {
   ?>
 
-<TABLE cellspacing=0 cellpadding=0><TR><TD align=center bgcolor="#f2f0f0"><b>Атака</b></TD><TD>&nbsp;</TD><TD align=center bgcolor="#f2f0f0"><b>Защита</b></TD></TR>
+<TABLE cellspacing=0 cellpadding=0><TR><TD align=center bgcolor="#f2f0f0"><b>РђС‚Р°РєР°</b></TD><TD>&nbsp;</TD><TD align=center bgcolor="#f2f0f0"><b>Р—Р°С‰РёС‚Р°</b></TD></TR>
 <TR><TD>
 <div id="dots1"></div>
 </TD><TD>&nbsp;</TD><TD>
@@ -7126,31 +7126,31 @@ $fbattle->write_log();
 <td align=center id="buttons">
 <?
 $_SESSION['batl']=$user['battle'];
- ///ново////?>
+ ///РЅРѕРІРѕ////?>
 </td>
 
 <td align="right">
 <? if ($fbattle->battleunits[$user["id"]]["changes"]>0) { ?>
-<a href="javascript:void(0)" onClick="findlogin('Смена противника', 'fbattle.php?changeenemy=1', 'target', '')"><img src='http://img.bestcombats.net/battle/ico_change.gif' width=16 height=19 style='cursor:pointer' <?=fastshow("Смена противника (".$fbattle->battleunits[$user["id"]]["changes"].")");?>></a>
+<a href="javascript:void(0)" onClick="findlogin('РЎРјРµРЅР° РїСЂРѕС‚РёРІРЅРёРєР°', 'fbattle.php?changeenemy=1', 'target', '')"><img src='http://img.bestcombats.net/battle/ico_change.gif' width=16 height=19 style='cursor:pointer' <?=fastshow("РЎРјРµРЅР° РїСЂРѕС‚РёРІРЅРёРєР° (".$fbattle->battleunits[$user["id"]]["changes"].")");?>></a>
 <? } ?>
 &nbsp;
-<a onClick="location.href='<?=$_SERVER['PHP_SELF']?>?batl=<?=@$_REQUEST['batl']?>';"><img src='http://img.bestcombats.net/battle/ico_refresh.gif' width=16 height=19 style='cursor:pointer' <?=fastshow("Обновить")?>></a>
+<a onClick="location.href='<?=$_SERVER['PHP_SELF']?>?batl=<?=@$_REQUEST['batl']?>';"><img src='http://img.bestcombats.net/battle/ico_refresh.gif' width=16 height=19 style='cursor:pointer' <?=fastshow("РћР±РЅРѕРІРёС‚СЊ")?>></a>
 </td></tr></table><INPUT TYPE=hidden name=enemy value="<?=$fbattle->enemy?>"></TD>
                 </TR>
             </TABLE><? } else { ?>                                   
             <div style="height:130px;text-align:center;color:#ff0000"><br><br><?
-            if ($user["hp"]>0) echo "Ожидаем хода противника...";
-            else echo "Для вас бой окончен. Ожидаем, пока бой окончат другие игроки.";
+            if ($user["hp"]>0) echo "РћР¶РёРґР°РµРј С…РѕРґР° РїСЂРѕС‚РёРІРЅРёРєР°...";
+            else echo "Р”Р»СЏ РІР°СЃ Р±РѕР№ РѕРєРѕРЅС‡РµРЅ. РћР¶РёРґР°РµРј, РїРѕРєР° Р±РѕР№ РѕРєРѕРЅС‡Р°С‚ РґСЂСѓРіРёРµ РёРіСЂРѕРєРё.";
             ?></div>
 <table cellspacing=0 cellpadding=0 width=310 align=center border=0><tr><td width=60>&nbsp;</td>
 <td align=center>
 &nbsp;
-<INPUT TYPE=button value="Обновить" onClick="this.disabled = true; document.location.href='fbattle.php';">
+<INPUT TYPE=button value="РћР±РЅРѕРІРёС‚СЊ" onClick="this.disabled = true; document.location.href='fbattle.php';">
 </td>
 
 <td align="right">
 &nbsp;
-<a onClick="location.href='<?=$_SERVER['PHP_SELF']?>?batl=<?=@$_REQUEST['batl']?>';"><img src='http://img.bestcombats.net/battle/ico_refresh.gif' width=16 height=19 style='cursor:pointer' <?=fastshow("Обновить")?>></a>
+<a onClick="location.href='<?=$_SERVER['PHP_SELF']?>?batl=<?=@$_REQUEST['batl']?>';"><img src='http://img.bestcombats.net/battle/ico_refresh.gif' width=16 height=19 style='cursor:pointer' <?=fastshow("РћР±РЅРѕРІРёС‚СЊ")?>></a>
 
 </td></tr></table>
             <? } ?>
@@ -7169,17 +7169,17 @@ $_SESSION['enemy']=$fbattle->enemy;
 
 ?>
 <div style="font-size:4px">&nbsp;</div>
-<TABLE width=238><tr><TD width=34 align=center><SMALL><IMG alt='Нанесенный удар' width=8 height=8 src='http://img.bestcombats.net/battle/hit.gif'><?=$hit?></TD>
-<TD width=34 align=center><SMALL><IMG alt='Критический удар' width=7 height=8 src='http://img.bestcombats.net/battle/krit.gif'><?=$krit?></TD>
-<TD width=34 align=center><SMALL><IMG alt='Проведенный контрудар' width=8 height=8 src='http://img.bestcombats.net/battle/counter.gif'><?=$counter?></TD>
-<TD width=34 align=center><SMALL><IMG alt='Успешный блок' width=7 height=8 src='http://img.bestcombats.net/battle/block.gif'><?=$block?></TD>
-<TD width=34 align=center><SMALL><IMG alt='Успешное парирование' width=8 height=8 src='http://img.bestcombats.net/battle/parry.gif'><?=$parry?></TD>
-<TD width=34 align=center><SMALL><IMG alt='Нанесенный урон' width=8 height=8 src='http://img.bestcombats.net/battle/hp.gif'><?=floor($hp)?></TD>
-<TD width=34 align=center><SMALL><IMG alt='Уровень духа (<?=(number_format($s_duh/100,2))?>)' width=7 height=8 src='http://img.bestcombats.net/battle/spirit.gif'><?=1*number_format($s_duh/100,2)?></TD>
+<TABLE width=238><tr><TD width=34 align=center><SMALL><IMG alt='РќР°РЅРµСЃРµРЅРЅС‹Р№ СѓРґР°СЂ' width=8 height=8 src='http://img.bestcombats.net/battle/hit.gif'><?=$hit?></TD>
+<TD width=34 align=center><SMALL><IMG alt='РљСЂРёС‚РёС‡РµСЃРєРёР№ СѓРґР°СЂ' width=7 height=8 src='http://img.bestcombats.net/battle/krit.gif'><?=$krit?></TD>
+<TD width=34 align=center><SMALL><IMG alt='РџСЂРѕРІРµРґРµРЅРЅС‹Р№ РєРѕРЅС‚СЂСѓРґР°СЂ' width=8 height=8 src='http://img.bestcombats.net/battle/counter.gif'><?=$counter?></TD>
+<TD width=34 align=center><SMALL><IMG alt='РЈСЃРїРµС€РЅС‹Р№ Р±Р»РѕРє' width=7 height=8 src='http://img.bestcombats.net/battle/block.gif'><?=$block?></TD>
+<TD width=34 align=center><SMALL><IMG alt='РЈСЃРїРµС€РЅРѕРµ РїР°СЂРёСЂРѕРІР°РЅРёРµ' width=8 height=8 src='http://img.bestcombats.net/battle/parry.gif'><?=$parry?></TD>
+<TD width=34 align=center><SMALL><IMG alt='РќР°РЅРµСЃРµРЅРЅС‹Р№ СѓСЂРѕРЅ' width=8 height=8 src='http://img.bestcombats.net/battle/hp.gif'><?=floor($hp)?></TD>
+<TD width=34 align=center><SMALL><IMG alt='РЈСЂРѕРІРµРЅСЊ РґСѓС…Р° (<?=(number_format($s_duh/100,2))?>)' width=7 height=8 src='http://img.bestcombats.net/battle/spirit.gif'><?=1*number_format($s_duh/100,2)?></TD>
 </tr></TABLE>
 <?
 $inssql="";
-//////если есть одетые приемы, то втыкаем их в бой!..,
+//////РµСЃР»Рё РµСЃС‚СЊ РѕРґРµС‚С‹Рµ РїСЂРёРµРјС‹, С‚Рѕ РІС‚С‹РєР°РµРј РёС… РІ Р±РѕР№!..,
 $sh=$fbattle->getshock($user["id"]);
 
 for ($i=201;$i<=220;$i++) {
@@ -7190,11 +7190,11 @@ for ($i=201;$i<=220;$i++) {
     $p2=new prieminfo($puton2[$i],0);
     $act=$igogo[$p2->priem];
     $enable=true;
-    # проверить по статам
+    # РїСЂРѕРІРµСЂРёС‚СЊ РїРѕ СЃС‚Р°С‚Р°Рј
     if ($sh && !@$strokes[$p2->priem]->noshock) {
       $enable=false;
     } elseif ($p2->checkbattlehars(@$myinfo, $igogo[$p2->priem]["uses"])) {
-      # можно ипользовать если: прошел срок wait - это в случае если задан wait в параметрах приема
+      # РјРѕР¶РЅРѕ РёРїРѕР»СЊР·РѕРІР°С‚СЊ РµСЃР»Рё: РїСЂРѕС€РµР» СЃСЂРѕРє wait - СЌС‚Рѕ РІ СЃР»СѓС‡Р°Рµ РµСЃР»Рё Р·Р°РґР°РЅ wait РІ РїР°СЂР°РјРµС‚СЂР°С… РїСЂРёРµРјР°
       if ($act['wait']>0) {
         $enable=false;
       } elseif (!$fbattle->notmaxeffect($user["id"], $p2->priem) && !$strokes[$p2->priem]->notonlyeffect) {
@@ -7209,8 +7209,8 @@ for ($i=201;$i<=220;$i++) {
     } else {
       $enable=false;
     }
-    # wait если есть активный - вывод сколько еще
-    # uses - определить
+    # wait РµСЃР»Рё РµСЃС‚СЊ Р°РєС‚РёРІРЅС‹Р№ - РІС‹РІРѕРґ СЃРєРѕР»СЊРєРѕ РµС‰Рµ
+    # uses - РѕРїСЂРµРґРµР»РёС‚СЊ
     echo drawtrick($enable, $p2->priem, $p2->name, ($p2->hod?0:1), mysql_escape_string($p2->opisan),
     (0+$p2->n_hit).",".(0+$p2->n_krit).",".(0+$p2->n_counter).",".(0+$p2->n_block).",".(0+$p2->n_parry).",".(0+$p2->n_hp).",".(0+$p2->sduh).",".(0+$p2->mana).",".(0+$p2->wait).",".($act['wait']>0?$act['wait']:0).",".(0+$p2->maxuses).",".($p2->maxuses?$act['uses']-1:0).",".($p2->startwait?$p2->startwait:0),
     ($p2->target?"1":"0"),'','', remquotesjs($p2->target==1?"$enemynick":"$user[login]"), $p2->priem);
@@ -7222,7 +7222,7 @@ for ($i=201;$i<=220;$i++) {
 unset($i);
 if($user['zver_id']>0 && !incommontower($user) && $fbattle->battle_data["quest"]!=4){
   if($fbattle->battleunits[$user["id"]]["petunleashed"]){$temn = "style=\"filter:gray(), Alpha(Opacity='70');\""; $ogogo=""; $ogogo2="";}else{$ogogo="<a href=\"?uszver=1\">"; $ogogo2="</a>";$temn="";}
-  echo $ogogo."<img src=\"http://img.bestcombats.net/priem/pet_unleash.gif\" ".$temn." onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Выпустить зверя</B>\", this, event)'>".$ogogo2;
+  echo $ogogo."<img src=\"http://img.bestcombats.net/priem/pet_unleash.gif\" ".$temn." onmouseout='hideshow();' onmouseover='fastshow2(\"<B>Р’С‹РїСѓСЃС‚РёС‚СЊ Р·РІРµСЂСЏ</B>\", this, event)'>".$ogogo2;
 }
   echo $fbattle->showkillown();
 ?>
@@ -7231,14 +7231,14 @@ if($user['zver_id']>0 && !incommontower($user) && $fbattle->battle_data["quest"]
         break;
         case 2 :
             if(($user['hp']>0) && $fbattle->battle) {
-                echo '<FONT COLOR=red>Ожидаем хода противника...</FONT>
+                echo '<FONT COLOR=red>РћР¶РёРґР°РµРј С…РѕРґР° РїСЂРѕС‚РёРІРЅРёРєР°...</FONT>
                 <center>'.$fbattle->showkillown().'</center>
-                <BR><CENTER><INPUT TYPE=submit value="Обновить" name=',(($user['battle']>0)?"battle":"end"),'><BR></CENTER>';
+                <BR><CENTER><INPUT TYPE=submit value="РћР±РЅРѕРІРёС‚СЊ" name=',(($user['battle']>0)?"battle":"end"),'><BR></CENTER>';
             }
             elseif($user['hp'] <= 0 && $fbattle->battle) {
                 if ($fbattle->battle_data["quest"]==2) {
                   mq("update users set battle=0 where id='$user[id]'");
-                  echo '<FONT COLOR=red>Вы выбыли из строя...</FONT><BR><CENTER><INPUT TYPE=button value="Вернуться" onclick="document.location.href=\'main.php?'.time().'\';"><BR></CENTER>';
+                  echo '<FONT COLOR=red>Р’С‹ РІС‹Р±С‹Р»Рё РёР· СЃС‚СЂРѕСЏ...</FONT><BR><CENTER><INPUT TYPE=button value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" onclick="document.location.href=\'main.php?'.time().'\';"><BR></CENTER>';
                 } else {
                   $timeloser=0;
                   foreach ($fbattle->team_mine as $k=>$v) {
@@ -7255,32 +7255,32 @@ if($user['zver_id']>0 && !incommontower($user) && $fbattle->battle_data["quest"]
                       }
                     }
                   }
-                  if ($timeloser) echo "<center><BR>Персонаж ".mqfa1("select login from users where id='$timeloser'")." долго не делает свой ход, вы можете исключить его из боя.<BR>
-                    <INPUT TYPE=button value=\"Признать его проигравшим\" onclick=\"document.location.href='fbattle.php?killplayer=$timeloser';\"><BR>
-                    <INPUT TYPE=submit value=\"Подождать еще немного\" name=",(($user['battle']>0)?"battle":"end"),"></center>";
-                  else echo '<FONT COLOR=red>Ожидаем, пока бой закончат другие игроки...</FONT>
+                  if ($timeloser) echo "<center><BR>РџРµСЂСЃРѕРЅР°Р¶ ".mqfa1("select login from users where id='$timeloser'")." РґРѕР»РіРѕ РЅРµ РґРµР»Р°РµС‚ СЃРІРѕР№ С…РѕРґ, РІС‹ РјРѕР¶РµС‚Рµ РёСЃРєР»СЋС‡РёС‚СЊ РµРіРѕ РёР· Р±РѕСЏ.<BR>
+                    <INPUT TYPE=button value=\"РџСЂРёР·РЅР°С‚СЊ РµРіРѕ РїСЂРѕРёРіСЂР°РІС€РёРј\" onclick=\"document.location.href='fbattle.php?killplayer=$timeloser';\"><BR>
+                    <INPUT TYPE=submit value=\"РџРѕРґРѕР¶РґР°С‚СЊ РµС‰Рµ РЅРµРјРЅРѕРіРѕ\" name=",(($user['battle']>0)?"battle":"end"),"></center>";
+                  else echo '<FONT COLOR=red>РћР¶РёРґР°РµРј, РїРѕРєР° Р±РѕР№ Р·Р°РєРѕРЅС‡Р°С‚ РґСЂСѓРіРёРµ РёРіСЂРѕРєРё...</FONT>
                   <center>'.$fbattle->showkillown().'</center><BR>
-                  <CENTER><INPUT TYPE=submit value="Обновить" name=',(($user['battle']>0)?"battle":"end"),'><BR></CENTER>';
+                  <CENTER><INPUT TYPE=submit value="РћР±РЅРѕРІРёС‚СЊ" name=',(($user['battle']>0)?"battle":"end"),'><BR></CENTER>';
                 }
                 //ref_drop ($user['id']);
 
             }
         break;
         case 3 :
-            echo "<center><BR>Противник долго не делает свой ход, вы можете закончить бой победителем<BR>
-                    <INPUT TYPE=submit value=\"Да, я победил!!!\" name=victory_time_out id=\"refreshb\"><BR>";
+            echo "<center><BR>РџСЂРѕС‚РёРІРЅРёРє РґРѕР»РіРѕ РЅРµ РґРµР»Р°РµС‚ СЃРІРѕР№ С…РѕРґ, РІС‹ РјРѕР¶РµС‚Рµ Р·Р°РєРѕРЅС‡РёС‚СЊ Р±РѕР№ РїРѕР±РµРґРёС‚РµР»РµРј<BR>
+                    <INPUT TYPE=submit value=\"Р”Р°, СЏ РїРѕР±РµРґРёР»!!!\" name=victory_time_out id=\"refreshb\"><BR>";
                 if(!$fbattle->user['in_tower'] && $fbattle->user['room']!=200) {
-                    echo "или признать ничью<BR>
-                    <INPUT TYPE=submit id=\"refreshb\" value=\"Считаем, что этого боя не было\" name=victory_time_out2><BR>";
+                    echo "РёР»Рё РїСЂРёР·РЅР°С‚СЊ РЅРёС‡СЊСЋ<BR>
+                    <INPUT TYPE=submit id=\"refreshb\" value=\"РЎС‡РёС‚Р°РµРј, С‡С‚Рѕ СЌС‚РѕРіРѕ Р±РѕСЏ РЅРµ Р±С‹Р»Рѕ\" name=victory_time_out2><BR>";
                 }
-            echo "или<BR>
-                    <INPUT TYPE=submit value=\"Подождать еще немного\" name=",(($user['battle']>0)?"battle":"end"),">
+            echo "РёР»Рё<BR>
+                    <INPUT TYPE=submit value=\"РџРѕРґРѕР¶РґР°С‚СЊ РµС‰Рµ РЅРµРјРЅРѕРіРѕ\" name=",(($user['battle']>0)?"battle":"end"),">
                     </center>";
         break;
     }
 
     if(@$enemy == 0){
-        // проверяем на вшивость
+        // РїСЂРѕРІРµСЂСЏРµРј РЅР° РІС€РёРІРѕСЃС‚СЊ
         if(!$fbattle->battle) {
             if($user['battle']) { $ll = $user['battle'];} elseif($_REQUEST['batl']) { $ll = $_REQUEST['batl']; }else{$ll = $_SESSION['batl'];}
             $ll=(int)$ll;
@@ -7289,8 +7289,8 @@ if($user['zver_id']>0 && !incommontower($user) && $fbattle->battle_data["quest"]
             $exp = unserialize($data['exp']);
                         if(empty($damage[$user['id']])){$damage[$user['id']]=0;}
             echo '<CENTER><BR>
-                    <B><FONT COLOR=red>Бой закончен! Всего вами нанесено урона: ',(int)$damage[$user['id']],' HP. Получено опыта: ',(int)$exp[$user['id']],'.</FONT></B>
-                    <BR><INPUT TYPE=submit value="Вернуться" name="end"><BR></CENTER>';
+                    <B><FONT COLOR=red>Р‘РѕР№ Р·Р°РєРѕРЅС‡РµРЅ! Р’СЃРµРіРѕ РІР°РјРё РЅР°РЅРµСЃРµРЅРѕ СѓСЂРѕРЅР°: ',(int)$damage[$user['id']],' HP. РџРѕР»СѓС‡РµРЅРѕ РѕРїС‹С‚Р°: ',(int)$exp[$user['id']],'.</FONT></B>
+                    <BR><INPUT TYPE=submit value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" name="end"><BR></CENTER>';
 //mq('UPDATE `users` SET `hp2` = 0,`hp3` = 0,`hit` = 0,`s_duh` = 0,`krit` = 0,`counter` = 0,`block2` = 0,`parry` = 0  WHERE `id` = '.$_SESSION['uid'].'');
 mq("DELETE FROM `person_on` WHERE `id_person`='".$_SESSION['uid']."'");
         }
@@ -7317,8 +7317,8 @@ if($fbattle->battle) {
         @$zz .= "private [".$fbattle->userdata[$v]["login"]."] ";
       }
     }
-    if ($i>0) echo "<IMG SRC=\"http://img.bestcombats.net/chat/lock.gif\" WIDTH=20 HEIGHT=15 BORDER=0 ALT=\"приват\" style=\"cursor:pointer\" onClick=\"Prv('$zz')\">    
-    $ffs <b>против</b>";
+    if ($i>0) echo "<IMG SRC=\"http://img.bestcombats.net/chat/lock.gif\" WIDTH=20 HEIGHT=15 BORDER=0 ALT=\"РїСЂРёРІР°С‚\" style=\"cursor:pointer\" onClick=\"Prv('$zz')\">    
+    $ffs <b>РїСЂРѕС‚РёРІ</b>";
     elseif ($user["hp"]>0 && $fbattle->batle_data["win"]!=3 && $user["battle"]) {
       mq("update users set battle=0 where id='$user[id]'");
       logerror("User stuck in battle $user[battle].");
@@ -7340,7 +7340,7 @@ if($fbattle->battle) {
     }
     $i=0;
 ?>
-<IMG SRC="http://img.bestcombats.net/chat/lock.gif" WIDTH=20 HEIGHT=15 BORDER=0 ALT="приват" style="cursor:pointer" onClick="Prv('<?=$zz?> ')">
+<IMG SRC="http://img.bestcombats.net/chat/lock.gif" WIDTH=20 HEIGHT=15 BORDER=0 ALT="РїСЂРёРІР°С‚" style="cursor:pointer" onClick="Prv('<?=$zz?> ')">
 <?=$ffs?>
 <HR>
 </div>
@@ -7395,17 +7395,17 @@ if(eregi("<hr>",$log[$i])){
     unset($ic);
 
 if ($max == 1 ) {
-$logoutput.="Обрезано для уменьшения объема информации. Полную версию смотрите <a href=\"logs.php?log=$ll\" target=\"_blank\">здесь&raquo;</a><br>";
+$logoutput.="РћР±СЂРµР·Р°РЅРѕ РґР»СЏ СѓРјРµРЅСЊС€РµРЅРёСЏ РѕР±СЉРµРјР° РёРЅС„РѕСЂРјР°С†РёРё. РџРѕР»РЅСѓСЋ РІРµСЂСЃРёСЋ СЃРјРѕС‚СЂРёС‚Рµ <a href=\"logs.php?log=$ll\" target=\"_blank\">Р·РґРµСЃСЊ&raquo;</a><br>";
 } 
   if (!$user["battle"]) echo $logoutput;
 
 if(!$user['in_tower']){
 ?>
-<font class=dsc>(Бой идет с таймаутом <?=$fbattle->battle_data['timeout']?> мин.)</font><BR>
+<font class=dsc>(Р‘РѕР№ РёРґРµС‚ СЃ С‚Р°Р№РјР°СѓС‚РѕРј <?=$fbattle->battle_data['timeout']?> РјРёРЅ.)</font><BR>
 <? } ?>
 <? if ($user["battle"]) { ?>
 <BR>
-На данный момент вами нанесено урона: <B><?=(int)$fbattle->damage[$user['id']]?> HP</B>.
+РќР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РІР°РјРё РЅР°РЅРµСЃРµРЅРѕ СѓСЂРѕРЅР°: <B><?=(int)$fbattle->damage[$user['id']]?> HP</B>.
 <? } ?>
 </td>
 <TD  valign=top align="right">
@@ -7478,7 +7478,7 @@ if(@$fbattle->return == 1){
 </BODY>
 </HTML>
 <?php
-//Проверка не залез ли в закончившийся бой
+//РџСЂРѕРІРµСЂРєР° РЅРµ Р·Р°Р»РµР· Р»Рё РІ Р·Р°РєРѕРЅС‡РёРІС€РёР№СЃСЏ Р±РѕР№
 if ($fbattle->battle_data["win"]!=3 && in_array($user["room"], $noattackrooms)) {
   mq("update users set battle=0 where id='$user[id]'");
 }

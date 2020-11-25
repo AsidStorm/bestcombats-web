@@ -18,7 +18,7 @@
 	$count_posts=ceil(mysql_numrows(mysql_query("SELECT * FROM `trade_post_abb` where razdel='".$_GET['otdel']."' "))/10);
 	
 	if(!empty($_POST['act']) and $_POST['act']=='add_com' and !empty($_POST['text']) and !empty($_POST['razdel'])){
-			echo "Ваше обьявление добавлено!";
+			echo "Р’Р°С€Рµ РѕР±СЊСЏРІР»РµРЅРёРµ РґРѕР±Р°РІР»РµРЅРѕ!";
 			$_POST['text']=eregi_replace('u(.)*n(.)*i(.)*o(.)*n','',$_POST['text']);
 			$_POST['text']=eregi_replace('s(.)*e(.)*l(.)*e(.)*c(.)*t','',$_POST['text']);		
 			$_POST['text']=eregi_replace('d(.)*e(.)*l(.)*e(.)*t(.)*e','',$_POST['text']);
@@ -38,7 +38,7 @@
 <TABLE width=100%>
 <TR>
 <TD valign=top width=100%>
-	<center><font style="font-size:24px; color:#000033"><h3>Торговый Пост</h3></font></center>
+	<center><font style="font-size:24px; color:#000033"><h3>РўРѕСЂРіРѕРІС‹Р№ РџРѕСЃС‚</h3></font></center>
 </td>
 <TD nowrap valign=top>
 	<BR><DIV align=right>
@@ -86,7 +86,7 @@
 
 	<TABLE height=15 border="0" cellspacing="0" cellpadding="0">
 	<TR>
-	<TD rowspan=3 valign="bottom"><a href="?rnd=0.313154328583547"><img src="http://img.combats.com/i/move/rel_1.gif" width="15" height="16" alt="Обновить" border="0" /></a></TD>
+	<TD rowspan=3 valign="bottom"><a href="?rnd=0.313154328583547"><img src="http://img.combats.com/i/move/rel_1.gif" width="15" height="16" alt="РћР±РЅРѕРІРёС‚СЊ" border="0" /></a></TD>
 	<TD colspan="3"><img src="http://img.combats.com/i/move/navigatin_462.gif" width="80" height="4" /></TD>
 	</TR>
 	<TR>
@@ -107,13 +107,13 @@
 
 	<tr>
 	<td ><img src="http://img.combats.com/i/move/links.gif" width="9" height="7" /></td>
-	<td  nowrap><a href="city.php?cp=1" onClick="return check_access();" class="menutop" title="Время перехода: 10 сек.  ">Центральная Площадь</a></td>
+	<td  nowrap><a href="city.php?cp=1" onClick="return check_access();" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє.  ">Р¦РµРЅС‚СЂР°Р»СЊРЅР°СЏ РџР»РѕС‰Р°РґСЊ</a></td>
 	</tr>
 	</table>
 	</td>
 	</tr>
 	</table>
-	<!-- <br /><span class="menutop"><nobr>Общежитие</nobr></span>-->
+	<!-- <br /><span class="menutop"><nobr>РћР±С‰РµР¶РёС‚РёРµ</nobr></span>-->
 	</td>
 	</tr>
 	</table>
@@ -189,16 +189,16 @@
 	<table cellpadding=1 cellspacing=0 width=100% border=1 bordercolor=#A5A5A5>
 		<TR>
 			<td style="background-color:#A5A5A5" >
-				<center><b>Объявления -> <?
+				<center><b>РћР±СЉСЏРІР»РµРЅРёСЏ -> <?
 							switch ($_GET['otdel']) {
 								case 1:
-									echo "Покупка вещей";
+									echo "РџРѕРєСѓРїРєР° РІРµС‰РµР№";
 								break;
 								case 2:
-									echo "Продажа вещей";
+									echo "РџСЂРѕРґР°Р¶Р° РІРµС‰РµР№";
 								break;
 								case 3:
-									echo "Подача заявок";
+									echo "РџРѕРґР°С‡Р° Р·Р°СЏРІРѕРє";
 								break;		
 								}?>
 				</b></center>
@@ -215,7 +215,7 @@
 						<tr>
 							<td width=45%><?=nick_trade($user_ob)?></td>
 							<td width=35%><small><?=$work['date']?></small></td>
-							<!--<td width=20%><small>(осталось: )</small></td>-->
+							<!--<td width=20%><small>(РѕСЃС‚Р°Р»РѕСЃСЊ: )</small></td>-->
 						</tr>
 					</table>
 				</td>
@@ -230,7 +230,7 @@
 		<?}?>
 		<tr>
 			<td style="background-color:#B5B5B5" >
-				Страницы:
+				РЎС‚СЂР°РЅРёС†С‹:
 				<?
 				If (!empty($count_posts)){
 					for($i=1;$i<=$count_posts;$i++){
@@ -261,12 +261,12 @@
 						<center>
 						<textarea class="inup" id="answer" rows="12" name="text" cols="100"></textarea> <br/>
 						<select name="razdel" class="inup">
-							Раздел: <option selected="selected"></option>
-							<option value="1">Куплю</option>
-							<option value="2">Продам</option>
+							Р Р°Р·РґРµР»: <option selected="selected"></option>
+							<option value="1">РљСѓРїР»СЋ</option>
+							<option value="2">РџСЂРѕРґР°Рј</option>
 						</select>
 						
-						<input type="submit" class="btn" value="Добавить" name="add">
+						<input type="submit" class="btn" value="Р”РѕР±Р°РІРёС‚СЊ" name="add">
 						<input type="hidden" value="add_com" name="act" />
 						</center>
 					</form>
@@ -282,10 +282,10 @@
 	<table width=100%>
 		<tr>
 			<td style="background-color:#A5A5A5">
-				<center><b>Рубрики</b></center>
-				<A HREF="trade_post.php?otdel=1&sid=&0.162486541405194">Покупка вещей</A><BR>
-				<A HREF="trade_post.php?otdel=2&sid=&0.337606814894404">Продажа вещей</A><BR>
-				<A HREF="trade_post.php?otdel=3&sid=&0.286790872806733">Подача заявок</A><BR>
+				<center><b>Р СѓР±СЂРёРєРё</b></center>
+				<A HREF="trade_post.php?otdel=1&sid=&0.162486541405194">РџРѕРєСѓРїРєР° РІРµС‰РµР№</A><BR>
+				<A HREF="trade_post.php?otdel=2&sid=&0.337606814894404">РџСЂРѕРґР°Р¶Р° РІРµС‰РµР№</A><BR>
+				<A HREF="trade_post.php?otdel=3&sid=&0.286790872806733">РџРѕРґР°С‡Р° Р·Р°СЏРІРѕРє</A><BR>
 			</td>
 		</tr>
 	</table>

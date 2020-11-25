@@ -5,15 +5,15 @@ var sol_url_root = 'http://www.darkclan.ru';
 var chapters = {
 	solutions: {
 		id: 'solutions',
-		caption: '&nbsp;&nbsp;&nbspПрохождения'
+		caption: '&nbsp;&nbsp;&nbspРџСЂРѕС…РѕР¶РґРµРЅРёСЏ'
 		},
 	knightquests: {
 		id: 'knightquests',
-		caption: '&nbsp;&nbsp;&nbspРыцарские задания'
+		caption: '&nbsp;&nbsp;&nbspР С‹С†Р°СЂСЃРєРёРµ Р·Р°РґР°РЅРёСЏ'
 		},
 	misc: {
 		id: 'misc',
-		caption: '&nbsp;&nbsp;&nbspРазное'
+		caption: '&nbsp;&nbsp;&nbspР Р°Р·РЅРѕРµ'
 		}
 	}
                               
@@ -21,73 +21,73 @@ var sols = {
 	sun: {
 		id: 'sun',
 		chapter: 'solutions',
-		caption: '<IMG title="Suncity" height=19 alt="Sun city" src="'+imP2+'city/brand/5.gif" width=34 border=0 /> Грибница',
+		caption: '<IMG title="Suncity" height=19 alt="Sun city" src="'+imP2+'city/brand/5.gif" width=34 border=0 /> Р“СЂРёР±РЅРёС†Р°',
 		url: '/cgi/dresjs.pl?resource=sunugsol'
 		},
 	sun2: {
 		id: 'sun2',
 		chapter: 'solutions',
-		caption: '<IMG title="Suncity" height=19 alt="Sun city" src="'+imP2+'city/brand/5.gif" width=34 border=0 />3й этаж Грибницы',
+		caption: '<IMG title="Suncity" height=19 alt="Sun city" src="'+imP2+'city/brand/5.gif" width=34 border=0 />3Р№ СЌС‚Р°Р¶ Р“СЂРёР±РЅРёС†С‹',
 		url: '/cgi/dresjs.pl?resource=mushrooms'
 		},
 	novice: {
 		id: 'novice',
 		chapter: 'solutions',
-		caption: '<IMG title="все города" height=19 alt="все города" src="'+imP1+'brend1.gif" width=34 border=0 /> Канализация',
+		caption: '<IMG title="РІСЃРµ РіРѕСЂРѕРґР°" height=19 alt="РІСЃРµ РіРѕСЂРѕРґР°" src="'+imP1+'brend1.gif" width=34 border=0 /> РљР°РЅР°Р»РёР·Р°С†РёСЏ',
 		url: '/cgi/dresjs.pl?resource=noviceugsol'
 		},
 	capital: {
 		id: 'capital',
 		chapter: 'solutions',
-		caption: '<IMG title="Capital city" height=19 alt="Capital city" src="'+imP2+'city/brand/8.gif" width=34 border=0 /> Пещера Тысячи Проклятий',
+		caption: '<IMG title="Capital city" height=19 alt="Capital city" src="'+imP2+'city/brand/8.gif" width=34 border=0 /> РџРµС‰РµСЂР° РўС‹СЃСЏС‡Рё РџСЂРѕРєР»СЏС‚РёР№',
 		url: '/cgi/dresjs.pl?resource=capitalugsol'
 		},
 	angels: {
 		id: 'angels',
 		chapter: 'solutions',
-		caption: '<IMG title="Angels city" height=19 alt="Angels city" src="'+imP2+'city/brand/2.gif" width=34 border=0 /> Бездна',
+		caption: '<IMG title="Angels city" height=19 alt="Angels city" src="'+imP2+'city/brand/2.gif" width=34 border=0 /> Р‘РµР·РґРЅР°',
 		url: '/cgi/dresjs.pl?resource=angelsugsol'
 		},
 	sand: {
 		id: 'sand',
 		chapter: 'solutions',
-		caption: '<IMG title="Sandcity" height=19 alt="Sandcity" src="'+imP2+'city/brand/7.gif" width=34 border=0 /> Пещеры Мглы',
+		caption: '<IMG title="Sandcity" height=19 alt="Sandcity" src="'+imP2+'city/brand/7.gif" width=34 border=0 /> РџРµС‰РµСЂС‹ РњРіР»С‹',
 		url: '/cgi/dresjs.pl?resource=sandugsol'
 		},
 	demons: {
 		id: 'demons',
 		chapter: 'solutions',
-		caption: '<IMG title="Demons city" height=19 alt="Demons city" src="'+imP2+'city/brand/3.gif" width=34 border=0 /> Катакомбы',
+		caption: '<IMG title="Demons city" height=19 alt="Demons city" src="'+imP2+'city/brand/3.gif" width=34 border=0 /> РљР°С‚Р°РєРѕРјР±С‹',
 		url: '/cgi/dresjs.pl?resource=demonsugsol'
 		},
 	emeralds: {
 		id: 'emeralds',
 		chapter: 'solutions',
-		caption: '<IMG title="Emeralds city" height=19 alt="Emeralds city" src="'+imP2+'city/brand/6.gif" width=34 border=0 /> Потерянный Вход',
+		caption: '<IMG title="Emeralds city" height=19 alt="Emeralds city" src="'+imP2+'city/brand/6.gif" width=34 border=0 /> РџРѕС‚РµСЂСЏРЅРЅС‹Р№ Р’С…РѕРґ',
 		url: '/cgi/dresjs.pl?resource=emeraldsugsol'
 		},
 	capitalknight: {
 		id: 'capitalknight',
 		chapter: 'knightquests',
-		caption: '<IMG title="Рыцарь первого круга" height=24 alt="Рыцарь первого круга" src="'+imP2+'misc/zn9_1.gif" width=35 border=0 />Пещера Тысячи Проклятий',
+		caption: '<IMG title="Р С‹С†Р°СЂСЊ РїРµСЂРІРѕРіРѕ РєСЂСѓРіР°" height=24 alt="Р С‹С†Р°СЂСЊ РїРµСЂРІРѕРіРѕ РєСЂСѓРіР°" src="'+imP2+'misc/zn9_1.gif" width=35 border=0 />РџРµС‰РµСЂР° РўС‹СЃСЏС‡Рё РџСЂРѕРєР»СЏС‚РёР№',
 		url: '/cgi/dresjs.pl?resource=capitalknightugsol'
 		},
 	angelsknight: {
 		id: 'angelsknight',
 		chapter: 'knightquests',
-		caption: '<IMG title="Рыцарь первого круга" height=24 alt="Рыцарь первого круга" src="'+imP2+'misc/zn2_1.gif" width=35 border=0 />Бездна',
+		caption: '<IMG title="Р С‹С†Р°СЂСЊ РїРµСЂРІРѕРіРѕ РєСЂСѓРіР°" height=24 alt="Р С‹С†Р°СЂСЊ РїРµСЂРІРѕРіРѕ РєСЂСѓРіР°" src="'+imP2+'misc/zn2_1.gif" width=35 border=0 />Р‘РµР·РґРЅР°',
 		url: '/cgi/dresjs.pl?resource=angelsknightugsol'
 		},
 	sandknight: {
 		id: 'sandknight',
 		chapter: 'knightquests',
-		caption: '<IMG title="Рыцарь первого круга" height=24 alt="Рыцарь первого круга" src="'+imP2+'misc/zn7_1.gif" width=35 border=0 />Пещеры Мглы',
+		caption: '<IMG title="Р С‹С†Р°СЂСЊ РїРµСЂРІРѕРіРѕ РєСЂСѓРіР°" height=24 alt="Р С‹С†Р°СЂСЊ РїРµСЂРІРѕРіРѕ РєСЂСѓРіР°" src="'+imP2+'misc/zn7_1.gif" width=35 border=0 />РџРµС‰РµСЂС‹ РњРіР»С‹',
 		url: '/cgi/dresjs.pl?resource=sandknightugsol'
 		},
 	sunknight: {
 		id: 'sunknight',
 		chapter: 'knightquests',
-		caption: '<IMG title="Рыцарь первого круга" height=24 alt="Рыцарь первого круга" src="'+imP2+'misc/zn5_1.gif" width=35 border=0 />Грибница',
+		caption: '<IMG title="Р С‹С†Р°СЂСЊ РїРµСЂРІРѕРіРѕ РєСЂСѓРіР°" height=24 alt="Р С‹С†Р°СЂСЊ РїРµСЂРІРѕРіРѕ РєСЂСѓРіР°" src="'+imP2+'misc/zn5_1.gif" width=35 border=0 />Р“СЂРёР±РЅРёС†Р°',
 		url: '/cgi/dresjs.pl?resource=sunknightugsol'
 		},
 
@@ -96,27 +96,27 @@ var sols = {
 	gl: {
 		id: 'gl',
 		chapter: 'misc',                                                                                 
-		caption: '<IMG height=24 alt="Незнакомец с поверхности" src="'+imP2+'misc/gl_rep.gif" width=35 border=0 />Прохождение Горы Легиона',
+		caption: '<IMG height=24 alt="РќРµР·РЅР°РєРѕРјРµС† СЃ РїРѕРІРµСЂС…РЅРѕСЃС‚Рё" src="'+imP2+'misc/gl_rep.gif" width=35 border=0 />РџСЂРѕС…РѕР¶РґРµРЅРёРµ Р“РѕСЂС‹ Р›РµРіРёРѕРЅР°',
 		newurl: 'http://www.darkclan.ru/cgi/lib.pl?p=kvestgl'
 		},
 
 /*	altar: {
 		id: 'altar',
 		chapter: 'misc',
-		caption: '<IMG title="Посвящённый первого круга" height=24 alt="Посвящённый первого круга" src="'+imP2+'misc/znbl_1.gif" width=35 border=0 />Алтарь Крови',
+		caption: '<IMG title="РџРѕСЃРІСЏС‰С‘РЅРЅС‹Р№ РїРµСЂРІРѕРіРѕ РєСЂСѓРіР°" height=24 alt="РџРѕСЃРІСЏС‰С‘РЅРЅС‹Р№ РїРµСЂРІРѕРіРѕ РєСЂСѓРіР°" src="'+imP2+'misc/znbl_1.gif" width=35 border=0 />РђР»С‚Р°СЂСЊ РљСЂРѕРІРё',
 		newurl: 'http://www.darkclan.ru/cgi/lib.pl?p=altar'
 		},
 	runes: {
 		id: 'runes',
 		chapter: 'misc',
-		caption: '<IMG title="Посвященный второго круга" height=24 alt="Посвященный второго круга" src="'+imP2+'misc/znrune_2.gif" width=35 border=0 />Руны и Храм Знаний',
+		caption: '<IMG title="РџРѕСЃРІСЏС‰РµРЅРЅС‹Р№ РІС‚РѕСЂРѕРіРѕ РєСЂСѓРіР°" height=24 alt="РџРѕСЃРІСЏС‰РµРЅРЅС‹Р№ РІС‚РѕСЂРѕРіРѕ РєСЂСѓРіР°" src="'+imP2+'misc/znrune_2.gif" width=35 border=0 />Р СѓРЅС‹ Рё РҐСЂР°Рј Р—РЅР°РЅРёР№',
 		newurl: 'http://www.darkclan.ru/cgi/lib.pl?p=runes'
 		},
 
 	charkid: {
 		id: 'charkid',
 		chapter: 'misc',
-		caption: 'Модификаторы зачарования вещей',
+		caption: 'РњРѕРґРёС„РёРєР°С‚РѕСЂС‹ Р·Р°С‡Р°СЂРѕРІР°РЅРёСЏ РІРµС‰РµР№',
 		newurl: 'http://www.darkclan.ru/cgi/lib.pl?p=charkid'
 		},
 
@@ -124,26 +124,26 @@ var sols = {
 	setcomponents: {
 		id: 'setcomponents',
 		chapter: 'misc',
-		caption: 'Комплекты 9 уровня и требуемые ингредиенты',
+		caption: 'РљРѕРјРїР»РµРєС‚С‹ 9 СѓСЂРѕРІРЅСЏ Рё С‚СЂРµР±СѓРµРјС‹Рµ РёРЅРіСЂРµРґРёРµРЅС‚С‹',
 		newurl: 'http://www.darkclan.ru/cgi/lib.pl?p=set'
 		},
 	setcomponents2: {
 		id: 'setcomponents',
 		chapter: 'misc',
-		caption: 'Модифицирование вещей на 10й уровень',
+		caption: 'РњРѕРґРёС„РёС†РёСЂРѕРІР°РЅРёРµ РІРµС‰РµР№ РЅР° 10Р№ СѓСЂРѕРІРµРЅСЊ',
 		newurl: 'http://www.darkclan.ru/cgi/lib.pl?p=settoo'
 		},
 	sbor: {
 		id: 'sbor',
 		chapter: 'misc',
-		caption: 'Места сбора тактик свитков и предметов',
+		caption: 'РњРµСЃС‚Р° СЃР±РѕСЂР° С‚Р°РєС‚РёРє СЃРІРёС‚РєРѕРІ Рё РїСЂРµРґРјРµС‚РѕРІ',
 		newurl:  'http://www.darkclan.ru/cgi/lib.pl?p=sbor'
 		},
 */
 	books: {
 		id: 'books',
 		chapter: 'misc',
-		caption: 'Книги и книжные приёмы',
+		caption: 'РљРЅРёРіРё Рё РєРЅРёР¶РЅС‹Рµ РїСЂРёС‘РјС‹',
 		newurl: 'http://www.darkclan.ru/cgi/lib.pl?p=books'
 		}
 
@@ -157,7 +157,7 @@ var req = null;
 
 function loadXMLDoc(url) 
 {
-	showScriptStatus("Отправка запроса на сервер");
+	showScriptStatus("РћС‚РїСЂР°РІРєР° Р·Р°РїСЂРѕСЃР° РЅР° СЃРµСЂРІРµСЂ");
 	try
 	{
 		try 
@@ -195,7 +195,7 @@ function loadXMLDoc(url)
 		alert("Request error:\n" + e.message);
 		return false;
 	}
-	showScriptStatus("Данные получены");
+	showScriptStatus("Р”Р°РЅРЅС‹Рµ РїРѕР»СѓС‡РµРЅС‹");
 	return true;
 }
 
@@ -203,7 +203,7 @@ function drawSol()
 {
 	var html = '';
 
-	html += '<h3 style="margin:0px; padding:8px; font-size:18px; text-align:center;">Статьи</h3>';
+	html += '<h3 style="margin:0px; padding:8px; font-size:18px; text-align:center;">РЎС‚Р°С‚СЊРё</h3>';
 	html += '<table width="100%" cellspacing="0" cellpadding="0" border="0">';	
 	html += '<tr>';
 	html += '<td valign="top" width="220" height="500">';
@@ -235,14 +235,14 @@ function drawSol()
 			html += sol.caption;
 			if ('newurl' in sol)
 			{
-				html += '<img src="'+imP1+'inner_link.png" width="10" height="10" border="0" title="ссылка на статью в Библиотеке" alt="ссылка на статью в Библиотеке" />';
+				html += '<img src="'+imP1+'inner_link.png" width="10" height="10" border="0" title="СЃСЃС‹Р»РєР° РЅР° СЃС‚Р°С‚СЊСЋ РІ Р‘РёР±Р»РёРѕС‚РµРєРµ" alt="СЃСЃС‹Р»РєР° РЅР° СЃС‚Р°С‚СЊСЋ РІ Р‘РёР±Р»РёРѕС‚РµРєРµ" />';
 			}
 			html += '</a>';
 		}
 		html += '</blockquote>';
 	}
 	html += '</blockquote></td>';
-	html += '<td valign="top" id="sol_c" style="padding-right:10px;"><center>Пожалуйста, выберите интересующую Вас статью из списка слева.</center></td>';
+	html += '<td valign="top" id="sol_c" style="padding-right:10px;"><center>РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІС‹Р±РµСЂРёС‚Рµ РёРЅС‚РµСЂРµСЃСѓСЋС‰СѓСЋ Р’Р°СЃ СЃС‚Р°С‚СЊСЋ РёР· СЃРїРёСЃРєР° СЃР»РµРІР°.</center></td>';
 	html += '</tr>';
 	html += '</table>';
 

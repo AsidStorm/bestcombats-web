@@ -4,7 +4,7 @@ mq("lock tables online write, users write, battle write, effects write, obshagae
 $us = mysql_fetch_array(mq("SELECT *,(select `id` from `online` WHERE `real_time` >= ".(time()-60)." AND `id` = users.`id`) as `online`  FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;"));
 if ($us["battle"]) $us["online"]=1;
 if($user['room']==20 or $user['room']==21 or $user['room']==45){
-//нападение
+//РЅР°РїР°РґРµРЅРёРµ
 if ($us['battle']) $bd=mysql_fetch_array(mq("SELECT * FROM `battle` WHERE `id` = '{$us['battle']}' ;"));
 else $bd=array();
 
@@ -26,46 +26,46 @@ if ($tme["2"]>=8 && $tme["2"]<18) {$rand1=rand(5,7);} else {$rand1=7;} if ($cant
 } elseif ($cant2) {
   echo $cant2;
 } elseif ($tme["2"]>=8 && $tme["2"]<18 && !$us['bot'] && $_SERVER["REMOTE_ADDR"]!="127.0.0.1" && $user['level'] > $us['level']) {
-  echo "С 08:00 до 18:00 нападение возможно только на равного или старше персонажа";
+  echo "РЎ 08:00 РґРѕ 18:00 РЅР°РїР°РґРµРЅРёРµ РІРѕР·РјРѕР¶РЅРѕ С‚РѕР»СЊРєРѕ РЅР° СЂР°РІРЅРѕРіРѕ РёР»Рё СЃС‚Р°СЂС€Рµ РїРµСЂСЃРѕРЅР°Р¶Р°";
 //} elseif ($tme["2"]>=8 && $tme["2"]<18) {
- // echo "С 08:00 до 18:00 нападение невозможно";
+ // echo "РЎ 08:00 РґРѕ 18:00 РЅР°РїР°РґРµРЅРёРµ РЅРµРІРѕР·РјРѕР¶РЅРѕ";
 } elseif ($tme["2"]<8 && $tme["2"]>=18 && !$us['bot'] && $checkLevels > 2) {
-    echo "с 18:00 до 8:00 нападение возможно только на персонажей, старше или младше Вас, но не более чем на 2 уовня.";
-} elseif (($us['login']=="Общий Враг" && vrag!="on") || (!$us['online'] && !$us["bot"]) || $us['invis']) {
-  echo "Персонаж не в игре!";
+    echo "СЃ 18:00 РґРѕ 8:00 РЅР°РїР°РґРµРЅРёРµ РІРѕР·РјРѕР¶РЅРѕ С‚РѕР»СЊРєРѕ РЅР° РїРµСЂСЃРѕРЅР°Р¶РµР№, СЃС‚Р°СЂС€Рµ РёР»Рё РјР»Р°РґС€Рµ Р’Р°СЃ, РЅРѕ РЅРµ Р±РѕР»РµРµ С‡РµРј РЅР° 2 СѓРѕРІРЅСЏ.";
+} elseif (($us['login']=="РћР±С‰РёР№ Р’СЂР°Рі" && vrag!="on") || (!$us['online'] && !$us["bot"]) || $us['invis']) {
+  echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РёРіСЂРµ!";
 //} elseif ($us['level'] < $rand1 && !$us["bot"]) {
-  //echo "Этой магией нельзя напасть на персонажа ниже ".($rand1)." уровня! Пробуйте ещё, возможные варианты от 5 до 7 лвл. Также с 18:00 до 08:00 минимальный уровень становиться 7!";
+  //echo "Р­С‚РѕР№ РјР°РіРёРµР№ РЅРµР»СЊР·СЏ РЅР°РїР°СЃС‚СЊ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° РЅРёР¶Рµ ".($rand1)." СѓСЂРѕРІРЅСЏ! РџСЂРѕР±СѓР№С‚Рµ РµС‰С‘, РІРѕР·РјРѕР¶РЅС‹Рµ РІР°СЂРёР°РЅС‚С‹ РѕС‚ 5 РґРѕ 7 Р»РІР». РўР°РєР¶Рµ СЃ 18:00 РґРѕ 08:00 РјРёРЅРёРјР°Р»СЊРЅС‹Р№ СѓСЂРѕРІРµРЅСЊ СЃС‚Р°РЅРѕРІРёС‚СЊСЃСЏ 7!";
 } elseif ($us['incity'] != $user['incity']) {
-  echo "Вы не можете напасть на человека, находящегося в другом городе.";
+  echo "Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РЅР°РїР°СЃС‚СЊ РЅР° С‡РµР»РѕРІРµРєР°, РЅР°С…РѕРґСЏС‰РµРіРѕСЃСЏ РІ РґСЂСѓРіРѕРј РіРѕСЂРѕРґРµ.";
 } elseif ($user['align'] == $us['align']) {
-  echo "Чтите честь своих товарищей.";
+  echo "Р§С‚РёС‚Рµ С‡РµСЃС‚СЊ СЃРІРѕРёС… С‚РѕРІР°СЂРёС‰РµР№.";
 } elseif ($user['klan'] != '' && ($user['klan'] == $us['klan'])) {
-echo "Чтите честь ваших сокланов.";
+echo "Р§С‚РёС‚Рµ С‡РµСЃС‚СЊ РІР°С€РёС… СЃРѕРєР»Р°РЅРѕРІ.";
 } elseif ($us['align']>=2 && $us['align']<3 ) {
-	echo "Уважаемый ".$user['login'].", Ваша попытка напасть на высший совет записана в дело и будет рассматриваться как покушение...";
+	echo "РЈРІР°Р¶Р°РµРјС‹Р№ ".$user['login'].", Р’Р°С€Р° РїРѕРїС‹С‚РєР° РЅР°РїР°СЃС‚СЊ РЅР° РІС‹СЃС€РёР№ СЃРѕРІРµС‚ Р·Р°РїРёСЃР°РЅР° РІ РґРµР»Рѕ Рё Р±СѓРґРµС‚ СЂР°СЃСЃРјР°С‚СЂРёРІР°С‚СЊСЃСЏ РєР°Рє РїРѕРєСѓС€РµРЅРёРµ...";
 	mysql_query("UPDATE `users` SET `hp`=1 WHERE `id`='".$user['id']."'");
-		addch("<img src=i/magic/bexit.gif> <B>".$user['login']."</B>, попытался напасть на &quot;<strong>{$_POST['target']}</strong>&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src=i/priem/wis_air_shaft10.gif> <b>Гром и Молния</b> поразили наглеца <strong>".$user['login']."</strong> <Font Color=red><b> -".($user['hp']-1)."</b></font> [1/".$user['maxhp']."].<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Высший совет - неприкосновенен.</u>");
+		addch("<img src=i/magic/bexit.gif> <B>".$user['login']."</B>, РїРѕРїС‹С‚Р°Р»СЃСЏ РЅР°РїР°СЃС‚СЊ РЅР° &quot;<strong>{$_POST['target']}</strong>&quot;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src=i/priem/wis_air_shaft10.gif> <b>Р“СЂРѕРј Рё РњРѕР»РЅРёСЏ</b> РїРѕСЂР°Р·РёР»Рё РЅР°РіР»РµС†Р° <strong>".$user['login']."</strong> <Font Color=red><b> -".($user['hp']-1)."</b></font> [1/".$user['maxhp']."].<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Р’С‹СЃС€РёР№ СЃРѕРІРµС‚ - РЅРµРїСЂРёРєРѕСЃРЅРѕРІРµРЅРµРЅ.</u>");
 
 } else {
-  if ($user['sex'] == 1) {$action="напал";}   else {$action="напала";}
+  if ($user['sex'] == 1) {$action="РЅР°РїР°Р»";}   else {$action="РЅР°РїР°Р»Р°";}
   if ($user['align'] > '2' && $user['align'] < '3')  {
-    $angel="Ангел";
+    $angel="РђРЅРіРµР»";
   } elseif ($user['align'] > '1' && $user['align'] < '2') {
-    $angel="Персонаж";
+    $angel="РџРµСЂСЃРѕРЅР°Р¶";
   }
 
   if($us['id']!=$user['id']) {
     if ($user['invis']==1) {
-      addch("<img src=i/magic/attack.gif> <B>невидимка</B>, применив нападение, внезапно ".$action." на &quot;{$_POST['target']}&quot;");
-      addchp ('<font color=red>Внимание!</font> На вас '.$action.' <B>невидимка</B>.<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($us['id']).'{[]}');
+      addch("<img src=i/magic/attack.gif> <B>РЅРµРІРёРґРёРјРєР°</B>, РїСЂРёРјРµРЅРёРІ РЅР°РїР°РґРµРЅРёРµ, РІРЅРµР·Р°РїРЅРѕ ".$action." РЅР° &quot;{$_POST['target']}&quot;");
+      addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РќР° РІР°СЃ '.$action.' <B>РЅРµРІРёРґРёРјРєР°</B>.<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($us['id']).'{[]}');
     } else {
-      addch("<img src=i/magic/attack.gif> <B>{$user['login']}</B>, применив нападение, внезапно ".$action." на &quot;{$_POST['target']}&quot;");
-      addchp ('<font color=red>Внимание!</font> На вас '.$action.' <B>'.$user['login'].'</B>.<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($us['id']).'{[]}');
+      addch("<img src=i/magic/attack.gif> <B>{$user['login']}</B>, РїСЂРёРјРµРЅРёРІ РЅР°РїР°РґРµРЅРёРµ, РІРЅРµР·Р°РїРЅРѕ ".$action." РЅР° &quot;{$_POST['target']}&quot;");
+      addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РќР° РІР°СЃ '.$action.' <B>'.$user['login'].'</B>.<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($us['id']).'{[]}');
     }
     //destructitem($row['id']);
     $bet=1;
-    //арх
-    if($us['login']=="Общий враг" || $us["bot"]) {
+    //Р°СЂС…
+    if($us['login']=="РћР±С‰РёР№ РІСЂР°Рі" || $us["bot"]) {
       $arha = mysql_fetch_array(mq ('SELECT * FROM `bots` WHERE `prototype` = '.$us['id'].' LIMIT 1;'));
       if ($arha) {
         $us['battle'] = $arha['battle'];
@@ -73,9 +73,9 @@ echo "Чтите честь ваших сокланов.";
         $bot=0;
       } else $bot=1;
     } else $bot=0;
-    attack($_POST["target"], 1, 0, 0, 0, 0, 3, $us, $bd, $bot, "Нападение на ЦП");
+    attack($_POST["target"], 1, 0, 0, 0, 0, 3, $us, $bd, $bot, "РќР°РїР°РґРµРЅРёРµ РЅР° Р¦Рџ");
   } else {
-    echo 'Мазохист?...';
+    echo 'РњР°Р·РѕС…РёСЃС‚?...';
   }
   //$bet=1;
 }

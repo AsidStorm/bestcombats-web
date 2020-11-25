@@ -1,93 +1,93 @@
 <?php
  
- // спуск на 2-ой этаж
+ // СЃРїСѓСЃРє РЅР° 2-РѕР№ СЌС‚Р°Р¶
 if ($tx*2==8 && $ty*2==2) {
-    //$report="<div style=\"font-weight:normal\">Вы благополучно выбрались из Убежища.</div>";
-    gotoxy(12, 20, 2, "Вы благополучно попали на 2-ой этаж.");
+    //$report="<div style=\"font-weight:normal\">Р’С‹ Р±Р»Р°РіРѕРїРѕР»СѓС‡РЅРѕ РІС‹Р±СЂР°Р»РёСЃСЊ РёР· РЈР±РµР¶РёС‰Р°.</div>";
+    gotoxy(12, 20, 2, "Р’С‹ Р±Р»Р°РіРѕРїРѕР»СѓС‡РЅРѕ РїРѕРїР°Р»Рё РЅР° 2-РѕР№ СЌС‚Р°Р¶.");
 }
   
-// наковальня, спуск на 4-ый этаж
+// РЅР°РєРѕРІР°Р»СЊРЅСЏ, СЃРїСѓСЃРє РЅР° 4-С‹Р№ СЌС‚Р°Р¶
 if ($tx*2==4 && $ty*2==4) {
     if (usagesleft($tx, $ty)) {
         takeusage($tx, $ty);
         header('Location: dialog.php?char=21952');
         exit;
     } else {
-        $report = "Наковальня доступна только для одного диалога.";
+        $report = "РќР°РєРѕРІР°Р»СЊРЅСЏ РґРѕСЃС‚СѓРїРЅР° С‚РѕР»СЊРєРѕ РґР»СЏ РѕРґРЅРѕРіРѕ РґРёР°Р»РѕРіР°.";
     }
-    //gotoxy(24, 26, 4, "Вы благополучно попали на 4-ый этаж.");
+    //gotoxy(24, 26, 4, "Р’С‹ Р±Р»Р°РіРѕРїРѕР»СѓС‡РЅРѕ РїРѕРїР°Р»Рё РЅР° 4-С‹Р№ СЌС‚Р°Р¶.");
 }
   
-// алтарь
+// Р°Р»С‚Р°СЂСЊ
 if ($tx*2==4 && $ty*2==12) {
-    //$report="<div style=\"font-weight:normal\">Вы благополучно выбрались из Убежища.</div>";
-    gotoxy(2, 6, 1, "Вы попали в Тайную Комнату.");
+    //$report="<div style=\"font-weight:normal\">Р’С‹ Р±Р»Р°РіРѕРїРѕР»СѓС‡РЅРѕ РІС‹Р±СЂР°Р»РёСЃСЊ РёР· РЈР±РµР¶РёС‰Р°.</div>";
+    gotoxy(2, 6, 1, "Р’С‹ РїРѕРїР°Р»Рё РІ РўР°Р№РЅСѓСЋ РљРѕРјРЅР°С‚Сѓ.");
 }
 
-// купель
+// РєСѓРїРµР»СЊ
 if ($tx*2==8 && $ty*2==12) {
     $aBots = mysql_result(mysql_query("SELECT COUNT(*) FROM cavebots WHERE leader='$user[caveleader]' AND ((x = 6 AND y = 12) OR (x = 8 AND y = 10) OR (x = 12 AND y = 12)) AND floor='1'"), 0, 0);
     if ($aBots) {
-        $report = 'Группа монстров уничтожена не полностью';
+        $report = 'Р“СЂСѓРїРїР° РјРѕРЅСЃС‚СЂРѕРІ СѓРЅРёС‡С‚РѕР¶РµРЅР° РЅРµ РїРѕР»РЅРѕСЃС‚СЊСЋ';
     } else {
         if (usagesleft($tx, $ty)) {
             takeusage($tx, $ty);
             $rand = mt_rand(1,100);
             if ($rand <= 80) {
-                $report = usagesleft($tx, $ty) ? 'Пусто, поробуйте еще раз.' : 'Пусто';
+                $report = usagesleft($tx, $ty) ? 'РџСѓСЃС‚Рѕ, РїРѕСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·.' : 'РџСѓСЃС‚Рѕ';
             } else {
-                $report = itemtofloor(mt_rand(2573, 2576), 0, 0, 1); // эликсиры
+                $report = itemtofloor(mt_rand(2573, 2576), 0, 0, 1); // СЌР»РёРєСЃРёСЂС‹
             }
         } else {
-            $report="Пусто";
+            $report="РџСѓСЃС‚Рѕ";
         }
     }
 }
 
-// скелеты
+// СЃРєРµР»РµС‚С‹
 if (($tx*2==6 && $ty*2==10) || ($tx*2==2 && $ty*2==12)) {
     if (usagesleft($tx, $ty)) {
         takeusage($tx, $ty);
         $rand = mt_rand(1,100);
         if ($rand <= 50) {
-            $report = usagesleft($tx, $ty) ? 'Пусто, поробуйте еще раз.' : 'Пусто'; 
+            $report = usagesleft($tx, $ty) ? 'РџСѓСЃС‚Рѕ, РїРѕСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·.' : 'РџСѓСЃС‚Рѕ'; 
         } elseif ($rand <= 80) {
             $mhp = 100 + mt_rand(0, 900);
-            $report = "Вы попали в ловушку -$mhp HP.";
+            $report = "Р’С‹ РїРѕРїР°Р»Рё РІ Р»РѕРІСѓС€РєСѓ -$mhp HP.";
             takehp($user["id"], $mhp);
         } elseif ($rand <= 85) {
-            $report = itemtofloor(2581, 0, 0, 1); // чужая квитанция на товар
+            $report = itemtofloor(2581, 0, 0, 1); // С‡СѓР¶Р°СЏ РєРІРёС‚Р°РЅС†РёСЏ РЅР° С‚РѕРІР°СЂ
         } else {
-            $report = itemtofloor(mt_rand(2595, 2634), 0, 0, 3); // странички
+            $report = itemtofloor(mt_rand(2595, 2634), 0, 0, 3); // СЃС‚СЂР°РЅРёС‡РєРё
         }
     } else {
-        $report="Пусто";
+        $report="РџСѓСЃС‚Рѕ";
     }
 }
 
-// сундуки
+// СЃСѓРЅРґСѓРєРё
 if (($tx*2==16 && $ty*2==8) || ($tx*2==16 && $ty*2==16)) {
     if (usagesleft($tx, $ty)) {
         $rand = mt_rand(1,100);
         if ($rand <= 50) {
             takeusage($tx, $ty);
-            $report = usagesleft($tx, $ty) ? 'Пусто, поробуйте еще раз.' : 'Пусто'; 
+            $report = usagesleft($tx, $ty) ? 'РџСѓСЃС‚Рѕ, РїРѕСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·.' : 'РџСѓСЃС‚Рѕ'; 
         } elseif ($rand <= 80) {
             $mhp = 100 + mt_rand(0, 900);
-            $report = "Вы попали в ловушку -$mhp HP.";
+            $report = "Р’С‹ РїРѕРїР°Р»Рё РІ Р»РѕРІСѓС€РєСѓ -$mhp HP.";
             takehp($user["id"], $mhp);
         } elseif ($rand <= 90) {
             takeusage($tx, $ty);
-            $report = itemtofloor(mt_rand(2573, 2576), 0, 0, 1); // эликсиры
+            $report = itemtofloor(mt_rand(2573, 2576), 0, 0, 1); // СЌР»РёРєСЃРёСЂС‹
         } elseif ($rand <= 95) {
             takeusage($tx, $ty);
-            $report = itemtofloor(mt_rand(2577, 2579), 0, 0, 1); // молот
+            $report = itemtofloor(mt_rand(2577, 2579), 0, 0, 1); // РјРѕР»РѕС‚
         } else {
             takeusage($tx, $ty);
-            $report = itemtofloor(mt_rand(2595, 2634), 0, 0, 3); // странички
+            $report = itemtofloor(mt_rand(2595, 2634), 0, 0, 3); // СЃС‚СЂР°РЅРёС‡РєРё
         }
     } else {
-       $report="Пусто";
+       $report="РџСѓСЃС‚Рѕ";
     }
 }
   

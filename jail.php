@@ -27,16 +27,16 @@ echo"
 </HTML>
 <?
 print "<h3>
-Доброе утро, узник! <SCRIPT>drwfl(\"".$user['login']."\",".$user['id'].",\"".$user['level']."\",'".$user['align']."',\"".$user['klan']."\")</SCRIPT></h3>";
+Р”РѕР±СЂРѕРµ СѓС‚СЂРѕ, СѓР·РЅРёРє! <SCRIPT>drwfl(\"".$user['login']."\",".$user['id'].",\"".$user['level']."\",'".$user['align']."',\"".$user['klan']."\")</SCRIPT></h3>";
 
 echo '<FONT style="FONT-SIZE: 10pt; COLOR: red"><B><div id="rezultat"></div></B></FONT>';
 if ($user['prison']==0) {
   print" <BR><table width=\"148\" align=right border=\"0\" cellpadding=\"0\" cellspacing=\"1\" bgcolor=\"#DEDEDE\"><tr>
                 <td bgcolor=\"#D3D3D3\"><img src=\"img/links.gif\" width=\"7\" height=\"5\" /></td>
-                <td bgcolor=\"#D3D3D3\" nowrap><a href=\"main.php?rnd=0.122974956635421&pathbkbk=1.100&path=8\" onclick=\"\" class=\"menutop\" title=\"Переход на центральную площадь\">Центральная площадь</a></td>
+                <td bgcolor=\"#D3D3D3\" nowrap><a href=\"main.php?rnd=0.122974956635421&pathbkbk=1.100&path=8\" onclick=\"\" class=\"menutop\" title=\"РџРµСЂРµС…РѕРґ РЅР° С†РµРЅС‚СЂР°Р»СЊРЅСѓСЋ РїР»РѕС‰Р°РґСЊ\">Р¦РµРЅС‚СЂР°Р»СЊРЅР°СЏ РїР»РѕС‰Р°РґСЊ</a></td>
               </tr></table><BR><br>";
 }
-print "<center>Тюряга - место покоя тех, кто был глуп и наивен.</center>
+print "<center>РўСЋСЂСЏРіР° - РјРµСЃС‚Рѕ РїРѕРєРѕСЏ С‚РµС…, РєС‚Рѕ Р±С‹Р» РіР»СѓРї Рё РЅР°РёРІРµРЅ.</center>
 <center><IMG src=\"http://img.bestcombats.net/prison/prison.gif\"></center>";
 
 $R_ONLINE = mysql_query("SELECT prison FROM users WHERE prison ='1'");
@@ -44,7 +44,7 @@ $xaos = 0;
         while(mysql_fetch_array($R_ONLINE)){
         $xaos++;
         }
-print "<br><center>Всего в тюрьме: <b>$xaos</b> чел.</center><BR>";
+print "<br><center>Р’СЃРµРіРѕ РІ С‚СЋСЂСЊРјРµ: <b>$xaos</b> С‡РµР».</center><BR>";
 
 if ($user['prison']==1) {
 	$effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE `owner` = '{$user['id']}' and `type` = '21' LIMIT 1;"));
@@ -56,33 +56,33 @@ if ($user['prison']==1) {
 	$id=0;
 	if ($tmp > 0) {
 		$id++;
-		if ($id<3) {$out .= $tmp." мес. ";}
+		if ($id<3) {$out .= $tmp." РјРµСЃ. ";}
 		$time_still = $time_still-$tmp*2592000;
 	}
 	$tmp = floor($time_still/604800);
 	if ($tmp > 0) {
 		$id++;
-		if ($id<3) {$out .= $tmp." нед. ";}
+		if ($id<3) {$out .= $tmp." РЅРµРґ. ";}
 		$time_still = $time_still-$tmp*604800;
 	}
 	$tmp = floor($time_still/86400);
 	if ($tmp > 0) {
 		$id++;
-		if ($id<3) {$out .= $tmp." дн. ";}
+		if ($id<3) {$out .= $tmp." РґРЅ. ";}
 		$time_still = $time_still-$tmp*86400;
 	}
 	$tmp = floor($time_still/3600);
 	if ($tmp > 0) {
 		$id++;
-		if ($id<3) {$out .= $tmp." ч. ";}
+		if ($id<3) {$out .= $tmp." С‡. ";}
 		$time_still = $time_still-$tmp*3600;
 	}
 	$tmp = floor($time_still/60);
 	if ($tmp > 0) {
 		$id++;
-		if ($id<3) {$out .= $tmp." мин. ";}
+		if ($id<3) {$out .= $tmp." РјРёРЅ. ";}
 	}
-		echo "<br><center>В заточении еще <i>$out</i> <IMG src=\"http://bestcombats.net/chat/smiles/smiles_958.gif\"></center>";
+		echo "<br><center>Р’ Р·Р°С‚РѕС‡РµРЅРёРё РµС‰Рµ <i>$out</i> <IMG src=\"http://bestcombats.net/chat/smiles/smiles_958.gif\"></center>";
 	}
 }
 

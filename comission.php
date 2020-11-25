@@ -13,7 +13,7 @@
     $d = mysql_fetch_array(mysql_query("SELECT sum(`massa`) FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' AND `dressed` = 0 AND `setsale` = 0 and clan=''; "));
     if ($user['battle'] != 0) { header('location: fbattle.php'); die(); }
 
-    $cond="AND present='' AND `destinyinv`<2 AND artefact=0 AND honor=0 AND podzem<>1 and podzem<>2 and podzem<>3 and type<>189 and type<>54 and type<>60 and setsale=0 and dressed=0 and name NOT LIKE '%лотерейный билет%' and (clan='' or isnull(clan))";
+    $cond="AND present='' AND `destinyinv`<2 AND artefact=0 AND honor=0 AND podzem<>1 and podzem<>2 and podzem<>3 and type<>189 and type<>54 and type<>60 and setsale=0 and dressed=0 and name NOT LIKE '%Р»РѕС‚РµСЂРµР№РЅС‹Р№ Р±РёР»РµС‚%' and (clan='' or isnull(clan))";
 
 
     if ($_GET['sale'] && $_GET['kredit'] && $_GET['n']) {
@@ -23,21 +23,21 @@
             if (!mqfa1('SELECT COUNT(*) FROM clanstorage WHERE id_it = ' . $dress['id'])) {
                 $prc=itemprice($dress);
                 if ($_GET['kredit']<$prc["minprice"]*1.1) {
-                  echo "<font color=red><b>Минимальная цена продажи ".($prc["minprice"]*1.1)." кр</b></font>";
+                  echo "<font color=red><b>РњРёРЅРёРјР°Р»СЊРЅР°СЏ С†РµРЅР° РїСЂРѕРґР°Р¶Рё ".($prc["minprice"]*1.1)." РєСЂ</b></font>";
                 } elseif ($_GET['kredit']>$prc["maxprice"]*50) {
-                  echo "<font color=red><b>Максимальная цена продажи ".($prc["maxprice"]*50)." кр</b></font>";              
+                  echo "<font color=red><b>РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ С†РµРЅР° РїСЂРѕРґР°Р¶Рё ".($prc["maxprice"]*50)." РєСЂ</b></font>";              
                 } elseif($dress['id']) {
                     mysql_query("UPDATE `inventory` SET `setsale` = '".$_GET['kredit']."' WHERE `id` = '{$_GET['n']}' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;");
-                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" сдал предмет: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] шт.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] в комиссионку за ".$_GET['kredit']." кр. ',1,'".time()."');");
-                    echo "<font color=red><b>Вы сдали в магазин \"{$dress['name']}\" за {$_GET['kredit']} кр.</b></font>";
+                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" СЃРґР°Р» РїСЂРµРґРјРµС‚: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] С€С‚.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] РІ РєРѕРјРёСЃСЃРёРѕРЅРєСѓ Р·Р° ".$_GET['kredit']." РєСЂ. ',1,'".time()."');");
+                    echo "<font color=red><b>Р’С‹ СЃРґР°Р»Рё РІ РјР°РіР°Р·РёРЅ \"{$dress['name']}\" Р·Р° {$_GET['kredit']} РєСЂ.</b></font>";
                 }
             } else {
-                echo "<font color=red><b>Эта вещь принадлежит Клану. Вы не можете ее продать.</b></font>";
+                echo "<font color=red><b>Р­С‚Р° РІРµС‰СЊ РїСЂРёРЅР°РґР»РµР¶РёС‚ РљР»Р°РЅСѓ. Р’С‹ РЅРµ РјРѕР¶РµС‚Рµ РµРµ РїСЂРѕРґР°С‚СЊ.</b></font>";
             }
         } elseif (@$_GET['kredit']<1) {
-          echo "<font color=red><b>Минимальная цена продажи 1 кр</b></font>";
+          echo "<font color=red><b>РњРёРЅРёРјР°Р»СЊРЅР°СЏ С†РµРЅР° РїСЂРѕРґР°Р¶Рё 1 РєСЂ</b></font>";
         } else {
-            echo "<font color=red><b>Не надо так делать</b></font>";
+            echo "<font color=red><b>РќРµ РЅР°РґРѕ С‚Р°Рє РґРµР»Р°С‚СЊ</b></font>";
         }
     }
 
@@ -48,22 +48,22 @@
                 if($dress['id']) {
                     mysql_query("UPDATE `users` set `money` = `money`-'1' WHERE id = {$_SESSION['uid']}");
                     mysql_query("UPDATE `inventory` SET `setsale` = '0' WHERE `id` = '{$_GET['back']}' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;");
-                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" забрал предмет: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] шт.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] из комиссионки ',1 кр ($user[money]/$user[ekr]),'".time()."');");
-                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" заплатил 1 кр за хранение предмета: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] шт.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] в комиссионке ',1,'".time()."');");
+                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" Р·Р°Р±СЂР°Р» РїСЂРµРґРјРµС‚: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] С€С‚.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] РёР· РєРѕРјРёСЃСЃРёРѕРЅРєРё ',1 РєСЂ ($user[money]/$user[ekr]),'".time()."');");
+                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" Р·Р°РїР»Р°С‚РёР» 1 РєСЂ Р·Р° С…СЂР°РЅРµРЅРёРµ РїСЂРµРґРјРµС‚Р°: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] С€С‚.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] РІ РєРѕРјРёСЃСЃРёРѕРЅРєРµ ',1,'".time()."');");
                     $user['money']=$user['money']-1;
 
-                    echo "<font color=red><b>Вы забрали из магазина \"".$dress['name']."\" за 1 кр.</b></font>";
+                    echo "<font color=red><b>Р’С‹ Р·Р°Р±СЂР°Р»Рё РёР· РјР°РіР°Р·РёРЅР° \"".$dress['name']."\" Р·Р° 1 РєСЂ.</b></font>";
                 }
                 else {
-                    echo "<font color=red><b>Произошла ошибка. Вещь не найдена в магазине!</b></font>";
+                    echo "<font color=red><b>РџСЂРѕРёР·РѕС€Р»Р° РѕС€РёР±РєР°. Р’РµС‰СЊ РЅРµ РЅР°Р№РґРµРЅР° РІ РјР°РіР°Р·РёРЅРµ!</b></font>";
                 }
             }
             else {
-                echo "<font color=red><b>Не надо так делать</b></font>";
+                echo "<font color=red><b>РќРµ РЅР°РґРѕ С‚Р°Рє РґРµР»Р°С‚СЊ</b></font>";
             }
         }
         else {
-            echo "<font color=red><b>У вас недостаточно денег на уплату комиссии.</b></font>";
+            echo "<font color=red><b>РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РЅР° СѓРїР»Р°С‚Сѓ РєРѕРјРёСЃСЃРёРё.</b></font>";
         }
     }
 
@@ -78,7 +78,7 @@
             $userfrom = mysql_fetch_array(mysql_query("SELECT `login`,`id` FROM `users` WHERE  `id` = '".$dress['owner']."' LIMIT 1;"));
             if (($userfrom['id'] || !$dress['owner']) && $dress['id']) {
                 if (($dress['massa']+$d[0]) > (get_meshok())) {
-                    echo "<font color=red><b>Недостаточно места в рюкзаке.</b></font>";
+                    echo "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РјРµСЃС‚Р° РІ СЂСЋРєР·Р°РєРµ.</b></font>";
                 }
                 elseif ($user['money'] >= $dress['setsale']) {
                     if(mysql_query("UPDATE `inventory` SET `owner` = '{$user['id']}', `setsale` = 0 WHERE `id` = '{$set}' AND `setsale` > '0' LIMIT 1;"))
@@ -91,38 +91,38 @@
 
                     if ($good) {
                         //mysql_query("UPDATE `shop` SET `count`=`count`-{$_POST['count']} WHERE `id` = '{$set}' LIMIT 1;");
-                        echo "<font color=red><b>Вы купили \"".$dress['name']."\".</b></font>";                        
+                        echo "<font color=red><b>Р’С‹ РєСѓРїРёР»Рё \"".$dress['name']."\".</b></font>";                        
                         $komiss=round($dress['setsale']*0.10,2);
                         if ($komiss<1) $komiss=1;
                         $moneyto=round($dress['setsale']-$komiss,2);
                         mysql_query("UPDATE `users` set `money` = `money`- '".$dress['setsale']."' WHERE id = {$_SESSION['uid']}");
                         mysql_query("UPDATE `users` set `money` = `money`+ '".$moneyto."' WHERE id = {$userfrom['id']}");
-                        mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" купил товар: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] шт.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] от \"".$userfrom['login']."\" за ".$dress['setsale']." кр. в комиссионке кр ($user[money]/$user[ekr])',5,'".time()."');");
-                        mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$userfrom['id']}','\"".$user['login']."\" купил товар: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] шт.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] от \"".$userfrom['login']."\" за ".$dress['setsale']." кр. в комиссионке ',5,'".time()."');");
-                        mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" купил товар: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] шт.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] за ".$dress['setsale']." кр. в комиссионке ',1,'".time()."');");
-                        mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$userfrom['id']}','\"".$userfrom['login']."\" получил ".$moneyto." кр. за продажу товара: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] шт.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] через комиссионку ',1,'".time()."');");
+                        mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" РєСѓРїРёР» С‚РѕРІР°СЂ: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] С€С‚.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] РѕС‚ \"".$userfrom['login']."\" Р·Р° ".$dress['setsale']." РєСЂ. РІ РєРѕРјРёСЃСЃРёРѕРЅРєРµ РєСЂ ($user[money]/$user[ekr])',5,'".time()."');");
+                        mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$userfrom['id']}','\"".$user['login']."\" РєСѓРїРёР» С‚РѕРІР°СЂ: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] С€С‚.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] РѕС‚ \"".$userfrom['login']."\" Р·Р° ".$dress['setsale']." РєСЂ. РІ РєРѕРјРёСЃСЃРёРѕРЅРєРµ ',5,'".time()."');");
+                        mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" РєСѓРїРёР» С‚РѕРІР°СЂ: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] С€С‚.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] Р·Р° ".$dress['setsale']." РєСЂ. РІ РєРѕРјРёСЃСЃРёРѕРЅРєРµ ',1,'".time()."');");
+                        mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$userfrom['id']}','\"".$userfrom['login']."\" РїРѕР»СѓС‡РёР» ".$moneyto." РєСЂ. Р·Р° РїСЂРѕРґР°Р¶Сѓ С‚РѕРІР°СЂР°: \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] С€С‚.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] С‡РµСЂРµР· РєРѕРјРёСЃСЃРёРѕРЅРєСѓ ',1,'".time()."');");
                         $user['money']=$user['money']-$dress['setsale'];
                         if ($dress['owner']) {
                           $us = mysql_fetch_array(mysql_query("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$userfrom['id']}' LIMIT 1;"));
                           if($us[0]){
-                              addchp ('<font color=red>Внимание!</font> Успешно продан предмет "'.$dress['name'].'" за '.$dress['setsale'].' кр.  Комиссия составила '.$komiss.' кр. Вам перечислено от комиссионного магазина '.$moneyto.' кр. ','{[]}'.$userfrom['login'].'{[]}');
+                              addchp ('<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РЈСЃРїРµС€РЅРѕ РїСЂРѕРґР°РЅ РїСЂРµРґРјРµС‚ "'.$dress['name'].'" Р·Р° '.$dress['setsale'].' РєСЂ.  РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІРёР»Р° '.$komiss.' РєСЂ. Р’Р°Рј РїРµСЂРµС‡РёСЃР»РµРЅРѕ РѕС‚ РєРѕРјРёСЃСЃРёРѕРЅРЅРѕРіРѕ РјР°РіР°Р·РёРЅР° '.$moneyto.' РєСЂ. ','{[]}'.$userfrom['login'].'{[]}');
                           } else {
-                              // если в офе
-                              mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$userfrom['id']."','','".'<font color=red>Внимание!</font> Успешно продан предмет "'.$dress['name'].'" за '.$dress['setsale'].' кр.  Комиссия составила '.$komiss.' кр. Вам перечислено от комиссионного магазина '.$moneyto.' кр. '."');");
+                              // РµСЃР»Рё РІ РѕС„Рµ
+                              mysql_query("INSERT INTO `telegraph` (`owner`,`date`,`text`) values ('".$userfrom['id']."','','".'<font color=red>Р’РЅРёРјР°РЅРёРµ!</font> РЈСЃРїРµС€РЅРѕ РїСЂРѕРґР°РЅ РїСЂРµРґРјРµС‚ "'.$dress['name'].'" Р·Р° '.$dress['setsale'].' РєСЂ.  РљРѕРјРёСЃСЃРёСЏ СЃРѕСЃС‚Р°РІРёР»Р° '.$komiss.' РєСЂ. Р’Р°Рј РїРµСЂРµС‡РёСЃР»РµРЅРѕ РѕС‚ РєРѕРјРёСЃСЃРёРѕРЅРЅРѕРіРѕ РјР°РіР°Р·РёРЅР° '.$moneyto.' РєСЂ. '."');");
                           }
                         }
                     }
                 }
                 else {
-                    echo "<font color=red><b>Недостаточно денег или нет вещей в наличии.</b></font>";
+                    echo "<font color=red><b>РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РёР»Рё РЅРµС‚ РІРµС‰РµР№ РІ РЅР°Р»РёС‡РёРё.</b></font>";
                 }
             }
             else {
-                echo "<font color=red><b>Вещь не найдена в магазине</b></font>";
+                echo "<font color=red><b>Р’РµС‰СЊ РЅРµ РЅР°Р№РґРµРЅР° РІ РјР°РіР°Р·РёРЅРµ</b></font>";
             }
         }
         else {
-                echo "<font color=red><b>Не надо так делать</b></font>";
+                echo "<font color=red><b>РќРµ РЅР°РґРѕ С‚Р°Рє РґРµР»Р°С‚СЊ</b></font>";
         }
     }
 
@@ -131,28 +131,28 @@
             $dress = mysql_fetch_array(mysql_query("SELECT * FROM `inventory` WHERE `dressed`=0 AND `id` = '{$_GET['id']}' AND `owner` = '{$_SESSION['uid']}' AND `setsale` > 0 LIMIT 1;"));
             $prc=itemprice($dress);
             if ($_GET['kredit']<$prc["minprice"]*1.1) {
-              echo "<font color=red><b>Минимальная цена продажи ".($prc["minprice"]*1.1)." кр</b></font>";
+              echo "<font color=red><b>РњРёРЅРёРјР°Р»СЊРЅР°СЏ С†РµРЅР° РїСЂРѕРґР°Р¶Рё ".($prc["minprice"]*1.1)." РєСЂ</b></font>";
             } elseif ($_GET['kredit']>$prc["maxprice"]*50) {
-              echo "<font color=red><b>Максимальная цена продажи ".($prc["maxprice"]*50)." кр</b></font>";              
+              echo "<font color=red><b>РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ С†РµРЅР° РїСЂРѕРґР°Р¶Рё ".($prc["maxprice"]*50)." РєСЂ</b></font>";              
             } elseif($dress['id']) {
                 if($user['money'] >= 0.1) {
                     mysql_query("UPDATE `inventory` SET `setsale` = '".$_GET['kredit']."' WHERE `id` = '{$_GET['id']}' AND `owner` = '{$_SESSION['uid']}' LIMIT 1;");
 
                     mysql_query("UPDATE `users` set `money` = `money`- '0.1' WHERE id = {$_SESSION['uid']}");
-                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" заплатил 0.1 кр за смену цены на предмет \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] шт.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] в комиссионке кр ($user[money]/$user[ekr]) ',1,'".time()."');");
+                    mysql_query("INSERT INTO `delo` (`id` , `author` ,`pers`, `text`, `type`, `date`) VALUES ('','0','{$_SESSION['uid']}','\"".$user['login']."\" Р·Р°РїР»Р°С‚РёР» 0.1 РєСЂ Р·Р° СЃРјРµРЅСѓ С†РµРЅС‹ РЅР° РїСЂРµРґРјРµС‚ \"".$dress['name']."\" ".($dress["koll"]?"($dress[koll] С€С‚.)":"")." id:(cap".$dress['id'].") [".$dress['duration']."/".$dress['maxdur']."] РІ РєРѕРјРёСЃСЃРёРѕРЅРєРµ РєСЂ ($user[money]/$user[ekr]) ',1,'".time()."');");
                     $user['money']=$user['money']-0.1;
-                    echo "<font color=red><b>Вы изменили цену \"{$dress['name']}\" на {$_GET['kredit']} кр.</b></font>";
+                    echo "<font color=red><b>Р’С‹ РёР·РјРµРЅРёР»Рё С†РµРЅСѓ \"{$dress['name']}\" РЅР° {$_GET['kredit']} РєСЂ.</b></font>";
                 }
                 else {
-                    echo "<font color=red><b>У вас недостаточно денег на выполнение операции.</b></font>";
+                    echo "<font color=red><b>РЈ РІР°СЃ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РґРµРЅРµРі РЅР° РІС‹РїРѕР»РЅРµРЅРёРµ РѕРїРµСЂР°С†РёРё.</b></font>";
                 }
             }
             else {
-                echo "<font color=red><b>Предмет не найден.</b></font>";
+                echo "<font color=red><b>РџСЂРµРґРјРµС‚ РЅРµ РЅР°Р№РґРµРЅ.</b></font>";
             }
         }
         else {
-                echo "<font color=red><b>Не надо так делать</b></font>";
+                echo "<font color=red><b>РќРµ РЅР°РґРѕ С‚Р°Рє РґРµР»Р°С‚СЊ</b></font>";
         }
     }
 
@@ -167,14 +167,14 @@
 <!--
 function sale(name, txt, n, kr)
 {
-    var s = prompt("Сдать в магазин \""+txt+"\". Укажите цену:", kr);
+    var s = prompt("РЎРґР°С‚СЊ РІ РјР°РіР°Р·РёРЅ \""+txt+"\". РЈРєР°Р¶РёС‚Рµ С†РµРЅСѓ:", kr);
     if ((s != null)&&(s != '')) {
         location.href="comission.php?sale="+name+"&kredit="+s+"&n="+n;
     }
 }
 function chsale(name, txt, id, category, kr)
 {
-    var s = prompt("Сменить цену для предмета \""+txt+"\". Укажите новую цену:", kr);
+    var s = prompt("РЎРјРµРЅРёС‚СЊ С†РµРЅСѓ РґР»СЏ РїСЂРµРґРјРµС‚Р° \""+txt+"\". РЈРєР°Р¶РёС‚Рµ РЅРѕРІСѓСЋ С†РµРЅСѓ:", kr);
     if ((s != null)&&(s != '')) {
         location.href="comission.php?unsale="+name+"&id="+id+"&sc="+category+"&kredit="+s;
     }
@@ -188,107 +188,107 @@ function chsale(name, txt, id, category, kr)
 <TR>
     <TD valign=top align=left>
 
-<!--Комиссионный Магазин-->
+<!--РљРѕРјРёСЃСЃРёРѕРЅРЅС‹Р№ РњР°РіР°Р·РёРЅ-->
 
 <TABLE width=100% cellspacing="0" cellpadding="0" bgcolor="#A5A5A5">
 <TR>
-    <TD align=center><B>Отдел "<?php
+    <TD align=center><B>РћС‚РґРµР» "<?php
     if ($_REQUEST['sale']) {
-        echo "Сдать вещи";
+        echo "РЎРґР°С‚СЊ РІРµС‰Рё";
     } elseif ($_REQUEST['unsale']) {
-        echo "Забрать вещи";
+        echo "Р—Р°Р±СЂР°С‚СЊ РІРµС‰Рё";
     } else
 switch ($_GET['otdel']) {
     case null:
         if (!$_REQUEST['max']) {
-        echo "Оружие: кастеты,ножи"; }
+        echo "РћСЂСѓР¶РёРµ: РєР°СЃС‚РµС‚С‹,РЅРѕР¶Рё"; }
         else echo $_REQUEST['max'];
         $_GET['otdel'] = 1;
     break;
     case 1:
-        echo "Оружие: кастеты,ножи";
+        echo "РћСЂСѓР¶РёРµ: РєР°СЃС‚РµС‚С‹,РЅРѕР¶Рё";
     break;
     case 11:
-        echo "Оружие: топоры";
+        echo "РћСЂСѓР¶РёРµ: С‚РѕРїРѕСЂС‹";
     break;
     case 12:
-        echo "Оружие: дубины,булавы";
+        echo "РћСЂСѓР¶РёРµ: РґСѓР±РёРЅС‹,Р±СѓР»Р°РІС‹";
     break;
     case 13:
-        echo "Оружие: мечи";
+        echo "РћСЂСѓР¶РёРµ: РјРµС‡Рё";
     break;
     case 14:
-        echo "Оружие: Луки и арбалеты";
+        echo "РћСЂСѓР¶РёРµ: Р›СѓРєРё Рё Р°СЂР±Р°Р»РµС‚С‹";
     break;
         case 30:
-        echo "Оружие: Магические посохи";
+        echo "РћСЂСѓР¶РёРµ: РњР°РіРёС‡РµСЃРєРёРµ РїРѕСЃРѕС…Рё";
     break;
     case 2:
-        echo "Одежда: сапоги";
+        echo "РћРґРµР¶РґР°: СЃР°РїРѕРіРё";
     break;
     case 21:
-        echo "Одежда: перчатки";
+        echo "РћРґРµР¶РґР°: РїРµСЂС‡Р°С‚РєРё";
     break;
     case 8:
-        echo "Одежда: рубашки, футболки";
+        echo "РћРґРµР¶РґР°: СЂСѓР±Р°С€РєРё, С„СѓС‚Р±РѕР»РєРё";
     break;
     case 9:
-        echo "Одежда: плащи";
+        echo "РћРґРµР¶РґР°: РїР»Р°С‰Рё";
     break;
     case 22:
-        echo "Одежда: легкая броня";
+        echo "РћРґРµР¶РґР°: Р»РµРіРєР°СЏ Р±СЂРѕРЅСЏ";
     break;
     case 23:
-        echo "Одежда: тяжелая броня";
+        echo "РћРґРµР¶РґР°: С‚СЏР¶РµР»Р°СЏ Р±СЂРѕРЅСЏ";
     break;
     case 24:
-        echo "Одежда: шлемы";
+        echo "РћРґРµР¶РґР°: С€Р»РµРјС‹";
     break;
     case 25:
-        echo "Наручи";
+        echo "РќР°СЂСѓС‡Рё";
     break;
     case 26:
-        echo "Пояса";
+        echo "РџРѕСЏСЃР°";
     break;
     case 27:
-        echo "Поножи";
+        echo "РџРѕРЅРѕР¶Рё";
     break;
 
     case 3:
-        echo "Щиты";
+        echo "Р©РёС‚С‹";
     break;
     case 4:
-        echo "Ювелирные товары: серьги";
+        echo "Р®РІРµР»РёСЂРЅС‹Рµ С‚РѕРІР°СЂС‹: СЃРµСЂСЊРіРё";
     break;
     case 41:
-        echo "Ювелирные товары: ожерелья";
+        echo "Р®РІРµР»РёСЂРЅС‹Рµ С‚РѕРІР°СЂС‹: РѕР¶РµСЂРµР»СЊСЏ";
     break;
     case 42:
-        echo "Ювелирные товары: кольца";
+        echo "Р®РІРµР»РёСЂРЅС‹Рµ С‚РѕРІР°СЂС‹: РєРѕР»СЊС†Р°";
     break;
     case 5:
-        echo "Заклинания: нейтральные";
+        echo "Р—Р°РєР»РёРЅР°РЅРёСЏ: РЅРµР№С‚СЂР°Р»СЊРЅС‹Рµ";
     break;
     case 51:
-        echo "Заклинания: боевые и защитные";
+        echo "Р—Р°РєР»РёРЅР°РЅРёСЏ: Р±РѕРµРІС‹Рµ Рё Р·Р°С‰РёС‚РЅС‹Рµ";
     break;
     case 52:
-        echo "Заклинания: сервисные";
+        echo "Р—Р°РєР»РёРЅР°РЅРёСЏ: СЃРµСЂРІРёСЃРЅС‹Рµ";
     break;
     case 6:
-        echo "Амуниция";
+        echo "РђРјСѓРЅРёС†РёСЏ";
     break;
     case 188:
-        echo "Эликсиры";
+        echo "Р­Р»РёРєСЃРёСЂС‹";
     break;
     case 7:
-        echo "Сувениры: открытки";
+        echo "РЎСѓРІРµРЅРёСЂС‹: РѕС‚РєСЂС‹С‚РєРё";
     break;
     case 71:
-        echo "Сувениры: подарки";
+        echo "РЎСѓРІРµРЅРёСЂС‹: РїРѕРґР°СЂРєРё";
     break;
     case 190:
-        echo "Ресурсы";
+        echo "Р РµСЃСѓСЂСЃС‹";
     break;
 
 }
@@ -298,7 +298,7 @@ switch ($_GET['otdel']) {
 
     </TD>
 </TR>
-<TR><TD><!--Рюкзак-->
+<TR><TD><!--Р СЋРєР·Р°Рє-->
 <TABLE BORDER=0 WIDTH=100% CELLSPACING="1" CELLPADDING="2" BGCOLOR="#A5A5A5">
 <?
 if ($_REQUEST['max']) {
@@ -314,7 +314,7 @@ if ($_REQUEST['max']) {
         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
         echo "<TR bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
         ?>
-        <BR><A HREF="comission.php?otdel=<?=$_GET['otdel']?>&set=<?=$row['id']?>&sid=">купить</A></TD>
+        <BR><A HREF="comission.php?otdel=<?=$_GET['otdel']?>&set=<?=$row['id']?>&sid=">РєСѓРїРёС‚СЊ</A></TD>
         <?php
         echo "<TD valign=top>";
         $row["ecost"]=0;
@@ -323,7 +323,7 @@ if ($_REQUEST['max']) {
     }
 }
 elseif ($_REQUEST['sale']) {
-    echo "<TR bgcolor=#C7C7C7><TD align=center colspan=2>Комиссия за услуги магазина составляет 10% от цены, по которой вы предлагаете предмет, но не меньше 1 кр.</TD></TR>";
+    echo "<TR bgcolor=#C7C7C7><TD align=center colspan=2>РљРѕРјРёСЃСЃРёСЏ Р·Р° СѓСЃР»СѓРіРё РјР°РіР°Р·РёРЅР° СЃРѕСЃС‚Р°РІР»СЏРµС‚ 10% РѕС‚ С†РµРЅС‹, РїРѕ РєРѕС‚РѕСЂРѕР№ РІС‹ РїСЂРµРґР»Р°РіР°РµС‚Рµ РїСЂРµРґРјРµС‚, РЅРѕ РЅРµ РјРµРЅСЊС€Рµ 1 РєСЂ.</TD></TR>";
     
     $data = mysql_query("SELECT * FROM `inventory` WHERE `owner` = '{$_SESSION['uid']}' $cond ORDER by `update` DESC; ");
     while($row = mysql_fetch_array($data)) {
@@ -331,7 +331,7 @@ elseif ($_REQUEST['sale']) {
         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
         echo "<TR bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
         ?>
-        <BR><A onclick="sale('1', '<?=$row['name']?>', '<?=$row['id']?>', '<?=$row['cost']?>');" HREF="#">cдать в магазин</A>
+        <BR><A onclick="sale('1', '<?=$row['name']?>', '<?=$row['id']?>', '<?=$row['cost']?>');" HREF="#">cРґР°С‚СЊ РІ РјР°РіР°Р·РёРЅ</A>
         </TD>
         <?php
         echo "<TD valign=top>";
@@ -345,8 +345,8 @@ elseif ($_REQUEST['sale']) {
         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
         echo "<TR bgcolor={$color}><TD align=center style='width:150px'><IMG SRC=\"i/sh/{$row['img']}\" BORDER=0>";
         ?>
-        <BR><A HREF="?back=<?=$row['id']?>&sid=&unsale=1">забрать за 1 кр.</A>
-        <BR><A onclick="chsale('1', '<?=$row['name']?>', <?=$row['id']?>, '1', '<?=$row['setsale']?>')" HREF="#">сменить цену<BR>за 0.1 кр.</A>
+        <BR><A HREF="?back=<?=$row['id']?>&sid=&unsale=1">Р·Р°Р±СЂР°С‚СЊ Р·Р° 1 РєСЂ.</A>
+        <BR><A onclick="chsale('1', '<?=$row['name']?>', <?=$row['id']?>, '1', '<?=$row['setsale']?>')" HREF="#">СЃРјРµРЅРёС‚СЊ С†РµРЅСѓ<BR>Р·Р° 0.1 РєСЂ.</A>
         </TD>
         <?php
         echo "<TD valign=top>";
@@ -368,18 +368,18 @@ elseif ($_REQUEST['sale']) {
         $item_name1=str_replace("+8","",$item_name1);
         $item_name1=str_replace("+9","",$item_name1);
         $item_name1=str_replace("+10","",$item_name1);
-        $item_name=str_replace(" (мф)","",$item_name1);
+        $item_name=str_replace(" (РјС„)","",$item_name1);
         $item = mysql_fetch_array(mysql_query("SELECT count(`id`), min(duration), min(maxdur), max(duration), max(maxdur), min(setsale), max(setsale) FROM `inventory` WHERE  `dressed`=0 AND `setsale` > 0 AND `present` = '' AND name LIKE '".$item_name."%';"));
         //$row['count']=1;
         if ($i==0) { $i = 1; $color = '#C7C7C7';} else { $i = 0; $color = '#D5D5D5'; }
         ?>
         <TR bgcolor=<?=$color?>>
-        <TD align=center><IMG SRC="i/sh/<?=$row['img']?>" ALT="" ><BR><A HREF="comission.php?&max=<?=$item_name?>">подробнее</A></TD>
+        <TD align=center><IMG SRC="i/sh/<?=$row['img']?>" ALT="" ><BR><A HREF="comission.php?&max=<?=$item_name?>">РїРѕРґСЂРѕР±РЅРµРµ</A></TD>
         <TD valign=top><A HREF="#"><?=$item_name?></a>
-        <IMG SRC="i/align_<?=$row[2]?>.gif" WIDTH="12" HEIGHT="15" ALT="">  (Масса: <?=$row['massa']?>) <BR>
-        <b>Цена: <?=round($item[5],2)?> - <?=round($item[6],2)?> кр.</b> <small>(количество: <?=$item[0]?>)</small><BR>
+        <IMG SRC="i/align_<?=$row[2]?>.gif" WIDTH="12" HEIGHT="15" ALT="">  (РњР°СЃСЃР°: <?=$row['massa']?>) <BR>
+        <b>Р¦РµРЅР°: <?=round($item[5],2)?> - <?=round($item[6],2)?> РєСЂ.</b> <small>(РєРѕР»РёС‡РµСЃС‚РІРѕ: <?=$item[0]?>)</small><BR>
 
-        Долговечность: <?=$item[1]?>-<?=$item[2]?>/<?=$item[3]?>-<?=$item[4]?></FONT><BR>
+        Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: <?=$item[1]?>-<?=$item[2]?>/<?=$item[3]?>-<?=$item[4]?></FONT><BR>
 
         </TD>
         </TR>
@@ -400,50 +400,50 @@ elseif ($_REQUEST['sale']) {
     <TABLE border=0 width=100% cellspacing="0" cellpadding="0">
     <td align=right>
     <FORM action="comission.php" method=GET>
-        <INPUT TYPE="button" value="Подсказка" style="background-color:#A9AFC0" onclick="window.open('help/shop.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">
-        <INPUT TYPE="button" onclick="location.href='city.php?cp=3';" value="Вернуться" name="cp">
+        <INPUT TYPE="button" value="РџРѕРґСЃРєР°Р·РєР°" style="background-color:#A9AFC0" onclick="window.open('help/shop.html', 'help', 'height=300,width=500,location=no,menubar=no,status=no,toolbar=no,scrollbars=yes')">
+        <INPUT TYPE="button" onclick="location.href='city.php?cp=3';" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" name="cp">
 
     </table>
-    <CENTER><B>Масса всех ваших вещей: <?php
+    <CENTER><B>РњР°СЃСЃР° РІСЃРµС… РІР°С€РёС… РІРµС‰РµР№: <?php
 
 
     echo $d[0];
     ?>/<?=get_meshok()?><BR>
-    У вас в наличии: <FONT COLOR="#339900"><?=$user['money']?></FONT> кр.</B></CENTER>
+    РЈ РІР°СЃ РІ РЅР°Р»РёС‡РёРё: <FONT COLOR="#339900"><?=$user['money']?></FONT> РєСЂ.</B></CENTER>
     <div style="MARGIN-LEFT:15px; MARGIN-TOP: 10px;">
 
-    <INPUT TYPE="submit" value="Сдать вещи в магазин" name="sale"><BR>
-    <INPUT TYPE="submit" value="Забрать вещи из магазина" name="unsale"><BR>
-<div style="background-color:#d2d0d0;padding:1"><center><font color="#oooo"><B>Отделы магазина</B></center></div>
-<A HREF="?otdel=1&sid=&0.162486541405194">Оружие: кастеты,ножи</A><BR>
-<A HREF="?otdel=11&sid=&0.337606814894404">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;топоры</A><BR>
-<A HREF="?otdel=12&sid=&0.286790872806733">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;дубины,булавы</A><BR>
-<A HREF="?otdel=13&sid=&0.0943516060419363">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;мечи</A><BR>
-<A HREF="?otdel=30&sid=&0.0943516060419363">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;магические посохи</A><BR>
-<A HREF="?otdel=2&sid=&0.76205958316951">Одежда: сапоги</A><BR>
-<A HREF="?otdel=21&sid=&0.648260824682342">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;перчатки</A><BR>
+    <INPUT TYPE="submit" value="РЎРґР°С‚СЊ РІРµС‰Рё РІ РјР°РіР°Р·РёРЅ" name="sale"><BR>
+    <INPUT TYPE="submit" value="Р—Р°Р±СЂР°С‚СЊ РІРµС‰Рё РёР· РјР°РіР°Р·РёРЅР°" name="unsale"><BR>
+<div style="background-color:#d2d0d0;padding:1"><center><font color="#oooo"><B>РћС‚РґРµР»С‹ РјР°РіР°Р·РёРЅР°</B></center></div>
+<A HREF="?otdel=1&sid=&0.162486541405194">РћСЂСѓР¶РёРµ: РєР°СЃС‚РµС‚С‹,РЅРѕР¶Рё</A><BR>
+<A HREF="?otdel=11&sid=&0.337606814894404">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;С‚РѕРїРѕСЂС‹</A><BR>
+<A HREF="?otdel=12&sid=&0.286790872806733">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РґСѓР±РёРЅС‹,Р±СѓР»Р°РІС‹</A><BR>
+<A HREF="?otdel=13&sid=&0.0943516060419363">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РјРµС‡Рё</A><BR>
+<A HREF="?otdel=30&sid=&0.0943516060419363">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РјР°РіРёС‡РµСЃРєРёРµ РїРѕСЃРѕС…Рё</A><BR>
+<A HREF="?otdel=2&sid=&0.76205958316951">РћРґРµР¶РґР°: СЃР°РїРѕРіРё</A><BR>
+<A HREF="?otdel=21&sid=&0.648260824682342">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РїРµСЂС‡Р°С‚РєРё</A><BR>
 
-<A HREF="?otdel=8&sid=&0.520447517792988">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;рубашки, футболки</A><BR>
-<A HREF="?otdel=9&sid=&0.520447517792988">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;плащи</A><BR>
+<A HREF="?otdel=8&sid=&0.520447517792988">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;СЂСѓР±Р°С€РєРё, С„СѓС‚Р±РѕР»РєРё</A><BR>
+<A HREF="?otdel=9&sid=&0.520447517792988">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РїР»Р°С‰Рё</A><BR>
 
 
-<A HREF="?otdel=22&sid=&0.520447517792988">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;легкая броня</A><BR>
-<A HREF="?otdel=23&sid=&0.99133839275569">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;тяжелая броня</A><BR>
-<A HREF="?otdel=24&sid=&0.567932791291376">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;шлемы</A><BR>
-<A HREF="?otdel=25&sid=&0.567932791296566">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;наручи</A><BR>
-<A HREF="?otdel=26&sid=&0.567932791291655">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;пояса</A><BR>
-<A HREF="?otdel=27&sid=&0.567932791291687">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;поножи</A><BR>
-<A HREF="?otdel=3&sid=&0.725667864710179">Щиты</A><BR>
-<A HREF="?otdel=4&sid=&0.321709306035984">Ювелирные товары: серьги</A><BR>
-<A HREF="?otdel=41&sid=&0.902093651333512">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ожерелья</A><BR>
-<A HREF="?otdel=42&sid=&0.510210803380268">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;кольца</A><BR>
-<A HREF="?otdel=5&sid=&0.648834385828923">Заклинания: нейтральные</A><BR>
-<A HREF="?otdel=51&sid=&0.722009624500359">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;боевые и защитные</A><BR>
-<A HREF="?otdel=6&sid=&0.925798340638547">Амуниция</A><BR>
-<A HREF="?otdel=188&sid=&0.925798340638547">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Эликсиры</A><BR>
-<A HREF="?otdel=7&sid=&0.925798340638547">Сувениры: открытки</A><BR>
-<A HREF="?otdel=71&sid=&0.925798340638547">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;подарки</A><BR>
-<A HREF="?otdel=190&sid=&0.925798340638547">Ресурсы</A><BR>
+<A HREF="?otdel=22&sid=&0.520447517792988">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Р»РµРіРєР°СЏ Р±СЂРѕРЅСЏ</A><BR>
+<A HREF="?otdel=23&sid=&0.99133839275569">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;С‚СЏР¶РµР»Р°СЏ Р±СЂРѕРЅСЏ</A><BR>
+<A HREF="?otdel=24&sid=&0.567932791291376">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;С€Р»РµРјС‹</A><BR>
+<A HREF="?otdel=25&sid=&0.567932791296566">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РЅР°СЂСѓС‡Рё</A><BR>
+<A HREF="?otdel=26&sid=&0.567932791291655">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РїРѕСЏСЃР°</A><BR>
+<A HREF="?otdel=27&sid=&0.567932791291687">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РїРѕРЅРѕР¶Рё</A><BR>
+<A HREF="?otdel=3&sid=&0.725667864710179">Р©РёС‚С‹</A><BR>
+<A HREF="?otdel=4&sid=&0.321709306035984">Р®РІРµР»РёСЂРЅС‹Рµ С‚РѕРІР°СЂС‹: СЃРµСЂСЊРіРё</A><BR>
+<A HREF="?otdel=41&sid=&0.902093651333512">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РѕР¶РµСЂРµР»СЊСЏ</A><BR>
+<A HREF="?otdel=42&sid=&0.510210803380268">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РєРѕР»СЊС†Р°</A><BR>
+<A HREF="?otdel=5&sid=&0.648834385828923">Р—Р°РєР»РёРЅР°РЅРёСЏ: РЅРµР№С‚СЂР°Р»СЊРЅС‹Рµ</A><BR>
+<A HREF="?otdel=51&sid=&0.722009624500359">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Р±РѕРµРІС‹Рµ Рё Р·Р°С‰РёС‚РЅС‹Рµ</A><BR>
+<A HREF="?otdel=6&sid=&0.925798340638547">РђРјСѓРЅРёС†РёСЏ</A><BR>
+<A HREF="?otdel=188&sid=&0.925798340638547">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Р­Р»РёРєСЃРёСЂС‹</A><BR>
+<A HREF="?otdel=7&sid=&0.925798340638547">РЎСѓРІРµРЅРёСЂС‹: РѕС‚РєСЂС‹С‚РєРё</A><BR>
+<A HREF="?otdel=71&sid=&0.925798340638547">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;РїРѕРґР°СЂРєРё</A><BR>
+<A HREF="?otdel=190&sid=&0.925798340638547">Р РµСЃСѓСЂСЃС‹</A><BR>
     </div>
 <div id="hint3" class="ahint"></div>
     </TD>

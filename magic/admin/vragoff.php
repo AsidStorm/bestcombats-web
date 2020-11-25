@@ -2,13 +2,13 @@
 if($user['align']==2.5){
 $filename = '/var/www/bestcombats/data/www/bestcombats.net/data/vrag.txt';
 if (!file_exists($filename)) {
-echo "Общий Враг Уже отозван.";
+echo "РћР±С‰РёР№ Р’СЂР°Рі РЈР¶Рµ РѕС‚РѕР·РІР°РЅ.";
 }  else{
-$kto = array("1" => "<i>Невидимка</i>", "0"=> "".$user['login']."");
-$action = array("1" => "отозвал", "0"=> "отозвала");
+$kto = array("1" => "<i>РќРµРІРёРґРёРјРєР°</i>", "0"=> "".$user['login']."");
+$action = array("1" => "РѕС‚РѕР·РІР°Р»", "0"=> "РѕС‚РѕР·РІР°Р»Р°");
 unlink('/var/www/bestcombats/data/www/bestcombats.net/data/vrag.txt');
-echo "Вы отозвали Общего Врага!";
-addch("<img src=i/magic/1x1.gif> Ангел &quot;".$kto[$user['invis']]."&quot; ".$action[$user['sex']]." Общего Врага.");			
+echo "Р’С‹ РѕС‚РѕР·РІР°Р»Рё РћР±С‰РµРіРѕ Р’СЂР°РіР°!";
+addch("<img src=i/magic/1x1.gif> РђРЅРіРµР» &quot;".$kto[$user['invis']]."&quot; ".$action[$user['sex']]." РћР±С‰РµРіРѕ Р’СЂР°РіР°.");			
 }
 } 	
 ?>

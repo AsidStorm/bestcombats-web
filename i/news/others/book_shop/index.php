@@ -12,7 +12,7 @@
 <link rel="icon" href="/i/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/i/favicon.ico" type="image/x-icon"> 
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-<title>Новости и события Bkwar</title>
+<title>РќРѕРІРѕСЃС‚Рё Рё СЃРѕР±С‹С‚РёСЏ Bkwar</title>
 <link href="/css/event.css" rel="stylesheet" type="text/css">
 <SCRIPT language="JavaScript" src="/js/event.js"></SCRIPT>
 <SCRIPT language="JavaScript" src="/js/dm.js"></SCRIPT>
@@ -34,7 +34,7 @@
 <table border="0" width="100%">
 <FORM method=post>
 <TR>
-<TD><font color=white><?if(!empty($user['login'])){echo nick5_1($user['id']);}else{echo'Гость';}?></font></TD></TR>
+<TD><font color=white><?if(!empty($user['login'])){echo nick5_1($user['id']);}else{echo'Р“РѕСЃС‚СЊ';}?></font></TD></TR>
 <TR>
 <TD>&nbsp;</TD></TR></FORM>
  
@@ -51,7 +51,7 @@
   <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
    <TR>
    <TD width=1 bgColor=#000000><IMG height=1 src="/i/spacer.gif" width=1></TD>
-   <TD align=left background=/i/menu1at1.gif bgColor=#aa0000 style="padding-left:75px;"><A onmouseover="MM_swapImage('news','','/i/menu1at2.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/"><IMG height=36 src="/i/menu1ps2.gif" width=47 border=0 name=news alt="Новости"></A><A onmouseover="MM_swapImage('#','','/i/menu1at3.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps3.gif" width=42 border=0 name="history" alt="История"></A><A onmouseover="MM_swapImage('status','','/i/menu1at4.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/news/status/"><IMG height=36 src="/i/menu1ps4.gif" width=42 border=0 name="status" alt="Состояние серверов"></A><A onmouseover="MM_swapImage('gallery','','/i/menu1at5.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps5.gif" width=42 border=0 name="gallery" alt="Галерея"></A><A onmouseover="MM_swapImage('vote','','/i/menu1at7.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps7.gif" width=41 border=0 name="vote" alt="Голосования"></A><A onmouseover="MM_swapImage('inwork','','/i/menu1at8.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps8.gif" width=41 border=0 name="inwork" alt="В разработке"></A><A onmouseover="MM_swapImage('release','','/i/menu1at9.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps9.gif" width=48 border=0 name="release" alt="Вестник Администрации"></A></TD>
+   <TD align=left background=/i/menu1at1.gif bgColor=#aa0000 style="padding-left:75px;"><A onmouseover="MM_swapImage('news','','/i/menu1at2.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/"><IMG height=36 src="/i/menu1ps2.gif" width=47 border=0 name=news alt="РќРѕРІРѕСЃС‚Рё"></A><A onmouseover="MM_swapImage('#','','/i/menu1at3.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps3.gif" width=42 border=0 name="history" alt="РСЃС‚РѕСЂРёСЏ"></A><A onmouseover="MM_swapImage('status','','/i/menu1at4.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="/news/status/"><IMG height=36 src="/i/menu1ps4.gif" width=42 border=0 name="status" alt="РЎРѕСЃС‚РѕСЏРЅРёРµ СЃРµСЂРІРµСЂРѕРІ"></A><A onmouseover="MM_swapImage('gallery','','/i/menu1at5.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps5.gif" width=42 border=0 name="gallery" alt="Р“Р°Р»РµСЂРµСЏ"></A><A onmouseover="MM_swapImage('vote','','/i/menu1at7.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps7.gif" width=41 border=0 name="vote" alt="Р“РѕР»РѕСЃРѕРІР°РЅРёСЏ"></A><A onmouseover="MM_swapImage('inwork','','/i/menu1at8.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps8.gif" width=41 border=0 name="inwork" alt="Р’ СЂР°Р·СЂР°Р±РѕС‚РєРµ"></A><A onmouseover="MM_swapImage('release','','/i/menu1at9.gif',1)" onclick=this.blur() onmouseout=MM_swapImgRestore() href="#"><IMG height=36 src="/i/menu1ps9.gif" width=48 border=0 name="release" alt="Р’РµСЃС‚РЅРёРє РђРґРјРёРЅРёСЃС‚СЂР°С†РёРё"></A></TD>
    <TD width=1 bgColor=#000000><IMG height=1 src="/i/spacer.gif" width=1></TD>
    </TR>
   </TABLE>
@@ -88,7 +88,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                    <B>Горячие ссылки</B>
+                    <B>Р“РѕСЂСЏС‡РёРµ СЃСЃС‹Р»РєРё</B>
                    </TD>
                    <TD width=1>
                     <IMG height=22 src="/i/lmenu_3.gif" width=1>
@@ -111,11 +111,11 @@
                      <TBODY>
                       <TR>
                        <TD align=left>  
-  <<div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/news">Главная страница</a></div>
+  <<div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/news">Р“Р»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°</a></div>
   
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/forum.php">Форум</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/forum.php">Р¤РѕСЂСѓРј</a></div>
   
-  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/scrolls">Скроллы</a></div>
+  <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/scrolls">РЎРєСЂРѕР»Р»С‹</a></div>
   
   <div style="padding: 0px 3px 5px 3px"><a href="http://bestcombats.net/">Support</a></div>
   
@@ -146,7 +146,7 @@
       </TR>
      </TBODY>
     </TABLE><BR>    
-<!-- 2 меню -->	
+<!-- 2 РјРµРЅСЋ -->	
 	<TABLE cellSpacing=0 cellPadding=0 width=195 border=0>
      <TBODY>
       <TR>
@@ -168,7 +168,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                   <B>Библиотека:</B>
+                   <B>Р‘РёР±Р»РёРѕС‚РµРєР°:</B>
                    <br><br>
                    </TD>
                    <TD width=1>
@@ -220,7 +220,7 @@
 </TR>
 </TBODY></TABLE><BR>
 
-<!-- 3 меню) -->
+<!-- 3 РјРµРЅСЋ) -->
 <TABLE cellSpacing=0 cellPadding=0 width=195 border=0>
      <TBODY>
       <TR>
@@ -242,7 +242,7 @@
                     <IMG height=22 src="/i/lmenu_1.gif" width=1>
                    </TD>
                    <TD align=left background=/i/lmenu_2.gif>&nbsp;
-                   <B>Статистика:</B>
+                   <B>РЎС‚Р°С‚РёСЃС‚РёРєР°:</B>
                    <br><br>
                    </TD>
                    <TD width=1>
@@ -309,1636 +309,1636 @@
 <TR>
 <TD class=normaltext align=left valign="top">
  
-<div class="page_title"><B>Книжный магазин</B></div>
+<div class="page_title"><B>РљРЅРёР¶РЅС‹Р№ РјР°РіР°Р·РёРЅ</B></div>
 <HR align=center width="90%" color=#aa0000 noShade SIZE=0.1><TABLE width=100% border="0">													  														  
 <TABLE class=BL>
 <TR><TD>
-        Слева от Центральной Площади <SPAN title="Capital"><IMG src="http://img.bestcombats.net/i/sh/fo1.gif" width=17 height=16 border=0></SPAN><B>Столицы</B>, на Локации "Новая Земля", в скромном сером особнячке расположен единственный на данный момент в <B>Бойцовском Клубе</B> <B>Книжный магазин</B>:<br />
+        РЎР»РµРІР° РѕС‚ Р¦РµРЅС‚СЂР°Р»СЊРЅРѕР№ РџР»РѕС‰Р°РґРё <SPAN title="Capital"><IMG src="http://img.bestcombats.net/i/sh/fo1.gif" width=17 height=16 border=0></SPAN><B>РЎС‚РѕР»РёС†С‹</B>, РЅР° Р›РѕРєР°С†РёРё "РќРѕРІР°СЏ Р—РµРјР»СЏ", РІ СЃРєСЂРѕРјРЅРѕРј СЃРµСЂРѕРј РѕСЃРѕР±РЅСЏС‡РєРµ СЂР°СЃРїРѕР»РѕР¶РµРЅ РµРґРёРЅСЃС‚РІРµРЅРЅС‹Р№ РЅР° РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РІ <B>Р‘РѕР№С†РѕРІСЃРєРѕРј РљР»СѓР±Рµ</B> <B>РљРЅРёР¶РЅС‹Р№ РјР°РіР°Р·РёРЅ</B>:<br />
 <br />
 <DIV style="text-align: center;"><IMG SRC="http://bestcombats.net/i/city/4_bkm.gif" border=0></DIV><br />
 <br />
-Так уж повелось, что посещают его в основном не книголюбы и букинисты, а те, кто хочет, почерпнув в книгах тайные знания, стать более сильным, ловким, боеспособным.<br />
+РўР°Рє СѓР¶ РїРѕРІРµР»РѕСЃСЊ, С‡С‚Рѕ РїРѕСЃРµС‰Р°СЋС‚ РµРіРѕ РІ РѕСЃРЅРѕРІРЅРѕРј РЅРµ РєРЅРёРіРѕР»СЋР±С‹ Рё Р±СѓРєРёРЅРёСЃС‚С‹, Р° С‚Рµ, РєС‚Рѕ С…РѕС‡РµС‚, РїРѕС‡РµСЂРїРЅСѓРІ РІ РєРЅРёРіР°С… С‚Р°Р№РЅС‹Рµ Р·РЅР°РЅРёСЏ, СЃС‚Р°С‚СЊ Р±РѕР»РµРµ СЃРёР»СЊРЅС‹Рј, Р»РѕРІРєРёРј, Р±РѕРµСЃРїРѕСЃРѕР±РЅС‹Рј.<br />
 <br />
-Первыми книгами, появившимися в клубе, были книги <b>Саныча</b>. Позже полки магазина пополнились новыми "печатными изданиями".<br />
+РџРµСЂРІС‹РјРё РєРЅРёРіР°РјРё, РїРѕСЏРІРёРІС€РёРјРёСЃСЏ РІ РєР»СѓР±Рµ, Р±С‹Р»Рё РєРЅРёРіРё <b>РЎР°РЅС‹С‡Р°</b>. РџРѕР·Р¶Рµ РїРѕР»РєРё РјР°РіР°Р·РёРЅР° РїРѕРїРѕР»РЅРёР»РёСЃСЊ РЅРѕРІС‹РјРё "РїРµС‡Р°С‚РЅС‹РјРё РёР·РґР°РЅРёСЏРјРё".<br />
 <br />
-Все книги связываются со своим владельцем <IMG SRC="http://img.combats.com/i/destiny.gif" border=0><B>общей судьбой</B>, и никто другой не сможет ее использовать.<br />
+Р’СЃРµ РєРЅРёРіРё СЃРІСЏР·С‹РІР°СЋС‚СЃСЏ СЃРѕ СЃРІРѕРёРј РІР»Р°РґРµР»СЊС†РµРј <IMG SRC="http://img.combats.com/i/destiny.gif" border=0><B>РѕР±С‰РµР№ СЃСѓРґСЊР±РѕР№</B>, Рё РЅРёРєС‚Рѕ РґСЂСѓРіРѕР№ РЅРµ СЃРјРѕР¶РµС‚ РµРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ.<br />
 <br />
-Купив книгу и использовав ее, воин приступает к изучению нового, доселе недоступного ему приема, которое занимает около десяти часов. (Время, когда вы спите в общаге, естественно, временем обучения не считается)<br />
+РљСѓРїРёРІ РєРЅРёРіСѓ Рё РёСЃРїРѕР»СЊР·РѕРІР°РІ РµРµ, РІРѕРёРЅ РїСЂРёСЃС‚СѓРїР°РµС‚ Рє РёР·СѓС‡РµРЅРёСЋ РЅРѕРІРѕРіРѕ, РґРѕСЃРµР»Рµ РЅРµРґРѕСЃС‚СѓРїРЅРѕРіРѕ РµРјСѓ РїСЂРёРµРјР°, РєРѕС‚РѕСЂРѕРµ Р·Р°РЅРёРјР°РµС‚ РѕРєРѕР»Рѕ РґРµСЃСЏС‚Рё С‡Р°СЃРѕРІ. (Р’СЂРµРјСЏ, РєРѕРіРґР° РІС‹ СЃРїРёС‚Рµ РІ РѕР±С‰Р°РіРµ, РµСЃС‚РµСЃС‚РІРµРЅРЅРѕ, РІСЂРµРјРµРЅРµРј РѕР±СѓС‡РµРЅРёСЏ РЅРµ СЃС‡РёС‚Р°РµС‚СЃСЏ)<br />
 <br />
-Закончив обучение, вы получаете возможность использовать в бою какой-либо новый прием.<br />
+Р—Р°РєРѕРЅС‡РёРІ РѕР±СѓС‡РµРЅРёРµ, РІС‹ РїРѕР»СѓС‡Р°РµС‚Рµ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РІ Р±РѕСЋ РєР°РєРѕР№-Р»РёР±Рѕ РЅРѕРІС‹Р№ РїСЂРёРµРј.<br />
 <br />
-Свойствам книг, ценам, а так же возможностям полученным в результате изучения приемов и посвящен данный раздел.<br />
+РЎРІРѕР№СЃС‚РІР°Рј РєРЅРёРі, С†РµРЅР°Рј, Р° С‚Р°Рє Р¶Рµ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЏРј РїРѕР»СѓС‡РµРЅРЅС‹Рј РІ СЂРµР·СѓР»СЊС‚Р°С‚Рµ РёР·СѓС‡РµРЅРёСЏ РїСЂРёРµРјРѕРІ Рё РїРѕСЃРІСЏС‰РµРЅ РґР°РЅРЅС‹Р№ СЂР°Р·РґРµР».<br />
 <br />
-<div style="margin:0; margin-top:8px"><div style="margin-bottom:4px"><input type="button" value="Боевые приемы" onClick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Скрыть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Боевые приемы'; }"></div><div ><div style="display: none;"><br />
+<div style="margin:0; margin-top:8px"><div style="margin-bottom:4px"><input type="button" value="Р‘РѕРµРІС‹Рµ РїСЂРёРµРјС‹" onClick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'РЎРєСЂС‹С‚СЊ'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Р‘РѕРµРІС‹Рµ РїСЂРёРµРјС‹'; }"></div><div ><div style="display: none;"><br />
 <br />
 <TABLE class=BL>
 <TABLE class="ST" cellspacing="1">
 <tr>
-    <TH><DIV style="text-align: left;"><B>Книга</B></DIV></TD>
-    <TH><DIV style="text-align: center;"><B>Свойства книги</B></DIV></TD>
-    <TH><DIV style="text-align: center;"><B>Прием, получаемый в результате <br />
-изучения книги</B></DIV></TD>
+    <TH><DIV style="text-align: left;"><B>РљРЅРёРіР°</B></DIV></TD>
+    <TH><DIV style="text-align: center;"><B>РЎРІРѕР№СЃС‚РІР° РєРЅРёРіРё</B></DIV></TD>
+    <TH><DIV style="text-align: center;"><B>РџСЂРёРµРј, РїРѕР»СѓС‡Р°РµРјС‹Р№ РІ СЂРµР·СѓР»СЊС‚Р°С‚Рµ <br />
+РёР·СѓС‡РµРЅРёСЏ РєРЅРёРіРё</B></DIV></TD>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/booklearn_1.gif" border=0></td>
-    <td> <B>Хлебнуть Крови (прием)</B>   (Масса: 1)<br />
-<b>Цена: 22.5 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интуиция: 25 <br />
-• Уровень: 6 <br />
-<small>Описание: <br />
-В инструкции подробно раскрывается тема здорового питания кровью поверженных врагов</small> <br />
-Обучает приему: <b>Хлебнуть Крови</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РҐР»РµР±РЅСѓС‚СЊ РљСЂРѕРІРё (РїСЂРёРµРј)</B>   (РњР°СЃСЃР°: 1)<br />
+<b>Р¦РµРЅР°: 22.5 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚СѓРёС†РёСЏ: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 6 <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’ РёРЅСЃС‚СЂСѓРєС†РёРё РїРѕРґСЂРѕР±РЅРѕ СЂР°СЃРєСЂС‹РІР°РµС‚СЃСЏ С‚РµРјР° Р·РґРѕСЂРѕРІРѕРіРѕ РїРёС‚Р°РЅРёСЏ РєСЂРѕРІСЊСЋ РїРѕРІРµСЂР¶РµРЅРЅС‹С… РІСЂР°РіРѕРІ</small> <br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РҐР»РµР±РЅСѓС‚СЊ РљСЂРѕРІРё</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/krit_blooddrink.gif" border=0><br />
-<B>Хлебнуть Крови </B><br />
+<B>РҐР»РµР±РЅСѓС‚СЊ РљСЂРѕРІРё </B><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/krit.gif" border=0> 7, <IMG SRC="http://img.combats.ru/i/misc/micro/block.gif" border=0> 3. <br />
-Сила духа: 2<br />
+РЎРёР»Р° РґСѓС…Р°: 2<br />
 <br />
-<b>Минимальные требования: </b><br />
-• Уровень: 6<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: </b><br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 6<br />
 <br />
-Следующий критический удар, а также 2 удара после него, лечат Вас частью нанесенного урона. <br />
-Выпитая крoвь придает вам силы.<br />
+РЎР»РµРґСѓСЋС‰РёР№ РєСЂРёС‚РёС‡РµСЃРєРёР№ СѓРґР°СЂ, Р° С‚Р°РєР¶Рµ 2 СѓРґР°СЂР° РїРѕСЃР»Рµ РЅРµРіРѕ, Р»РµС‡Р°С‚ Р’Р°СЃ С‡Р°СЃС‚СЊСЋ РЅР°РЅРµСЃРµРЅРЅРѕРіРѕ СѓСЂРѕРЅР°. <br />
+Р’С‹РїРёС‚Р°СЏ РєСЂoРІСЊ РїСЂРёРґР°РµС‚ РІР°Рј СЃРёР»С‹.<br />
 <br />
-<DIV><A href="javascript: void(0);" onClick="if (hidtext1001.style.display == '') { this.innerText = 'Действие приема на персонаж'; hidtext1001.style.display = 'none'; } else { this.innerText = 'Скрыть'; hidtext1001.style.display = ''; }">Действие приема на персонаж</A></DIV><DIV id='hidtext1001' style='display: none;'>Восстанавливает Нр персонажа в зависимости от уровня противника: <br />
-8 уровень - не более 107 Нр <br />
-9 уровень - не более 128 Нр<br />
-10 уровень - не более 154 Нр<br />
-11 урoвeнь - нe бoлee 185 Hp <br />
+<DIV><A href="javascript: void(0);" onClick="if (hidtext1001.style.display == '') { this.innerText = 'Р”РµР№СЃС‚РІРёРµ РїСЂРёРµРјР° РЅР° РїРµСЂСЃРѕРЅР°Р¶'; hidtext1001.style.display = 'none'; } else { this.innerText = 'РЎРєСЂС‹С‚СЊ'; hidtext1001.style.display = ''; }">Р”РµР№СЃС‚РІРёРµ РїСЂРёРµРјР° РЅР° РїРµСЂСЃРѕРЅР°Р¶</A></DIV><DIV id='hidtext1001' style='display: none;'>Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РќСЂ РїРµСЂСЃРѕРЅР°Р¶Р° РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ СѓСЂРѕРІРЅСЏ РїСЂРѕС‚РёРІРЅРёРєР°: <br />
+8 СѓСЂРѕРІРµРЅСЊ - РЅРµ Р±РѕР»РµРµ 107 РќСЂ <br />
+9 СѓСЂРѕРІРµРЅСЊ - РЅРµ Р±РѕР»РµРµ 128 РќСЂ<br />
+10 СѓСЂРѕРІРµРЅСЊ - РЅРµ Р±РѕР»РµРµ 154 РќСЂ<br />
+11 СѓСЂoРІeРЅСЊ - РЅe Р±oР»ee 185 Hp <br />
 <br />
-Придает силы: <br />
-с 7 уровня - +10  силы <br />
-с 8 уровня - +13  силы <br />
-с 9 уровня - +14  силы<br />
-c 11 уровня - +17 cилы<br />
+РџСЂРёРґР°РµС‚ СЃРёР»С‹: <br />
+СЃ 7 СѓСЂРѕРІРЅСЏ - +10  СЃРёР»С‹ <br />
+СЃ 8 СѓСЂРѕРІРЅСЏ - +13  СЃРёР»С‹ <br />
+СЃ 9 СѓСЂРѕРІРЅСЏ - +14  СЃРёР»С‹<br />
+c 11 СѓСЂРѕРІРЅСЏ - +17 cРёР»С‹<br />
 </DIV> <br />
  </td>
   </tr>
 <tr></tr>
 <tr>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/booklearn_8.gif" border=0> </td>
-    <td> <B>Жажда Крови (прием)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интуиция: 25 <br />
-• Уровень: 7 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Книга рассказывает, как можно увидеть больше крови. </small><br />
-Обучает приему: <b>Жажда Крови</b> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р–Р°Р¶РґР° РљСЂРѕРІРё (РїСЂРёРµРј)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚СѓРёС†РёСЏ: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РљРЅРёРіР° СЂР°СЃСЃРєР°Р·С‹РІР°РµС‚, РєР°Рє РјРѕР¶РЅРѕ СѓРІРёРґРµС‚СЊ Р±РѕР»СЊС€Рµ РєСЂРѕРІРё. </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р–Р°Р¶РґР° РљСЂРѕРІРё</b> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/krit_bloodlust.gif" border=0><br />
-<B>Жажда Крови</B> 	<br />
+<B>Р–Р°Р¶РґР° РљСЂРѕРІРё</B> 	<br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hit.gif" border=0> 2, <IMG SRC="http://img.combats.ru/i/misc/micro/krit.gif" border=0> 3 <br />
 <br />
-<b>Минимальные требования: </b><br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: </b><br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Увеличивает ваш мф. критического удара на 50 и мф. мощности урона на 5 до конца боя. <br />
-Применить можно трижды за бой.<br />
+РЈРІРµР»РёС‡РёРІР°РµС‚ РІР°С€ РјС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° РЅР° 50 Рё РјС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° РЅР° 5 РґРѕ РєРѕРЅС†Р° Р±РѕСЏ. <br />
+РџСЂРёРјРµРЅРёС‚СЊ РјРѕР¶РЅРѕ С‚СЂРёР¶РґС‹ Р·Р° Р±РѕР№.<br />
 <br />
-<TABLE class=QUOTE><TR><TD><SMALL>ХХХ, вспомнив слова своего сэнсея, из последних сил <br />
-исполнила прием "Жажда Крови".. (Мф. мощности урона (%): +5, Мф. критического удара (%): +50( +100;+150)</SMALL></TD></TR></TABLE>
+<TABLE class=QUOTE><TR><TD><SMALL>РҐРҐРҐ, РІСЃРїРѕРјРЅРёРІ СЃР»РѕРІР° СЃРІРѕРµРіРѕ СЃСЌРЅСЃРµСЏ, РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» <br />
+РёСЃРїРѕР»РЅРёР»Р° РїСЂРёРµРј "Р–Р°Р¶РґР° РљСЂРѕРІРё".. (РњС„. РјРѕС‰РЅРѕСЃС‚Рё СѓСЂРѕРЅР° (%): +5, РњС„. РєСЂРёС‚РёС‡РµСЃРєРѕРіРѕ СѓРґР°СЂР° (%): +50( +100;+150)</SMALL></TD></TR></TABLE>
  </td>
   </tr>
 <tr></tr>
 <tr>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/booklearn_5.gif" border=0>  </td>
-    <td> <B>Осторожность (прием)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр.</b> <br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Уровень: 7 <br />
-• Ловкость: 30 <br />
-• Выносливость: 20 <br />
-<small>Описание: <br />
-В инструкции рассказывается, как бойцы с высокой ловкостью могут уменьшить урон от магии стихий.</small> <br />
-Обучает приему: <b>Осторожность</b> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РћСЃС‚РѕСЂРѕР¶РЅРѕСЃС‚СЊ (РїСЂРёРµРј)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ.</b> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў Р›РѕРІРєРѕСЃС‚СЊ: 30 <br />
+вЂў Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 20 <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’ РёРЅСЃС‚СЂСѓРєС†РёРё СЂР°СЃСЃРєР°Р·С‹РІР°РµС‚СЃСЏ, РєР°Рє Р±РѕР№С†С‹ СЃ РІС‹СЃРѕРєРѕР№ Р»РѕРІРєРѕСЃС‚СЊСЋ РјРѕРіСѓС‚ СѓРјРµРЅСЊС€РёС‚СЊ СѓСЂРѕРЅ РѕС‚ РјР°РіРёРё СЃС‚РёС…РёР№.</small> <br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РћСЃС‚РѕСЂРѕР¶РЅРѕСЃС‚СЊ</b> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/counter_ward.gif" border=0><br />
-<B>Осторожность</B> <br />
+<B>РћСЃС‚РѕСЂРѕР¶РЅРѕСЃС‚СЊ</B> <br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/counter.gif" border=0> 2 <br />
-Задержка: 10<br />
+Р—Р°РґРµСЂР¶РєР°: 10<br />
 <br />
-<b>Минимальные требования:</b><br />
-• Уровень: 7 <br />
-• Ловкость: 30 <br />
-• Выносливость: 20  <br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў Р›РѕРІРєРѕСЃС‚СЊ: 30 <br />
+вЂў Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 20  <br />
 <br />
-Уменьшает урон от магии стихий вдвое на три хода.<br />
-Использовать приём можно 1 раз в 3 хода.<br />
+РЈРјРµРЅСЊС€Р°РµС‚ СѓСЂРѕРЅ РѕС‚ РјР°РіРёРё СЃС‚РёС…РёР№ РІРґРІРѕРµ РЅР° С‚СЂРё С…РѕРґР°.<br />
+РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРёС‘Рј РјРѕР¶РЅРѕ 1 СЂР°Р· РІ 3 С…РѕРґР°.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/booklearn_4.gif" border=0> </td>
-    <td> <B>Выжить (прием)</B>   (Масса: 1) <br />
-<b>Цена: 27 кр.</b> <br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Уровень: 7 <br />
-• Выносливость: 30 <br />
-<small>Описание: <br />
-В инструкции рассказывается, как выживать используя набранные тактики. </small><br />
-Обучает приему: <b>Выжить </b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р’С‹Р¶РёС‚СЊ (РїСЂРёРµРј)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 27 РєСЂ.</b> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 30 <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’ РёРЅСЃС‚СЂСѓРєС†РёРё СЂР°СЃСЃРєР°Р·С‹РІР°РµС‚СЃСЏ, РєР°Рє РІС‹Р¶РёРІР°С‚СЊ РёСЃРїРѕР»СЊР·СѓСЏ РЅР°Р±СЂР°РЅРЅС‹Рµ С‚Р°РєС‚РёРєРё. </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р’С‹Р¶РёС‚СЊ </b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/spirit_survive.gif" border=0><br />
-<B>Выжить</B> <br />
-Сила духа: 10<br />
+<B>Р’С‹Р¶РёС‚СЊ</B> <br />
+РЎРёР»Р° РґСѓС…Р°: 10<br />
 <br />
-<b>Минимальные требования:</b><br />
-• Уровень: 7 <br />
-• Выносливость: 30 <br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 30 <br />
 <br />
-Исцеляет Вас, используя все набранные Вами тактики.<br />
-Использовать прием можно 1 раз за бой. После использования все тактики пропадают. <br />
-Приём восстанавливает не более 25% НР. 1 приём - 1% Нр, <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0>1 - 0.5% Нр<br />
+РСЃС†РµР»СЏРµС‚ Р’Р°СЃ, РёСЃРїРѕР»СЊР·СѓСЏ РІСЃРµ РЅР°Р±СЂР°РЅРЅС‹Рµ Р’Р°РјРё С‚Р°РєС‚РёРєРё.<br />
+РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРёРµРј РјРѕР¶РЅРѕ 1 СЂР°Р· Р·Р° Р±РѕР№. РџРѕСЃР»Рµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РІСЃРµ С‚Р°РєС‚РёРєРё РїСЂРѕРїР°РґР°СЋС‚. <br />
+РџСЂРёС‘Рј РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РЅРµ Р±РѕР»РµРµ 25% РќР . 1 РїСЂРёС‘Рј - 1% РќСЂ, <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0>1 - 0.5% РќСЂ<br />
  </td>
   </tr>
 <tr></tr>
 <tr>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/booklearn_3.gif" border=0> </td>
-    <td> <B>Отменить (прием)</B>   (Масса: 1) <br />
-<b>Цена: 35 кр.</b> <br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Уровень: 7 <br />
-• Выносливость: 25 <br />
-• Сила: 25 <br />
-Максимум: 1 ед.<br />
-<small>Описание: <br />
-В инструкции рассказывается, как избежать тяжелых ранений. </small><br />
-Обучает приему: <b>Отменить</b> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РћС‚РјРµРЅРёС‚СЊ (РїСЂРёРµРј)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 35 РєСЂ.</b> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 25 <br />
+вЂў РЎРёР»Р°: 25 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’ РёРЅСЃС‚СЂСѓРєС†РёРё СЂР°СЃСЃРєР°Р·С‹РІР°РµС‚СЃСЏ, РєР°Рє РёР·Р±РµР¶Р°С‚СЊ С‚СЏР¶РµР»С‹С… СЂР°РЅРµРЅРёР№. </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РћС‚РјРµРЅРёС‚СЊ</b> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/multi_rollback.gif" border=0><br />
-<B>Отменить</B><br />
+<B>РћС‚РјРµРЅРёС‚СЊ</B><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hit.gif" border=0> 2,  <IMG SRC="http://img.combats.ru/i/misc/micro/block.gif" border=0> 2. <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Уровень: 7 <br />
-• Сила: 25 <br />
-• Выносливость: 25 <br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РЎРёР»Р°: 25 <br />
+вЂў Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 25 <br />
  <br />
-Отменяет последнее полученное повреждение или лечение.<br />
-Использовать прием можно 1 раз за бой.<br />
+РћС‚РјРµРЅСЏРµС‚ РїРѕСЃР»РµРґРЅРµРµ РїРѕР»СѓС‡РµРЅРЅРѕРµ РїРѕРІСЂРµР¶РґРµРЅРёРµ РёР»Рё Р»РµС‡РµРЅРёРµ.<br />
+РСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРёРµРј РјРѕР¶РЅРѕ 1 СЂР°Р· Р·Р° Р±РѕР№.<br />
  </td>
   </tr>
 <tr></tr>
 <tr>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/booklearn_9.gif" border=0> </td>
-    <td> <B>Поступь Смерти (прием)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Ловкость: 25 <br />
-• Уровень: 7 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Книга о превращении битвы в бойню. </small><br />
-Обучает приему: <b>Поступь Смерти </b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РџРѕСЃС‚СѓРїСЊ РЎРјРµСЂС‚Рё (РїСЂРёРµРј)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў Р›РѕРІРєРѕСЃС‚СЊ: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РљРЅРёРіР° Рѕ РїСЂРµРІСЂР°С‰РµРЅРёРё Р±РёС‚РІС‹ РІ Р±РѕР№РЅСЋ. </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РџРѕСЃС‚СѓРїСЊ РЎРјРµСЂС‚Рё </b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/counter_deathwalk.gif" border=0><br />
-<B>Поступь Смерти</B> <br />
+<B>РџРѕСЃС‚СѓРїСЊ РЎРјРµСЂС‚Рё</B> <br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/counter.gif" border=0> 5 <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Уровень: 7 <br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
 <br />
-Увеличивает максимальный урон оружием на "1*Уровень". <br />
-Каждый успешный удар увеличивает максимальный наносимый противнику урон на "1 помноженый на Уровень" ед., до "10 умножить на Уровень" и обновляет время приёма. <br />
-Прием  длится в течение одного хода.<br />
+РЈРІРµР»РёС‡РёРІР°РµС‚ РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СѓСЂРѕРЅ РѕСЂСѓР¶РёРµРј РЅР° "1*РЈСЂРѕРІРµРЅСЊ". <br />
+РљР°Р¶РґС‹Р№ СѓСЃРїРµС€РЅС‹Р№ СѓРґР°СЂ СѓРІРµР»РёС‡РёРІР°РµС‚ РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РЅР°РЅРѕСЃРёРјС‹Р№ РїСЂРѕС‚РёРІРЅРёРєСѓ СѓСЂРѕРЅ РЅР° "1 РїРѕРјРЅРѕР¶РµРЅС‹Р№ РЅР° РЈСЂРѕРІРµРЅСЊ" РµРґ., РґРѕ "10 СѓРјРЅРѕР¶РёС‚СЊ РЅР° РЈСЂРѕРІРµРЅСЊ" Рё РѕР±РЅРѕРІР»СЏРµС‚ РІСЂРµРјСЏ РїСЂРёС‘РјР°. <br />
+РџСЂРёРµРј  РґР»РёС‚СЃСЏ РІ С‚РµС‡РµРЅРёРµ РѕРґРЅРѕРіРѕ С…РѕРґР°.<br />
  </td>
   </tr>
 <tr></tr>
 <tr>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/booklearn_2.gif" border=0> </td>
-    <td> <B>Превосходство (прием)</B>   (Масса: 1) <br />
-<b>Цена: 15 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интуиция: 25 <br />
-• Уровень: 7 <br />
-<small>Описание: <br />
-Инстpукция содержит ряд рекомендаций по защитной технике после успешних парирований </small><br />
-Обучает приему: <b>Превосходство </b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РџСЂРµРІРѕСЃС…РѕРґСЃС‚РІРѕ (РїСЂРёРµРј)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 15 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚СѓРёС†РёСЏ: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РРЅСЃС‚pСѓРєС†РёСЏ СЃРѕРґРµСЂР¶РёС‚ СЂСЏРґ СЂРµРєРѕРјРµРЅРґР°С†РёР№ РїРѕ Р·Р°С‰РёС‚РЅРѕР№ С‚РµС…РЅРёРєРµ РїРѕСЃР»Рµ СѓСЃРїРµС€РЅРёС… РїР°СЂРёСЂРѕРІР°РЅРёР№ </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РџСЂРµРІРѕСЃС…РѕРґСЃС‚РІРѕ </b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/parry_supreme.gif" border=0><br />
-<B>Превосходство </B><br />
+<B>РџСЂРµРІРѕСЃС…РѕРґСЃС‚РІРѕ </B><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/parry.gif" border=0> 3, <IMG SRC="http://img.combats.ru/i/misc/micro/block.gif" border=0> 1 <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Уровень: 7 <br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
 <br />
-Повышает антикрит и антиуворот до конца боя.<br />
-Можно применять трижды за бой<br />
+РџРѕРІС‹С€Р°РµС‚ Р°РЅС‚РёРєСЂРёС‚ Рё Р°РЅС‚РёСѓРІРѕСЂРѕС‚ РґРѕ РєРѕРЅС†Р° Р±РѕСЏ.<br />
+РњРѕР¶РЅРѕ РїСЂРёРјРµРЅСЏС‚СЊ С‚СЂРёР¶РґС‹ Р·Р° Р±РѕР№<br />
 <br />
-<DIV><A href="javascript: void(0);" onClick="if (hidtext1002.style.display == '') { this.innerText = 'Действие приема на персонаж'; hidtext1002.style.display = 'none'; } else { this.innerText = 'Скрыть'; hidtext1002.style.display = ''; }">Действие приема на персонаж</A></DIV><DIV id='hidtext1002' style='display: none;'><br />
-<B>ххх</B>, рeшив cтaть гeрoeм, прoвeлa приeм "<B>Прeвocхoдcтвo</B>". (Мф. прoтив критичecкoгo удaрa (%): +25, Мф. прoтив увeртывaния (%): +25)<br />
+<DIV><A href="javascript: void(0);" onClick="if (hidtext1002.style.display == '') { this.innerText = 'Р”РµР№СЃС‚РІРёРµ РїСЂРёРµРјР° РЅР° РїРµСЂСЃРѕРЅР°Р¶'; hidtext1002.style.display = 'none'; } else { this.innerText = 'РЎРєСЂС‹С‚СЊ'; hidtext1002.style.display = ''; }">Р”РµР№СЃС‚РІРёРµ РїСЂРёРµРјР° РЅР° РїРµСЂСЃРѕРЅР°Р¶</A></DIV><DIV id='hidtext1002' style='display: none;'><br />
+<B>С…С…С…</B>, СЂeС€РёРІ cС‚aС‚СЊ РіeСЂoeРј, РїСЂoРІeР»a РїСЂРёeРј "<B>РџСЂeРІocС…oРґcС‚РІo</B>". (РњС„. РїСЂoС‚РёРІ РєСЂРёС‚РёС‡ecРєoРіo СѓРґaСЂa (%): +25, РњС„. РїСЂoС‚РёРІ СѓРІeСЂС‚С‹РІaРЅРёСЏ (%): +25)<br />
 </DIV> </td>
   </tr>
 <tr></tr>
 <tr>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/booklearn_7.gif" border=0> </td>
-    <td> <B>Усиленные Удары (прием)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Уровень: 7 <br />
-• Сила: 25 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-В инструкции рассказывается, об увеличении силы ударов на короткое время. </small><br />
-Обучает приему: <b>Усиленные Удары</b> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РЈСЃРёР»РµРЅРЅС‹Рµ РЈРґР°СЂС‹ (РїСЂРёРµРј)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РЎРёР»Р°: 25 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’ РёРЅСЃС‚СЂСѓРєС†РёРё СЂР°СЃСЃРєР°Р·С‹РІР°РµС‚СЃСЏ, РѕР± СѓРІРµР»РёС‡РµРЅРёРё СЃРёР»С‹ СѓРґР°СЂРѕРІ РЅР° РєРѕСЂРѕС‚РєРѕРµ РІСЂРµРјСЏ. </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РЈСЃРёР»РµРЅРЅС‹Рµ РЈРґР°СЂС‹</b> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/hit_empower.gif" border=0><br />
-<B>Усиленные удары</B> <br />
+<B>РЈСЃРёР»РµРЅРЅС‹Рµ СѓРґР°СЂС‹</B> <br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hit.gif" border=0> 3 <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Уровень: 7 <br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
  <br />
-Все удары в следующем размене наносят на "5 помноженный на уровень противника" единиц урона больше. <br />
+Р’СЃРµ СѓРґР°СЂС‹ РІ СЃР»РµРґСѓСЋС‰РµРј СЂР°Р·РјРµРЅРµ РЅР°РЅРѕСЃСЏС‚ РЅР° "5 РїРѕРјРЅРѕР¶РµРЅРЅС‹Р№ РЅР° СѓСЂРѕРІРµРЅСЊ РїСЂРѕС‚РёРІРЅРёРєР°" РµРґРёРЅРёС† СѓСЂРѕРЅР° Р±РѕР»СЊС€Рµ. <br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/booklearn_6.gif" border=0> </td>
-    <td> <B>Магическая Защита (прием)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Уровень: 7 <br />
-• Выносливость: 25 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-В инструкции рассказывается, как грамотной защитой можно уменьшить урон от магии стихий. </small><br />
-Обучает приему: <b>Магическая Защита </b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РњР°РіРёС‡РµСЃРєР°СЏ Р—Р°С‰РёС‚Р° (РїСЂРёРµРј)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 25 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’ РёРЅСЃС‚СЂСѓРєС†РёРё СЂР°СЃСЃРєР°Р·С‹РІР°РµС‚СЃСЏ, РєР°Рє РіСЂР°РјРѕС‚РЅРѕР№ Р·Р°С‰РёС‚РѕР№ РјРѕР¶РЅРѕ СѓРјРµРЅСЊС€РёС‚СЊ СѓСЂРѕРЅ РѕС‚ РјР°РіРёРё СЃС‚РёС…РёР№. </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РњР°РіРёС‡РµСЃРєР°СЏ Р—Р°С‰РёС‚Р° </b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/block_magicshield.gif" border=0><br />
-<B>Магическая Защита </B><br />
+<B>РњР°РіРёС‡РµСЃРєР°СЏ Р—Р°С‰РёС‚Р° </B><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/block.gif" border=0> 3 <br />
  <br />
-<b>Минимальные требования:</b><br />
-• Уровень: 7 <br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
 <br />
-Следующее заклятие или мaгичecкий удaр нанесет вам не более 1 повреждения, защита действует не более трех ходов.<br />
+РЎР»РµРґСѓСЋС‰РµРµ Р·Р°РєР»СЏС‚РёРµ РёР»Рё РјaРіРёС‡ecРєРёР№ СѓРґaСЂ РЅР°РЅРµСЃРµС‚ РІР°Рј РЅРµ Р±РѕР»РµРµ 1 РїРѕРІСЂРµР¶РґРµРЅРёСЏ, Р·Р°С‰РёС‚Р° РґРµР№СЃС‚РІСѓРµС‚ РЅРµ Р±РѕР»РµРµ С‚СЂРµС… С…РѕРґРѕРІ.<br />
  </td>
   </tr>
 <tr></tr>
 <tr>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/booklearn_10.gif" border=0> </td>
-    <td> <B>Возмездие (прием)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Уровень: 7 <br />
-• Выносливость: 25 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-В инструкции рассказывается, как отомстить врагу, пробившему вашу защиту. </small><br />
-Обучает приему: <b>Возмездие </b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р’РѕР·РјРµР·РґРёРµ (РїСЂРёРµРј)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў Р’С‹РЅРѕСЃР»РёРІРѕСЃС‚СЊ: 25 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’ РёРЅСЃС‚СЂСѓРєС†РёРё СЂР°СЃСЃРєР°Р·С‹РІР°РµС‚СЃСЏ, РєР°Рє РѕС‚РѕРјСЃС‚РёС‚СЊ РІСЂР°РіСѓ, РїСЂРѕР±РёРІС€РµРјСѓ РІР°С€Сѓ Р·Р°С‰РёС‚Сѓ. </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р’РѕР·РјРµР·РґРёРµ </b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
     <td> <IMG SRC="http://img.combats.ru/i/misc/icons/block_revenge.gif" border=0><br />
-<B>Возмездие </B><br />
+<B>Р’РѕР·РјРµР·РґРёРµ </B><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/block.gif" border=0> 5 <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Уровень: 7 <br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
 <br />
-Противник, который нанес удар получит "6 умножить на *ваш уровень*" единиц урона<br />
+РџСЂРѕС‚РёРІРЅРёРє, РєРѕС‚РѕСЂС‹Р№ РЅР°РЅРµСЃ СѓРґР°СЂ РїРѕР»СѓС‡РёС‚ "6 СѓРјРЅРѕР¶РёС‚СЊ РЅР° *РІР°С€ СѓСЂРѕРІРµРЅСЊ*" РµРґРёРЅРёС† СѓСЂРѕРЅР°<br />
 </td>
   </tr>
 </TABLE>
 </div></div></div><br />
 <br />
-<div style="margin:0; margin-top:8px"><div style="margin-bottom:4px"><input type="button" value="Заклинания" onClick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Скрыть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Заклинания'; }"></div><div ><div style="display: none;"><br />
+<div style="margin:0; margin-top:8px"><div style="margin-bottom:4px"><input type="button" value="Р—Р°РєР»РёРЅР°РЅРёСЏ" onClick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'РЎРєСЂС‹С‚СЊ'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Р—Р°РєР»РёРЅР°РЅРёСЏ'; }"></div><div ><div style="display: none;"><br />
 <br />
 <TABLE class=BL>
 <TABLE class="ST" cellspacing="1">
 <tr>
-    <TH><DIV style="text-align: left;"><B>Книга</B></DIV></TD>
-    <TH><DIV style="text-align: center;"><B>Свойства книги</B></DIV></TD>
-    <TH><DIV style="text-align: center;"><B>Прием, получаемый в результате <br />
-изучения книги</B></DIV></TD>
+    <TH><DIV style="text-align: left;"><B>РљРЅРёРіР°</B></DIV></TD>
+    <TH><DIV style="text-align: center;"><B>РЎРІРѕР№СЃС‚РІР° РєРЅРёРіРё</B></DIV></TD>
+    <TH><DIV style="text-align: center;"><B>РџСЂРёРµРј, РїРѕР»СѓС‡Р°РµРјС‹Р№ РІ СЂРµР·СѓР»СЊС‚Р°С‚Рµ <br />
+РёР·СѓС‡РµРЅРёСЏ РєРЅРёРіРё</B></DIV></TD>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/zashita sveta.gif" border=0></td>
-    <td><B> Защита Света (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25 <br />
-• Уровень: 7 <br />
-• Мастерство владения магией Света: 4 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Как защитить себя от ошеломления? 10% поглощения урона - много или мало? <br />
-Ответы на подобные вопросы вы найдете только в этой  книге! </small><br />
-Обучает приему: <b>Защита Света </b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td><B> Р—Р°С‰РёС‚Р° РЎРІРµС‚Р° (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РЎРІРµС‚Р°: 4 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РљР°Рє Р·Р°С‰РёС‚РёС‚СЊ СЃРµР±СЏ РѕС‚ РѕС€РµР»РѕРјР»РµРЅРёСЏ? 10% РїРѕРіР»РѕС‰РµРЅРёСЏ СѓСЂРѕРЅР° - РјРЅРѕРіРѕ РёР»Рё РјР°Р»Рѕ? <br />
+РћС‚РІРµС‚С‹ РЅР° РїРѕРґРѕР±РЅС‹Рµ РІРѕРїСЂРѕСЃС‹ РІС‹ РЅР°Р№РґРµС‚Рµ С‚РѕР»СЊРєРѕ РІ СЌС‚РѕР№  РєРЅРёРіРµ! </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р—Р°С‰РёС‚Р° РЎРІРµС‚Р° </b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_light_shield.gif" border=0><br />
-<B>Защита Света </B><br />
-Расход маны: 200 <br />
-Задержка: 10 <br />
+<B>Р—Р°С‰РёС‚Р° РЎРІРµС‚Р° </B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 200 <br />
+Р—Р°РґРµСЂР¶РєР°: 10 <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения магией Света: 4 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РЎРІРµС‚Р°: 4 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Снижает весь урон получаемый магом на 10%, ускоряет время восстановления от любых видов оглушения на 1 ход. </td>
+РЎРЅРёР¶Р°РµС‚ РІРµСЃСЊ СѓСЂРѕРЅ РїРѕР»СѓС‡Р°РµРјС‹Р№ РјР°РіРѕРј РЅР° 10%, СѓСЃРєРѕСЂСЏРµС‚ РІСЂРµРјСЏ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ РѕС‚ Р»СЋР±С‹С… РІРёРґРѕРІ РѕРіР»СѓС€РµРЅРёСЏ РЅР° 1 С…РѕРґ. </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell5.gif" border=0></td>
-    <td> <B>Серое Мастерство (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25 <br />
-• Уровень: 7 <br />
-• Мастерство владения серой магией: 4 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-«...только одна магия истинна - серая магия, включающая в себя все» </small><br />
-Обучает заклинанию: <b>Серое Мастерство</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РЎРµСЂРѕРµ РњР°СЃС‚РµСЂСЃС‚РІРѕ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃРµСЂРѕР№ РјР°РіРёРµР№: 4 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+В«...С‚РѕР»СЊРєРѕ РѕРґРЅР° РјР°РіРёСЏ РёСЃС‚РёРЅРЅР° - СЃРµСЂР°СЏ РјР°РіРёСЏ, РІРєР»СЋС‡Р°СЋС‰Р°СЏ РІ СЃРµР±СЏ РІСЃРµВ» </small><br />
+РћР±СѓС‡Р°РµС‚ Р·Р°РєР»РёРЅР°РЅРёСЋ: <b>РЎРµСЂРѕРµ РњР°СЃС‚РµСЂСЃС‚РІРѕ</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_gray_mastery.gif" border=0><br />
-<B>Серое Мастерство </B><br />
+<B>РЎРµСЂРѕРµ РњР°СЃС‚РµСЂСЃС‚РІРѕ </B><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/spirit.gif" border=0> 3 <br />
-Расход маны: 50 + 10*(уровень заклинания) в ход <br />
-Задержка: 5 <br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 50 + 10*(СѓСЂРѕРІРµРЅСЊ Р·Р°РєР»РёРЅР°РЅРёСЏ) РІ С…РѕРґ <br />
+Р—Р°РґРµСЂР¶РєР°: 5 <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения серой магией: 4 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃРµСЂРѕР№ РјР°РіРёРµР№: 4 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Увеличивает навык в магии стихий, применяется до 5 раз. </td>
+РЈРІРµР»РёС‡РёРІР°РµС‚ РЅР°РІС‹Рє РІ РјР°РіРёРё СЃС‚РёС…РёР№, РїСЂРёРјРµРЅСЏРµС‚СЃСЏ РґРѕ 5 СЂР°Р·. </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/glaz na glaz.gif" border=0></td>
-    <td> <B>Глаз за Глаз (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25 <br />
-• Уровень: 7 <br />
-• Мастерство владения магией Тьмы: 4 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Название гласит: Практические основы жестокой мести. </small><br />
-Обучает приему: <b>Глаз за Глаз </b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р“Р»Р°Р· Р·Р° Р“Р»Р°Р· (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РўСЊРјС‹: 4 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РќР°Р·РІР°РЅРёРµ РіР»Р°СЃРёС‚: РџСЂР°РєС‚РёС‡РµСЃРєРёРµ РѕСЃРЅРѕРІС‹ Р¶РµСЃС‚РѕРєРѕР№ РјРµСЃС‚Рё. </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р“Р»Р°Р· Р·Р° Р“Р»Р°Р· </b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_dark_eyeforeye.gif" border=0><br />
-<B>Глаз за глаз </B><br />
-Расход маны: 200 <br />
-Задержка: 10 <br />
+<B>Р“Р»Р°Р· Р·Р° РіР»Р°Р· </B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 200 <br />
+Р—Р°РґРµСЂР¶РєР°: 10 <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения магией Тьмы: 4 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ РјР°РіРёРµР№ РўСЊРјС‹: 4 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Следующее заклинание или удар нанесет не более половины урона,  оставшуюся половину магией тьмы получит атакующий (но не более 50 х "ваш уровень" един. урона)<br />
+РЎР»РµРґСѓСЋС‰РµРµ Р·Р°РєР»РёРЅР°РЅРёРµ РёР»Рё СѓРґР°СЂ РЅР°РЅРµСЃРµС‚ РЅРµ Р±РѕР»РµРµ РїРѕР»РѕРІРёРЅС‹ СѓСЂРѕРЅР°,  РѕСЃС‚Р°РІС€СѓСЋСЃСЏ РїРѕР»РѕРІРёРЅСѓ РјР°РіРёРµР№ С‚СЊРјС‹ РїРѕР»СѓС‡РёС‚ Р°С‚Р°РєСѓСЋС‰РёР№ (РЅРѕ РЅРµ Р±РѕР»РµРµ 50 С… "РІР°С€ СѓСЂРѕРІРµРЅСЊ" РµРґРёРЅ. СѓСЂРѕРЅР°)<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell1.gif" border=0></td>
-    <td> <B>Пылающий Ужас (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25 <br />
-• Уровень: 7 <br />
-• Мастерство владения стихией Огня: 7 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-В инструкции рассказывается, как использовать страх огня у горящей цели. </small><br />
-Обучает приему: <b>Пылающий Ужас </b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РџС‹Р»Р°СЋС‰РёР№ РЈР¶Р°СЃ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 7 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’ РёРЅСЃС‚СЂСѓРєС†РёРё СЂР°СЃСЃРєР°Р·С‹РІР°РµС‚СЃСЏ, РєР°Рє РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃС‚СЂР°С… РѕРіРЅСЏ Сѓ РіРѕСЂСЏС‰РµР№ С†РµР»Рё. </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РџС‹Р»Р°СЋС‰РёР№ РЈР¶Р°СЃ </b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_fire_flameshock.gif" border=0><br />
-<B>Пылающий Ужас </B><br />
-Расход маны: 200 <br />
-Задержка: 10 <br />
+<B>РџС‹Р»Р°СЋС‰РёР№ РЈР¶Р°СЃ </B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 200 <br />
+Р—Р°РґРµСЂР¶РєР°: 10 <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Огня: 7 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 7 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Высвобождает энергию вашего заклятия  Пожирающее Пламя на цели. <br />
-Цель получает x единиц урона огнем и не может использовать приемы или набирать очки тактики 2 хода.<br />
+Р’С‹СЃРІРѕР±РѕР¶РґР°РµС‚ СЌРЅРµСЂРіРёСЋ РІР°С€РµРіРѕ Р·Р°РєР»СЏС‚РёСЏ  РџРѕР¶РёСЂР°СЋС‰РµРµ РџР»Р°РјСЏ РЅР° С†РµР»Рё. <br />
+Р¦РµР»СЊ РїРѕР»СѓС‡Р°РµС‚ x РµРґРёРЅРёС† СѓСЂРѕРЅР° РѕРіРЅРµРј Рё РЅРµ РјРѕР¶РµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРёРµРјС‹ РёР»Рё РЅР°Р±РёСЂР°С‚СЊ РѕС‡РєРё С‚Р°РєС‚РёРєРё 2 С…РѕРґР°.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell10.gif" border=0></td>
-    <td> <B>Разогрев (заклинание)</B>   (Масса: 1)<br />
-<b>Цена: 20 кр.</b> <br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25 <br />
-• Уровень: 7 <br />
-• Мастерство владения стихией Огня: 7 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Ваше следующее огненное заклинание получит +100 мф. мощности Магии Огня. Этот прием не подвержен действию шока.</small><br />
-Обучает приему: <B>Разогрев</B> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р Р°Р·РѕРіСЂРµРІ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1)<br />
+<b>Р¦РµРЅР°: 20 РєСЂ.</b> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 7 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’Р°С€Рµ СЃР»РµРґСѓСЋС‰РµРµ РѕРіРЅРµРЅРЅРѕРµ Р·Р°РєР»РёРЅР°РЅРёРµ РїРѕР»СѓС‡РёС‚ +100 РјС„. РјРѕС‰РЅРѕСЃС‚Рё РњР°РіРёРё РћРіРЅСЏ. Р­С‚РѕС‚ РїСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>Р Р°Р·РѕРіСЂРµРІ</B> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><img src="http://img.combats.ru/i/misc/icons/wis_fire_boost.gif" width="40" height="25" border=0><br />
-<B>Разогрев</B><br />
-Расход маны: 21<br />
-Задержка: 5 <br />
+<B>Р Р°Р·РѕРіСЂРµРІ</B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 21<br />
+Р—Р°РґРµСЂР¶РєР°: 5 <br />
 <br />
-Прием тратит ход <br />
+РџСЂРёРµРј С‚СЂР°С‚РёС‚ С…РѕРґ <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Огня: 7 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 7 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
  <br />
-Ваше следующее огненное заклинание получит +100 мф. мощности Магии Огня.<br />
-Этот прием не подвержен действию шока.<br />
+Р’Р°С€Рµ СЃР»РµРґСѓСЋС‰РµРµ РѕРіРЅРµРЅРЅРѕРµ Р·Р°РєР»РёРЅР°РЅРёРµ РїРѕР»СѓС‡РёС‚ +100 РјС„. РјРѕС‰РЅРѕСЃС‚Рё РњР°РіРёРё РћРіРЅСЏ.<br />
+Р­С‚РѕС‚ РїСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell13.gif" border=0></td>
-    <td> <B>Жертва огню (заклинание)</B>   (Масса: 1)<br />
-<B>Цена: 20 кр.</B> <br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 30 <br />
-• Уровень: 7 <br />
-• Мастерство владения стихией Огня: 7 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Вы теряете 10%HP, но восстанавливаете 20% маны.</small><br />
-Обучает приему: <B>Жертва Огню</B> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р–РµСЂС‚РІР° РѕРіРЅСЋ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1)<br />
+<B>Р¦РµРЅР°: 20 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 30 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 7 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’С‹ С‚РµСЂСЏРµС‚Рµ 10%HP, РЅРѕ РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚Рµ 20% РјР°РЅС‹.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>Р–РµСЂС‚РІР° РћРіРЅСЋ</B> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><img src="http://img.combats.ru/i/misc/icons/wis_fire_sacrifice.gif" width="40" height="25" border=0><br />
-<B>Жертва Огню</B><br />
+<B>Р–РµСЂС‚РІР° РћРіРЅСЋ</B><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0> 5<br />
-Расход маны: 4 <br />
-Задержка: 5<br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 4 <br />
+Р—Р°РґРµСЂР¶РєР°: 5<br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Огня: 7 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
-• HP: 10% <br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 7 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
+вЂў HP: 10% <br />
 <br />
-Вы теряете 10%HP, но восстанавливаете 20% маны<br />
+Р’С‹ С‚РµСЂСЏРµС‚Рµ 10%HP, РЅРѕ РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚Рµ 20% РјР°РЅС‹<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell9.gif" border=0></td>
-    <td> <B>Пылающий Взрыв (заклинание)</B>   (Масса: 1)<br />
-<B>Цена: 20 кр.</B> <br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25 <br />
-• Уровень: 7 <br />
-• Мастерство владения стихией Огня: 7 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Высвобождает энергию вашего заклятия Пожирающее Пламя на цели. Цель и еще 4 случайных цели получает 33% оставшегося урона Пожирающего Пламени магией Огня</small><br />
-Обучает приему: <B>Пылающий Взрыв</B> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РџС‹Р»Р°СЋС‰РёР№ Р’Р·СЂС‹РІ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1)<br />
+<B>Р¦РµРЅР°: 20 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 7 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’С‹СЃРІРѕР±РѕР¶РґР°РµС‚ СЌРЅРµСЂРіРёСЋ РІР°С€РµРіРѕ Р·Р°РєР»СЏС‚РёСЏ РџРѕР¶РёСЂР°СЋС‰РµРµ РџР»Р°РјСЏ РЅР° С†РµР»Рё. Р¦РµР»СЊ Рё РµС‰Рµ 4 СЃР»СѓС‡Р°Р№РЅС‹С… С†РµР»Рё РїРѕР»СѓС‡Р°РµС‚ 33% РѕСЃС‚Р°РІС€РµРіРѕСЃСЏ СѓСЂРѕРЅР° РџРѕР¶РёСЂР°СЋС‰РµРіРѕ РџР»Р°РјРµРЅРё РјР°РіРёРµР№ РћРіРЅСЏ</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>РџС‹Р»Р°СЋС‰РёР№ Р’Р·СЂС‹РІ</B> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><img src="http://img.combats.ru/i/misc/icons/wis_fire_flamedestroy.gif" width="40" height="25" border=0><br />
-<B>Пылающий Взрыв</B><br />
-Расход маны: 87 <br />
-Задержка: 5<br />
+<B>РџС‹Р»Р°СЋС‰РёР№ Р’Р·СЂС‹РІ</B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 87 <br />
+Р—Р°РґРµСЂР¶РєР°: 5<br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Огня: 7 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 7 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Высвобождает энергию вашего заклятия Пожирающее Пламя на цели. <br />
-Цель и еще 4 случайных цели получает 33% оставшегося урона Пожирающего Пламени магией Огня.<br />
+Р’С‹СЃРІРѕР±РѕР¶РґР°РµС‚ СЌРЅРµСЂРіРёСЋ РІР°С€РµРіРѕ Р·Р°РєР»СЏС‚РёСЏ РџРѕР¶РёСЂР°СЋС‰РµРµ РџР»Р°РјСЏ РЅР° С†РµР»Рё. <br />
+Р¦РµР»СЊ Рё РµС‰Рµ 4 СЃР»СѓС‡Р°Р№РЅС‹С… С†РµР»Рё РїРѕР»СѓС‡Р°РµС‚ 33% РѕСЃС‚Р°РІС€РµРіРѕСЃСЏ СѓСЂРѕРЅР° РџРѕР¶РёСЂР°СЋС‰РµРіРѕ РџР»Р°РјРµРЅРё РјР°РіРёРµР№ РћРіРЅСЏ.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell8.gif" border=0></td>
-    <td> <B>Пылающая Смерть (заклинание)</B>   (Масса: 1)<br />
-<B>Цена: 20 кр.</B> <br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25 <br />
-• Уровень: 7 <br />
-• Мастерство владения стихией Огня: 7 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Высвобождает энергию вашего заклятия Пожирающее Пламя на цели, если ее уровень жизни менее 33%. Цель получает 125% оставшегося урона Пожирающего Пламени</small><br />
-Обучает приему: <B>Пылающая Смерть</B> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РџС‹Р»Р°СЋС‰Р°СЏ РЎРјРµСЂС‚СЊ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1)<br />
+<B>Р¦РµРЅР°: 20 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 7 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’С‹СЃРІРѕР±РѕР¶РґР°РµС‚ СЌРЅРµСЂРіРёСЋ РІР°С€РµРіРѕ Р·Р°РєР»СЏС‚РёСЏ РџРѕР¶РёСЂР°СЋС‰РµРµ РџР»Р°РјСЏ РЅР° С†РµР»Рё, РµСЃР»Рё РµРµ СѓСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё РјРµРЅРµРµ 33%. Р¦РµР»СЊ РїРѕР»СѓС‡Р°РµС‚ 125% РѕСЃС‚Р°РІС€РµРіРѕСЃСЏ СѓСЂРѕРЅР° РџРѕР¶РёСЂР°СЋС‰РµРіРѕ РџР»Р°РјРµРЅРё</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>РџС‹Р»Р°СЋС‰Р°СЏ РЎРјРµСЂС‚СЊ</B> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><img src="http://img.combats.ru/i/misc/icons/wis_fire_flamedeath.gif" width="40" height="25" border=0><br />
-<B>Пылающая Смерть</B><br />
-Расход маны: 83 <br />
-Задержка 10<br />
+<B>РџС‹Р»Р°СЋС‰Р°СЏ РЎРјРµСЂС‚СЊ</B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 83 <br />
+Р—Р°РґРµСЂР¶РєР° 10<br />
  <br />
-Прием тратит ход <br />
+РџСЂРёРµРј С‚СЂР°С‚РёС‚ С…РѕРґ <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Огня: 7 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 7 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Высвобождает энергию вашего заклятия Пожирающее Пламя на цели, если её уровень жизни менее 33%. Цель получает 125% оставшегося урона Пожирающего пламени<br />
+Р’С‹СЃРІРѕР±РѕР¶РґР°РµС‚ СЌРЅРµСЂРіРёСЋ РІР°С€РµРіРѕ Р·Р°РєР»СЏС‚РёСЏ РџРѕР¶РёСЂР°СЋС‰РµРµ РџР»Р°РјСЏ РЅР° С†РµР»Рё, РµСЃР»Рё РµС‘ СѓСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё РјРµРЅРµРµ 33%. Р¦РµР»СЊ РїРѕР»СѓС‡Р°РµС‚ 125% РѕСЃС‚Р°РІС€РµРіРѕСЃСЏ СѓСЂРѕРЅР° РџРѕР¶РёСЂР°СЋС‰РµРіРѕ РїР»Р°РјРµРЅРё<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell14.gif" border=0></td>
-    <td> <B>Язык Пламени (заклинание)</B>   (Масса: 1)<br />
-<B>Цена: 25 кр.</B> <br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 35 <br />
-• Уровень: 8 <br />
-• Мастерство владения стихией Огня: 8 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Наносит цели 5% урона магией Огня от ее максимального уровня жизни. И еще +2% за каждый уровень Цели Огня. Максимальный урон заклинания ограничен. Заклинание не наносит критический урон.</small><br />
-Обучает приему: <B>Язык Пламени</B> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РЇР·С‹Рє РџР»Р°РјРµРЅРё (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1)<br />
+<B>Р¦РµРЅР°: 25 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 35 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 8 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РќР°РЅРѕСЃРёС‚ С†РµР»Рё 5% СѓСЂРѕРЅР° РјР°РіРёРµР№ РћРіРЅСЏ РѕС‚ РµРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ СѓСЂРѕРІРЅСЏ Р¶РёР·РЅРё. Р РµС‰Рµ +2% Р·Р° РєР°Р¶РґС‹Р№ СѓСЂРѕРІРµРЅСЊ Р¦РµР»Рё РћРіРЅСЏ. РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СѓСЂРѕРЅ Р·Р°РєР»РёРЅР°РЅРёСЏ РѕРіСЂР°РЅРёС‡РµРЅ. Р—Р°РєР»РёРЅР°РЅРёРµ РЅРµ РЅР°РЅРѕСЃРёС‚ РєСЂРёС‚РёС‡РµСЃРєРёР№ СѓСЂРѕРЅ.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>РЇР·С‹Рє РџР»Р°РјРµРЅРё</B> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_fire_flametongue.gif" border=0><br />
-<B>Язык Пламени</B><br />
-Расход маны: 114<br />
-Задержка: 3 <br />
+<B>РЇР·С‹Рє РџР»Р°РјРµРЅРё</B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 114<br />
+Р—Р°РґРµСЂР¶РєР°: 3 <br />
 <br />
-• Прием тратит ход <br />
+вЂў РџСЂРёРµРј С‚СЂР°С‚РёС‚ С…РѕРґ <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Огня: 8 <br />
-• Интеллект: 60<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 8 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 60<br />
 <br />
-Наносит цели 3% урона магией Огня от её Максимального уровня жизни. И ещё +2% за каждый уровень Цели Огня. <br />
-Заклинание не может нанести более 200 единиц урона, не наносит критический урон.</span><br />
+РќР°РЅРѕСЃРёС‚ С†РµР»Рё 3% СѓСЂРѕРЅР° РјР°РіРёРµР№ РћРіРЅСЏ РѕС‚ РµС‘ РњР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ СѓСЂРѕРІРЅСЏ Р¶РёР·РЅРё. Р РµС‰С‘ +2% Р·Р° РєР°Р¶РґС‹Р№ СѓСЂРѕРІРµРЅСЊ Р¦РµР»Рё РћРіРЅСЏ. <br />
+Р—Р°РєР»РёРЅР°РЅРёРµ РЅРµ РјРѕР¶РµС‚ РЅР°РЅРµСЃС‚Рё Р±РѕР»РµРµ 200 РµРґРёРЅРёС† СѓСЂРѕРЅР°, РЅРµ РЅР°РЅРѕСЃРёС‚ РєСЂРёС‚РёС‡РµСЃРєРёР№ СѓСЂРѕРЅ.</span><br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell12.gif" border=0></td>
-    <td> <B>Скрытое Пламя (заклинание)</B>   (Масса: 1)<br />
-<B>Цена: 25 кр.</B> <br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 35 <br />
-• Уровень: 8 <br />
-• Мастерство владения стихией Огня: 8 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Если уровень вашей жизни ниже 33%, то при использовании убирает текущие задержки на заклинаниях школы Огня. Один раз за бой. </small><br />
-Обучает приему: <B>Скрытое Пламя </B><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РЎРєСЂС‹С‚РѕРµ РџР»Р°РјСЏ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1)<br />
+<B>Р¦РµРЅР°: 25 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 35 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 8 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р•СЃР»Рё СѓСЂРѕРІРµРЅСЊ РІР°С€РµР№ Р¶РёР·РЅРё РЅРёР¶Рµ 33%, С‚Рѕ РїСЂРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё СѓР±РёСЂР°РµС‚ С‚РµРєСѓС‰РёРµ Р·Р°РґРµСЂР¶РєРё РЅР° Р·Р°РєР»РёРЅР°РЅРёСЏС… С€РєРѕР»С‹ РћРіРЅСЏ. РћРґРёРЅ СЂР°Р· Р·Р° Р±РѕР№. </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>РЎРєСЂС‹С‚РѕРµ РџР»Р°РјСЏ </B><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><img src="http://img.combats.ru/i/misc/icons/wis_fire_hiddenpower.gif" width="40" height="25" border=0><br />
-<B>Скрытое Пламя</B><br />
-Расход маны: 83 <br />
+<B>РЎРєСЂС‹С‚РѕРµ РџР»Р°РјСЏ</B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 83 <br />
 <br />
-• Прием тратит ход <br />
+вЂў РџСЂРёРµРј С‚СЂР°С‚РёС‚ С…РѕРґ <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Огня: 8 <br />
-• Интеллект: 60<br />
-• Уровень: 8<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 8 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 60<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
 <br />
-Если уровень вашей жизни ниже 33%, то при использовании убирает текущие задержки на заклинаниях школы Огня. <br />
-Один раз за бой.<br />
+Р•СЃР»Рё СѓСЂРѕРІРµРЅСЊ РІР°С€РµР№ Р¶РёР·РЅРё РЅРёР¶Рµ 33%, С‚Рѕ РїСЂРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё СѓР±РёСЂР°РµС‚ С‚РµРєСѓС‰РёРµ Р·Р°РґРµСЂР¶РєРё РЅР° Р·Р°РєР»РёРЅР°РЅРёСЏС… С€РєРѕР»С‹ РћРіРЅСЏ. <br />
+РћРґРёРЅ СЂР°Р· Р·Р° Р±РѕР№.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell11.gif" border=0></td>
-    <td> <B>Огненный Щит (заклинание)</B>   (Масса: 1)<br />
-<B>Цена: 25 кр.</B> <br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 35 <br />
-• Уровень: 8 <br />
-• Мастерство владения стихией Огня: 8 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Вы получаете на 50% меньше урона 2 последующих размена, полученный урон восстанавливает вашу ману. Этот прием не подвержен действию шока.</small><br />
-Обучает приему: <B>Огненный Щит</B> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РћРіРЅРµРЅРЅС‹Р№ Р©РёС‚ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1)<br />
+<B>Р¦РµРЅР°: 25 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 35 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 8 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РЅР° 50% РјРµРЅСЊС€Рµ СѓСЂРѕРЅР° 2 РїРѕСЃР»РµРґСѓСЋС‰РёС… СЂР°Р·РјРµРЅР°, РїРѕР»СѓС‡РµРЅРЅС‹Р№ СѓСЂРѕРЅ РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РІР°С€Сѓ РјР°РЅСѓ. Р­С‚РѕС‚ РїСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>РћРіРЅРµРЅРЅС‹Р№ Р©РёС‚</B> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><img src="http://img.combats.ru/i/misc/icons/wis_fire_shield.gif" width="40" height="25" border=0><br />
-<B>Огненный Щит</B><br />
-Расход маны: 130 <br />
-Задержка: 10 <br />
+<B>РћРіРЅРµРЅРЅС‹Р№ Р©РёС‚</B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 130 <br />
+Р—Р°РґРµСЂР¶РєР°: 10 <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Огня: 8 <br />
-• Интеллект: 60<br />
-• Уровень: 8<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ РћРіРЅСЏ: 8 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 60<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
 <br />
-Вы получаете на 50% меньше урона 2 последующих размена, полученный урон восстанавливает вашу ману. <br />
-Этот прием не подвержен действию шока.<br />
+Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РЅР° 50% РјРµРЅСЊС€Рµ СѓСЂРѕРЅР° 2 РїРѕСЃР»РµРґСѓСЋС‰РёС… СЂР°Р·РјРµРЅР°, РїРѕР»СѓС‡РµРЅРЅС‹Р№ СѓСЂРѕРЅ РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РІР°С€Сѓ РјР°РЅСѓ. <br />
+Р­С‚РѕС‚ РїСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/Inei.gif" border=0></td>
-    <td> <B>Иней (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25 <br />
-• Уровень: 7 <br />
-• Мастерство владения стихией Воды: 7 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-В инструкции рассказывается, как тонким слоем льда защитить себя от урона.</small> <br />
-Обучает приему: <b>Иней</b> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РРЅРµР№ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 7 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’ РёРЅСЃС‚СЂСѓРєС†РёРё СЂР°СЃСЃРєР°Р·С‹РІР°РµС‚СЃСЏ, РєР°Рє С‚РѕРЅРєРёРј СЃР»РѕРµРј Р»СЊРґР° Р·Р°С‰РёС‚РёС‚СЊ СЃРµР±СЏ РѕС‚ СѓСЂРѕРЅР°.</small> <br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РРЅРµР№</b> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_water_shield.gif" border=0><br />
-<B>Иней </B><br />
-Расход маны: 190 <br />
-Задержка: 5 <br />
+<B>РРЅРµР№ </B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 190 <br />
+Р—Р°РґРµСЂР¶РєР°: 5 <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Воды: 7 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 7 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Вы получаете на 25% меньше урона 4 последующих размена.<br />
+Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РЅР° 25% РјРµРЅСЊС€Рµ СѓСЂРѕРЅР° 4 РїРѕСЃР»РµРґСѓСЋС‰РёС… СЂР°Р·РјРµРЅР°.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell15.gif" border=0></td>
-    <td> <B>Кристаллизация (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 25 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 35<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Воды: 8<br />
-Максимум: 1 ед.<br />
-<small>Описание: <br />
-Мгновенно наносит цели урон равный уровню силы цели, но не более определенного. Снижает Силу и Ловкость цели.</small><br />
-Обучает приему: <b>Кристаллизация</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РљСЂРёСЃС‚Р°Р»Р»РёР·Р°С†РёСЏ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 25 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 35<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 8<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РњРіРЅРѕРІРµРЅРЅРѕ РЅР°РЅРѕСЃРёС‚ С†РµР»Рё СѓСЂРѕРЅ СЂР°РІРЅС‹Р№ СѓСЂРѕРІРЅСЋ СЃРёР»С‹ С†РµР»Рё, РЅРѕ РЅРµ Р±РѕР»РµРµ РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ. РЎРЅРёР¶Р°РµС‚ РЎРёР»Сѓ Рё Р›РѕРІРєРѕСЃС‚СЊ С†РµР»Рё.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РљСЂРёСЃС‚Р°Р»Р»РёР·Р°С†РёСЏ</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_water_crystalize.gif" border=0><br />
-<B>Кристаллизация</B><br />
-Расход маны: 180<br />
-Задержка: 5 <br />
+<B>РљСЂРёСЃС‚Р°Р»Р»РёР·Р°С†РёСЏ</B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 180<br />
+Р—Р°РґРµСЂР¶РєР°: 5 <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Воды: 8 <br />
-• Интеллект: 60<br />
-• Уровень: 8<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 8 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 60<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
 <br />
-Мгновенно наносит цели урон равный уровню силы цели но не более чем 90.<br />
-Снижает силу и ловкость цели на 20 на три хода.<br />
+РњРіРЅРѕРІРµРЅРЅРѕ РЅР°РЅРѕСЃРёС‚ С†РµР»Рё СѓСЂРѕРЅ СЂР°РІРЅС‹Р№ СѓСЂРѕРІРЅСЋ СЃРёР»С‹ С†РµР»Рё РЅРѕ РЅРµ Р±РѕР»РµРµ С‡РµРј 90.<br />
+РЎРЅРёР¶Р°РµС‚ СЃРёР»Сѓ Рё Р»РѕРІРєРѕСЃС‚СЊ С†РµР»Рё РЅР° 20 РЅР° С‚СЂРё С…РѕРґР°.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell16.gif" border=0></td>
-    <td> <B>Хватка Льда (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25<br />
-• Уровень: 7<br />
-• Мастерство владения стихией Воды: 7<br />
-Максимум: 1 ед.<br />
-<small>Описание: <br />
-Через 2 хода цель теряет возможность использовать приемы или набирать очки тактики на 3 хода.</small><br />
-Обучает приему: <b>Хватка Льда</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РҐРІР°С‚РєР° Р›СЊРґР° (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 7<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р§РµСЂРµР· 2 С…РѕРґР° С†РµР»СЊ С‚РµСЂСЏРµС‚ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРёРµРјС‹ РёР»Рё РЅР°Р±РёСЂР°С‚СЊ РѕС‡РєРё С‚Р°РєС‚РёРєРё РЅР° 3 С…РѕРґР°.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РҐРІР°С‚РєР° Р›СЊРґР°</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_water_icegrap.gif" border=0><br />
-<B>Хватка Льда</B><br />
-Расход маны: 90<br />
-Задержка: 10<br />
+<B>РҐРІР°С‚РєР° Р›СЊРґР°</B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 90<br />
+Р—Р°РґРµСЂР¶РєР°: 10<br />
  <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Воды: 7 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 7 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Через 2 хода цель теряет возможность использовать приемы или набирать очки тактики на 3 хода.<br />
+Р§РµСЂРµР· 2 С…РѕРґР° С†РµР»СЊ С‚РµСЂСЏРµС‚ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРёРµРјС‹ РёР»Рё РЅР°Р±РёСЂР°С‚СЊ РѕС‡РєРё С‚Р°РєС‚РёРєРё РЅР° 3 С…РѕРґР°.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell17.gif" border=0></td>
-    <td> <B>Жертва Воде (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25<br />
-• Уровень: 7<br />
-• Мастерство владения стихией Воды: 7<br />
-Максимум: 1 ед.<br />
-<small>Описание: <br />
-Маг теряет 10% жизни за 5 ходов, но цена всех заклятий снижена на 30%.</small><br />
-Обучает приему: <b>Жертва Воде</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р–РµСЂС‚РІР° Р’РѕРґРµ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 7<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РњР°Рі С‚РµСЂСЏРµС‚ 10% Р¶РёР·РЅРё Р·Р° 5 С…РѕРґРѕРІ, РЅРѕ С†РµРЅР° РІСЃРµС… Р·Р°РєР»СЏС‚РёР№ СЃРЅРёР¶РµРЅР° РЅР° 30%.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р–РµСЂС‚РІР° Р’РѕРґРµ</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_water_sacrifice.gif" border=0><br />
-<B>Жертва Воде</B><br />
+<B>Р–РµСЂС‚РІР° Р’РѕРґРµ</B><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0>5<br />
-Расход маны: 5<br />
-Задержка: 10 <br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 5<br />
+Р—Р°РґРµСЂР¶РєР°: 10 <br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Воды: 7 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 7 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Маг теряет 10% жизни за 5 ходов, но цена всех заклятий снижена на 50%.<br />
+РњР°Рі С‚РµСЂСЏРµС‚ 10% Р¶РёР·РЅРё Р·Р° 5 С…РѕРґРѕРІ, РЅРѕ С†РµРЅР° РІСЃРµС… Р·Р°РєР»СЏС‚РёР№ СЃРЅРёР¶РµРЅР° РЅР° 50%.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/duhi lda.gif" border=0></td>
-    <td> <B>Духи Льда (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 25 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 35<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Воды: 8<br />
-Максимум: 1 ед.<br />
-<small>Описание: <br />
-На три хода увеличивает мф. мощности Магии Воды на 15. Часть вашего прямого урона магией воды, восстанавливает ману</small><br />
-Обучает приему: <b>Духи Льда</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р”СѓС…Рё Р›СЊРґР° (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 25 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 35<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 8<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РќР° С‚СЂРё С…РѕРґР° СѓРІРµР»РёС‡РёРІР°РµС‚ РјС„. РјРѕС‰РЅРѕСЃС‚Рё РњР°РіРёРё Р’РѕРґС‹ РЅР° 15. Р§Р°СЃС‚СЊ РІР°С€РµРіРѕ РїСЂСЏРјРѕРіРѕ СѓСЂРѕРЅР° РјР°РіРёРµР№ РІРѕРґС‹, РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РјР°РЅСѓ</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р”СѓС…Рё Р›СЊРґР°</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_water_spirit.gif" border=0><br />
-<B>Духи Льда</B><br />
+<B>Р”СѓС…Рё Р›СЊРґР°</B><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0>4<br />
-Сила духа: 5<br />
-Расход маны: 5<br />
-Задержка: 10<br />
+РЎРёР»Р° РґСѓС…Р°: 5<br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 5<br />
+Р—Р°РґРµСЂР¶РєР°: 10<br />
  <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Воды: 8 <br />
-• Интеллект: 60<br />
-• Уровень: 8<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 8 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 60<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
 <br />
-На три хода увеличивает мф. мощности Магии Воды на 15. Часть вашего прямого урона магией воды, восстанавливают вам ману.<br />
+РќР° С‚СЂРё С…РѕРґР° СѓРІРµР»РёС‡РёРІР°РµС‚ РјС„. РјРѕС‰РЅРѕСЃС‚Рё РњР°РіРёРё Р’РѕРґС‹ РЅР° 15. Р§Р°СЃС‚СЊ РІР°С€РµРіРѕ РїСЂСЏРјРѕРіРѕ СѓСЂРѕРЅР° РјР°РіРёРµР№ РІРѕРґС‹, РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°СЋС‚ РІР°Рј РјР°РЅСѓ.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell19.gif" border=0></td>
-    <td> <B>Оледенениие: Разбить (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25<br />
-• Уровень: 7<br />
-• Мастерство владения стихией Воды: 7<br />
-Максимум: 1 ед.<br />
-<small>Описание: <br />
-Наносит текущей цели подверженной Оледенению урон магией воды. Наносит дополнительный урон, если уровень жизни цели меньше определенного</small><br />
-Обучает приему: <b>Оледенениие: Разбить!</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РћР»РµРґРµРЅРµРЅРёРёРµ: Р Р°Р·Р±РёС‚СЊ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 7<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РќР°РЅРѕСЃРёС‚ С‚РµРєСѓС‰РµР№ С†РµР»Рё РїРѕРґРІРµСЂР¶РµРЅРЅРѕР№ РћР»РµРґРµРЅРµРЅРёСЋ СѓСЂРѕРЅ РјР°РіРёРµР№ РІРѕРґС‹. РќР°РЅРѕСЃРёС‚ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СѓСЂРѕРЅ, РµСЃР»Рё СѓСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё С†РµР»Рё РјРµРЅСЊС€Рµ РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РћР»РµРґРµРЅРµРЅРёРёРµ: Р Р°Р·Р±РёС‚СЊ!</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_water_break.gif" border=0><br />
-<B>Оледенениие: Разбить!</B><br />
-Расход маны: 180<br />
-Задержка: 5<br />
+<B>РћР»РµРґРµРЅРµРЅРёРёРµ: Р Р°Р·Р±РёС‚СЊ!</B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 180<br />
+Р—Р°РґРµСЂР¶РєР°: 5<br />
 <br />
-• Прием тратит ход<br />
+вЂў РџСЂРёРµРј С‚СЂР°С‚РёС‚ С…РѕРґ<br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Воды: 7 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 7 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Наносит текущей цели подверженной <B>Оледенению</B> 184 урона магией воды и еще 276, если уровень жизни цели менее 200 .<br />
+РќР°РЅРѕСЃРёС‚ С‚РµРєСѓС‰РµР№ С†РµР»Рё РїРѕРґРІРµСЂР¶РµРЅРЅРѕР№ <B>РћР»РµРґРµРЅРµРЅРёСЋ</B> 184 СѓСЂРѕРЅР° РјР°РіРёРµР№ РІРѕРґС‹ Рё РµС‰Рµ 276, РµСЃР»Рё СѓСЂРѕРІРµРЅСЊ Р¶РёР·РЅРё С†РµР»Рё РјРµРЅРµРµ 200 .<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/led spasenie.gif" border=0></td>
-    <td> <B>Ледяное Спасение (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 25 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 35<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Воды: 8<br />
-Максимум: 1 ед.<br />
-<small>Описание: <br />
-Мгновенно останавливает кровотечения, исцеляя мага, но наносит магу урон последующие 5 ходов</small><br />
-Обучает приему: <b>Ледяное Спасение</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р›РµРґСЏРЅРѕРµ РЎРїР°СЃРµРЅРёРµ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 25 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 35<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 8<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РњРіРЅРѕРІРµРЅРЅРѕ РѕСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РєСЂРѕРІРѕС‚РµС‡РµРЅРёСЏ, РёСЃС†РµР»СЏСЏ РјР°РіР°, РЅРѕ РЅР°РЅРѕСЃРёС‚ РјР°РіСѓ СѓСЂРѕРЅ РїРѕСЃР»РµРґСѓСЋС‰РёРµ 5 С…РѕРґРѕРІ</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р›РµРґСЏРЅРѕРµ РЎРїР°СЃРµРЅРёРµ</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_water_tempheal.gif" border=0><br />
-<B>Ледяное Спасение</B><br />
+<B>Р›РµРґСЏРЅРѕРµ РЎРїР°СЃРµРЅРёРµ</B><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0>1<br />
-Расход маны: 118<br />
-Задержка: 5<br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 118<br />
+Р—Р°РґРµСЂР¶РєР°: 5<br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Воды: 8 <br />
-• Интеллект: 60<br />
-• Уровень: 8<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 8 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 60<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
 <br />
-Мгновенно останавливает кровотечения, исцеляя мага на 405HP магией воды, но за последующие 5 ходов цель теряет 202HP.<br />
+РњРіРЅРѕРІРµРЅРЅРѕ РѕСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ РєСЂРѕРІРѕС‚РµС‡РµРЅРёСЏ, РёСЃС†РµР»СЏСЏ РјР°РіР° РЅР° 405HP РјР°РіРёРµР№ РІРѕРґС‹, РЅРѕ Р·Р° РїРѕСЃР»РµРґСѓСЋС‰РёРµ 5 С…РѕРґРѕРІ С†РµР»СЊ С‚РµСЂСЏРµС‚ 202HP.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/ostraya gran.gif" border=0></td>
-    <td> <B>Острая Грань (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25<br />
-• Уровень: 7<br />
-• Мастерство владения стихией Воды: 7<br />
-Максимум: 1 ед.<br />
-<small>Описание: <br />
-Наносит цели колющий урон</small><br />
-Обучает приему: <b>Острая Грань</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РћСЃС‚СЂР°СЏ Р“СЂР°РЅСЊ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 7<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РќР°РЅРѕСЃРёС‚ С†РµР»Рё РєРѕР»СЋС‰РёР№ СѓСЂРѕРЅ</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РћСЃС‚СЂР°СЏ Р“СЂР°РЅСЊ</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_water_strike.gif" border=0><br />
-<B>Острая Грань</B><br />
-Расход маны: 114<br />
-Задержка: 3<br />
+<B>РћСЃС‚СЂР°СЏ Р“СЂР°РЅСЊ</B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 114<br />
+Р—Р°РґРµСЂР¶РєР°: 3<br />
 <br />
-• Прием тратит ход<br />
+вЂў РџСЂРёРµРј С‚СЂР°С‚РёС‚ С…РѕРґ<br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Воды: 7 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 7 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Наносит цели 485 ед. колющего урона.<br />
+РќР°РЅРѕСЃРёС‚ С†РµР»Рё 485 РµРґ. РєРѕР»СЋС‰РµРіРѕ СѓСЂРѕРЅР°.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell22.gif" border=0></td>
-    <td> <B>Ледяное Сердце (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 25 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 35<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Воды: 8<br />
-Максимум: 1 ед.<br />
-<small>Описание: <br />
-При использовании убирает текущие задержки на заклинаниях школы Воды.</small><br />
-Обучает приему: <b>Ледяное Сердце</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р›РµРґСЏРЅРѕРµ РЎРµСЂРґС†Рµ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 25 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 35<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 8<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РџСЂРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё СѓР±РёСЂР°РµС‚ С‚РµРєСѓС‰РёРµ Р·Р°РґРµСЂР¶РєРё РЅР° Р·Р°РєР»РёРЅР°РЅРёСЏС… С€РєРѕР»С‹ Р’РѕРґС‹.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р›РµРґСЏРЅРѕРµ РЎРµСЂРґС†Рµ</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_water_hiddenpower.gif" border=0><br />
-<B>Ледяное Сердце</B><br />
-Расход маны: 117<br />
-Задержка: 10<br />
+<B>Р›РµРґСЏРЅРѕРµ РЎРµСЂРґС†Рµ</B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 117<br />
+Р—Р°РґРµСЂР¶РєР°: 10<br />
 <br />
-• Прием тратит ход<br />
+вЂў РџСЂРёРµРј С‚СЂР°С‚РёС‚ С…РѕРґ<br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Воды: 8 <br />
-• Интеллект: 60<br />
-• Уровень: 8<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 8 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 60<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
 <br />
-При использовании убирает текущие задержки на заклинаниях школы Воды.<br />
+РџСЂРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё СѓР±РёСЂР°РµС‚ С‚РµРєСѓС‰РёРµ Р·Р°РґРµСЂР¶РєРё РЅР° Р·Р°РєР»РёРЅР°РЅРёСЏС… С€РєРѕР»С‹ Р’РѕРґС‹.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/chistota vody.gif" border=0></td>
-    <td> <B>Чистота Воды (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 25 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 35<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Воды: 8<br />
-Максимум: 1 ед.<br />
-<small>Описание: <br />
-Снимает один негативный эффект магии или отравления.</small><br />
-Обучает приему: <b>Чистота Воды</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р§РёСЃС‚РѕС‚Р° Р’РѕРґС‹ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 25 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 35<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 8<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РЎРЅРёРјР°РµС‚ РѕРґРёРЅ РЅРµРіР°С‚РёРІРЅС‹Р№ СЌС„С„РµРєС‚ РјР°РіРёРё РёР»Рё РѕС‚СЂР°РІР»РµРЅРёСЏ.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р§РёСЃС‚РѕС‚Р° Р’РѕРґС‹</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_water_cleance.gif" border=0><br />
-<B>Чистота Воды</B><br />
-Расход маны: 100<br />
-Задержка: 5<br />
+<B>Р§РёСЃС‚РѕС‚Р° Р’РѕРґС‹</B><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 100<br />
+Р—Р°РґРµСЂР¶РєР°: 5<br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Воды: 8 <br />
-• Интеллект: 50<br />
-• Уровень: 8<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 8 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
 <br />
-Снимает один негативный эффект магии или отравления.<br />
+РЎРЅРёРјР°РµС‚ РѕРґРёРЅ РЅРµРіР°С‚РёРІРЅС‹Р№ СЌС„С„РµРєС‚ РјР°РіРёРё РёР»Рё РѕС‚СЂР°РІР»РµРЅРёСЏ.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell24.gif" border=0></td>
-    <td> <B>Переохлаждение (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 45 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 75<br />
-• Уровень: 9<br />
-• Мастерство владения стихией Воды: 9<br />
-Максимум: 1 ед.<br />
-<small>Описание: <br />
-Уменьшает эффекты лечения на цели на 10%. Можно применить на одну цель до 5 раз.</small><br />
-Обучает приему: <b>Переохлаждение</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РџРµСЂРµРѕС…Р»Р°Р¶РґРµРЅРёРµ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 45 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 75<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 9<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 9<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РЈРјРµРЅСЊС€Р°РµС‚ СЌС„С„РµРєС‚С‹ Р»РµС‡РµРЅРёСЏ РЅР° С†РµР»Рё РЅР° 10%. РњРѕР¶РЅРѕ РїСЂРёРјРµРЅРёС‚СЊ РЅР° РѕРґРЅСѓ С†РµР»СЊ РґРѕ 5 СЂР°Р·.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РџРµСЂРµРѕС…Р»Р°Р¶РґРµРЅРёРµ</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_water_aheal.gif" border=0><br />
-<B>Переохлаждение</B><br />
+<B>РџРµСЂРµРѕС…Р»Р°Р¶РґРµРЅРёРµ</B><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0> 1<br />
-Расход маны: 24<br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 24<br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Воды: 9 <br />
-• Интеллект: 75<br />
-• Уровень: 9<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕРґС‹: 9 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 75<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 9<br />
 <br />
-Уменьшает эффекты лечения на цели на 15% и урон цели на 3% на 5 ходов. Можно применить на одну цель до 3 раз.<br />
+РЈРјРµРЅСЊС€Р°РµС‚ СЌС„С„РµРєС‚С‹ Р»РµС‡РµРЅРёСЏ РЅР° С†РµР»Рё РЅР° 15% Рё СѓСЂРѕРЅ С†РµР»Рё РЅР° 3% РЅР° 5 С…РѕРґРѕРІ. РњРѕР¶РЅРѕ РїСЂРёРјРµРЅРёС‚СЊ РЅР° РѕРґРЅСѓ С†РµР»СЊ РґРѕ 3 СЂР°Р·.<br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><img src="http://bestcombats.net/news/i/booklearn_spell28.gif"></td>
-    <td><b>Жертва Воздуху (заклинание)</b>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1<br />
-<b>Требуется минимальное:</b><br />
-• Интеллект: 25<br />
-• Уровень: 7<br />
-• Мастерство владения стихией Воздуха: 7<br />
-Максимум: 1 ед.<br />
-<small>Описание:<br />
-Маг получает 25 мф. мощности магии Воздуха на 4 хода.</small><br />
-Обучает приему: <b>Жертва Воздуху</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td><b>Р–РµСЂС‚РІР° Р’РѕР·РґСѓС…Сѓ (Р·Р°РєР»РёРЅР°РЅРёРµ)</b>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<b>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 7<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ:<br />
+РњР°Рі РїРѕР»СѓС‡Р°РµС‚ 25 РјС„. РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё Р’РѕР·РґСѓС…Р° РЅР° 4 С…РѕРґР°.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р–РµСЂС‚РІР° Р’РѕР·РґСѓС…Сѓ</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
 <td>
 <img src="http://img.combats.ru/i/misc/icons/wis_air_sacrifice.gif"><br />
-<b>Жертва Воздуху</b><br />
+<b>Р–РµСЂС‚РІР° Р’РѕР·РґСѓС…Сѓ</b><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0> 5<br />
-Расход маны: 7<br />
-Задержка 10 <br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 7<br />
+Р—Р°РґРµСЂР¶РєР° 10 <br />
 <br />
-Маг получает 25 мф. мощности магии Воздуха на 4 хода.<br />
+РњР°Рі РїРѕР»СѓС‡Р°РµС‚ 25 РјС„. РјРѕС‰РЅРѕСЃС‚Рё РјР°РіРёРё Р’РѕР·РґСѓС…Р° РЅР° 4 С…РѕРґР°.<br />
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><img src="http://bestcombats.net/news/i/booklearn_spell29.gif"></td>
-<td><b>Скорость Молнии (заклинание)</b>   (Масса: 1) <br />
-<b>Цена: 30 кр. </b><br />
-Долговечность: 0/1<br />
-<b>Требуется минимальное:</b><br />
-• Интеллект: 60<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Воздуха: 8<br />
-Максимум: 1 ед.<br />
-<small>Описание:<br />
-Любой следующий прием не тратит хода.</small><br />
-Обучает приему: <b>Скорость Молнии</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+<td><b>РЎРєРѕСЂРѕСЃС‚СЊ РњРѕР»РЅРёРё (Р·Р°РєР»РёРЅР°РЅРёРµ)</b>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 30 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<b>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 60<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 8<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ:<br />
+Р›СЋР±РѕР№ СЃР»РµРґСѓСЋС‰РёР№ РїСЂРёРµРј РЅРµ С‚СЂР°С‚РёС‚ С…РѕРґР°.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РЎРєРѕСЂРѕСЃС‚СЊ РњРѕР»РЅРёРё</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
 <td>
 <img src="http://img.combats.ru/i/misc/icons/wis_air_speed.gif"><br />
-<b>Скорость Молнии</b><br />
-Сила духа: 4<br />
-Расход маны: 62<br />
-Начальная задержка: 5<br />
-Задержка: 10 <br />
+<b>РЎРєРѕСЂРѕСЃС‚СЊ РњРѕР»РЅРёРё</b><br />
+РЎРёР»Р° РґСѓС…Р°: 4<br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 62<br />
+РќР°С‡Р°Р»СЊРЅР°СЏ Р·Р°РґРµСЂР¶РєР°: 5<br />
+Р—Р°РґРµСЂР¶РєР°: 10 <br />
 <br />
-<b>Минимальные требования:</b> <br />
-• Интеллект: 60<br />
-• Мастерство владения стихией Воздуха: 8 <br />
-• Уровень: 8<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 60<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 8 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
 <br />
-Любой следующий прием не тратит хода.<br />
+Р›СЋР±РѕР№ СЃР»РµРґСѓСЋС‰РёР№ РїСЂРёРµРј РЅРµ С‚СЂР°С‚РёС‚ С…РѕРґР°.<br />
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><img src="http://bestcombats.net/news/i/booklearn_spell25.gif"></td>
-<td><b>Искра (заклинание)</b>   (Масса: 1) <br />
-<b>Цена: 50 кр. </b><br />
-Долговечность: 0/1<br />
-<b>Требуется минимальное:</b><br />
-• Интеллект: 60<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Воздуха: 8<br />
-Максимум: 1 ед.<br />
-<small>Описание:<br />
-Мгновенно наносит враждебной цели 1-47 урона воздухом или исцеляет дружественную</small><br />
-Обучает приему: <b>Искра</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+<td><b>РСЃРєСЂР° (Р·Р°РєР»РёРЅР°РЅРёРµ)</b>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 50 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<b>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 60<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 8<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ:<br />
+РњРіРЅРѕРІРµРЅРЅРѕ РЅР°РЅРѕСЃРёС‚ РІСЂР°Р¶РґРµР±РЅРѕР№ С†РµР»Рё 1-47 СѓСЂРѕРЅР° РІРѕР·РґСѓС…РѕРј РёР»Рё РёСЃС†РµР»СЏРµС‚ РґСЂСѓР¶РµСЃС‚РІРµРЅРЅСѓСЋ</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РСЃРєСЂР°</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
 <td>
 <img src="http://img.combats.ru/i/misc/icons/wis_air_spark.gif"><br />
-<b>Искра</b><br />
-Расход маны: 62<br />
-Задержка 10 <br />
+<b>РСЃРєСЂР°</b><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 62<br />
+Р—Р°РґРµСЂР¶РєР° 10 <br />
 <br />
-<b>Минимальные требования: </b><br />
-• Интеллект: 60<br />
-• Мастерство владения стихией Воздуха: 8 <br />
-• Уровень: 8<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: </b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 60<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 8 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
 <br />
-Мгновенно наносит враждебной цели 1-57 урона воздухом или исцеляет дружественную<br />
+РњРіРЅРѕРІРµРЅРЅРѕ РЅР°РЅРѕСЃРёС‚ РІСЂР°Р¶РґРµР±РЅРѕР№ С†РµР»Рё 1-57 СѓСЂРѕРЅР° РІРѕР·РґСѓС…РѕРј РёР»Рё РёСЃС†РµР»СЏРµС‚ РґСЂСѓР¶РµСЃС‚РІРµРЅРЅСѓСЋ<br />
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><img src="http://bestcombats.net/news/i/vosduh shit.gif"></td>
-<td><b>Воздушный Щит (заклинание)</b>   (Масса: 1) <br />
-<b>Цена: 10 кр. </b><br />
-Долговечность: 0/1<br />
-<b>Требуется минимальное:</b><br />
-• Интеллект: 80<br />
-• Уровень: 9<br />
-• Мастерство владения стихией Воздуха: 9<br />
-Максимум: 1 ед.<br />
-<small>Описание:<br />
-Создает воздушный кокон вокруг мага, способный поглотить 1-0 ед. урона.<br />
-Этот прием не подвержен действию шока.<br />
-Общая задержка с заклинанием Силовое Поле.</small><br />
-Обучает приему: <b>Воздушный Щит</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+<td><b>Р’РѕР·РґСѓС€РЅС‹Р№ Р©РёС‚ (Р·Р°РєР»РёРЅР°РЅРёРµ)</b>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 10 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<b>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 80<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 9<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 9<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ:<br />
+РЎРѕР·РґР°РµС‚ РІРѕР·РґСѓС€РЅС‹Р№ РєРѕРєРѕРЅ РІРѕРєСЂСѓРі РјР°РіР°, СЃРїРѕСЃРѕР±РЅС‹Р№ РїРѕРіР»РѕС‚РёС‚СЊ 1-0 РµРґ. СѓСЂРѕРЅР°.<br />
+Р­С‚РѕС‚ РїСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.<br />
+РћР±С‰Р°СЏ Р·Р°РґРµСЂР¶РєР° СЃ Р·Р°РєР»РёРЅР°РЅРёРµРј РЎРёР»РѕРІРѕРµ РџРѕР»Рµ.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р’РѕР·РґСѓС€РЅС‹Р№ Р©РёС‚</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
 <td>
 <img src="http://img.combats.ru/i/misc/icons/wis_air_shield.gif"><br />
-<b>Воздушный Щит</b><br />
-Расход маны: 127 <br />
-Задержка 12 <br />
-Приём тратит ход <br />
+<b>Р’РѕР·РґСѓС€РЅС‹Р№ Р©РёС‚</b><br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 127 <br />
+Р—Р°РґРµСЂР¶РєР° 12 <br />
+РџСЂРёС‘Рј С‚СЂР°С‚РёС‚ С…РѕРґ <br />
 <br />
-<b>Минимальные требования: </b><br />
-• Интеллект: 80 <br />
-• Мастерство владения стихией Воздуха: 9<br />
-• Уровень: 9 <br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: </b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 80 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 9<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 9 <br />
 <br />
-Создаёт воздушный кокон вокруг мага, способный поглотить 1-190 ед. урона. <br />
-Этот приём не подвержен действию шока. <br />
-Общая задержка с заклинанием Силовое поле.<br />
+РЎРѕР·РґР°С‘С‚ РІРѕР·РґСѓС€РЅС‹Р№ РєРѕРєРѕРЅ РІРѕРєСЂСѓРі РјР°РіР°, СЃРїРѕСЃРѕР±РЅС‹Р№ РїРѕРіР»РѕС‚РёС‚СЊ 1-190 РµРґ. СѓСЂРѕРЅР°. <br />
+Р­С‚РѕС‚ РїСЂРёС‘Рј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°. <br />
+РћР±С‰Р°СЏ Р·Р°РґРµСЂР¶РєР° СЃ Р·Р°РєР»РёРЅР°РЅРёРµРј РЎРёР»РѕРІРѕРµ РїРѕР»Рµ.<br />
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><img src="http://bestcombats.net/news/i/booklearn_spell26.gif"></td>
-<td><b>Статика (набор заклинаний)</b>   (Масса: 1)<br />
-<b>Цена: 100 кр. </b><br />
-Долговечность: 0/1<br />
-<b>Требуется минимальное:</b><br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
-• Мастерство владения стихией Воздуха: 7<br />
-Максимум: 1 ед.<br />
-<small>Описание:<br />
-Обучает набору заклинаний, позволающих накапливать заряд на цели и использовать его в своих целях</small><br />
-Обучает приемам: <b>Статика, Заряд: Собрать, Заряд: Поражение, Заряд: Шок</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+<td><b>РЎС‚Р°С‚РёРєР° (РЅР°Р±РѕСЂ Р·Р°РєР»РёРЅР°РЅРёР№)</b>   (РњР°СЃСЃР°: 1)<br />
+<b>Р¦РµРЅР°: 100 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<b>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 7<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ:<br />
+РћР±СѓС‡Р°РµС‚ РЅР°Р±РѕСЂСѓ Р·Р°РєР»РёРЅР°РЅРёР№, РїРѕР·РІРѕР»Р°СЋС‰РёС… РЅР°РєР°РїР»РёРІР°С‚СЊ Р·Р°СЂСЏРґ РЅР° С†РµР»Рё Рё РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РµРіРѕ РІ СЃРІРѕРёС… С†РµР»СЏС…</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјР°Рј: <b>РЎС‚Р°С‚РёРєР°, Р—Р°СЂСЏРґ: РЎРѕР±СЂР°С‚СЊ, Р—Р°СЂСЏРґ: РџРѕСЂР°Р¶РµРЅРёРµ, Р—Р°СЂСЏРґ: РЁРѕРє</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
 <td>
 <img src="http://img.combats.ru/i/misc/icons/wis_air_charge.gif"><br />
-<b><DIV><A href="javascript: void(0);" onClick="if (hidtext1003.style.display == '') { this.innerText = 'Статика'; hidtext1003.style.display = 'none'; } else { this.innerText = 'Статика'; hidtext1003.style.display = ''; }">Статика</A></DIV><DIV id='hidtext1003' style='display: none;'></b><br />
-Сила духа: 1<br />
-Расход маны: 74 <br />
+<b><DIV><A href="javascript: void(0);" onClick="if (hidtext1003.style.display == '') { this.innerText = 'РЎС‚Р°С‚РёРєР°'; hidtext1003.style.display = 'none'; } else { this.innerText = 'РЎС‚Р°С‚РёРєР°'; hidtext1003.style.display = ''; }">РЎС‚Р°С‚РёРєР°</A></DIV><DIV id='hidtext1003' style='display: none;'></b><br />
+РЎРёР»Р° РґСѓС…Р°: 1<br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 74 <br />
 <br />
-<b>Минимальные требования: </b><br />
-•Интеллект: 40<br />
-•Мастерство владения стихией Воздуха: 7<br />
-•Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: </b><br />
+вЂўРРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂўРњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 7<br />
+вЂўРЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Молния, Цепь Молний, Искра, Искры, и удары по Воздушному Щиту будут заражать цель, увеличивая получаемый от магии Воздуха урон на 1%. Маг может воспользоваться наколенными зарядами<br />
+РњРѕР»РЅРёСЏ, Р¦РµРїСЊ РњРѕР»РЅРёР№, РСЃРєСЂР°, РСЃРєСЂС‹, Рё СѓРґР°СЂС‹ РїРѕ Р’РѕР·РґСѓС€РЅРѕРјСѓ Р©РёС‚Сѓ Р±СѓРґСѓС‚ Р·Р°СЂР°Р¶Р°С‚СЊ С†РµР»СЊ, СѓРІРµР»РёС‡РёРІР°СЏ РїРѕР»СѓС‡Р°РµРјС‹Р№ РѕС‚ РјР°РіРёРё Р’РѕР·РґСѓС…Р° СѓСЂРѕРЅ РЅР° 1%. РњР°Рі РјРѕР¶РµС‚ РІРѕСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РЅР°РєРѕР»РµРЅРЅС‹РјРё Р·Р°СЂСЏРґР°РјРё<br />
 </DIV><br />
 <br />
 <img src="http://img.combats.ru/i/misc/icons/wis_air_charge_dmg.gif"><br />
-<b><DIV><A href="javascript: void(0);" onClick="if (hidtext1004.style.display == '') { this.innerText = 'Заряд: Поражение'; hidtext1004.style.display = 'none'; } else { this.innerText = 'Заряд: Поражение'; hidtext1004.style.display = ''; }">Заряд: Поражение</A></DIV><DIV id='hidtext1004' style='display: none;'></b><br />
+<b><DIV><A href="javascript: void(0);" onClick="if (hidtext1004.style.display == '') { this.innerText = 'Р—Р°СЂСЏРґ: РџРѕСЂР°Р¶РµРЅРёРµ'; hidtext1004.style.display = 'none'; } else { this.innerText = 'Р—Р°СЂСЏРґ: РџРѕСЂР°Р¶РµРЅРёРµ'; hidtext1004.style.display = ''; }">Р—Р°СЂСЏРґ: РџРѕСЂР°Р¶РµРЅРёРµ</A></DIV><DIV id='hidtext1004' style='display: none;'></b><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0> 1<br />
-Задержка: 3<br />
+Р—Р°РґРµСЂР¶РєР°: 3<br />
 <br />
-<b>Минимальные требования: </b><br />
-• Интеллект: 40<br />
-• Мастерство владения стихией Воздуха: 7<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: </b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 7<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Наносит цели 1-2% урона магией Воздуха от ее максимального уровня жизни за каждый уровень Заряда. Заклинание не может нанести более 250 ед. урона.<br />
+РќР°РЅРѕСЃРёС‚ С†РµР»Рё 1-2% СѓСЂРѕРЅР° РјР°РіРёРµР№ Р’РѕР·РґСѓС…Р° РѕС‚ РµРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ СѓСЂРѕРІРЅСЏ Р¶РёР·РЅРё Р·Р° РєР°Р¶РґС‹Р№ СѓСЂРѕРІРµРЅСЊ Р—Р°СЂСЏРґР°. Р—Р°РєР»РёРЅР°РЅРёРµ РЅРµ РјРѕР¶РµС‚ РЅР°РЅРµСЃС‚Рё Р±РѕР»РµРµ 250 РµРґ. СѓСЂРѕРЅР°.<br />
 </DIV><br />
 <br />
 <img src="http://img.combats.ru/i/misc/icons/wis_air_charge_gain.gif"><br />
-<b><DIV><A href="javascript: void(0);" onClick="if (hidtext1005.style.display == '') { this.innerText = 'Заряд: Собрать'; hidtext1005.style.display = 'none'; } else { this.innerText = 'Заряд: Собрать'; hidtext1005.style.display = ''; }">Заряд: Собрать</A></DIV><DIV id='hidtext1005' style='display: none;'></b><br />
+<b><DIV><A href="javascript: void(0);" onClick="if (hidtext1005.style.display == '') { this.innerText = 'Р—Р°СЂСЏРґ: РЎРѕР±СЂР°С‚СЊ'; hidtext1005.style.display = 'none'; } else { this.innerText = 'Р—Р°СЂСЏРґ: РЎРѕР±СЂР°С‚СЊ'; hidtext1005.style.display = ''; }">Р—Р°СЂСЏРґ: РЎРѕР±СЂР°С‚СЊ</A></DIV><DIV id='hidtext1005' style='display: none;'></b><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0> 1<br />
-Задержка: 3<br />
+Р—Р°РґРµСЂР¶РєР°: 3<br />
 <br />
-<b>Минимальные требования: </b><br />
-• Интеллект: 40<br />
-• Мастерство владения стихией Воздуха: 7<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: </b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 7<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Восстанавливает 9 маны за каждый уровень Заряда на цели и снимает с мага один негативный магический эффект.<br />
+Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ 9 РјР°РЅС‹ Р·Р° РєР°Р¶РґС‹Р№ СѓСЂРѕРІРµРЅСЊ Р—Р°СЂСЏРґР° РЅР° С†РµР»Рё Рё СЃРЅРёРјР°РµС‚ СЃ РјР°РіР° РѕРґРёРЅ РЅРµРіР°С‚РёРІРЅС‹Р№ РјР°РіРёС‡РµСЃРєРёР№ СЌС„С„РµРєС‚.<br />
 </DIV><br />
 <br />
 <img src="http://img.combats.ru/i/misc/icons/wis_air_charge_shock.gif"><br />
-<b><DIV><A href="javascript: void(0);" onClick="if (hidtext1006.style.display == '') { this.innerText = 'Заряд: Шок'; hidtext1006.style.display = 'none'; } else { this.innerText = 'Заряд: Шок'; hidtext1006.style.display = ''; }">Заряд: Шок</A></DIV><DIV id='hidtext1006' style='display: none;'></b><br />
+<b><DIV><A href="javascript: void(0);" onClick="if (hidtext1006.style.display == '') { this.innerText = 'Р—Р°СЂСЏРґ: РЁРѕРє'; hidtext1006.style.display = 'none'; } else { this.innerText = 'Р—Р°СЂСЏРґ: РЁРѕРє'; hidtext1006.style.display = ''; }">Р—Р°СЂСЏРґ: РЁРѕРє</A></DIV><DIV id='hidtext1006' style='display: none;'></b><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0> 1<br />
-Задержка: 3<br />
+Р—Р°РґРµСЂР¶РєР°: 3<br />
 <br />
-<b>Минимальные требования: </b><br />
-• Интеллект: 40<br />
-• Мастерство владения стихией Воздуха: 7<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: </b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 7<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Шокирует противника, лишая его возможности использовать последний примененный прием на пять ходов и рассеивает один позитивный магический эффект<br />
+РЁРѕРєРёСЂСѓРµС‚ РїСЂРѕС‚РёРІРЅРёРєР°, Р»РёС€Р°СЏ РµРіРѕ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїРѕСЃР»РµРґРЅРёР№ РїСЂРёРјРµРЅРµРЅРЅС‹Р№ РїСЂРёРµРј РЅР° РїСЏС‚СЊ С…РѕРґРѕРІ Рё СЂР°СЃСЃРµРёРІР°РµС‚ РѕРґРёРЅ РїРѕР·РёС‚РёРІРЅС‹Р№ РјР°РіРёС‡РµСЃРєРёР№ СЌС„С„РµРєС‚<br />
 </DIV><br />
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><img src="http://bestcombats.net/news/i/energi vozduha.gif"></td>
-<td><b>Энергия Воздуха (заклинание)</b>   (Масса: 1)<br />
-<b>Цена: 20 кр.</b><br />
-Долговечность: 0/1<br />
-<b>Требуется минимальное:</b><br />
-• Интеллект: 25<br />
-• Уровень: 7<br />
-• Мастерство владения стихией Воздуха: 11<br />
-Максимум: 1 ед.<br />
-<small>Описание:<br />
-Восстанавливает цели 1 - 10% маны за каждый ход работы заклинания. Заклинание прекращает действие при использовании любого другого заклинания или через 5 ходов.</small><br />
-Обучает приему: <b>Энергия Воздуха</b><br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+<td><b>Р­РЅРµСЂРіРёСЏ Р’РѕР·РґСѓС…Р° (Р·Р°РєР»РёРЅР°РЅРёРµ)</b>   (РњР°СЃСЃР°: 1)<br />
+<b>Р¦РµРЅР°: 20 РєСЂ.</b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<b>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 11<br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<small>РћРїРёСЃР°РЅРёРµ:<br />
+Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ С†РµР»Рё 1 - 10% РјР°РЅС‹ Р·Р° РєР°Р¶РґС‹Р№ С…РѕРґ СЂР°Р±РѕС‚С‹ Р·Р°РєР»РёРЅР°РЅРёСЏ. Р—Р°РєР»РёРЅР°РЅРёРµ РїСЂРµРєСЂР°С‰Р°РµС‚ РґРµР№СЃС‚РІРёРµ РїСЂРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё Р»СЋР±РѕРіРѕ РґСЂСѓРіРѕРіРѕ Р·Р°РєР»РёРЅР°РЅРёСЏ РёР»Рё С‡РµСЂРµР· 5 С…РѕРґРѕРІ.</small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р­РЅРµСЂРіРёСЏ Р’РѕР·РґСѓС…Р°</b><br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
 </td>
 <td>
 <img src="http://img.combats.ru/i/misc/icons/wis_air_manaheal.gif"><br />
-<b>Энергия Воздуха</b><br />
+<b>Р­РЅРµСЂРіРёСЏ Р’РѕР·РґСѓС…Р°</b><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0> 1<br />
-Сила духа: 3<br />
-Задержка: 10 <br />
-• Приём тратит ход <br />
+РЎРёР»Р° РґСѓС…Р°: 3<br />
+Р—Р°РґРµСЂР¶РєР°: 10 <br />
+вЂў РџСЂРёС‘Рј С‚СЂР°С‚РёС‚ С…РѕРґ <br />
 <br />
-<b>Минимальные требования: </b><br />
-• Интеллект: 40<br />
-• Мастерство владения стихией Воздуха: 11<br />
-• Уровень: 7 <br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ: </b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р’РѕР·РґСѓС…Р°: 11<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
 <br />
-Восстанавливает цели 1 - 10% маны за каждый ход работы заклинания. Заклинание прекращает действие при использовании любого другого заклинания или через 5 ходов.<br />
+Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ С†РµР»Рё 1 - 10% РјР°РЅС‹ Р·Р° РєР°Р¶РґС‹Р№ С…РѕРґ СЂР°Р±РѕС‚С‹ Р·Р°РєР»РёРЅР°РЅРёСЏ. Р—Р°РєР»РёРЅР°РЅРёРµ РїСЂРµРєСЂР°С‰Р°РµС‚ РґРµР№СЃС‚РІРёРµ РїСЂРё РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё Р»СЋР±РѕРіРѕ РґСЂСѓРіРѕРіРѕ Р·Р°РєР»РёРЅР°РЅРёСЏ РёР»Рё С‡РµСЂРµР· 5 С…РѕРґРѕРІ.<br />
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/kamm udar.gif" border=0></td>
-    <td> <B>Каменный Удар (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 25 <br />
-• Уровень: 7 <br />
-• Мастерство владения стихией Земли: 7 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-В инструкции рассказывается, как наносить крушащие удары при помощи магии Земли. </small><br />
-Обучает приему: <b>Каменный Удар</b> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РљР°РјРµРЅРЅС‹Р№ РЈРґР°СЂ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 25 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 7 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р’ РёРЅСЃС‚СЂСѓРєС†РёРё СЂР°СЃСЃРєР°Р·С‹РІР°РµС‚СЃСЏ, РєР°Рє РЅР°РЅРѕСЃРёС‚СЊ РєСЂСѓС€Р°С‰РёРµ СѓРґР°СЂС‹ РїСЂРё РїРѕРјРѕС‰Рё РјР°РіРёРё Р—РµРјР»Рё. </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>РљР°РјРµРЅРЅС‹Р№ РЈРґР°СЂ</b> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_earth_strike.gif" border=0><br />
-<B>Каменный Удар </B><br />
+<B>РљР°РјРµРЅРЅС‹Р№ РЈРґР°СЂ </B><br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Земли: 7 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 7 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Прием тратит ход <br />
-Приём атакует только одну цель<br />
-<DIV><A href="javascript: void(0);" onClick="if (hidtext1007.style.display == '') { this.innerText = 'Действие заклинания'; hidtext1007.style.display = 'none'; } else { this.innerText = 'Скрыть'; hidtext1007.style.display = ''; }">Действие заклинания</A></DIV><DIV id='hidtext1007' style='display: none;'><br />
-Для 7 уровня: <br />
-Расход маны: 39 <br />
-Интеллект: 40 <br />
-Наносит цели 113 ед. дробящего урона<br />
+РџСЂРёРµРј С‚СЂР°С‚РёС‚ С…РѕРґ <br />
+РџСЂРёС‘Рј Р°С‚Р°РєСѓРµС‚ С‚РѕР»СЊРєРѕ РѕРґРЅСѓ С†РµР»СЊ<br />
+<DIV><A href="javascript: void(0);" onClick="if (hidtext1007.style.display == '') { this.innerText = 'Р”РµР№СЃС‚РІРёРµ Р·Р°РєР»РёРЅР°РЅРёСЏ'; hidtext1007.style.display = 'none'; } else { this.innerText = 'РЎРєСЂС‹С‚СЊ'; hidtext1007.style.display = ''; }">Р”РµР№СЃС‚РІРёРµ Р·Р°РєР»РёРЅР°РЅРёСЏ</A></DIV><DIV id='hidtext1007' style='display: none;'><br />
+Р”Р»СЏ 7 СѓСЂРѕРІРЅСЏ: <br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 39 <br />
+РРЅС‚РµР»Р»РµРєС‚: 40 <br />
+РќР°РЅРѕСЃРёС‚ С†РµР»Рё 113 РµРґ. РґСЂРѕР±СЏС‰РµРіРѕ СѓСЂРѕРЅР°<br />
  <br />
-Для 8 уровня: <br />
-Расход маны: 46 <br />
-Интеллект: 50 <br />
-Наносит цели 134 ед. дробящего урона </DIV></td>
+Р”Р»СЏ 8 СѓСЂРѕРІРЅСЏ: <br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 46 <br />
+РРЅС‚РµР»Р»РµРєС‚: 50 <br />
+РќР°РЅРѕСЃРёС‚ С†РµР»Рё 134 РµРґ. РґСЂРѕР±СЏС‰РµРіРѕ СѓСЂРѕРЅР° </DIV></td>
   </tr> 
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell39.gif" border=0></td>
-    <td> <B>Булыжник (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 40 <br />
-• Уровень: 7 <br />
-• Мастерство владения стихией Земли: 7 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Нет описания </small><br />
-Обучает приему: <b>Булыжник</b> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р‘СѓР»С‹Р¶РЅРёРє (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40 <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 7 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+РќРµС‚ РѕРїРёСЃР°РЅРёСЏ </small><br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р‘СѓР»С‹Р¶РЅРёРє</b> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_earth_dmg08.gif" border=0><br />
-<B>Булыжник </B><br />
+<B>Р‘СѓР»С‹Р¶РЅРёРє </B><br />
 <br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Земли: 7 <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 7 <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
 <br />
-Прием тратит ход<br />
-Приём атакует только одну цель<br />
-<DIV><A href="javascript: void(0);" onClick="if (hidtext1008.style.display == '') { this.innerText = 'Действие заклинания'; hidtext1008.style.display = 'none'; } else { this.innerText = 'Скрыть'; hidtext1008.style.display = ''; }">Действие заклинания</A></DIV><DIV id='hidtext1008' style='display: none;'><br />
-Для 7 уровня: <br />
-Расход маны: 37 <br />
-Интеллект: 40 <br />
-Наносит цели 38-45 ед. урона магией земли<br />
+РџСЂРёРµРј С‚СЂР°С‚РёС‚ С…РѕРґ<br />
+РџСЂРёС‘Рј Р°С‚Р°РєСѓРµС‚ С‚РѕР»СЊРєРѕ РѕРґРЅСѓ С†РµР»СЊ<br />
+<DIV><A href="javascript: void(0);" onClick="if (hidtext1008.style.display == '') { this.innerText = 'Р”РµР№СЃС‚РІРёРµ Р·Р°РєР»РёРЅР°РЅРёСЏ'; hidtext1008.style.display = 'none'; } else { this.innerText = 'РЎРєСЂС‹С‚СЊ'; hidtext1008.style.display = ''; }">Р”РµР№СЃС‚РІРёРµ Р·Р°РєР»РёРЅР°РЅРёСЏ</A></DIV><DIV id='hidtext1008' style='display: none;'><br />
+Р”Р»СЏ 7 СѓСЂРѕРІРЅСЏ: <br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 37 <br />
+РРЅС‚РµР»Р»РµРєС‚: 40 <br />
+РќР°РЅРѕСЃРёС‚ С†РµР»Рё 38-45 РµРґ. СѓСЂРѕРЅР° РјР°РіРёРµР№ Р·РµРјР»Рё<br />
  <br />
-Для 8 уровня: <br />
-Расход маны: 43 <br />
-Интеллект: 50 <br />
-Наносит цели 46-54 ед. урона магией земли </DIV></td>
+Р”Р»СЏ 8 СѓСЂРѕРІРЅСЏ: <br />
+Р Р°СЃС…РѕРґ РјР°РЅС‹: 43 <br />
+РРЅС‚РµР»Р»РµРєС‚: 50 <br />
+РќР°РЅРѕСЃРёС‚ С†РµР»Рё 46-54 РµРґ. СѓСЂРѕРЅР° РјР°РіРёРµР№ Р·РµРјР»Рё </DIV></td>
   </tr> 
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell32.gif" border=0></td>
-    <td> <B>Жертва Земле (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Интеллект: 40<br />
-• Уровень: 7<br />
-• Мастерство владения стихией Земли: 7 <br />
-<small>Максимум: 1 ед.<br />
-Описание:<br />
-Вы восстанавливаете 5%HP и 5%маны<br />
-Обучает приему: <b>Жертва Земле</b> <br />
-<small><font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р–РµСЂС‚РІР° Р—РµРјР»Рµ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 7 <br />
+<small>РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+РћРїРёСЃР°РЅРёРµ:<br />
+Р’С‹ РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚Рµ 5%HP Рё 5%РјР°РЅС‹<br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <b>Р–РµСЂС‚РІР° Р—РµРјР»Рµ</b> <br />
+<small><font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.com/i/misc/icons/wis_earth_sacrifice.gif" border=0><br />
-<B>Жертва Земле</B><br />
+<B>Р–РµСЂС‚РІР° Р—РµРјР»Рµ</B><br />
 <IMG SRC="http://img.combats.ru/i/misc/micro/hp.gif" border=0> 5<br />
-• Расход маны: 4<br />
-Задержка: 5<br />
-<b>Минимальные требования:</b><br />
-• Интеллект: 40<br />
-• Мастерство владения стихией Земли: 7<br />
-• Уровень: 7<BR><b>Описание:</b><br />
-Вы восстанавливаете 5%HP и 5%маны<br />
+вЂў Р Р°СЃС…РѕРґ РјР°РЅС‹: 4<br />
+Р—Р°РґРµСЂР¶РєР°: 5<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 40<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 7<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7<BR><b>РћРїРёСЃР°РЅРёРµ:</b><br />
+Р’С‹ РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚Рµ 5%HP Рё 5%РјР°РЅС‹<br />
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell38.gif" border=0></td>
-    <td> <B>Коснуться Земли (заклинание)</B>   (Масса: 1) <br />
-<b>Цена: 20 кр. </b><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B><br />
-• Интеллект: 50<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Земли: 8  <br />
-<small>Максимум: 1 ед.<br />
-Описание:<br />
-Снимает один негативный эффект от магии или болезни и восстанавливает 3% маны<br />
-Обучает приему: <B>Коснуться Земли</B> <br />
-<font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РљРѕСЃРЅСѓС‚СЊСЃСЏ Р—РµРјР»Рё (Р·Р°РєР»РёРЅР°РЅРёРµ)</B>   (РњР°СЃСЃР°: 1) <br />
+<b>Р¦РµРЅР°: 20 РєСЂ. </b><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8  <br />
+<small>РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+РћРїРёСЃР°РЅРёРµ:<br />
+РЎРЅРёРјР°РµС‚ РѕРґРёРЅ РЅРµРіР°С‚РёРІРЅС‹Р№ СЌС„С„РµРєС‚ РѕС‚ РјР°РіРёРё РёР»Рё Р±РѕР»РµР·РЅРё Рё РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ 3% РјР°РЅС‹<br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>РљРѕСЃРЅСѓС‚СЊСЃСЏ Р—РµРјР»Рё</B> <br />
+<font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_earth_cleance.gif" border=0><br />
-<B>Коснуться Земли</B><br />
-• Расход маны: 41<br />
-Задержка: 5<br />
-<b>Минимальные требования:</b><br />
-• Интеллект: 50<br />
-• Мастерство владения стихией Земли: 8<br />
-• Уровень: 8<b><br />
-Описание:</b><br />
-Снимает один негативный эффект от магии или болезни и восстанавливает 3% маны<br />
+<B>РљРѕСЃРЅСѓС‚СЊСЃСЏ Р—РµРјР»Рё</B><br />
+вЂў Р Р°СЃС…РѕРґ РјР°РЅС‹: 41<br />
+Р—Р°РґРµСЂР¶РєР°: 5<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<b><br />
+РћРїРёСЃР°РЅРёРµ:</b><br />
+РЎРЅРёРјР°РµС‚ РѕРґРёРЅ РЅРµРіР°С‚РёРІРЅС‹Р№ СЌС„С„РµРєС‚ РѕС‚ РјР°РіРёРё РёР»Рё Р±РѕР»РµР·РЅРё Рё РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ 3% РјР°РЅС‹<br />
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell36.gif" border=0></td>
-    <td> <B>Песчанный Щит (заклинание)</B> (Масса: 1) <br />
-<B>Цена: 25 кр.</B> <br />
-Долговечность: 0/1<br />
-<B>Требуется минимальное:</B><br />
-• Интеллект: 50<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Земли: 8  <br />
-<small>Максимум: 1 ед.<br />
-Описание:<br />
-Вы получаете на 30% меньше урона от магии в течение 5 ходов<br />
-Прием не подвержен действию шока.<br />
-Обучает приему: <B>Песчанный Щит</B> <br />
-<font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РџРµСЃС‡Р°РЅРЅС‹Р№ Р©РёС‚ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B> (РњР°СЃСЃР°: 1) <br />
+<B>Р¦РµРЅР°: 25 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8  <br />
+<small>РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+РћРїРёСЃР°РЅРёРµ:<br />
+Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РЅР° 30% РјРµРЅСЊС€Рµ СѓСЂРѕРЅР° РѕС‚ РјР°РіРёРё РІ С‚РµС‡РµРЅРёРµ 5 С…РѕРґРѕРІ<br />
+РџСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.<br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>РџРµСЃС‡Р°РЅРЅС‹Р№ Р©РёС‚</B> <br />
+<font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_earth_shield2.gif" border=0><br />
-<B>Песчанный Щит</B><br />
-• Расход маны: 124<br />
-Задержка: 8<br />
-<b>Минимальные требования:</b><br />
-• Интеллект: 50<br />
-• Мастерство владения стихией Земли: 8<br />
-• Уровень: 8<br />
-<b>Описание:</b><br />
-Вы получаете на 30% меньше урона от магии в течение 5 ходов<br />
-Прием не подвержен действию шока.<br />
+<B>РџРµСЃС‡Р°РЅРЅС‹Р№ Р©РёС‚</B><br />
+вЂў Р Р°СЃС…РѕРґ РјР°РЅС‹: 124<br />
+Р—Р°РґРµСЂР¶РєР°: 8<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+<b>РћРїРёСЃР°РЅРёРµ:</b><br />
+Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РЅР° 30% РјРµРЅСЊС€Рµ СѓСЂРѕРЅР° РѕС‚ РјР°РіРёРё РІ С‚РµС‡РµРЅРёРµ 5 С…РѕРґРѕРІ<br />
+РџСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.<br />
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/Zazemlenie 0.gif" border=0></td>
-    <td> <B>Заземление: Ноль (заклинание)</B> (Масса: 1) <br />
-<B>Цена: 25 кр.</B> <br />
-Долговечность: 0/1<br />
-<B>Требуется минимальное:</B><br />
-• Интеллект: 50<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Земли: 8  <br />
-<small>Максимум: 1 ед.<br />
-Описание:<br />
-Увеличивает весь урон по цели на 3% и уменьшает целебные эффекты на 7%. Требует 5 маны каждый ход. Разные виды Заземления замещают друг друга. Маг в состоянии поддерживать лишь одно Заземление. Требует 5 маны каждый ход. Применяется до 5 раз.<br />
-Прием не подвержен действию шока.<br />
-Обучает приему: <B>Заземление: Ноль</B> <br />
-<font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р—Р°Р·РµРјР»РµРЅРёРµ: РќРѕР»СЊ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B> (РњР°СЃСЃР°: 1) <br />
+<B>Р¦РµРЅР°: 25 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8  <br />
+<small>РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+РћРїРёСЃР°РЅРёРµ:<br />
+РЈРІРµР»РёС‡РёРІР°РµС‚ РІРµСЃСЊ СѓСЂРѕРЅ РїРѕ С†РµР»Рё РЅР° 3% Рё СѓРјРµРЅСЊС€Р°РµС‚ С†РµР»РµР±РЅС‹Рµ СЌС„С„РµРєС‚С‹ РЅР° 7%. РўСЂРµР±СѓРµС‚ 5 РјР°РЅС‹ РєР°Р¶РґС‹Р№ С…РѕРґ. Р Р°Р·РЅС‹Рµ РІРёРґС‹ Р—Р°Р·РµРјР»РµРЅРёСЏ Р·Р°РјРµС‰Р°СЋС‚ РґСЂСѓРі РґСЂСѓРіР°. РњР°Рі РІ СЃРѕСЃС‚РѕСЏРЅРёРё РїРѕРґРґРµСЂР¶РёРІР°С‚СЊ Р»РёС€СЊ РѕРґРЅРѕ Р—Р°Р·РµРјР»РµРЅРёРµ. РўСЂРµР±СѓРµС‚ 5 РјР°РЅС‹ РєР°Р¶РґС‹Р№ С…РѕРґ. РџСЂРёРјРµРЅСЏРµС‚СЃСЏ РґРѕ 5 СЂР°Р·.<br />
+РџСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.<br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>Р—Р°Р·РµРјР»РµРЅРёРµ: РќРѕР»СЊ</B> <br />
+<font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_earth_link_zero.gif" border=0><br />
-<B>Заземление: Ноль</B><br />
-• Расход маны: 11<br />
-<b>Минимальные требования:</b><br />
-• Интеллект: 50<br />
-• Мастерство владения стихией Земли: 8<br />
-• Уровень: 8<br />
-<b>Описание:</b><br />
-Увеличивает весь урон по цели на 3% и уменьшает целебные эффекты на 7%. Требует 5 маны каждый ход. Разные виды Заземления замещают друг друга. Маг в состоянии поддерживать лишь одно Заземление. Требует 5 маны каждый ход. Применяется до 5 раз.<BR>Прием не подвержен действию шока.<br />
+<B>Р—Р°Р·РµРјР»РµРЅРёРµ: РќРѕР»СЊ</B><br />
+вЂў Р Р°СЃС…РѕРґ РјР°РЅС‹: 11<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+<b>РћРїРёСЃР°РЅРёРµ:</b><br />
+РЈРІРµР»РёС‡РёРІР°РµС‚ РІРµСЃСЊ СѓСЂРѕРЅ РїРѕ С†РµР»Рё РЅР° 3% Рё СѓРјРµРЅСЊС€Р°РµС‚ С†РµР»РµР±РЅС‹Рµ СЌС„С„РµРєС‚С‹ РЅР° 7%. РўСЂРµР±СѓРµС‚ 5 РјР°РЅС‹ РєР°Р¶РґС‹Р№ С…РѕРґ. Р Р°Р·РЅС‹Рµ РІРёРґС‹ Р—Р°Р·РµРјР»РµРЅРёСЏ Р·Р°РјРµС‰Р°СЋС‚ РґСЂСѓРі РґСЂСѓРіР°. РњР°Рі РІ СЃРѕСЃС‚РѕСЏРЅРёРё РїРѕРґРґРµСЂР¶РёРІР°С‚СЊ Р»РёС€СЊ РѕРґРЅРѕ Р—Р°Р·РµРјР»РµРЅРёРµ. РўСЂРµР±СѓРµС‚ 5 РјР°РЅС‹ РєР°Р¶РґС‹Р№ С…РѕРґ. РџСЂРёРјРµРЅСЏРµС‚СЃСЏ РґРѕ 5 СЂР°Р·.<BR>РџСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.<br />
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/Zazemlenie minus.gif" border=0></td>
-    <td> <B>Заземление: Плюс  (заклинание)</B> (Масса: 1) <br />
-<B>Цена: 30 кр.</B> <br />
-Долговечность: 0/1<br />
-<B>Требуется минимальное:</B><br />
-• Интеллект: 50<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Земли: 8  <br />
-<small>Максимум: 1 ед.<br />
-<b>Описание:</b><br />
-Исцеляет мага на 39HP за 10 ходов за счет жизни цели. Разные виды Заземления замещают друг друга. Маг в состоянии поддерживать лишь одно Заземление. Требует 5 маны каждый ход. Применяется до 5 раз.<br />
-Прием не подвержен действию шока.<br />
-Обучает приему: <B>Заземление: Плюс</B> <br />
-<font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р—Р°Р·РµРјР»РµРЅРёРµ: РџР»СЋСЃ  (Р·Р°РєР»РёРЅР°РЅРёРµ)</B> (РњР°СЃСЃР°: 1) <br />
+<B>Р¦РµРЅР°: 30 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8  <br />
+<small>РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+<b>РћРїРёСЃР°РЅРёРµ:</b><br />
+РСЃС†РµР»СЏРµС‚ РјР°РіР° РЅР° 39HP Р·Р° 10 С…РѕРґРѕРІ Р·Р° СЃС‡РµС‚ Р¶РёР·РЅРё С†РµР»Рё. Р Р°Р·РЅС‹Рµ РІРёРґС‹ Р—Р°Р·РµРјР»РµРЅРёСЏ Р·Р°РјРµС‰Р°СЋС‚ РґСЂСѓРі РґСЂСѓРіР°. РњР°Рі РІ СЃРѕСЃС‚РѕСЏРЅРёРё РїРѕРґРґРµСЂР¶РёРІР°С‚СЊ Р»РёС€СЊ РѕРґРЅРѕ Р—Р°Р·РµРјР»РµРЅРёРµ. РўСЂРµР±СѓРµС‚ 5 РјР°РЅС‹ РєР°Р¶РґС‹Р№ С…РѕРґ. РџСЂРёРјРµРЅСЏРµС‚СЃСЏ РґРѕ 5 СЂР°Р·.<br />
+РџСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.<br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>Р—Р°Р·РµРјР»РµРЅРёРµ: РџР»СЋСЃ</B> <br />
+<font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_earth_link_plus.gif" border=0><br />
-<B>Заземление: Плюс</B><br />
-• Расход маны: 11<br />
-<b>Минимальные требования:</b><br />
-• Интеллект: 50<br />
-• Мастерство владения стихией Земли: 8<br />
-• Уровень: 8<br />
-<b>Описание:</b><br />
-Исцеляет мага на 39HP за 10 ходов за счет жизни цели. Разные виды Заземления замещают друг друга. Маг в состоянии поддерживать лишь одно Заземление. Требует 5 маны каждый ход. Применяется до 5 раз.<br />
-Прием не подвержен действию шока<br />
+<B>Р—Р°Р·РµРјР»РµРЅРёРµ: РџР»СЋСЃ</B><br />
+вЂў Р Р°СЃС…РѕРґ РјР°РЅС‹: 11<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+<b>РћРїРёСЃР°РЅРёРµ:</b><br />
+РСЃС†РµР»СЏРµС‚ РјР°РіР° РЅР° 39HP Р·Р° 10 С…РѕРґРѕРІ Р·Р° СЃС‡РµС‚ Р¶РёР·РЅРё С†РµР»Рё. Р Р°Р·РЅС‹Рµ РІРёРґС‹ Р—Р°Р·РµРјР»РµРЅРёСЏ Р·Р°РјРµС‰Р°СЋС‚ РґСЂСѓРі РґСЂСѓРіР°. РњР°Рі РІ СЃРѕСЃС‚РѕСЏРЅРёРё РїРѕРґРґРµСЂР¶РёРІР°С‚СЊ Р»РёС€СЊ РѕРґРЅРѕ Р—Р°Р·РµРјР»РµРЅРёРµ. РўСЂРµР±СѓРµС‚ 5 РјР°РЅС‹ РєР°Р¶РґС‹Р№ С…РѕРґ. РџСЂРёРјРµРЅСЏРµС‚СЃСЏ РґРѕ 5 СЂР°Р·.<br />
+РџСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°<br />
 </td>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/Zazemlenie minus35.gif" border=0></td>
-    <td> <B>Заземление: Минус  (заклинание)</B> (Масса: 1) <br />
-<B>Цена: 30 кр.</B> <br />
-Долговечность: 0/1<br />
-<B>Требуется минимальное:</B><br />
-• Интеллект: 50<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Земли: 8  <br />
-<small>Максимум: 1 ед.<br />
-Описание:<br />
-Цель теряет 79 маны за 10 ходов. Разные виды Заземления замещают друг друга. Маг в состоянии поддерживать лишь одно Заземление. Требует 1 маны каждый ход. Применяется до 5 раз.<br />
-Прием не подвержен действию шока.<br />
-Обучает приему: <B>Заземление: Минус</B> <br />
-<font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>Р—Р°Р·РµРјР»РµРЅРёРµ: РњРёРЅСѓСЃ  (Р·Р°РєР»РёРЅР°РЅРёРµ)</B> (РњР°СЃСЃР°: 1) <br />
+<B>Р¦РµРЅР°: 30 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8  <br />
+<small>РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+РћРїРёСЃР°РЅРёРµ:<br />
+Р¦РµР»СЊ С‚РµСЂСЏРµС‚ 79 РјР°РЅС‹ Р·Р° 10 С…РѕРґРѕРІ. Р Р°Р·РЅС‹Рµ РІРёРґС‹ Р—Р°Р·РµРјР»РµРЅРёСЏ Р·Р°РјРµС‰Р°СЋС‚ РґСЂСѓРі РґСЂСѓРіР°. РњР°Рі РІ СЃРѕСЃС‚РѕСЏРЅРёРё РїРѕРґРґРµСЂР¶РёРІР°С‚СЊ Р»РёС€СЊ РѕРґРЅРѕ Р—Р°Р·РµРјР»РµРЅРёРµ. РўСЂРµР±СѓРµС‚ 1 РјР°РЅС‹ РєР°Р¶РґС‹Р№ С…РѕРґ. РџСЂРёРјРµРЅСЏРµС‚СЃСЏ РґРѕ 5 СЂР°Р·.<br />
+РџСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.<br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>Р—Р°Р·РµРјР»РµРЅРёРµ: РњРёРЅСѓСЃ</B> <br />
+<font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.com/i/misc/icons/wis_earth_link_minus.gif" border=0><br />
-<B>Заземление: Минус</B><br />
-• Расход маны: 11<br />
-<b>Минимальные требования:</b><br />
-• Интеллект: 50<br />
-• Мастерство владения стихией Земли: 8<br />
-• Уровень: 8<br />
-<b>Описание:</b><br />
-Цель теряет 79 маны за 10 ходов. Разные виды Заземления замещают друг друга. Маг в состоянии поддерживать лишь одно Заземление. Требует 1 маны каждый ход. Применяется до 5 раз.<br />
-Прием не подвержен действию шока.<br />
-Обучает приему: Заземление: Минус<br />
+<B>Р—Р°Р·РµРјР»РµРЅРёРµ: РњРёРЅСѓСЃ</B><br />
+вЂў Р Р°СЃС…РѕРґ РјР°РЅС‹: 11<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+<b>РћРїРёСЃР°РЅРёРµ:</b><br />
+Р¦РµР»СЊ С‚РµСЂСЏРµС‚ 79 РјР°РЅС‹ Р·Р° 10 С…РѕРґРѕРІ. Р Р°Р·РЅС‹Рµ РІРёРґС‹ Р—Р°Р·РµРјР»РµРЅРёСЏ Р·Р°РјРµС‰Р°СЋС‚ РґСЂСѓРі РґСЂСѓРіР°. РњР°Рі РІ СЃРѕСЃС‚РѕСЏРЅРёРё РїРѕРґРґРµСЂР¶РёРІР°С‚СЊ Р»РёС€СЊ РѕРґРЅРѕ Р—Р°Р·РµРјР»РµРЅРёРµ. РўСЂРµР±СѓРµС‚ 1 РјР°РЅС‹ РєР°Р¶РґС‹Р№ С…РѕРґ. РџСЂРёРјРµРЅСЏРµС‚СЃСЏ РґРѕ 5 СЂР°Р·.<br />
+РџСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.<br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: Р—Р°Р·РµРјР»РµРЅРёРµ: РњРёРЅСѓСЃ<br />
 </td></td>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/kav cvetok.gif" border=0></td>
-    <td> <B>Каменный Цветок  (заклинание)</B> (Масса: 1) <br />
-<B>Цена: 35 кр.</B> <br />
-Долговечность: 0/1<br />
-<B>Требуется минимальное:</B><br />
-• Интеллект: 50<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Земли: 8  <br />
-<small>Максимум: 1 ед.<br />
-Описание:<br />
-Нет описания<br />
-Обучает приему: <B>Каменный Цветок</B> <br />
-<font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РљР°РјРµРЅРЅС‹Р№ Р¦РІРµС‚РѕРє  (Р·Р°РєР»РёРЅР°РЅРёРµ)</B> (РњР°СЃСЃР°: 1) <br />
+<B>Р¦РµРЅР°: 35 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8  <br />
+<small>РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+РћРїРёСЃР°РЅРёРµ:<br />
+РќРµС‚ РѕРїРёСЃР°РЅРёСЏ<br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>РљР°РјРµРЅРЅС‹Р№ Р¦РІРµС‚РѕРє</B> <br />
+<font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_earth_flower.gif" border=0><br />
-<B>Каменный Цветок [8]</B><br />
+<B>РљР°РјРµРЅРЅС‹Р№ Р¦РІРµС‚РѕРє [8]</B><br />
 <IMG width=8 height=8 src=http://img.combats.ru/i/misc/micro/hp.gif> 1<br />
-• Расход маны: 106<br />
-Задержка: 3<br />
-• Прием тратит ход<br />
-<b>Минимальные требования:</b><br />
-• Интеллект: 50<br />
-• Мастерство владения стихией Земли: 8<br />
-• Уровень: 8<br />
-<b>Описание:</b><br />
-Цель получает 216 урона магией земли и лишается возможности использовать приемы 1 ход. Еще 3 цели получают 73 урона магией земли<br />
-<DIV><A href="javascript: void(0);" onClick="if (hidtext1009.style.display == '') { this.innerText = 'Далее'; hidtext1009.style.display = 'none'; } else { this.innerText = 'Скрыть'; hidtext1009.style.display = ''; }">Далее</A></DIV><DIV id='hidtext1009' style='display: none;'><B>Каменный Цветок [9]</B><br />
+вЂў Р Р°СЃС…РѕРґ РјР°РЅС‹: 106<br />
+Р—Р°РґРµСЂР¶РєР°: 3<br />
+вЂў РџСЂРёРµРј С‚СЂР°С‚РёС‚ С…РѕРґ<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+<b>РћРїРёСЃР°РЅРёРµ:</b><br />
+Р¦РµР»СЊ РїРѕР»СѓС‡Р°РµС‚ 216 СѓСЂРѕРЅР° РјР°РіРёРµР№ Р·РµРјР»Рё Рё Р»РёС€Р°РµС‚СЃСЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРёРµРјС‹ 1 С…РѕРґ. Р•С‰Рµ 3 С†РµР»Рё РїРѕР»СѓС‡Р°СЋС‚ 73 СѓСЂРѕРЅР° РјР°РіРёРµР№ Р·РµРјР»Рё<br />
+<DIV><A href="javascript: void(0);" onClick="if (hidtext1009.style.display == '') { this.innerText = 'Р”Р°Р»РµРµ'; hidtext1009.style.display = 'none'; } else { this.innerText = 'РЎРєСЂС‹С‚СЊ'; hidtext1009.style.display = ''; }">Р”Р°Р»РµРµ</A></DIV><DIV id='hidtext1009' style='display: none;'><B>РљР°РјРµРЅРЅС‹Р№ Р¦РІРµС‚РѕРє [9]</B><br />
 <IMG width=8 height=8 src=http://img.combats.ru/i/misc/micro/hp.gif> 1<br />
-• Расход маны: 127<br />
-Задержка: 3<br />
-• Прием тратит ход<br />
-<b>Минимальные требования:</b><br />
-• Интеллект: 60<br />
-• Мастерство владения стихией Земли: 9<br />
-• Уровень: 9<br />
-<b>Описание:</b><br />
-Цель получает 255урона магией земли и лишается возможности использовать приемы 1 ход. Еще 3 цели получают 88 урона магией земли</DIV><br />
+вЂў Р Р°СЃС…РѕРґ РјР°РЅС‹: 127<br />
+Р—Р°РґРµСЂР¶РєР°: 3<br />
+вЂў РџСЂРёРµРј С‚СЂР°С‚РёС‚ С…РѕРґ<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 60<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 9<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 9<br />
+<b>РћРїРёСЃР°РЅРёРµ:</b><br />
+Р¦РµР»СЊ РїРѕР»СѓС‡Р°РµС‚ 255СѓСЂРѕРЅР° РјР°РіРёРµР№ Р·РµРјР»Рё Рё Р»РёС€Р°РµС‚СЃСЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РїСЂРёРµРјС‹ 1 С…РѕРґ. Р•С‰Рµ 3 С†РµР»Рё РїРѕР»СѓС‡Р°СЋС‚ 88 СѓСЂРѕРЅР° РјР°РіРёРµР№ Р·РµРјР»Рё</DIV><br />
 </td></td>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/kamenn straj.gif" border=0></td>
-    <td> <B>Призвать Каменного Стража (заклинание)</B> (Масса: 1) <br />
-<B>Цена: 40 кр.</B> <br />
-Долговечность: 0/1<br />
-<B>Требуется минимальное:</B><br />
-• Интеллект: 50<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Земли: 12  <br />
-<small>Максимум: 1 ед.<br />
-Описание:<br />
-Призывает в бой Каменного Стража для защиты мага.<br />
-Страж нуждается в 10 маны каждый ход.<br />
-Обучает приему: <B>Призвать Каменного Стража</B> <br />
-<font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РџСЂРёР·РІР°С‚СЊ РљР°РјРµРЅРЅРѕРіРѕ РЎС‚СЂР°Р¶Р° (Р·Р°РєР»РёРЅР°РЅРёРµ)</B> (РњР°СЃСЃР°: 1) <br />
+<B>Р¦РµРЅР°: 40 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 12  <br />
+<small>РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+РћРїРёСЃР°РЅРёРµ:<br />
+РџСЂРёР·С‹РІР°РµС‚ РІ Р±РѕР№ РљР°РјРµРЅРЅРѕРіРѕ РЎС‚СЂР°Р¶Р° РґР»СЏ Р·Р°С‰РёС‚С‹ РјР°РіР°.<br />
+РЎС‚СЂР°Р¶ РЅСѓР¶РґР°РµС‚СЃСЏ РІ 10 РјР°РЅС‹ РєР°Р¶РґС‹Р№ С…РѕРґ.<br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>РџСЂРёР·РІР°С‚СЊ РљР°РјРµРЅРЅРѕРіРѕ РЎС‚СЂР°Р¶Р°</B> <br />
+<font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_earth_summon.gif" border=0><br />
-<B>Призвать Каменного Стража</B><br />
-• Расход маны: 166<br />
-Задержка: 20<br />
-• Прием тратит ход<br />
-<b>Минимальные требования:</b><br />
-• Мастерство владения стихией Земли: 12<br />
-• Уровень: 8<br />
-<b>Описание:</b><br />
-Призывает в бой Каменного Стража для защиты мага.<br />
-Страж нуждается в 9 маны каждый ход.<br />
+<B>РџСЂРёР·РІР°С‚СЊ РљР°РјРµРЅРЅРѕРіРѕ РЎС‚СЂР°Р¶Р°</B><br />
+вЂў Р Р°СЃС…РѕРґ РјР°РЅС‹: 166<br />
+Р—Р°РґРµСЂР¶РєР°: 20<br />
+вЂў РџСЂРёРµРј С‚СЂР°С‚РёС‚ С…РѕРґ<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 12<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+<b>РћРїРёСЃР°РЅРёРµ:</b><br />
+РџСЂРёР·С‹РІР°РµС‚ РІ Р±РѕР№ РљР°РјРµРЅРЅРѕРіРѕ РЎС‚СЂР°Р¶Р° РґР»СЏ Р·Р°С‰РёС‚С‹ РјР°РіР°.<br />
+РЎС‚СЂР°Р¶ РЅСѓР¶РґР°РµС‚СЃСЏ РІ 9 РјР°РЅС‹ РєР°Р¶РґС‹Р№ С…РѕРґ.<br />
 </td></td>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/booklearn_spell37.gif" border=0></td>
-    <td> <B>Каменный Щит (заклинание)</B> (Масса: 1) <br />
-<B>Цена: 25 кр.</B> <br />
-Долговечность: 0/1<br />
-<B>Требуется минимальное:</B><br />
-• Интеллект: 50<br />
-• Уровень: 8<br />
-• Мастерство владения стихией Земли: 8  <br />
-<small>Максимум: 1 ед.<br />
-Описание:<br />
-Вы получаете на 95% меньше урона в этот размен<br />
-Прием не подвержен действию шока.<br />
-Обучает приему: <B>Каменный Щит</B> <br />
-<font color=brown>Предмет не подлежит ремонту</font></small><br />
+    <td> <B>РљР°РјРµРЅРЅС‹Р№ Р©РёС‚ (Р·Р°РєР»РёРЅР°РЅРёРµ)</B> (РњР°СЃСЃР°: 1) <br />
+<B>Р¦РµРЅР°: 25 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1<br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8  <br />
+<small>РњР°РєСЃРёРјСѓРј: 1 РµРґ.<br />
+РћРїРёСЃР°РЅРёРµ:<br />
+Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РЅР° 95% РјРµРЅСЊС€Рµ СѓСЂРѕРЅР° РІ СЌС‚РѕС‚ СЂР°Р·РјРµРЅ<br />
+РџСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.<br />
+РћР±СѓС‡Р°РµС‚ РїСЂРёРµРјСѓ: <B>РљР°РјРµРЅРЅС‹Р№ Р©РёС‚</B> <br />
+<font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
     <td><IMG SRC="http://img.combats.ru/i/misc/icons/wis_earth_shield.gif" border=0><br />
-<B>Каменный Щит</B><br />
-• Расход маны: 124<br />
-Задержка: 7<br />
-<b>Минимальные требования:</b><br />
-• Интеллект: 50<br />
-• Мастерство владения стихией Земли: 8<br />
-• Уровень: 8<br />
-<b>Описание:</b><br />
-Вы получаете на 95% меньше урона в этот размен<BR>Прием не подвержен действию шока.<br />
+<B>РљР°РјРµРЅРЅС‹Р№ Р©РёС‚</B><br />
+вЂў Р Р°СЃС…РѕРґ РјР°РЅС‹: 124<br />
+Р—Р°РґРµСЂР¶РєР°: 7<br />
+<b>РњРёРЅРёРјР°Р»СЊРЅС‹Рµ С‚СЂРµР±РѕРІР°РЅРёСЏ:</b><br />
+вЂў РРЅС‚РµР»Р»РµРєС‚: 50<br />
+вЂў РњР°СЃС‚РµСЂСЃС‚РІРѕ РІР»Р°РґРµРЅРёСЏ СЃС‚РёС…РёРµР№ Р—РµРјР»Рё: 8<br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8<br />
+<b>РћРїРёСЃР°РЅРёРµ:</b><br />
+Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ РЅР° 95% РјРµРЅСЊС€Рµ СѓСЂРѕРЅР° РІ СЌС‚РѕС‚ СЂР°Р·РјРµРЅ<BR>РџСЂРёРµРј РЅРµ РїРѕРґРІРµСЂР¶РµРЅ РґРµР№СЃС‚РІРёСЋ С€РѕРєР°.<br />
 </TABLE>
 </div></div></div><br />
 <br />
-<div style="margin:0; margin-top:8px"><div style="margin-bottom:4px"><input type="button" value="Другое" onClick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Скрыть'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Другое'; }"></div><div ><div style="display: none;"><br />
+<div style="margin:0; margin-top:8px"><div style="margin-bottom:4px"><input type="button" value="Р”СЂСѓРіРѕРµ" onClick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'РЎРєСЂС‹С‚СЊ'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Р”СЂСѓРіРѕРµ'; }"></div><div ><div style="display: none;"><br />
 <br />
 <TABLE class=BL>
 <TABLE class="ST" cellspacing="1">
 <tr>
-    <TH><DIV style="text-align: left;"><B>Книга</B></DIV></TD>
-    <TH><DIV style="text-align: center;"><B>Свойства книги</B></DIV></TD>
+    <TH><DIV style="text-align: left;"><B>РљРЅРёРіР°</B></DIV></TD>
+    <TH><DIV style="text-align: center;"><B>РЎРІРѕР№СЃС‚РІР° РєРЅРёРіРё</B></DIV></TD>
 </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/dgsdsf.gif" border=0></td>
-    <td><B> Тайное Знание (том 1)</B>   (Масса: 1)<br />
+    <td><B> РўР°Р№РЅРѕРµ Р—РЅР°РЅРёРµ (С‚РѕРј 1)</B>   (РњР°СЃСЃР°: 1)<br />
 <br />
-<B>Цена: 500 кр. </B><br />
-<B>Требуется минимальное:</B> <br />
-• Уровень: 7 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Добавляет +1 дополнительный слот для приемов. Каждый том может быть использован лишь один раз.<br />
-<font color=brown>Предмет не подлежит ремонту</font></small><br />
+<B>Р¦РµРЅР°: 500 РєСЂ. </B><br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 7 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р”РѕР±Р°РІР»СЏРµС‚ +1 РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СЃР»РѕС‚ РґР»СЏ РїСЂРёРµРјРѕРІ. РљР°Р¶РґС‹Р№ С‚РѕРј РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ Р»РёС€СЊ РѕРґРёРЅ СЂР°Р·.<br />
+<font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/dgsdsf.gif" border=0></td>
-    <td> <B> Тайное Знание (том 2)</B>   (Масса: 1)<br />
+    <td> <B> РўР°Р№РЅРѕРµ Р—РЅР°РЅРёРµ (С‚РѕРј 2)</B>   (РњР°СЃСЃР°: 1)<br />
 <br />
-<B>Цена: 1000 кр. </B><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Уровень: 8 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Добавляет +1 дополнительный слот для приемов. Каждый том может быть использован лишь один раз. Для изучения требуется знание первого тома.<br />
-<font color=brown>Предмет не подлежит ремонту</font></small> <br />
+<B>Р¦РµРЅР°: 1000 РєСЂ. </B><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 8 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р”РѕР±Р°РІР»СЏРµС‚ +1 РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СЃР»РѕС‚ РґР»СЏ РїСЂРёРµРјРѕРІ. РљР°Р¶РґС‹Р№ С‚РѕРј РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ Р»РёС€СЊ РѕРґРёРЅ СЂР°Р·. Р”Р»СЏ РёР·СѓС‡РµРЅРёСЏ С‚СЂРµР±СѓРµС‚СЃСЏ Р·РЅР°РЅРёРµ РїРµСЂРІРѕРіРѕ С‚РѕРјР°.<br />
+<font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small> <br />
 </td>
   </tr>
 <tr></tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/dgsdsf.gif" border=0></td>
-    <td><B>Тайное Знание (том 3)</B>   (Масса: 1)<br />
+    <td><B>РўР°Р№РЅРѕРµ Р—РЅР°РЅРёРµ (С‚РѕРј 3)</B>   (РњР°СЃСЃР°: 1)<br />
 <br />
-<B>Цена: 2000 кр. </B><br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Уровень: 9 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Добавляет +1 дополнительный слот для приемов. Каждый том может быть использован лишь один раз. Для изучения требуется знание второго тома. <br />
-<font color=brown>Предмет не подлежит ремонту</font></small><br />
+<B>Р¦РµРЅР°: 2000 РєСЂ. </B><br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 9 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р”РѕР±Р°РІР»СЏРµС‚ +1 РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СЃР»РѕС‚ РґР»СЏ РїСЂРёРµРјРѕРІ. РљР°Р¶РґС‹Р№ С‚РѕРј РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ Р»РёС€СЊ РѕРґРёРЅ СЂР°Р·. Р”Р»СЏ РёР·СѓС‡РµРЅРёСЏ С‚СЂРµР±СѓРµС‚СЃСЏ Р·РЅР°РЅРёРµ РІС‚РѕСЂРѕРіРѕ С‚РѕРјР°. <br />
+<font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
   </tr>
 <tr>
     <td><IMG SRC="http://bestcombats.net/news/i/dgsdsf.gif" border=0></td>
-    <td><B>Тайное Знание (том 4)</B>   (Масса: 1)<br />
+    <td><B>РўР°Р№РЅРѕРµ Р—РЅР°РЅРёРµ (С‚РѕРј 4)</B>   (РњР°СЃСЃР°: 1)<br />
 <br />
-<B>Цена: 5000 кр.</B> <br />
-Долговечность: 0/1 <br />
-<B>Требуется минимальное:</B> <br />
-• Уровень: 10 <br />
-Максимум: 1 ед. <br />
-<small>Описание: <br />
-Добавляет +1 дополнительный слот для приемов. Каждый том может быть использован лишь один раз. Для изучения требуется знание третьего тома.<br />
-<font color=brown>Предмет не подлежит ремонту</font></small><br />
+<B>Р¦РµРЅР°: 5000 РєСЂ.</B> <br />
+Р”РѕР»РіРѕРІРµС‡РЅРѕСЃС‚СЊ: 0/1 <br />
+<B>РўСЂРµР±СѓРµС‚СЃСЏ РјРёРЅРёРјР°Р»СЊРЅРѕРµ:</B> <br />
+вЂў РЈСЂРѕРІРµРЅСЊ: 10 <br />
+РњР°РєСЃРёРјСѓРј: 1 РµРґ. <br />
+<small>РћРїРёСЃР°РЅРёРµ: <br />
+Р”РѕР±Р°РІР»СЏРµС‚ +1 РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Р№ СЃР»РѕС‚ РґР»СЏ РїСЂРёРµРјРѕРІ. РљР°Р¶РґС‹Р№ С‚РѕРј РјРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ Р»РёС€СЊ РѕРґРёРЅ СЂР°Р·. Р”Р»СЏ РёР·СѓС‡РµРЅРёСЏ С‚СЂРµР±СѓРµС‚СЃСЏ Р·РЅР°РЅРёРµ С‚СЂРµС‚СЊРµРіРѕ С‚РѕРјР°.<br />
+<font color=brown>РџСЂРµРґРјРµС‚ РЅРµ РїРѕРґР»РµР¶РёС‚ СЂРµРјРѕРЅС‚Сѓ</font></small><br />
  </td>
   </tr>
 </TABLE>

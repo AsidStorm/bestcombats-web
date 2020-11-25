@@ -1,5 +1,5 @@
 <?php
-if ($user['align']==4){ echo "Хаосникам запрещено колдовать!";}	
+if ($user['align']==4){ echo "РҐР°РѕСЃРЅРёРєР°Рј Р·Р°РїСЂРµС‰РµРЅРѕ РєРѕР»РґРѕРІР°С‚СЊ!";}	
 else{
  if ($_SESSION['uid'] == null) header("Location: index.php");
  if(!$_POST){$targeted=0;}
@@ -20,32 +20,32 @@ if ($user['intel'] >= 15) {
   }
 else {$int=0;}
 
-if ($user['battle'] > 0) {echo "Не в бою...";}
-elseif ($effect['time']) {echo "У вас уже есть заклятие Предчувствие..."; }
-elseif ($us['bot']==1) {echo "Заклятие может быть наложено только на персонажей";}
-elseif ($us['vip']==1) {echo "Заклятие может быть наложено только на себя ";}
+if ($user['battle'] > 0) {echo "РќРµ РІ Р±РѕСЋ...";}
+elseif ($effect['time']) {echo "РЈ РІР°СЃ СѓР¶Рµ РµСЃС‚СЊ Р·Р°РєР»СЏС‚РёРµ РџСЂРµРґС‡СѓРІСЃС‚РІРёРµ..."; }
+elseif ($us['bot']==1) {echo "Р—Р°РєР»СЏС‚РёРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅР°Р»РѕР¶РµРЅРѕ С‚РѕР»СЊРєРѕ РЅР° РїРµСЂСЃРѕРЅР°Р¶РµР№";}
+elseif ($us['vip']==1) {echo "Р—Р°РєР»СЏС‚РёРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅР°Р»РѕР¶РµРЅРѕ С‚РѕР»СЊРєРѕ РЅР° СЃРµР±СЏ ";}
 elseif (1==1) { 
 if($_POST['target']!=""){
-      addch("<font color=red>внимание! </font><img src=http://img.vr-bk.net/i/magic/power_hp6.gif> Персонаж &quot;{$user['login']}&quot; наложил заклятие \"Жажда Жизни +6\" на &quot;{$_POST['target']}&quot;, сроком 2 часа.");
+      addch("<font color=red>РІРЅРёРјР°РЅРёРµ! </font><img src=http://img.vr-bk.net/i/magic/power_hp6.gif> РџРµСЂСЃРѕРЅР°Р¶ &quot;{$user['login']}&quot; РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ \"Р–Р°Р¶РґР° Р–РёР·РЅРё +6\" РЅР° &quot;{$_POST['target']}&quot;, СЃСЂРѕРєРѕРј 2 С‡Р°СЃР°.");
     
       $user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `login` = '{$_POST['target']}' LIMIT 1;")); 
 	  $addhp=$user['vinos']*6;
       if ($effect['time']){mysql_query("UPDATE `effects` SET `hp`='".$addhp."',`time`=".(time()+7200)." WHERE `owner` = '{$user['id']}' and `type` = '901' LIMIT 1;");}
-	  else{mysql_query("INSERT INTO `effects` (`owner`,`hp`,`maxhp`,`name`,`time`,`type`) values ('".$user['id']."','".$addhp."','".$addhp."','Жажда Жизни +6',".(time()+7200).",901);");
+	  else{mysql_query("INSERT INTO `effects` (`owner`,`hp`,`maxhp`,`name`,`time`,`type`) values ('".$user['id']."','".$addhp."','".$addhp."','Р–Р°Р¶РґР° Р–РёР·РЅРё +6',".(time()+7200).",901);");
 	  mysql_query("UPDATE `users` SET `maxhp`=`maxhp`+'".$addhp."', `hp`=`hp`+'".$addhp."' WHERE `login` = '{$_POST['target']}' LIMIT 1;");}
-      echo "<font color=red><b>Удачно наложено заклятие Жажда Жизни +6 </b> Усиление добавило +".$addhp." HP</font>";
+      echo "<font color=red><b>РЈРґР°С‡РЅРѕ РЅР°Р»РѕР¶РµРЅРѕ Р·Р°РєР»СЏС‚РёРµ Р–Р°Р¶РґР° Р–РёР·РЅРё +6 </b> РЈСЃРёР»РµРЅРёРµ РґРѕР±Р°РІРёР»Рѕ +".$addhp." HP</font>";
 	  
        $bet=1;
 	  }
 	  else
 	  {
 	
-	  echo "Введите логин персонажа!";
+	  echo "Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°!";
 	  }
       
 
 } else {
-        echo "Свиток рассыпался в ваших руках...";
+        echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
         $bet=1;
       }  
 	  }

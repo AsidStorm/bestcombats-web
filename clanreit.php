@@ -3,7 +3,7 @@ include "connect.php";
 ?>
 <HTML>
 <HEAD>
-<title>Таблица кланового опыта</title>
+<title>РўР°Р±Р»РёС†Р° РєР»Р°РЅРѕРІРѕРіРѕ РѕРїС‹С‚Р°</title>
 <link rel=stylesheet type="text/css" href="http://img.bestcombats.net/css/main.css">
 <link rel="icon" href="http://img.bestcombats.net/favicon.ico" type="image/x-icon">
 <meta content="text/html; charset=windows-1251" http-equiv=Content-type>
@@ -33,9 +33,9 @@ img.pnged {
 <table width=700 cellpadding=2 cellspacing=0 class=exptable style="border: 1px solid #666666;">
 <tr>
 <td width=36 class=header colspan=4>&nbsp;</td>
-<td class=header><b><a href="clanreit.php?sort=clan">Клан</a></b></td>
-<td class=header><b><a href="clanreit.php?sort=exp">Уровень</a></b></td>
-<td class=header width=100><b><a href="clanreit.php?sort=persons">Персонажей</a></b></td>
+<td class=header><b><a href="clanreit.php?sort=clan">РљР»Р°РЅ</a></b></td>
+<td class=header><b><a href="clanreit.php?sort=exp">РЈСЂРѕРІРµРЅСЊ</a></b></td>
+<td class=header width=100><b><a href="clanreit.php?sort=persons">РџРµСЂСЃРѕРЅР°Р¶РµР№</a></b></td>
 </tr>
  
 <?
@@ -47,7 +47,7 @@ $nu=1;
                         $total = 0;
                         $total1 = mysql_num_rows(mysql_query("SELECT * FROM `users` WHERE `klan` = '{$row['short']}'"));
                         if ($row['guard']==1) {
-                        echo "<tr><td width=12  align=center><b>".$nu++.".</b></td><td width=12  align=center><img src='http://img.bestcombats.net/clans/guard.gif' alt='Гвардейский клан'>";
+                        echo "<tr><td width=12  align=center><b>".$nu++.".</b></td><td width=12  align=center><img src='http://img.bestcombats.net/clans/guard.gif' alt='Р“РІР°СЂРґРµР№СЃРєРёР№ РєР»Р°РЅ'>";
                         }else{
                         echo "<tr><td width=12  align=center><b>".$nu++.".</b></td><td width=12  align=center>&nbsp;</td>";
                         }

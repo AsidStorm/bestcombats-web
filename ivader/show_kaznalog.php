@@ -4,10 +4,10 @@
 
 <form method=get>
 	<fieldset>
-		<legend>логи Казны</legend>
+		<legend>Р»РѕРіРё РљР°Р·РЅС‹</legend>
 		<table>
-			<tr><td>Клан</td><td><input type='text' name='klan' value='<?=$_GET['klan']?>'></td><td><input type=submit value='посмотреть'></td></tr>
-			<tr><td>Персонаж</td><td><input type='text' name='user' value='<?=$_GET['user']?>'></td><td><input type=submit value='посмотреть'></td></tr>
+			<tr><td>РљР»Р°РЅ</td><td><input type='text' name='klan' value='<?=$_GET['klan']?>'></td><td><input type=submit value='РїРѕСЃРјРѕС‚СЂРµС‚СЊ'></td></tr>
+			<tr><td>РџРµСЂСЃРѕРЅР°Р¶</td><td><input type='text' name='user' value='<?=$_GET['user']?>'></td><td><input type=submit value='РїРѕСЃРјРѕС‚СЂРµС‚СЊ'></td></tr>
 		</table>
 	</fieldset>
 </form>
@@ -22,13 +22,13 @@
 		}
 		
 		If (empty($_GET['klan']) and empty($_GET['user'])){
-			//echo "Персонаж не найден в БД!";
+			//echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ РІ Р‘Р”!";
 		}elseIf (empty($klanlog)){
-			echo "Клан или логи персонажа не найдены в БД!";
+			echo "РљР»Р°РЅ РёР»Рё Р»РѕРіРё РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµ РЅР°Р№РґРµРЅС‹ РІ Р‘Р”!";
 		}else{
 			$i=0;
 			echo "<table border=1 cellpadding=3 cellspacing=3>";
-			echo "<tr><td>№</td><td>Клан</td><td>Логин</td><td>Действие</td><td>Сумма</td><td>Дата</td></tr>";
+			echo "<tr><td>в„–</td><td>РљР»Р°РЅ</td><td>Р›РѕРіРёРЅ</td><td>Р”РµР№СЃС‚РІРёРµ</td><td>РЎСѓРјРјР°</td><td>Р”Р°С‚Р°</td></tr>";
 			While ($work=mysql_fetch_array($klanlog)){
 				$i++;
 				$user = mysql_fetch_array(mysql_query("SELECT * FROM `users` WHERE `id` = '".$work['user']."' "));
@@ -36,8 +36,8 @@
 					echo "<td>".$i."</td>";
 					echo "<td>".$work['klan']."</td>";
 					echo "<td>".$user['login']."[".$user['level']."]<a href='/inf.php?".$user['id']."' target='_blank'><img src='/i/inf.gif'></a></td> ";
-					if($work['action']==0){echo "<td align=center><img src=\"/i/kazna_get.gif\" alt=\"забрал\"></td>";}else{echo "<td align=center><img src=\"/i/kazna_put.gif\" alt=\"положил\"></td>";}
-					echo "<td>".$work['sum']." кр.</td>";
+					if($work['action']==0){echo "<td align=center><img src=\"/i/kazna_get.gif\" alt=\"Р·Р°Р±СЂР°Р»\"></td>";}else{echo "<td align=center><img src=\"/i/kazna_put.gif\" alt=\"РїРѕР»РѕР¶РёР»\"></td>";}
+					echo "<td>".$work['sum']." РєСЂ.</td>";
 					echo "<td>".$work['date']."</td>";
 				echo "</tr>";
 			}

@@ -24,7 +24,7 @@
         if($user[0]) {
           $effect = mysql_fetch_array(mysql_query("SELECT `time` FROM `effects` WHERE `owner` = '{$id}' and `type` = '1022' LIMIT 1;"));
           if($effect) {
-            $user['login'] = '</a><b><i>невидимка</i></b>';
+            $user['login'] = '</a><b><i>РЅРµРІРёРґРёРјРєР°</i></b>';
             $user['align'] = '0';
             $user['klan'] = '';
             $user['hp'] = '??';
@@ -38,40 +38,40 @@
     }
     if($hmm['sex'] == 1) {
       $aa="";
-      $em="ему";
-      $his="его";
+      $em="РµРјСѓ";
+      $his="РµРіРѕ";
     } else {
-      $em="ей";
+      $em="РµР№";
       $aa="a";
-      $his="её";
+      $his="РµС‘";
     }
 
     if ($nazv=="multi_agressiveshield" || $nazv=="block_revenge") {
-      $textp='<span class=date>'.date("H:i").'</span> '.nick666($hmm['id'],$color).', решив стать героем, провел'.$aa.' прием <b>"'.$strokes[$nazv]->name.'"</b> на '.nick666($p1,$color2).' <b>-'.$p2.'</b> '.$p3.' ]<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.nick666($hmm['id'],$color).', СЂРµС€РёРІ СЃС‚Р°С‚СЊ РіРµСЂРѕРµРј, РїСЂРѕРІРµР»'.$aa.' РїСЂРёРµРј <b>"'.$strokes[$nazv]->name.'"</b> РЅР° '.nick666($p1,$color2).' <b>-'.$p2.'</b> '.$p3.' ]<BR>';
     } elseif(substr($nazv,0,11)=='magicdamage'){
-      $textp='<span class=date>'.date("H:i").'</span> '.nick666($hmm['id'],$color).', получил'.$aa.' повреждение от '.$p4.' <b>-'.$p1.'</b> [ '.($p2<0?0:$p2).' / '.$p3.' ]<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.nick666($hmm['id'],$color).', РїРѕР»СѓС‡РёР»'.$aa.' РїРѕРІСЂРµР¶РґРµРЅРёРµ РѕС‚ '.$p4.' <b>-'.$p1.'</b> [ '.($p2<0?0:$p2).' / '.$p3.' ]<BR>';
     } elseif(substr($nazv,0,11)=='manadamage'){
-      $textp='<span class=date>'.date("H:i").'</span> '.nick666($hmm['id'],$color).', утратил'.$aa.' ману от заземления <b>-'.$p1.'</b>.<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.nick666($hmm['id'],$color).', СѓС‚СЂР°С‚РёР»'.$aa.' РјР°РЅСѓ РѕС‚ Р·Р°Р·РµРјР»РµРЅРёСЏ <b>-'.$p1.'</b>.<BR>';
     } elseif($nazv=='heal'){
-      $textp='<span class=date>'.date("H:i").'</span> '.nick666($hmm['id'],$color).', восстановил'.$aa.', здоровье от приёма <b>'.$strokes[$p4]->name.'</b> <font Color=green><b>+'.$p1.'</b></font> [ '.$p2.' / '.$p3.' ]<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.nick666($hmm['id'],$color).', РІРѕСЃСЃС‚Р°РЅРѕРІРёР»'.$aa.', Р·РґРѕСЂРѕРІСЊРµ РѕС‚ РїСЂРёС‘РјР° <b>'.$strokes[$p4]->name.'</b> <font Color=green><b>+'.$p1.'</b></font> [ '.$p2.' / '.$p3.' ]<BR>';
     } elseif($nazv=='healmana'){
-      $textp='<span class=date>'.date("H:i").'</span> '.nick666($hmm['id'],$color).', восстановил'.$aa.', ману от приёма <b>'.$strokes[$p4]->name.'</b> <font Color=green><b>+'.$p1.'</b></font> [ '.$p2.' / '.$p3.' ]<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.nick666($hmm['id'],$color).', РІРѕСЃСЃС‚Р°РЅРѕРІРёР»'.$aa.', РјР°РЅСѓ РѕС‚ РїСЂРёС‘РјР° <b>'.$strokes[$p4]->name.'</b> <font Color=green><b>+'.$p1.'</b></font> [ '.$p2.' / '.$p3.' ]<BR>';
     } elseif($nazv=='heal2'){
-      $textp='<span class=date>'.date("H:i").'</span> '.nick666($hmm['id'],$color).', использовал'.$aa.', приём <b>'.$strokes[$p4]->name.'</b> <font Color=green><b>+'.$p1.'</b></font> [ '.$p2.' / '.$p3.' ]<BR>';
+      $textp='<span class=date>'.date("H:i").'</span> '.nick666($hmm['id'],$color).', РёСЃРїРѕР»СЊР·РѕРІР°Р»'.$aa.', РїСЂРёС‘Рј <b>'.$strokes[$p4]->name.'</b> <font Color=green><b>+'.$p1.'</b></font> [ '.$p2.' / '.$p3.' ]<BR>';
     } elseif ($strokes[$nazv])  {
       $textp='<span class=date>'.date("H:i").'</span> ';
       $nick=nick666($hmm['id'],$color);
       $priem=$strokes[$nazv]->name;
       $txts=array(
-        "$nick, нетрезво оценив положение, решил$aa, что поможет $em только прием <b>\"$priem\"</b>.",
-        "$nick, не придумал$aa ничего лучше чем применить прием <b>\"$priem\"</b>.",
-        "$nick, сам$aa не поняв зачем, применил$aa прием <b>\"$priem\"</b>.",
-        "$nick, вспомнив слова своего сэнсея, из последних сил провел$aa прием <b>\"$priem\"</b>.",
-        "$nick, решив стать героем, провел$aa прием <b>\"$priem\"</b>.",
-        "$nick, понял$aa, пропустив очередной удар в голову, что $his спасение - это прием <b>\"$priem\"</b>.",
-        "$nick, понимая, что ситуация становится критической, применил$aa прием <b>\"$priem\"</b>.",
-        "$nick, замыслив недоброе, использовал$aa прием <b>\"$priem\"</b>.",
-        "$nick, выкрикнув: \"А ещё я вот так могу!\", использовал$aa прием <b>\"$priem\"</b>."
+        "$nick, РЅРµС‚СЂРµР·РІРѕ РѕС†РµРЅРёРІ РїРѕР»РѕР¶РµРЅРёРµ, СЂРµС€РёР»$aa, С‡С‚Рѕ РїРѕРјРѕР¶РµС‚ $em С‚РѕР»СЊРєРѕ РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, РЅРµ РїСЂРёРґСѓРјР°Р»$aa РЅРёС‡РµРіРѕ Р»СѓС‡С€Рµ С‡РµРј РїСЂРёРјРµРЅРёС‚СЊ РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, СЃР°Рј$aa РЅРµ РїРѕРЅСЏРІ Р·Р°С‡РµРј, РїСЂРёРјРµРЅРёР»$aa РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, РІСЃРїРѕРјРЅРёРІ СЃР»РѕРІР° СЃРІРѕРµРіРѕ СЃСЌРЅСЃРµСЏ, РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» РїСЂРѕРІРµР»$aa РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, СЂРµС€РёРІ СЃС‚Р°С‚СЊ РіРµСЂРѕРµРј, РїСЂРѕРІРµР»$aa РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, РїРѕРЅСЏР»$aa, РїСЂРѕРїСѓСЃС‚РёРІ РѕС‡РµСЂРµРґРЅРѕР№ СѓРґР°СЂ РІ РіРѕР»РѕРІСѓ, С‡С‚Рѕ $his СЃРїР°СЃРµРЅРёРµ - СЌС‚Рѕ РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, РїРѕРЅРёРјР°СЏ, С‡С‚Рѕ СЃРёС‚СѓР°С†РёСЏ СЃС‚Р°РЅРѕРІРёС‚СЃСЏ РєСЂРёС‚РёС‡РµСЃРєРѕР№, РїСЂРёРјРµРЅРёР»$aa РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, Р·Р°РјС‹СЃР»РёРІ РЅРµРґРѕР±СЂРѕРµ, РёСЃРїРѕР»СЊР·РѕРІР°Р»$aa РїСЂРёРµРј <b>\"$priem\"</b>.",
+        "$nick, РІС‹РєСЂРёРєРЅСѓРІ: \"Рђ РµС‰С‘ СЏ РІРѕС‚ С‚Р°Рє РјРѕРіСѓ!\", РёСЃРїРѕР»СЊР·РѕРІР°Р»$aa РїСЂРёРµРј <b>\"$priem\"</b>."
       );
       $textp.=$txts[rand(0,count($txts)-1)];
       $textp.="<BR>";
@@ -79,12 +79,12 @@
 
     if (!$write) return $textp;
 
-    $fp = fopen ("backup/logs/battle".$id.".txt","a"); //открытие
-    flock ($fp,LOCK_EX); //БЛОКИРОВКА ФАЙЛА
-    fputs($fp , $textp); //работа с файлом
-    fflush ($fp); //ОЧИЩЕНИЕ ФАЙЛОВОГО БУФЕРА И ЗАПИСЬ В ФАЙЛ
-    flock ($fp,LOCK_UN); //СНЯТИЕ БЛОКИРОВКИ
-    fclose ($fp); //закрытие
+    $fp = fopen ("backup/logs/battle".$id.".txt","a"); //РѕС‚РєСЂС‹С‚РёРµ
+    flock ($fp,LOCK_EX); //Р‘Р›РћРљРР РћР’РљРђ Р¤РђР™Р›Рђ
+    fputs($fp , $textp); //СЂР°Р±РѕС‚Р° СЃ С„Р°Р№Р»РѕРј
+    fflush ($fp); //РћР§РР©Р•РќРР• Р¤РђР™Р›РћР’РћР“Рћ Р‘РЈР¤Р•Р Рђ Р Р—РђРџРРЎР¬ Р’ Р¤РђР™Р›
+    flock ($fp,LOCK_UN); //РЎРќРЇРўРР• Р‘Р›РћРљРР РћР’РљР
+    fclose ($fp); //Р·Р°РєСЂС‹С‚РёРµ
     //chmod("/backup/logs/battle".$id.".txt",666);
 
   }

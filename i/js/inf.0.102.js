@@ -17,7 +17,7 @@ function errtrap(nick)
     var OldErrorTrap = window.onerror;
     window.onerror = NewErrorTrap;
     if (window.opener) { // && window.opener.top.delay) {
-        document.write('<IMG SRC=/i/lock3.gif WIDTH=20 HEIGHT=15 ALT="Приватное сообщение" onclick="window.opener.top.AddToPrivate(\''+nick+'\', true)" style="cursor:hand">');
+        document.write('<IMG SRC=/i/lock3.gif WIDTH=20 HEIGHT=15 ALT="РџСЂРёРІР°С‚РЅРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ" onclick="window.opener.top.AddToPrivate(\''+nick+'\', true)" style="cursor:hand">');
     }
     if (document.log != null) { window.top.location="http://www.combats-2.ru/"; }
     window.onerror = OldErrorTrap;
@@ -49,7 +49,7 @@ function quoteString(str){
 function DrawGift(name, flag, title, text, from, uid, width, height){
   var s = ('<IMG SRC="/i/items/'+name+'.gif" WIDTH='+width+' HEIGHT='+height+' style="cursor: hand;" ALT="');
   if (text)s+=text+"\n";
-  from = from.replace(/клан /g, 'клана ');
+  from = from.replace(/РєР»Р°РЅ /g, 'РєР»Р°РЅР° ');
   if (from == '__hide') from = '';
   s += (from?(gift[0] + from + gift[1]):gift[2]) + '"' +
     ' onclick="HideGift();ShowGift('+ quoteString(title)+ ', ' + quoteString(name) +', ' +
@@ -90,7 +90,7 @@ function ShowGift(title, name, img, text, from, y, uid) {
       if (uid){
         if (parseInt(uid))from = gift[0] + '<a target=_blank href="/inf.pl?'+uid+'">' + from + '</a>' + gift[1];
         else from = gift[0] + '<a target=_blank href="http://capitalcity.combats.com/encicl/klan/'+uid+'.html">' + from + '</a>' + gift[1];
-      }else if (from) from = gift[0] + ((from == 'Бойцовский Клуб')?'<b>'+from+'</b>':'<a target=_blank href="/inf.pl?login='+quote_url(from)+'">' + from + '</a>') + gift[1];
+      }else if (from) from = gift[0] + ((from == 'Р‘РѕР№С†РѕРІСЃРєРёР№ РљР»СѓР±')?'<b>'+from+'</b>':'<a target=_blank href="/inf.pl?login='+quote_url(from)+'">' + from + '</a>') + gift[1];
       if (!from) from = gift[2];
       document.getElementById("mgift_sign").innerHTML = '<small>' + (text?text+'<br>':'') + from + '</small>';
       document.getElementById("mgift_title").innerHTML = '<small><b>' + stitle + '</b></small>';
@@ -133,11 +133,11 @@ function drawDivs(){
 }
 
 var rnd = Math.random();
-//-- Смена хитпоинтов
-var delay = 18;     // Каждые 18сек. увеличение HP на 1%
-var redHP = 0.33;   // меньше 30% красный цвет
-var yellowHP = 0.66;// меньше 60% желтый цвет, иначе зеленый
-var TimerOn = -1;   // id таймера
+//-- РЎРјРµРЅР° С…РёС‚РїРѕРёРЅС‚РѕРІ
+var delay = 18;     // РљР°Р¶РґС‹Рµ 18СЃРµРє. СѓРІРµР»РёС‡РµРЅРёРµ HP РЅР° 1%
+var redHP = 0.33;   // РјРµРЅСЊС€Рµ 30% РєСЂР°СЃРЅС‹Р№ С†РІРµС‚
+var yellowHP = 0.66;// РјРµРЅСЊС€Рµ 60% Р¶РµР»С‚С‹Р№ С†РІРµС‚, РёРЅР°С‡Рµ Р·РµР»РµРЅС‹Р№
+var TimerOn = -1;   // id С‚Р°Р№РјРµСЂР°
 var tkHP, maxHP;
 var speed=100;
 var mspeed=100;
@@ -171,7 +171,7 @@ function setHPlocal() {
 }
 
 var Mdelay = 18;
-var MTimerOn = -1;  // id таймера
+var MTimerOn = -1;  // id С‚Р°Р№РјРµСЂР°
 var tkMana, maxMana;
 
 function setMana(value, max, newspeed) {

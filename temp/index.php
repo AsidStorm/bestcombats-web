@@ -9,13 +9,13 @@ if (1) {
 if(!empty($_GET['exit'])){session_start(); session_destroy();}
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
-<title>Virt-Life | Твоя Виртуальная жизнь | Старый Бойцовский клуб | OldBK | Старый БК | БК | Онлайн | Игра | Браузерная игра | Браузерка | Бойцовский клуб</title>
+<title>Virt-Life | РўРІРѕСЏ Р’РёСЂС‚СѓР°Р»СЊРЅР°СЏ Р¶РёР·РЅСЊ | РЎС‚Р°СЂС‹Р№ Р‘РѕР№С†РѕРІСЃРєРёР№ РєР»СѓР± | OldBK | РЎС‚Р°СЂС‹Р№ Р‘Рљ | Р‘Рљ | РћРЅР»Р°Р№РЅ | РРіСЂР° | Р‘СЂР°СѓР·РµСЂРЅР°СЏ РёРіСЂР° | Р‘СЂР°СѓР·РµСЂРєР° | Р‘РѕР№С†РѕРІСЃРєРёР№ РєР»СѓР±</title>
 <meta http-equiv="content-type" content="text/html; charset=Windows-1251" />
 <meta name="author" content="virt-life.com" />
-<meta name="description" content="Игра посвященная боям света и тьмы ! Чью сторону ты примешь ? Великие битвы и сражения ждут тебя ! Кем ты будешь - воином или великим магом ?
-Приятное общение в чате, бои, поединки !
-Новые задания и локации - игра постоянно дополняется и развивается !" />
-<meta name="keywords" content="БК, combats, Олд БК, старый Бойцовский Клуб, Бойцовский клуб, История, Предметы БК, БК 2003, Броня Печали, Ветераны, Старый клуб, Старый БК, Старый бойцовский клуб, Ностальгия" />
+<meta name="description" content="РРіСЂР° РїРѕСЃРІСЏС‰РµРЅРЅР°СЏ Р±РѕСЏРј СЃРІРµС‚Р° Рё С‚СЊРјС‹ ! Р§СЊСЋ СЃС‚РѕСЂРѕРЅСѓ С‚С‹ РїСЂРёРјРµС€СЊ ? Р’РµР»РёРєРёРµ Р±РёС‚РІС‹ Рё СЃСЂР°Р¶РµРЅРёСЏ Р¶РґСѓС‚ С‚РµР±СЏ ! РљРµРј С‚С‹ Р±СѓРґРµС€СЊ - РІРѕРёРЅРѕРј РёР»Рё РІРµР»РёРєРёРј РјР°РіРѕРј ?
+РџСЂРёСЏС‚РЅРѕРµ РѕР±С‰РµРЅРёРµ РІ С‡Р°С‚Рµ, Р±РѕРё, РїРѕРµРґРёРЅРєРё !
+РќРѕРІС‹Рµ Р·Р°РґР°РЅРёСЏ Рё Р»РѕРєР°С†РёРё - РёРіСЂР° РїРѕСЃС‚РѕСЏРЅРЅРѕ РґРѕРїРѕР»РЅСЏРµС‚СЃСЏ Рё СЂР°Р·РІРёРІР°РµС‚СЃСЏ !" />
+<meta name="keywords" content="Р‘Рљ, combats, РћР»Рґ Р‘Рљ, СЃС‚Р°СЂС‹Р№ Р‘РѕР№С†РѕРІСЃРєРёР№ РљР»СѓР±, Р‘РѕР№С†РѕРІСЃРєРёР№ РєР»СѓР±, РСЃС‚РѕСЂРёСЏ, РџСЂРµРґРјРµС‚С‹ Р‘Рљ, Р‘Рљ 2003, Р‘СЂРѕРЅСЏ РџРµС‡Р°Р»Рё, Р’РµС‚РµСЂР°РЅС‹, РЎС‚Р°СЂС‹Р№ РєР»СѓР±, РЎС‚Р°СЂС‹Р№ Р‘Рљ, РЎС‚Р°СЂС‹Р№ Р±РѕР№С†РѕРІСЃРєРёР№ РєР»СѓР±, РќРѕСЃС‚Р°Р»СЊРіРёСЏ" />
 <meta http-equiv="imagetoolbar" content="no" />
 <meta http-equiv="Page-Enter" content="revealTrans(Duration=2,Transition=23)" />
 <style>
@@ -58,7 +58,7 @@ img {width:auto;border:none;behavior: url('pngbehavior.htc');}
   include "newdata.php";
   foreach ($news as $k=>$v) {
     $v=str_replace("<br>","",$v);
-    echo "Обновления $k: $v";
+    echo "РћР±РЅРѕРІР»РµРЅРёСЏ $k: $v";
     break;
   }
 ?></marquee></div>
@@ -75,16 +75,16 @@ img {width:auto;border:none;behavior: url('pngbehavior.htc');}
 <img src="<?=IMGBASE?>/i/linksbg.gif" style="position:absolute;left:320px;top:494px" onclick="this.style.visibility='hidden'" width="379" height="74">
 <form style="position:absolute;left:386px;top:285px" action="/enter.php" method="POST" name="form1">
 <table>
-<tr><td align="right">Логин&nbsp;&nbsp;</td><td><input type="text" name="login"></td></tr>
+<tr><td align="right">Р›РѕРіРёРЅ&nbsp;&nbsp;</td><td><input type="text" name="login"></td></tr>
 <tr><td style="font-size:10px">&nbsp;</td></tr>
-<tr><td align="right">Пароль&nbsp;&nbsp;</td><td><input type="password" name="psw"></td></tr>
+<tr><td align="right">РџР°СЂРѕР»СЊ&nbsp;&nbsp;</td><td><input type="password" name="psw"></td></tr>
 <tr><td colspan="2" align="center" height="25">
-<a href="javascript:void(0)" onclick="document.form1.submit();return false;">Войти</a>
+<a href="javascript:void(0)" onclick="document.form1.submit();return false;">Р’РѕР№С‚Рё</a>
 </td></tr>
 <tr><td colspan="2" align="center" height="75">
-<a href="register.php">Регистрация</a>
+<a href="register.php">Р РµРіРёСЃС‚СЂР°С†РёСЏ</a>
 &nbsp;&nbsp;&nbsp;
-<a href="rememberpassword.php">Забыли пароль</a>
+<a href="rememberpassword.php">Р—Р°Р±С‹Р»Рё РїР°СЂРѕР»СЊ</a>
 </td></tr>
 <tr><td colspan="2" align="center"><div style="position:relative;top:-10px;"><?include('mail_ru.php')?></div></td></tr>
 </table>
@@ -92,9 +92,9 @@ img {width:auto;border:none;behavior: url('pngbehavior.htc');}
 </form>
 
 <div style="position:absolute;left:446px;top:520px">
-<a href="forum.php" target="_blank">Форум</a>
+<a href="forum.php" target="_blank">Р¤РѕСЂСѓРј</a>
 &nbsp;&nbsp;&nbsp;
-<a href="news.php" target="_blank">Новости</a>
+<a href="news.php" target="_blank">РќРѕРІРѕСЃС‚Рё</a>
 </div>
 </div>
 </div>

@@ -13,34 +13,34 @@ else {$int=0;}
 
 	
 if ($user['battle'] > 0) {
-	echo "Не в бою...";
+	echo "РќРµ РІ Р±РѕСЋ...";
 } elseif ($us['battle'] > 0) {
-	echo "Персонаж в бою...";
+	echo "РџРµСЂСЃРѕРЅР°Р¶ РІ Р±РѕСЋ...";
 } elseif (!$owntravma['id']) {
-	echo "У персонажа нет легких травм...";
+	echo "РЈ РїРµСЂСЃРѕРЅР°Р¶Р° РЅРµС‚ Р»РµРіРєРёС… С‚СЂР°РІРј...";
 } elseif ($user['room'] != $us['room']) {
-	echo "Персонаж в другой комнате!";
+	echo "РџРµСЂСЃРѕРЅР°Р¶ РІ РґСЂСѓРіРѕР№ РєРѕРјРЅР°С‚Рµ!";
 } elseif (!$us['online']) {
-	echo "Персонаж не в игре!";
+	echo "РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РІ РёРіСЂРµ!";
 } elseif (rand(1,100) < $int) {		
 		
-			if ($user['sex'] == 1) {$action="исцелил";}
-			else {$action="исцелила";}		
+			if ($user['sex'] == 1) {$action="РёСЃС†РµР»РёР»";}
+			else {$action="РёСЃС†РµР»РёР»Р°";}		
 			if ($user['align'] > '2' && $user['align'] < '3')  {
-				$angel="Ангел";
+				$angel="РђРЅРіРµР»";
 			}
 			elseif ($user['align'] > '1' && $user['align'] < '2') {
-				$angel="Персонаж";
+				$angel="РџРµСЂСЃРѕРЅР°Р¶";
 			}
 				$bet=1;
-				echo "Персонаж &quot;{$_POST['target']}&quot; исцелен!";
+				echo "РџРµСЂСЃРѕРЅР°Р¶ &quot;{$_POST['target']}&quot; РёСЃС†РµР»РµРЅ!";
 				if($user['invis']==1) {
-				addch("<img src=i/magic/cure1.gif> &quot;невидимка&quot; ".$action." от легких травм &quot;{$_POST['target']}&quot;");
+				addch("<img src=i/magic/cure1.gif> &quot;РЅРµРІРёРґРёРјРєР°&quot; ".$action." РѕС‚ Р»РµРіРєРёС… С‚СЂР°РІРј &quot;{$_POST['target']}&quot;");
 				}else
-				addch("<img src=i/magic/cure1.gif> ".$angel." &quot;{$user['login']}&quot; ".$action." от легких травм &quot;{$_POST['target']}&quot;");
+				addch("<img src=i/magic/cure1.gif> ".$angel." &quot;{$user['login']}&quot; ".$action." РѕС‚ Р»РµРіРєРёС… С‚СЂР°РІРј &quot;{$_POST['target']}&quot;");
 				deltravma($owntravma['id']);	
 				} else {
-				echo "Свиток рассыпался в ваших руках...";
+				echo "РЎРІРёС‚РѕРє СЂР°СЃСЃС‹РїР°Р»СЃСЏ РІ РІР°С€РёС… СЂСѓРєР°С…...";
 				$bet=1;
 				}	
 ?>

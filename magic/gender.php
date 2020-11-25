@@ -1,5 +1,5 @@
 <?php
-// magic идентификацыя
+// magic РёРґРµРЅС‚РёС„РёРєР°С†С‹СЏ
     //if (rand(1,2)==1) {
         if ($_SESSION['uid'] == null) header("Location: index.php");
 
@@ -13,28 +13,28 @@
                 }
                 if ($ok == 1) {
                   mq("update users set sex='".($tar["sex"]==1?0:1)."', shadow='0.gif' where id='$tar[id]'");
-                  if ($user['sex'] == 1) {$action="сменил";}
-                  else {$action="сменила";}
+                  if ($user['sex'] == 1) {$action="СЃРјРµРЅРёР»";}
+                  else {$action="СЃРјРµРЅРёР»Р°";}
                         if ($user['align'] > '2' && $user['align'] < '3')  {
-                        $angel="Ангел";
+                        $angel="РђРЅРіРµР»";
                         }
                         elseif ($user['align'] > '1' && $user['align'] < '2') {
-                        $angel="Паладин";
+                        $angel="РџР°Р»Р°РґРёРЅ";
                         }
                         elseif ($user['align'] > '3' && $user['align'] <'4') {
-                        $angel="Тарман";
+                        $angel="РўР°СЂРјР°РЅ";
                         }
-                        $mess="$angel &quot;{$user['login']}&quot; $action пол персонажу &quot;$target&quot;";
-                        $messch="$angel &quot;{$user['login']}&quot; $action пол персонажу &quot;$target&quot;";
+                        $mess="$angel &quot;{$user['login']}&quot; $action РїРѕР» РїРµСЂСЃРѕРЅР°Р¶Сѓ &quot;$target&quot;";
+                        $messch="$angel &quot;{$user['login']}&quot; $action РїРѕР» РїРµСЂСЃРѕРЅР°Р¶Сѓ &quot;$target&quot;";
                         if ($user['invis'] == '1') {
-                        $mess="$angel &quot;{$user['login']}&quot; $action заклятие молчания на персонажа &quot;$target&quot; сроком $magictime";
-                        $messch="&quot;невидимка&quot; наложил заклятие молчания на персонажа &quot;$target&quot; сроком $magictime";
+                        $mess="$angel &quot;{$user['login']}&quot; $action Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
+                        $messch="&quot;РЅРµРІРёРґРёРјРєР°&quot; РЅР°Р»РѕР¶РёР» Р·Р°РєР»СЏС‚РёРµ РјРѕР»С‡Р°РЅРёСЏ РЅР° РїРµСЂСЃРѕРЅР°Р¶Р° &quot;$target&quot; СЃСЂРѕРєРѕРј $magictime";
                         }
                         addch("<img src=i/magic/gender.gif> $messch");
-                        echo "<font color=red><b>Успешно сменён пол персонажу \"$target\"</b></font>";
+                        echo "<font color=red><b>РЈСЃРїРµС€РЅРѕ СЃРјРµРЅС‘РЅ РїРѕР» РїРµСЂСЃРѕРЅР°Р¶Сѓ \"$target\"</b></font>";
                 }
         }
         else {
-            echo "<font color=red><b>Персонаж \"$target\" не существует!<b></font>";
+            echo "<font color=red><b>РџРµСЂСЃРѕРЅР°Р¶ \"$target\" РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!<b></font>";
         }
 ?>

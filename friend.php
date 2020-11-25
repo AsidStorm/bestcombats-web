@@ -17,7 +17,7 @@ function nick21 ($id) {
     ?>
     <img src="<?=IMGBASE?>/i/align_<?echo ($user['align']>0 ? $user['align']:"0");?>.gif"><?php if ($user['klan'] <> '') { echo '<img title="'.$user['klan'].'" src="http://img.bestcombats.net/klan/'.$user['klan'].'.gif">'; }?><B><?=$user['login']?></B> [<?
     if (id==2236) echo "?"; else echo $user['level'];
-    ?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Инф. о <?=$user['login']?>"></a>
+    ?>]<a href=inf.php?<?=$user['id']?> target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="РРЅС„. Рѕ <?=$user['login']?>"></a>
 <?
     return 1;
     }
@@ -40,17 +40,17 @@ ob_start("ob_gzhandler");
 if($_POST['sd4'] && $_POST['friendadd']){
 $_POST['friendadd']=htmlspecialchars($_POST['friendadd']);
 if(preg_match("/__/",$_POST['friendadd']) || preg_match("/--/",$_POST['friendadd'])){
-echo"<font color=red>Персонаж не найден.</font>";
+echo"<font color=red>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ.</font>";
 }else{
     $igogo = mysql_fetch_array(mysql_query("SELECT id FROM `users` WHERE `login` = '{$_POST['friendadd']}' LIMIT 1;"));
     if (!$igogo) $igogo = mysql_fetch_array(mysql_query("SELECT id FROM `allusers` WHERE `login` = '{$_POST['friendadd']}' LIMIT 1;"));
 }
 $_POST['comment']=htmlspecialchars($_POST['comment']);
 $igogo2 = mysql_fetch_array(mysql_query("SELECT enemy,friend,notinlist FROM `friends` WHERE `user` = '".$user['id']."' and (`friend`=".$igogo['id']." or `enemy`=".$igogo['id']." or `notinlist`=".$igogo['id'].") LIMIT 1;"));
-if(!$igogo['id']){echo"<font color=red>Персонаж не найден.</font>";}
-elseif($igogo['id']==$user['id']){echo"<font color=red>Себя добавить нельзя.</font>";}
-elseif(preg_match("/__/",$_POST['comment']) || preg_match("/--/",$_POST['comment'])){echo"<font color=red>Введен неверный текст.</font>";}
-elseif($igogo2['enemy'] or $igogo2['friend'] or $igogo2['notinlist']){echo"<font color=red>Персонаж уже есть в вашем списке.</font>";}
+if(!$igogo['id']){echo"<font color=red>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ.</font>";}
+elseif($igogo['id']==$user['id']){echo"<font color=red>РЎРµР±СЏ РґРѕР±Р°РІРёС‚СЊ РЅРµР»СЊР·СЏ.</font>";}
+elseif(preg_match("/__/",$_POST['comment']) || preg_match("/--/",$_POST['comment'])){echo"<font color=red>Р’РІРµРґРµРЅ РЅРµРІРµСЂРЅС‹Р№ С‚РµРєСЃС‚.</font>";}
+elseif($igogo2['enemy'] or $igogo2['friend'] or $igogo2['notinlist']){echo"<font color=red>РџРµСЂСЃРѕРЅР°Р¶ СѓР¶Рµ РµСЃС‚СЊ РІ РІР°С€РµРј СЃРїРёСЃРєРµ.</font>";}
 else{
   $f=mqfa1("select count(user) from friends where user='$user[id]'");
   if ($f<$maxfriends) {
@@ -58,7 +58,7 @@ else{
     elseif($_POST['group']==1){$notinlist=0; $friend=0; $enemy=$igogo['id'];}
     else{$notinlist=$igogo['id']; $friend=0; $enemy=0;}
     mysql_query("INSERT INTO `friends` (`user`, `friend`, `enemy`, `notinlist`, `comment`) VALUES(".$user['id'].", ".$friend.", ".$enemy.", ".$notinlist.", '".$_POST['comment']."');");
-    echo"<font color=red>Персонаж <b>".$_POST['friendadd']."</b> добавлен.</font>";
+    echo"<font color=red>РџРµСЂСЃРѕРЅР°Р¶ <b>".$_POST['friendadd']."</b> РґРѕР±Р°РІР»РµРЅ.</font>";
   }
 }
 }
@@ -66,18 +66,18 @@ else{
 if($_POST['friendremove']){
 $_POST['friendremove']=htmlspecialchars($_POST['friendremove']);
 if(preg_match("/__/",$_POST['friendremove']) || preg_match("/--/",$_POST['friendremove'])){
-echo"<font color=red>Персонаж не найден.</font>";
+echo"<font color=red>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ.</font>";
 }else{
     $igogo = mysql_fetch_array(mysql_query("SELECT id FROM `users` WHERE `login` = '{$_POST['friendremove']}' LIMIT 1;"));
     if (!$igogo) $igogo = mysql_fetch_array(mysql_query("SELECT id FROM `allusers` WHERE `login` = '{$_POST['friendremove']}' LIMIT 1;"));
 }
-if(!$igogo['id']){echo"<font color=red>Персонаж не найден.</font>";}
+if(!$igogo['id']){echo"<font color=red>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ.</font>";}
 else{$igogo2 = mysql_fetch_array(mysql_query("SELECT enemy,friend,notinlist FROM `friends` WHERE `user` = '".$user['id']."' and (`friend`=".$igogo['id']." or `enemy`=".$igogo['id']." or `notinlist`=".$igogo['id'].") LIMIT 1;"));
-if(!$igogo2['enemy'] && !$igogo2['friend'] && !$igogo2['notinlist']){echo"<font color=red>Персонаж не найден в вашем списке.</font>";}else{
+if(!$igogo2['enemy'] && !$igogo2['friend'] && !$igogo2['notinlist']){echo"<font color=red>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ РІ РІР°С€РµРј СЃРїРёСЃРєРµ.</font>";}else{
 if($igogo2['friend']>0){$per="`friend`='".$igogo2['friend']."'";}
 if($igogo2['enemy']>0){$per="`enemy`='".$igogo2['enemy']."'";}
 if($igogo2['notinlist']>0){$per="`notinlist`='".$igogo2['notinlist']."'";}
-if(mysql_query("DELETE FROM `friends` WHERE `user`='".$user['id']."' and ".$per.";")){echo"<font color=red>Данные контакта <b>".$_POST['friendremove']."</b> успешно удалены.</font>";}
+if(mysql_query("DELETE FROM `friends` WHERE `user`='".$user['id']."' and ".$per.";")){echo"<font color=red>Р”Р°РЅРЅС‹Рµ РєРѕРЅС‚Р°РєС‚Р° <b>".$_POST['friendremove']."</b> СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅС‹.</font>";}
 }
 
 
@@ -93,28 +93,28 @@ if($_POST['friendedit']){
 
 $_POST['friendedit']=htmlspecialchars($_POST['friendedit']);
 if(preg_match("/__/",$_POST['friendedit']) || preg_match("/--/",$_POST['friendedit'])){
-echo"<font color=red>Персонаж не найден.</font>";
+echo"<font color=red>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ.</font>";
 }else{
     $igogo = mysql_fetch_array(mysql_query("SELECT id FROM `users` WHERE `login` = '{$_POST['friendedit']}' LIMIT 1;"));
     if (!$igogo) $igogo = mysql_fetch_array(mysql_query("SELECT id FROM `allusers` WHERE `login` = '{$_POST['friendedit']}' LIMIT 1;"));
 }
 $_POST['comment']=htmlspecialchars($_POST['comment']);
-if(!$igogo['id']){echo"<font color=red>Персонаж не найден.</font>";}
-elseif($igogo['id']==$user['id']){echo"<font color=red>Себя отредактировать нельзя.</font>";}
-elseif(preg_match("/__/",$_POST['comment']) || preg_match("/--/",$_POST['comment'])){echo"<font color=red>Введен неверный текст.</font>";}
+if(!$igogo['id']){echo"<font color=red>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ.</font>";}
+elseif($igogo['id']==$user['id']){echo"<font color=red>РЎРµР±СЏ РѕС‚СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РЅРµР»СЊР·СЏ.</font>";}
+elseif(preg_match("/__/",$_POST['comment']) || preg_match("/--/",$_POST['comment'])){echo"<font color=red>Р’РІРµРґРµРЅ РЅРµРІРµСЂРЅС‹Р№ С‚РµРєСЃС‚.</font>";}
 else{
 
 if($_POST['group']==0){$notinlist=0; $friend=$igogo['id']; $enemy=0;}
 elseif($_POST['group']==1){$notinlist=0; $friend=0; $enemy=$igogo['id'];}
 else{$notinlist=$igogo['id']; $friend=0; $enemy=0;}
 $igogo2 = mysql_fetch_array(mysql_query("SELECT enemy,friend,notinlist FROM `friends` WHERE `user` = '".$user['id']."' and (`friend`=".$igogo['id']." or `enemy`=".$igogo['id']." or `notinlist`=".$igogo['id'].") LIMIT 1;"));
-if(!$igogo2['enemy'] && !$igogo2['friend'] && !$igogo2['notinlist']){echo"<font color=red>Персонаж не найден в вашем списке.</font>";}else{
+if(!$igogo2['enemy'] && !$igogo2['friend'] && !$igogo2['notinlist']){echo"<font color=red>РџРµСЂСЃРѕРЅР°Р¶ РЅРµ РЅР°Р№РґРµРЅ РІ РІР°С€РµРј СЃРїРёСЃРєРµ.</font>";}else{
 if($igogo2['friend']>0){$per="`friend`='".$igogo2['friend']."'";}
 if($igogo2['enemy']>0){$per="`enemy`='".$igogo2['enemy']."'";}
 if($igogo2['notinlist']>0){$per="`notinlist`='".$igogo2['notinlist']."'";}
 $comment = $_POST['comment'];
 mysql_query("UPDATE `friends` SET `friend` = ".$friend.",`enemy` = ".$enemy.",`notinlist` = ".$notinlist.",`comment` = '".$comment."'  WHERE `user`='".$user['id']."' and ".$per."");
-echo"<font color=red>Данные контакта <b>".$_POST['friendedit']."</b> успешно изменены.</font>";
+echo"<font color=red>Р”Р°РЅРЅС‹Рµ РєРѕРЅС‚Р°РєС‚Р° <b>".$_POST['friendedit']."</b> СѓСЃРїРµС€РЅРѕ РёР·РјРµРЅРµРЅС‹.</font>";
 }
 
 
@@ -145,17 +145,17 @@ function editcontact(title, script, name, login, flogin, group, groups, subgroup
     s +='<form action="'+script+'" method=POST><table width=250 cellspacing=0 cellpadding=4 bgcolor=FFF6DD><tr><td align=center>';
     s +='<table width=1% border=0 cellspacing=0 cellpadding=2 align=center><tr><td align=right>';
     flogin = flogin.replace( /^<SCRIPT>drwfl\((.*)\)<\/SCRIPT>$/i, 'drw($1)' );
-    s +='<small><b>Контакт:</b></small></td><td><INPUT TYPE=hidden NAME="'+name+'" VALUE="'+login+'">'+( flogin.match(/^drw\(/) ? eval(flogin) : flogin )+'</td></tr>';
+    s +='<small><b>РљРѕРЅС‚Р°РєС‚:</b></small></td><td><INPUT TYPE=hidden NAME="'+name+'" VALUE="'+login+'">'+( flogin.match(/^drw\(/) ? eval(flogin) : flogin )+'</td></tr>';
     if (groups && groups.length>0) {
-        s+='<tr><td align=right><small><b>Группа:</b></small></td><td align><SELECT NAME=group style="width: 140px">';
+        s+='<tr><td align=right><small><b>Р“СЂСѓРїРїР°:</b></small></td><td align><SELECT NAME=group style="width: 140px">';
         for(i=0; i< groups.length; i++) {
             s+='<option value="'+i+'"'+( group == i ? ' selected' : '' ) +'>'+groups[i];
         }
         s+='</SELECT></td></tr>';
     };
 
-    s += '<tr><td align=right><small><b>Комментарий:</b></small></td><td width="1%"><INPUT TYPE=text NAME="comment" VALUE="'+comment+'" style="width: 105px">&nbsp;';
-    s += '<INPUT type=image SRC=/i/b__ok.gif WIDTH=25 HEIGHT=18 ALT="Сохранить" style="border:0; vertical-align: middle"></TD></TR></TABLE><INPUT TYPE=hidden name=sd4 value=""></TD></TR></TABLE></form></td></tr></table>';
+    s += '<tr><td align=right><small><b>РљРѕРјРјРµРЅС‚Р°СЂРёР№:</b></small></td><td width="1%"><INPUT TYPE=text NAME="comment" VALUE="'+comment+'" style="width: 105px">&nbsp;';
+    s += '<INPUT type=image SRC=/i/b__ok.gif WIDTH=25 HEIGHT=18 ALT="РЎРѕС…СЂР°РЅРёС‚СЊ" style="border:0; vertical-align: middle"></TD></TR></TABLE><INPUT TYPE=hidden name=sd4 value=""></TD></TR></TABLE></form></td></tr></table>';
 document.all("hint4").innerHTML = s;
 document.all("hint4").style.visibility = "visible";
 document.all("hint4").style.left = 100;
@@ -167,18 +167,18 @@ function findlogin2(title, script, name, groups, subgroups)
 {   var s = '<table width=270 cellspacing=1 cellpadding=0 bgcolor=CCC3AA><tr><td align=center><B>'+title+'</td><td width=20 align=right valign=top style="cursor: pointer" onclick="closehint3();"><BIG><B>x</td></tr><tr><td colspan=2>';
 s +='<form action="'+script+'" method=POST><table width=100% cellspacing=0 cellpadding=2 bgcolor=FFF6DD><tr><td align=center>';
 s +='<table width=90% cellspacing=0 cellpadding=2 align=center><tr><td align=left colspan="2">';
-s +='Укажите логин персонажа:<br><small>(можно щелкнуть по логину в чате)</small></td></tr>';
-s += '<tr><td align=right><small><b>Логин:</b></small></td><td><INPUT TYPE=text name="'+name+'" id="'+name+'" style="width:140px"></td></tr>';
+s +='РЈРєР°Р¶РёС‚Рµ Р»РѕРіРёРЅ РїРµСЂСЃРѕРЅР°Р¶Р°:<br><small>(РјРѕР¶РЅРѕ С‰РµР»РєРЅСѓС‚СЊ РїРѕ Р»РѕРіРёРЅСѓ РІ С‡Р°С‚Рµ)</small></td></tr>';
+s += '<tr><td align=right><small><b>Р›РѕРіРёРЅ:</b></small></td><td><INPUT TYPE=text name="'+name+'" id="'+name+'" style="width:140px"></td></tr>';
 if (groups && groups.length>0) {
-s+='<tr><td align=right><small><b>Группа:</b></small></td><td width=140><SELECT NAME=group style="width:140px">';
+s+='<tr><td align=right><small><b>Р“СЂСѓРїРїР°:</b></small></td><td width=140><SELECT NAME=group style="width:140px">';
 for(i=0; i< groups.length; i++) {
 s+='<option value="'+i+'">'+groups[i];
 }
 s+='</SELECT></td></tr>';
 };
 
-s += '<tr><td align=right><small><b>Комментарий:</b></small></td><td><INPUT TYPE=text NAME="comment" VALUE="" style="width:105px">&nbsp;';
-s += '<INPUT type=image SRC=/i/b__ok.gif WIDTH=25 HEIGHT=18 ALT="Добавить контакт" style="border:0; vertical-align: middle"></TD></TR></TABLE><INPUT TYPE=hidden name=sd4 value="1"></TD></TR></TABLE></form></td></tr></table>';
+s += '<tr><td align=right><small><b>РљРѕРјРјРµРЅС‚Р°СЂРёР№:</b></small></td><td><INPUT TYPE=text NAME="comment" VALUE="" style="width:105px">&nbsp;';
+s += '<INPUT type=image SRC=/i/b__ok.gif WIDTH=25 HEIGHT=18 ALT="Р”РѕР±Р°РІРёС‚СЊ РєРѕРЅС‚Р°РєС‚" style="border:0; vertical-align: middle"></TD></TR></TABLE><INPUT TYPE=hidden name=sd4 value="1"></TD></TR></TABLE></form></td></tr></table>';
 document.getElementById("hint4").innerHTML = s;
 document.getElementById("hint4").style.visibility = "visible";
 document.getElementById("hint4").style.left = 100;
@@ -190,25 +190,25 @@ function w(login,id,align,klan,level,online, city, battle){
 var s='';
 if (online!="") {
 if (city!="") {
-s+='<IMG style="filter:gray()" SRC=<?=IMGBASE?>/i/lock.gif WIDTH=20 HEIGHT=15 ALT="В другом городе">';
+s+='<IMG style="filter:gray()" SRC=<?=IMGBASE?>/i/lock.gif WIDTH=20 HEIGHT=15 ALT="Р’ РґСЂСѓРіРѕРј РіРѕСЂРѕРґРµ">';
 } else {
-s+='<a href="javascript:top.AddToPrivate(\''+login+'\',true)"><IMG SRC=<?=IMGBASE?>/i/lock.gif WIDTH=20 HEIGHT=15 ALT="Приватно"'+(battle!=0?' style="filter: invert()"':'')+'></a>';
+s+='<a href="javascript:top.AddToPrivate(\''+login+'\',true)"><IMG SRC=<?=IMGBASE?>/i/lock.gif WIDTH=20 HEIGHT=15 ALT="РџСЂРёРІР°С‚РЅРѕ"'+(battle!=0?' style="filter: invert()"':'')+'></a>';
 }
 if (city!="") {
 s+='<img src="<?=IMGBASE?>/i/misc/forum/fo'+city+'.gif" width=17 height=15>';
 }
 s+=' <IMG SRC=<?=IMGBASE?>/i/align'+align+'.gif WIDTH=12 HEIGHT=15>';
 if (klan!='') {s+='<A HREF="/encicl/klan/'+klan+'.html" target=_blank><IMG SRC="http://img.bestcombats.net/klan/'+klan+'.gif" WIDTH=24 HEIGHT=15 ALT=""></A>'}
-s+='<a href="javascript:top.AddTo(\''+login+'\')">'+login+'</a>['+level+']<a href=/inf.pl?'+id+' target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Информация о персонаже"></a>';
+s+='<a href="javascript:top.AddTo(\''+login+'\')">'+login+'</a>['+level+']<a href=/inf.pl?'+id+' target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРµСЂСЃРѕРЅР°Р¶Рµ"></a>';
 s+='</td><td bgcolor=efeded nowrap>';
 if (city!="") {
-s+="нет в этом городе";
+s+="РЅРµС‚ РІ СЌС‚РѕРј РіРѕСЂРѕРґРµ";
 } else {
 s+=online;
 }
 }
 else {
-s+='<IMG SRC="<?=IMGBASE?>/i/offline.gif" WIDTH=20 HEIGHT=15 BORDER=0 ALT="Нет в клубе">';
+s+='<IMG SRC="<?=IMGBASE?>/i/offline.gif" WIDTH=20 HEIGHT=15 BORDER=0 ALT="РќРµС‚ РІ РєР»СѓР±Рµ">';
 if (city!="") {
 s+='<img src="<?=IMGBASE?>/i/misc/forum/fo'+city+'.gif" width=17 height=15>';
 }
@@ -219,14 +219,14 @@ if (level) {
 if (nlevel==0) {
 nlevel=1; //s="<BR>"+s;
 }
-s+='<FONT color=gray><b>'+login+'</b>['+level+']<a href=/inf.pl?'+id+' target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Информация о персонаже"></a></td><td bgcolor=efeded nowrap>Нет в клубе';
+s+='<FONT color=gray><b>'+login+'</b>['+level+']<a href=/inf.pl?'+id+' target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРµСЂСЃРѕРЅР°Р¶Рµ"></a></td><td bgcolor=efeded nowrap>РќРµС‚ РІ РєР»СѓР±Рµ';
 } else {
 if (nlevel==1) {
 nlevel=2; //s="<BR>"+s;
 }
 mlogin = login;
 for(var i=0;i<from.length;++i) while(mlogin.indexOf(from[i])>=0)  mlogin= mlogin.replace(from[i],to[i]);
-s+='<FONT color=gray><i>'+login+'</i> <a href=/inf.pl?login='+mlogin+' target=_blank><IMG SRC=<?=IMGBASE?>/i/inf_dis.gif WIDTH=12 HEIGHT=11 ALT="Информация о персонаже"></a></td><td bgcolor=efeded nowrap>нет в этом городе';
+s+='<FONT color=gray><i>'+login+'</i> <a href=/inf.pl?login='+mlogin+' target=_blank><IMG SRC=<?=IMGBASE?>/i/inf_dis.gif WIDTH=12 HEIGHT=11 ALT="РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРµСЂСЃРѕРЅР°Р¶Рµ"></a></td><td bgcolor=efeded nowrap>РЅРµС‚ РІ СЌС‚РѕРј РіРѕСЂРѕРґРµ';
 }
 s+='</FONT>';
 }
@@ -234,12 +234,12 @@ document.write(s+'<BR>');
 }
 function m(login,id,align,klan,level){
 var s='';
-s+='<a href="javascript:top.AddToPrivate(\''+login+'\',true)"><IMG SRC=<?=IMGBASE?>/i/lock.gif WIDTH=20 HEIGHT=15 ALT="Приватно"></a>';
+s+='<a href="javascript:top.AddToPrivate(\''+login+'\',true)"><IMG SRC=<?=IMGBASE?>/i/lock.gif WIDTH=20 HEIGHT=15 ALT="РџСЂРёРІР°С‚РЅРѕ"></a>';
 s+=' <IMG SRC=<?=IMGBASE?>/i/align'+align+'.gif WIDTH=12 HEIGHT=15>';
 if (klan!='') {
 s+='<A HREF="/encicl/klan/'+klan+'.html" target=_blank><IMG SRC="http://img.bestcombats.net/klan/'+klan+'.gif" WIDTH=24 HEIGHT=15 ALT=""></A>'
 }
-s+='<a href="javascript:top.AddTo(\''+login+'\')">'+login+'</a>['+level+']<a href=/inf.pl?'+id+' target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="Информация о персонаже"></a>';
+s+='<a href="javascript:top.AddTo(\''+login+'\')">'+login+'</a>['+level+']<a href=/inf.pl?'+id+' target=_blank><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT="РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРµСЂСЃРѕРЅР°Р¶Рµ"></a>';
 document.write(s+'<BR>');
 }
 function drw(name, id, level, align, klan, img, sex)
@@ -249,8 +249,8 @@ if (align!="0") s+="<A HREF='"+getalignurl(align)+"' target=_blank><IMG SRC='<?=
 if (klan) s+="<A HREF='claninf.php?"+klan+"' target=_blank><IMG SRC='http://img.bestcombats.net/klan/"+klan+".gif' WIDTH=24 HEIGHT=15 ALT=''></A>";
 s+="<B>"+name+"</B>";
 if (level!=-1) s+=" ["+level+"]";
-if (id!=-1 && !img) s+="<A HREF='/inf.php?"+id+"' target='_blank'><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT='Инф. о "+name+"'></A>";
-if (img) s+="<A HREF='http://capitalcity.combats.com/encicl/obraz_"+(sex?"w":"m")+"1.html?l="+img+"' target='_blank'><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT='Образ "+name+"'></A>";
+if (id!=-1 && !img) s+="<A HREF='/inf.php?"+id+"' target='_blank'><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT='РРЅС„. Рѕ "+name+"'></A>";
+if (img) s+="<A HREF='http://capitalcity.combats.com/encicl/obraz_"+(sex?"w":"m")+"1.html?l="+img+"' target='_blank'><IMG SRC=<?=IMGBASE?>/i/inf.gif WIDTH=12 HEIGHT=11 ALT='РћР±СЂР°Р· "+name+"'></A>";
 return s;
 }
 </SCRIPT>
@@ -262,7 +262,7 @@ return s;
 <TR>
 <TD style="vertical-align: top; "><TABLE cellspacing=0 cellpadding=2 width="100%">
 <TR>
-<TD colspan="4" align="center"><h4>Друзья</h4></TD>
+<TD colspan="4" align="center"><h4>Р”СЂСѓР·СЊСЏ</h4></TD>
 </TR>
 <?
                     $data=mysql_query("SELECT `notinlist`,`comment` FROM `friends` WHERE `user` = '".$user['id']."' and `notinlist`>0;");
@@ -278,15 +278,15 @@ if ($us['online']>0 && !$us["invis"]) {
     echo '<A HREF="javascript:top.AddToPrivate(\'',nick7($us['id']),'\', top.CtrlPress)" target=refreshed><img src="'.IMGBASE.'/i/lock.gif" width=20 height=15></A>';
 nick21($us['id']);
     if($us['room'] > 500 && $us['room'] < 561) {
-       $rrm = 'Башня смерти, участвует в турнире';
-    } elseif (incastle($us['room'])) $rrm = "Клановый замок";
+       $rrm = 'Р‘Р°С€РЅСЏ СЃРјРµСЂС‚Рё, СѓС‡Р°СЃС‚РІСѓРµС‚ РІ С‚СѓСЂРЅРёСЂРµ';
+    } elseif (incastle($us['room'])) $rrm = "РљР»Р°РЅРѕРІС‹Р№ Р·Р°РјРѕРє";
     else  $rrm = $rooms[$us['room']];
     echo ' <i>',$rrm,'</i><BR>';
 }else{
 
-    echo '<font color=gray><img src="'.IMGBASE.'/i/offline.gif" width=20 height=15 alt="Нет в клубе">';
+    echo '<font color=gray><img src="'.IMGBASE.'/i/offline.gif" width=20 height=15 alt="РќРµС‚ РІ РєР»СѓР±Рµ">';
     nick21($us['id']);
-    echo '</font> - Нет в клубе<BR>';
+    echo '</font> - РќРµС‚ РІ РєР»СѓР±Рµ<BR>';
 
 }
 
@@ -294,7 +294,7 @@ nick21($us['id']);
 ?>
 </TD>
 <TD bgcolor=efeded width="40%"><small><FONT class=dsc><i><?=$row['comment']?></i></FONT></small><TD>
-<TD width="1%"><INPUT type=image SRC=/i/b__ok.gif WIDTH=25 HEIGHT=18 ALT="Редактировать" style="float: right" onclick='editcontact("Редактирование контакта", "friend.php", "friendedit", "<?=$us['login']?>", "<SCRIPT>drwfl(\"<?=$us['login']?>\",<?=$row['notinlist']?>,\"<?=$us['level']?>\",<?=$us['align']?>,\"<?=$us['klan']?>\")</SCRIPT>", "2", new Array( "Друзья","Недруги","Не в группе" ), "", new Array(  ), "<?=$row['comment']?>");'></TD>
+<TD width="1%"><INPUT type=image SRC=/i/b__ok.gif WIDTH=25 HEIGHT=18 ALT="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ" style="float: right" onclick='editcontact("Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєРѕРЅС‚Р°РєС‚Р°", "friend.php", "friendedit", "<?=$us['login']?>", "<SCRIPT>drwfl(\"<?=$us['login']?>\",<?=$row['notinlist']?>,\"<?=$us['level']?>\",<?=$us['align']?>,\"<?=$us['klan']?>\")</SCRIPT>", "2", new Array( "Р”СЂСѓР·СЊСЏ","РќРµРґСЂСѓРіРё","РќРµ РІ РіСЂСѓРїРїРµ" ), "", new Array(  ), "<?=$row['comment']?>");'></TD>
 </TR>
 <?
 }
@@ -307,7 +307,7 @@ nick21($us['id']);
 if($n==1){
 ?>
 <TR>
-<TD colspan="4" nowrap align="center" style="height: 40px" valign="bottom"><h4>Недруги</h4></TD>
+<TD colspan="4" nowrap align="center" style="height: 40px" valign="bottom"><h4>РќРµРґСЂСѓРіРё</h4></TD>
 </TR>
 <?}?>
 
@@ -319,15 +319,15 @@ if ($us['online']>0 && !$us["invis"]) {
     echo '<A HREF="javascript:top.AddToPrivate(\'',nick7($us['id']),'\', top.CtrlPress)" target=refreshed><img src="'.IMGBASE.'/i/lock.gif" width=20 height=15></A>';
 nick21($us['id']);
     if($us['room'] > 500 && $us['room'] < 561) {
-       $rrm = 'Башня смерти, участвует в турнире';
-    } elseif (incastle($us['room'])) $rrm = "Клановый замок";
+       $rrm = 'Р‘Р°С€РЅСЏ СЃРјРµСЂС‚Рё, СѓС‡Р°СЃС‚РІСѓРµС‚ РІ С‚СѓСЂРЅРёСЂРµ';
+    } elseif (incastle($us['room'])) $rrm = "РљР»Р°РЅРѕРІС‹Р№ Р·Р°РјРѕРє";
     else  $rrm = $rooms[$us['room']];
     echo ' - <i>',$rrm,'</i><BR>';
 }else{
 
-    echo '<font color=gray><img src="'.IMGBASE.'/i/offline.gif" width=20 height=15 alt="Нет в клубе">';
+    echo '<font color=gray><img src="'.IMGBASE.'/i/offline.gif" width=20 height=15 alt="РќРµС‚ РІ РєР»СѓР±Рµ">';
     nick21($us['id']);
-    echo '</font> - Нет в клубе<BR>';
+    echo '</font> - РќРµС‚ РІ РєР»СѓР±Рµ<BR>';
 
 }
 
@@ -335,7 +335,7 @@ nick21($us['id']);
 ?>
 </TD>
 <TD bgcolor=efeded width="40%"><small><FONT class=dsc><i><?=$row['comment']?></i></FONT></small><TD>
-<TD width="1%"><INPUT type=image SRC=/i/b__ok.gif WIDTH=25 HEIGHT=18 ALT="Редактировать" style="float: right" onclick='editcontact("Редактирование контакта", "friend.php", "friendedit", "<?=$us['login']?>", "<SCRIPT>drwfl(\"<?=$us['login']?>\",<?=$row['enemy']?>,\"<?=$us['level']?>\",<?=$us['align']?>,\"<?=$us['klan']?>\")</SCRIPT>", "1", new Array( "Друзья","Недруги","Не в группе" ), "", new Array(  ), "<?=$row['comment']?>");'></TD>
+<TD width="1%"><INPUT type=image SRC=/i/b__ok.gif WIDTH=25 HEIGHT=18 ALT="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ" style="float: right" onclick='editcontact("Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєРѕРЅС‚Р°РєС‚Р°", "friend.php", "friendedit", "<?=$us['login']?>", "<SCRIPT>drwfl(\"<?=$us['login']?>\",<?=$row['enemy']?>,\"<?=$us['level']?>\",<?=$us['align']?>,\"<?=$us['klan']?>\")</SCRIPT>", "1", new Array( "Р”СЂСѓР·СЊСЏ","РќРµРґСЂСѓРіРё","РќРµ РІ РіСЂСѓРїРїРµ" ), "", new Array(  ), "<?=$row['comment']?>");'></TD>
 </TR>
 <?
 }
@@ -348,7 +348,7 @@ nick21($us['id']);
 if($i==1){
 ?>
 <TR>
-<TD colspan="4" nowrap align="center" style="height: 40px" valign="bottom"><h4>Друзья</h4></TD>
+<TD colspan="4" nowrap align="center" style="height: 40px" valign="bottom"><h4>Р”СЂСѓР·СЊСЏ</h4></TD>
 </TR>
 <?}?>
 <TR valign="top">
@@ -359,15 +359,15 @@ if ($us['online']>0 && !$us["invis"]) {
     echo '<A HREF="javascript:top.AddToPrivate(\'',nick7($us['id']),'\', top.CtrlPress)" target=refreshed><img src="'.IMGBASE.'/i/lock.gif" width=20 height=15></A>';
 nick21($us['id']);echo"<img src=i/online.gif>";
     if($us['room'] > 500 && $us['room'] < 561) {
-       $rrm = 'Башня смерти, участвует в турнире';
-    }  elseif (incastle($us['room'])) $rrm = "Клановый замок";
+       $rrm = 'Р‘Р°С€РЅСЏ СЃРјРµСЂС‚Рё, СѓС‡Р°СЃС‚РІСѓРµС‚ РІ С‚СѓСЂРЅРёСЂРµ';
+    }  elseif (incastle($us['room'])) $rrm = "РљР»Р°РЅРѕРІС‹Р№ Р·Р°РјРѕРє";
     else  $rrm = $rooms[$us['room']];
     echo ' - <i>',$rrm,'</i><BR>';
 }else{
 
-    echo '<font color=gray><img src="'.IMGBASE.'/i/offline.gif" width=20 height=15 alt="Нет в клубе">';
+    echo '<font color=gray><img src="'.IMGBASE.'/i/offline.gif" width=20 height=15 alt="РќРµС‚ РІ РєР»СѓР±Рµ">';
     nick21($us['id']);
-    echo '</font> - Нет в клубе<BR>';
+    echo '</font> - РќРµС‚ РІ РєР»СѓР±Рµ<BR>';
 
 }
 
@@ -375,7 +375,7 @@ nick21($us['id']);echo"<img src=i/online.gif>";
 ?>
 </TD>
 <TD bgcolor=efeded width="40%"><small><FONT class=dsc><i><?=$row['comment']?></i></FONT></small><TD>
-<TD width="1%"><INPUT type=image SRC=/i/b__ok.gif WIDTH=25 HEIGHT=18 ALT="Редактировать" style="float: right" onclick='editcontact("Редактирование контакта", "friend.php", "friendedit", "<?=$us['login']?>", "<SCRIPT>drwfl(\"<?=$us['login']?>\",<?=$row['friend']?>,\"<?=$us['level']?>\",<?=$us['align']?>,\"<?=$us['klan']?>\")</SCRIPT>", "7", new Array( "Друзья","Недруги","Не в группе" ), "", new Array(  ), "<?=$row['comment']?>");'></TD>
+<TD width="1%"><INPUT type=image SRC=/i/b__ok.gif WIDTH=25 HEIGHT=18 ALT="Р РµРґР°РєС‚РёСЂРѕРІР°С‚СЊ" style="float: right" onclick='editcontact("Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РєРѕРЅС‚Р°РєС‚Р°", "friend.php", "friendedit", "<?=$us['login']?>", "<SCRIPT>drwfl(\"<?=$us['login']?>\",<?=$row['friend']?>,\"<?=$us['level']?>\",<?=$us['align']?>,\"<?=$us['klan']?>\")</SCRIPT>", "7", new Array( "Р”СЂСѓР·СЊСЏ","РќРµРґСЂСѓРіРё","РќРµ РІ РіСЂСѓРїРїРµ" ), "", new Array(  ), "<?=$row['comment']?>");'></TD>
 </TR>
 <?
 }
@@ -384,28 +384,28 @@ nick21($us['id']);echo"<img src=i/online.gif>";
 <TR>
 <TD colspan="4">
 <?   if ($f<$maxfriends) { ?>
-<INPUT type='button' style='width: 100px' value='Добавить' onclick='findlogin2("Добавить в список", "friend.php", "friendadd", new Array("Друзья","Недруги","Не в группе"), new Array())'>
+<INPUT type='button' style='width: 100px' value='Р”РѕР±Р°РІРёС‚СЊ' onclick='findlogin2("Р”РѕР±Р°РІРёС‚СЊ РІ СЃРїРёСЃРѕРє", "friend.php", "friendadd", new Array("Р”СЂСѓР·СЊСЏ","РќРµРґСЂСѓРіРё","РќРµ РІ РіСЂСѓРїРїРµ"), new Array())'>
 &nbsp;&nbsp;&nbsp;<? } ?>
-<INPUT type='button' style='width: 100px' value='Удалить' onclick='findlogin("Удалить из списка", "friend.php", "friendremove", "", 0)'></TD>
+<INPUT type='button' style='width: 100px' value='РЈРґР°Р»РёС‚СЊ' onclick='findlogin("РЈРґР°Р»РёС‚СЊ РёР· СЃРїРёСЃРєР°", "friend.php", "friendremove", "", 0)'></TD>
 </TR>
 
 <? 
-if ($f>=$maxfriends) echo "<tr><td colspan=4><b><font color=red>Добавлено максимальное количество дузей. Для добавления новых необходимо удалить кого-то из списка или увеличить способность дружелюбный.</font></b></td></tr>"; ?>
+if ($f>=$maxfriends) echo "<tr><td colspan=4><b><font color=red>Р”РѕР±Р°РІР»РµРЅРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РґСѓР·РµР№. Р”Р»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІС‹С… РЅРµРѕР±С…РѕРґРёРјРѕ СѓРґР°Р»РёС‚СЊ РєРѕРіРѕ-С‚Рѕ РёР· СЃРїРёСЃРєР° РёР»Рё СѓРІРµР»РёС‡РёС‚СЊ СЃРїРѕСЃРѕР±РЅРѕСЃС‚СЊ РґСЂСѓР¶РµР»СЋР±РЅС‹Р№.</font></b></td></tr>"; ?>
 </TABLE></TD>
 <TD style="width: 5%; vertical-align: top; ">&nbsp;</TD>
 <TD style="width: 30%; vertical-align: top; "><TABLE cellspacing=0 cellpadding=2>
 <TR>
-<TD style="width: 25%; vertical-align: top; text-align: right; "><INPUT type='button' value='Обновить' style='width: 75px' onclick='location="/friend.php?friends=0.834468433941264"'>
-&nbsp;<INPUT TYPE=button value="Вернуться" style='width: 75px' onclick="top.returned()"></TD>
+<TD style="width: 25%; vertical-align: top; text-align: right; "><INPUT type='button' value='РћР±РЅРѕРІРёС‚СЊ' style='width: 75px' onclick='location="/friend.php?friends=0.834468433941264"'>
+&nbsp;<INPUT TYPE=button value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" style='width: 75px' onclick="top.returned()"></TD>
 </TR>
 	<TR>
-		<TD align=center><h4>Модераторы on-line</h4></TD>
+		<TD align=center><h4>РњРѕРґРµСЂР°С‚РѕСЂС‹ on-line</h4></TD>
 	</TR>
 	
 	<TR>
 		<TD bgcolor=efeded nowrap style="text-align: center; ">
 		
-			<fieldset><legend><b>Орден Света</b> </legend>
+			<fieldset><legend><b>РћСЂРґРµРЅ РЎРІРµС‚Р°</b> </legend>
 					<table>
 						<?
 							$data=mysql_query("SELECT `id`, `login`, `level`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `incity`='".$user['incity']."' and  (align>1 and align<2) order by align desc, login asc ;");	
@@ -425,7 +425,7 @@ if ($f>=$maxfriends) echo "<tr><td colspan=4><b><font color=red>Добавлено максим
 	<TR>
 		<TD bgcolor=efeded nowrap style="text-align: center; ">
 		
-			<fieldset><legend><b>Армада Тьмы</b> </legend>
+			<fieldset><legend><b>РђСЂРјР°РґР° РўСЊРјС‹</b> </legend>
 					<table>
 						<?
 							$data=mysql_query("SELECT `id`, `login`, `level`, `align`, (select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = users.`id`) as `online` FROM `users` WHERE `incity`='".$user['incity']."' and  (align>3 and align<4) order by align desc, login asc ;");	
@@ -443,11 +443,11 @@ if ($f>=$maxfriends) echo "<tr><td colspan=4><b><font color=red>Добавлено максим
 		</TR>	
 
 <TR>
-<TD style="text-align: left; "><small>Уважаемые Игроки!<BR>Для более быстрого и эффективного решения Вашей проблемы просьба обращаться к тем паладинам или тарманам, ники которых находятся вверху списка «Модераторы on-line».<BR>Цените свое и чужое время!</small></div></TD>
+<TD style="text-align: left; "><small>РЈРІР°Р¶Р°РµРјС‹Рµ РРіСЂРѕРєРё!<BR>Р”Р»СЏ Р±РѕР»РµРµ Р±С‹СЃС‚СЂРѕРіРѕ Рё СЌС„С„РµРєС‚РёРІРЅРѕРіРѕ СЂРµС€РµРЅРёСЏ Р’Р°С€РµР№ РїСЂРѕР±Р»РµРјС‹ РїСЂРѕСЃСЊР±Р° РѕР±СЂР°С‰Р°С‚СЊСЃСЏ Рє С‚РµРј РїР°Р»Р°РґРёРЅР°Рј РёР»Рё С‚Р°СЂРјР°РЅР°Рј, РЅРёРєРё РєРѕС‚РѕСЂС‹С… РЅР°С…РѕРґСЏС‚СЃСЏ РІРІРµСЂС…Сѓ СЃРїРёСЃРєР° В«РњРѕРґРµСЂР°С‚РѕСЂС‹ on-lineВ».<BR>Р¦РµРЅРёС‚Рµ СЃРІРѕРµ Рё С‡СѓР¶РѕРµ РІСЂРµРјСЏ!</small></div></TD>
 </TR>
 <TR> 
 
-<TD align=center><h4>Коммерческий отдел</h4></TD> 
+<TD align=center><h4>РљРѕРјРјРµСЂС‡РµСЃРєРёР№ РѕС‚РґРµР»</h4></TD> 
 </TR> 
 <TR> 
 <TD bgcolor=efeded nowrap style="text-align: center; "><table> 
@@ -461,7 +461,7 @@ echo'</tr></td>'; } }
 </table></TD> 
 </TR>
 <TR>
-<TD style="text-align: left; "><small>Поддержка и технические вопросы о проекте.</small></div></TD>
+<TD style="text-align: left; "><small>РџРѕРґРґРµСЂР¶РєР° Рё С‚РµС…РЅРёС‡РµСЃРєРёРµ РІРѕРїСЂРѕСЃС‹ Рѕ РїСЂРѕРµРєС‚Рµ.</small></div></TD>
 <br>
 
 
@@ -469,8 +469,8 @@ echo'</tr></td>'; } }
 </TABLE></TD>
 </TR>
 </TABLE>		
-<form method=post><FIELDSET><LEGEND><b>Черный Список</b></LEGEND>
-<FIELDSET><LEGEND>Персонажи находящиеся в черном списке</LEGEND>
+<form method=post><FIELDSET><LEGEND><b>Р§РµСЂРЅС‹Р№ РЎРїРёСЃРѕРє</b></LEGEND>
+<FIELDSET><LEGEND>РџРµСЂСЃРѕРЅР°Р¶Рё РЅР°С…РѕРґСЏС‰РёРµСЃСЏ РІ С‡РµСЂРЅРѕРј СЃРїРёСЃРєРµ</LEGEND>
 <?
 $str = $user['ignore'];
  
@@ -481,8 +481,8 @@ foreach($str as $val) {
 }
 ?>
 </FIELDSET>
-<table><tr><td>Логин</td><td><input type='text' name='addig'>
-<input type=submit value='Добавить/Удалить'></td></tr></table>
+<table><tr><td>Р›РѕРіРёРЅ</td><td><input type='text' name='addig'>
+<input type=submit value='Р”РѕР±Р°РІРёС‚СЊ/РЈРґР°Р»РёС‚СЊ'></td></tr></table>
 </FIELDSET></form>
 <?	
 if (isset($_POST['addig'])) {
@@ -491,10 +491,10 @@ $str = $user['ignore'];
 $pieces = explode("|", $str);
 if (in_array("".$target_user_tel['id']."", $pieces)) {
 mysql_query("UPDATE `users` SET `ignore` = replace(`ignore`, '|".$target_user_tel['id']."', '') WHERE `id` = '".$user['id']."';");
-echo"<font color=red>Вы убрали из черного списка персонажа ".$_POST['addig']." !</font><br>";
+echo"<font color=red>Р’С‹ СѓР±СЂР°Р»Рё РёР· С‡РµСЂРЅРѕРіРѕ СЃРїРёСЃРєР° РїРµСЂСЃРѕРЅР°Р¶Р° ".$_POST['addig']." !</font><br>";
 }else{
 mysql_query("UPDATE `users` SET `ignore`=concat(`ignore`,'|".$target_user_tel['id']."') WHERE `id` = '".$user['id']."';");
-echo"<font color=red>Вы добавили в черный список персонажа ".$_POST['addig']." !</font><br>";
+echo"<font color=red>Р’С‹ РґРѕР±Р°РІРёР»Рё РІ С‡РµСЂРЅС‹Р№ СЃРїРёСЃРѕРє РїРµСЂСЃРѕРЅР°Р¶Р° ".$_POST['addig']." !</font><br>";
 }
 }
 ?>

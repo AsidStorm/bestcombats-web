@@ -9,7 +9,7 @@
 
 
 
-//-------------------------- Пора в бой? --------------------------------
+//-------------------------- РџРѕСЂР° РІ Р±РѕР№? --------------------------------
 	if ($db['battle'] != 0) { header('location: fbattle.php'); die(); }
 	if ($db['room'] !=3151 and $db['room'] !=315) { header("Location: main.php");  die(); }
 elseif($db['room'] == 315 and $db['room'] !=3151){
@@ -53,12 +53,12 @@ echo'<HTML><HEAD>
 <META Http-Equiv=Expires Content=0>
 </HEAD>
 <body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5> 
-<CENTER>Увы, но рулетка доступна персонажам с 5-го уровня</CENTER><BR>
+<CENTER>РЈРІС‹, РЅРѕ СЂСѓР»РµС‚РєР° РґРѕСЃС‚СѓРїРЅР° РїРµСЂСЃРѕРЅР°Р¶Р°Рј СЃ 5-РіРѕ СѓСЂРѕРІРЅСЏ</CENTER><BR>
 <DIV ALIGN=RIGHT>
 
 <tr>
 <td ><img src="i/move/links.gif" width="9" height="7" /></td>
-<td  nowrap><a href="city.php?kaz=1" onClick="return check_access();" class="menutop" title="Время перехода: 10 сек.  ">Казино</a></td>
+<td  nowrap><a href="city.php?kaz=1" onClick="return check_access();" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє.  ">РљР°Р·РёРЅРѕ</a></td>
 </tr>
 
 
@@ -70,16 +70,16 @@ echo'<HTML><HEAD>
 
 function writestring($string){
 
-$krupye = "Крупье";
+$krupye = "РљСЂСѓРїСЊРµ";
 $room=687;
 
 
-			$fp = fopen ("tmpdisk/chat.txt","a"); //открытие
-			flock ($fp,LOCK_EX); //БЛОКИРОВКА ФАЙЛА
-			fputs($fp ,":[".time()."]:[{$krupye}]:[".($string)."]:[".$room."]\r\n"); //работа с файлом
-			fflush ($fp); //ОЧИЩЕНИЕ ФАЙЛОВОГО БУФЕРА И ЗАПИСЬ В ФАЙЛ
-			flock ($fp,LOCK_UN); //СНЯТИЕ БЛОКИРОВКИ
-			fclose ($fp); //закрытие
+			$fp = fopen ("tmpdisk/chat.txt","a"); //РѕС‚РєСЂС‹С‚РёРµ
+			flock ($fp,LOCK_EX); //Р‘Р›РћРљРР РћР’РљРђ Р¤РђР™Р›Рђ
+			fputs($fp ,":[".time()."]:[{$krupye}]:[".($string)."]:[".$room."]\r\n"); //СЂР°Р±РѕС‚Р° СЃ С„Р°Р№Р»РѕРј
+			fflush ($fp); //РћР§РР©Р•РќРР• Р¤РђР™Р›РћР’РћР“Рћ Р‘РЈР¤Р•Р Рђ Р Р—РђРџРРЎР¬ Р’ Р¤РђР™Р›
+			flock ($fp,LOCK_UN); //РЎРќРЇРўРР• Р‘Р›РћРљРР РћР’РљР
+			fclose ($fp); //Р·Р°РєСЂС‹С‚РёРµ
 
 
 }
@@ -96,23 +96,23 @@ for ($i=0; $i<3; $i++)
 
     $roul_names[$j*3+$i+1]=($j*3+$i+1);
 
-  $roul_names[37+$i]=($i+1)." ряд";
+  $roul_names[37+$i]=($i+1)." СЂСЏРґ";
 
-  $roul_names[40+$i]=($i+1)." дюжину";
+  $roul_names[40+$i]=($i+1)." РґСЋР¶РёРЅСѓ";
 
 }
 
-$roul_names[43]="от 1 до 18";
+$roul_names[43]="РѕС‚ 1 РґРѕ 18";
 
-$roul_names[44]="четное";
+$roul_names[44]="С‡РµС‚РЅРѕРµ";
 
-$roul_names[45]="красное";
+$roul_names[45]="РєСЂР°СЃРЅРѕРµ";
 
-$roul_names[46]="черное";
+$roul_names[46]="С‡РµСЂРЅРѕРµ";
 
-$roul_names[47]="нечетное";
+$roul_names[47]="РЅРµС‡РµС‚РЅРѕРµ";
 
-$roul_names[48]="от 19 до 36";
+$roul_names[48]="РѕС‚ 19 РґРѕ 36";
 
 for ($j=0; $j<12; $j++)
 
@@ -234,12 +234,12 @@ $casino_win = mysql_fetch_array($casino_win);
 if ($casino_win[price] > '500') {
 		?>
 		<body leftmargin=5 topmargin=5 marginwidth=5 marginheight=5> 
-		<CENTER>Увы, администрация казино отказывается Вас обслуживать</CENTER><BR>
+		<CENTER>РЈРІС‹, Р°РґРјРёРЅРёСЃС‚СЂР°С†РёСЏ РєР°Р·РёРЅРѕ РѕС‚РєР°Р·С‹РІР°РµС‚СЃСЏ Р’Р°СЃ РѕР±СЃР»СѓР¶РёРІР°С‚СЊ</CENTER><BR>
 		<DIV ALIGN=RIGHT>
 
 <tr>
 <td ><img src="i/move/links.gif" width="9" height="7" /></td>
-<td  nowrap><a href="city.php?kaz=1" onClick="return check_access();" class="menutop" title="Время перехода: 10 сек.  ">Казино</a></td>
+<td  nowrap><a href="city.php?kaz=1" onClick="return check_access();" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє.  ">РљР°Р·РёРЅРѕ</a></td>
 </tr>
 
 		</DIV>
@@ -293,11 +293,11 @@ if ($time<=time()) // should roul
 
     if (!$num) $strnum="Zero";
 
-    else if (in_array($num, $red)) $strnum="$num, красное";
+    else if (in_array($num, $red)) $strnum="$num, РєСЂР°СЃРЅРѕРµ";
 
-    else $strnum="$num, черное";
+    else $strnum="$num, С‡РµСЂРЅРѕРµ";
 
-    writestring("Ставки сделаны... Запускаем... Выпало <b>$strnum</b>.");
+    writestring("РЎС‚Р°РІРєРё СЃРґРµР»Р°РЅС‹... Р—Р°РїСѓСЃРєР°РµРј... Р’С‹РїР°Р»Рѕ <b>$strnum</b>.");
 
   }
 
@@ -388,13 +388,13 @@ if ($wasbets)
 
   {
 
-     writestring("Удача улыбнулась <b>$winners</b>.");
+     writestring("РЈРґР°С‡Р° СѓР»С‹Р±РЅСѓР»Р°СЃСЊ <b>$winners</b>.");
 
   } else
 
   {
 
-     writestring("Никто не выиграл.");
+     writestring("РќРёРєС‚Рѕ РЅРµ РІС‹РёРіСЂР°Р».");
 
   }
 
@@ -414,9 +414,9 @@ $outstr='';
 
 if ($bet && $roul_names[$betto]) {
   if (is_numeric($bet)) {
-    if ($bet<$minbet) $outstr='Ставка слишком маленькая'; else
-    if ($bet>$maxbet) $outstr='Ставка слишком большая'; else
-    if ($bet>$money) $outstr='У вас стольки нет'; else  {
+    if ($bet<$minbet) $outstr='РЎС‚Р°РІРєР° СЃР»РёС€РєРѕРј РјР°Р»РµРЅСЊРєР°СЏ'; else
+    if ($bet>$maxbet) $outstr='РЎС‚Р°РІРєР° СЃР»РёС€РєРѕРј Р±РѕР»СЊС€Р°СЏ'; else
+    if ($bet>$money) $outstr='РЈ РІР°СЃ СЃС‚РѕР»СЊРєРё РЅРµС‚'; else  {
 
       mysql_query("UPDATE `users` SET `money` = money-'$bet' WHERE  `login` = '".$uname."' ;");
 
@@ -435,13 +435,13 @@ if ($bet && $roul_names[$betto]) {
 
  
       mysql_query("insert into `roul_bets` (`username`, `bet`, `betto`) values ('$uname', '$bet', '$betto')");
-      $outstr='Ставка принята';
-      writestring("Игрок <b>$uname</b> ставит на ". $roul_names[$betto]);
+      $outstr='РЎС‚Р°РІРєР° РїСЂРёРЅСЏС‚Р°';
+      writestring("РРіСЂРѕРє <b>$uname</b> СЃС‚Р°РІРёС‚ РЅР° ". $roul_names[$betto]);
       $money-=$bet;
     }
   } else {
-    $outstr='Попытка обмана игры занесена в логи, ждите наказания.';
-    writestring("Игрок <b>$uname</b> пытается обмануть казино и скоро будет наказан.");
+    $outstr='РџРѕРїС‹С‚РєР° РѕР±РјР°РЅР° РёРіСЂС‹ Р·Р°РЅРµСЃРµРЅР° РІ Р»РѕРіРё, Р¶РґРёС‚Рµ РЅР°РєР°Р·Р°РЅРёСЏ.';
+    writestring("РРіСЂРѕРє <b>$uname</b> РїС‹С‚Р°РµС‚СЃСЏ РѕР±РјР°РЅСѓС‚СЊ РєР°Р·РёРЅРѕ Рё СЃРєРѕСЂРѕ Р±СѓРґРµС‚ РЅР°РєР°Р·Р°РЅ.");
   }
 }
 ?>
@@ -457,7 +457,7 @@ if ($bet && $roul_names[$betto]) {
 
 <tr>
 <td ><img src="i/move/links.gif" width="9" height="7" /></td>
-<td  nowrap><a href="city.php?kaz=1" onClick="return check_access();" class="menutop" title="Время перехода: 10 сек.  ">Казино</a></td>
+<td  nowrap><a href="city.php?kaz=1" onClick="return check_access();" class="menutop" title="Р’СЂРµРјСЏ РїРµСЂРµС…РѕРґР°: 10 СЃРµРє.  ">РљР°Р·РёРЅРѕ</a></td>
 </tr>
 
 
@@ -466,7 +466,7 @@ if ($bet && $roul_names[$betto]) {
 <BR>
 
 <?
-//<a disabled><B><FONT COLOR=RED>Правила</FONT></B></a>
+//<a disabled><B><FONT COLOR=RED>РџСЂР°РІРёР»Р°</FONT></B></a>
 ?>
 
 </DIV>
@@ -488,7 +488,7 @@ echo "<font color=red><b>$outstr</b></font><br>";
 ?>
 
 
-У вас осталось <?= $money ?> кр.
+РЈ РІР°СЃ РѕСЃС‚Р°Р»РѕСЃСЊ <?= $money ?> РєСЂ.
 
 <br>
 <script>
@@ -507,7 +507,7 @@ lefttime=<?= $lefttime ?>;
 temptype=3;
 </script>
 <body bgcolor=#f0f0f0 topmargin=2 onload="timerfunc()">
-До запуска рулетки осталось <b id=timercl>0:00</b>
+Р”Рѕ Р·Р°РїСѓСЃРєР° СЂСѓР»РµС‚РєРё РѕСЃС‚Р°Р»РѕСЃСЊ <b id=timercl>0:00</b>
 
 </center>
 
@@ -535,8 +535,8 @@ temptype=3;
 
 <div id=betto style="display: none">
 
-Вы ставите на <b id=betname></b>&nbsp;&nbsp;&nbsp;<input type=text name=bet class=button id=bet value=1 size=10 /> кр. <INPUT TYPE=button class=button value="Поставить" onclick="betclick();" />
-<br> <small> Для того чтобы сделать ставку введите сумму ставки и нажмите кнопку "Поставить" </small>
+Р’С‹ СЃС‚Р°РІРёС‚Рµ РЅР° <b id=betname></b>&nbsp;&nbsp;&nbsp;<input type=text name=bet class=button id=bet value=1 size=10 /> РєСЂ. <INPUT TYPE=button class=button value="РџРѕСЃС‚Р°РІРёС‚СЊ" onclick="betclick();" />
+<br> <small> Р”Р»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ СЃРґРµР»Р°С‚СЊ СЃС‚Р°РІРєСѓ РІРІРµРґРёС‚Рµ СЃСѓРјРјСѓ СЃС‚Р°РІРєРё Рё РЅР°Р¶РјРёС‚Рµ РєРЅРѕРїРєСѓ "РџРѕСЃС‚Р°РІРёС‚СЊ" </small>
 </div>
 
 </form>
@@ -551,11 +551,11 @@ temptype=3;
 
 ?>
 
-    Последние ваши выигрыши
+    РџРѕСЃР»РµРґРЅРёРµ РІР°С€Рё РІС‹РёРіСЂС‹С€Рё
 
     <table>
 
-    <thead><th>Ставка</th><th>Выиграно</th></thead>
+    <thead><th>РЎС‚Р°РІРєР°</th><th>Р’С‹РёРіСЂР°РЅРѕ</th></thead>
 
 <?
 
@@ -563,7 +563,7 @@ temptype=3;
 
     {
 
-       echo "<tr><td>". $cwin['bet'] . " кр. на ". $roul_names[$cwin['betto']] . "</td><td align=center>" . $cwin['win'] . "</td></tr>";
+       echo "<tr><td>". $cwin['bet'] . " РєСЂ. РЅР° ". $roul_names[$cwin['betto']] . "</td><td align=center>" . $cwin['win'] . "</td></tr>";
 
     }  
 

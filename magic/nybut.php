@@ -1,12 +1,12 @@
 <?php
-// магия "шаг назад"
+// РјР°РіРёСЏ "С€Р°Рі РЅР°Р·Р°Рґ"
 if (rand(1,100)!=1) {
 	
 	if ($_SESSION['uid'] == null) header("Location: index.php");
 	
 	mysql_query("UPDATE `users` SET `hp`=`maxhp` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;");
 	
-	echo "<font color=red><b>Вы скушали бутербродик...<b></font>";
+	echo "<font color=red><b>Р’С‹ СЃРєСѓС€Р°Р»Рё Р±СѓС‚РµСЂР±СЂРѕРґРёРє...<b></font>";
 	$bet=1;
 }
 ?>

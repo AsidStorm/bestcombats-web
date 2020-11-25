@@ -10,31 +10,31 @@
 
 <table align=right>
 <td>
-<INPUT TYPE="button" onClick="location.href='/angel.php';" value="Вернуться" title="Вернуться">
+<INPUT TYPE="button" onClick="location.href='/angel.php';" value="Р’РµСЂРЅСѓС‚СЊСЃСЏ" title="Р’РµСЂРЅСѓС‚СЊСЃСЏ">
 </td>
 </table>
 
 
 <form method=post action="upd_novyj_shmot.php">
 
-<b>Вещи</b>
+<b>Р’РµС‰Рё</b>
 <table>
-<tr><td>Название </td><td><input type=text name=name value=''> </td></tr>
-<b>Дает Параметры</b>
+<tr><td>РќР°Р·РІР°РЅРёРµ </td><td><input type=text name=name value=''> </td></tr>
+<b>Р”Р°РµС‚ РџР°СЂР°РјРµС‚СЂС‹</b>
 <table>
-<tr><td>Мф. Мощности Крита </td><td><input type=text name=mfkritpow  value="0"></td></tr>
-<tr><td>Мф. Против Мощ. Крита </td><td><input type=text name=mfantikritpow  value="0"></td></tr>
-<tr><td>МФ. Парирования </td><td><input type=text name=mfparir  value="0"></td></tr>
-<tr><td>Мф. Блока Щитом </td><td><input type=text name=mfshieldblock  value="0"></td></tr>
-<tr><td>МФ. Контрудара </td><td><input type=text name=mfcontr  value="0"></td></tr>
-<tr><td>Мф. Рубящий урон </td><td><input type=text name=mfrub  value="0"></td></tr>
-<tr><td>Мф. Колюий урон </td><td><input type=text name=mfkol  value="0"></td></tr>
-<tr><td>МФ. Дробящий урон </td><td><input type=text name=mfdrob  value="0"></td></tr>
-<tr><td>Мф. Режущий урон </td><td><input type=text name=mfrej  value="0"></td></tr>
-<tr><td>Защита от урона </td><td><input type=text name=mfdhit  value="0"></td></tr>
-<tr><td>Защита от магии </td><td><input type=text name=mfdmag  value="0"></td></tr>
+<tr><td>РњС„. РњРѕС‰РЅРѕСЃС‚Рё РљСЂРёС‚Р° </td><td><input type=text name=mfkritpow  value="0"></td></tr>
+<tr><td>РњС„. РџСЂРѕС‚РёРІ РњРѕС‰. РљСЂРёС‚Р° </td><td><input type=text name=mfantikritpow  value="0"></td></tr>
+<tr><td>РњР¤. РџР°СЂРёСЂРѕРІР°РЅРёСЏ </td><td><input type=text name=mfparir  value="0"></td></tr>
+<tr><td>РњС„. Р‘Р»РѕРєР° Р©РёС‚РѕРј </td><td><input type=text name=mfshieldblock  value="0"></td></tr>
+<tr><td>РњР¤. РљРѕРЅС‚СЂСѓРґР°СЂР° </td><td><input type=text name=mfcontr  value="0"></td></tr>
+<tr><td>РњС„. Р СѓР±СЏС‰РёР№ СѓСЂРѕРЅ </td><td><input type=text name=mfrub  value="0"></td></tr>
+<tr><td>РњС„. РљРѕР»СЋРёР№ СѓСЂРѕРЅ </td><td><input type=text name=mfkol  value="0"></td></tr>
+<tr><td>РњР¤. Р”СЂРѕР±СЏС‰РёР№ СѓСЂРѕРЅ </td><td><input type=text name=mfdrob  value="0"></td></tr>
+<tr><td>РњС„. Р РµР¶СѓС‰РёР№ СѓСЂРѕРЅ </td><td><input type=text name=mfrej  value="0"></td></tr>
+<tr><td>Р—Р°С‰РёС‚Р° РѕС‚ СѓСЂРѕРЅР° </td><td><input type=text name=mfdhit  value="0"></td></tr>
+<tr><td>Р—Р°С‰РёС‚Р° РѕС‚ РјР°РіРёРё </td><td><input type=text name=mfdmag  value="0"></td></tr>
 </table>
-<INPUT TYPE="submit" value=" Обновить вещь ">
+<INPUT TYPE="submit" value=" РћР±РЅРѕРІРёС‚СЊ РІРµС‰СЊ ">
 </form>
 
 <?

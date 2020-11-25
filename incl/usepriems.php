@@ -91,7 +91,7 @@ $sortt=sort_teamsc();
       } else {
         if (!canbeclearedbad($v, $priem)) continue;
       }
-      if ($v["effect"]%2==0 && $v["value"]>$strokes[$k]->value && 0) { //Снятие целей частично
+      if ($v["effect"]%2==0 && $v["value"]>$strokes[$k]->value && 0) { //РЎРЅСЏС‚РёРµ С†РµР»РµР№ С‡Р°СЃС‚РёС‡РЅРѕ
         $fbattle->battleunits[$user]["effects"][$k]["value"]-=$strokes[$k]->value;
         $fbattle->toupdatebu[$user]["effects"]=1;
       } else {
@@ -103,7 +103,7 @@ $sortt=sort_teamsc();
           $fbattle->toupdatebu[$user]["effects"]=1;
         }
       }
-      if ($log) addlog($fbattle->battle_data["id"],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user,$sortt).' из последних сил применил прием <b>"'.$strokes[$priem]->name.'"</b>, отменив действие приёма <b>'.$strokes[$v["priem"]]->name.'</b>.<BR>');
+      if ($log) addlog($fbattle->battle_data["id"],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user,$sortt).' РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» РїСЂРёРјРµРЅРёР» РїСЂРёРµРј <b>"'.$strokes[$priem]->name.'"</b>, РѕС‚РјРµРЅРёРІ РґРµР№СЃС‚РІРёРµ РїСЂРёС‘РјР° <b>'.$strokes[$v["priem"]]->name.'</b>.<BR>');
       else $fbattle->logstrokeend($v["priem"], $user);
       $fbattle->needupdatebu=1;
       return $v["priem"];
@@ -197,7 +197,7 @@ $sortt=sort_teamsc();
         $mult*=$v["value2"]/100+1;
       }
     }
-    if (!$fbattle->sameteam($user, $target) || 1) { //Отмена антимагии при лечении
+    if (!$fbattle->sameteam($user, $target) || 1) { //РћС‚РјРµРЅР° Р°РЅС‚РёРјР°РіРёРё РїСЂРё Р»РµС‡РµРЅРёРё
 
       if (incastle($fbattle->battleunits[$user]["room"]) && $fbattle->battleunits[$user]["room"]<$fbattle->battleunits[$target]["room"]) $anti+=250;
 
@@ -265,7 +265,7 @@ $sortt=sort_teamsc();
   function sort_teamsc() {
     global $fbattle;
     return $fbattle->my_class;
-    // режем тимзы
+    // СЂРµР¶РµРј С‚РёРјР·С‹
     if (in_array ($user['id'],$fbattle->t1)) {
       $color = "B1";
     } else {
@@ -316,13 +316,13 @@ if (@$strokes[$priem]->instantdamage) {
 } elseif ($priem=="multi_followme") {
   $target=getid($_POST["main"], $fbattle->battle_data["id"]);
   if ($fbattle->battle[$target][$user['id']][0]) {
-    echo "<b><font color=red>Этот персонаж уже поставил на вас удар.</b></font>";
+    echo "<b><font color=red>Р­С‚РѕС‚ РїРµСЂСЃРѕРЅР°Р¶ СѓР¶Рµ РїРѕСЃС‚Р°РІРёР» РЅР° РІР°СЃ СѓРґР°СЂ.</b></font>";
   } else {
     if($sortt=='B1'){$c2='B2';}else{$c2='B1';};
     if($user['sex'] == 1) {
-      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', вспомнив слова своего сэнсея, из последних сил применил прием <b>"Преследование"</b> на '.$fbattle->nick5($target,$c2).'<BR>');
+      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', РІСЃРїРѕРјРЅРёРІ СЃР»РѕРІР° СЃРІРѕРµРіРѕ СЃСЌРЅСЃРµСЏ, РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» РїСЂРёРјРµРЅРёР» РїСЂРёРµРј <b>"РџСЂРµСЃР»РµРґРѕРІР°РЅРёРµ"</b> РЅР° '.$fbattle->nick5($target,$c2).'<BR>');
     } else {
-      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', вспомнив слова своего сэнсея, из последних сил применила прием <b>"Преследование"</b> на '.$fbattle->nick5($target,$c2).'<BR>');
+      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', РІСЃРїРѕРјРЅРёРІ СЃР»РѕРІР° СЃРІРѕРµРіРѕ СЃСЌРЅСЃРµСЏ, РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» РїСЂРёРјРµРЅРёР»Р° РїСЂРёРµРј <b>"РџСЂРµСЃР»РµРґРѕРІР°РЅРёРµ"</b> РЅР° '.$fbattle->nick5($target,$c2).'<BR>');
     }
     $fbattle->toupdatebu[$target]["follow"]=$user["id"];
     $fbattle->needupdatebu=1;
@@ -331,7 +331,7 @@ if (@$strokes[$priem]->instantdamage) {
 } elseif ($priem=="block_addchange") {
   $target=getid($_POST["main"], $fbattle->battle_data["id"]);
   if ($fbattle->battle[$user['id']][$target][0]) {
-    echo "<b><font color=red>На этого персонажа уже поставлен удар.</b></font>";
+    echo "<b><font color=red>РќР° СЌС‚РѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р° СѓР¶Рµ РїРѕСЃС‚Р°РІР»РµРЅ СѓРґР°СЂ.</b></font>";
   } elseif ($priem=='block_addchange' && $target){
     mq("update users set `block2`= `block2` -1   WHERE id='".$_SESSION['uid']."'");
     $user['block2']=$user['block2']-1;
@@ -355,9 +355,9 @@ if (@$strokes[$priem]->instantdamage) {
   }
 } elseif ($priem=="hp_trade") {
   if($user['sex'] == 1) {
-    addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', вспомнив слова своего сэнсея, из последних сил применил прием <b>"Разделить кровь"</b> на '.$fbattle->nick5($stroketarget,$sortt).'<BR>');
+    addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', РІСЃРїРѕРјРЅРёРІ СЃР»РѕРІР° СЃРІРѕРµРіРѕ СЃСЌРЅСЃРµСЏ, РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» РїСЂРёРјРµРЅРёР» РїСЂРёРµРј <b>"Р Р°Р·РґРµР»РёС‚СЊ РєСЂРѕРІСЊ"</b> РЅР° '.$fbattle->nick5($stroketarget,$sortt).'<BR>');
   } else {
-    addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', вспомнив слова своего сэнсея, из последних сил применила прием <b>"Разделить кровь"</b> на '.$fbattle->nick5($stroketarget,$sortt).'<BR>');
+    addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', РІСЃРїРѕРјРЅРёРІ СЃР»РѕРІР° СЃРІРѕРµРіРѕ СЃСЌРЅСЃРµСЏ, РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» РїСЂРёРјРµРЅРёР»Р° РїСЂРёРµРј <b>"Р Р°Р·РґРµР»РёС‚СЊ РєСЂРѕРІСЊ"</b> РЅР° '.$fbattle->nick5($stroketarget,$sortt).'<BR>');
   }
   mq("update users set hp2=hp2+1 where id='$stroketarget'");
   taketactics($priem);
@@ -370,59 +370,59 @@ if (@$strokes[$priem]->instantdamage) {
   }
   function logstroke($priem, $data) {
     global $user, $strokes, $fbattle;
-    $a=$data["sex"]==1?"":"а";
-    $la=$data["sex"]==1?"":"ла";
-    $as=$data["sex"]==1?"ся":"ась";
+    $a=$data["sex"]==1?"":"Р°";
+    $la=$data["sex"]==1?"":"Р»Р°";
+    $as=$data["sex"]==1?"СЃСЏ":"Р°СЃСЊ";
     $date="<span class=date>".date("H:i")."</span>";
     if ($data["damage"]) {
       $fbattle->add_log("<!--$data[userid]/$data[target]/0/0/$data[damage]/magshot".($data["krit"]?"krit":"")."-->");
     }
-    $actions=array("наконец сфокусировал$a свое внимание на поединке и наколдовал$a", "впал в транс и начал$a бормотать заклятие",
-    "догадавшись, что пришло время показать себя, произнес$la заклятье", "нарисовав вокруг себя несколько рун, призвал$a заклятье",
-    "очнул$as от медитации, и призвал$a заклятье", "с испугу произнес$la, первое пришедшее на ум, заклятье");
+    $actions=array("РЅР°РєРѕРЅРµС† СЃС„РѕРєСѓСЃРёСЂРѕРІР°Р»$a СЃРІРѕРµ РІРЅРёРјР°РЅРёРµ РЅР° РїРѕРµРґРёРЅРєРµ Рё РЅР°РєРѕР»РґРѕРІР°Р»$a", "РІРїР°Р» РІ С‚СЂР°РЅСЃ Рё РЅР°С‡Р°Р»$a Р±РѕСЂРјРѕС‚Р°С‚СЊ Р·Р°РєР»СЏС‚РёРµ",
+    "РґРѕРіР°РґР°РІС€РёСЃСЊ, С‡С‚Рѕ РїСЂРёС€Р»Рѕ РІСЂРµРјСЏ РїРѕРєР°Р·Р°С‚СЊ СЃРµР±СЏ, РїСЂРѕРёР·РЅРµСЃ$la Р·Р°РєР»СЏС‚СЊРµ", "РЅР°СЂРёСЃРѕРІР°РІ РІРѕРєСЂСѓРі СЃРµР±СЏ РЅРµСЃРєРѕР»СЊРєРѕ СЂСѓРЅ, РїСЂРёР·РІР°Р»$a Р·Р°РєР»СЏС‚СЊРµ",
+    "РѕС‡РЅСѓР»$as РѕС‚ РјРµРґРёС‚Р°С†РёРё, Рё РїСЂРёР·РІР°Р»$a Р·Р°РєР»СЏС‚СЊРµ", "СЃ РёСЃРїСѓРіСѓ РїСЂРѕРёР·РЅРµСЃ$la, РїРµСЂРІРѕРµ РїСЂРёС€РµРґС€РµРµ РЅР° СѓРј, Р·Р°РєР»СЏС‚СЊРµ");
     $action=$actions[rand(0,count($actions)-1)];
     if ($data["missedshot"]) {
-      $results=array("получилось нечто совсем безобидное", "по роковому стечению обстоятельств замысел не удался", "безрезультатно");
+      $results=array("РїРѕР»СѓС‡РёР»РѕСЃСЊ РЅРµС‡С‚Рѕ СЃРѕРІСЃРµРј Р±РµР·РѕР±РёРґРЅРѕРµ", "РїРѕ СЂРѕРєРѕРІРѕРјСѓ СЃС‚РµС‡РµРЅРёСЋ РѕР±СЃС‚РѕСЏС‚РµР»СЊСЃС‚РІ Р·Р°РјС‹СЃРµР» РЅРµ СѓРґР°Р»СЃСЏ", "Р±РµР·СЂРµР·СѓР»СЊС‚Р°С‚РЅРѕ");
       $result=$results[rand(0,count($results)-1)];
-      $res=" $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" на $data[enemy], но $result. $data[enhp]";
+      $res=" $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" РЅР° $data[enemy], РЅРѕ $result. $data[enhp]";
     } elseif (isset($data["deltamana"]) && $data["mana"] && isset($data["heal"]) && @$data["selfcast"]) {
-      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\", пополнив жизнь <Font color=green><b> +$data[heal]</b></font> $data[hp] и ману <Font Color=#006699><b> +$data[deltamana]</b></font> $data[mana]";
+      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\", РїРѕРїРѕР»РЅРёРІ Р¶РёР·РЅСЊ <Font color=green><b> +$data[heal]</b></font> $data[hp] Рё РјР°РЅСѓ <Font Color=#006699><b> +$data[deltamana]</b></font> $data[mana]";
     } elseif (isset($data["deltamana"]) && $data["mana"] && isset($data["heal"])) {
-      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" на $data[enemy], пополнив жизнь <Font color=green><b> +$data[heal]</b></font> $data[hp] и ману <Font Color=#006699><b> +$data[deltamana]</b></font> $data[mana]";
+      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" РЅР° $data[enemy], РїРѕРїРѕР»РЅРёРІ Р¶РёР·РЅСЊ <Font color=green><b> +$data[heal]</b></font> $data[hp] Рё РјР°РЅСѓ <Font Color=#006699><b> +$data[deltamana]</b></font> $data[mana]";
     } elseif (isset($data["deltamana"]) && $data["mana"] && isset($data["deltahp"]) && $data["hp"]) {
-      $res=" вспомнил$a про приём <b>".$strokes[$priem]->name."</b> и пополнил$a ману <Font Color=#006699><b> +$data[deltamana]</b></font> $data[mana], ценой жизни <font color=#ff0000>-$data[deltahp]</font> $data[hp]";
+      $res=" РІСЃРїРѕРјРЅРёР»$a РїСЂРѕ РїСЂРёС‘Рј <b>".$strokes[$priem]->name."</b> Рё РїРѕРїРѕР»РЅРёР»$a РјР°РЅСѓ <Font Color=#006699><b> +$data[deltamana]</b></font> $data[mana], С†РµРЅРѕР№ Р¶РёР·РЅРё <font color=#ff0000>-$data[deltahp]</font> $data[hp]";
     } elseif (isset($data["deltamana"]) && $data["mana"] && $data["remeffect"] && $data["effect"]) {
-      $res=" вспомнил$a про приём <b>".$strokes[$priem]->name."</b> с помощью которого пополнил$a ману <Font Color=#006699><b> +$data[deltamana]</b></font> $data[mana] ".($data["effect"]?"и отменил$a действие приёма <b>".$strokes[$data["effect"]]->name."</b>":"");
+      $res=" РІСЃРїРѕРјРЅРёР»$a РїСЂРѕ РїСЂРёС‘Рј <b>".$strokes[$priem]->name."</b> СЃ РїРѕРјРѕС‰СЊСЋ РєРѕС‚РѕСЂРѕРіРѕ РїРѕРїРѕР»РЅРёР»$a РјР°РЅСѓ <Font Color=#006699><b> +$data[deltamana]</b></font> $data[mana] ".($data["effect"]?"Рё РѕС‚РјРµРЅРёР»$a РґРµР№СЃС‚РІРёРµ РїСЂРёС‘РјР° <b>".$strokes[$data["effect"]]->name."</b>":"");
     } elseif (isset($data["deltamana"]) && $data["mana"]) {
-      $res=" вспомнил$a про приём <b>".$strokes[$priem]->name."</b> и пополнил$a ману <Font Color=#006699><b> +$data[deltamana]</b></font> $data[mana]";
+      $res=" РІСЃРїРѕРјРЅРёР»$a РїСЂРѕ РїСЂРёС‘Рј <b>".$strokes[$priem]->name."</b> Рё РїРѕРїРѕР»РЅРёР»$a РјР°РЅСѓ <Font Color=#006699><b> +$data[deltamana]</b></font> $data[mana]";
     } elseif ($data["hittoff"]) {
-      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" на $data[enemy], но силовое поле поглотило урон";
+      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" РЅР° $data[enemy], РЅРѕ СЃРёР»РѕРІРѕРµ РїРѕР»Рµ РїРѕРіР»РѕС‚РёР»Рѕ СѓСЂРѕРЅ";
     } elseif ($data["damage"] && isset($data["heal"])) {
       $clr=kritcolor($data["krit"]);
-      $res=" $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" на $data[enemy]. <font color=\"$clr\"><b> -$data[damage]</b></font> $data[enhp] и пополнил$a жизнь <Font color=green><b> +$data[heal]</b></font> $data[hp]";
+      $res=" $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" РЅР° $data[enemy]. <font color=\"$clr\"><b> -$data[damage]</b></font> $data[enhp] Рё РїРѕРїРѕР»РЅРёР»$a Р¶РёР·РЅСЊ <Font color=green><b> +$data[heal]</b></font> $data[hp]";
     } elseif ($data["damage"]) {
       $clr=kritcolor($data["krit"]);
-      $res=" $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" на $data[enemy]. <font color=\"$clr\"><b> -$data[damage]</b></font>. $data[enhp]";
+      $res=" $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" РЅР° $data[enemy]. <font color=\"$clr\"><b> -$data[damage]</b></font>. $data[enhp]";
     } elseif ($data["manadamage"]) {
       $clr=kritcolor($data["krit"]);
-      $res=" $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" на $data[enemy]. <font color=\"$clr\"><b> -$data[manadamage]</b></font>. $data[enmana]";
+      $res=" $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" РЅР° $data[enemy]. <font color=\"$clr\"><b> -$data[manadamage]</b></font>. $data[enmana]";
     } elseif ($data["selfcast"] && isset($data["heal"])) {
       $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\". <Font Color=".kritcolor($data["krit"])."><b> +$data[heal]</b></font> $data[hp]";
     } elseif ($data["strokeonly"] || ($data["selfcast"] && $data["effect"])) {
       $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\"";
     } elseif ($data["remeffect"]) {
-      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" на $data[enemy], ".($data["effect"]?"отменив действие приёма <b>".$strokes[$data["effect"]]->name."</b>":" но безрезультатно").".</b>";
+      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" РЅР° $data[enemy], ".($data["effect"]?"РѕС‚РјРµРЅРёРІ РґРµР№СЃС‚РІРёРµ РїСЂРёС‘РјР° <b>".$strokes[$data["effect"]]->name."</b>":" РЅРѕ Р±РµР·СЂРµР·СѓР»СЊС‚Р°С‚РЅРѕ").".</b>";
     } elseif ($data["effect"] && $data["enemy"]) {
-      if ($data["krit"]==1) $krit=" <font color=red><b>с критическим уроном</b></font>";
-      elseif ($data["krit"]==-1) $krit=" <font color=#aaaaaa><b>но допустил$a критический промах</b></font>";
+      if ($data["krit"]==1) $krit=" <font color=red><b>СЃ РєСЂРёС‚РёС‡РµСЃРєРёРј СѓСЂРѕРЅРѕРј</b></font>";
+      elseif ($data["krit"]==-1) $krit=" <font color=#aaaaaa><b>РЅРѕ РґРѕРїСѓСЃС‚РёР»$a РєСЂРёС‚РёС‡РµСЃРєРёР№ РїСЂРѕРјР°С…</b></font>";
       else $krit="";
-      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" на $data[enemy]$krit";
+      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" РЅР° $data[enemy]$krit";
     } elseif (isset($data["heal"])) {
-      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" на $data[enemy]. <font color=".kritcolor($data["krit"])."><b> +$data[heal]</b></font> $data[hp]";
+      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" РЅР° $data[enemy]. <font color=".kritcolor($data["krit"])."><b> +$data[heal]</b></font> $data[hp]";
     } elseif ($data["enemy"]) {
-      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" на $data[enemy]";
+      $res=", $action \"<FONT color=#A00000><b>".$strokes[$priem]->name."</b></font>\" РЅР° $data[enemy]";
     }
-    $fbattle->add_log("$date $data[user] $res ".($data["takenmana"]?" -$data[takenmana] (мана)":"")."<BR>");
+    $fbattle->add_log("$date $data[user] $res ".($data["takenmana"]?" -$data[takenmana] (РјР°РЅР°)":"")."<BR>");
     $fbattle->nologhr=1;
   }
 
@@ -443,7 +443,7 @@ if (@$strokes[$priem]->instantdamage) {
       elseif ($user["level"]==9) $prot=11118;
       elseif ($user["level"]==10) $prot=11119;
       else $prot=11120;
-      $bot=$fbattle->addbot($prot, $user["id"], "Каменный страж");
+      $bot=$fbattle->addbot($prot, $user["id"], "РљР°РјРµРЅРЅС‹Р№ СЃС‚СЂР°Р¶");
       $fbattle->addeffect($bot, LIFE, 1, 0, $priem, array(), 0, $user["level"], 0, 0, $user["id"]);
     }
     if ($fbattle->sameteam($user["id"], $stroketarget)) {
@@ -1127,7 +1127,7 @@ if (@$strokes[$priem]->instantdamage) {
       $fbattle->battleunits[$u]["additdata"]["damage"][1]=$fbattle->battleunits[$u]["additdata"]["damage"][2];
       if ($roll>0) $fbattle->addhp($roll, $user["id"], 1, 1);
       else $fbattle->takehp(-$roll, $user["id"], $fbattle->userdata[$user["id"]]["hp"], 0, 0, 1);
-      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> Кроличья лапка, подкова в перчатке и прием <b>"'.$strokes[$priem]->name.'"</b> помогли '.$fbattle->nick5($user['id'],$sortt).' продержаться ещё немного <font color=#006699><b>'.plusorminus($roll).'</b></font> ['.$fbattle->userdata[$user["id"]]["hp"]."/".$fbattle->userdata[$user["id"]]["maxhp"].'].<BR>');
+      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> РљСЂРѕР»РёС‡СЊСЏ Р»Р°РїРєР°, РїРѕРґРєРѕРІР° РІ РїРµСЂС‡Р°С‚РєРµ Рё РїСЂРёРµРј <b>"'.$strokes[$priem]->name.'"</b> РїРѕРјРѕРіР»Рё '.$fbattle->nick5($user['id'],$sortt).' РїСЂРѕРґРµСЂР¶Р°С‚СЊСЃСЏ РµС‰С‘ РЅРµРјРЅРѕРіРѕ <font color=#006699><b>'.plusorminus($roll).'</b></font> ['.$fbattle->userdata[$user["id"]]["hp"]."/".$fbattle->userdata[$user["id"]]["maxhp"].'].<BR>');
     } elseif (@$strokes[$priem]->deltahp || @$strokes[$priem]->deltahplevel) {
       if ($strokes[$priem]->deltahp=="usetactics") {
         $hp=min(25, $fbattle->battleunits[$user["id"]]["additdata"]["hp2"]/2+
@@ -1152,24 +1152,24 @@ if (@$strokes[$priem]->instantdamage) {
       $fbattle->takehp($minushp,$user["id"],$user["hp"], 0, $user["id"]);
       $obnhp = $user['hp']-$minushp;
       $user['hp']=$user['hp']-$minushp;
-      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).' героически использовал'.($user["sex"]?"":"а").' прием <b>"'.$strokes[$priem]->name.'"</b>.<Font Color=#006699><b> -'.$minushp.'</b></font> ['.$obnhp.'/'.$user["maxhp"].']<BR>');
+      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).' РіРµСЂРѕРёС‡РµСЃРєРё РёСЃРїРѕР»СЊР·РѕРІР°Р»'.($user["sex"]?"":"Р°").' РїСЂРёРµРј <b>"'.$strokes[$priem]->name.'"</b>.<Font Color=#006699><b> -'.$minushp.'</b></font> ['.$obnhp.'/'.$user["maxhp"].']<BR>');
     } elseif ($strokes[$priem]->teambron) {
       $cond="0";
       $t=$strokes[$priem]->teambron;
       foreach ($fbattle->team_mine as $k=>$v) $cond.=" or user='$v' ";
       mq("update battleunits set bron1=bron1+$t, bronmin1=bronmin1+$t, bron2=bron2+$t, bronmin2=bronmin2+$t, bron3=bron3+$t, bronmin3=bronmin3+$t, bron4=bron4+$t, bronmin4=bronmin4+$t, bron5=bron5+$t, bronmin5=bronmin5+$t where battle='$user[battle]' and ($cond)");
-      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> Кроличья лапка, подкова в перчатке и прием <b>"'.$strokes[$priem]->name.'"</b> помогли '.$fbattle->nick5($user['id'],$sortt).' продержаться ещё немного.<BR>');
+      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> РљСЂРѕР»РёС‡СЊСЏ Р»Р°РїРєР°, РїРѕРґРєРѕРІР° РІ РїРµСЂС‡Р°С‚РєРµ Рё РїСЂРёРµРј <b>"'.$strokes[$priem]->name.'"</b> РїРѕРјРѕРіР»Рё '.$fbattle->nick5($user['id'],$sortt).' РїСЂРѕРґРµСЂР¶Р°С‚СЊСЃСЏ РµС‰С‘ РЅРµРјРЅРѕРіРѕ.<BR>');
     } elseif ($strokes[$priem]->teamdamage) {
       $cond="0";
       $t=$strokes[$priem]->teamdamage;
       foreach ($fbattle->team_mine as $k=>$v) $cond.=" or user='$v' ";
       mq("update battleunits set minu=minu+$t, maxu=maxu+$t where battle='$user[battle]' and ($cond)");
-      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> Кроличья лапка, подкова в перчатке и прием <b>"'.$strokes[$priem]->name.'"</b> помогли '.$fbattle->nick5($user['id'],$sortt).' продержаться ещё немного.<BR>');
+      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> РљСЂРѕР»РёС‡СЊСЏ Р»Р°РїРєР°, РїРѕРґРєРѕРІР° РІ РїРµСЂС‡Р°С‚РєРµ Рё РїСЂРёРµРј <b>"'.$strokes[$priem]->name.'"</b> РїРѕРјРѕРіР»Рё '.$fbattle->nick5($user['id'],$sortt).' РїСЂРѕРґРµСЂР¶Р°С‚СЊСЃСЏ РµС‰С‘ РЅРµРјРЅРѕРіРѕ.<BR>');
     } elseif ($strokes[$priem]->blockchanges) {
       if($user['sex'] == 1) {
-        addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', вспомнив слова своего сэнсея, из последних сил применил прием <b>"'.$strokes[$priem]->name.'"</b> на '.$fbattle->nick5($_SESSION['enemy'],$color_p).'.<BR>');
+        addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', РІСЃРїРѕРјРЅРёРІ СЃР»РѕРІР° СЃРІРѕРµРіРѕ СЃСЌРЅСЃРµСЏ, РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» РїСЂРёРјРµРЅРёР» РїСЂРёРµРј <b>"'.$strokes[$priem]->name.'"</b> РЅР° '.$fbattle->nick5($_SESSION['enemy'],$color_p).'.<BR>');
       } else {
-        addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', вспомнив слова своего сэнсея, из последних сил применила прием <b>"'.$strokes[$priem]->name.'"</b> на '.$fbattle->nick5($_SESSION['enemy'],$color_p).'.<BR>');
+        addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', РІСЃРїРѕРјРЅРёРІ СЃР»РѕРІР° СЃРІРѕРµРіРѕ СЃСЌРЅСЃРµСЏ, РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» РїСЂРёРјРµРЅРёР»Р° РїСЂРёРµРј <b>"'.$strokes[$priem]->name.'"</b> РЅР° '.$fbattle->nick5($_SESSION['enemy'],$color_p).'.<BR>');
       }
       $fbattle->toupdatebu[$_SESSION['enemy']]["changes"]=0;
       $fbattle->needupdatebu=1;
@@ -1177,21 +1177,21 @@ if (@$strokes[$priem]->instantdamage) {
       $tmp=remeffect($user["id"], $priem);
       if (!$tmp) {
         $strokefailed=1;
-        $report="Нет подходящего эффекта.";
+        $report="РќРµС‚ РїРѕРґС…РѕРґСЏС‰РµРіРѕ СЌС„С„РµРєС‚Р°.";
       }
     } elseif ($strokes[$priem]->deltamf && !@$strokes[$priem]->effect) {
       mq("update battleunits set ".$strokes[$priem]->mf."=".$strokes[$priem]->mf."+".$strokes[$priem]->deltamf." ".(@$strokes[$priem]->deltamf2?", ".$strokes[$priem]->mf2."=".$strokes[$priem]->mf2."+".$strokes[$priem]->deltamf2:"")." ".(@$strokes[$priem]->deltamf3?", ".$strokes[$priem]->mf3."=".$strokes[$priem]->mf3."+".$strokes[$priem]->deltamf3:"")." where user=".$_SESSION['uid']." and battle='$user[battle]'");
-      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> Кроличья лапка, подкова в перчатке и прием <b>"'.$strokes[$priem]->name.'"</b> помогли '.$fbattle->nick5($user['id'],$sortt).' продержаться ещё немного.<BR>');
+      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> РљСЂРѕР»РёС‡СЊСЏ Р»Р°РїРєР°, РїРѕРґРєРѕРІР° РІ РїРµСЂС‡Р°С‚РєРµ Рё РїСЂРёРµРј <b>"'.$strokes[$priem]->name.'"</b> РїРѕРјРѕРіР»Рё '.$fbattle->nick5($user['id'],$sortt).' РїСЂРѕРґРµСЂР¶Р°С‚СЊСЃСЏ РµС‰С‘ РЅРµРјРЅРѕРіРѕ.<BR>');
     } elseif (@$strokes[$priem]->effect==EXTRAMF || @$strokes[$priem]->effect==EXTRADAMAGE || @$strokes[$priem]->effect==DAMAGEMULT || @$strokes[$priem]->effect==HEAL || @$strokes[$priem]->effect==PROFDAMAGEMULT || @$strokes[$priem]->effect==FIREDEF || @$strokes[$priem]->effect==WATERDEF ||  @$strokes[$priem]->effect==AIRDEF || @$strokes[$priem]->effect==EARTHDEF || @$strokes[$priem]->effect==MAGICDEF || @$strokes[$priem]->effect==INCWEAPDAMAGE) {
       $fbattle->addeffect($user["id"], $strokes[$priem]->effect, $strokes[$priem]->value, 0, $priem, $logdata, 0, 0, @$strokes[$priem]->effect2, @$strokes[$priem]->value2, $user["id"], @$strokes[$priem]->effect3, @$strokes[$priem]->value3);
-      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> Кроличья лапка, подкова в перчатке и прием <b>"'.$strokes[$priem]->name.'"</b> помогли '.$fbattle->nick5($user['id'],$sortt).' продержаться ещё немного.<BR>');
+      addlog($user['battle'],'<span class=date>'.date("H:i").'</span> РљСЂРѕР»РёС‡СЊСЏ Р»Р°РїРєР°, РїРѕРґРєРѕРІР° РІ РїРµСЂС‡Р°С‚РєРµ Рё РїСЂРёРµРј <b>"'.$strokes[$priem]->name.'"</b> РїРѕРјРѕРіР»Рё '.$fbattle->nick5($user['id'],$sortt).' РїСЂРѕРґРµСЂР¶Р°С‚СЊСЃСЏ РµС‰С‘ РЅРµРјРЅРѕРіРѕ.<BR>');
     } elseif (@$strokes[$priem]->effect) {
       if ($fbattle->addeffect($stroketarget, $strokes[$priem]->effect, $strokes[$priem]->value, 0, $priem, $logdata, 0, 0, @$strokes[$priem]->effect2, @$strokes[$priem]->value2)) {
         if (!@$strokes[$priem]->nolog) {
           if($user['sex'] == 1) {
-            addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', вспомнив слова своего сэнсея, из последних сил применил прием <b>"'.$strokes[$priem]->name.'"</b> на '.$fbattle->nick5($stroketarget,$color_p).'.<BR>');
+            addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', РІСЃРїРѕРјРЅРёРІ СЃР»РѕРІР° СЃРІРѕРµРіРѕ СЃСЌРЅСЃРµСЏ, РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» РїСЂРёРјРµРЅРёР» РїСЂРёРµРј <b>"'.$strokes[$priem]->name.'"</b> РЅР° '.$fbattle->nick5($stroketarget,$color_p).'.<BR>');
           } else {
-            addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', вспомнив слова своего сэнсея, из последних сил применила прием <b>"'.$strokes[$priem]->name.'"</b> на '.$fbattle->nick5($stroketarget,$color_p).'.<BR>');
+            addlog($user['battle'],'<span class=date>'.date("H:i").'</span> '.$fbattle->nick5($user['id'],$sortt).', РІСЃРїРѕРјРЅРёРІ СЃР»РѕРІР° СЃРІРѕРµРіРѕ СЃСЌРЅСЃРµСЏ, РёР· РїРѕСЃР»РµРґРЅРёС… СЃРёР» РїСЂРёРјРµРЅРёР»Р° РїСЂРёРµРј <b>"'.$strokes[$priem]->name.'"</b> РЅР° '.$fbattle->nick5($stroketarget,$color_p).'.<BR>');
           }
         }
       } else $strokefailed=1;
