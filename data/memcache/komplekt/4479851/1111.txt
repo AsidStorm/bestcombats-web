@@ -1,0 +1,15 @@
+Рубашка{||||}1111160{||||}rybax
+Меч известного живодера{||||}1111474{||||}shit
+Меч известного живодера{||||}1111475{||||}weap
+Кольцо BestCombats{||||}1111477{||||}r3
+Кольцо BestCombats{||||}1111478{||||}r1
+Кольцо BestCombats{||||}1111479{||||}r2
+Perfected Boots of Bestial{||||}1111510{||||}boots
+Perfected Gloves of Bestial{||||}1111511{||||}perchi
+Perfected Armor of Bestial{||||}1111513{||||}bron
+Perfected Helmet of Bestial{||||}1111514{||||}helm
+Perfected Bands of Bestial{||||}1111516{||||}naruchi
+Perfected Belt of Bestial{||||}1111517{||||}belt
+Perfected Leggings of Bestial{||||}1111519{||||}leg
+Perfected Earrings of Bestial{||||}1111529{||||}sergi
+Perfected Amulet of Bestial{||||}1111530{||||}kulon

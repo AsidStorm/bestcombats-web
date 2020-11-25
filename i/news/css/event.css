@@ -1,0 +1,121 @@
+body {
+	background-color: #CCCCCC;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+.normaltextm {  font-family: Verdana, Arial, Helvetica, sans-serif, Tahoma; font-size: 10pt; color: #003C70;}
+.smalltextm {
+	font-family: Verdana, Arial, Helvetica, sans-serif, Tahoma;
+	font-size: 8pt;
+	color: #800000;
+	margin: 3px;
+}
+.headerm { font-family: Verdana, Arial, Helvetica, sans-serif, Tahoma; font-size: 12pt; color: #31659C; margin-left: 7px ; margin-right: 7px}
+
+TABLE, TR, TD { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; color: #000000;   }
+
+.normaltext {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10pt; color: #000000;}
+.smalltext { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; color: #000000; }
+.header { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12pt; color: #31659C;}
+
+.button{font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt;  background-color : #DDDDDD;  border : 1px solid #DDDDDD;  border-bottom : 2px solid #333333;  border-right : 2px solid #333333;  color : Black;                                                               }
+.check{font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; color: #000000;}
+.input{font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; color: Black; border: 1px solid #000000; background-color: White;      }
+.inup{font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 8pt; color: #CCCCCC; border: 1px solid #AA0000; background-color: #550000;      }
+
+
+BODY{
+	SCROLLBAR-FACE-COLOR: #CCCCCC;
+	SCROLLBAR-HIGHLIGHT-COLOR: #222222;
+	SCROLLBAR-SHADOW-COLOR: #222222;
+	SCROLLBAR-ARROW-COLOR: Black;
+	scrollbar-3dlight-color : #CCCCCC;
+	scrollbar-base-color : White;
+	scrollbar-darkshadow-color : #CCCCCC;
+	scrollbar-track-color : #999999;
+	background-image: url(/i/bagr.gif);
+}
+
+
+.menu:link, .menu:visited, .menu:active  { text-decoration:underline; color:#AA0000;}
+.menu:hover                              { text-decoration:underline;color:#AA0000;}
+
+a:link, a:visited, a:active  { text-decoration:none; color:#800000;}
+a:hover                      { text-decoration:underline;color:#580000;}
+
+.NEWS { border: 1px dotted #DDDDDD;}
+
+.button_enter {
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #E9EBE2;
+	background-color: #960000;
+	border: none;
+	height: 21px;
+	width: 75px;
+}
+
+.page_title {
+	text-align: right; font-weight:bold; margin-right:12px; font-size:12px;
+}
+
+#menu{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+#menu li{
+    float:left;
+    height:20px;
+    padding:0;
+    margin:0;
+    width:150px;
+    text-align:center;
+    background:#0CF;
+    position:relative;
+}
+#menu li ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:150px;
+    position:absolute;
+    left:0;
+    top:20px;
+    display:none;
+}
+#menu li ul li{
+    float:none;
+    height:20px;
+    margin:0;
+    width:150px;
+    text-align:center;
+    background:#0CF;
+}
+#menu li a{
+    display:block;
+    width:150px;
+    height:20px;
+}
+#menu li:hover ul{
+    display:block;  
+}
+#menu li:hover{
+    background:#F00;
+}
+
+alt2{ margin: 0px;  padding: 6px;  border: 1px inset;}
+smallfont{margin-bottom:2px;}
+spoil{margin:10px; margin-top:5px;}
+
+.b1 {
+    background: navy;
+    color: white; 
+    font-size: 9pt; 
+   }
+   
+.img

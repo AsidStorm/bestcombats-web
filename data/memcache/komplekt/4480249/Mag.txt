@@ -1,0 +1,23 @@
+Airy Amulet of Veiled{||||}644734{||||}kulon
+Airy Hat of Veiled{||||}1127984{||||}helm
+Airy Earrings of Veiled{||||}1279827{||||}sergi
+Airy Gloves of Veiled{||||}1310408{||||}perchi
+Airy Boots of Veiled{||||}1334177{||||}boots
+Airy Pants of Veiled{||||}1368235{||||}leg
+Целебный пирог{||||}1417657{||||}p1
+Целебный пирог{||||}1417658{||||}p2
+Airy Belt of Veiled{||||}1421319{||||}belt
+Airy Robe of Veiled{||||}1421432{||||}bron
+Airy Cuffs of Veiled{||||}1486241{||||}naruchi
+Improved Airy Staff of Veiled +13{||||}1489138{||||}weap
+Garb of Suppression{||||}1489141{||||}rybax
+Великолепная турнирная мантия{||||}1489147{||||}plaw
+Perfected Airy Ring of Veiled{||||}1489286{||||}r1
+Perfected Airy Ring of Veiled{||||}1489287{||||}r2
+Perfected Airy Ring of Veiled{||||}1489288{||||}r3
+Ярость холодных звёзд{||||}1489747{||||}m4
+Ярость холодных звёзд{||||}1489752{||||}m3
+Великое восстановление маны{||||}1489755{||||}m6
+Великое восстановление маны{||||}1489757{||||}m5
+Рассеивание магии{||||}1489766{||||}m2
+Хрустальный щит{||||}1489790{||||}m1

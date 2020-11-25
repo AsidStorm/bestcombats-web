@@ -1,0 +1,19 @@
+Fiery Cuffs of Veiled (мф){||||}230241{||||}naruchi
+Fiery Belt of Veiled (мф){||||}238840{||||}belt
+Improved Fiery Robe of Veiled [R]{||||}280375{||||}bron
+Perfected Fiery Ring of Veiled (мф) [R]{||||}297329{||||}r2
+Improved Fiery Staff of Veiled +13{||||}323123{||||}weap
+Perfected Magic Cloak (мф){||||}323150{||||}plaw
+Perfected Fiery Earrings of Veiled (мф) [R]{||||}323158{||||}sergi
+Perfected Fiery Amulet of Veiled (мф){||||}323160{||||}kulon
+Perfected Fiery Ring of Veiled (мф){||||}323162{||||}r1
+Perfected Fiery Ring of Veiled (мф){||||}323163{||||}r3
+Improved Fiery Boots of Veiled [R]{||||}337281{||||}boots
+Целебный пирог{||||}338604{||||}p1
+Сфера непроницаемости{||||}344967{||||}m3
+Garb of Suppression{||||}359437{||||}rybax
+Improved Fiery Pants of Veiled{||||}370050{||||}leg
+Improved Fiery Gloves of Veiled [R]{||||}380291{||||}perchi
+Восстановление энергии 750MP{||||}436701{||||}m2
+Восстановление энергии 600HP{||||}436702{||||}m1
+Improved Fiery Hat of Veiled{||||}439298{||||}helm

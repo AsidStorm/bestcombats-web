@@ -1,0 +1,15 @@
+Fiery Belt of Veiled{||||}960623{||||}belt
+Fiery Hat of Veiled{||||}995683{||||}helm
+Fiery Staff of Veiled{||||}1302739{||||}weap
+Perfected Fiery Earrings of Veiled (לפ) [R]{||||}1302991{||||}sergi
+Perfected Magic Cloak (לפ){||||}1302992{||||}plaw
+Improved Fiery Robe of Veiled{||||}1303030{||||}bron
+Garb of Suppression{||||}1308464{||||}rybax
+Perfected Fiery Amulet of Veiled (לפ) [R]{||||}1308471{||||}kulon
+Improved Fiery Ring of Veiled{||||}1318068{||||}r1
+Improved Fiery Gloves of Veiled [R]{||||}1332968{||||}perchi
+Improved Fiery Pants of Veiled [R]{||||}1367184{||||}leg
+Perfected Fiery Ring of Veiled (לפ){||||}1367748{||||}r2
+Improved Fiery Cuffs of Veiled{||||}1372389{||||}naruchi
+Perfected Fiery Ring of Veiled (לפ){||||}1390129{||||}r3
+Improved Fiery Boots of Veiled{||||}1390171{||||}boots

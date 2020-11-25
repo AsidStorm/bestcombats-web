@@ -1,0 +1,15 @@
+Рубаха Воина [8]{||||}1033501{||||}rybax
+Improved Gloves of Trick{||||}1041384{||||}perchi
+Укреплённый серп{||||}1049806{||||}weap
+Boots of Avoidance{||||}1049961{||||}boots
+Perfected Cloak{||||}1051375{||||}plaw
+Legendary Stately Ring [7]{||||}1087920{||||}r2
+Legendary Stately Ring [7]{||||}1089541{||||}r3
+Armor of Avoidance{||||}1091774{||||}bron
+Bands of Avoidance{||||}1095061{||||}naruchi
+Amulet of Avoidance{||||}1105156{||||}kulon
+Helmet of Avoidance{||||}1105451{||||}helm
+Belt of Avoidance{||||}1105545{||||}belt
+Leggings of Avoidance{||||}1105551{||||}leg
+Legendary Stately Ring{||||}1105912{||||}r1
+Earrings of Avoidance{||||}1106034{||||}sergi

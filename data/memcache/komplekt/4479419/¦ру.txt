@@ -1,0 +1,16 @@
+Armor of Might{||||}914557{||||}bron
+Bands of Might{||||}920505{||||}naruchi
+Belt of Might{||||}939151{||||}belt
+Helmet of Might{||||}943832{||||}helm
+Perfected Cloak{||||}949496{||||}plaw
+Perfected Earrings of Might{||||}949514{||||}sergi
+Рубаха Воина [8]{||||}949539{||||}rybax
+Improved Gloves of Might{||||}949568{||||}perchi
+Improved Boots of Might{||||}949571{||||}boots
+Improved Leggings of Might{||||}949573{||||}leg
+Legendary Stately Ring [7]{||||}950868{||||}r1
+Legendary Axe of Might +6{||||}971712{||||}weap
+Legendary Axe of Might +6{||||}1085298{||||}shit
+Perfected Amulet of Might{||||}1112946{||||}kulon
+Кольцо BestCombats{||||}1112949{||||}r2
+Кольцо BestCombats{||||}1112950{||||}r3

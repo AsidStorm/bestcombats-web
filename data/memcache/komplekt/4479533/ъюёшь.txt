@@ -1,0 +1,15 @@
+Legendary Stately Ring (мф){||||}411110{||||}r2
+Armor of Constancy{||||}875962{||||}bron
+Legendary Stately Ring (мф){||||}897875{||||}r1
+Boots of Constancy{||||}942028{||||}boots
+Helmet of Constancy{||||}991815{||||}helm
+Серп (мф){||||}1046279{||||}weap
+Leggings of Constancy{||||}1182203{||||}leg
+Bands of Constancy{||||}1182208{||||}naruchi
+Ring-mail of Suppression{||||}1183418{||||}rybax
+Perfected Earrings of Constancy{||||}1183439{||||}sergi
+Плащ Воина [10]{||||}1184499{||||}plaw
+Кольцо конвоира{||||}1265977{||||}r3
+Руки голема [R]{||||}1286199{||||}perchi
+Improved Amulet of Constancy [R]{||||}1322680{||||}kulon
+Improved Belt of Constancy [R]{||||}1322682{||||}belt

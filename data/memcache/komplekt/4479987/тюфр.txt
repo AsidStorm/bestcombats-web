@@ -1,0 +1,15 @@
+Legendary Staff of Recondite{||||}581214{||||}weap
+Icy Belt of Recondite{||||}953741{||||}belt
+Icy Cuffs of Recondite{||||}1106555{||||}naruchi
+Icy Hat of Recondite{||||}1122992{||||}helm
+Icy Gloves of Recondite{||||}1164472{||||}perchi
+Improved Icy Robe of Recondite{||||}1176083{||||}bron
+Великолепная турнирная мантия{||||}1176084{||||}plaw
+Garb of Serenity{||||}1176085{||||}rybax
+Improved Icy Ring of Recondite{||||}1176092{||||}r1
+Improved Icy Ring of Recondite{||||}1176093{||||}r2
+Improved Icy Ring of Recondite{||||}1176094{||||}r3
+Improved Icy Boots of Recondite{||||}1176095{||||}boots
+Perfected Amulet of Recondite{||||}1176131{||||}kulon
+Perfected Icy Earrings of Abstruse{||||}1176133{||||}sergi
+Штаны лютого мороза{||||}1176149{||||}leg

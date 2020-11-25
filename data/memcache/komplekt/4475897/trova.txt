@@ -1,0 +1,15 @@
+Рубаха Воина [6]{||||}135595{||||}rybax
+Helmet of Avoidance{||||}885637{||||}helm
+Armor of Avoidance{||||}885647{||||}bron
+Leggings of Avoidance{||||}912870{||||}leg
+Boots of Avoidance{||||}956293{||||}boots
+Укреплённый серп{||||}996481{||||}weap
+Bands of Avoidance{||||}1035698{||||}naruchi
+Gloves of Avoidance{||||}1053887{||||}perchi
+Perfected Earrings of Avoidance{||||}1060427{||||}sergi
+Perfected Ring of Avoidance{||||}1060431{||||}r3
+Perfected Ring of Avoidance{||||}1060432{||||}r1
+Perfected Ring of Avoidance{||||}1060433{||||}r2
+Perfected Amulet of Avoidance{||||}1060435{||||}kulon
+Великолепный турнирный плащ{||||}1060443{||||}plaw
+Belt of Avoidance{||||}1061627{||||}belt

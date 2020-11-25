@@ -1,0 +1,25 @@
+Legendary Stately Ring [R]{||||}912108{||||}r3
+Legendary Stately Ring [R]{||||}1003846{||||}r1
+Кольцо конвоира{||||}1191812{||||}r2
+Legendary Sword of Furious{||||}1219572{||||}weap
+Ring-mail of Expectation{||||}1242417{||||}rybax
+Обувка богов{||||}1259511{||||}boots
+Тактика защиты 3{||||}1335504{||||}m2
+Тактика боя 3{||||}1341423{||||}m1
+Legendary Sword of Furious{||||}1344208{||||}shit
+Improved Helmet of Furious{||||}1365799{||||}helm
+Improved Bands of Furious{||||}1365800{||||}naruchi
+Improved Armor of Furious{||||}1365801{||||}bron
+Improved Belt of Furious{||||}1365802{||||}belt
+Improved Leggings of Furious{||||}1365803{||||}leg
+Improved Gloves of Furious{||||}1365804{||||}perchi
+Perfected Cloak{||||}1365808{||||}plaw
+Тактика крови 3{||||}1366722{||||}m5
+Тактика крови 3{||||}1366723{||||}m7
+Тактика защиты 3{||||}1366724{||||}m4
+Тактика боя 3{||||}1366726{||||}m3
+Тактика крови 3{||||}1366727{||||}m6
+Perfected Earrings of Severe{||||}1368877{||||}sergi
+Perfected Amulet of Severe{||||}1368878{||||}kulon
+Целебный пирог{||||}1369729{||||}p1
+Целебный пирог{||||}1369730{||||}p2

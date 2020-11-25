@@ -1,0 +1,15 @@
+Legendary Sword of Brutal{||||}1198707{||||}weap
+Improved Helmet of Cruel{||||}1464638{||||}helm
+Сапоги рассекающего лезвия{||||}1466201{||||}boots
+Рубаха Воина [8]{||||}1466208{||||}rybax
+Плащ Воина [8]{||||}1466214{||||}plaw
+Серьги рассекающего лезвия{||||}1466325{||||}sergi
+Амулет рассекающего лезвия{||||}1466328{||||}kulon
+Кольцо рассекающего лезвия{||||}1466337{||||}r3
+Кольцо рассекающего лезвия{||||}1466338{||||}r2
+Legendary Stately Ring [5]{||||}1477867{||||}r1
+Improved Bands of Brutal{||||}1477875{||||}naruchi
+Improved Belt of Brutal{||||}1477886{||||}belt
+Improved Leggings of Brutal{||||}1477890{||||}leg
+Improved Armor of Brutal{||||}1477896{||||}bron
+Improved Gloves of Brutal{||||}1481096{||||}perchi

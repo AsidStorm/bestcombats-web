@@ -1,0 +1,18 @@
+Legendary Stately Ring (мф) [R]{||||}436943{||||}r2
+Perfected Cloak (мф){||||}986718{||||}plaw
+Кольцо конвоира{||||}1018041{||||}r1
+Perfected Ring of Evasion [R]{||||}1031119{||||}r3
+Целебный пирог{||||}1040357{||||}p2
+Целебный пирог{||||}1040367{||||}p1
+Legendary Dagger of Evasion +14{||||}1060351{||||}weap
+Legendary Dagger of Evasion +14{||||}1060509{||||}shit
+Perfected Earrings of Evasion [R]{||||}1069974{||||}sergi
+Perfected Amulet of Evasion [R]{||||}1069975{||||}kulon
+Perfected Armor of Evasion{||||}1069976{||||}bron
+Perfected Helmet of Evasion [R]{||||}1069977{||||}helm
+Ring-mail of Expectation{||||}1069981{||||}rybax
+Improved Bands of Evasion [R]{||||}1069988{||||}naruchi
+Improved Gloves of Evasion{||||}1069990{||||}perchi
+Improved Leggings of Evasion [R]{||||}1069993{||||}leg
+Обувка богов{||||}1070031{||||}boots
+Improved Belt of Evasion [R]{||||}1072552{||||}belt

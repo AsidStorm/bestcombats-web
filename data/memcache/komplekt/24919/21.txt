@@ -1,0 +1,18 @@
+Legendary Stately Ring (мф){||||}905962{||||}r1
+Legendary Stately Ring (мф){||||}913003{||||}r2
+Целебный пирог{||||}997239{||||}p2
+Целебный пирог{||||}997243{||||}p1
+Восстановление энергии 600HP{||||}1009726{||||}m2
+Сфера непроницаемости{||||}1009728{||||}m1
+Improved Axe of Tensity{||||}1009785{||||}shit
+Improved Axe of Tensity{||||}1009786{||||}weap
+Improved Boots of Tensity{||||}1009787{||||}boots
+Improved Gloves of Tensity{||||}1009788{||||}perchi
+Improved Armor of Tensity{||||}1009789{||||}bron
+Improved Helmet of Tensity{||||}1009790{||||}helm
+Improved Bands of Tensity{||||}1009791{||||}naruchi
+Improved Belt of Tensity{||||}1009792{||||}belt
+Improved Leggings of Tensity{||||}1009793{||||}leg
+Improved Earrings of Tensity{||||}1009794{||||}sergi
+Improved Amulet of Tensity{||||}1009795{||||}kulon
+Improved Ring of Tensity{||||}1009796{||||}r3

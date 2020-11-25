@@ -1,0 +1,30 @@
+Perfected Earrings of Constancy{||||}1044167{||||}sergi
+Perfected Amulet of Constancy{||||}1044181{||||}kulon
+Perfected Leggings of Constancy{||||}1044184{||||}leg
+Perfected Belt of Constancy [R]{||||}1044186{||||}belt
+Perfected Bands of Constancy{||||}1044187{||||}naruchi
+Perfected Helmet of Constancy{||||}1044188{||||}helm
+Perfected Armor of Constancy [R]{||||}1044189{||||}bron
+Perfected Gloves of Constancy{||||}1044190{||||}perchi
+Perfected Boots of Constancy{||||}1044191{||||}boots
+Perfected Shield of Constancy{||||}1044198{||||}shit
+Perfected Cloak{||||}1044200{||||}plaw
+Витое Кольцо Атаки{||||}1044203{||||}r2
+Витое Кольцо Атаки{||||}1044204{||||}r3
+Витое Кольцо Атаки{||||}1044205{||||}r1
+Perfected Hammer of Constancy +11{||||}1047248{||||}weap
+Тактика ответа 3{||||}1049485{||||}m7
+Тактика ответа 3{||||}1049487{||||}m4
+Сила Великана{||||}1057496{||||}m2
+Восстановление энергии 600HP{||||}1057499{||||}m1
+Целебный пирог{||||}1061830{||||}p1
+Целебный пирог{||||}1061834{||||}p2
+Восстановление энергии 1500HP{||||}1065036{||||}m6
+Тактика боя 3{||||}1067015{||||}m11
+Тактика боя 3{||||}1071748{||||}m10
+Тактика боя 3{||||}1071755{||||}m3
+Тактика боя 3{||||}1071756{||||}m9
+Тактика боя 3{||||}1071757{||||}m5
+Тактика боя 3{||||}1071763{||||}m8
+Тактика боя 3{||||}1071767{||||}m12
+Ring-mail of Suppression{||||}1075152{||||}rybax

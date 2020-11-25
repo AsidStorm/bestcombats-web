@@ -1,0 +1,15 @@
+Airy Earrings Of Abstruse{||||}890107{||||}sergi
+Airy Belt of Concealed{||||}893342{||||}belt
+Airy Gloves of Concealed{||||}897121{||||}perchi
+Airy Staff of Concealed{||||}903133{||||}weap
+Airy Hat of Concealed{||||}905033{||||}helm
+Airy Amulet Of Abstruse{||||}908565{||||}kulon
+Airy Pants of Concealed{||||}910438{||||}leg
+Airy Robe of Concealed{||||}929053{||||}bron
+Airy Boots of Concealed{||||}939253{||||}boots
+Airy Ring of Concealed{||||}970112{||||}r1
+Рубаха Воина [5]{||||}983923{||||}rybax
+Кольцо BestCombats{||||}1014953{||||}r2
+Кольцо BestCombats{||||}1015249{||||}r3
+Airy Cuffs of Abstruse{||||}1034538{||||}naruchi
+Perfected Magic Cloak{||||}1052967{||||}plaw

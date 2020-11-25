@@ -1,0 +1,1 @@
+<body marginright=0; style="background-image:url(http://img.bestcombats.net/right/sand_top_28.gif); background-repeat:repeat-y; background-position:right;">

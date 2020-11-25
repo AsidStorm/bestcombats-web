@@ -1,0 +1,14 @@
+Legendary Stately Ring{||||}760644{||||}r1
+Legendary Stately Ring{||||}783270{||||}r2
+Серп травника +13{||||}1009731{||||}weap
+Garb of Suppression{||||}1034813{||||}rybax
+Improved Fiery Boots of Veiled{||||}1227266{||||}boots
+Improved Fiery Gloves of Veiled{||||}1227268{||||}perchi
+Improved Fiery Robe of Veiled{||||}1227275{||||}bron
+Improved Fiery Hat of Veiled{||||}1227276{||||}helm
+Improved Fiery Cuffs of Veiled{||||}1227277{||||}naruchi
+Improved Fiery Belt of Veiled{||||}1227278{||||}belt
+Improved Fiery Pants of Veiled{||||}1227282{||||}leg
+Perfected Fiery Earrings of Veiled{||||}1227321{||||}sergi
+Perfected Fiery Amulet of Veiled{||||}1227323{||||}kulon
+Perfected Fiery Ring of Veiled{||||}1227363{||||}r3

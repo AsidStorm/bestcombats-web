@@ -1,0 +1,111 @@
+BODY {
+	FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; FONT-SIZE: 10pt
+}
+TD {
+	FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; FONT-SIZE: 10pt
+}
+OL {
+	FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; FONT-SIZE: 10pt
+}
+UL {
+	FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; FONT-SIZE: 10pt
+}
+LI {
+	FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; FONT-SIZE: 10pt
+}
+P {
+	FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; FONT-SIZE: 10pt
+}
+.inup {
+	BORDER-BOTTOM: #302f2a 1px double; BORDER-LEFT: #302f2a 1px double; BACKGROUND-COLOR: #ded7bd; FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; COLOR: #000000; FONT-SIZE: 8pt; BORDER-TOP: #302f2a 1px double; BORDER-RIGHT: #302f2a 1px double
+}
+.text {
+	FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; COLOR: #000000; FONT-SIZE: 10pt; FONT-WEIGHT: normal
+}
+H3 {
+	TEXT-ALIGN: center; FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; COLOR: #8f0000; FONT-SIZE: 12pt; FONT-WEIGHT: bold
+}
+H4 {
+	FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; MARGIN-BOTTOM: 5px; COLOR: #8f0000; FONT-SIZE: 11pt; FONT-WEIGHT: bold
+}
+A:link {
+	COLOR: #524936; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #633525; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #77684d; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #68727b; TEXT-DECORATION: underline
+}
+.date {
+	FONT-FAMILY: Courier; COLOR: #007000; FONT-SIZE: 8pt; FONT-WEIGHT: normal; TEXT-DECORATION: none
+}
+.dsc {
+	COLOR: #606060; FONT-WEIGHT: normal
+}
+SELECT {
+	BORDER-BOTTOM: #b0b0b0 1pt solid; BORDER-LEFT: #b0b0b0 1pt solid; MARGIN-TOP: 1px; FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; MARGIN-BOTTOM: 2px; COLOR: #191970; FONT-SIZE: 10px; BORDER-TOP: #b0b0b0 1pt solid; BORDER-RIGHT: #b0b0b0 1pt solid
+}
+TEXTAREA {
+	BORDER-BOTTOM: #b0b0b0 1pt solid; BORDER-LEFT: #b0b0b0 1pt solid; MARGIN-TOP: 1px; FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; MARGIN-BOTTOM: 2px; COLOR: #191970; FONT-SIZE: 10px; BORDER-TOP: #b0b0b0 1pt solid; BORDER-RIGHT: #b0b0b0 1pt solid
+}
+INPUT {
+	BORDER-BOTTOM: #b0b0b0 1pt solid; BORDER-LEFT: #b0b0b0 1pt solid; MARGIN-TOP: 1px; FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; MARGIN-BOTTOM: 2px; COLOR: #191970; FONT-SIZE: 10px; BORDER-TOP: #b0b0b0 1pt solid; BORDER-RIGHT: #b0b0b0 1pt solid
+}
+.pagetknum {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 3px; WIDTH: 1em; PADDING-RIGHT: 3px; COLOR: #6f0000; FONT-WEIGHT: bold; TEXT-DECORATION: underline; PADDING-TOP: 0px
+}
+.pagenum A:link {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 3px; WIDTH: 1em; PADDING-RIGHT: 3px; PADDING-TOP: 0px
+}
+.pagenum A:visited {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 3px; WIDTH: 1em; PADDING-RIGHT: 3px; PADDING-TOP: 0px
+}
+.pagenum A:active {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 3px; WIDTH: 1em; PADDING-RIGHT: 3px; PADDING-TOP: 0px
+}
+.pagenum A:hover {
+	PADDING-BOTTOM: 0px; BACKGROUND-COLOR: white; MARGIN: 0px; PADDING-LEFT: 3px; WIDTH: 1em; PADDING-RIGHT: 3px; PADDING-TOP: 0px
+}
+.pleft {
+	PADDING-BOTTOM: 7px; MARGIN: 0px; PADDING-LEFT: 20px; PADDING-RIGHT: 0px; PADDING-TOP: 3px
+}
+.pages {
+	BACKGROUND-COLOR: #ffefbf
+}
+IMG {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+TABLE {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.btn {
+	BORDER-BOTTOM: #817a63 1px double; BORDER-LEFT: #817a63 1px double; BACKGROUND-COLOR: #2b2b18; FONT-FAMILY: Verdana, Helvetica, Arial, Tahoma, sans-serif; COLOR: #dfddd3; FONT-SIZE: 7.5pt; BORDER-TOP: #817a63 1px double; BORDER-RIGHT: #817a63 1px double
+}
+.style6 {
+	COLOR: #dfd3a3; FONT-SIZE: 9px
+}
+.style8 {
+	FONT-SIZE: 10pt
+}
+.style9 {
+	COLOR: #8f0000; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.inup3 {
+	BORDER-BOTTOM: #d3caa0 1px dashed; BORDER-LEFT: #d3caa0 1px dashed; FONT-SIZE: 12px; BORDER-TOP: #d3caa0 1px dashed; BORDER-RIGHT: #d3caa0 1px dashed
+}
+A:link {
+	COLOR: #5b3e33; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #633525; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #77684d; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #000000; TEXT-DECORATION: underline
+}

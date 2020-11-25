@@ -1,0 +1,15 @@
+Укреплённый серп{||||}1018488{||||}weap
+Кольцо конвоира [R]{||||}1330079{||||}r1
+Legendary Stately Ring [R]{||||}1330601{||||}r2
+Legendary Stately Ring [R]{||||}1331405{||||}r3
+Обувка богов [R]{||||}1332044{||||}boots
+Ring-mail of Expectation{||||}1343394{||||}rybax
+Improved Armor of Solidity [R]{||||}1389261{||||}bron
+Perfected Earrings of Solidity [R]{||||}1389306{||||}sergi
+Perfected Amulet of Solidity [R]{||||}1389308{||||}kulon
+Perfected Helmet of Solidity [R]{||||}1389403{||||}helm
+Improved Bands of Solidity [R]{||||}1392768{||||}naruchi
+Improved Leggings of Solidity [R]{||||}1421270{||||}leg
+Improved Belt of Solidity [R]{||||}1443630{||||}belt
+Великолепный турнирный плащ{||||}1504515{||||}plaw
+Improved Gloves of Solidity{||||}1505554{||||}perchi

@@ -1,0 +1,16 @@
+Gloves of Brutal{||||}155408{||||}perchi
+Рубаха Воина [6]{||||}164355{||||}rybax
+Плащ Воина [6]{||||}164356{||||}plaw
+Ремень богатого новобранца{||||}164992{||||}belt
+Перстень богатого новобранца{||||}165001{||||}r2
+Перстень богатого новобранца{||||}165002{||||}r1
+Bands of Dreadful{||||}165130{||||}naruchi
+Legendary Sword of Brutal (мф) +5{||||}165508{||||}shit
+Improved Ring of Cruel{||||}165520{||||}r3
+Helmet of Brutal{||||}166428{||||}helm
+Legendary Sword of Brutal (мф) +5{||||}1469246{||||}weap
+Perfected Armor of Brutal{||||}1469825{||||}bron
+Perfected Earrings of Brutal{||||}1469835{||||}sergi
+Perfected Amulet of Brutal{||||}1469902{||||}kulon
+Perfected Leggings of Brutal{||||}1469908{||||}leg
+Perfected Boots of Brutal{||||}1469911{||||}boots

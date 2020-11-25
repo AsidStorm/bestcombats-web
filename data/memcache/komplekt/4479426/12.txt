@@ -1,0 +1,16 @@
+Perfected Earthen Staff of Intricate +10{||||}1055974{||||}weap
+Perfected Earthen Boots of Intricate{||||}1055975{||||}boots
+Perfected Earthen Gloves of Intricate{||||}1055979{||||}perchi
+Perfected Magic Cloak{||||}1055980{||||}plaw
+Perfected Earthen Robe of Intricate [R]{||||}1055981{||||}bron
+Perfected Earthen Hat of Intricate{||||}1055982{||||}helm
+Perfected Earthen Cuffs of Intricate{||||}1055983{||||}naruchi
+Perfected Earthen Belt of Intricate{||||}1056494{||||}belt
+Perfected Earthen Pants of Intricate{||||}1056496{||||}leg
+Perfected Earthen Earrings of Intricate{||||}1056498{||||}sergi
+Perfected Earthen Amulet of Intricate{||||}1056499{||||}kulon
+Perfected Earthen Ring of Intricate{||||}1056501{||||}r2
+Perfected Earthen Ring of Intricate{||||}1056502{||||}r3
+Perfected Earthen Ring of Intricate{||||}1056503{||||}r1
+Garb of Expectation{||||}1060909{||||}rybax
+Восстановление энергии 1250MP{||||}1060985{||||}m1

@@ -1,0 +1,15 @@
+Legendary Ring of Life [7]{||||}1231677{||||}r3
+Legendary Stately Ring [5]{||||}1290842{||||}r2
+Legendary Stately Ring [7]{||||}1295383{||||}r1
+Рубаха Воина [8]{||||}1343692{||||}rybax
+Improved Boots of Might{||||}1358390{||||}boots
+Improved Gloves of Might{||||}1358392{||||}perchi
+Improved Armor of Might{||||}1358395{||||}bron
+Improved Helmet of Might{||||}1358396{||||}helm
+Improved Bands of Might{||||}1358397{||||}naruchi
+Improved Belt of Might{||||}1358398{||||}belt
+Improved Leggings of Might{||||}1358400{||||}leg
+Perfected Earrings of Might{||||}1358500{||||}sergi
+Perfected Amulet of Might{||||}1358503{||||}kulon
+Perfected Cloak{||||}1358505{||||}plaw
+Укреплённый серп{||||}1377673{||||}weap

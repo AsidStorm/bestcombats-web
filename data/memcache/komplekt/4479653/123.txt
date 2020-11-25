@@ -1,0 +1,17 @@
+Плащ Воина [5]{||||}1047395{||||}plaw
+Панцирь загубленного воителя{||||}1047396{||||}bron
+Кольцо BestCombats{||||}1047402{||||}r1
+Шлем неумолимого демона{||||}1047408{||||}helm
+Perfected Sword of Bestial{||||}1047462{||||}shit
+Perfected Boots of Bestial{||||}1047463{||||}boots
+Perfected Gloves of Bestial{||||}1047466{||||}perchi
+Perfected Bands of Bestial{||||}1047467{||||}naruchi
+Perfected Belt of Bestial{||||}1047470{||||}belt
+Perfected Leggings of Bestial{||||}1047471{||||}leg
+Perfected Ring of Bestial{||||}1047475{||||}r3
+Perfected Amulet of Bestial{||||}1047478{||||}kulon
+Perfected Earrings of Bestial{||||}1047479{||||}sergi
+Целебный пирог{||||}1047594{||||}p1
+Целебный пирог{||||}1047595{||||}p2
+Legendary Ring of Life [5]{||||}1050079{||||}r2
+Improved Sword of Dreadful{||||}1050136{||||}weap

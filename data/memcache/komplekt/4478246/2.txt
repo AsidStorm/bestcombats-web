@@ -1,0 +1,11 @@
+Icy Belt of Recondite{||||}953127{||||}belt
+Icy Hat of Recondite{||||}979020{||||}helm
+Icy Boots of Recondite{||||}1088011{||||}boots
+Icy Gloves of Recondite{||||}1089141{||||}perchi
+Icy Pants of Recondite{||||}1095462{||||}leg
+Icy Cuffs of Recondite{||||}1104255{||||}naruchi
+Perfected Icy Ring of Recondite{||||}1141996{||||}r3
+Perfected Icy Ring of Recondite{||||}1141998{||||}r2
+Perfected Icy Ring of Recondite{||||}1142000{||||}r1
+Perfected Magic Cloak{||||}1142003{||||}plaw
+Improved Icy Robe of Recondite{||||}1142004{||||}bron

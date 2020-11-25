@@ -1,0 +1,47 @@
+body, td, ol, ul, li , p {
+  FONT-SIZE: 10pt;
+  FONT-FAMILY: Verdana, Arial, Helvetica, Tahoma, sans-serif;
+}
+.text {
+  FONT-SIZE: 10pt; COLOR: #000000; FONT-WEIGHT: normal;
+  FONT-FAMILY: Verdana, Arial, Helvetica, Tahoma, sans-serif;
+}
+H3          { COLOR: #8f0000;  FONT-FAMILY: Arial;  FONT-SIZE: 12pt;  FONT-WEIGHT: bold; TEXT-ALIGN: center }
+H4          { COLOR: #8f0000;  FONT-FAMILY: Arial;  FONT-SIZE: 11pt;  FONT-WEIGHT: bold; MARGIN-BOTTOM: 5px;}
+H5          { COLOR: #4f0000;  FONT-FAMILY: Arial;  FONT-SIZE: 11pt;  FONT-WEIGHT: bold; MARGIN-BOTTOM: 0px; MARGIN-TOP: 0px;}
+a,a:visited { text-decoration: none; FONT-WEIGHT: bold; color: #003388; }
+a:active    { color: #6F0000}
+a:hover     { color: #0066FF}
+.date       { font-family: Courier; font-size: 8pt; text-decoration:none; font-weight:normal; color: #007000}
+.date2      { font-family: Courier; font-size: 8pt; text-decoration:none; font-weight:normal; color: #007000; background-color: #00FFAA}
+.sysdate    { font-family: Courier; font-size: 8pt; text-decoration:none; font-weight:normal; color: #B00000}
+.private    { font-weight:bold; color: red; background-color: #FAE0E0}
+.number     { font-size: 11pt; font-weight: bold; color: #6F0000}
+.dsc        { color: #606060; font-weight:normal; }
+select,textarea,input   { border: solid 1pt #B0B0B0; font-family: MS Sans Serif; font-size: 10px; color: #191970; MARGIN-BOTTOM: 2px; MARGIN-TOP: 1px;}
+
+.ahint      {font-family: MS Sans Serif; font-size:8px; text-decoration:none; color:#000080;z-index: 99;}
+#hint2      {position:absolute; width:140; background-color:#FFF6DD; layer-background-color:#FFF6DD; visibility:hidden}
+#hint3      {position:absolute; width:240; background-color:#FFF6DD; layer-background-color:#FFF6DD; visibility:hidden}
+#hint4      {position:absolute; width:240; visibility:hidden}
+
+.B1         { font-weight: bold; color: #6666CC}
+.B2         { font-weight: bold; color: #B06A00}
+.B3                     { font-weight: bold; color: #269088}
+.B4                     { font-weight: bold; color: #A0AF20}
+.B5                     { font-weight: bold; color: #0F79D3}
+.B6                     { font-weight: bold; color: #D85E23}
+.B7                     { font-weight: bold; color: #5C832F}
+.B8                     { font-weight: bold; color: #842B61}
+.B9                     { font-weight: bold; color: navy}
+.Bs1            { font-size: 8pt; font-weight:bold; color: #6666CC}
+.Bs2            { font-weight:bold; color: #B06A00}
+img,table   {border:0}
+
+.ismagic {background-color: #E0E0E2; BACKGROUND-IMAGE:url(/i/blinkmagic1.gif)}
+.glow_pink {background-color: #E0E0E2; BACKGROUND-IMAGE:url(/i/blinkmagic_pink.gif)}
+.glow_red {background-color: #E0E0E2; BACKGROUND-IMAGE:url(/i/blinkmagic_red.gif)}
+.glow_green {background-color: #E0E0E2; BACKGROUND-IMAGE:url(/i/blinkmagic_green.gif)}
+.glow_yellow {background-color: #E0E0E2; BACKGROUND-IMAGE:url(/i/blinkmagic_yellow.gif)}
+.glow_dark {background-color: #E0E0E2; BACKGROUND-IMAGE:url(/i/blinkmagic_dark.gif)}
+.glow_blue {background-color: #E0E0E2; BACKGROUND-IMAGE:url(/i/blinkmagic_blue.gif)}

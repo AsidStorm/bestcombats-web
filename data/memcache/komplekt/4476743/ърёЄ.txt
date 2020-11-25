@@ -1,0 +1,16 @@
+Legendary Stately Ring (לפ) [R]{||||}400162{||||}r2
+Legendary Stately Ring (לפ) [R]{||||}400399{||||}r3
+Perfected Cloak{||||}454612{||||}plaw
+Legendary Dagger of Evasion +14{||||}859408{||||}shit
+Legendary Dagger of Evasion +14{||||}894964{||||}weap
+Improved Armor of Evasion [R]{||||}895465{||||}bron
+Improved Earrings of Evasion [R]{||||}895469{||||}sergi
+Improved Belt of Evasion [R]{||||}895473{||||}belt
+Improved Boots of Evasion [R]{||||}895478{||||}boots
+Improved Leggings of Evasion [R]{||||}895487{||||}leg
+Improved Bands of Evasion [R]{||||}895496{||||}naruchi
+Perfected Amulet of Evasion [R]{||||}896478{||||}kulon
+Legendary Stately Ring{||||}937404{||||}r1
+Improved Helmet of Evasion{||||}960860{||||}helm
+Improved Gloves of Evasion{||||}960865{||||}perchi
+Ring-mail of Expectation{||||}965574{||||}rybax

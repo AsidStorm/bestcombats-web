@@ -1,0 +1,15 @@
+Icy Cuffs of Recondite{||||}828684{||||}naruchi
+Icy Gloves of Recondite{||||}838620{||||}perchi
+Icy Pants of Recondite{||||}862653{||||}leg
+Icy Belt of Recondite{||||}862677{||||}belt
+Icy Staff of Recondite{||||}883220{||||}weap
+Icy Robe of Recondite{||||}905899{||||}bron
+Icy Hat of Recondite{||||}959233{||||}helm
+Icy Ring of Recondite{||||}1028235{||||}r2
+Icy Ring of Recondite{||||}1042069{||||}r1
+Icy Boots of Recondite{||||}1082906{||||}boots
+Perfected Earrings of Recondite{||||}1083627{||||}sergi
+Perfected Icy Ring of Recondite{||||}1083641{||||}r3
+Кулон лютого мороза{||||}1083665{||||}kulon
+Рубаха Мага [9]{||||}1083666{||||}rybax
+Плащ Мага [9]{||||}1083667{||||}plaw

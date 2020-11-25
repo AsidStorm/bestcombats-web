@@ -1,0 +1,16 @@
+Legendary Sword of Bestial{||||}1365770{||||}weap
+Improved Leggings of Bestial{||||}1365950{||||}leg
+Плащ Воина [8]{||||}1368222{||||}plaw
+Perfected Bands of Cruel{||||}1368261{||||}naruchi
+Perfected Helmet of Cruel{||||}1368264{||||}helm
+Perfected Ring of Cruel{||||}1368271{||||}r2
+Perfected Ring of Cruel{||||}1368272{||||}r1
+Perfected Ring of Cruel{||||}1368273{||||}r3
+Perfected Belt of Cruel{||||}1368274{||||}belt
+Perfected Gloves of Cruel{||||}1368282{||||}perchi
+Perfected Boots of Cruel{||||}1368285{||||}boots
+Perfected Amulet of Cruel{||||}1368291{||||}kulon
+Perfected Earrings of Cruel{||||}1368295{||||}sergi
+Perfected Armor of Cruel{||||}1368297{||||}bron
+Клинок богатого новобранца{||||}1373544{||||}shit
+Рубаха Воина [8]{||||}1373789{||||}rybax

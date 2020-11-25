@@ -1,0 +1,20 @@
+Нападение{||||}586987{||||}m1
+Legendary Sword of Furious +14{||||}603612{||||}weap
+Legendary Sword of Furious +14{||||}627246{||||}shit
+Improved Armor of Furious [R]{||||}1379341{||||}bron
+Improved Helmet of Furious{||||}1379342{||||}helm
+Improved Bands of Furious [R]{||||}1379343{||||}naruchi
+Improved Belt of Furious [R]{||||}1379344{||||}belt
+Improved Leggings of Furious{||||}1379345{||||}leg
+Ring-mail of Expectation{||||}1379347{||||}rybax
+Improved Gloves of Furious [R]{||||}1379349{||||}perchi
+Кольцо конвоира [R]{||||}1397235{||||}r2
+Обувка богов [R]{||||}1401425{||||}boots
+Improved Ring of Furious [R]{||||}1419728{||||}r1
+Perfected Amulet of Furious [R]{||||}1424927{||||}kulon
+Improved Earrings of Furious [R]{||||}1424943{||||}sergi
+Perfected Cloak{||||}1444707{||||}plaw
+Perfected Ring of Furious{||||}1453710{||||}r3
+Восстановление энергии 1500HP{||||}1484638{||||}m2
+Целебный пирог{||||}1498356{||||}p1
+Целебный пирог{||||}1498357{||||}p2

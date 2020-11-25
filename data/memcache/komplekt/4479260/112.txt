@@ -1,0 +1,26 @@
+Legendary Dagger of Evasion (мф) +14{||||}962834{||||}shit
+Legendary Dagger of Evasion (мф) +14{||||}972488{||||}weap
+Витое Кольцо Атаки (мф){||||}988221{||||}r2
+Perfected Cloak (мф){||||}988280{||||}plaw
+Legendary Stately Ring (мф){||||}988376{||||}r3
+Кольцо конвоира{||||}1015487{||||}r1
+Perfected Boots of Evasion (мф) [R]{||||}1040859{||||}boots
+Perfected Armor of Evasion (мф){||||}1040871{||||}bron
+Perfected Helmet of Evasion (мф){||||}1040875{||||}helm
+Perfected Bands of Evasion (мф) [R]{||||}1040876{||||}naruchi
+Perfected Belt of Evasion (мф){||||}1040877{||||}belt
+Perfected Leggings of Evasion (мф) [R]{||||}1040878{||||}leg
+Perfected Earrings of Evasion (мф) [R]{||||}1040879{||||}sergi
+Perfected Amulet of Evasion (мф) [R]{||||}1040881{||||}kulon
+Рубаха Воина [11] (мф){||||}1040892{||||}rybax
+Сфера непроницаемости{||||}1041173{||||}m2
+Кровавое нападение{||||}1074785{||||}m6
+Кровавое нападение{||||}1074786{||||}m4
+Сфера непроницаемости{||||}1077746{||||}m3
+Perfected Gloves of Evasion [R] (мф){||||}1078176{||||}perchi
+Целебный пирог{||||}1080485{||||}p1
+Целебный пирог{||||}1080499{||||}p2
+Восстановление энергии 1500HP{||||}1088052{||||}m7
+Восстановление энергии 1500HP{||||}1095481{||||}m5
+Тактика ответа 3{||||}1095602{||||}m11
+Восстановление энергии 1500HP{||||}1096766{||||}m1

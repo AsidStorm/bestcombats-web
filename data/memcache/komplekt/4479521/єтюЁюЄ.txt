@@ -1,0 +1,16 @@
+Armor of Avoidance{||||}374034{||||}bron
+Helmet of Avoidance{||||}374113{||||}helm
+Gloves of Avoidance{||||}843866{||||}perchi
+Bands of Avoidance{||||}854616{||||}naruchi
+Boots of Avoidance{||||}889153{||||}boots
+Leggings of Avoidance{||||}897653{||||}leg
+Belt of Avoidance{||||}909595{||||}belt
+Legendary Stately Ring{||||}960856{||||}r1
+Legendary Stately Ring{||||}1004863{||||}r3
+Рубаха Воина [9]{||||}1008129{||||}rybax
+Legendary Dagger of Avoidance{||||}1024144{||||}shit
+Legendary Dagger of Avoidance{||||}1024758{||||}weap
+Legendary Stately Ring{||||}1031471{||||}r2
+Perfected Earrings of Avoidance{||||}1031923{||||}sergi
+Perfected Amulet of Trick{||||}1031926{||||}kulon
+Perfected Cloak{||||}1031927{||||}plaw

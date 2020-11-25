@@ -1,0 +1,19 @@
+Icy Staff of Veiled +13 (мф){||||}581252{||||}weap
+ярость холодных звЄзд{||||}1006108{||||}m1
+ярость холодных звЄзд{||||}1006109{||||}m2
+ярость холодных звЄзд{||||}1006110{||||}m3
+ярость холодных звЄзд{||||}1006111{||||}m4
+Perfected Magic Cloak{||||}1006270{||||}plaw
+Perfected Icy Amulet of Veiled [R]{||||}1006274{||||}kulon
+Improved Icy Ring of Veiled{||||}1007187{||||}r1
+Improved Icy Ring of Veiled{||||}1007189{||||}r3
+Garb of Suppression{||||}1007190{||||}rybax
+Improved Icy Hat of Veiled{||||}1007191{||||}helm
+Improved Icy Cuffs of Veiled{||||}1007192{||||}naruchi
+Improved Icy Belt of Veiled [R]{||||}1007193{||||}belt
+Improved Icy Pants of Veiled [R]{||||}1007194{||||}leg
+Improved Icy Earrings of Veiled{||||}1007195{||||}sergi
+Improved Icy Boots of Veiled{||||}1007199{||||}boots
+Improved Icy Gloves of Veiled{||||}1007200{||||}perchi
+Improved Icy Robe of Veiled{||||}1007203{||||}bron
+Perfected Icy Ring of Veiled{||||}1046087{||||}r2

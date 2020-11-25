@@ -1,0 +1,14 @@
+Рубаха Воина [5] (мф){||||}702426{||||}rybax
+Плащ Воина [8] (мф){||||}711116{||||}plaw
+Leggings of Ruse{||||}862786{||||}leg
+Bands of Ruse{||||}959290{||||}naruchi
+Укреплённый серп{||||}981876{||||}weap
+Perfected Earrings of Ruse{||||}991084{||||}sergi
+Perfected Amule of Ruse{||||}991122{||||}kulon
+Improved Armor of Ruse{||||}991339{||||}bron
+Improved Boots of Ruse{||||}991345{||||}boots
+Improved Gloves of Ruse{||||}991347{||||}perchi
+Improved Helmet of Ruse{||||}991390{||||}helm
+Кольцо Старого Дуэлянта{||||}992146{||||}r1
+Кольцо Старого Дуэлянта{||||}992147{||||}r3
+Кольцо Старого Дуэлянта{||||}992148{||||}r2

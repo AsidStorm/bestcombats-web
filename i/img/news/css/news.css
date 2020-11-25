@@ -1,0 +1,84 @@
+BODY {
+	FONT-FAMILY: Verdana, Arial; FONT-SIZE: 8pt
+}
+TD {
+	FONT-FAMILY: Verdana, Arial; FONT-SIZE: 8pt
+}
+.left_menu {
+	FONT-FAMILY: Verdana; COLOR: #993300; FONT-SIZE: 12px; FONT-WEIGHT: bold
+}
+.date1 {
+	FONT-FAMILY: Verdana; COLOR: #c85110; FONT-SIZE: 11px; FONT-WEIGHT: bold
+}
+.lef_menu1 {
+	FONT-FAMILY: Verdana; COLOR: #c85110; FONT-SIZE: 11px; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+A.lef_menu1:link {
+	FONT-FAMILY: Verdana; COLOR: #c85110; FONT-SIZE: 11px; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+A.lef_menu1:hover {
+	FONT-FAMILY: Verdana; COLOR: #000; FONT-SIZE: 11px; FONT-WEIGHT: bold; TEXT-DECORATION: underline
+}
+.lef_menu2 {
+	FONT-FAMILY: Verdana; COLOR: #c85110; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.lef_menu2:link {
+	FONT-FAMILY: Verdana; COLOR: #c85110; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.lef_menu2:hover {
+	FONT-FAMILY: Verdana; COLOR: #000; FONT-SIZE: 12px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.lef_menu3 {
+	FONT-FAMILY: Verdana; COLOR: #784528; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.lef_menu3:link {
+	FONT-FAMILY: Verdana; COLOR: #784528; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+A.lef_menu3:hover {
+	FONT-FAMILY: Verdana; COLOR: #000; FONT-SIZE: 12px; TEXT-DECORATION: none
+}
+BODY {
+	BACKGROUND-COLOR: #f3f3f3; MARGIN: 0px
+}
+.top_tembl {
+	BACKGROUND-IMAGE: url(http://recombats.com/i/img/news/new_fon_top.gif); BORDER-BOTTOM: #c68517 1px solid; BORDER-LEFT: #c68517 1px solid; PADDING-BOTTOM: 11px; PADDING-LEFT: 11px; PADDING-RIGHT: 11px; BORDER-TOP: #c68517 1px solid; BORDER-RIGHT: #c68517 1px solid; PADDING-TOP: 11px
+}
+.top_tl {
+	BORDER-RIGHT: #c68517 1px solid
+}
+.top_temb9 {
+	BACKGROUND-IMAGE: url(http://recombats.com/i/img/news/tabl_beg.gif); BORDER-BOTTOM: #c68517 1px solid; BORDER-LEFT: #c68517 1px solid; BORDER-TOP: #c68517 1px solid; BORDER-RIGHT: #c68517 1px solid
+}
+.top_t1 {
+	PADDING-BOTTOM: 11px; PADDING-LEFT: 11px; PADDING-RIGHT: 11px; MARGIN-LEFT: 11px; MARGIN-RIGHT: 11px; PADDING-TOP: 11px
+}
+.kom_menu1 {
+	FONT-FAMILY: Verdana; COLOR: #c7891d; FONT-SIZE: 10px; TEXT-DECORATION: none
+}
+.kom_menu3 {
+	FONT-FAMILY: Verdana; COLOR: #9a0802; FONT-SIZE: 10px; TEXT-DECORATION: underline
+}
+A.kom_menu3:link {
+	FONT-FAMILY: Verdana; COLOR: #9a0802; FONT-SIZE: 10px; TEXT-DECORATION: underline
+}
+A.kom_menu3:hover {
+	FONT-FAMILY: Verdana; COLOR: #000; FONT-SIZE: 10px; TEXT-DECORATION: underline
+}
+.text {
+	FONT-FAMILY: Verdana; COLOR: #333; FONT-SIZE: 12px
+}
+.commentTable {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 0px; MARGIN: 4px 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.commentTable TR {
+	
+}
+.commentTable TH {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 8px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; FONT-SIZE: 10px; FONT-WEIGHT: bold; PADDING-TOP: 8px
+}
+.commentTable TD {
+	PADDING-BOTTOM: 8px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; PADDING-TOP: 8px
+}
+.input {
+	COLOR: #000000
+}

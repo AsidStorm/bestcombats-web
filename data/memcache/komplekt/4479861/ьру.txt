@@ -1,0 +1,14 @@
+Airy Gloves of Concealed{||||}661622{||||}perchi
+Airy Belt of Concealed{||||}954703{||||}belt
+Airy Boots of Concealed{||||}960461{||||}boots
+Airy Robe of Concealed{||||}1017437{||||}bron
+Airy Pants of Abstruse{||||}1090414{||||}leg
+Perfected Cloak{||||}1147610{||||}plaw
+Perfected Airy Earrings of Fancy{||||}1153662{||||}sergi
+Perfected Airy Amulet of Fancy{||||}1153664{||||}kulon
+Посох шквального ветра{||||}1153675{||||}weap
+Браслеты шквального ветра{||||}1153679{||||}naruchi
+Перстень шквального ветра{||||}1153683{||||}r1
+Перстень шквального ветра{||||}1153684{||||}r2
+Перстень шквального ветра{||||}1153685{||||}r3
+Improved Airy Hat of Concealed{||||}1154182{||||}helm

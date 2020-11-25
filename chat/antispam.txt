@@ -1,0 +1,9 @@
+		substr_count($msg,"recombats") or substr_count(strrev($msg),"recombats") or
+		substr_count($msg,"mirbcrf") or substr_count(strrev($msg),"mirbcrf") or
+		substr_count($msg,"urlsby") or substr_count(strrev($msg),"urlsby") or
+		substr_count($msg,"uhurf") or substr_count(strrev($msg),"uhurf") or
+		substr_count($msg,"valorage") or substr_count(strrev($msg),"valorage") or   //.net
+		substr_count($msg,"bcsity") or substr_count(strrev($msg),"bcsity") or 
+		substr_count($msg,"grandcombats") or substr_count(strrev($msg),"grandcombats") or
+		substr_count($msg,"cov3dnru") or substr_count(strrev($msg),"cov3dnru") or
+		substr_count($msg,"combatsmoldovaru") or substr_count(strrev($msg),"combatsmoldovaru")

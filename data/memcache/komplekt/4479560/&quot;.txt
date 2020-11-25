@@ -1,0 +1,25 @@
+Earthen Belt of Recondite{||||}818824{||||}belt
+Earthen Boots of Recondite{||||}839591{||||}boots
+Legendary Staff of Recondite{||||}843627{||||}weap
+Earthen Hat of Recondite{||||}905918{||||}helm
+Earthen Gloves of Recondite{||||}912847{||||}perchi
+Earthen Cuffs of Recondite{||||}916319{||||}naruchi
+Earthen Robe of Recondite{||||}927008{||||}bron
+Amulet of Recondite{||||}945580{||||}kulon
+Earrings of Recondite{||||}979804{||||}sergi
+Earthen Pants of Recondite{||||}991061{||||}leg
+Perfected Earthen Ring of Recondite{||||}1032953{||||}r2
+Perfected Magic Cloak{||||}1032955{||||}plaw
+Perfected Earthen Ring of Recondite{||||}1032957{||||}r3
+Рубаха Мага [9]{||||}1032978{||||}rybax
+Изгнание астрала стихий (земля){||||}1042673{||||}m3
+Восстановление маны 100ед{||||}1042678{||||}m5
+Восстановление маны 100ед{||||}1042679{||||}m7
+Восстановление маны 100ед{||||}1042680{||||}m10
+Восстановление маны 100ед{||||}1042681{||||}m1
+Восстановление маны 100ед{||||}1042682{||||}m9
+Восстановление маны 100ед{||||}1042683{||||}m8
+Восстановление маны 100ед{||||}1042684{||||}m6
+Восстановление маны 100ед{||||}1042685{||||}m4
+Восстановление маны 100ед{||||}1042686{||||}m2
+Improved Earthen Ring of Recondite{||||}1043878{||||}r1

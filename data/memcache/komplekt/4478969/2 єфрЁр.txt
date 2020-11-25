@@ -1,0 +1,28 @@
+Legendary Stately Ring [R]{||||}877726{||||}r2
+Legendary Hammer of Solidity +14{||||}1115967{||||}weap
+Improved Armor of Solidity [R]{||||}1135437{||||}bron
+Improved Bands of Solidity [R]{||||}1135438{||||}naruchi
+Improved Helmet of Solidity [R]{||||}1135439{||||}helm
+Improved Gloves of Solidity [R]{||||}1135496{||||}perchi
+Improved Amulet of Solidity{||||}1135497{||||}kulon
+Improved Belt of Solidity [R]{||||}1135499{||||}belt
+Improved Leggings of Solidity{||||}1135500{||||}leg
+Ring-mail of Expectation{||||}1135507{||||}rybax
+Великолепный турнирный плащ{||||}1135509{||||}plaw
+Legendary Shield of Solidity{||||}1136766{||||}shit
+Обувка богов [R]{||||}1136774{||||}boots
+Целебный пирог{||||}1138783{||||}p1
+Целебный пирог{||||}1138784{||||}p2
+Кольцо конвоира [R]{||||}1147226{||||}r3
+Тактика ответа 3{||||}1235305{||||}m6
+Тактика ответа 3{||||}1235306{||||}m5
+Тактика отражения 3{||||}1235308{||||}m12
+Тактика отражения 3{||||}1235309{||||}m11
+Тактика отражения 3{||||}1235310{||||}m2
+Тактика боя 3{||||}1235312{||||}m3
+Тактика боя 3{||||}1235313{||||}m4
+Тактика защиты 3{||||}1235314{||||}m9
+Тактика защиты 3{||||}1235315{||||}m10
+Тактика защиты 3{||||}1235316{||||}m1
+Витое Кольцо Атаки{||||}1278043{||||}r1
+Perfected Earrings of Solidity{||||}1370318{||||}sergi

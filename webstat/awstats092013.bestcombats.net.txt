@@ -1,0 +1,873 @@
+AWSTATS DATA FILE 7.1 (build 1.983)
+# If you remove this file, all statistics for date 201309 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.bestcombats.net.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1995                
+POS_TIME 2690                
+POS_VISITOR 19049               
+POS_DAY 30255               
+POS_DOMAIN 3540                
+POS_LOGIN 3779                
+POS_ROBOT 3978                
+POS_WORMS 4520                
+POS_EMAILSENDER 4651                
+POS_EMAILRECEIVER 4794                
+POS_SESSION 30404               
+POS_SIDER 30615               
+POS_FILETYPES 4929                
+POS_DOWNLOADS 5210                
+POS_OS 5258                
+POS_BROWSER 5570                
+POS_SCREENSIZE 6578                
+POS_UNKNOWNREFERER 6652                
+POS_UNKNOWNREFERERBROWSER 7064                
+POS_ORIGIN 7166                
+POS_SEREFERRALS 7324                
+POS_PAGEREFS 7500                
+POS_SEARCHWORDS 14821               
+POS_KEYWORDS 15097               
+POS_MISC 2354                
+POS_ERRORS 15280               
+POS_CLUSTER 3635                
+POS_SIDER_404 15445               
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20130910000102 788258 209884697 12738517407832
+FirstTime 20130908220247
+LastTime 20130910000101
+LastUpdate 20130910000101 100967 0 100965 2 0
+TotalVisits 318                 
+TotalUnique 227                 
+MonthHostsKnown 0                   
+MonthHostsUnknown 228                 
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 5 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 732 1386 10339675 65 149 308956
+1 0 0 0 0 0 0
+2 0 0 0 0 0 0
+3 0 0 0 0 0 0
+4 0 0 0 0 0 0
+5 0 0 0 0 0 0
+6 0 0 0 0 0 0
+7 0 0 0 0 0 0
+8 0 0 0 0 0 0
+9 0 0 0 0 0 0
+10 44 44 20548 0 56 16555
+11 1 1 467 0 0 0
+12 541 1937 10130050 70 136 188431
+13 11847 31735 174708373 1785 3378 4489176
+14 22086 45263 332289363 3075 6312 12544538
+15 32500 58312 512865504 3358 8857 17413754
+16 29686 50419 421284940 4100 8627 30865451
+17 28286 51224 365343934 2912 7666 16462302
+18 28557 51121 321767736 2667 8268 13774380
+19 35890 66311 432196575 3095 8162 15254977
+20 43740 83818 607965881 3779 9101 19937394
+21 46412 76129 741285551 3924 7572 19691941
+22 51137 89431 761065071 4294 11486 22039084
+23 50292 90742 662417121 4201 11037 25504825
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 381751 697873 5353680789
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+bestbk_invader 48 48 8087237 20130909153850
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 11
+^mozilla\/4\.0$ 1383 16972856 20130909163144 1
+bot[\s_+:,\.\;\/\\-] 107 1274212 20130909211205 0
+googlebot 93 1177032 20130909235955 4
+ezoom 62 616328 20130909233700 19
+yandex 24 243682 20130909233547 7
+mj12bot 21 20751 20130909191829 4
+msnbot\-media 12 21380 20130909235720 6
+no_user_agent 5 67582 20130909211141 0
+unknown 1 0 20130909211141 1
+proximic 1 0 20130909205409 1
+facebook 1 22210 20130909213417 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 10
+css 4897 1860783 0 0
+php 372655 4729023563 0 0
+png 2857 1781838 0 0
+html 8282 8971206 0 0
+jpg 5807 99231589 0 0
+js 31988 14100227 0 0
+htm 10 12170 0 0
+Unknown 4 88840 0 0
+gif 270573 493955804 0 0
+swf 800 4654769 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 15
+blackberry 1 1
+linuxandroid 6661 2161
+winlong 39608 15662
+winxp 249795 125622
+win2000 2 2
+winnt 4560 860
+linux 4295 3441
+winvista 51154 28382
+win7 338721 204753
+macosx 557 84
+winunknown 1313 633
+win2003 1 1
+j2me 1125 137
+Unknown 72 9
+macosx8 8 3
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 45
+msie6.0 317 41
+chrome29.0.1547.57 11797 4460
+chrome9.0.600.0 518 56
+android 3564 509
+chrome28.0.1500.95 316 123
+firefox18.0 1 1
+chrome23.0.1271.95 4 4
+opera9.80 12322 6573
+chrome26.0.1410.58 1701 1109
+iphone 264 33
+msie8.0 145351 64008
+chrome19.1.1084.5409 6 6
+chrome27.0.1453.95 4003 2721
+msie7.0 133534 71420
+chrome24.0.1350.0 18 4
+firefox23.0 14970 9108
+firefox16.0 1 1
+msie2.0 3 3
+chrome26.0.1410.43 13546 9444
+msie9.0 40333 28986
+chrome29.0.1547.66 218712 117102
+Unknown 1 1
+firefox11.0 2073 1026
+blackberry 1 1
+firefox17.0 1 1
+chrome18.0.1025.166 546 227
+firefox21.0 65 2
+safari6.0 291 50
+msie5.5 2 2
+chrome28.0.1500.71 11434 7292
+chrome2.0.162.0 130 42
+chrome12.0.742.122 6151 4149
+chrome18.0.966.0 8 8
+safari6.0.5 8 3
+netscape0.6 3 3
+nokia 16 2
+mozilla 5 4
+chrome25.0.1364.172 6776 4118
+msie10.0 63918 45333
+chrome22.0.1229.94 1 1
+firefox6.0 1 1
+chrome17.0.963.12 12 12
+chrome27.0.1453.116 5 5
+chrome11.0.696.65 4294 3440
+chrome29.0.1547.72 850 316
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 5
+Nokia6300/2.0_(07.21)_Profile/MIDP-2.0_Configuration/CLDC-1.1 20130909233534
+mrPC 20130909171321
+Opera/9.80_(Series_60;_Opera_Mini/6.5.27309/31.1350;_U;_ru)_Presto/2.8.119_Version/11.10 20130909213641
+Mozilla/5.0_(compatible;_Prlog/1.0;__http://prlog.ru/) 20130909232417
+Mozilla/3.0_(compatible;_Indy_Library) 20130909231045
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 1
+mrPC 20130909171321
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 1213 1237
+From1 0 0
+From2 12 14
+From3 106222 185909
+From4 274304 510713
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 3
+google 4 4
+yandex 6 8
+yahoo 2 2
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 139
+http://xn--80abapzmnwfef.xn--p1ai/battle.php 45649 45757
+http://xn--80abapzmnwfef.xn--p1ai/fbattle.php 25681 35900
+http://xn--80abapzmnwfef.xn--p1ai/canalizaciya.php 19227 32471
+http://xn--80abapzmnwfef.xn--p1ai/buttons.php 2463 8642
+http://xn--80abapzmnwfef.xn--p1ai/cave.php 2400 6360
+http://xn--80abapzmnwfef.xn--p1ai/ch.php 2324 4302
+http://xn--80abapzmnwfef.xn--p1ai/main.php 1563 10764
+http://xn--80abapzmnwfef.xn--p1ai/zayavka.php 1065 1143
+http://xn--80abapzmnwfef.xn--p1ai/top.php 663 2402
+http://xn--80abapzmnwfef.xn--p1ai/city.php 652 4634
+https://144.76.140.38/myadmin/ 2 10
+http://144.76.140.38/forum.php 1 26
+http://xn--80abapzmnwfef.xn--p1ai/ktogde77.php 17 17
+http://www.xn--80abapzmnwfef.xn--p1ai/top.php 2 34
+http://xn--80abapzmnwfef.xn--p1ai/chist.php 10 10
+http://144.76.140.38/buttons.php 7 80
+http://www.yandex.ua 4 4
+http://xn--80abapzmnwfef.xn--p1ai/give.php 193 1018
+http://events.bestcombats.net 3 39
+http://hideme.ru 14 14
+http://xn--80abapzmnwfef.xn--p1ai/clanreit.php 1 1
+http://xn--80abapzmnwfef.xn--p1ai/dealer.php 3 39
+http://144.76.140.38/bottom.php 0 5
+http://www.xn--80abapzmnwfef.xn--p1ai/forum.php 7 51
+http://144.76.140.38/myadmin/db_structure.php 1 5
+http://xn--80abapzmnwfef.xn--p1ai/radio2.htm 0 1
+http://144.76.140.38/a.php 4 4
+http://xn--80abapzmnwfef.xn--p1ai 19 22
+http://\xD0\xA0\xC2\xB1\xD0\xA0\xC2\xB5\xD0\xA1\xD0\x83\xD0\xA1\xE2\x80\x9A\xD0\xA0\xD1\x94\xD0\xA0\xD1\x95\xD0\xA0\xD1\x98\xD0\xA0\xC2\xB1\xD0\xA0\xC2\xB0\xD0\xA1\xE2\x80\x9A\xD0\xA1\xD0\x83.\xD0\xA1\xD0\x82\xD0\xA1\xE2\x80\x9E/enter.php 8 8
+http://144.76.140.38/myadmin/navigation.php 4 14
+http://xn--80abapzmnwfef.xn--p1ai/admin/dealer.php 21 25
+http://vk.com/topic-47520907_28083531 3 3
+http://xn--80abapzmnwfef.xn--p1ai/post.php 12 17
+http://xn--80abapzmnwfef.xn--p1ai/klanedit.php 1 1
+http://144.76.140.38/nagruzka.php 27 27
+http://xn--80abapzmnwfef.xn--p1ai/lic.php 461 609
+http://xn--80abapzmnwfef.xn--p1ai/palklan.php 6 9
+http://\xD0\xA0\xC2\xB1\xD0\xA0\xC2\xB5\xD0\xA1\xD0\x83\xD0\xA1\xE2\x80\x9A\xD0\xA0\xD1\x94\xD0\xA0\xD1\x95\xD0\xA0\xD1\x98\xD0\xA0\xC2\xB1\xD0\xA0\xC2\xB0\xD0\xA1\xE2\x80\x9A\xD0\xA1\xD0\x83.\xD0\xA1\xD0\x82\xD0\xA1\xE2\x80\x9E/i/psw2.swf 0 7
+http://vk.com/friends 1 1
+https://144.76.140.38/myadmin/index.php 6 6
+http://xn--80abapzmnwfef.xn--p1ai 90 168
+http://xn--80abapzmnwfef.xn--p1ai/klan1.php 40 1743
+http://q4chviuhzajnoa.u4cl.e 0 6
+http://www.xn--80abapzmnwfef.xn--p1ai/ch.php 8 17
+http://\xD0\xA0\xC2\xB1\xD0\xA0\xC2\xB5\xD0\xA1\xD0\x83\xD0\xA1\xE2\x80\x9A\xD0\xA0\xD1\x94\xD0\xA0\xD1\x95\xD0\xA0\xD1\x98\xD0\xA0\xC2\xB1\xD0\xA0\xC2\xB0\xD0\xA1\xE2\x80\x9A\xD0\xA1\xD0\x83.\xD0\xA1\xD0\x82\xD0\xA1\xE2\x80\x9E/buttons.php 67 67
+http://\xd0\xa0\xc2\xb1\xd0\xa0\xc2\xb5\xd0\xa1\xd0\x83\xd0\xa1\xe2\x80\x9a\xd0\xa0\xd1\x94\xd0\xa0\xd1\x95\xd0\xa0\xd1\x98\xd0\xa0\xc2\xb1\xd0\xa0\xc2\xb0\xd0\xa1\xe2\x80\x9a\xd0\xa1\xd0\x83.\xd0\xa1\xd0\x82\xd0\xa1\xe2\x80\x9e/i/psw2.swf 10 10
+http://www.xn--80abapzmnwfef.xn--p1ai/inf.php 1 109
+http://xn--80abapzmnwfef.xn--p1ai/tower.php 1 1
+http://xn--80abapzmnwfef.xn--p1ai/smiles.html 0 2320
+http://144.76.140.38/myadmin/ 2 5
+http://vk.com/club47520907 2 2
+http://www.xn--80abapzmnwfef.xn--p1ai/friend.php 21 28
+http://vk.com/id74409037 4 4
+http://www.xn--80abapzmnwfef.xn--p1ai/battle.php 213 215
+http://xn--80abapzmnwfef.xn--p1ai/umenie.php 93 1607
+http://xn--80abapzmnwfef.xn--p1ai/auction.php 1 2
+http://xn--80abapzmnwfef.xn--p1ai/dialog.php 6 13
+http://xn--80abapzmnwfef.xn--p1ai/castle.php 2 32
+http://go.mail.ru/search 1 1
+http://xn--80abapzmnwfef.xn--p1ai/item.php 0 38
+http://top.bestcombats.net 9 9
+http://prlog.ru/analysis/bestcombats.net 3 6
+https://144.76.140.38/myadmin/navigation.php 15 28
+http://xn--80abapzmnwfef.xn--p1ai/shop_luka.php 59 359
+http://www.xn--80abapzmnwfef.xn--p1ai 4 4
+http://xn--80abapzmnwfef.xn--p1ai/bloknot.php 3 3
+http://144.76.140.38/manager/ispmgr 1 1
+http://144.76.140.38/city.php 0 153
+http://xn--80abapzmnwfef.xn--p1ai/fontan.php 7 20
+http://ibankworld.ru 3 3
+http://vk.com/club30397091 1 1
+http://xn--80abapzmnwfef.xn--p1ai/berezka.php 106 1107
+http://xn--80abapzmnwfef.xn--p1ai/bottom.php 9 114
+http://xn--80abapzmnwfef.xn--p1ai/tarklan.php 1 3
+http://144.76.140.38/myadmin/index.php 2 2
+http://aztraf.pw 3 3
+http://xn--80abapzmnwfef.xn--p1ai/comission.php 9 49
+http://vk.com/club21714092 2 2
+http://xn--80abapzmnwfef.xn--p1ai/zadaniya_bezdna.php 1 1
+http://xn--80abapzmnwfef.xn--p1ai/vxod.php 348 667
+http://q4chviuhzajnoa.u4cl.e/nagruzka.php 0 1
+http://144.76.140.38/canalizaciya.php 2 2
+https://144.76.140.38/myadmin/db_structure.php 4 12
+http://xn--80abapzmnwfef.xn--p1ai/index.php 32 47
+http://xn--80abapzmnwfef.xn--p1ai/orden.php 112 157
+http://xn--80abapzmnwfef.xn--p1ai/zoo.php 80 218
+http://www.xn--80abapzmnwfef.xn--p1ai/berezka.php 0 32
+http://144.76.140.38/myadmin/main.php 3 17
+http://xn--80abapzmnwfef.xn--p1ai/podzem_dialog.php 36 50
+http://xn--80abapzmnwfef.xn--p1ai/bank.php 14 18
+http://xn--80abapzmnwfef.xn--p1ai/inf.php 58 15656
+http://144.76.140.38/top.php 1 81
+http://xn--80abapzmnwfef.xn--p1ai/zver_inv.php 223 224
+https://144.76.140.38/manager/ispmgr 1 1
+http://top.bestcombats.net 3 3
+http://xn--80abapzmnwfef.xn--p1ai/zn_tower.php 158 163
+http://xn--80abapzmnwfef.xn--p1ai/znahar.php 4 4
+http://xn--80abapzmnwfef.xn--p1ai/ordenchesti.php 23 23
+http://xn--80abapzmnwfef.xn--p1ai/battleenter.php 3 3
+https://144.76.140.38/myadmin/main.php 4 26
+http://xn--80abapzmnwfef.xn--p1ai/forum.php 143 681
+http://www.xn--80abapzmnwfef.xn--p1ai/buttons.php 6 35
+http://www.xn--80abapzmnwfef.xn--p1ai/orden.php 2 19
+http://xn--80abapzmnwfef.xn--p1ai/ref.php 4 4
+http://144.76.140.38/battle.php 206 212
+http://xn--80abapzmnwfef.xn--p1ai/a.php 120 120
+http://events.bestcombats.net/index.php 1 1
+http://xn--80abapzmnwfef.xn--p1ai/hellround.php 8 12
+http://xn--80abapzmnwfef.xn--p1ai/acounts/vip.php 82 128
+http://xn--80abapzmnwfef.xn--p1ai/obshaga.php 174 572
+http://xn--80abapzmnwfef.xn--p1ai/friend.php 162 1084
+https://144.76.140.38/myadmin/tbl_operations.php 1 7
+http://delobizne.biz 2 2
+http://xn--80abapzmnwfef.xn--p1ai/station.php 91 91
+http://www.tryfullsite.com/geral/ 4 4
+http://xn--80abapzmnwfef.xn--p1ai/claninf.php 38 48
+http://xn--80abapzmnwfef.xn--p1ai/nagruzka.php 35 39
+http://xn--80abapzmnwfef.xn--p1ai/shop.php 448 2263
+http://144.76.140.38/friend.php 0 9
+http://events.bestcombats.net 1 2
+http://www.xn--80abapzmnwfef.xn--p1ai/bottom.php 0 2
+http://xn--80abapzmnwfef.xn--p1ai/register.php 4 4
+http://vk.com/club41094495 1 1
+http://144.76.140.38/myadminN93nm90f2nmi03m0/db_structure.php 2 2
+http://xn--80abapzmnwfef.xn--p1ai/exp.php 0 20
+https://144.76.140.38/myadmin/sql.php 2 14
+http://xn--80abapzmnwfef.xn--p1ai/enter.php 19 38
+http://xn--80abapzmnwfef.xn--p1ai/zadaniya.php 30 39
+http://scrolls.bestcombats.net 2 2
+http://scrolls.bestcombats.net 1 1
+http://xn--80abapzmnwfef.xn--p1ai/zn_tower2.php 63 73
+http://144.76.140.38 7 7
+http://vk.com/im 1 1
+http://144.76.140.38/ch.php 4 28
+http://yandex.ua/yandsearch 1 1
+http://xn--80abapzmnwfef.xn--p1ai/logs.php 119 161
+http://144.76.140.38/vxod.php 2 17
+https://144.76.140.38/myadmin/tbl_structure.php 0 2
+http://xn--80abapzmnwfef.xn--p1ai/admin/admin.php 2 20
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 4
+bestcombats.net 5
+combats 2
+%d0%b1%d0%b5%d1%81%d1%82%d0%ba%d0%be%d0%bc%d0%b1%d0%b0%d1%82%d1%81.%d1%80%d1%84 1
+bestcombats 1
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 4
+bestcombats.net 5
+combats 2
+%d0%b1%d0%b5%d1%81%d1%82%d0%ba%d0%be%d0%bc%d0%b1%d0%b0%d1%82%d1%81.%d1%80%d1%84 1
+bestcombats 1
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 6
+401 2 2101
+403 53162 15754522
+302 34194 157656059
+206 430 4247982
+500 1 0
+404 1015 320557
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 69
+/sitemap.xml 2 -
+/intl/zh-CN/ 1 -
+/robots.txt 5 -
+/index333.jpg 1 http://bestcombats.net/
+/admin.php 1 -
+/cdn-cgi/se/javascripts/smarterror.js 4 http://xn--80abapzmnwfef.xn--p1ai/battle.php
+/i/sh/head1174.gif 1 -
+/reit_pers.php 9 http://www.bestcombats.net/inf.php
+/admin/login.php 1 -
+/inf.php 9 -
+/index/nav_bg00.png 10 http://bestcombats.net/
+/index/vk000000.png 10 http://bestcombats.net/
+/css/main.css 12 http://bestcombats.net/r4479548
+/shadow/1/upload/7.gif 1 http://bestcombats.net/inf.php
+/buttons.php 1 http://bestcombats.net/buttons.php
+/klan/Umbrella.gif 1 http://bestcombats.net/inf.php
+/index/bg100000.jpg 10 http://bestcombats.net/
+/help/combats.html 1 http://xn--80abapzmnwfef.xn--p1ai/zayavka.php
+/bitrix/admin/index.php 1 -
+/cdn-cgi/pe/bag 4 http://\xd0\xb1\xd0\xb5\xd1\x81\xd1\x82\xd0\xba\xd0\xbe\xd0\xbc\xd0\xb1\xd0\xb0\xd1\x82\xd1\x81.\xd1\x80\xd1\x84/smiles.html
+/shadow/1/m30.gif 1 http://bestcombats.net/inf.php
+/cdn-cgi/styles/fonts/opensans-600.svg 1 http://bestcombats.net/zayavka.php
+/index/key.png 10 http://bestcombats.net/
+/clans_inf.pl 2 -
+/upload/news/screenshot.12.png 5 http://bestcombats.net/
+/cdn-cgi/styles/fonts/opensans-400.svg 1 http://bestcombats.net/zayavka.php
+/claninf.php 1 -
+/cdn-cgi/se/javascripts/handlebars.js 4 http://xn--80abapzmnwfef.xn--p1ai/battle.php
+/cdn-cgi/styles/fonts/opensans-400.ttf 1 http://bestcombats.net/zayavka.php
+/shadow/1/upload/24148.gif 1 http://bestcombats.net/inf.php
+/wp-login.php 2 -
+/help/shop.html 1 -
+/i/sh/boots0851.gif 1 -
+/bottom.php 1 http://bestcombats.net/bottom.php
+/cdn-cgi/styles/fonts/opensans-400.woff 2 http://bestcombats.net/battle.php
+/reg/regbg.jpg 4 http://bestcombats.net/r4479548
+/i/sh/belt0964.gif 1 -
+/cdn-cgi/ping 1 http://bestcombats.net/ch.php
+/clanreit.php 1 http://radiobestcombat.ucoz.ru/news/uvazhaemye_posetiteli_na_nashem_sajte_vy_mozhete_zakazat_muzyku_kotoruju_khoteli_by_uslyshat_v_ehfire_nashego_radio/2013-07-10-7
+/support 1 -
+/inf.pl 2 http://bestcombats.net/give.php
+/top.php 1 http://bestcombats.net/top.php
+/cdn-cgi/nexp/abv=1813537165/apps/abetterbrowser.js 8 http://xn--80abapzmnwfef.xn--p1ai/
+/i/klan/Defenders.gif 1 -
+/shadow/0/upload/24136.gif 1 http://bestcombats.net/inf.php
+/index/donate00.png 9 http://bestcombats.net/
+/cdn-cgi/l/chk_jschl 4 http://bestcombats.net/buttons.php
+/shadow/1/m37.gif 1 http://bestcombats.net/inf.php
+/battle.php 6 -
+/acounts/fbattle.php 1 http://bestcombats.net/acounts/vip.php
+/index/heroes00.png 10 http://bestcombats.net/
+/apple-touch-icon-precomposed.png 763 -
+/user/ 1 -
+/support/ 3 http://events.bestcombats.net/
+/css/style000.css 9 http://bestcombats.net/
+/administrator/index.php 1 -
+/upload/news/screenshot.2.png 5 http://bestcombats.net/
+/%3C/b%3E%20%3Cimg%20src= 10 http://bestcombats.net/battleenter.php
+/cdn-cgi/styles/fonts/opensans-600.ttf 1 http://bestcombats.net/zayavka.php
+/forum.php 11 https://www.google.md/
+/ch.php 3 http://bestcombats.net/battle.php
+/index.php 11 -
+/news/ 1 -
+/index/log.png 9 http://bestcombats.net/
+/i/money.png 1 http://bestcombats.net/buttons.php
+/news/index.php 2 http://events.bestcombats.net/index.php
+/cdn-cgi/scripts/cf.common.js 2 http://bestcombats.net/battle.php
+/cdn-cgi/styles/fonts/opensans-600.woff 1 http://bestcombats.net/zayavka.php
+/index/bg200000.jpg 10 http://bestcombats.net/
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 228
+31.135.76.109 14737 27973 143304027 20130910000101 20130910000002 /canalizaciya.php
+77.126.67.193 14580 28877 155489225 20130910000053 20130910000000 /ch.php
+195.46.32.48 13218 15829 167966896 20130910000100 20130910000003 /obshaga.php
+46.22.234.114 11214 16557 177427316 20130909234838
+178.137.141.5 10614 12868 132969306 20130910000100 20130910000002 /obshaga.php
+188.253.208.155 9994 25057 141001923 20130910000056 20130910000004 /ch.php
+95.27.116.49 9729 16727 127536679 20130909204006
+5.134.58.62 9108 19358 185937466 20130910000052 20130910000006 /ch.php
+86.100.76.131 8171 11682 99761271 20130910000100 20130910000002 /ch.php
+78.25.22.8 7946 17377 145222728 20130909182753
+136.169.250.93 8 8 143222 20130909205133
+5.134.61.190 21 165 670117 20130909172326
+46.242.22.214 1 1 13503 20130909202748
+195.138.90.9 5217 9452 49069196 20130910000055 20130910000010 /ch.php
+176.195.27.127 8 8 154836 20130909194754
+77.244.114.12 168 277 839555 20130909230247
+94.153.27.59 6058 12894 91145512 20130910000048 20130910000048 /
+188.0.159.22 696 956 5596544 20130909172108
+38.99.123.219 20 67 281751 20130909172203
+82.145.209.30 1 30 192723 20130909173908
+31.15.86.77 1 1 15274 20130909232256
+77.244.115.10 168 205 572557 20130909235918
+85.31.101.229 775 1143 14248947 20130909134740
+37.19.191.101 117 119 1806888 20130910000100 20130910000004 /ch.php
+82.145.211.69 22 120 476781 20130909233229
+89.190.253.27 3 3 13573 20130909231045
+46.202.148.212 5 28 72698 20130909230916
+178.213.7.51 21 98 252271 20130909185839
+144.76.140.38 151 151 83016 20130909110054
+95.139.154.199 571 1209 10613164 20130909220719
+178.68.249.66 93 308 1352809 20130909213949
+31.134.121.130 154 734 2150849 20130909232457
+193.104.85.213 9 211 1139966 20130909175355
+217.212.230.96 167 717 902864 20130909204337
+178.67.211.107 381 780 3256849 20130909234408
+188.138.154.14 5998 7160 112903567 20130910000101 20130910000001 /ch.php
+77.233.182.227 29 253 914063 20130909152044
+54.225.125.135 1 1 13501 20130909134158
+83.149.8.102 82 392 1352516 20130909235122
+82.145.217.58 2 6 33357 20130909231827
+84.108.50.124 267 549 1315586 20130909201038
+82.145.211.35 24 255 694497 20130909232238
+5.250.193.184 368 946 9981929 20130909150143
+193.24.30.47 33 142 451284 20130909202808
+194.0.206.1 5242 10109 48489034 20130910000059 20130910000000 /inf.php
+188.17.114.245 424 477 10177298 20130909214916
+213.87.128.30 83 421 1563490 20130909135800
+82.145.211.46 17 96 376902 20130909173325
+91.105.179.208 27 91 227749 20130909173712
+77.244.114.10 236 368 908836 20130909230023
+37.73.201.32 630 1310 8723905 20130909234815
+81.213.124.157 4687 6818 91330455 20130910000059 20130910000001 /fbattle.php
+82.145.210.152 2 6 33286 20130909172751
+95.111.171.131 2504 6066 34847391 20130910000057 20130910000012 /ch.php
+91.233.249.51 65 206 666808 20130909141334
+80.232.251.188 6 26 82486 20130909144827
+213.226.141.95 136 786 1415932 20130910000101 20130910000032 /ch.php
+130.185.38.253 5769 10972 89192844 20130909173710
+178.72.183.190 367 2094 6841596 20130909235320
+188.162.132.34 140 347 933638 20130909171156
+92.242.120.242 250 277 669127 20130909234531
+109.68.234.18 136 346 1133410 20130909212413
+2.134.212.144 1558 3036 23261667 20130909215841
+109.68.236.7 91 200 516547 20130909191302
+31.43.15.27 461 1122 6396987 20130909225408
+178.168.80.191 2779 7665 38100910 20130909175905
+37.73.232.190 2 16 33895 20130909233524
+31.171.67.40 1320 1733 21799664 20130909221709
+5.166.218.82 11 11 148806 20130909233544
+78.36.245.228 2114 2744 29584638 20130909154337
+37.235.53.20 2972 7119 31469232 20130909205202
+188.174.200.34 113 563 1962029 20130909231007
+93.159.230.87 1 1 13574 20130909213749
+178.151.7.82 47 397 1211913 20130909194237
+89.28.14.35 6 6 85455 20130909193358
+46.247.175.116 1930 3162 35432625 20130909234906
+46.247.183.38 2908 4000 34667298 20130909192325
+5.44.39.238 81 256 992753 20130909173303
+91.231.255.176 4880 6837 77620395 20130909221411
+212.154.136.115 2681 3249 4837987 20130910000050 20130910000005 /ch.php
+178.123.62.112 2 65 293861 20130909213257
+194.140.228.10 3 8 28969 20130909223507
+85.26.234.97 1939 2114 20483845 20130909231218
+199.19.249.196 1 1 13502 20130909164105
+178.70.192.121 7087 7638 154411294 20130909214811
+174.89.51.172 1 1 14039 20130909175915
+178.137.90.214 989 2847 14711341 20130910000051 20130910000006 /ch.php
+178.168.8.84 2551 3192 32265165 20130910000058 20130910000010 /ch.php
+217.212.230.49 776 1062 8900336 20130909233552
+193.238.96.46 5124 8280 74736376 20130909190641
+213.154.17.252 15 141 417689 20130909163448
+37.114.130.68 6734 9391 91791326 20130910000054 20130910000001 /ch.php
+46.109.55.253 24 112 373998 20130909213556
+91.195.172.122 5 5 89390 20130909175614
+176.214.253.21 2841 6890 40574304 20130910000058 20130910000008 /ch.php
+178.234.129.174 980 2338 18706078 20130909214423
+195.88.139.217 1 2 18953 20130909155359
+195.246.102.54 2180 4161 39313273 20130909232212
+89.22.247.60 3299 3981 23010140 20130909235633
+37.26.13.188 1 4 14333 20130909170142
+82.145.211.22 3 52 249313 20130909213641
+193.34.141.161 1 4 14405 20130909213026
+95.28.14.238 5112 6637 68412137 20130910000100 20130910000006 /main.php
+46.42.160.158 7591 18455 118018480 20130909231725
+178.123.239.248 69 267 1087602 20130909223723
+87.202.171.76 1 2 13638 20130909182446
+178.76.22.160 981 1645 23514645 20130909154132
+94.248.23.176 3030 3753 51910754 20130910000058 20130910000000 /fbattle.php
+37.215.19.90 0 6 0 
+62.221.110.231 42 334 1423207 20130909155039
+37.61.124.86 112 434 2219577 20130909182200
+195.246.102.58 496 1032 13487566 20130910000101 20130910000001 /cave.php
+109.188.125.8 3022 3964 38613910 20130909205235
+178.237.75.12 349 1339 8944258 20130909224803
+94.75.31.86 1 4 14333 20130909173433
+193.108.241.228 4478 5954 47310919 20130909183408
+95.105.105.229 6 6 85652 20130909230815
+188.253.163.194 6820 14973 67440189 20130910000057 20130910000000 /inf.php
+93.116.33.211 1183 2139 17298256 20130909235546
+82.145.208.216 31 187 923869 20130909234218
+77.121.214.170 1 4 14333 20130909162704
+109.239.31.83 2094 3100 25427039 20130910000055 20130910000010 /ch.php
+178.213.7.59 1 4 14333 20130909161621
+66.249.81.183 1 1 13503 20130909202914
+94.180.104.31 3426 4926 17839891 20130909210412
+37.53.15.189 141 146 1553445 20130909203110
+188.255.83.161 50 291 1638690 20130909160256
+78.109.50.183 1 4 14405 20130909212905
+94.179.12.197 1 4 14333 20130909193944
+83.149.9.26 1651 2602 16937863 20130909170140
+46.23.109.101 1558 2547 32202498 20130909154433
+91.190.115.250 1391 2434 20377631 20130910000049 20130910000000 /inf.php
+188.253.151.125 1 1 13502 20130909181247
+77.244.114.11 71 191 471828 20130909224410
+83.149.9.163 23 124 453956 20130909213301
+37.61.79.85 1043 1829 12347965 20130909221459
+89.191.109.117 2129 3360 14562234 20130909232406
+31.28.52.195 2 6 17116 20130909193809
+95.28.66.39 4726 5809 79103966 20130909180657
+93.170.64.31 325 695 5216689 20130910000057 20130910000003 /main.php
+91.207.4.206 2 2 31996 20130909154458
+5.44.39.45 4000 9550 39960426 20130909191421
+93.74.101.179 1686 4156 30124171 20130909201943
+5.44.39.134 175 406 1708057 20130909164401
+109.238.80.50 33 264 1609895 20130909140922
+78.171.129.235 1 1 0 20130909213244
+81.17.86.126 6975 13358 109506512 20130909213614
+193.28.228.46 3 9 42168 20130909134512
+89.248.81.171 6142 13346 114010886 20130909235142
+188.174.124.23 144 1599 2293774 20130909230657
+37.144.97.71 1108 1200 11991078 20130910000101 20130910000002 /ch.php
+5.44.39.243 1201 2634 9733639 20130909204713
+128.140.171.206 1 1 232 20130909171321
+83.99.239.166 1654 2194 5294329 20130910000059 20130910000006 /ch.php
+82.193.109.52 6 6 80335 20130909192418
+5.164.216.222 2426 3757 13793723 20130909163731
+188.17.123.176 3874 7718 65573472 20130909205411
+37.203.20.4 1740 2422 4994251 20130909230910
+188.237.63.167 4712 9267 55070723 20130909235443
+188.0.81.191 4843 16110 64241011 20130909200340
+213.226.141.69 501 867 4555674 20130909233602
+93.77.253.193 5 8 59233 20130909174240
+37.26.133.12 1 1 586 20130909205227
+37.61.66.4 431 2644 4793235 20130909132724
+46.8.115.196 4115 6524 51002241 20130910000059 20130910000005 /ch.php
+111.248.118.189 1 1 13502 20130909162617
+95.165.28.136 488 961 7277674 20130910000058 20130910000001 /ch.php
+193.201.231.2 62 155 597977 20130910000048 20130910000002 /ch.php
+178.47.187.127 462 465 11415335 20130909211615
+213.231.26.209 1068 1763 14253936 20130909224828
+81.214.120.184 793 4094 9510501 20130909212507
+46.23.107.224 918 2215 12883737 20130909231004
+38.99.121.20 1162 1611 10859845 20130909201304
+82.145.216.15 14 178 994250 20130909232811
+62.221.56.35 1706 2442 62988149 20130909213246
+37.229.127.74 5320 9175 69249311 20130909220457
+78.56.174.125 71 325 1780032 20130909185229
+91.103.66.206 1 1 13502 20130909164104
+77.50.223.13 79 347 2016298 20130909145931
+178.123.89.78 1 4 14404 20130909235725
+176.113.34.149 457 1475 11252983 20130909133303
+95.182.88.60 2942 7518 41443448 20130910000100 20130910000002 /shop.php
+88.217.65.76 75 873 1665311 20130909230607
+95.79.78.207 809 1407 2513082 20130910000053 20130910000007 /ch.php
+37.52.199.72 200 336 3007334 20130909202554
+37.114.170.195 944 1239 3486907 20130909192125
+184.105.82.77 2250 2600 23843582 20130909215718
+178.76.17.34 1 1 467 20130909141042
+83.149.47.52 3072 8608 47762318 20130909153440
+130.0.14.9 4406 8172 55549333 20130910000056 20130910000001 /ch.php
+94.20.249.29 1 1 401 20130909134527
+62.212.235.118 420 760 2123501 20130909191942
+83.136.241.246 988 1935 12780569 20130909154708
+178.167.12.51 170 538 3674563 20130909135557
+89.223.33.138 19 91 228534 20130909140952
+193.106.136.62 3 3 47994 20130909172521
+194.44.148.187 6379 13709 71108390 20130910000058 20130910000014 /main.php
+178.47.189.6 3239 4147 61183367 20130910000101 20130910000000 /ch.php
+95.65.77.91 2360 3575 76275654 20130909222839
+193.28.228.49 14 21 89798 20130909134807
+188.134.35.10 5890 9108 31603706 20130909231716
+178.94.49.245 4 18 56275 20130909202905
+93.183.235.87 4605 12376 75004653 20130909161252
+38.99.123.122 8 16 49506 20130909235754
+212.178.6.151 83 435 1207073 20130909204647
+46.175.76.83 855 2622 22960036 20130910000046 20130910000000 /ch.php
+217.118.93.86 2 2 44420 20130909235526
+159.224.139.133 20 20 258745 20130909231521
+46.229.168.50 3 6 41550 20130909232429
+95.58.128.35 153 272 619786 20130909210411
+94.153.64.9 3 3 47994 20130909212622
+77.244.115.13 300 449 1492140 20130909235912
+46.211.254.70 4140 5443 75708229 20130910000048 20130910000003 /ch.php
+91.233.244.66 1655 2565 9409734 20130909163756
+80.246.130.211 34 194 757125 20130909222935
+95.27.43.226 195 874 4380680 20130909183436
+178.66.16.83 2500 4158 41875540 20130909220158
+178.216.16.138 68 519 2508061 20130909153927
+5.153.180.37 212 1103 3194076 20130909164603
+85.173.70.223 2537 2672 49938501 20130909162346
+77.244.115.14 166 211 634249 20130909234848
+188.19.160.18 373 999 3522145 20130909171159
+37.204.222.58 490 653 1208845 20130910000052 20130910000007 /ch.php
+217.20.172.133 799 1656 13455699 20130909153355
+62.217.155.213 3903 9573 79478841 20130909231129
+188.17.30.249 58 389 2004063 20130909185036
+5.134.49.227 3853 6375 114615437 20130910000048 20130910000002 /ch.php
+82.145.210.101 24 247 746738 20130909232905
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 3
+20130908 106 106 62001 1
+20130909 380913 696381 5343279113 275
+20130910 732 1386 10339675 42
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+1h+ 92
+5mn-15mn 24
+2mn-5mn 28
+15mn-30mn 25
+30s-2mn 8
+0s-30s 63
+30mn-1h 70
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 104
+/ch.php 182858 370652074 39 142
+/fbattle.php 77368 2650895514 7 15
+/canalizaciya.php 62189 691729842 6 0
+/main.php 8060 315153481 1 9
+/i/sh/ 7066 0 0 2
+/mg2.php 5766 5917522 0 1
+/cave.php 5158 105854671 0 2
+/city.php 4080 33482657 1 6
+/zayavka.php 3275 20072593 1 0
+/inf.php 2850 72832949 11 17
+/enter.php 75 43066 1 1
+/ 849 8942016 190 51
+/sound/battle.swf 1 89548 0 0
+/battleenter.php 24 198611 0 0
+/bloknot.php 30 39388 0 0
+/ktogde77.php 24 459119 0 0
+/zn_tower2.php 170 2766221 0 0
+/myadmin/js/get_image.js.php 3 17470 0 0
+/fshop.php 4 56058 0 0
+/myadmin/version_check.php 2 88 0 0
+/palklan.php 42 81671 0 0
+/testingLoginEmail.php 20 60 0 0
+/sound/Sound.swf 6 6456 0 0
+/myadmin/index.php 3 7805 0 0
+/comission.php 738 16392302 0 1
+/right.php 587 91572 0 0
+/buttons.php 1662 26220741 1 0
+/shopvip.php 58 3029717 0 0
+/podzem_dialog.php 245 2744039 0 0
+/umenie.php 654 48305352 0 1
+/myadmin/db_structure.php 7 4672666 0 0
+/register.php 68 1343841 5 2
+/myadmin/js/messages.php 6 146968 0 0
+/sec.php 20 4756 1 1
+/post.php 25 389972 0 0
+/claninf.php 102 473806 0 1
+/library.php 2 4336 0 0
+/myadmin/ 2 5070 0 0
+/radio2.htm 10 12170 0 0
+/tower.php 2 10000 0 0
+/r4478070 1 22210 1 0
+/repair.php 90 1391221 0 0
+/dialog.php 22 255522 0 0
+/castle.php 140 2914425 0 0
+/give.php 513 23866464 1 0
+/bottom.php 629 134826 0 1
+/admin/ 1 0 1 1
+/i/clock.swf 762 4284430 1 0
+/bank.php 64 135313 0 0
+/shop_luka.php 295 6371301 0 1
+/ordenchesti.php 45 99981 0 0
+/i/psw2.swf 31 274335 0 0
+/refreshed.html 332 0 1 1
+/clanreit.php 20 255900 0 0
+/obshaga.php 1089 21399327 0 4
+/top.php 630 4394592 1 0
+/admin/dealer.php 27 210078 0 0
+/acounts/vip.php 362 1236854 0 0
+/zver_inv.php 599 1469451 0 0
+/smiles.html 31 23706 0 0
+/myadmin/navigation.php 11 499220 0 0
+/bar.php 3 0 0 0
+/item.php 138 250498 0 0
+/zoo.php 148 3215763 0 0
+/fontan.php 41 68175 0 0
+/logs.php 531 7268292 0 1
+/zn_tower.php 1102 98584390 0 0
+/left.php 589 82460 1 1
+/lic.php 1108 12787426 0 0
+/hellround.php 41 247192 0 0
+/myadmin/tbl_structure.php 1 1414154 0 0
+/berezka.php 329 12958625 0 0
+/exp.php 17 493034 0 0
+/battle.php 640 11441920 27 6
+/towerstamp.php 2 17534 0 0
+/r4480976 2 44420 1 0
+/zadaniya.php 141 396303 0 1
+/myadmin/sql.php 3 911024 0 0
+/znahar.php 42 103651 0 0
+/myadmin/phpmyadmin.css.php 6 257885 0 0
+/klan1.php 232 23683288 0 0
+/tarklan.php 12 21124 0 0
+/ref.php 33 151411 0 0
+/auction.php 6 44197 0 0
+/a.php 284 8698116 0 0
+/myadmin/tbl_operations.php 2 84119 0 0
+/orden.php 324 4965286 0 0
+/klanedit.php 12 22421 0 0
+/myadmin/main.php 2 70768 0 0
+/station.php 381 480993 0 0
+/friend.php 778 3389975 0 2
+/chist.php 116 550639 0 1
+/nagruzka.php 348 345045 1 0
+/forum.php 524 8363463 9 8
+/errors/404.html 1 414 0 0
+/shop.php 2283 80301570 0 0
+/r4481295 1 22210 0 0
+/admin/admin.php 13 247014 0 0
+/index.php 157 1941611 9 25
+/vxod.php 1490 6019659 0 5
+/lottery.php 14 108480 0 0
+/zadaniya_bezdna.php 5 15227 0 0
+/myadminN93nm90f2nmi03m0/db_structure.php 2 27497 0 0
+/dealer.php 42 267931 0 0
+END_SIDER

@@ -1,0 +1,19 @@
+Legendary Shield of Safety{||||}258064{||||}shit
+Improved Helmet of Viability{||||}595647{||||}helm
+Improved Leggings of Viability{||||}595648{||||}leg
+Improved Gloves of Viability{||||}595650{||||}perchi
+Improved Bands of Viability{||||}595670{||||}naruchi
+Improved Belt of Viability{||||}595671{||||}belt
+Improved Boots of Viability{||||}595676{||||}boots
+Improved Armor of Viability{||||}595678{||||}bron
+Ring-mail of Inspiration{||||}759571{||||}rybax
+Amulet of Tensity{||||}896430{||||}kulon
+Earrings of Safety{||||}939539{||||}sergi
+Legendery Hammer of Safety{||||}946173{||||}weap
+Тактика крови 3{||||}949261{||||}m7
+Legendary Stately Ring{||||}962937{||||}r3
+Legendary Stately Ring{||||}963838{||||}r1
+Legendary Stately Ring{||||}971097{||||}r2
+Целебный пирог{||||}975969{||||}p2
+Целебный пирог{||||}975970{||||}p1
+Плащ Воина [9]{||||}1301515{||||}plaw

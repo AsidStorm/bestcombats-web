@@ -1,0 +1,29 @@
+Legendary Stately Ring{||||}377624{||||}r1
+Укреплённый серп{||||}677844{||||}weap
+Legendary Stately Ring{||||}704824{||||}r2
+Legendary Stately Ring{||||}742968{||||}r3
+Improved Boots of Safety{||||}780697{||||}boots
+Improved Gloves of Safety{||||}780699{||||}perchi
+Ring-mail of Serenity{||||}780702{||||}rybax
+Improved Armor of Safety{||||}780705{||||}bron
+Improved Helmet of Safety{||||}780707{||||}helm
+Improved Bands of Safety{||||}780711{||||}naruchi
+Improved Belt of Safety{||||}780714{||||}belt
+Improved Leggings of Safety{||||}780716{||||}leg
+Improved Earrings of Safety{||||}780996{||||}sergi
+Improved Amulet of Safety{||||}781003{||||}kulon
+Тактика отражения 3{||||}979485{||||}m12
+Тактика ответа 3{||||}1294282{||||}m9
+Perfected Cloak{||||}1299239{||||}plaw
+Целебный пирог{||||}1329837{||||}p2
+Целебный пирог{||||}1329843{||||}p1
+Тактика защиты 3{||||}1343624{||||}m1
+Тактика защиты 3{||||}1343631{||||}m11
+Тактика боя 3{||||}1343632{||||}m7
+Тактика боя 3{||||}1343633{||||}m2
+Тактика боя 3{||||}1343634{||||}m5
+Тактика боя 3{||||}1343637{||||}m8
+Тактика боя 3{||||}1343640{||||}m3
+Тактика ответа 3{||||}1343646{||||}m10
+Тактика ответа 3{||||}1343649{||||}m4
+Тактика ответа 3{||||}1343650{||||}m6

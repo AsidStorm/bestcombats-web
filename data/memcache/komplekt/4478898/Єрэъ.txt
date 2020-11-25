@@ -1,0 +1,29 @@
+Восстановление энергии 600HP{||||}922024{||||}m5
+Legendary Shield of Solidity{||||}924654{||||}shit
+Legendary Hammer of Solidity +11{||||}937588{||||}weap
+Improved Gloves of Solidity [R]{||||}941864{||||}perchi
+Improved Helmet of Solidity [R]{||||}941865{||||}helm
+Ring-mail of Expectation{||||}941873{||||}rybax
+Тактика защиты 3{||||}942258{||||}m8
+Тактика защиты 3{||||}942259{||||}m9
+Тактика защиты 3{||||}942260{||||}m10
+Improved Leggings of Solidity [R]{||||}944614{||||}leg
+Целебный пирог{||||}970745{||||}p2
+Тактика ответа 3{||||}971016{||||}m7
+Тактика боя 3{||||}971707{||||}m3
+Тактика боя 3{||||}971708{||||}m4
+Тактика боя 3{||||}971710{||||}m1
+Целебный пирог{||||}971725{||||}p1
+Тактика ответа 3{||||}985769{||||}m12
+Тактика ответа 3{||||}989730{||||}m2
+Тактика ответа 3{||||}989731{||||}m6
+Тактика боя 3{||||}989733{||||}m11
+Витое Кольцо Атаки{||||}1012975{||||}r1
+Витое Кольцо Атаки{||||}1012976{||||}r2
+Perfected Earrings of Solidity{||||}1012980{||||}sergi
+Perfected Amulet of Solidity{||||}1012981{||||}kulon
+Perfected Boots of Solidity{||||}1012992{||||}boots
+Perfected Bands of Solidity{||||}1012996{||||}naruchi
+Perfected Ring of Solidity{||||}1012998{||||}r3
+Perfected Armor of Solidity{||||}1013005{||||}bron
+Perfected Belt of Solidity{||||}1013008{||||}belt

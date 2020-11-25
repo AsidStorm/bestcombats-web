@@ -1,0 +1,18 @@
+Кольцо конвоира{||||}1088847{||||}r1
+Укреплённый Костыль{||||}1161508{||||}shit
+Руки голема{||||}1193330{||||}perchi
+Целебный пирог{||||}1245057{||||}p1
+Целебный пирог{||||}1245058{||||}p2
+Helmet of Constancy{||||}1253908{||||}helm
+Ring-mail of Suppression{||||}1429592{||||}rybax
+Perfected Magic Cloak{||||}1429607{||||}plaw
+Improved Armor of Constancy [R]{||||}1431182{||||}bron
+Improved Earrings of Constancy{||||}1431238{||||}sergi
+Improved Ring of Constancy [R]{||||}1431239{||||}r2
+Improved Ring of Constancy [R]{||||}1431350{||||}r3
+Improved Amulet of Constancy [R]{||||}1431351{||||}kulon
+Improved Boots of Constancy [R]{||||}1455308{||||}boots
+Improved Leggings of Constancy [R]{||||}1455545{||||}leg
+Improved Bands of Constancy [R]{||||}1455581{||||}naruchi
+Improved Belt of Constancy{||||}1486643{||||}belt
+Legendery Hammer of Safety +8{||||}1487872{||||}weap

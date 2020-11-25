@@ -1,0 +1,28 @@
+Целебный пирог{||||}811769{||||}p2
+Целебный пирог{||||}811771{||||}p1
+Perfected Magic Cloak{||||}895751{||||}plaw
+Серп травника +13{||||}911497{||||}weap
+Хрустальный щит{||||}939518{||||}m11
+Хрустальный щит{||||}939520{||||}m8
+Хрустальный щит{||||}939521{||||}m10
+Хрустальный щит{||||}939526{||||}m7
+Хрустальный щит{||||}939527{||||}m12
+Ярость холодных звёзд{||||}939531{||||}m4
+Improved Icy Cuffs of Ingenious [R]{||||}996093{||||}naruchi
+Garb of Expectation{||||}996366{||||}rybax
+Improved Icy Belt of Ingenious [R]{||||}996372{||||}belt
+Improved Icy Robe of Ingenious [R]{||||}996375{||||}bron
+Improved Icy Pants of Ingenious [R]{||||}996382{||||}leg
+Perfected Icy Earrings of Ingenious [R]{||||}996460{||||}sergi
+Perfected Icy Amulet of Ingenious [R]{||||}996465{||||}kulon
+Perfected Icy Ring of Ingenious [R]{||||}996486{||||}r2
+Perfected Icy Ring of Ingenious [R]{||||}996487{||||}r1
+Improved Icy Boots of Ingenious [R]{||||}996797{||||}boots
+Improved Icy Gloves of Ingenious [R]{||||}1000761{||||}perchi
+Великое восстановление маны{||||}1077624{||||}m5
+Великое восстановление маны{||||}1077626{||||}m3
+Великое восстановление маны{||||}1077629{||||}m1
+Великое восстановление маны{||||}1077630{||||}m6
+Великое восстановление маны{||||}1077639{||||}m2
+Кольцо конвоира{||||}1142912{||||}r3
+Improved Icy Hat of Ingenious{||||}1188099{||||}helm

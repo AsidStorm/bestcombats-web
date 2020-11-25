@@ -1,0 +1,21 @@
+Airy Hat of Veiled{||||}1075721{||||}helm
+Perfected Magic Cloak{||||}1082726{||||}plaw
+Perfected Airy Earrings of Veiled{||||}1239736{||||}sergi
+Perfected Airy Amulet of Veiled [R]{||||}1244125{||||}kulon
+Perfected Airy Ring of Veiled{||||}1244139{||||}r2
+Perfected Airy Ring of Veiled [R]{||||}1244141{||||}r1
+Perfected Airy Ring of Veiled{||||}1244150{||||}r3
+Improved Airy Staff of Veiled +13{||||}1245288{||||}weap
+Perfected Airy Cuffs of Veiled [R]{||||}1245630{||||}naruchi
+Perfected Airy Robe of Veiled{||||}1245639{||||}bron
+Improved Airy Pants of Veiled [R]{||||}1282667{||||}leg
+Запас маны{||||}1287897{||||}p1
+Запас маны{||||}1287904{||||}p2
+Garb of Suppression{||||}1303042{||||}rybax
+Ярость холодных звёзд{||||}1308357{||||}m2
+Хрустальный щит{||||}1308358{||||}m3
+Improved Airy Belt of Veiled [R]{||||}1341141{||||}belt
+Восстановление энергии 1000MP{||||}1446193{||||}m1
+Восстановление энергии 1500HP{||||}1446194{||||}m4
+Improved Airy Gloves of Veiled{||||}1446668{||||}perchi
+Improved Airy Boots of Veiled{||||}1456044{||||}boots

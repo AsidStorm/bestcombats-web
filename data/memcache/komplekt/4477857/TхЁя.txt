@@ -1,0 +1,15 @@
+Legendary Stately Ring{||||}390778{||||}r3
+Legendary Stately Ring{||||}561106{||||}r2
+Укреплённый серп{||||}668262{||||}weap
+Amulet of Ruse{||||}693228{||||}kulon
+Earrings of Ruse{||||}700395{||||}sergi
+Belt of Ruse{||||}700398{||||}belt
+Armor of Ruse{||||}719028{||||}bron
+Perfected Cloak{||||}727970{||||}plaw
+Leggings of Ruse{||||}788048{||||}leg
+Helmet of Ruse{||||}801071{||||}helm
+Bands of Ruse{||||}897012{||||}naruchi
+Boots of Ruse{||||}939553{||||}boots
+Ring-mail of Suppression{||||}988171{||||}rybax
+Кожаные перчатки{||||}1042416{||||}perchi
+Кольцо конвоира{||||}1190308{||||}r1

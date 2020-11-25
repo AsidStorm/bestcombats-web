@@ -1,0 +1,20 @@
+Icy Hat of Concealed{||||}1060495{||||}helm
+Icy Cuffs of Concealed{||||}1245735{||||}naruchi
+Legendary Staff of Concealed +4{||||}1247774{||||}weap
+Icy Gloves of Concealed{||||}1278849{||||}perchi
+Icy Robe of Concealed{||||}1386263{||||}bron
+Earthen Boots of Abstruse{||||}1395721{||||}boots
+Amulet of Concealed{||||}1398052{||||}kulon
+Earrings of Concealed{||||}1398187{||||}sergi
+Improved Icy Ring of Concealed{||||}1412529{||||}r2
+Improved Icy Ring of Concealed{||||}1412530{||||}r1
+Improved Icy Ring of Concealed{||||}1412531{||||}r3
+Improved Icy Pants of Concealed{||||}1412544{||||}leg
+Improved Icy Belt of Abstruse{||||}1412550{||||}belt
+Плащ Мага [8]{||||}1418170{||||}plaw
+Рубаха Мага [8]{||||}1418172{||||}rybax
+Запас маны{||||}1422535{||||}p1
+Изгнание астрала стихий (вода){||||}1422547{||||}m4
+Водное Усилениие{||||}1422561{||||}m3
+Защита от Оружия{||||}1422587{||||}m1
+Сокрушение{||||}1422588{||||}m2

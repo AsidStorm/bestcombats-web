@@ -1,0 +1,15 @@
+Наручи рассекающего лезвия{||||}1194111{||||}naruchi
+Рубаха Воина [8]{||||}1194433{||||}rybax
+Плащ Воина [8]{||||}1194435{||||}plaw
+Improved Belt of Brutal{||||}1196175{||||}belt
+Improved Armor of Brutal{||||}1197552{||||}bron
+Improved Leggings of Brutal{||||}1258485{||||}leg
+Improved Gloves of Brutal{||||}1258494{||||}perchi
+Improved Boots of Brutal{||||}1259159{||||}boots
+Кольцо BestCombats{||||}1338914{||||}r1
+Кольцо BestCombats{||||}1338915{||||}r3
+Кольцо BestCombats{||||}1338916{||||}r2
+Серьги рассекающего лезвия{||||}1338919{||||}sergi
+Шлем рассекающего лезвия{||||}1338929{||||}helm
+Improved Amulet of Brutal{||||}1343119{||||}kulon
+Укреплённый серп{||||}1343276{||||}weap

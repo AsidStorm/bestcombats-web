@@ -1,0 +1,17 @@
+Legendary Stately Ring{||||}760755{||||}r1
+Legendary Stately Ring [R]{||||}804434{||||}r2
+Legendary Stately Ring [R]{||||}813516{||||}r3
+Leggings of Avoidance{||||}974373{||||}leg
+Gloves of Avoidance{||||}1232360{||||}perchi
+Belt of Avoidance{||||}1292577{||||}belt
+Armor of Avoidance{||||}1343009{||||}bron
+Bands of Avoidance [R]{||||}1369912{||||}naruchi
+Helmet of Avoidance{||||}1370116{||||}helm
+Perfected Earrings of Avoidance{||||}1373549{||||}sergi
+Perfected Amulet of Avoidance [R]{||||}1373555{||||}kulon
+Boots of Avoidance [R]{||||}1386511{||||}boots
+Ring-mail of Serenity{||||}1413003{||||}rybax
+Тактика отражения 3{||||}1417358{||||}m9
+Тактика отражения 3{||||}1417359{||||}m11
+Великолепный турнирный плащ{||||}1462063{||||}plaw
+Серп травника{||||}1462074{||||}weap

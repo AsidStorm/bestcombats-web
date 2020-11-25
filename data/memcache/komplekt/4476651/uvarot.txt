@@ -1,0 +1,25 @@
+Legendary Dagger of Avoidance (мф) +12{||||}382248{||||}weap
+Legendary Stately Ring (мф) [R]{||||}435044{||||}r1
+Legendary Stately Ring (мф){||||}442205{||||}r2
+Legendary Stately Ring (мф){||||}572056{||||}r3
+Legendary Dagger of Avoidance +12 (мф){||||}719027{||||}shit
+Improved Gloves of Ruse [R]{||||}752378{||||}perchi
+Improved Helmet of Ruse{||||}752383{||||}helm
+Improved Bands of Ruse [R]{||||}752384{||||}naruchi
+Improved Belt of Ruse [R]{||||}752389{||||}belt
+Improved Leggings of Ruse [R]{||||}752392{||||}leg
+Perfected Amule of Ruse (мф) [R]{||||}782177{||||}kulon
+Целебный пирог{||||}801760{||||}p2
+Целебный пирог{||||}801761{||||}p1
+Ring-mail of Suppression{||||}817067{||||}rybax
+Тактика отражения 2{||||}832795{||||}m1
+Improved Armor of Ruse [R]{||||}849472{||||}bron
+Плащ Воина [10] (мф){||||}849879{||||}plaw
+Perfected Earrings of Ruse [R]{||||}849920{||||}sergi
+Тактика боя 3{||||}903587{||||}m3
+Тактика отражения 3{||||}903588{||||}m5
+Тактика отражения 3{||||}903590{||||}m2
+Тактика отражения 3{||||}903591{||||}m11
+Тактика отражения 3{||||}903592{||||}m9
+Тактика боя 3{||||}945916{||||}m4
+Improved Boots of Ruse [R]{||||}969787{||||}boots

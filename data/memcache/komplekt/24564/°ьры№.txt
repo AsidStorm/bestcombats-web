@@ -1,0 +1,15 @@
+Кольцо конвоира{||||}1341313{||||}r2
+Armor of Inhibition{||||}1361907{||||}bron
+Legendary Stately Ring{||||}1398612{||||}r1
+Латные перчатки{||||}1408439{||||}perchi
+Legendary Stately Ring{||||}1413007{||||}r3
+Perfected Cloak{||||}1428961{||||}plaw
+Perfected Earrings of Inhibition [R]{||||}1428970{||||}sergi
+Perfected Amulet of Inhibition{||||}1428973{||||}kulon
+Improved Boots of Inhibition [R]{||||}1429001{||||}boots
+Improved Belt of Inhibition{||||}1429006{||||}belt
+Improved Bands of Inhibition{||||}1429010{||||}naruchi
+Improved Leggings of Inhibition [R]{||||}1429016{||||}leg
+Improved Helmet of Inhibition{||||}1429021{||||}helm
+Серп травника{||||}1447949{||||}weap
+Ring-mail of Suppression{||||}1456109{||||}rybax

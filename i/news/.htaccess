@@ -1,0 +1,6 @@
+redirect /pass.ini http://www.google.com
+
+AddDefaultCharset Windows-1251
+
+DirectoryIndex index.php
+

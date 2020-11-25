@@ -1,0 +1,17 @@
+Legendary Stately Ring{||||}862315{||||}r3
+Amulet of Ruse{||||}953258{||||}kulon
+Armor of Ruse{||||}967870{||||}bron
+Legendary Stately Ring{||||}972017{||||}r1
+Boots of Ruse [R]{||||}1052014{||||}boots
+Кольцо конвоира{||||}1076848{||||}r2
+Кожаные перчатки{||||}1080224{||||}perchi
+Целебный пирог{||||}1147295{||||}p2
+Целебный пирог{||||}1147296{||||}p1
+Ring-mail of Suppression{||||}1150716{||||}rybax
+Legendary Dagger of Avoidance{||||}1158454{||||}weap
+Legendary Dagger of Avoidance{||||}1159739{||||}shit
+Improved Earrings of Ruse{||||}1165329{||||}sergi
+Improved Bands of Ruse{||||}1167117{||||}naruchi
+Improved Leggings of Ruse{||||}1261094{||||}leg
+Improved Belt of Ruse{||||}1281329{||||}belt
+Improved Helmet of Ruse{||||}1297993{||||}helm

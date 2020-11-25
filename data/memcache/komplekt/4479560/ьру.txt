@@ -1,0 +1,14 @@
+Legendary Staff of Recondite +5{||||}242841{||||}weap
+Earthen Gloves of Recondite{||||}860187{||||}perchi
+Earthen Hat of Recondite{||||}882333{||||}helm
+Earthen Pants of Recondite{||||}883072{||||}leg
+Earthen Cuffs of Recondite{||||}1034553{||||}naruchi
+Earthen Robe of Recondite{||||}1043678{||||}bron
+Перстень бездонных ущелий{||||}1043731{||||}r2
+Перстень бездонных ущелий{||||}1043732{||||}r1
+Amulet of Recondite{||||}1075501{||||}kulon
+Earthen Boots of Recondite{||||}1111186{||||}boots
+Earthen Belt of Recondite{||||}1206815{||||}belt
+Perfected Earrings of Recondite{||||}1214854{||||}sergi
+Perfected Magic Cloak{||||}1214856{||||}plaw
+Перстень бездонных ущелий{||||}1215221{||||}r3

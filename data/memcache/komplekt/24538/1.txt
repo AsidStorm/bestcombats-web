@@ -1,0 +1,13 @@
+Icy Hat of Concealed{||||}1011184{||||}helm
+Icy Cuffs of Concealed{||||}1227119{||||}naruchi
+Icy Staff of Concealed{||||}1259639{||||}weap
+Icy Pants of Concealed{||||}1278322{||||}leg
+Icy Robe of Concealed{||||}1346274{||||}bron
+Perfected Icy Ring of Concealed{||||}1381286{||||}r3
+Perfected Icy Ring of Concealed{||||}1381290{||||}r2
+Perfected Icy Ring of Concealed{||||}1381291{||||}r1
+Perfected Amulet of Concealed{||||}1381299{||||}kulon
+Perfected Icy Earrings of Abstruse{||||}1381302{||||}sergi
+Perfected Icy Belt of Concealed{||||}1381319{||||}belt
+Perfected Icy Gloves of Concealed{||||}1381322{||||}perchi
+Perfected Icy Boots of Concealed{||||}1381324{||||}boots

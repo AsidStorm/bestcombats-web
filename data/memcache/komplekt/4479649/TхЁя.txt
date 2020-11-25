@@ -1,0 +1,17 @@
+Целебный пирог{||||}1043882{||||}p1
+Целебный пирог{||||}1043892{||||}p2
+Рубаха Воина [7]{||||}1060895{||||}rybax
+Плащ Воина [7]{||||}1060904{||||}plaw
+Perfected Earrings of Trick{||||}1117053{||||}sergi
+Perfected Amulet of Trick{||||}1117055{||||}kulon
+Perfected Ring of Trick{||||}1117058{||||}r1
+Perfected Ring of Trick{||||}1117059{||||}r3
+Belt of Trick{||||}1117215{||||}belt
+Legendary Stately Ring [7]{||||}1124116{||||}r2
+Improved Gloves of Trick{||||}1124128{||||}perchi
+Improved Boots of Trick{||||}1124132{||||}boots
+Improved Armor of Trick{||||}1124134{||||}bron
+Improved Bands of Trick{||||}1124135{||||}naruchi
+Improved Helmet of Trick{||||}1125304{||||}helm
+Improved Leggings of Trick{||||}1125308{||||}leg
+Укреплённый серп{||||}1133490{||||}weap

@@ -1,0 +1,25 @@
+Improved Armor of Evasion [R]{||||}744507{||||}bron
+Improved Bands of Evasion [R]{||||}744508{||||}naruchi
+Legendary Dagger of Evasion (мф) +14{||||}759364{||||}weap
+Improved Helmet of Evasion [R]{||||}775537{||||}helm
+Legendary Stately Ring [R]{||||}794364{||||}r3
+Legendary Dagger of Evasion (мф) +14{||||}794472{||||}shit
+Improved Gloves of Evasion [R]{||||}800509{||||}perchi
+Improved Earrings of Evasion [R]{||||}808476{||||}sergi
+Improved Belt of Evasion [R]{||||}824499{||||}belt
+Improved Leggings of Evasion [R]{||||}854446{||||}leg
+Improved Boots of Evasion [R]{||||}875226{||||}boots
+Perfected Cloak{||||}877917{||||}plaw
+Improved Ring of Evasion [R]{||||}888690{||||}r1
+Ring-mail of Expectation{||||}904206{||||}rybax
+Improved Amulet of Evasion [R]{||||}943271{||||}kulon
+Кольцо конвоира{||||}1017552{||||}r2
+Тактика ответа 3{||||}1021985{||||}m3
+Тактика ответа 3{||||}1021989{||||}m4
+Тактика ответа 3{||||}1021990{||||}m6
+Тактика ответа 3{||||}1022017{||||}m5
+Тактика защиты 3{||||}1022042{||||}m8
+Тактика защиты 3{||||}1022043{||||}m9
+Тактика защиты 3{||||}1022044{||||}m7
+Тактика боя 3{||||}1022132{||||}m11
+Тактика боя 3{||||}1022135{||||}m12

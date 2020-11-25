@@ -1,0 +1,19 @@
+Рубаха Воина [5]{||||}991586{||||}rybax
+Improved Boots of Bestial{||||}1018165{||||}boots
+Improved Earrings of Brutal{||||}1083708{||||}sergi
+Improved Amulet of Brutal{||||}1083709{||||}kulon
+Improved Leggings of Brutal{||||}1083710{||||}leg
+Improved Belt of Brutal{||||}1083711{||||}belt
+Improved Bands of Brutal{||||}1083712{||||}naruchi
+Improved Helmet of Brutal{||||}1083744{||||}helm
+Improved Armor of Brutal{||||}1083813{||||}bron
+Perfected Cloak{||||}1083938{||||}plaw
+Perfected Gloves of Cruel{||||}1083940{||||}perchi
+Perfected Ring of Brutal{||||}1083943{||||}r2
+Perfected Ring of Brutal{||||}1083944{||||}r1
+Perfected Ring of Brutal{||||}1083945{||||}r3
+Пропуск Забытых{||||}1083947{||||}m2
+Сила Великана{||||}1083953{||||}m1
+Целебный пирог{||||}1083979{||||}p1
+Целебный пирог{||||}1083982{||||}p2
+Укреплённый серп{||||}1084113{||||}weap

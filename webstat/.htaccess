@@ -1,0 +1,7 @@
+DirectoryIndex index.html
+AuthType Basic
+AuthName "/www/bestcombats.net/webstat"
+AuthUserFile /var/www/bestcombats/data/etc/11141525.passwd
+<Limit GET POST>
+	require valid-user
+</Limit>

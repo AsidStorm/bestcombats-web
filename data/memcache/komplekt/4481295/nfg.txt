@@ -1,0 +1,16 @@
+Рубаха Воина [5]{||||}1500200{||||}rybax
+Bands of Cruel{||||}1501642{||||}naruchi
+Ring of Cruel{||||}1503736{||||}r3
+Покров богатого новобранца{||||}1503758{||||}bron
+Плащ Воина [7]{||||}1503803{||||}plaw
+Кулон богатого новобранца{||||}1504435{||||}kulon
+Improved Leggings of Cruel{||||}1506839{||||}leg
+Improved Gloves of Cruel{||||}1506859{||||}perchi
+Perfected Sword of Cruel{||||}1507097{||||}weap
+Earrings of Cruel{||||}1507365{||||}sergi
+Helmet of Cruel{||||}1507690{||||}helm
+Improved Boots of Cruel{||||}1507882{||||}boots
+Improved Belt of Cruel{||||}1507884{||||}belt
+Improved Sword of Cruel{||||}1510408{||||}shit
+Perfected Ring of Cruel{||||}1514196{||||}r1
+Кольцо BestCombats{||||}1514203{||||}r2

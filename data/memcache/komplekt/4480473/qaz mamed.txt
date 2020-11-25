@@ -1,0 +1,10 @@
+Рубашка{||||}1264964{||||}rybax
+Perfected Fiery Staff of Fancy{||||}1264999{||||}weap
+Perfected Fiery Cuffs of Fancy{||||}1265001{||||}naruchi
+Perfected Fiery Belt of Fancy{||||}1265013{||||}belt
+Perfected Fiery Ring of Fancy{||||}1265015{||||}r3
+Perfected Fiery Ring of Fancy{||||}1265016{||||}r2
+Perfected Fiery Ring of Fancy{||||}1265017{||||}r1
+Perfected Fiery Pants of Fancy{||||}1265022{||||}leg
+Perfected Fiery Earrings of Fancy{||||}1265024{||||}sergi
+Perfected Fiery Boots of Fancy{||||}1265082{||||}boots

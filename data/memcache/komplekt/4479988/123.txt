@@ -1,0 +1,26 @@
+Legendary Dagger of Evasion +14 (мф){||||}1148768{||||}weap
+Legendary Stately Ring (мф){||||}1151758{||||}r3
+Legendary Stately Ring (мф){||||}1155427{||||}r1
+Legendary Dagger of Evasion +14 (мф){||||}1162552{||||}shit
+Целебный пирог{||||}1168206{||||}p1
+Целебный пирог{||||}1168207{||||}p2
+Perfected Boots of Evasion (мф){||||}1168296{||||}boots
+Perfected Gloves of Evasion (мф){||||}1168297{||||}perchi
+Perfected Cloak (мф){||||}1168299{||||}plaw
+Perfected Armor of Evasion (мф){||||}1168300{||||}bron
+Perfected Helmet of Evasion (мф){||||}1168301{||||}helm
+Perfected Bands of Evasion (мф){||||}1168302{||||}naruchi
+Perfected Belt of Evasion (мф){||||}1168303{||||}belt
+Perfected Leggings of Evasion (мф) [R]{||||}1168304{||||}leg
+Perfected Earrings of Evasion (мф){||||}1168305{||||}sergi
+Perfected Amulet of Evasion (мф) [R]{||||}1168306{||||}kulon
+Рубаха Воина [11] (мф){||||}1168346{||||}rybax
+Восстановление энергии 1500HP{||||}1169578{||||}m9
+Выход из боя{||||}1169580{||||}m11
+Кровавое нападение{||||}1169581{||||}m10
+Кольцо конвоира{||||}1175245{||||}r2
+Восстановление энергии 1500HP{||||}1176306{||||}m4
+Восстановление энергии 1500HP{||||}1176307{||||}m1
+Восстановление энергии 1500HP{||||}1176308{||||}m3
+Восстановление энергии 1500HP{||||}1176309{||||}m2
+Восстановление энергии 1500HP{||||}1176310{||||}m5

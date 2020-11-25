@@ -1,0 +1,16 @@
+Рубашка{||||}1243956{||||}rybax
+Legendary Stately Ring [5]{||||}1244288{||||}r3
+Legendary Ring of Life [5]{||||}1245344{||||}r2
+Perfected Boots of Bestial{||||}1246153{||||}boots
+Perfected Gloves of Bestial{||||}1246156{||||}perchi
+Perfected Armor of Bestial{||||}1246157{||||}bron
+Perfected Helmet of Bestial{||||}1246158{||||}helm
+Perfected Bands of Bestial{||||}1246160{||||}naruchi
+Perfected Belt of Bestial{||||}1246161{||||}belt
+Perfected Leggings of Bestial{||||}1246163{||||}leg
+Perfected Earrings of Bestial{||||}1246164{||||}sergi
+Perfected Amulet of Bestial{||||}1246165{||||}kulon
+Perfected Ring of Bestial{||||}1246171{||||}r1
+Меч известного живодера{||||}1246182{||||}weap
+Плащ Воина [5]{||||}1246189{||||}plaw
+Improved Sword of Bestial{||||}1247364{||||}shit

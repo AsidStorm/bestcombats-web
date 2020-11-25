@@ -1,0 +1,25 @@
+Legendary Ring of Life [7]{||||}1202717{||||}r3
+Legendary Ring of Life [5] (мф){||||}1288710{||||}r1
+Legendary Ring of Life [5] (мф){||||}1292931{||||}r2
+Helmet of Brutal{||||}1421114{||||}helm
+Legendary Sword of Brutal +3{||||}1438304{||||}weap
+Amulet of Cruel (мф){||||}1439118{||||}kulon
+Perfected Gloves of Cruel (мф){||||}1453744{||||}perchi
+Perfected Boots of Cruel (мф){||||}1453745{||||}boots
+Perfected Leggings of Cruel{||||}1453753{||||}leg
+Perfected Armor of Dreadful [R]{||||}1453754{||||}bron
+Perfected Earrings of Dreadful{||||}1453757{||||}sergi
+Рубаха Воина [8] (мф){||||}1453820{||||}rybax
+Жажда жизни +3{||||}1454079{||||}m11
+Целебный пирог{||||}1454086{||||}p1
+Восстановление энергии 60HP{||||}1454099{||||}m8
+Восстановление энергии 60HP{||||}1454100{||||}m9
+Восстановление энергии 60HP{||||}1454101{||||}m10
+Тактика крови 3{||||}1460387{||||}m4
+Тактика ответа 3{||||}1460412{||||}m1
+Тактика ответа 3{||||}1460413{||||}m2
+Тактика ответа 3{||||}1460414{||||}m3
+Legendary Sword of Brutal (мф) +4{||||}1487476{||||}shit
+Perfected Bands of Cruel{||||}1492975{||||}naruchi
+Perfected Cloak{||||}1492977{||||}plaw
+Perfected Belt of Cruel{||||}1492991{||||}belt

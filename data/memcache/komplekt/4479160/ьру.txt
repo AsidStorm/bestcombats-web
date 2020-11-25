@@ -1,0 +1,15 @@
+Icy Gloves of Recondite{||||}838620{||||}perchi
+Icy Robe of Recondite{||||}905899{||||}bron
+Icy Hat of Recondite [R]{||||}959233{||||}helm
+Legendary Staff of Recondite +10{||||}963416{||||}weap
+Perfected Amulet of Recondite{||||}989352{||||}kulon
+Improved Icy Ring of Recondite{||||}989411{||||}r2
+Improved Icy Ring of Recondite{||||}989412{||||}r1
+Improved Icy Ring of Recondite{||||}989413{||||}r3
+Garb of Serenity{||||}989417{||||}rybax
+Improved Icy Boots of Recondite{||||}989431{||||}boots
+Improved Earrings of Recondite{||||}989436{||||}sergi
+Improved Icy Cuffs of Recondite{||||}1028738{||||}naruchi
+Perfected Magic Cloak{||||}1040106{||||}plaw
+Improved Icy Pants of Recondite{||||}1088584{||||}leg
+Improved Icy Belt of Recondite{||||}1088587{||||}belt
