@@ -183,7 +183,7 @@ mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$i','Закл�
 //Заносим эффект сильвер аккаунта
 mq("INSERT INTO `effects` (`owner`,`name`,`time`,`type`) values ('$i','Silver Account',".(time()+259200).",70);");
 //
-mq("INSERT INTO `online` (`id` ,`date` ,`room`)VALUES ('".$i."', '".time()."', '1');");
+mq("INSERT INTO `online` (`id` ,`date` ,`room`) VALUES ('".$i."', '".time()."', '1');");
 if(!empty($ref)){
         $us = mysqli_fetch_array(mq("select `id` from `online` WHERE `date` >= ".(time()-60)." AND `id` = '{$ref}' LIMIT 1;"));
                 if($us[0]){

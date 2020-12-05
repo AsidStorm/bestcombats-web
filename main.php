@@ -312,7 +312,9 @@ $_SESSION['ekr_online'] = time();
     if (!$mt) $_GET['got'] =0;
     else $_SESSION['movetime']=time()+$mt;
 
-    if($_GET['got'] && $_GET['room1'] && $user["room"]==2) {  mq("UPDATE `users`,`online` SET `users`.`room` = '1',`online`.`room` = '1' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;"); }
+    if($_GET['got'] && $_GET['room1'] && $user["room"]==2) {
+        mq("UPDATE `users`,`online` SET `users`.`room` = '1',`online`.`room` = '1' WHERE `online`.`id` = `users`.`id` AND `online`.`id` = '{$_SESSION['uid']}' ;");
+    }
 
     if($_GET['got'] && $_GET['room2'] && ($user['room']==1 or $user['klan']=='Adminion')) {
       if($user['level'] > 0) {
