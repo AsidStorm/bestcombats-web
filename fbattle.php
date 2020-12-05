@@ -729,7 +729,7 @@ class prieminfo{
   var $needsil;
   var $needvyn;
   var $needshield;
-  function prieminfo($s,$priem) { # либо по id ($s) либо по названию $priem
+  function __construct($s,$priem) { # либо по id ($s) либо по названию $priem
     global $strokes, $user;
     if ($s) $priem=$strokes["ids"][$s];
     $this->id_priem=$strokes[$priem]->id_priem;
@@ -3563,7 +3563,7 @@ class fbattle {
 /*-------------------------------------------------------------------
  создание класса и сбор основной инфы
 --------------------------------------------------------------------*/
-  function fbattle ($battle_id) {
+  function __construct ($battle_id) {
     global $mysql, $user, $_POST, $textp, $leveldefs;
 
     // соединяем мускуль и юзера

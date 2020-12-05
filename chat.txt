@@ -559,3 +559,5 @@
 :[1378756991]:[!sys!!]:[<a href=logs.php?log=6564 target=_blank>Поединок</a> между <B>Человек Паук<img src=<?=IMG_PATH?>/battle/flag.gif></B> и <B>Жук(1)</B>, <B>Жук(2)</B> закончен.   ]:[403]
 :[1378756992]:[{[]}грифон{[]}]:[<font color=red>Внимание!</font> Бой закончен. Всего вами нанесено урона: <b>4144 HP</b>. Получено кланового опыта: <b>687</b>.  Получено опыта: <b>3438</b> (305%).]:[52]
 :[1378756992]:[!sys!!]:[<a href=logs.php?log=6562 target=_blank>Поединок</a> между <B>невидимка<img src=<?=IMG_PATH?>/battle/flag.gif></B> и <B>Скелет</B> закончен.   ]:[52]
+:[1607194800]:[!sys!!]:[Начался <a href=logs.php?log=0 target=_blank>поединок</a> между <B>AStorm</B> и <b>AStorm (клон 1)</b>.]:[6]
+:[1607194952]:[!sys!!]:[Начался <a href=logs.php?log=0 target=_blank>поединок</a> между <B>AStorm</B> и <b>AStorm (клон 1)</b>.]:[6]

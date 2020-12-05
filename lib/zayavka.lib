@@ -1,0 +1,655 @@
+<?php
+
+class zayavka {
+    function __construct () {
+
+    }
+
+    // функция парсинга тимы
+    function fteam ( $team ) {
+        $team = explode(";",$team);
+        unset($team[count($team)-1]);
+        return $team;
+    }
+
+    // функция получения списка заявок
+    function getlist ($razdel = 1, $level = null, $id = null ) {
+        $fict = db_query("SELECT * FROM `zayavka` WHERE ".
+            (( $level != null )? " ((`t1min` <= '{$level}' OR `t1min` = '99') AND (`t1max` >= '{$level}' OR `t1max` = '99') ".(($razdel==4)?"AND (`t2min` <= '{$level}' OR `t2min` = '99') AND (`t2max` >= '{$level}' OR `t2max` = '99')":"").") AND " : "" ).
+            " `level` = {$razdel} ".
+            (( $id != null )? " AND `id` = {$id} " : "")
+            ." ORDER by `podan` DESC;" );
+
+        while ( $row = @mysqli_fetch_array($fict) ) {
+            if($row['start']+1800 < time()) {
+                if (db_query("DELETE FROM `zayavka` WHERE `id` = '{$row['id']}';")) {
+                    $team1 = $this->fteam($row['team1']);
+                    foreach ($team1 as $k => $v) {
+                        db_query("UPDATE `users` SET `zayavka` = '' WHERE `id` = {$v} LIMIT 1;");
+                    }
+                    $team2 = $this->fteam($row['team2']);
+                    foreach ($z[$zay]['team2'] as $k => $v) {
+                        db_query("UPDATE `users` SET `zayavka` = '' WHERE `id` = {$v} LIMIT 1;");
+                    }
+                }
+            }
+
+            //$t1 = $this->fteam($row['team1']);
+            //$t1 = (int)$t1[0];
+            //$t1 = mysqli_fetch_array(db_query("select * from `online` WHERE `date` >= ".(time()-120)." AND `id` = ".$t1.";"));
+            //if($t1) {
+            $zay[$row['id']] = array(
+                "team1" => $this->fteam($row['team1']),
+                "team2" => $this->fteam($row['team2']),
+                "coment" => $row['coment'],
+                "type" => $row['type'],
+                "timeout" => $row['timeout'],
+                "start" => $row['start'],
+                "t1min" => $row['t1min'],
+                "t1max" => $row['t1max'],
+                "t2min" => $row['t2min'],
+                "t2max" => $row['t2max'],
+                "t1c" => $row['t1c'],
+                "t2c" => $row['t2c'],
+                "podan" => $row['podan'],
+                "id" => $row['id'],
+                "level" => $row['level'],
+                "blood" => $row['blood'],
+                "closed" => $row['closed'],
+            );
+            //}
+        }
+        return $zay;
+    }
+
+    // добавление в тиму перса
+    function addteam ( $team = 1, $id, $zay , $r) {
+        $owntravma = mysqli_fetch_array(db_query("SELECT `type`,`id`,`sila`,`lovk`,`inta` FROM `effects` WHERE `owner` = ".$id." AND (type=12 OR type=13 OR type=14);"));
+        $z = @$this->getlist($r,null,$zay);
+        $user = mysqli_fetch_array(db_query("SELECT `hp`,`maxhp`,`level`,`klan`,`align` FROM `users` WHERE `id` = '{$id}' LIMIT 1;"));
+        if ($owntravma) {
+            switch($owntravma['type']) {
+                case ($owntravma['type']==12 && ($z[$zay]['type']!=4 AND $z[$zay]['type']!=5)):
+                    return "У вас средняя травма, поединки с оружием слишком тяжелы для вас...";
+                    break;
+                case 13:
+                    return "У вас тяжелая травма, вы не сможете драться...";
+                    break;
+                case 14:
+                    return "У вас тяжелая травма, вы не сможете драться...";
+                    break;
+            }
+
+        }
+        if ($user['hp'] < $user['maxhp']*0.33) {
+            return "Вы слишком ослаблены для боя, восстановитесь.";
+        }
+        if ( !$z ) { return "Эта заявка не может быть принята вами."; }
+        if ( $this->ustatus($id) != 0) { return "Эта заявка не может быть принята вами."; }
+
+        // палы кланы))
+        if ($z[$zay]['type'] == 3 OR $z[$zay]['type'] == 5) { } else {
+
+            if ($team == 1) { $teamz = 2; } else { $teamz = 1; }
+            foreach($z[$zay]['team'.$teamz] as $v) {
+                $toper = mysqli_fetch_array(db_query("SELECT `klan`,`align` FROM `users` WHERE `id`='{$v}' LIMIT 1;"));
+                if($toper['klan']!='') {
+                    if($user['klan']==$toper['klan']) {
+                        return "Чтите честь ваших сокланов.";
+                    }
+                }
+                if((int)$user['align']==1) {
+                    if((int)$toper['align']==1) {
+                        return "Чтите честь братьев.";
+                    }
+                }
+                //echo "111";
+            }
+            foreach($z[$zay]['team'.$team] as $v) {
+                $toper = mysqli_fetch_array(db_query("SELECT `align` FROM `users` WHERE `id`='{$v}' LIMIT 1;"));
+                if((int)$user['align']==1) {
+                    if($toper['align']==3) {
+                        return "Не предавайте свет.";
+                    }
+                }
+                //echo "111";
+            }
+
+        }
+
+        // кланы
+        if($z[$zay]['t'.$team.'min'] == 99) {
+            $toper = $z[$zay]['team'.$team][0];
+            $toper = mysqli_fetch_array(db_query("SELECT * FROM `users` WHERE `id`='{$toper}' LIMIT 1;"));
+            //echo $user['klan'];
+            if($toper['klan']!='') {
+                if($user['klan']!=$toper['klan'])
+                { return "Эта заявка не может быть принята вами."; }
+            }
+        } else {
+            if ($user['level'] > 0  &&!($z[$zay]['t'.$team.'min'] <= $user['level'] && $z[$zay]['t'.$team.'max'] >= $user['level'])) { return "Эта заявка не может быть принята вами."; }
+        }
+        if ( count($z[$zay]['team'.$team]) >= $z[$zay]['t'.$team.'c'] ) { return "Группа уже набрана."; }
+        $z[$zay]['team'.$team][]='';
+        if (db_query("UPDATE `users`, `zayavka` SET
+                            `users`.zayavka = {$zay},
+                            `zayavka`.team{$team} = '".implode(";",$z[$zay]['team'.$team])."".$id.";'
+                        WHERE
+                            `users`.id = {$id} AND
+                            `users`.zayavka = 0 AND
+                            `zayavka`.id = {$zay};
+                        ")) { return "Вы приняли заявку на бой."; }
+    }
+
+    // отозвать запрос ;)
+    function delteam ( $team = 2, $id, $zay, $r ) {
+        $z = $this->getlist($r,null,$zay);
+        //$z[$zay]['team'.$team][]='';
+        //$z[$zay]['']
+        //$teams = str_replace(";".$id.";","",";".implode(";",$z[$zay]['team'.$team]));
+        //$teams = str_replace(";".$id.";","",";".implode(";",$z[$zay]['team'.$team]));
+        if($z[$zay]['level'] > 3 OR $z[$zay]['level'] == null)
+        {
+            return "Ай-ай-ай!";
+        }
+
+        foreach($z[$zay]['team'.$team] as $v) {
+            if  ($v != $id) {
+                $teams[] = $v;
+            }
+        }
+
+
+        if(db_query("UPDATE `users`, `zayavka` SET
+                                `users`.zayavka = '',
+                                `zayavka`.team{$team} = '{$teams}'
+                            WHERE
+                                `users`.id = {$id} AND
+                                `zayavka`.id = {$zay};"))
+        {
+            return "Вы отозвали запрос";
+        }
+    }
+
+    // подача заявки
+    function addzayavka ( $start = 10, $timeout = 3, $t1c, $t2c, $type, $t1min, $t2min, $t1max, $t2max, $coment, $creator, $level = 1, $stavka, $blood=0, $closed=0) {
+        global $user;
+        if ((int)$level<1 || (int)$level>5) return "Ошибка...";
+        if ($level==1 && ($type!=1 && $type!=4)) $type=1;
+        if ($level==2 && ($type!=1 && $type!=4 && $type!=6)) $type=1;
+        if ($level==4 && ($type!=2 && $type!=4)) $type=2;
+        if ($level==5 && ($type!=3 && $type!=5)) $type=3;
+
+        if ($start == 5 OR $start == 10 OR $start == 15 OR $start == 30 OR $start == 45 OR $start == 60) {
+        } else { $start = 10; }
+
+        if($timeout==1 || $timeout==3 || $timeout==4 || $timeout==5 || $timeout==7 || $timeout==10) {
+        } else { $timeout = 3; }
+
+        // время начала заявки
+        if ( $this->ustatus($creator) != 0) { exit;}
+        $owntravma = mysqli_fetch_array(db_query("SELECT `type`,`id`,`sila`,`lovk`,`inta` FROM `effects` WHERE `owner` = ".$creator." AND (type=12 OR type=13 OR type=14);"));
+        if ($owntravma) {
+            switch($owntravma['type']) {
+                case ($owntravma['type']==12 && ($type!=4 AND $type!=5)):
+                    return "У вас средняя травма, поединки с оружием слишком тяжелы для вас...";
+                    break;
+                case 13:
+                    return "У вас тяжелая травма, вы не сможети драться...";
+                    break;
+                case 14:
+                    return "У вас тяжелая травма, вы не сможети драться...";
+                    break;
+            }
+
+        }
+        if (!$user['klan'] && $t1min == 99) {
+            return "Вы не состоите в клане.";
+        }
+        // хп
+        //$user = mysqli_fetch_array(db_query("SELECT `hp`,`maxhp` FROM `users` WHERE `id` = '{$creator}' LIMIT 1;"));
+        if ($user['hp'] < $user['maxhp']*0.33) {
+            return "Вы слишком ослаблены для боя, восстановитесь.";
+        }
+        $start = time()+$start*60;
+        $stavka = round($stavka,2);
+        db_query("INSERT INTO `zayavka`
+                (`start`, `timeout`, `t1c`, `t2c`, `type`, `level`, `coment`, `team1`, `team2`, `stavka`, `t1min`, `t2min`, `t1max`, `t2max`,`podan`,`blood`, closed) values
+                ({$start},{$timeout},{$t1c},{$t2c},{$type},{$level},'{$coment}','{$creator};','','{$stavka}',{$t1min}, {$t2min}, {$t1max}, {$t2max}, '".date("H:i")."', '{$blood}', '$closed');");
+        db_query("UPDATE `users` SET `zayavka` = ".db_insert_id()." WHERE `id` = {$creator};");
+    }
+
+    // отзыв заявки
+    function delzayavka ($id, $zay,$r,$f=1) {
+        $z = $this->getlist($r,null,$zay);
+        if($f!=1) {
+            if ($z[$zay]['level'] > 3) {
+                return 'Ай-ай-ай!';
+            }
+        }
+        if (db_query("DELETE FROM `zayavka` WHERE `id` = {$zay} AND `team1` LIKE '{$id};%';")) {
+            if(count($z[$zay]['team1'])>0)
+                foreach ($z[$zay]['team1'] as $k => $v) {
+                    db_query("UPDATE `users` SET `zayavka` = 0 WHERE `id` = {$v} LIMIT 1;");
+                }
+            if(count($z[$zay]['team2'])>0)
+                foreach ($z[$zay]['team2'] as $k => $v) {
+                    db_query("UPDATE `users` SET `zayavka` = 0 WHERE `id` = {$v} LIMIT 1;");
+                }
+            return 'Вы отозвали заявку.';
+        }
+    }
+
+    // показать физическую заявку
+    function showfiz ( $row ) {
+        global $user;
+        $rr = "<INPUT TYPE=radio ".((in_array($user['id'],$row['team1']) OR in_array($user['id'],$row['team2']) OR $row['team2'])?"disabled ":"")." NAME='gocombat' value={$row['id']}><font class=date>{$row['podan']}</font> ";
+        foreach( $row['team1'] as $k=>$v ) {
+            $rr .= nick3($v);
+        }
+        if($row['team2']) {
+            $rr .= " <i>против</i> ";
+            foreach( $row['team2'] as $k=>$v ) {
+                $rr .= nick3($v);
+            }
+        }
+        $rr .= "&nbsp; тип боя: ";
+        if ($row['type'] == 4) {
+            $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный бой\"> ";
+        }
+        elseif ($row['type'] == 6) {
+            $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"кровавый бой\"> ";
+        }
+        elseif ($row['type'] == 1) {
+            $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype1.gif\" WIDTH=20 HEIGHT=20 ALT=\"физический бой\"> ";
+        }
+        $rr .= " (таймаут {$row['timeout']} мин.) <BR>";
+        return $rr;
+    }
+
+    // показать групповую заявку
+    function showgroup ( $row ) {
+        if($row['t1min']==99) {
+            $range1 = "<i>клан</i>";
+        }
+        else {
+            $range1 = "{$row['t1min']}-{$row['t1max']}";
+        }
+        if($row['t2min']==99) {
+            $range2 = "<i>клан</i>";
+        }
+        else {
+            $range2 = "{$row['t2min']}-{$row['t2max']}";
+        }
+        $rr = "<INPUT TYPE=radio ".((in_array($user['id'],$row['team1']) OR in_array($user['id'],$row['team2']))?"disabled ":"")." NAME=gocombat value={$row['id']}><font class=date>{$row['podan']}</font> <b>{$row['t1c']}</b>({$range1}) (";
+        foreach( $row['team1'] as $k=>$v ) {
+            if ($k!=0) $rr.=", ";
+            $rr .= nick3($v);
+        }
+        $rr .= ") <i>против</i> <b>{$row['t2c']}</b>({$range2})(";
+        foreach( $row['team2'] as $k=>$v ) {
+            if ($k!=0) $rr.=", ";
+            $rr .= nick3($v);
+        }
+        if (count($row['team2']) ==0) { $rr.= "<i>группа не набрана</i>"; }
+
+        if ($row['blood'] && $row['type'] == 5) {
+            $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"\">";
+        }
+        $ali = mysqli_fetch_array(db_query("SELECT align FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+        $rr .= ")&nbsp; тип боя: ";
+        if ($row['blood'] && $row['type'] == 4) {
+            $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный бой\"><IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\">";
+        }
+        elseif ($row['blood'] && $row['type'] == 2) {
+            $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\">";
+        }
+        elseif ($row['type'] == 2) {
+            $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype2.gif\" WIDTH=20 HEIGHT=20 ALT=\"групповой бой\">";
+        }
+        elseif ($row['type'] == 4) {
+            $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype4.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный групповой бой\">";
+        }
+        $rr .= "(таймаут {$row['timeout']} мин.) <span style='color:gray;'><i >бой начнется через ".round(($row['start']-time())/60,1)." мин. ".(($row['coment'])?"(".$row['coment'].")":"")."</i></span>";
+
+
+        if (($ali['align']>1.4 && $ali['align']<2) || ($ali['align']>2 && $ali['align']<3)) {
+            $rr .= "<a href='?zid={$row['id']}&do=clear'><img src='".IMGBASE."/i/clear.gif'></a><BR>";
+        } else {
+            $rr .= "<BR>";
+        }
+
+        return $rr;
+    }
+
+    // показать хаотическую заявку
+    function showhaos ($row, $radio=1) {
+        if ($radio) $rr="<INPUT TYPE=radio ".((in_array($user['id'],$row['team1']) OR in_array($user['id'],$row['team2']))?"disabled ":"")." NAME=gocombat value={$row['id']}>";
+        else $rr="";
+        $rr.="<font class=date>{$row['podan']}</font> (";
+        foreach( $row['team1'] as $k=>$v ) {
+            if ($k!=0) $rr.=", ";
+            $rr .= nick3($v);
+        }
+        $rr .= "";
+        if (count($row['team1']) ==0) { $rr.= "<i>группа не набрана</i>"; }
+
+        $ali = mysqli_fetch_array(db_query("SELECT align FROM `users` WHERE `id` = '{$_SESSION['uid']}' LIMIT 1;"));
+
+        $rr .= ") (".($row["t1max"]==99?"общий хаотичный бой":"$row[t1min]-$row[t1max]").") &nbsp; тип боя: ";
+        if ($row['blood'] && $row['type'] == 5) {
+            $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype5.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный бой\"><IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\">";
+        }
+        elseif ($row['blood'] && $row['type'] == 3) {
+            $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype6.gif\" WIDTH=20 HEIGHT=20 ALT=\"Кровавый поединок\">";
+        }
+        elseif ($row['type'] == 3) {
+            $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype3.gif\" WIDTH=20 HEIGHT=20 ALT=\"групповой бой\">";
+        }
+        elseif ($row['type'] == 5) {
+            $rr .= "<IMG SRC=\"".IMGBASE."/i/fighttype5.gif\" WIDTH=20 HEIGHT=20 ALT=\"кулачный групповой бой\">";
+        }
+        if ($row["closed"]) $rr.=" <img src=\"/i/sh/closesphere.gif\" title=\"Закрытый бой\"> ";
+        $rr .= "(таймаут {$row['timeout']} мин.) <span style='color:gray;'><i >бой начнется через ".round(($row['start']-time())/60,1)." мин. ".(($row['coment'])?"(".$row['coment'].")":"")."</i></span>";
+        if (($ali['align']>1.4 && $ali['align']<2) || ($ali['align']>2 && $ali['align']<3)) {
+            $rr .= "<a href='?zid={$row['id']}&do=clear'><img src='".IMGBASE."/i/clear.gif'></a><BR>";
+        } else {
+            $rr .= "<BR>";
+        }
+        return $rr;
+    }
+
+    // user status
+    function ustatus ( $id ) {
+        $fict = mysqli_fetch_array(mq("SELECT * FROM `zayavka`, `users` WHERE users.id =".$id." AND zayavka.id = users.zayavka LIMIT 1;"));
+        //$fict1 = mysqli_fetch_array(db_query("SELECT * FROM `zayavka` WHERE `team1` LIKE '{$id};%' OR `team1` LIKE '%;{$id};%' LIMIT 1;"));
+        //$fict2 = mysqli_fetch_array(db_query("SELECT * FROM `zayavka` WHERE `team2` LIKE '{$id};%' OR `team2` LIKE '%;{$id};%' LIMIT 1;"));
+
+        $t1 = $this->fteam($fict['team1']);
+        $t2 = $this->fteam($fict['team2']);
+
+        /*if($fict1) {
+            $z = $fict1;
+        } elseif(fict2) {
+            $z = $fict2;
+        } else {
+            return 0;
+        }
+        //$t1 = $this->fteam($z['team1']); $t1 = (int)$t1[0];
+        //$t1 = mysqli_fetch_array(db_query("select * from `online` WHERE `date` >= ".(time()-120)." AND `id` = ".$t1.";"));
+        //if(!$t1) {
+            $teams = str_replace($id.";","",implode(";",$z['team2']));
+            if(db_query("UPDATE `users` as u, `zayavka` as z SET
+                            u.zayavka = '',
+                            z.team2 = '{$teams}'
+                        WHERE
+                            u.id = {$id} AND
+                            z.id = {$zay} AND `level` < 4;"))
+            {
+                return "Противник ушел в офлайн";
+            }
+            return 0;
+        }*/
+        if(in_array($id,$t1)) { return 1; }
+        elseif(in_array($id,$t2)) { return 2; }
+        else { return 0; }
+    }
+
+    // стартовать бой!
+    function battlestart ( $id, $zay, $r) {
+        global $user;
+        $z = $this->getlist($r,null,$zay);
+        if ($id == 'CHAOS') { $id =  $z[$zay]['team1'][0]; }
+
+        $this->delzayavka ($id, $zay, $r);
+
+        $z = $z[$zay];
+        // снимаем шмот, если кулачка
+        if ($z['type'] == 4 OR $z['type'] == 5) {
+            foreach($z['team1'] as $k=>$v) {
+                undressall($v);
+            }
+            foreach($z['team2'] as $k=>$v) {
+                undressall($v);
+            }
+        }
+        if ($z['level']==2) {
+            $btfl=fopen('tmp/'.$z['team1'][0].'.btl','a');
+            fwrite($btfl,'{[='.$z['team2'][0].'=]}');
+            fclose($btfl);
+            $btfl=fopen('tmp/'.$z['team2'][0].'.btl','a');
+            fwrite($btfl,'{[='.$z['team1'][0].'=]}');
+            fclose($btfl);
+        }
+        // генерим ТИМС
+        if ($z['type'] == 3 OR $z['type'] == 5) {
+            if(count($z['team1']) < 1) {
+                db_query("UPDATE `users` SET `zayavka`=0 WHERE `zayavka` = '".$zay."';");
+                foreach($z['team1'] as $k=>$v) {
+                    addchp ('<font color=red>Внимание!</font> Ваш бой не может начаться по причине "Группа не набрана".   ','{[]}'.nick7 ($v).'{[]}');
+                }
+                db_query("DELETE FROM `zayavka` WHERE `id`= '".$zay."';");
+                header("Location: zayavka.php");
+                die();
+            }
+
+            if ($z["t1max"]==99) $z["type"]=12;
+
+            $all = count($z['team1'])-1;
+            $power1 = 0; $power2 = 0;
+            // оцениваем игроков
+            define("CHAOSDEBUG",0);
+
+            function findstrongest($fighters) {
+                $i=0;
+                $maxval=0;
+                $ret=0;
+                foreach ($fighters as $k=>$v) {
+                    if ($v[1]>$maxval) {
+                        $ret=$k;
+                        $maxval=$v[1];
+                    }
+                }
+                if (CHAOSDEBUG) echo "Found: $maxval ($ret)<br>";
+                return $ret;
+            }
+            $mages=array();
+            $fighters=array();
+            mq("insert into chaosstats set minlevel='$z[t1min]', maxlevel='$z[t1max]', members='$all', dat=date_add(now(), interval 2 hour)");
+            for($i=0;$i<=$all;$i++) {
+                $gamer = playervalue($z['team1'][$i]);
+                if ($gamer["mage"]) $mages[]=array($z['team1'][$i],$gamer["value"]);
+                else $fighters[]=array($z['team1'][$i],$gamer["value"]);
+                //$cost[] = array($z['team1'][$i],$gamer["value"]);
+            }
+            if (CHAOSDEBUG) echo "Starting: mages: ".count($mages).", Fighters: ".count($fighters)."<br>";
+            //$z=array();
+            $z['team1']=array();
+            $z['team2']=array();
+            $i0=0;
+            $strongestfighter=0;
+            while (count($mages)+count($fighters)>0) {
+                if ($teamvalue[0]<$teamvalue[1]) {
+                    if (CHAOSDEBUG) echo "To team 1<br>";
+                    if (count($fighters)==0) $mage=1;
+                    elseif (count($mages)==0) $mage=0;
+                    elseif ($magesin[0]<$magesin[1]) $mage=1;
+                    elseif ($fightersin[0]<$fightersin[1]) $mage=0;
+                    else {
+                        $f=findstrongest($mages);
+                        $f2=findstrongest($fighters);
+                        if ($mages[$f][1]>$fighters[$f2][1]) $mage=1;
+                        else $mage=0;
+                    }
+                    if (CHAOSDEBUG) {
+                        if ($mage) echo "Adding mage<br>"; else echo "Adding fighter<br>";
+                    }
+                    if ($mage) {
+                        $f=findstrongest($mages);
+                        $z['team1'][]=$mages[$f][0];
+                        $magesin[0]++;
+                        $teamvalue[0]+=$mages[$f][1];
+                        if (CHAOSDEBUG) echo "Added with value ".$mages[$f][1]."<br>";
+                        unset($mages[$f]);
+                    } else {
+                        $f=findstrongest($fighters);
+                        $z['team1'][]=$fighters[$f][0];
+                        $fightersin[0]++;
+                        $teamvalue[0]+=$fighters[$f][1];
+                        if (CHAOSDEBUG) echo "Added with value ".$fighters[$f][1]."<br>";
+                        if (!@$strongestfighter) $strongestfighter=$fighters[$f][0];
+                        unset($fighters[$f]);
+                    }
+                } else {
+                    if (CHAOSDEBUG) echo "To team 2<br>";
+                    if (count($fighters)==0) $mage=1;
+                    elseif (count($mages)==0) $mage=0;
+                    elseif ($magesin[0]>$magesin[1]) $mage=1;
+                    elseif ($fightersin[0]>$fightersin[1]) $mage=0;
+                    else {
+                        $f=findstrongest($mages);
+                        $f2=findstrongest($fighters);
+                        if ($mages[$f][1]>$fighters[$f2][1]) $mage=1;
+                        else $mage=0;
+                    }
+                    /*elseif ($magesin[0]==$magesin[1] && $magesin[0]+$magesin[1]<$fightersin[0]+$fightersin[1]-1) $mage=1;
+                    else $mage=0;*/
+                    if (CHAOSDEBUG) {
+                        if ($mage) echo "Adding mage<br>"; else echo "Adding fighter<br>";
+                    }
+                    if ($mage) {
+                        $f=findstrongest($mages);
+                        $z['team2'][]=$mages[$f][0];
+                        $magesin[1]++;
+                        $teamvalue[1]+=$mages[$f][1];
+                        if (CHAOSDEBUG) echo "Added with value ".$mages[$f][1]."<br>";
+                        unset($mages[$f]);
+                    } else {
+                        $f=findstrongest($fighters);
+                        $z['team2'][]=$fighters[$f][0];
+                        $fightersin[1]++;
+                        $teamvalue[1]+=$fighters[$f][1];
+                        if (CHAOSDEBUG) echo "Added with value ".$fighters[$f][1]."<br>";
+                        if (!@$strongestfighter) $strongestfighter=$fighters[$f][0];
+                        unset($fighters[$f]);
+                    }
+                }
+                if (CHAOSDEBUG) echo "Left: ".count($mages)." / ".count($fighters).", current: $magesin[0]/$magesin[1] $fightersin[0]/$fightersin[1] <b>$teamvalue[0]</b> / <b>$teamvalue[1]</b><br>";
+                $i0++;
+                if ($i0>100) break;
+            }
+
+            /*while($flag) {
+                $flag=false;
+                for($ii=0;$ii<=$all-1;$ii++){
+                    if($cost[$ii][1] < $cost[$ii+1][1]) {
+                        $ctr = $cost[$ii+1];
+                        $cost[$ii+1] = $cost[$ii];
+                        $cost[$ii] = $ctr;
+                        $flag=true;
+                    }
+                }
+            }
+
+            while (count($cost) > 0) {
+                if ($power1 <= $power2) {
+                    $tmp = array_shift($cost);
+                    //power++
+                    $power1 += $tmp[1];
+                    // to command
+                    $z['team1'][] = $tmp[0];
+                } else {
+                    $tmp = array_shift($cost);
+                    //power++
+                    $power2 += $tmp[1];
+                    // to command
+                    $z['team2'][] = $tmp[0];
+                }
+
+            }*/
+        }
+        $bot=0; // убираем до зимы
+        /*  if (((count($z['team1'])>count($z['team2']) && count($z['team2'])>0) ||
+              (count($z['team2'])>count($z['team1']) && count($z['team1'])>0)) && $strongestfighter) {
+            $bot=createbot($strongestfighter, 0, "Отморозок");
+            if (count($z['team1'])>count($z['team2'])) $z["team2"][]=$bot["id"];
+            else $z["team1"][]=$bot["id"];
+          }
+*/
+        // остальные типы боев
+        $teams = array();
+        foreach($z['team1'] as $k=>$v) {
+            foreach($z['team2'] as $kk => $vv) {
+                $teams[$v][$vv] = array(0,0,time());
+            }
+        }
+        foreach($z['team2'] as $k=>$v) {
+            foreach($z['team1'] as $kk => $vv) {
+                $teams[$v][$vv] = array(0,0,time());
+            }
+        }
+
+        if(count($z['team2']) ==0) {
+            db_query("UPDATE `users` SET `zayavka`=0 WHERE `zayavka` = '".$zay."';");
+            foreach($z['team1'] as $k=>$v) {
+                addchp ('<font color=red>Внимание!</font> Ваш бой не может начаться по причине "Группа не набрана".   ','{[]}'.nick7 ($v).'{[]}');
+            }
+            db_query("DELETE FROM `zayavka` WHERE `id`= '".$zay."';");
+            header("Location: zayavka.php");
+            die();
+        }
+
+        if($z["timeout"]==1 || $z['timeout']==3 || $z['timeout']==4 || $z['timeout']==5 || $z['timeout']==7 || $z['timeout']==10) {
+        }   else {
+            $z['timeout'] = 3;
+        }
+        //print_r($teams);
+        if (count($teams)>1) {
+            db_query("INSERT INTO `battle`
+                        (
+                            `id`,`coment`,`teams`,`timeout`,`type`,`status`,`t1`,`t2`,`to1`,`to2`,`blood`, closed, date
+                        )
+                        VALUES
+                        (
+                            NULL,'{$z['coment']}','".serialize($teams)."','{$z['timeout']}','{$z['type']}','0','".implode(";",$z['team1'])."','".implode(";",$z['team2'])."','".time()."','".time()."','".$z['blood']."','".$z['closed']."', '".date("Y-m-d H:i")."'
+                        )");
+            $id = db_insert_id();
+            if ($bot) mq("update bots set battle='$id' where id='$bot[id]'");
+            // создаем лог
+            $rr = "<b>";
+            foreach( $z['team1'] as $k=>$v ) {
+                if ($k!=0) { $rr.=", "; $rrc.=", "; }
+                $rr .= nick3($v);
+                $rrc .= nick7($v);
+                addchp ('<font color=red>Внимание!</font> Ваш бой начался!<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($v).'{[]}');
+            }
+            $rr .= "</b> и <b>"; $rrc .= "</b> и <b>";
+            foreach( $z['team2'] as $k=>$v ) {
+                if ($k!=0) { $rr.=", "; $rrc.=", ";}
+                $rr .= nick3($v);
+                $rrc .= nick7($v);
+                addchp ('<font color=red>Внимание!</font> Ваш бой начался!<BR>\'; top.frames[\'main\'].location=\'fbattle.php\'; var z = \'   ','{[]}'.nick7 ($v).'{[]}');
+            }
+            $rr .= "</b>";
+            addch ("<a href=logs.php?log=".$id." target=_blank>Поединок</a> между <B>".$rrc."</B> начался.   ",$user['room']);
+            db_query("INSERT INTO `logs` (`id`,`log`) VALUES('{$id}','Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>');");
+
+            addlog($id,"Часы показывали <span class=date>".date("Y.m.d H.i")."</span>, когда ".$rr." бросили вызов друг другу. <BR>");
+
+
+            // всех в БОЙ!!!
+            $cond="";
+            foreach($z['team1'] as $k=>$v) {
+                if ($cond) $cond.=" or ";
+                $cond.=" id='$v' ";
+            }
+            foreach($z['team2'] as $k=>$v) {
+                $cond.=" or id='$v' ";
+            }
+            mq("UPDATE users SET `battle` ={$id},`zayavka`=0 WHERE $cond");
+        }
+        $b=mqfa1("select battle from users where id='$user[id]'");
+        if ($b) die("<script>location.href='fbattle.php';</script>");
+        ///=======================================================================================
+    }
+}
